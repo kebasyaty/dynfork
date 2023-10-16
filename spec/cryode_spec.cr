@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe Cryode do
+describe Cryod do
   # TODO: Write tests
 
   it "works" do
