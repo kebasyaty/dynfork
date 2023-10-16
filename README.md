@@ -4,6 +4,11 @@
 
 ORM-like API MongoDB for Crystal
 
+[![CI](https://github.com/kebasyaty/cryode/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryode/actions)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/cryode/)
+[![Crystal](https://img.shields.io/badge/crystal-v1.9%2B-red)](https://crystal-lang.org/)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/cryode)](https://github.com/kebasyaty/cryode/blob/v0/LICENSE)
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
