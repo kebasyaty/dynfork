@@ -1,3 +1,4 @@
-module Fields
-  # Boolean field.
+# Boolean field.
+struct BoolField
+  # ...
 end
