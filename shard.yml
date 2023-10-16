@@ -1,9 +1,14 @@
 name: cryode
 version: 0.1.0
+crystal: ">= 1.10.0, < 2.0"
 
 authors:
-  - kebasyaty <kebasyaty@gmail.com>
-
-crystal: ">= 1.10.0"
-
+  - Gennady Kostyunin <kebasyaty@gmail.com>
 license: MIT
+
+description: |
+  ORM-like API MongoDB for Crystal
+
+homepage: https://github.com/kebasyaty/cryode
+repository: https://github.com/kebasyaty/cryode
+documentation: https://kebasyaty.github.io/cryode/
