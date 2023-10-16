@@ -1,8 +1,8 @@
-require "./cryode/errors"
+require "./cryod/errors"
 require "./fields/*"
 
 # ORM-like API MongoDB for Crystal
-module Cryode
+module Cryod
   VERSION = "0.1.0"
 
   # TODO: Put your code here
