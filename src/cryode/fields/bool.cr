@@ -1,4 +1,9 @@
 # Boolean field.
-struct BoolField
-  # ...
+
+module Cryode
+  module Fields
+    struct BoolField
+      # ...
+    end
+  end
 end
