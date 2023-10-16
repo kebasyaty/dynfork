@@ -1,53 +1,24 @@
-<svg width="210.11" height="93.88" preserveAspectRatio="xMidYMid" version="1.1" viewBox="108.97 5.6 210.11 93.88" xmlns="http://www.w3.org/2000/svg">
+<svg width="220" height="88.25" preserveAspectRatio="xMidYMid" version="1.1" viewBox="108.97 5.6 220 88.25" xmlns="http://www.w3.org/2000/svg">
  <defs>
-  <linearGradient id="editing-shiny-gradient" x1="18.051" x2="93.248" y1="-71.399" y2="9.2396" gradientTransform="scale(1.7315 .57755)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#ffb200" offset="0"/>
-   <stop stop-color="#e10057" offset=".5"/>
-   <stop stop-color="#5a1a80" offset="1"/>
-  </linearGradient>
-  <filter id="editing-shiny" x="-.050285" y="-.15075" width="1.1006" height="1.4742">
-   <feFlood flood-color="#fff" result="flood"/>
-   <feConvolveMatrix divisor="1" in="SourceGraphic" kernelMatrix="0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 1 1 0 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 0 1 0 0 1 1 0 0 1 1 0 0 0 0 1 1 0 0 0 " order="8,8" result="conv"/>
-   <feOffset dx="0" dy="4" in="conv" result="offset"/>
-   <feComposite in="flood" in2="offset" operator="in" result="comp"/>
-   <feGaussianBlur in="offset" result="shadow" stdDeviation="3"/>
-   <feColorMatrix in="shadow" result="dark-shadow" values="0.7 0 0 0 0  0 0.7 0 0 0  0 0 0.7 0 0  0 0 0 0.3 0"/>
-   <feOffset dx="0" dy="4" in="dark-shadow" result="offset-shadow"/>
-   <feOffset dx="0" dy="2" in="conv" result="offset-2"/>
-   <feComposite in="offset" in2="offset-2" operator="out" result="edge-diff"/>
-   <feGaussianBlur in="edge-diff" result="edge-blur" stdDeviation="1"/>
-   <feColorMatrix in="edge-blur" result="edge-shadow" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0"/>
-   <feComposite in="edge-shadow" in2="offset" operator="in" result="edge-shadow-in"/>
-   <feOffset dx="0" dy="1" in="edge-shadow-in" result="edge-shadow-final"/>
-   <feMerge result="out">
-    <feMergeNode in="offset-shadow"/>
-    <feMergeNode in="comp"/>
-    <feMergeNode in="edge-shadow-final"/>
-    <feMergeNode in="SourceGraphic"/>
-   </feMerge>
+  <filter id="editing-outline-1" x="-.0052381" y="-.015704" width="1.0105" height="1.0314">
+   <feMorphology in="SourceGraphic" operator="dilate" radius="1" result="outline"/>
+   <feComposite in="outline" in2="SourceAlpha" operator="out"/>
   </filter>
-  <filter id="editing-shiny2-9" x="0" y="0" width="1" height="1">
-   <feMorphology radius="2"/>
-  </filter>
-  <linearGradient id="editing-shiny-gradient2-7" x1=".51979" x2=".51979" y1="-86.209" y2="24.05" gradientTransform="scale(1.7315 .57755)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#fff" stop-opacity=".8" offset=".2"/>
-   <stop stop-color="#fff" stop-opacity="0" offset=".8"/>
+  <linearGradient id="editing-outline-gradient-6" x1="-45.078" x2="156.38" y1="-75.926" y2="13.767" gradientTransform="scale(1.7315 .57755)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ee4208" offset="0"/>
+   <stop stop-color="#4139ff" offset="1"/>
   </linearGradient>
  </defs>
- <g transform="translate(-35.979 -41.85)" filter="url(#editing-shiny)">
-  <g transform="translate(153.65 106.84)">
-   <path d="m20.29 0.9q-9.15 0-14.27-4.77t-5.12-13.92 5.12-13.92 14.2-4.77q4.42 0 8.45 1.22 4.03 1.21 6.27 2.75v12.67h-11v-1.15q0-2.11-0.9-3.11-0.9-0.99-2.82-0.99-3.71 0-3.71 4.1v5.5q0 4.99 5.7 4.99 5.31 0 12.35-1.15v10.05q-2.18 0.96-6.11 1.73-3.94 0.77-8.16 0.77zm44.16-37.38q1.28 0 2.43 0.26 1.15 0.25 1.92 0.64v12.22q-2.62-1.09-5.63-1.09-4.03 0-6.21 2.11-2.18 2.12-2.18 6.28v5.56h5.76v10.5h-23.29v-10.5h2.81v-14.59h-2.81v-10.49h17.53v4.67q1.8-2.69 4.1-4.13t5.57-1.44zm27.13 0.9h17.8v10.49h-2.44l-8.38 22.21q-3.14 8.38-7.17 12.58-4.03 4.19-10.62 4.19-2.69 0-5.44-0.55-2.75-0.54-4.99-1.5v-11.58h8.83v0.64q0 1.6 1.66 1.6 1.47 0 2.24-1.41l-10.11-26.18h-2.43v-10.49h19.01v10.49h-2.18l3.33 9.99 3.07-9.99h-2.18zm38.79 36.48q-9.09 0-14.21-4.77t-5.12-13.92 5.12-13.92 14.21-4.77q9.21 0 14.27 4.83t5.06 13.86q0 9.15-5.12 13.92t-14.21 4.77zm0-11.4q1.85 0 2.78-0.99t0.93-3.1v-6.4q0-2.11-0.93-3.11-0.93-0.99-2.78-0.99-1.86 0-2.79 0.99-0.92 1-0.92 3.11v6.4q0 2.11 0.92 3.1 0.93 0.99 2.79 0.99zm33.98 11.4q-6.53 0-9.82-4.87-3.3-4.86-3.3-13.82t3.3-13.83q3.29-4.86 9.82-4.86 3.27 0 5.79 1.6 2.53 1.6 4.13 3.65v-8.07h-3.77v-10.49h18.49v39.29h2.82v10.5h-17.54v-4.35q-1.6 2.05-4.13 3.65-2.52 1.6-5.79 1.6zm6.21-11.4q1.86 0 2.78-0.99 0.93-0.99 0.93-3.1v-6.4q0-2.11-0.93-3.11-0.92-0.99-2.78-0.99t-2.78 0.99q-0.93 1-0.93 3.11v6.4q0 2.11 0.93 3.1 0.92 0.99 2.78 0.99z" fill="url(#editing-shiny-gradient)"/>
-  </g>
- </g>
- <g transform="translate(-35.579 -42.45)" filter="url(#editing-shiny2-9)">
-  <g transform="translate(153.64 106.84)">
-   <path d="m20.29 0.9q-9.15 0-14.27-4.77t-5.12-13.92 5.12-13.92 14.2-4.77q4.42 0 8.45 1.22 4.03 1.21 6.27 2.75v12.67h-11v-1.15q0-2.11-0.9-3.11-0.9-0.99-2.82-0.99-3.71 0-3.71 4.1v5.5q0 4.99 5.7 4.99 5.31 0 12.35-1.15v10.05q-2.18 0.96-6.11 1.73-3.94 0.77-8.16 0.77zm44.16-37.38q1.28 0 2.43 0.26 1.15 0.25 1.92 0.64v12.22q-2.62-1.09-5.63-1.09-4.03 0-6.21 2.11-2.18 2.12-2.18 6.28v5.56h5.76v10.5h-23.29v-10.5h2.81v-14.59h-2.81v-10.49h17.53v4.67q1.8-2.69 4.1-4.13t5.57-1.44zm27.13 0.9h17.8v10.49h-2.44l-8.38 22.21q-3.14 8.38-7.17 12.58-4.03 4.19-10.62 4.19-2.69 0-5.44-0.55-2.75-0.54-4.99-1.5v-11.58h8.83v0.64q0 1.6 1.66 1.6 1.47 0 2.24-1.41l-10.11-26.18h-2.43v-10.49h19.01v10.49h-2.18l3.33 9.99 3.07-9.99h-2.18zm38.79 36.48q-9.09 0-14.21-4.77t-5.12-13.92 5.12-13.92 14.21-4.77q9.21 0 14.27 4.83t5.06 13.86q0 9.15-5.12 13.92t-14.21 4.77zm0-11.4q1.85 0 2.78-0.99t0.93-3.1v-6.4q0-2.11-0.93-3.11-0.93-0.99-2.78-0.99-1.86 0-2.79 0.99-0.92 1-0.92 3.11v6.4q0 2.11 0.92 3.1 0.93 0.99 2.79 0.99zm33.98 11.4q-6.53 0-9.82-4.87-3.3-4.86-3.3-13.82t3.3-13.83q3.29-4.86 9.82-4.86 3.27 0 5.79 1.6 2.53 1.6 4.13 3.65v-8.07h-3.77v-10.49h18.49v39.29h2.82v10.5h-17.54v-4.35q-1.6 2.05-4.13 3.65-2.52 1.6-5.79 1.6zm6.21-11.4q1.86 0 2.78-0.99 0.93-0.99 0.93-3.1v-6.4q0-2.11-0.93-3.11-0.92-0.99-2.78-0.99t-2.78 0.99q-0.93 1-0.93 3.11v6.4q0 2.11 0.93 3.1 0.92 0.99 2.78 0.99z" fill="url(#editing-shiny-gradient2-7)"/>
-  </g>
- </g>
  <style>text {
   font-size: 64px;
   font-family: Arial Black;
   dominant-baseline: central;
   text-anchor: middle;
 }</style>
+ <rect x="108.97" y="5.6" width="220" height="88.25" fill="none" stroke-width=".96637"/>
+ <g transform="translate(-31.034 -39.165)" filter="url(#editing-outline-1)">
+  <g transform="translate(153.65 106.84)">
+   <path d="m20.29 0.9q-9.15 0-14.27-4.77t-5.12-13.92 5.12-13.92 14.2-4.77q4.42 0 8.45 1.22 4.03 1.21 6.27 2.75v12.67h-11v-1.15q0-2.11-0.9-3.11-0.9-0.99-2.82-0.99-3.71 0-3.71 4.1v5.5q0 4.99 5.7 4.99 5.31 0 12.35-1.15v10.05q-2.18 0.96-6.11 1.73-3.94 0.77-8.16 0.77zm44.16-37.38q1.28 0 2.43 0.26 1.15 0.25 1.92 0.64v12.22q-2.62-1.09-5.63-1.09-4.03 0-6.21 2.11-2.18 2.12-2.18 6.28v5.56h5.76v10.5h-23.29v-10.5h2.81v-14.59h-2.81v-10.49h17.53v4.67q1.8-2.69 4.1-4.13t5.57-1.44zm27.13 0.9h17.8v10.49h-2.44l-8.38 22.21q-3.14 8.38-7.17 12.58-4.03 4.19-10.62 4.19-2.69 0-5.44-0.55-2.75-0.54-4.99-1.5v-11.58h8.83v0.64q0 1.6 1.66 1.6 1.47 0 2.24-1.41l-10.11-26.18h-2.43v-10.49h19.01v10.49h-2.18l3.33 9.99 3.07-9.99h-2.18zm38.79 36.48q-9.09 0-14.21-4.77t-5.12-13.92 5.12-13.92 14.21-4.77q9.21 0 14.27 4.83t5.06 13.86q0 9.15-5.12 13.92t-14.21 4.77zm0-11.4q1.85 0 2.78-0.99t0.93-3.1v-6.4q0-2.11-0.93-3.11-0.93-0.99-2.78-0.99-1.86 0-2.79 0.99-0.92 1-0.92 3.11v6.4q0 2.11 0.92 3.1 0.93 0.99 2.79 0.99zm33.98 11.4q-6.53 0-9.82-4.87-3.3-4.86-3.3-13.82t3.3-13.83q3.29-4.86 9.82-4.86 3.27 0 5.79 1.6 2.53 1.6 4.13 3.65v-8.07h-3.77v-10.49h18.49v39.29h2.82v10.5h-17.54v-4.35q-1.6 2.05-4.13 3.65-2.52 1.6-5.79 1.6zm6.21-11.4q1.86 0 2.78-0.99 0.93-0.99 0.93-3.1v-6.4q0-2.11-0.93-3.11-0.92-0.99-2.78-0.99t-2.78 0.99q-0.93 1-0.93 3.11v6.4q0 2.11 0.93 3.1 0.92 0.99 2.78 0.99z" fill="url(#editing-outline-gradient-6)"/>
+  </g>
+ </g>
 </svg>
