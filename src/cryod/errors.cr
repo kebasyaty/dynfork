@@ -1,4 +1,4 @@
 # Custom exceptions for Cryod.
 module Cryod
-  class CryodeException < Exception; end
+  class CryodException < Exception; end
 end
