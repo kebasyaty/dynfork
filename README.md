@@ -1,3 +1,5 @@
+[![Logo](https://github.com/kebasyaty/cryode/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/cryode "Logo")
+
 # cryode
 
 ORM-like API MongoDB for Crystal
