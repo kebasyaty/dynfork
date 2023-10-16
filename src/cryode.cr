@@ -1,5 +1,5 @@
 require "./cryode/errors"
-require "./cryode/fields/*"
+require "./fields/*"
 
 # ORM-like API MongoDB for Crystal
 module Cryode
