@@ -1,4 +1,4 @@
-# TODO: Write documentation for `Cryode`
+# ORM-like API MongoDB for Crystal
 module Cryode
   VERSION = "0.1.0"
 
