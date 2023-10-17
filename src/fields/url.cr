@@ -4,9 +4,9 @@ module Fields
   # Field for entering URL addresses.
   class URLField < Fields::Field
     # Field type - Class Name.
-    property field_type : String = "URLField"
+    getter field_type : String = "URLField"
     # The value is determined automatically.
-    property input_type : String = "url"
+    getter input_type : String = "url"
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.

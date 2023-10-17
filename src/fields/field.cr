@@ -7,9 +7,9 @@ module Fields
     # Web form field name.
     property label : String = ""
     # Field type - Class Name.
-    property field_type : String = ""
+    getter field_type : String = ""
     # The value is determined automatically.
-    property input_type : String = ""
+    getter input_type : String = ""
     # The value is determined automatically.
     property name : String = ""
     # Sets the value of an element.

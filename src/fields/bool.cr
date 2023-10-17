@@ -4,9 +4,9 @@ module Fields
   # Boolean field.
   class BoolField < Fields::Field
     # Field type - Class Name.
-    property field_type : String = "BoolField"
+    getter field_type : String = "BoolField"
     # The value is determined automatically.
-    property input_type : String = "checkbox"
+    getter input_type : String = "checkbox"
     # Sets the value of an element.
     property value : Bool | Nil
     # Value by default.
