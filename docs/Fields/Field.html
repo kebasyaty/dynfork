@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="cryod">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="cryod">
+  <title>Fields::Field - cryod v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          cryod
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="cryod/Cryod" data-name="cryod">
+      <a href="../Cryod.html">Cryod</a>
+      
+        <ul>
+  
+  <li class=" " data-id="cryod/Cryod/CryodException" data-name="cryod::cryodexception">
+      <a href="../Cryod/CryodException.html">CryodException</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="cryod/Fields" data-name="fields">
+      <a href="../Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="cryod/Fields/BoolField" data-name="fields::boolfield">
+      <a href="../Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" current" data-id="cryod/Fields/Field" data-name="fields::field">
+      <a href="../Fields/Field.html">Field</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> Fields::<wbr>Field
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Fields/BoolField.html">Fields::BoolField</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L4" target="_blank">
+        src\fields\field.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#css_classes%3AString-instance-method" class="signature"><strong>#css_classes</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#css_classes%3D%28css_classes%3AString%29-instance-method" class="signature"><strong>#css_classes=</strong>(css_classes : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default-instance-method" class="signature"><strong>#default</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default%3D%28default%29-instance-method" class="signature"><strong>#default=</strong>(default)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#errors%3AArray%28String%29-instance-method" class="signature"><strong>#errors</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="signature"><strong>#errors=</strong>(errors : Array(String))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type-instance-method" class="signature"><strong>#field_type</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type%3D%28field_type%29-instance-method" class="signature"><strong>#field_type=</strong>(field_type)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group%3AUInt32-instance-method" class="signature"><strong>#group</strong> : UInt32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group%3D%28group%3AUInt32%29-instance-method" class="signature"><strong>#group=</strong>(group : UInt32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3AString-instance-method" class="signature"><strong>#id</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28id%3AString%29-instance-method" class="signature"><strong>#id=</strong>(id : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type-instance-method" class="signature"><strong>#input_type</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3D%28input_type%29-instance-method" class="signature"><strong>#input_type=</strong>(input_type)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_disabled%3ABool-instance-method" class="signature"><strong>#is_disabled</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="signature"><strong>#is_disabled=</strong>(is_disabled : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3ABool-instance-method" class="signature"><strong>#is_hide</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3D%28is_hide%3ABool%29-instance-method" class="signature"><strong>#is_hide=</strong>(is_hide : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_readonly%3ABool-instance-method" class="signature"><strong>#is_readonly</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="signature"><strong>#is_readonly=</strong>(is_readonly : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label%3AString-instance-method" class="signature"><strong>#label</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label%3D%28label%3AString%29-instance-method" class="signature"><strong>#label=</strong>(label : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#other_attrs%3AString-instance-method" class="signature"><strong>#other_attrs</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="signature"><strong>#other_attrs=</strong>(other_attrs : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value-instance-method" class="signature"><strong>#value</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3D%28value%29-instance-method" class="signature"><strong>#value=</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#warning%3AString-instance-method" class="signature"><strong>#warning</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#warning%3D%28warning%3AString%29-instance-method" class="signature"><strong>#warning=</strong>(warning : String)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="css_classes:String-instance-method">
+      <div class="signature">
+        
+        def <strong>css_classes</strong> : String
+
+        <a class="method-permalink" href="#css_classes%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="css_classes=(css_classes:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>css_classes=</strong>(css_classes : String)
+
+        <a class="method-permalink" href="#css_classes%3D%28css_classes%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default-instance-method">
+      <div class="signature">
+        
+        def <strong>default</strong>
+
+        <a class="method-permalink" href="#default-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default=(default)-instance-method">
+      <div class="signature">
+        
+        def <strong>default=</strong>(default)
+
+        <a class="method-permalink" href="#default%3D%28default%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="errors:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>errors</strong> : Array(String)
+
+        <a class="method-permalink" href="#errors%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="errors=(errors:Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>errors=</strong>(errors : Array(String))
+
+        <a class="method-permalink" href="#errors%3D%28errors%3AArray%28String%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type</strong>
+
+        <a class="method-permalink" href="#field_type-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type=(field_type)-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type=</strong>(field_type)
+
+        <a class="method-permalink" href="#field_type%3D%28field_type%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>group</strong> : UInt32
+
+        <a class="method-permalink" href="#group%3AUInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group=(group:UInt32)-instance-method">
+      <div class="signature">
+        
+        def <strong>group=</strong>(group : UInt32)
+
+        <a class="method-permalink" href="#group%3D%28group%3AUInt32%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint:String-instance-method">
+      <div class="signature">
+        
+        def <strong>hint</strong> : String
+
+        <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint=(hint:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>hint=</strong>(hint : String)
+
+        <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : String
+
+        <a class="method-permalink" href="#id%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(id : String)
+
+        <a class="method-permalink" href="#id%3D%28id%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type</strong>
+
+        <a class="method-permalink" href="#input_type-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type=(input_type)-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type=</strong>(input_type)
+
+        <a class="method-permalink" href="#input_type%3D%28input_type%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_disabled:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_disabled</strong> : Bool
+
+        <a class="method-permalink" href="#is_disabled%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_disabled=(is_disabled:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_disabled=</strong>(is_disabled : Bool)
+
+        <a class="method-permalink" href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide</strong> : Bool
+
+        <a class="method-permalink" href="#is_hide%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide=(is_hide:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide=</strong>(is_hide : Bool)
+
+        <a class="method-permalink" href="#is_hide%3D%28is_hide%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_readonly:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_readonly</strong> : Bool
+
+        <a class="method-permalink" href="#is_readonly%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_readonly=(is_readonly:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_readonly=</strong>(is_readonly : Bool)
+
+        <a class="method-permalink" href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label:String-instance-method">
+      <div class="signature">
+        
+        def <strong>label</strong> : String
+
+        <a class="method-permalink" href="#label%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label=(label:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>label=</strong>(label : String)
+
+        <a class="method-permalink" href="#label%3D%28label%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name=(name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>name=</strong>(name : String)
+
+        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="other_attrs:String-instance-method">
+      <div class="signature">
+        
+        def <strong>other_attrs</strong> : String
+
+        <a class="method-permalink" href="#other_attrs%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="other_attrs=(other_attrs:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>other_attrs=</strong>(other_attrs : String)
+
+        <a class="method-permalink" href="#other_attrs%3D%28other_attrs%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder:String-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder</strong> : String
+
+        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder=(placeholder:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder=</strong>(placeholder : String)
+
+        <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value-instance-method">
+      <div class="signature">
+        
+        def <strong>value</strong>
+
+        <a class="method-permalink" href="#value-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value=(value)-instance-method">
+      <div class="signature">
+        
+        def <strong>value=</strong>(value)
+
+        <a class="method-permalink" href="#value%3D%28value%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="warning:String-instance-method">
+      <div class="signature">
+        
+        def <strong>warning</strong> : String
+
+        <a class="method-permalink" href="#warning%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="warning=(warning:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>warning=</strong>(warning : String)
+
+        <a class="method-permalink" href="#warning%3D%28warning%3AString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
