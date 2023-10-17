@@ -87,6 +87,11 @@
       
     </li>
   
+  <li class=" " data-id="cryod/Fields/URLField" data-name="fields::urlfield">
+      <a href="../Fields/URLField.html">URLField</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -111,6 +116,17 @@
 
 
 
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Boolean field.</p>
+
 
 
 
@@ -131,6 +147,8 @@
     
       <li class="other-type"><a href="../Fields/BoolField.html">Fields::BoolField</a></li>
     
+      <li class="other-type"><a href="../Fields/URLField.html">Fields::URLField</a></li>
+    
   </ul>
 
 
@@ -148,7 +166,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L4" target="_blank">
+      <a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L3" target="_blank">
         src\fields\field.cr
       </a>
     
@@ -176,170 +194,217 @@
       <li class="entry-summary">
         <a href="#css_classes%3AString-instance-method" class="signature"><strong>#css_classes</strong> : String</a>
         
+          <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#css_classes%3D%28css_classes%3AString%29-instance-method" class="signature"><strong>#css_classes=</strong>(css_classes : String)</a>
+        
+          <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#default-instance-method" class="signature"><strong>#default</strong></a>
         
+          <div class="summary"><p>Value by default.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#default%3D%28default%29-instance-method" class="signature"><strong>#default=</strong>(default)</a>
+        
+          <div class="summary"><p>Value by default.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#errors%3AArray%28String%29-instance-method" class="signature"><strong>#errors</strong> : Array(String)</a>
         
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="signature"><strong>#errors=</strong>(errors : Array(String))</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type-instance-method" class="signature"><strong>#field_type</strong></a>
+          <div class="summary"><p>The value is determined automatically.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#field_type%3D%28field_type%29-instance-method" class="signature"><strong>#field_type=</strong>(field_type)</a>
+        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
+        
+          <div class="summary"><p>Field type - Class Name.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#group%3AUInt32-instance-method" class="signature"><strong>#group</strong> : UInt32</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#group%3D%28group%3AUInt32%29-instance-method" class="signature"><strong>#group=</strong>(group : UInt32)</a>
+          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
         
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#id%3AString-instance-method" class="signature"><strong>#id</strong> : String</a>
         
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#id%3D%28id%3AString%29-instance-method" class="signature"><strong>#id=</strong>(id : String)</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#input_type-instance-method" class="signature"><strong>#input_type</strong></a>
+          <div class="summary"><p>The value is determined automatically.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3D%28input_type%29-instance-method" class="signature"><strong>#input_type=</strong>(input_type)</a>
+        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#is_disabled%3ABool-instance-method" class="signature"><strong>#is_disabled</strong> : Bool</a>
         
+          <div class="summary"><p>Blocks access and modification of the element.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="signature"><strong>#is_disabled=</strong>(is_disabled : Bool)</a>
+        
+          <div class="summary"><p>Blocks access and modification of the element.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#is_hide%3ABool-instance-method" class="signature"><strong>#is_hide</strong> : Bool</a>
         
+          <div class="summary"><p>Hide field from user.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#is_hide%3D%28is_hide%3ABool%29-instance-method" class="signature"><strong>#is_hide=</strong>(is_hide : Bool)</a>
+        
+          <div class="summary"><p>Hide field from user.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#is_readonly%3ABool-instance-method" class="signature"><strong>#is_readonly</strong> : Bool</a>
         
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="signature"><strong>#is_readonly=</strong>(is_readonly : Bool)</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#label%3AString-instance-method" class="signature"><strong>#label</strong> : String</a>
         
+          <div class="summary"><p>Web form field name.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#label%3D%28label%3AString%29-instance-method" class="signature"><strong>#label=</strong>(label : String)</a>
+        
+          <div class="summary"><p>Web form field name.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
         
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#other_attrs%3AString-instance-method" class="signature"><strong>#other_attrs</strong> : String</a>
         
+          <div class="summary"><p>Example: <code>r# &quot;autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;#</code>.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="signature"><strong>#other_attrs=</strong>(other_attrs : String)</a>
+        
+          <div class="summary"><p>Example: <code>r# &quot;autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;#</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
         
+          <div class="summary"><p>Displays prompt text.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
+        
+          <div class="summary"><p>Displays prompt text.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#value-instance-method" class="signature"><strong>#value</strong></a>
         
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#value%3D%28value%29-instance-method" class="signature"><strong>#value=</strong>(value)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#warning%3AString-instance-method" class="signature"><strong>#warning</strong> : String</a>
         
+          <div class="summary"><p>Warning information.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#warning%3D%28warning%3AString%29-instance-method" class="signature"><strong>#warning=</strong>(warning : String)</a>
+        
+          <div class="summary"><p>Warning information.</p></div>
         
       </li>
     
@@ -395,10 +460,15 @@
         <a class="method-permalink" href="#css_classes%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Example: &quot;class-name-1 class-name-2&quot;.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -411,10 +481,15 @@
         <a class="method-permalink" href="#css_classes%3D%28css_classes%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Example: &quot;class-name-1 class-name-2&quot;.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -427,10 +502,15 @@
         <a class="method-permalink" href="#default-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -443,10 +523,15 @@
         <a class="method-permalink" href="#default%3D%28default%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -459,10 +544,15 @@
         <a class="method-permalink" href="#errors%3AArray%28String%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -475,42 +565,36 @@
         <a class="method-permalink" href="#errors%3D%28errors%3AArray%28String%29%29-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_type-instance-method">
-      <div class="signature">
-        
-        def <strong>field_type</strong>
-
-        <a class="method-permalink" href="#field_type-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="field_type=(field_type)-instance-method">
+    <div class="entry-detail" id="field_type:String-instance-method">
       <div class="signature">
         
-        def <strong>field_type=</strong>(field_type)
+        def <strong>field_type</strong> : String
 
-        <a class="method-permalink" href="#field_type%3D%28field_type%29-instance-method">#</a>
+        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Field type - Class Name.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -523,26 +607,16 @@
         <a class="method-permalink" href="#group%3AUInt32-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L21" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="group=(group:UInt32)-instance-method">
-      <div class="signature">
-        
-        def <strong>group=</strong>(group : UInt32)
-
-        <a class="method-permalink" href="#group%3D%28group%3AUInt32%29-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>To optimize field traversal in the <code>paladins/check()</code> method.
+Hint: It is recommended not to change.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -555,10 +629,15 @@
         <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -571,10 +650,15 @@
         <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -587,10 +671,16 @@
         <a class="method-permalink" href="#id%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>The value is determined automatically.
+Format: &quot;model-name--field-name&quot;.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -603,42 +693,37 @@
         <a class="method-permalink" href="#id%3D%28id%3AString%29-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L5" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="input_type-instance-method">
-      <div class="signature">
-        
-        def <strong>input_type</strong>
-
-        <a class="method-permalink" href="#input_type-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>The value is determined automatically.
+Format: &quot;model-name--field-name&quot;.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type=(input_type)-instance-method">
+    <div class="entry-detail" id="input_type:String-instance-method">
       <div class="signature">
         
-        def <strong>input_type=</strong>(input_type)
+        def <strong>input_type</strong> : String
 
-        <a class="method-permalink" href="#input_type%3D%28input_type%29-instance-method">#</a>
+        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,10 +736,15 @@
         <a class="method-permalink" href="#is_disabled%3ABool-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Blocks access and modification of the element.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -667,10 +757,15 @@
         <a class="method-permalink" href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Blocks access and modification of the element.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -683,10 +778,15 @@
         <a class="method-permalink" href="#is_hide%3ABool-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -699,10 +799,15 @@
         <a class="method-permalink" href="#is_hide%3D%28is_hide%3ABool%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -715,10 +820,15 @@
         <a class="method-permalink" href="#is_readonly%3ABool-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -731,10 +841,15 @@
         <a class="method-permalink" href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -747,10 +862,15 @@
         <a class="method-permalink" href="#label%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Web form field name.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -763,10 +883,15 @@
         <a class="method-permalink" href="#label%3D%28label%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Web form field name.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -779,10 +904,15 @@
         <a class="method-permalink" href="#name%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -795,10 +925,15 @@
         <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -811,10 +946,15 @@
         <a class="method-permalink" href="#other_attrs%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Example: <code>r# &quot;autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;#</code>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -827,10 +967,15 @@
         <a class="method-permalink" href="#other_attrs%3D%28other_attrs%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Example: <code>r# &quot;autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;#</code>.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -843,10 +988,15 @@
         <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -859,10 +1009,15 @@
         <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -875,10 +1030,15 @@
         <a class="method-permalink" href="#value-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -891,10 +1051,15 @@
         <a class="method-permalink" href="#value%3D%28value%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -907,10 +1072,15 @@
         <a class="method-permalink" href="#warning%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Warning information.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -923,10 +1093,15 @@
         <a class="method-permalink" href="#warning%3D%28warning%3AString%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Warning information.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/84eff8b041fc5ed3a0a5a256e6eb7b505cfd7430/src\fields\field.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
