@@ -7,9 +7,9 @@ module Fields
     # Web form field name.
     property label : String = ""
     # Field type - Class Name.
-    property field_type : String
+    property field_type : String = ""
     # The value is determined automatically.
-    property input_type : String
+    property input_type : String = ""
     # The value is determined automatically.
     property name : String = ""
     # Sets the value of an element.
@@ -36,6 +36,6 @@ module Fields
     property errors : Array(String) = Array(String).new
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    property group : UInt32
+    property group : UInt32 = 0
   end
 end
