@@ -1,7 +1,9 @@
-# Boolean field.
+require "./field"
 
 module Fields
-  struct Boolean
-    # ...
+  # Boolean field.
+  class Boolean < Fields::Field
+    property value : Bool | Nil
+    property default : Bool | Nil = false
   end
 end
