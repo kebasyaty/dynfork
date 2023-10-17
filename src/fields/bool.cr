@@ -13,6 +13,6 @@ module Fields
     property default : Bool | Nil = false
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    property group : UInt32 = 13
+    getter group : UInt32 = 13
   end
 end
