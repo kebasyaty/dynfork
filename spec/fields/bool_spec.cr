@@ -13,8 +13,8 @@ describe Fields do
         f.value.should be_nil
         f.default.should be_false
         f.placeholder.should eq("")
-        f.disabled.should be_false
-        f.readonly.should be_false
+        f.is_disabled.should be_false
+        f.is_readonly.should be_false
         f.is_hide.should be_false
         f.other_attrs.should eq("")
         f.css_classes.should eq("")

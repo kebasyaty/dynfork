@@ -8,8 +8,8 @@ module Fields
     property input_type : String = "checkbox"
     property name : String = ""
     property placeholder : String = ""
-    property disabled : Bool = false
-    property readonly : Bool = false
+    property is_disabled : Bool = false
+    property is_readonly : Bool = false
     property is_hide : Bool = false
     property other_attrs : String = ""
     property css_classes : String = ""
