@@ -7,6 +7,15 @@ module Fields
     property field_type : String = "Boolean"
     property input_type : String = "checkbox"
     property name : String = ""
-    property value : Bool | Nil
+    property placeholder : String = ""
+    property disabled : Bool = false
+    property readonly : Bool = false
+    property is_hide : Bool = false
+    property other_attrs : String = ""
+    property css_classes : String = ""
+    property hint : String = ""
+    property warning : String = ""
+    property errors : Array(String) = Array(String).new
+    property group : UInt32 = 13
   end
 end
