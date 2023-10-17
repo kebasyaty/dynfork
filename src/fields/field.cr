@@ -36,6 +36,6 @@ module Fields
     property errors : Array(String) = Array(String).new
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    property group : UInt32 = 13
+    property group : UInt32
   end
 end
