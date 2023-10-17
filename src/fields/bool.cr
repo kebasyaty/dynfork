@@ -5,7 +5,7 @@ module Fields
   class BoolField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "BoolField"
-    # The value is determined automatically.
+    # Field type - Html, input type.
     getter input_type : String = "checkbox"
     # Sets the value of an element.
     property value : Bool | Nil
