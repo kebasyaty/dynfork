@@ -1,7 +1,8 @@
-# Boolean field.
+require "./field"
 
 module Fields
-  struct Boolean
+  # Boolean field.
+  class Boolean < Fields::Field
     # ...
   end
 end
