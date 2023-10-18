@@ -1,5 +1,7 @@
 [![Logo](https://github.com/kebasyaty/cryod/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/cryod "Logo")
 
+# cryod
+
 ORM-like API MongoDB for Crystal
 
 [![CI](https://github.com/kebasyaty/cryod/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryod/actions)
