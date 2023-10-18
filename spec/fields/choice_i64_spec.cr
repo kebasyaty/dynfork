@@ -17,7 +17,7 @@ describe Fields do
         f.is_disabled.should be_false
         f.is_readonly.should be_false
         f.is_hide.should be_false
-        f.choices.should eq(Array(Tuple(Float64, String)).new)
+        f.choices.should eq(Array(Tuple(Int64, String)).new)
         f.other_attrs.should eq("")
         f.css_classes.should eq("")
         f.hint.should eq("")
@@ -44,7 +44,7 @@ describe Fields do
         f.is_disabled.should be_false
         f.is_readonly.should be_false
         f.is_hide.should be_false
-        f.choices.should eq(Array(Tuple(Float64, String)).new)
+        f.choices.should eq(Array(Tuple(Int64, String)).new)
         f.other_attrs.should eq("")
         f.css_classes.should eq("")
         f.hint.should eq("")
@@ -70,7 +70,7 @@ describe Fields do
         f.is_disabled.should be_false
         f.is_readonly.should be_false
         f.is_hide.should be_false
-        f.choices.should eq(Array(Tuple(Float64, String)).new)
+        f.choices.should eq(Array(Tuple(Int64, String)).new)
         f.other_attrs.should eq("")
         f.css_classes.should eq("")
         f.hint.should eq("")
@@ -96,7 +96,7 @@ describe Fields do
         f.is_disabled.should be_false
         f.is_readonly.should be_false
         f.is_hide.should be_false
-        f.choices.should eq(Array(Tuple(Float64, String)).new)
+        f.choices.should eq(Array(Tuple(Int64, String)).new)
         f.other_attrs.should eq("")
         f.css_classes.should eq("")
         f.hint.should eq("")
