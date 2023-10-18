@@ -1,12 +1,14 @@
 require "./field"
 
 module Fields
-  # Field for entering URL addresses.
-  class URLField < Fields::Field
+  # A field for entering a text string.
+  class TextField < Fields::Field
     # Field type - Class Name.
-    getter field_type : String = "URLField"
+    getter field_type : String = "TextField"
     # Field type - Html, input type.
-    getter input_type : String = "url"
+    getter input_type : String = "text"
+    # For Html textarea.
+    property is_textarea : Bool = false
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.

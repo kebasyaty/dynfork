@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cryod">
-  <title>Fields::URLField - cryod v0</title>
+  <title>Fields::ChoiceTextMultDynField - cryod v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -92,7 +92,7 @@
       
     </li>
   
-  <li class=" " data-id="cryod/Fields/ChoiceTextMultDynField" data-name="fields::choicetextmultdynfield">
+  <li class=" current" data-id="cryod/Fields/ChoiceTextMultDynField" data-name="fields::choicetextmultdynfield">
       <a href="../Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
       
     </li>
@@ -112,7 +112,7 @@
       
     </li>
   
-  <li class=" current" data-id="cryod/Fields/URLField" data-name="fields::urlfield">
+  <li class=" " data-id="cryod/Fields/URLField" data-name="fields::urlfield">
       <a href="../Fields/URLField.html">URLField</a>
       
     </li>
@@ -131,12 +131,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Fields::<wbr>URLField
+  <span class="kind">class</span> Fields::<wbr>ChoiceTextMultDynField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/URLField.html">Fields::URLField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/ChoiceTextMultDynField.html">Fields::ChoiceTextMultDynField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -150,7 +150,9 @@
     Overview
   </h2>
 
-  <p>Field for entering URL addresses.</p>
+  <p>Type of selective field with dynamic addition of elements.
+For simulate relationship Many-to-Many.
+Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p>
 
 
 
@@ -175,8 +177,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L5" target="_blank">
-        src\fields\url.cr
+      <a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L69" target="_blank">
+        src\fields\choice_text.cr
       </a>
     
     <br/>
@@ -201,16 +203,16 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
+        <a href="#choices%3AArray%28Tuple%28String%2CString%29%29-instance-method" class="signature"><strong>#choices</strong> : Array(Tuple(String, String))</a>
         
-          <div class="summary"><p>Value by default.</p></div>
+          <div class="summary"><p>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}].</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#default%3D%28default%3AString%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : String | Nil)</a>
+        <a href="#choices%3D%28choices%3AArray%28Tuple%28String%2CString%29%29%29-instance-method" class="signature"><strong>#choices=</strong>(choices : Array(Tuple(String, String)))</a>
         
-          <div class="summary"><p>Value by default.</p></div>
+          <div class="summary"><p>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}].</p></div>
         
       </li>
     
@@ -229,9 +231,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        <a href="#is_multiple%3ABool-instance-method" class="signature"><strong>#is_multiple</strong> : Bool</a>
         
-          <div class="summary"><p>Field type - Html, input type.</p></div>
+          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
         
       </li>
     
@@ -246,48 +248,6 @@
         <a href="#is_unique%3D%28is_unique%3ABool%29-instance-method" class="signature"><strong>#is_unique=</strong>(is_unique : Bool)</a>
         
           <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method" class="signature"><strong>#maxlength=</strong>(maxlength : UInt32)</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#minlength%3AUInt32-instance-method" class="signature"><strong>#minlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#minlength%3D%28minlength%3AUInt32%29-instance-method" class="signature"><strong>#minlength=</strong>(minlength : UInt32)</a>
-        
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
         
       </li>
     
@@ -503,44 +463,46 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:String|Nil-instance-method">
+    <div class="entry-detail" id="choices:Array(Tuple(String,String))-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : String | Nil
+        def <strong>choices</strong> : Array(Tuple(String, String))
 
-        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#choices%3AArray%28Tuple%28String%2CString%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}].
+Html tag: select</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="default=(default:String|Nil)-instance-method">
+    <div class="entry-detail" id="choices=(choices:Array(Tuple(String,String)))-instance-method">
       <div class="signature">
         
-        def <strong>default=</strong>(default : String | Nil)
+        def <strong>choices=</strong>(choices : Array(Tuple(String, String)))
 
-        <a class="method-permalink" href="#default%3D%28default%3AString%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#choices%3D%28choices%3AArray%28Tuple%28String%2CString%29%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}].
+Html tag: select</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L80" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -561,7 +523,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L71" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -583,28 +545,28 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L83" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type:String-instance-method">
+    <div class="entry-detail" id="is_multiple:Bool-instance-method">
       <div class="signature">
         
-        def <strong>input_type</strong> : String
+        def <strong>is_multiple</strong> : Bool
 
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#is_multiple%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Field type - Html, input type.</p>
+          <p>Specifies that multiple options can be selected at once.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L75" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -625,7 +587,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -646,133 +608,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L21" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="maxlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>maxlength</strong> : UInt32
-
-        <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The maximum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L19" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="maxlength=(maxlength:UInt32)-instance-method">
-      <div class="signature">
-        
-        def <strong>maxlength=</strong>(maxlength : UInt32)
-
-        <a class="method-permalink" href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The maximum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L19" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="minlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>minlength</strong> : UInt32
-
-        <a class="method-permalink" href="#minlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The minimum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L17" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="minlength=(minlength:UInt32)-instance-method">
-      <div class="signature">
-        
-        def <strong>minlength=</strong>(minlength : UInt32)
-
-        <a class="method-permalink" href="#minlength%3D%28minlength%3AUInt32%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The minimum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L17" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder:String-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder</strong> : String
-
-        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L15" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder=(placeholder:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder=</strong>(placeholder : String)
-
-        <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -793,7 +629,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -814,7 +650,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\choice_text.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>

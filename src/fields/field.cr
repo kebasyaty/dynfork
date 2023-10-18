@@ -9,15 +9,11 @@ module Fields
     # Field type - Class Name.
     getter field_type : String = ""
     # The value is determined automatically.
-    getter input_type : String = ""
-    # The value is determined automatically.
     property name : String = ""
     # Sets the value of an element.
     property value
-    # Value by default.
-    property default
-    # Displays prompt text.
-    property placeholder : String = ""
+    # Required field.
+    property is_required : Bool = false
     # Blocks access and modification of the element.
     property is_disabled : Bool = false
     # Specifies that the field cannot be modified by the user.
