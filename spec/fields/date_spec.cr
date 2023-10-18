@@ -18,8 +18,8 @@ describe Fields do
         f.is_hide.should be_false
         f.is_required.should be_false
         f.is_unique.should be_false
-        f.min.should eq("")
         f.max.should eq("")
+        f.min.should eq("")
         f.other_attrs.should eq("")
         f.css_classes.should eq("")
         f.hint.should eq("Format: yyyy-mm-dd")
