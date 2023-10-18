@@ -16,7 +16,8 @@ module Fields
     property placeholder : String = ""
     # The unique value of a field in a collection.
     property is_unique : Bool = false
-    #
+    # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
+    # Html tag: select
     property choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
