@@ -1,18 +1,18 @@
 require "./field"
 
 module Fields
-  # A field for entering a text string.
-  class TextField < Fields::Field
+  # Field for entering URL addresses.
+  class ColorField < Fields::Field
     # Field type - Class Name.
-    getter field_type : String = "TextField"
+    getter field_type : String = "ColorField"
     # Field type - Html, input type.
+    # Example: #000000 (black)
+    # WARNING: type="color" only seven-character hexadecimal notation.
     getter input_type : String = "text"
-    # For Html textarea.
-    property is_textarea : Bool = false
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.
-    property default : String | Nil
+    property default : String | Nil = "#000000"
     # Displays prompt text.
     property placeholder : String = ""
     # The maximum number of characters allowed in the text.
