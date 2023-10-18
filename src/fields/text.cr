@@ -5,7 +5,7 @@ module Fields
   class TextField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "TextField"
-    # Field type - Html, input type.
+    # Html tag: input type="text".
     getter input_type : String = "text"
     # For Html textarea.
     property is_textarea : Bool = false

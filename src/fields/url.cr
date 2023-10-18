@@ -5,7 +5,7 @@ module Fields
   class URLField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "URLField"
-    # Field type - Html, input type.
+    # Html tag: input type="url".
     getter input_type : String = "url"
     # Sets the value of an element.
     property value : String | Nil

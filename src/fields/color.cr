@@ -8,7 +8,7 @@ module Fields
   class ColorField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "ColorField"
-    # Field type - Html, input type.
+    # Html tag: input type="color".
     # Example: #000000 (black)
     # WARNING: type="color" only seven-character hexadecimal notation.
     getter input_type : String = "text"
