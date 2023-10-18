@@ -14,7 +14,7 @@ module Fields
     getter is_multiple : Bool = false
     # The unique value of a field in a collection.
     property is_unique : Bool = false
-    # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
+    # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select
     property choices : Array(Tuple(Float64, String)) = Array(Tuple(Float64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
@@ -35,7 +35,7 @@ module Fields
     getter is_multiple : Bool = true
     # The unique value of a field in a collection.
     property is_unique : Bool = false
-    # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
+    # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select multiple
     property choices : Array(Tuple(Float64, String)) = Array(Tuple(Float64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
@@ -55,7 +55,7 @@ module Fields
     getter is_multiple : Bool = false
     # The unique value of a field in a collection.
     property is_unique : Bool = false
-    # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
+    # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select
     property choices : Array(Tuple(Float64, String)) = Array(Tuple(Float64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
@@ -75,7 +75,7 @@ module Fields
     getter is_multiple : Bool = true
     # The unique value of a field in a collection.
     property is_unique : Bool = false
-    # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
+    # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select
     property choices : Array(Tuple(Float64, String)) = Array(Tuple(Float64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
