@@ -1,7 +1,10 @@
 require "./field"
 
 module Fields
-  # Field for entering URL addresses.
+  # Field for entering color.
+  # The default value is #000000 (black).
+  # Examples: #fff | #f2f2f2 | #ffffff00 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+  # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.
   class ColorField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "ColorField"
