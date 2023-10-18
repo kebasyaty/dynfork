@@ -82,8 +82,33 @@
       
     </li>
   
+  <li class=" " data-id="cryod/Fields/ChoiceTextDynField" data-name="fields::choicetextdynfield">
+      <a href="../Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="cryod/Fields/ChoiceTextField" data-name="fields::choicetextfield">
+      <a href="../Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="cryod/Fields/ChoiceTextMultDynField" data-name="fields::choicetextmultdynfield">
+      <a href="../Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="cryod/Fields/ChoiceTextMultField" data-name="fields::choicetextmultfield">
+      <a href="../Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
   <li class=" current" data-id="cryod/Fields/Field" data-name="fields::field">
       <a href="../Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="cryod/Fields/TextField" data-name="fields::textfield">
+      <a href="../Fields/TextField.html">TextField</a>
       
     </li>
   
@@ -147,6 +172,16 @@
     
       <li class="other-type"><a href="../Fields/BoolField.html">Fields::BoolField</a></li>
     
+      <li class="other-type"><a href="../Fields/ChoiceTextDynField.html">Fields::ChoiceTextDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextField.html">Fields::ChoiceTextField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextMultDynField.html">Fields::ChoiceTextMultDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextMultField.html">Fields::ChoiceTextMultField</a></li>
+    
+      <li class="other-type"><a href="../Fields/TextField.html">Fields::TextField</a></li>
+    
       <li class="other-type"><a href="../Fields/URLField.html">Fields::URLField</a></li>
     
   </ul>
@@ -166,7 +201,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L3" target="_blank">
+      <a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L3" target="_blank">
         src\fields\field.cr
       </a>
     
@@ -202,20 +237,6 @@
         <a href="#css_classes%3D%28css_classes%3AString%29-instance-method" class="signature"><strong>#css_classes=</strong>(css_classes : String)</a>
         
           <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#default-instance-method" class="signature"><strong>#default</strong></a>
-        
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#default%3D%28default%29-instance-method" class="signature"><strong>#default=</strong>(default)</a>
-        
-          <div class="summary"><p>Value by default.</p></div>
         
       </li>
     
@@ -276,13 +297,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
-        
-          <div class="summary"><p>The value is determined automatically.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#is_disabled%3ABool-instance-method" class="signature"><strong>#is_disabled</strong> : Bool</a>
         
           <div class="summary"><p>Blocks access and modification of the element.</p></div>
@@ -325,6 +339,20 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#is_required%3ABool-instance-method" class="signature"><strong>#is_required</strong> : Bool</a>
+        
+          <div class="summary"><p>Required field.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_required%3D%28is_required%3ABool%29-instance-method" class="signature"><strong>#is_required=</strong>(is_required : Bool)</a>
+        
+          <div class="summary"><p>Required field.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#label%3AString-instance-method" class="signature"><strong>#label</strong> : String</a>
         
           <div class="summary"><p>Web form field name.</p></div>
@@ -363,20 +391,6 @@
         <a href="#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="signature"><strong>#other_attrs=</strong>(other_attrs : String)</a>
         
           <div class="summary"><p>Example: <code>r# &quot;autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;#</code>.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
         
       </li>
     
@@ -468,7 +482,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L30" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -489,49 +503,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L30" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="default-instance-method">
-      <div class="signature">
-        
-        def <strong>default</strong>
-
-        <a class="method-permalink" href="#default-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L18" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="default=(default)-instance-method">
-      <div class="signature">
-        
-        def <strong>default=</strong>(default)
-
-        <a class="method-permalink" href="#default%3D%28default%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -552,7 +524,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -573,7 +545,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -594,7 +566,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -616,7 +588,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L39" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L35" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -637,7 +609,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -658,7 +630,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -680,7 +652,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -702,28 +674,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L6" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="input_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>input_type</strong> : String
-
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The value is determined automatically.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -744,7 +695,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -765,7 +716,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -786,7 +737,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -807,7 +758,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -828,7 +779,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -849,7 +800,49 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_required:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_required</strong> : Bool
+
+        <a class="method-permalink" href="#is_required%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Required field.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_required=(is_required:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_required=</strong>(is_required : Bool)
+
+        <a class="method-permalink" href="#is_required%3D%28is_required%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Required field.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -870,7 +863,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -891,7 +884,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -912,7 +905,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -933,7 +926,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -954,7 +947,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -975,49 +968,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L28" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder:String-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder</strong> : String
-
-        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L20" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder=(placeholder:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder=</strong>(placeholder : String)
-
-        <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1038,7 +989,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1059,7 +1010,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1080,7 +1031,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1101,7 +1052,7 @@ Format: &quot;model-name--field-name&quot;.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/bc15cdca84aa240bbe53f1bf20cca9f82c5bdf2c/src\fields\field.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/e6a70e08f831b9434151876e1dbc3f6f7a3578c9/src\fields\field.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
