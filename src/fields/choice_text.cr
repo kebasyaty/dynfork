@@ -11,9 +11,7 @@ module Fields
     # Value by default.
     property default : String | Nil
     # Specifies that multiple options can be selected at once.
-    getter multiple : Bool = false
-    # Displays prompt text.
-    property placeholder : String = ""
+    getter is_multiple : Bool = false
     # The unique value of a field in a collection.
     property is_unique : Bool = false
     # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
@@ -22,6 +20,27 @@ module Fields
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 4
+  end
+
+  # Type of selective field with static of elements.
+  # With multiple choice.
+  class ChoiceTextMultField < Fields::Field
+    # Field type - Class Name.
+    getter field_type : String = "ChoiceTextMultField"
+    # Sets the value of an element.
+    property value : String | Nil
+    # Value by default.
+    property default : String | Nil
+    # Specifies that multiple options can be selected at once.
+    getter is_multiple : Bool = true
+    # The unique value of a field in a collection.
+    property is_unique : Bool = false
+    # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
+    # Html tag: select multiple
+    property choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
+    # To optimize field traversal in the `paladins/check()` method.
+    # Hint: It is recommended not to change.
+    getter group : UInt32 = 6
   end
 
   # Type of selective field with dynamic addition of elements.
@@ -33,9 +52,7 @@ module Fields
     # Sets the value of an element.
     property value : String | Nil
     # Specifies that multiple options can be selected at once.
-    getter multiple : Bool = false
-    # Displays prompt text.
-    property placeholder : String = ""
+    getter is_multiple : Bool = false
     # The unique value of a field in a collection.
     property is_unique : Bool = false
     # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
