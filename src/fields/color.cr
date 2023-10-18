@@ -1,0 +1,28 @@
+require "./field"
+
+module Fields
+  # Field for entering URL addresses.
+  class ColorField < Fields::Field
+    # Field type - Class Name.
+    getter field_type : String = "ColorField"
+    # Field type - Html, input type.
+    # Example: #000000 (black)
+    # WARNING: type="color" only seven-character hexadecimal notation.
+    getter input_type : String = "text"
+    # Sets the value of an element.
+    property value : String | Nil
+    # Value by default.
+    property default : String | Nil = "#000000"
+    # Displays prompt text.
+    property placeholder : String = ""
+    # The minimum number of characters allowed in the text.
+    property minlength : UInt32 = 0
+    # The maximum number of characters allowed in the text.
+    property maxlength : UInt32 = 256
+    # The unique value of a field in a collection.
+    property is_unique : Bool = false
+    # To optimize field traversal in the `paladins/check()` method.
+    # Hint: It is recommended not to change.
+    getter group : UInt32 = 1
+  end
+end
