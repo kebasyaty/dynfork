@@ -1,12 +1,12 @@
 require "./field"
 
 module Fields
-  # Field for entering URL addresses.
-  class URLField < Fields::Field
+  # Field for entering Email addresses.
+  class EmailField < Fields::Field
     # Field type - Class Name.
-    getter field_type : String = "URLField"
+    getter field_type : String = "EmailField"
     # Html tag: input type="url".
-    getter input_type : String = "url"
+    getter input_type : String = "email"
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.
@@ -14,7 +14,7 @@ module Fields
     # Displays prompt text.
     property placeholder : String = ""
     # The maximum number of characters allowed in the text.
-    property maxlength : UInt32 = 256
+    property maxlength : UInt32 = 321
     # The minimum number of characters allowed in the text.
     property minlength : UInt32 = 0
     # The unique value of a field in a collection.

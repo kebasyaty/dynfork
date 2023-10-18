@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cryod">
-  <title>Fields::BoolField - cryod v0</title>
+  <title>Fields::DateField - cryod v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -77,7 +77,7 @@
       
         <ul>
   
-  <li class=" current" data-id="cryod/Fields/BoolField" data-name="fields::boolfield">
+  <li class=" " data-id="cryod/Fields/BoolField" data-name="fields::boolfield">
       <a href="../Fields/BoolField.html">BoolField</a>
       
     </li>
@@ -167,7 +167,7 @@
       
     </li>
   
-  <li class=" " data-id="cryod/Fields/DateField" data-name="fields::datefield">
+  <li class=" current" data-id="cryod/Fields/DateField" data-name="fields::datefield">
       <a href="../Fields/DateField.html">DateField</a>
       
     </li>
@@ -221,12 +221,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Fields::<wbr>BoolField
+  <span class="kind">class</span> Fields::<wbr>DateField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/BoolField.html">Fields::BoolField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/DateField.html">Fields::DateField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -240,7 +240,8 @@
     Overview
   </h2>
 
-  <p>Boolean field.</p>
+  <p>A field for entering a date in the format yyyy-mm-dd.
+Example: 1970-01-01</p>
 
 
 
@@ -265,8 +266,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L5" target="_blank">
-        src\fields\bool.cr
+      <a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L6" target="_blank">
+        src\fields\date.cr
       </a>
     
     <br/>
@@ -291,14 +292,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3ABool%7CNil-instance-method" class="signature"><strong>#default</strong> : Bool | Nil</a>
+        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
         
           <div class="summary"><p>Value by default.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#default%3D%28default%3ABool%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : Bool | Nil)</a>
+        <a href="#default%3D%28default%3AString%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : String | Nil)</a>
         
           <div class="summary"><p>Value by default.</p></div>
         
@@ -319,21 +320,91 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
         
-          <div class="summary"><p>Field type - Html, input type.</p></div>
+          <div class="summary"><p>Additional explanation for the user.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#value%3ABool%7CNil-instance-method" class="signature"><strong>#value</strong> : Bool | Nil</a>
+        <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;date&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
+        
+          <div class="summary"><p>The unique value of a field in a collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_unique%3D%28is_unique%3ABool%29-instance-method" class="signature"><strong>#is_unique=</strong>(is_unique : Bool)</a>
+        
+          <div class="summary"><p>The unique value of a field in a collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max%3AString-instance-method" class="signature"><strong>#max</strong> : String</a>
+        
+          <div class="summary"><p>The top value for entering a date.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max%3D%28max%3AString%29-instance-method" class="signature"><strong>#max=</strong>(max : String)</a>
+        
+          <div class="summary"><p>The top value for entering a date.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3AString-instance-method" class="signature"><strong>#min</strong> : String</a>
+        
+          <div class="summary"><p>The lower value for entering a date.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3D%28min%3AString%29-instance-method" class="signature"><strong>#min=</strong>(min : String)</a>
+        
+          <div class="summary"><p>The lower value for entering a date.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
+        
+          <div class="summary"><p>Displays prompt text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
+        
+          <div class="summary"><p>Displays prompt text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3AString%7CNil-instance-method" class="signature"><strong>#value</strong> : String | Nil</a>
         
           <div class="summary"><p>Sets the value of an element.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#value%3D%28value%3ABool%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : Bool | Nil)</a>
+        <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
         
           <div class="summary"><p>Sets the value of an element.</p></div>
         
@@ -537,44 +608,46 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:Bool|Nil-instance-method">
+    <div class="entry-detail" id="default:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : Bool | Nil
+        def <strong>default</strong> : String | Nil
 
-        <a class="method-permalink" href="#default%3ABool%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Value by default.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="default=(default:Bool|Nil)-instance-method">
+    <div class="entry-detail" id="default=(default:String|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>default=</strong>(default : Bool | Nil)
+        def <strong>default=</strong>(default : String | Nil)
 
-        <a class="method-permalink" href="#default%3D%28default%3ABool%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#default%3D%28default%3AString%7CNil%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Value by default.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -595,7 +668,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -617,7 +690,49 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint:String-instance-method">
+      <div class="signature">
+        
+        def <strong>hint</strong> : String
+
+        <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint=(hint:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>hint=</strong>(hint : String)
+
+        <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -632,55 +747,225 @@ Hint: It is recommended not to change.</p>
       
         <div class="doc">
           
-          <p>Field type - Html, input type.</p>
+          <p>Html tag: input type=&quot;date&quot;.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="value:Bool|Nil-instance-method">
+    <div class="entry-detail" id="is_unique:Bool-instance-method">
       <div class="signature">
         
-        def <strong>value</strong> : Bool | Nil
+        def <strong>is_unique</strong> : Bool
 
-        <a class="method-permalink" href="#value%3ABool%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#is_unique%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="value=(value:Bool|Nil)-instance-method">
+    <div class="entry-detail" id="is_unique=(is_unique:Bool)-instance-method">
       <div class="signature">
         
-        def <strong>value=</strong>(value : Bool | Nil)
+        def <strong>is_unique=</strong>(is_unique : Bool)
 
-        <a class="method-permalink" href="#value%3D%28value%3ABool%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#is_unique%3D%28is_unique%3ABool%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\bool.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max:String-instance-method">
+      <div class="signature">
+        
+        def <strong>max</strong> : String
+
+        <a class="method-permalink" href="#max%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The top value for entering a date.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max=(max:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>max=</strong>(max : String)
+
+        <a class="method-permalink" href="#max%3D%28max%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The top value for entering a date.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min:String-instance-method">
+      <div class="signature">
+        
+        def <strong>min</strong> : String
+
+        <a class="method-permalink" href="#min%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The lower value for entering a date.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min=(min:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>min=</strong>(min : String)
+
+        <a class="method-permalink" href="#min%3D%28min%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The lower value for entering a date.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder:String-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder</strong> : String
+
+        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder=(placeholder:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder=</strong>(placeholder : String)
+
+        <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value</strong> : String | Nil
+
+        <a class="method-permalink" href="#value%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.
+Example: 1970-01-01</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value=(value:String|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>value=</strong>(value : String | Nil)
+
+        <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.
+Example: 1970-01-01</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/f34a8b0e6d02de502192df0b021c327e0ccf9e79/src\fields\date.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>

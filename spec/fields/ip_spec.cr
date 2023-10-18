@@ -1,17 +1,17 @@
 require "../spec_helper"
 
 describe Fields do
-  describe "Fields::ColorField" do
+  describe "Fields::IPField" do
     describe ".new" do
-      it "create an instance of the Color field" do
-        f = Fields::ColorField.new
+      it "create an instance of the URL field" do
+        f = Fields::IPField.new
         f.id.should eq("")
         f.label.should eq("")
-        f.field_type.should eq("ColorField")
+        f.field_type.should eq("IPField")
         f.input_type.should eq("text")
         f.name.should eq("")
         f.value.should be_nil
-        f.default.should eq("#000000")
+        f.default.should be_nil
         f.placeholder.should eq("")
         f.is_disabled.should be_false
         f.is_readonly.should be_false

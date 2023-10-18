@@ -1,12 +1,12 @@
 require "./field"
 
 module Fields
-  # Field for entering URL addresses.
-  class URLField < Fields::Field
+  # Field for entering IP addresses.
+  class IPField < Fields::Field
     # Field type - Class Name.
-    getter field_type : String = "URLField"
-    # Html tag: input type="url".
-    getter input_type : String = "url"
+    getter field_type : String = "IPField"
+    # Html tag: input type="text".
+    getter input_type : String = "text"
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.

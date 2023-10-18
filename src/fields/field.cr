@@ -20,7 +20,7 @@ module Fields
     property is_readonly : Bool = false
     # Hide field from user.
     property is_hide : Bool = false
-    # Example: `r# "autofocus tabindex="some number" size="some number"#`.
+    # Example: %(autofocus tabindex="some number" size="some number").
     property other_attrs : String = ""
     # Example: "class-name-1 class-name-2".
     property css_classes : String = ""
