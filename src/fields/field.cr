@@ -12,8 +12,6 @@ module Fields
     property name : String = ""
     # Sets the value of an element.
     property value
-    # Value by default.
-    property default
     # Required field.
     property is_required : Bool = false
     # Blocks access and modification of the element.
