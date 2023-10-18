@@ -4,7 +4,7 @@ describe Fields do
   describe "Fields::ChoiceTextField" do
     describe ".new" do
       it "create an instance of the ChoiceText field" do
-        f = Fields::TextField.new
+        f = Fields::ChoiceTextField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceTextField")

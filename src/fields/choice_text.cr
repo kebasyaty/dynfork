@@ -17,7 +17,7 @@ module Fields
     # The unique value of a field in a collection.
     property is_unique : Bool = false
     #
-    choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
+    property choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 4
