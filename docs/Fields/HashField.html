@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cryod">
-  <title>Fields::URLField - cryod v0</title>
+  <title>Fields::HashField - cryod v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -187,7 +187,7 @@
       
     </li>
   
-  <li class=" " data-id="cryod/Fields/HashField" data-name="fields::hashfield">
+  <li class=" current" data-id="cryod/Fields/HashField" data-name="fields::hashfield">
       <a href="../Fields/HashField.html">HashField</a>
       
     </li>
@@ -202,7 +202,7 @@
       
     </li>
   
-  <li class=" current" data-id="cryod/Fields/URLField" data-name="fields::urlfield">
+  <li class=" " data-id="cryod/Fields/URLField" data-name="fields::urlfield">
       <a href="../Fields/URLField.html">URLField</a>
       
     </li>
@@ -221,12 +221,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Fields::<wbr>URLField
+  <span class="kind">class</span> Fields::<wbr>HashField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/URLField.html">Fields::URLField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/HashField.html">Fields::HashField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -240,7 +240,7 @@
     Overview
   </h2>
 
-  <p>Field for entering URL addresses.</p>
+  <p>This type was created specifically for the hash field.</p>
 
 
 
@@ -265,8 +265,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L5" target="_blank">
-        src\fields\url.cr
+      <a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L5" target="_blank">
+        src\fields\hash.cr
       </a>
     
     <br/>
@@ -322,6 +322,20 @@
         <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
         
           <div class="summary"><p>Html tag: input type=&quot;url&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3ABool-instance-method" class="signature"><strong>#is_hide</strong> : Bool</a>
+        
+          <div class="summary"><p>Hide field from user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3D%28is_hide%3ABool%29-instance-method" class="signature"><strong>#is_hide=</strong>(is_hide : Bool)</a>
+        
+          <div class="summary"><p>Hide field from user.</p></div>
         
       </li>
     
@@ -609,7 +623,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -630,7 +644,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,7 +665,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -673,7 +687,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -694,7 +708,49 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide</strong> : Bool
+
+        <a class="method-permalink" href="#is_hide%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide=(is_hide:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide=</strong>(is_hide : Bool)
+
+        <a class="method-permalink" href="#is_hide%3D%28is_hide%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -715,7 +771,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -736,7 +792,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -757,7 +813,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -778,7 +834,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -799,7 +855,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -820,7 +876,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -841,7 +897,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -862,7 +918,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -883,7 +939,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -904,7 +960,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\hash.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>

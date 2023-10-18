@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="cryod">
-  <title>Fields::URLField - cryod v0</title>
+  <title>Fields::DateField - cryod v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -167,7 +167,7 @@
       
     </li>
   
-  <li class=" " data-id="cryod/Fields/DateField" data-name="fields::datefield">
+  <li class=" current" data-id="cryod/Fields/DateField" data-name="fields::datefield">
       <a href="../Fields/DateField.html">DateField</a>
       
     </li>
@@ -202,7 +202,7 @@
       
     </li>
   
-  <li class=" current" data-id="cryod/Fields/URLField" data-name="fields::urlfield">
+  <li class=" " data-id="cryod/Fields/URLField" data-name="fields::urlfield">
       <a href="../Fields/URLField.html">URLField</a>
       
     </li>
@@ -221,12 +221,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Fields::<wbr>URLField
+  <span class="kind">class</span> Fields::<wbr>DateField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/URLField.html">Fields::URLField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/DateField.html">Fields::DateField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -240,7 +240,8 @@
     Overview
   </h2>
 
-  <p>Field for entering URL addresses.</p>
+  <p>A field for entering a date in the format yyyy-mm-dd.
+Example: 1970-01-01</p>
 
 
 
@@ -265,8 +266,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L5" target="_blank">
-        src\fields\url.cr
+      <a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L6" target="_blank">
+        src\fields\date.cr
       </a>
     
     <br/>
@@ -319,9 +320,23 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
         
-          <div class="summary"><p>Html tag: input type=&quot;url&quot;.</p></div>
+          <div class="summary"><p>Html tag: input type=&quot;date&quot;.</p></div>
         
       </li>
     
@@ -340,30 +355,30 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
+        <a href="#max%3AString-instance-method" class="signature"><strong>#max</strong> : String</a>
         
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method" class="signature"><strong>#maxlength=</strong>(maxlength : UInt32)</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>The top value for entering a date.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3AUInt32-instance-method" class="signature"><strong>#minlength</strong> : UInt32</a>
+        <a href="#max%3D%28max%3AString%29-instance-method" class="signature"><strong>#max=</strong>(max : String)</a>
         
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>The top value for entering a date.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3D%28minlength%3AUInt32%29-instance-method" class="signature"><strong>#minlength=</strong>(minlength : UInt32)</a>
+        <a href="#min%3AString-instance-method" class="signature"><strong>#min</strong> : String</a>
         
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>The lower value for entering a date.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3D%28min%3AString%29-instance-method" class="signature"><strong>#min=</strong>(min : String)</a>
+        
+          <div class="summary"><p>The lower value for entering a date.</p></div>
         
       </li>
     
@@ -603,13 +618,14 @@
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Value by default.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -624,13 +640,14 @@
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>Value by default.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,7 +668,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -673,7 +690,49 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint:String-instance-method">
+      <div class="signature">
+        
+        def <strong>hint</strong> : String
+
+        <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint=(hint:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>hint=</strong>(hint : String)
+
+        <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -688,13 +747,13 @@ Hint: It is recommended not to change.</p>
       
         <div class="doc">
           
-          <p>Html tag: input type=&quot;url&quot;.</p>
+          <p>Html tag: input type=&quot;date&quot;.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -715,7 +774,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -736,91 +795,91 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="maxlength:UInt32-instance-method">
+    <div class="entry-detail" id="max:String-instance-method">
       <div class="signature">
         
-        def <strong>maxlength</strong> : UInt32
+        def <strong>max</strong> : String
 
-        <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
+        <a class="method-permalink" href="#max%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The maximum number of characters allowed in the text.</p>
+          <p>The top value for entering a date.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="maxlength=(maxlength:UInt32)-instance-method">
+    <div class="entry-detail" id="max=(max:String)-instance-method">
       <div class="signature">
         
-        def <strong>maxlength=</strong>(maxlength : UInt32)
+        def <strong>max=</strong>(max : String)
 
-        <a class="method-permalink" href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method">#</a>
+        <a class="method-permalink" href="#max%3D%28max%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The maximum number of characters allowed in the text.</p>
+          <p>The top value for entering a date.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="minlength:UInt32-instance-method">
+    <div class="entry-detail" id="min:String-instance-method">
       <div class="signature">
         
-        def <strong>minlength</strong> : UInt32
+        def <strong>min</strong> : String
 
-        <a class="method-permalink" href="#minlength%3AUInt32-instance-method">#</a>
+        <a class="method-permalink" href="#min%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The minimum number of characters allowed in the text.</p>
+          <p>The lower value for entering a date.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="minlength=(minlength:UInt32)-instance-method">
+    <div class="entry-detail" id="min=(min:String)-instance-method">
       <div class="signature">
         
-        def <strong>minlength=</strong>(minlength : UInt32)
+        def <strong>min=</strong>(min : String)
 
-        <a class="method-permalink" href="#minlength%3D%28minlength%3AUInt32%29-instance-method">#</a>
+        <a class="method-permalink" href="#min%3D%28min%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The minimum number of characters allowed in the text.</p>
+          <p>The lower value for entering a date.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -841,7 +900,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -862,7 +921,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -877,13 +936,14 @@ Hint: It is recommended not to change.</p>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>Sets the value of an element.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -898,13 +958,14 @@ Hint: It is recommended not to change.</p>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>Sets the value of an element.
+Example: 1970-01-01</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\url.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/85496d67de22cbe152833be65ad8add2bd1c972b/src\fields\date.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
