@@ -62,4 +62,24 @@ module Fields
     # Hint: It is recommended not to change.
     getter group : UInt32 = 5
   end
+
+  # Type of selective field with dynamic addition of elements.
+  # For simulate relationship Many-to-Many.
+  # Elements are added via the `ModelName::update_dyn_field()` method.
+  class ChoiceTextMultDynField < Fields::Field
+    # Field type - Class Name.
+    getter field_type : String = "ChoiceTextMultDynField"
+    # Sets the value of an element.
+    property value : String | Nil
+    # Specifies that multiple options can be selected at once.
+    getter is_multiple : Bool = true
+    # The unique value of a field in a collection.
+    property is_unique : Bool = false
+    # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
+    # Html tag: select
+    property choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
+    # To optimize field traversal in the `paladins/check()` method.
+    # Hint: It is recommended not to change.
+    getter group : UInt32 = 7
+  end
 end
