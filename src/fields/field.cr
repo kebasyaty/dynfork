@@ -1,7 +1,7 @@
 require "json"
 
 module Fields
-  # Boolean field.
+  # An abstract structure with common fields for all field types.
   @[JSON::Serializable::Options(emit_nulls: true)]
   abstract struct Field
     include JSON::Serializable
