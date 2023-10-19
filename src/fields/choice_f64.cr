@@ -5,7 +5,7 @@ module Fields
   # With a single choice.
   struct ChoiceF64Field < Fields::Field
     # Field type - Structure Name.
-    getter field_type : Float64 = "ChoiceF64Field"
+    getter field_type : String = "ChoiceF64Field"
     # Sets the value of an element.
     property value : Float64 | Nil
     # Value by default.
