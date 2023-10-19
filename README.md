@@ -3,6 +3,8 @@
 # cryod
 
 ORM-like API MongoDB for Crystal.
+<br>
+The project is focused on web development.
 
 <p>
   <img src="https://github.com/kebasyaty/cryod/raw/v0/assets/Status%20Project-Development-.svg"
