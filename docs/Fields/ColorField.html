@@ -221,12 +221,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Fields::<wbr>ColorField
+  <span class="kind">struct</span> Fields::<wbr>ColorField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/ColorField.html">Fields::ColorField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/ColorField.html">Fields::ColorField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -268,7 +268,7 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L8" target="_blank">
+      <a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L8" target="_blank">
         src\fields\color.cr
       </a>
     
@@ -278,6 +278,25 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+          <div class="summary"><p>Field for entering color.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -310,7 +329,7 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
       <li class="entry-summary">
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
-          <div class="summary"><p>Field type - Class Name.</p></div>
+          <div class="summary"><p>Field type - Structure Name.</p></div>
         
       </li>
     
@@ -408,7 +427,7 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
   
     
 
-  <h3>Instance methods inherited from class <code><a href="../Fields/Field.html">Fields::Field</a></code></h3>
+  <h3>Instance methods inherited from struct <code><a href="../Fields/Field.html">Fields::Field</a></code></h3>
   
   
     <a href="../Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
@@ -555,6 +574,45 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
 
     
 
+  <h3>Constructor methods inherited from struct <code><a href="../Fields/Field.html">Fields::Field</a></code></h3>
+  
+  
+    <a href="../Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
+      <span>new(pull : JSON::PullParser)<br/>new</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
 
     
 
@@ -582,6 +640,40 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
   
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Field for entering color.
+The default value is #000000 (black).
+Examples: #fff | #f2f2f2 | #ffffff00 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -612,7 +704,7 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -633,7 +725,7 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -648,13 +740,13 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.</p>
       
         <div class="doc">
           
-          <p>Field type - Class Name.</p>
+          <p>Field type - Structure Name.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -676,7 +768,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -699,7 +791,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -720,7 +812,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -741,7 +833,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -762,7 +854,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -783,7 +875,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -804,7 +896,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -825,7 +917,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L24" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -846,7 +938,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -867,7 +959,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -888,7 +980,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -909,7 +1001,7 @@ Example: #000000 (black)</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/cryod/blob/77ba39ca5341f3692d1747453bffb92c09ad4309/src\fields\color.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/cryod/blob/4df720bffe8c93345dd3ebbdbf32289edb962ba0/src\fields\color.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
