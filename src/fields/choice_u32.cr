@@ -7,9 +7,9 @@ module Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceU32Field"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : UInt32 | Nil
     # Value by default.
-    property default : String | Nil
+    property default : UInt32 | Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = false
     # The unique value of a field in a collection.
@@ -23,6 +23,7 @@ module Fields
 
     def initialize(
       @label : String = "",
+      @default : UInt32 | Nil = nil,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
@@ -41,9 +42,9 @@ module Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceU32MultField"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : Array(UInt32) | Nil
     # Value by default.
-    property default : String | Nil
+    property default : Array(UInt32) | Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = true
     # The unique value of a field in a collection.
@@ -57,6 +58,7 @@ module Fields
 
     def initialize(
       @label : String = "",
+      @default : Array(UInt32) | Nil = nil,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
@@ -76,7 +78,7 @@ module Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceU32DynField"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : UInt32 | Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = false
     # The unique value of a field in a collection.
@@ -109,7 +111,7 @@ module Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceU32MultDynField"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : Array(UInt32) | Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = true
     # The unique value of a field in a collection.
