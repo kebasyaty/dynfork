@@ -14,7 +14,7 @@ module Fields
     # Displays prompt text.
     property placeholder : String = ""
     # The maximum number of characters allowed in the text.
-    property maxlength : UInt32 = 256
+    property maxlength : UInt32 = 2048
     # The minimum number of characters allowed in the text.
     property minlength : UInt32 = 0
     # The unique value of a field in a collection.
