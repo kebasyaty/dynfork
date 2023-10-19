@@ -4,7 +4,7 @@ module Fields
   # A field for entering a date in the format yyyy-mm-dd.
   # Example: 1970-01-01
   struct DateField < Fields::Field
-    # Field type - Class Name.
+    # Field type - Structure Name.
     getter field_type : String = "DateField"
     # Html tag: input type="date".
     getter input_type : String = "date"

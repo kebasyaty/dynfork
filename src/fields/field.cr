@@ -9,7 +9,7 @@ module Fields
     property id : String = ""
     # Web form field name.
     property label : String = ""
-    # Field type - Class Name.
+    # Field type - Structure Name.
     getter field_type : String = ""
     # The value is determined automatically.
     property name : String = ""

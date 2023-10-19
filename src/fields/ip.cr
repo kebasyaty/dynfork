@@ -3,7 +3,7 @@ require "./field"
 module Fields
   # Field for entering IP addresses.
   struct IPField < Fields::Field
-    # Field type - Class Name.
+    # Field type - Structure Name.
     getter field_type : String = "IPField"
     # Html tag: input type="text".
     getter input_type : String = "text"

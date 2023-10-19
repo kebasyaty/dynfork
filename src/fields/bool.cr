@@ -3,7 +3,7 @@ require "./field"
 module Fields
   # Boolean field.
   struct BoolField < Fields::Field
-    # Field type - Struct Name.
+    # Field type - Structure Name.
     getter field_type : String = "BoolField"
     # Field type - Html, input type.
     getter input_type : String = "checkbox"

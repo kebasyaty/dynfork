@@ -4,7 +4,7 @@ module Fields
   # Type of selective field with static of elements.
   # With a single choice.
   struct ChoiceU32Field < Fields::Field
-    # Field type - struct Name.
+    # Field type - Structure Name.
     getter field_type : String = "ChoiceU32Field"
     # Sets the value of an element.
     property value : String | Nil
@@ -25,7 +25,7 @@ module Fields
   # Type of selective field with static of elements.
   # With multiple choice.
   struct ChoiceU32MultField < Fields::Field
-    # Field type - struct Name.
+    # Field type - Structure Name.
     getter field_type : String = "ChoiceU32MultField"
     # Sets the value of an element.
     property value : String | Nil
@@ -47,7 +47,7 @@ module Fields
   # For simulate relationship Many-to-One.
   # Elements are added via the `ModelName::update_dyn_field()` method.
   struct ChoiceU32DynField < Fields::Field
-    # Field type - struct Name.
+    # Field type - Structure Name.
     getter field_type : String = "ChoiceU32DynField"
     # Sets the value of an element.
     property value : String | Nil
@@ -67,7 +67,7 @@ module Fields
   # For simulate relationship Many-to-Many.
   # Elements are added via the `ModelName::update_dyn_field()` method.
   struct ChoiceU32MultDynField < Fields::Field
-    # Field type - struct Name.
+    # Field type - Structure Name.
     getter field_type : String = "ChoiceU32MultDynField"
     # Sets the value of an element.
     property value : String | Nil
