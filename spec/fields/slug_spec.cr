@@ -16,7 +16,7 @@ describe Fields do
         f.is_readonly.should be_true
         f.is_hide.should be_false
         f.is_required.should be_false
-        f.is_unique.should be_false
+        f.is_unique.should be_true
         f.slug_sources.should eq(["hash"])
         f.other_attrs.should eq("")
         f.css_classes.should eq("")

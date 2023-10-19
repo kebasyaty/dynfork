@@ -26,7 +26,7 @@ module Fields
       @label : String = "",
       @placeholder : String = "",
       @is_hide : Bool = false,
-      @is_unique : Bool = false,
+      @is_unique : Bool = true,
       @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = true,
