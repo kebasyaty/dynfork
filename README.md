@@ -4,15 +4,15 @@
 
 ORM-like API MongoDB for Crystal.
 
-[![CI](https://github.com/kebasyaty/cryod/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryod/actions)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/cryod/)
-[![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
-[![GitHub license](https://badgen.net/github/license/kebasyaty/cryod)](https://github.com/kebasyaty/cryod/blob/v0/LICENSE)
-
 <p>
   <img src="https://github.com/kebasyaty/cryod/raw/v0/assets/Status%20Project-Development-.svg"
     alt="Status Project">
 </p>
+
+[![CI](https://github.com/kebasyaty/cryod/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryod/actions)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/cryod/)
+[![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/cryod)](https://github.com/kebasyaty/cryod/blob/v0/LICENSE)
 
 ## Installation
 
