@@ -2,8 +2,8 @@ require "./field"
 
 module Fields
   # This type was created specifically for the hash field.
-  class HashField < Fields::Field
-    # Field type - Class Name.
+  struct HashField < Fields::Field
+    # Field type - Structure Name.
     getter field_type : String = "HashField"
     # Html tag: input type="url".
     getter input_type : String = "text"

@@ -1,12 +1,17 @@
+require "json"
+
 module Fields
   # Boolean field.
-  abstract class Field
+  @[JSON::Serializable::Options(emit_nulls: true)]
+  abstract struct Field
+    include JSON::Serializable
+    include JSON::Serializable::Strict
     # The value is determined automatically.
     # Format: "model-name--field-name".
     property id : String = ""
     # Web form field name.
     property label : String = ""
-    # Field type - Class Name.
+    # Field type - Structure Name.
     getter field_type : String = ""
     # The value is determined automatically.
     property name : String = ""
@@ -33,5 +38,8 @@ module Fields
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 0
+
+    #
+    def initialize; end
   end
 end

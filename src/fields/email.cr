@@ -2,8 +2,8 @@ require "./field"
 
 module Fields
   # Field for entering Email addresses.
-  class EmailField < Fields::Field
-    # Field type - Class Name.
+  struct EmailField < Fields::Field
+    # Field type - Structure Name.
     getter field_type : String = "EmailField"
     # Html tag: input type="url".
     getter input_type : String = "email"

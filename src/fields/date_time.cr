@@ -3,8 +3,8 @@ require "./field"
 module Fields
   # A field for entering a date и времени in the format yyyy-mm-ddThh:mm.
   # Example: 1970-01-01T00:00
-  class DateTimeField < Fields::Field
-    # Field type - Class Name.
+  struct DateTimeField < Fields::Field
+    # Field type - Structure Name.
     getter field_type : String = "DateTimeField"
     # Html tag: input type="date".
     getter input_type : String = "datetime"
