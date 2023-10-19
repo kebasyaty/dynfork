@@ -64,7 +64,7 @@ describe Fields do
   describe "Fields::F64Field" do
     describe ".new" do
       it "create an instance of the Float64 field" do
-        f = Fields::I64Field.new
+        f = Fields::F64Field.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("F64Field")
