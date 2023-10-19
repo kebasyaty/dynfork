@@ -15,17 +15,33 @@ module Fields
     # Sets the value of an element.
     property value : String | Nil
     # Value by default.
-    property default : String | Nil = "#000000"
+    property default : String | Nil
     # Displays prompt text.
-    property placeholder : String = ""
+    property placeholder : String
     # The maximum number of characters allowed in the text.
-    property maxlength : UInt32 = 256
+    property maxlength : UInt32
     # The minimum number of characters allowed in the text.
-    property minlength : UInt32 = 0
+    property minlength : UInt32
     # The unique value of a field in a collection.
-    property is_unique : Bool = false
+    property is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 1
+
+    def initialize(
+      @label : String = "",
+      @default : String | Nil = "#000000",
+      @placeholder : String = "",
+      @maxlength : UInt32 = 256,
+      @minlength : UInt32 = 0,
+      @is_hide : Bool = false,
+      @is_unique : Bool = false,
+      @is_required : Bool = false,
+      @is_disabled : Bool = false,
+      @is_readonly : Bool = false,
+      @other_attrs : String = "",
+      @css_classes : String = "",
+      @hint : String = ""
+    ); end
   end
 end
