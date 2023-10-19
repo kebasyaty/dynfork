@@ -11,10 +11,10 @@ module Fields
     property id : String = ""
     # Web form field name.
     property label : String = ""
-    # Field type - Structure Name.
-    getter field_type : String = ""
     # The value is determined automatically.
     property name : String = ""
+    # Field type - Structure Name.
+    getter field_type : String = ""
     # Sets the value of an element.
     property value
     # Required field.
@@ -38,8 +38,5 @@ module Fields
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 0
-
-    #
-    def initialize; end
   end
 end
