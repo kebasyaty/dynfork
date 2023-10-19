@@ -86,4 +86,47 @@ module Fields
       @warning : String = ""
     ); end
   end
+
+  # Field for entering float 64-bit numbers.
+  struct F64Field < Fields::Field
+    # Field type - Structure Name.
+    getter field_type : String = "F64Field"
+    # Html tag: input type="url".
+    getter input_type : String = "number"
+    # Sets the value of an element.
+    property value : Float64 | Nil
+    # Value by default.
+    property default : Float64 | Nil
+    # Displays prompt text.
+    property placeholder : String
+    # The maximum number of characters allowed in the text.
+    property max : Float64
+    # The minimum number of characters allowed in the text.
+    property min : Float64
+    # Increment step for numeric fields.
+    property step : Float64
+    # The unique value of a field in a collection.
+    property is_unique : Bool
+    # To optimize field traversal in the `paladins/check()` method.
+    # Hint: It is recommended not to change.
+    getter group : UInt32 = 12
+
+    def initialize(
+      @label : String = "",
+      @default : Float64 | Nil = nil,
+      @placeholder : String = "",
+      @max : Float64 = Float64::MAX,
+      @min : Float64 = 0.0,
+      @step : Float64 = 1.0,
+      @is_hide : Bool = false,
+      @is_unique : Bool = false,
+      @is_required : Bool = false,
+      @is_disabled : Bool = false,
+      @is_readonly : Bool = false,
+      @other_attrs : String = "",
+      @css_classes : String = "",
+      @hint : String = "",
+      @warning : String = ""
+    ); end
+  end
 end
