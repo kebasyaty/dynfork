@@ -16,7 +16,7 @@ module Fields
     property is_unique : Bool
     # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select
-    property choices : Array(Tuple(UInt32, String)) = Array(Tuple(UInt32, String)).new
+    property choices : Array(Tuple(UInt32, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 4
@@ -51,7 +51,7 @@ module Fields
     property is_unique : Bool
     # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select multiple
-    property choices : Array(Tuple(UInt32, String)) = Array(Tuple(UInt32, String)).new
+    property choices : Array(Tuple(UInt32, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 6
@@ -85,7 +85,7 @@ module Fields
     property is_unique : Bool
     # Example: [{5, "Title"}, {10, "Title 2"}].
     # Html tag: select
-    property choices : Array(Tuple(UInt32, String)) = Array(Tuple(UInt32, String)).new
+    property choices : Array(Tuple(UInt32, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
     getter group : UInt32 = 5
