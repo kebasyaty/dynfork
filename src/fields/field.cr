@@ -1,6 +1,9 @@
+require "json"
+
 module Fields
   # Boolean field.
-  abstract class Field
+  abstract struct Field
+    include JSON::Serializable
     # The value is determined automatically.
     # Format: "model-name--field-name".
     property id : String = ""

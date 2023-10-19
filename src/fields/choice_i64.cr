@@ -3,8 +3,8 @@ require "./field"
 module Fields
   # Type of selective field with static of elements.
   # With a single choice.
-  class ChoiceI64Field < Fields::Field
-    # Field type - Class Name.
+  struct ChoiceI64Field < Fields::Field
+    # Field type - struct Name.
     getter field_type : String = "ChoiceI64Field"
     # Sets the value of an element.
     property value : String | Nil
@@ -24,8 +24,8 @@ module Fields
 
   # Type of selective field with static of elements.
   # With multiple choice.
-  class ChoiceI64MultField < Fields::Field
-    # Field type - Class Name.
+  struct ChoiceI64MultField < Fields::Field
+    # Field type - struct Name.
     getter field_type : String = "ChoiceI64MultField"
     # Sets the value of an element.
     property value : String | Nil
@@ -46,8 +46,8 @@ module Fields
   # Type of selective field with dynamic addition of elements.
   # For simulate relationship Many-to-One.
   # Elements are added via the `ModelName::update_dyn_field()` method.
-  class ChoiceI64DynField < Fields::Field
-    # Field type - Class Name.
+  struct ChoiceI64DynField < Fields::Field
+    # Field type - struct Name.
     getter field_type : String = "ChoiceI64DynField"
     # Sets the value of an element.
     property value : String | Nil
@@ -66,8 +66,8 @@ module Fields
   # Type of selective field with dynamic addition of elements.
   # For simulate relationship Many-to-Many.
   # Elements are added via the `ModelName::update_dyn_field()` method.
-  class ChoiceI64MultDynField < Fields::Field
-    # Field type - Class Name.
+  struct ChoiceI64MultDynField < Fields::Field
+    # Field type - struct Name.
     getter field_type : String = "ChoiceI64MultDynField"
     # Sets the value of an element.
     property value : String | Nil

@@ -2,7 +2,7 @@ require "./field"
 
 module Fields
   # Field for entering URL addresses.
-  class URLField < Fields::Field
+  struct URLField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "URLField"
     # Html tag: input type="url".

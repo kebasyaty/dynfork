@@ -2,7 +2,7 @@ require "./field"
 
 module Fields
   # A field for entering a text string.
-  class TextField < Fields::Field
+  struct TextField < Fields::Field
     # Field type - Class Name.
     getter field_type : String = "TextField"
     # Html tag: input type="text".
