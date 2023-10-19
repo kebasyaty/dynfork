@@ -2,7 +2,7 @@
 
 # cryod
 
-ORM-like API MongoDB for Crystal
+ORM-like API MongoDB for Crystal.
 
 [![CI](https://github.com/kebasyaty/cryod/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryod/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/cryod/)
