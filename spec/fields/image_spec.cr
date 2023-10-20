@@ -12,11 +12,13 @@ describe Fields do
         f.name.should eq("")
         f.value.should be_nil
         f.default.should be_nil
+        f.placeholder.should eq("")
         f.media_root.should eq("../../assets/media")
         f.media_url.should eq("/media")
         f.target_dir.should eq("images")
         f.accept.should eq("")
-        f.placeholder.should eq("")
+        f.thumbnails.should eq(Array({String, UInt32}).new)
+        f.is_quality.should be_true
         f.is_disabled.should be_false
         f.is_readonly.should be_false
         f.is_hide.should be_false
