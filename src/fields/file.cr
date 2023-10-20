@@ -12,7 +12,7 @@ module Fields
     # Value by default.
     property default : String | Nil
     #
-    property media_root : String = "./assets/media"
+    property media_root : String = "../../assets/media"
     #
     property media_url : String = "/media"
     # Displays prompt text.
