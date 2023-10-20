@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="crymon">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="crymon">
+  <title>Fields::Field - crymon v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          crymon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="crymon/Crymon" data-name="crymon">
+      <a href="../Crymon.html">Crymon</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/CrymonException" data-name="crymon::crymonexception">
+      <a href="../Crymon/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/InvalidInputType" data-name="crymon::invalidinputtype">
+      <a href="../Crymon/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="crymon/Fields" data-name="fields">
+      <a href="../Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Fields/BoolField" data-name="fields::boolfield">
+      <a href="../Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64DynField" data-name="fields::choicef64dynfield">
+      <a href="../Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64Field" data-name="fields::choicef64field">
+      <a href="../Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64MultDynField" data-name="fields::choicef64multdynfield">
+      <a href="../Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64MultField" data-name="fields::choicef64multfield">
+      <a href="../Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64DynField" data-name="fields::choicei64dynfield">
+      <a href="../Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64Field" data-name="fields::choicei64field">
+      <a href="../Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64MultDynField" data-name="fields::choicei64multdynfield">
+      <a href="../Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64MultField" data-name="fields::choicei64multfield">
+      <a href="../Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextDynField" data-name="fields::choicetextdynfield">
+      <a href="../Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextField" data-name="fields::choicetextfield">
+      <a href="../Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextMultDynField" data-name="fields::choicetextmultdynfield">
+      <a href="../Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextMultField" data-name="fields::choicetextmultfield">
+      <a href="../Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32DynField" data-name="fields::choiceu32dynfield">
+      <a href="../Fields/ChoiceU32DynField.html">ChoiceU32DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32Field" data-name="fields::choiceu32field">
+      <a href="../Fields/ChoiceU32Field.html">ChoiceU32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32MultDynField" data-name="fields::choiceu32multdynfield">
+      <a href="../Fields/ChoiceU32MultDynField.html">ChoiceU32MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32MultField" data-name="fields::choiceu32multfield">
+      <a href="../Fields/ChoiceU32MultField.html">ChoiceU32MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ColorField" data-name="fields::colorfield">
+      <a href="../Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/DateField" data-name="fields::datefield">
+      <a href="../Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/DateTimeField" data-name="fields::datetimefield">
+      <a href="../Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/EmailField" data-name="fields::emailfield">
+      <a href="../Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/F64Field" data-name="fields::f64field">
+      <a href="../Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crymon/Fields/Field" data-name="fields::field">
+      <a href="../Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/HashField" data-name="fields::hashfield">
+      <a href="../Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/I64Field" data-name="fields::i64field">
+      <a href="../Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/IPField" data-name="fields::ipfield">
+      <a href="../Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/PasswordField" data-name="fields::passwordfield">
+      <a href="../Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/PhoneField" data-name="fields::phonefield">
+      <a href="../Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/SlugField" data-name="fields::slugfield">
+      <a href="../Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/TextField" data-name="fields::textfield">
+      <a href="../Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/U32Field" data-name="fields::u32field">
+      <a href="../Fields/U32Field.html">U32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/URLField" data-name="fields::urlfield">
+      <a href="../Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract struct</span> Fields::<wbr>Field
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>An abstract structure with common fields for all field types.</p>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+      <li class="other-type">JSON::Serializable::Strict</li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Fields/BoolField.html">Fields::BoolField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceF64DynField.html">Fields::ChoiceF64DynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceF64Field.html">Fields::ChoiceF64Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceF64MultDynField.html">Fields::ChoiceF64MultDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceF64MultField.html">Fields::ChoiceF64MultField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceI64DynField.html">Fields::ChoiceI64DynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceI64Field.html">Fields::ChoiceI64Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceI64MultDynField.html">Fields::ChoiceI64MultDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceI64MultField.html">Fields::ChoiceI64MultField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextDynField.html">Fields::ChoiceTextDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextField.html">Fields::ChoiceTextField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextMultDynField.html">Fields::ChoiceTextMultDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceTextMultField.html">Fields::ChoiceTextMultField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceU32DynField.html">Fields::ChoiceU32DynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceU32Field.html">Fields::ChoiceU32Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceU32MultDynField.html">Fields::ChoiceU32MultDynField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ChoiceU32MultField.html">Fields::ChoiceU32MultField</a></li>
+    
+      <li class="other-type"><a href="../Fields/ColorField.html">Fields::ColorField</a></li>
+    
+      <li class="other-type"><a href="../Fields/DateField.html">Fields::DateField</a></li>
+    
+      <li class="other-type"><a href="../Fields/DateTimeField.html">Fields::DateTimeField</a></li>
+    
+      <li class="other-type"><a href="../Fields/EmailField.html">Fields::EmailField</a></li>
+    
+      <li class="other-type"><a href="../Fields/F64Field.html">Fields::F64Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/HashField.html">Fields::HashField</a></li>
+    
+      <li class="other-type"><a href="../Fields/I64Field.html">Fields::I64Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/IPField.html">Fields::IPField</a></li>
+    
+      <li class="other-type"><a href="../Fields/PasswordField.html">Fields::PasswordField</a></li>
+    
+      <li class="other-type"><a href="../Fields/PhoneField.html">Fields::PhoneField</a></li>
+    
+      <li class="other-type"><a href="../Fields/SlugField.html">Fields::SlugField</a></li>
+    
+      <li class="other-type"><a href="../Fields/TextField.html">Fields::TextField</a></li>
+    
+      <li class="other-type"><a href="../Fields/U32Field.html">Fields::U32Field</a></li>
+    
+      <li class="other-type"><a href="../Fields/URLField.html">Fields::URLField</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L6" target="_blank">
+        src\fields\field.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#css_classes%3AString-instance-method" class="signature"><strong>#css_classes</strong> : String</a>
+        
+          <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#css_classes%3D%28css_classes%3AString%29-instance-method" class="signature"><strong>#css_classes=</strong>(css_classes : String)</a>
+        
+          <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#errors%3AArray%28String%29-instance-method" class="signature"><strong>#errors</strong> : Array(String)</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="signature"><strong>#errors=</strong>(errors : Array(String))</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
+        
+          <div class="summary"><p>Field type - Structure Name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group%3AUInt32-instance-method" class="signature"><strong>#group</strong> : UInt32</a>
+        
+          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
+        
+          <div class="summary"><p>Additional explanation for the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3AString-instance-method" class="signature"><strong>#id</strong> : String</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id%3D%28id%3AString%29-instance-method" class="signature"><strong>#id=</strong>(id : String)</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_disabled%3ABool-instance-method" class="signature"><strong>#is_disabled</strong> : Bool</a>
+        
+          <div class="summary"><p>Blocks access and modification of the element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="signature"><strong>#is_disabled=</strong>(is_disabled : Bool)</a>
+        
+          <div class="summary"><p>Blocks access and modification of the element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3ABool-instance-method" class="signature"><strong>#is_hide</strong> : Bool</a>
+        
+          <div class="summary"><p>Hide field from user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_hide%3D%28is_hide%3ABool%29-instance-method" class="signature"><strong>#is_hide=</strong>(is_hide : Bool)</a>
+        
+          <div class="summary"><p>Hide field from user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_readonly%3ABool-instance-method" class="signature"><strong>#is_readonly</strong> : Bool</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="signature"><strong>#is_readonly=</strong>(is_readonly : Bool)</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_required%3ABool-instance-method" class="signature"><strong>#is_required</strong> : Bool</a>
+        
+          <div class="summary"><p>Required field.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_required%3D%28is_required%3ABool%29-instance-method" class="signature"><strong>#is_required=</strong>(is_required : Bool)</a>
+        
+          <div class="summary"><p>Required field.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label%3AString-instance-method" class="signature"><strong>#label</strong> : String</a>
+        
+          <div class="summary"><p>Web form field name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#label%3D%28label%3AString%29-instance-method" class="signature"><strong>#label=</strong>(label : String)</a>
+        
+          <div class="summary"><p>Web form field name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
+        
+          <div class="summary"><p>The value is determined automatically.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#other_attrs%3AString-instance-method" class="signature"><strong>#other_attrs</strong> : String</a>
+        
+          <div class="summary"><p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="signature"><strong>#other_attrs=</strong>(other_attrs : String)</a>
+        
+          <div class="summary"><p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value-instance-method" class="signature"><strong>#value</strong></a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3D%28value%29-instance-method" class="signature"><strong>#value=</strong>(value)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#warning%3AString-instance-method" class="signature"><strong>#warning</strong> : String</a>
+        
+          <div class="summary"><p>Warning information.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#warning%3D%28warning%3AString%29-instance-method" class="signature"><strong>#warning=</strong>(warning : String)</a>
+        
+          <div class="summary"><p>Warning information.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="css_classes:String-instance-method">
+      <div class="signature">
+        
+        def <strong>css_classes</strong> : String
+
+        <a class="method-permalink" href="#css_classes%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Example: &quot;class-name-1 class-name-2&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="css_classes=(css_classes:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>css_classes=</strong>(css_classes : String)
+
+        <a class="method-permalink" href="#css_classes%3D%28css_classes%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Example: &quot;class-name-1 class-name-2&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="errors:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>errors</strong> : Array(String)
+
+        <a class="method-permalink" href="#errors%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="errors=(errors:Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>errors=</strong>(errors : Array(String))
+
+        <a class="method-permalink" href="#errors%3D%28errors%3AArray%28String%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type:String-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type</strong> : String
+
+        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Field type - Structure Name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>group</strong> : UInt32
+
+        <a class="method-permalink" href="#group%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>To optimize field traversal in the <code>paladins/check()</code> method.
+Hint: It is recommended not to change.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint:String-instance-method">
+      <div class="signature">
+        
+        def <strong>hint</strong> : String
+
+        <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hint=(hint:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>hint=</strong>(hint : String)
+
+        <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Additional explanation for the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:String-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : String
+
+        <a class="method-permalink" href="#id%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.
+Format: &quot;model-name--field-name&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(id:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(id : String)
+
+        <a class="method-permalink" href="#id%3D%28id%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.
+Format: &quot;model-name--field-name&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_disabled:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_disabled</strong> : Bool
+
+        <a class="method-permalink" href="#is_disabled%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Blocks access and modification of the element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_disabled=(is_disabled:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_disabled=</strong>(is_disabled : Bool)
+
+        <a class="method-permalink" href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Blocks access and modification of the element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide</strong> : Bool
+
+        <a class="method-permalink" href="#is_hide%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_hide=(is_hide:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_hide=</strong>(is_hide : Bool)
+
+        <a class="method-permalink" href="#is_hide%3D%28is_hide%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Hide field from user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_readonly:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_readonly</strong> : Bool
+
+        <a class="method-permalink" href="#is_readonly%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_readonly=(is_readonly:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_readonly=</strong>(is_readonly : Bool)
+
+        <a class="method-permalink" href="#is_readonly%3D%28is_readonly%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_required:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_required</strong> : Bool
+
+        <a class="method-permalink" href="#is_required%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Required field.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_required=(is_required:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_required=</strong>(is_required : Bool)
+
+        <a class="method-permalink" href="#is_required%3D%28is_required%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Required field.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label:String-instance-method">
+      <div class="signature">
+        
+        def <strong>label</strong> : String
+
+        <a class="method-permalink" href="#label%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Web form field name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="label=(label:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>label=</strong>(label : String)
+
+        <a class="method-permalink" href="#label%3D%28label%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Web form field name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name=(name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>name=</strong>(name : String)
+
+        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="other_attrs:String-instance-method">
+      <div class="signature">
+        
+        def <strong>other_attrs</strong> : String
+
+        <a class="method-permalink" href="#other_attrs%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="other_attrs=(other_attrs:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>other_attrs=</strong>(other_attrs : String)
+
+        <a class="method-permalink" href="#other_attrs%3D%28other_attrs%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value-instance-method">
+      <div class="signature">
+        
+        def <strong>value</strong>
+
+        <a class="method-permalink" href="#value-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value=(value)-instance-method">
+      <div class="signature">
+        
+        def <strong>value=</strong>(value)
+
+        <a class="method-permalink" href="#value%3D%28value%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="warning:String-instance-method">
+      <div class="signature">
+        
+        def <strong>warning</strong> : String
+
+        <a class="method-permalink" href="#warning%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Warning information.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="warning=(warning:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>warning=</strong>(warning : String)
+
+        <a class="method-permalink" href="#warning%3D%28warning%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Warning information.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/5f0daaf43001908f981f7e2c77120c6b2b62161b/src\fields\field.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
