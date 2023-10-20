@@ -7,7 +7,7 @@ ORM-like API MongoDB for Crystal.
 The project is focused on web development.
 
 <p>
-  <img src="https://github.com/kebasyaty/crymon/raw/v0/assets/Status%20Project-Development-.svg"
+  <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/Status%20Project-Development-.svg"
     alt="Status Project">
 </p>
 
