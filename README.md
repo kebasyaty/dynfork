@@ -1,20 +1,20 @@
-[![Logo](https://github.com/kebasyaty/cryod/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/cryod "Logo")
+[![Logo](https://github.com/kebasyaty/crymon/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/crymon "Logo")
 
-# cryod
+# crymon
 
 ORM-like API MongoDB for Crystal.
 <br>
 The project is focused on web development.
 
 <p>
-  <img src="https://github.com/kebasyaty/cryod/raw/v0/assets/Status%20Project-Development-.svg"
+  <img src="https://github.com/kebasyaty/crymon/raw/v0/assets/Status%20Project-Development-.svg"
     alt="Status Project">
 </p>
 
-[![CI](https://github.com/kebasyaty/cryod/workflows/CI/badge.svg)](https://github.com/kebasyaty/cryod/actions)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/cryod/)
+[![CI](https://github.com/kebasyaty/crymon/workflows/CI/badge.svg)](https://github.com/kebasyaty/crymon/actions)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
-[![GitHub license](https://badgen.net/github/license/kebasyaty/cryod)](https://github.com/kebasyaty/cryod/blob/v0/LICENSE)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
 
 ## Installation
 
@@ -22,8 +22,8 @@ The project is focused on web development.
 
    ```yaml
    dependencies:
-     cryod:
-       github: kebasyaty/cryod
+     crymon:
+       github: kebasyaty/crymon
    ```
 
 2. Run `shards install`
@@ -31,7 +31,7 @@ The project is focused on web development.
 ## Usage
 
 ```crystal
-require "cryod"
+require "crymon"
 ```
 
 TODO: Write usage instructions here
@@ -42,15 +42,15 @@ TODO: Write development instructions here
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/cryod/blob/v0/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/crymon/blob/v0/LICENSE "MIT").
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/cryod/blob/v0/CHANGELOG.md "View the change history.")
+[View the change history.](https://github.com/kebasyaty/crymon/blob/v0/CHANGELOG.md "View the change history.")
 
 ## Contributing
 
-1. Fork it (<https://github.com/kebasyaty/cryod/fork>)
+1. Fork it (<https://github.com/kebasyaty/crymon/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

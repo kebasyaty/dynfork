@@ -1,4 +1,4 @@
-name: cryod
+name: crymon
 version: 0.1.0
 crystal: ">= 1.10.0, < 2.0"
 
@@ -9,6 +9,6 @@ license: MIT
 description: |
   ORM-like API MongoDB for Crystal
 
-homepage: https://github.com/kebasyaty/cryod
-repository: https://github.com/kebasyaty/cryod
-documentation: https://kebasyaty.github.io/cryod/
+homepage: https://github.com/kebasyaty/crymon
+repository: https://github.com/kebasyaty/crymon
+documentation: https://kebasyaty.github.io/crymon/

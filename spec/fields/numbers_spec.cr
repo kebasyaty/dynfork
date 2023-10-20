@@ -53,7 +53,7 @@ describe Fields do
 
       it "invalid input type - type=???" do
         t : String = "???"
-        ex = expect_raises(Cryod::InvalidInputType) do
+        ex = expect_raises(Crymon::InvalidInputType) do
           Fields::U32Field.new(
             label : String = "",
             default : UInt32 | Nil = nil,
@@ -130,7 +130,7 @@ describe Fields do
 
       it "invalid input type - type=???" do
         t : String = "???"
-        ex = expect_raises(Cryod::InvalidInputType) do
+        ex = expect_raises(Crymon::InvalidInputType) do
           Fields::I64Field.new(
             label : String = "",
             default : Int64 | Nil = nil,
@@ -207,7 +207,7 @@ describe Fields do
 
       it "invalid input type - type=???" do
         t : String = "???"
-        ex = expect_raises(Cryod::InvalidInputType) do
+        ex = expect_raises(Crymon::InvalidInputType) do
           Fields::F64Field.new(
             label : String = "",
             default : Float64 | Nil = nil,

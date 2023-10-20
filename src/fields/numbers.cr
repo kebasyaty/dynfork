@@ -44,7 +44,7 @@ module Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Cryod::InvalidInputType.new(@input_type)
+        raise Crymon::InvalidInputType.new(@input_type)
       end
     end
   end
@@ -92,7 +92,7 @@ module Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Cryod::InvalidInputType.new(@input_type)
+        raise Crymon::InvalidInputType.new(@input_type)
       end
     end
   end
@@ -140,7 +140,7 @@ module Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Cryod::InvalidInputType.new(@input_type)
+        raise Crymon::InvalidInputType.new(@input_type)
       end
     end
   end

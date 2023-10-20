@@ -1,7 +1,7 @@
-require "./cryod/errors"
+require "./crymon/errors"
 require "./fields/*"
 
 # ORM-like API MongoDB for Crystal
-module Cryod
+module Crymon
   VERSION = "0.1.0"
 end

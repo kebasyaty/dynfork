@@ -50,7 +50,7 @@ describe Fields do
 
       it "invalid input type - type=???" do
         t : String = "???"
-        ex = expect_raises(Cryod::InvalidInputType) do
+        ex = expect_raises(Crymon::InvalidInputType) do
           Fields::ColorField.new(
             label : String = "",
             default : String | Nil = "#000000",

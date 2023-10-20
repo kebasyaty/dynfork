@@ -1,5 +1,4 @@
 require "./field"
-require "../cryod/errors"
 
 module Fields
   # Field for entering color.
@@ -48,7 +47,7 @@ module Fields
       @hint : String = ""
     )
       if ["text", "color"].index(@input_type).nil?
-        raise Cryod::InvalidInputType.new(@input_type)
+        raise Crymon::InvalidInputType.new(@input_type)
       end
     end
   end
