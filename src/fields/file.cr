@@ -22,13 +22,9 @@ module Fields
     # Describing which file types to allow.
     # Example: "image/jpeg,image/png,image/gif"
     # https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
-    property accept : String
+    property accept : String = ""
     # Displays prompt text.
     property placeholder : String
-    # The maximum number of characters allowed in the text.
-    property maxlength : UInt32
-    # The minimum number of characters allowed in the text.
-    property minlength : UInt32
     # The unique value of a field in a collection.
     property is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -38,9 +34,11 @@ module Fields
     def initialize(
       @label : String = "",
       @default : String | Nil = nil,
+      @media_root : String = "../../assets/media",
+      @media_url : String = "/media",
+      @target_dir : String = "files",
+      @accept : String = "",
       @placeholder : String = "",
-      @maxlength : UInt32 = 2048,
-      @minlength : UInt32 = 0,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
