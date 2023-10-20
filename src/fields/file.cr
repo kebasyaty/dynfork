@@ -11,10 +11,18 @@ module Fields
     property value : String | Nil
     # Value by default.
     property default : String | Nil
-    #
+    # Root directory for storing media files.
     property media_root : String = "../../assets/media"
-    #
+    # URL address for the media directory.
     property media_url : String = "/media"
+    # Directory for files inside media directory (inner path).
+    # Example: "files/resume".
+    property target_dir : String = "files"
+    # HTML attribute: accept
+    # Describing which file types to allow.
+    # Example: "image/jpeg,image/png,image/gif"
+    # https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
+    property accept : String
     # Displays prompt text.
     property placeholder : String
     # The maximum number of characters allowed in the text.
