@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Fields::PasswordField - crymon v0</title>
+  <title>Fields::ImageField - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -212,7 +212,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Fields/ImageField" data-name="fields::imagefield">
+  <li class=" current" data-id="crymon/Fields/ImageField" data-name="fields::imagefield">
       <a href="../Fields/ImageField.html">ImageField</a>
       
     </li>
@@ -222,7 +222,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Fields/PasswordField" data-name="fields::passwordfield">
+  <li class=" " data-id="crymon/Fields/PasswordField" data-name="fields::passwordfield">
       <a href="../Fields/PasswordField.html">PasswordField</a>
       
     </li>
@@ -266,12 +266,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Fields::<wbr>PasswordField
+  <span class="kind">struct</span> Fields::<wbr>ImageField
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/PasswordField.html">Fields::PasswordField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/ImageField.html">Fields::ImageField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -285,7 +285,7 @@
     Overview
   </h2>
 
-  <p>Field for entering password.</p>
+  <p>File upload field.</p>
 
 
 
@@ -310,8 +310,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L5" target="_blank">
-        src\fields\password.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L5" target="_blank">
+        src\fields\image.cr
       </a>
     
     <br/>
@@ -334,12 +334,12 @@
       <li class="entry-summary">
         <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
-          <div class="summary"><p>Field for entering password.</p></div>
+          <div class="summary"><p>File upload field.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D256%2Cminlength%3AUInt32%3D8%2Cregex%3AString%3D%22%5E%5Ba-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%5D%7B8%2C256%7D%24%22%2Cregex_err_msg%3AString%3D%22Allowedchars%3Aa-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">256</span>, minlength : UInt32 = <span class="n">8</span>, regex : String = <span class="s">&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;</span>, regex_err_msg : String = <span class="s">&quot;Allowed chars: a-z A-Z 0-9 @ # $ % ^ &amp; + = * ! ~ ) (&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22../../assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cis_quality%3ABool%3Dtrue%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;../../assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, is_quality : Bool = <span class="n">true</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -358,6 +358,34 @@
     Instance Method Summary
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#accept%3AString-instance-method" class="signature"><strong>#accept</strong> : String</a>
+        
+          <div class="summary"><p>HTML attribute: accept.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#accept%3D%28accept%3AString%29-instance-method" class="signature"><strong>#accept=</strong>(accept : String)</a>
+        
+          <div class="summary"><p>HTML attribute: accept.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
+        
+          <div class="summary"><p>Value by default.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default%3D%28default%3AString%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : String | Nil)</a>
+        
+          <div class="summary"><p>Value by default.</p></div>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
@@ -381,6 +409,20 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#is_quality%3ABool-instance-method" class="signature"><strong>#is_quality</strong> : Bool</a>
+        
+          <div class="summary"><p>Thumbnail quality level: - Fast=false or Qualitatively=true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_quality%3D%28is_quality%3ABool%29-instance-method" class="signature"><strong>#is_quality=</strong>(is_quality : Bool)</a>
+        
+          <div class="summary"><p>Thumbnail quality level: - Fast=false or Qualitatively=true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
         
           <div class="summary"><p>The unique value of a field in a collection.</p></div>
@@ -395,30 +437,30 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
+        <a href="#media_root%3AString-instance-method" class="signature"><strong>#media_root</strong> : String</a>
         
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method" class="signature"><strong>#maxlength=</strong>(maxlength : UInt32)</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>Root directory for storing media files.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3AUInt32-instance-method" class="signature"><strong>#minlength</strong> : UInt32</a>
+        <a href="#media_root%3D%28media_root%3AString%29-instance-method" class="signature"><strong>#media_root=</strong>(media_root : String)</a>
         
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>Root directory for storing media files.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3D%28minlength%3AUInt32%29-instance-method" class="signature"><strong>#minlength=</strong>(minlength : UInt32)</a>
+        <a href="#media_url%3AString-instance-method" class="signature"><strong>#media_url</strong> : String</a>
         
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>URL address for the media directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#media_url%3D%28media_url%3AString%29-instance-method" class="signature"><strong>#media_url=</strong>(media_url : String)</a>
+        
+          <div class="summary"><p>URL address for the media directory.</p></div>
         
       </li>
     
@@ -437,30 +479,30 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#regex%3AString-instance-method" class="signature"><strong>#regex</strong> : String</a>
+        <a href="#target_dir%3AString-instance-method" class="signature"><strong>#target_dir</strong> : String</a>
         
-          <div class="summary"><p>Regular expression to validate the value.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#regex%3D%28regex%3AString%29-instance-method" class="signature"><strong>#regex=</strong>(regex : String)</a>
-        
-          <div class="summary"><p>Regular expression to validate the value.</p></div>
+          <div class="summary"><p>Directory for files inside media directory (inner path).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#regex_err_msg%3AString-instance-method" class="signature"><strong>#regex_err_msg</strong> : String</a>
+        <a href="#target_dir%3D%28target_dir%3AString%29-instance-method" class="signature"><strong>#target_dir=</strong>(target_dir : String)</a>
         
-          <div class="summary"><p>Error message.</p></div>
+          <div class="summary"><p>Directory for files inside media directory (inner path).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#regex_err_msg%3D%28regex_err_msg%3AString%29-instance-method" class="signature"><strong>#regex_err_msg=</strong>(regex_err_msg : String)</a>
+        <a href="#thumbnails%3AArray%28Tuple%28String%2CUInt32%29%29-instance-method" class="signature"><strong>#thumbnails</strong> : Array(Tuple(String, UInt32))</a>
         
-          <div class="summary"><p>Error message.</p></div>
+          <div class="summary"><p>From one to four inclusive.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#thumbnails%3D%28thumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%29-instance-method" class="signature"><strong>#thumbnails=</strong>(thumbnails : Array(Tuple(String, UInt32)))</a>
+        
+          <div class="summary"><p>From one to four inclusive.</p></div>
         
       </li>
     
@@ -721,29 +763,29 @@
       
         <div class="doc">
           
-          <p>Field for entering password.</p>
+          <p>File upload field.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L5" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,placeholder:String=&quot;&quot;,maxlength:UInt32=256,minlength:UInt32=8,regex:String=&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;,regex_err_msg:String=&quot;Allowedchars:a-zA-Z0-9@#$%^&amp;+=*!~)(&quot;,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,media_root:String=&quot;../../assets/media&quot;,media_url:String=&quot;/media&quot;,target_dir:String=&quot;images&quot;,accept:String=&quot;&quot;,thumbnails:Array(Tuple(String,UInt32))=Array(::Tuple(String,UInt32)).new,is_quality:Bool=true,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">256</span>, minlength : UInt32 = <span class="n">8</span>, regex : String = <span class="s">&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;</span>, regex_err_msg : String = <span class="s">&quot;Allowed chars: a-z A-Z 0-9 @ # $ % ^ &amp; + = * ! ~ ) (&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;../../assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, is_quality : Bool = <span class="n">true</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D256%2Cminlength%3AUInt32%3D8%2Cregex%3AString%3D%22%5E%5Ba-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%5D%7B8%2C256%7D%24%22%2Cregex_err_msg%3AString%3D%22Allowedchars%3Aa-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22../../assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cis_quality%3ABool%3Dtrue%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L41" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -762,6 +804,96 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="accept:String-instance-method">
+      <div class="signature">
+        
+        def <strong>accept</strong> : String
+
+        <a class="method-permalink" href="#accept%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>HTML attribute: accept.
+Describing which file types to allow.
+Example: &quot;image/jpeg,image/png,image/gif&quot;
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="accept=(accept:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>accept=</strong>(accept : String)
+
+        <a class="method-permalink" href="#accept%3D%28accept%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>HTML attribute: accept.
+Describing which file types to allow.
+Example: &quot;image/jpeg,image/png,image/gif&quot;
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default</strong> : String | Nil
+
+        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default=(default:String|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>default=</strong>(default : String | Nil)
+
+        <a class="method-permalink" href="#default%3D%28default%3AString%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="field_type:String-instance-method">
       <div class="signature">
         
@@ -778,7 +910,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -800,7 +932,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -821,7 +953,51 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_quality:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_quality</strong> : Bool
+
+        <a class="method-permalink" href="#is_quality%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Thumbnail quality level: - Fast=false or Qualitatively=true.
+By default: true.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L34" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_quality=(is_quality:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_quality=</strong>(is_quality : Bool)
+
+        <a class="method-permalink" href="#is_quality%3D%28is_quality%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Thumbnail quality level: - Fast=false or Qualitatively=true.
+By default: true.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -842,7 +1018,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -863,91 +1039,91 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L36" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="maxlength:UInt32-instance-method">
+    <div class="entry-detail" id="media_root:String-instance-method">
       <div class="signature">
         
-        def <strong>maxlength</strong> : UInt32
+        def <strong>media_root</strong> : String
 
-        <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
+        <a class="method-permalink" href="#media_root%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The maximum number of characters allowed in the text.</p>
+          <p>Root directory for storing media files.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="maxlength=(maxlength:UInt32)-instance-method">
+    <div class="entry-detail" id="media_root=(media_root:String)-instance-method">
       <div class="signature">
         
-        def <strong>maxlength=</strong>(maxlength : UInt32)
+        def <strong>media_root=</strong>(media_root : String)
 
-        <a class="method-permalink" href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method">#</a>
+        <a class="method-permalink" href="#media_root%3D%28media_root%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The maximum number of characters allowed in the text.</p>
+          <p>Root directory for storing media files.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="minlength:UInt32-instance-method">
+    <div class="entry-detail" id="media_url:String-instance-method">
       <div class="signature">
         
-        def <strong>minlength</strong> : UInt32
+        def <strong>media_url</strong> : String
 
-        <a class="method-permalink" href="#minlength%3AUInt32-instance-method">#</a>
+        <a class="method-permalink" href="#media_url%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The minimum number of characters allowed in the text.</p>
+          <p>URL address for the media directory.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="minlength=(minlength:UInt32)-instance-method">
+    <div class="entry-detail" id="media_url=(media_url:String)-instance-method">
       <div class="signature">
         
-        def <strong>minlength=</strong>(minlength : UInt32)
+        def <strong>media_url=</strong>(media_url : String)
 
-        <a class="method-permalink" href="#minlength%3D%28minlength%3AUInt32%29-instance-method">#</a>
+        <a class="method-permalink" href="#media_url%3D%28media_url%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The minimum number of characters allowed in the text.</p>
+          <p>URL address for the media directory.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L19" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -968,7 +1144,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -989,91 +1165,97 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="regex:String-instance-method">
+    <div class="entry-detail" id="target_dir:String-instance-method">
       <div class="signature">
         
-        def <strong>regex</strong> : String
+        def <strong>target_dir</strong> : String
 
-        <a class="method-permalink" href="#regex%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#target_dir%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Regular expression to validate the value.</p>
+          <p>Directory for files inside media directory (inner path).
+Example: &quot;files/resume&quot;.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="regex=(regex:String)-instance-method">
+    <div class="entry-detail" id="target_dir=(target_dir:String)-instance-method">
       <div class="signature">
         
-        def <strong>regex=</strong>(regex : String)
+        def <strong>target_dir=</strong>(target_dir : String)
 
-        <a class="method-permalink" href="#regex%3D%28regex%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#target_dir%3D%28target_dir%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Regular expression to validate the value.</p>
+          <p>Directory for files inside media directory (inner path).
+Example: &quot;files/resume&quot;.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="regex_err_msg:String-instance-method">
+    <div class="entry-detail" id="thumbnails:Array(Tuple(String,UInt32))-instance-method">
       <div class="signature">
         
-        def <strong>regex_err_msg</strong> : String
+        def <strong>thumbnails</strong> : Array(Tuple(String, UInt32))
 
-        <a class="method-permalink" href="#regex_err_msg%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#thumbnails%3AArray%28Tuple%28String%2CUInt32%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Error message.</p>
+          <p>From one to four inclusive.
+Example: [{&quot;xs&quot;, 150},{&quot;sm&quot;, 300},{&quot;md&quot;, 600},{&quot;lg&quot;, 1200}].
+Hint: An Intel i7-4770 processor or better is recommended.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="regex_err_msg=(regex_err_msg:String)-instance-method">
+    <div class="entry-detail" id="thumbnails=(thumbnails:Array(Tuple(String,UInt32)))-instance-method">
       <div class="signature">
         
-        def <strong>regex_err_msg=</strong>(regex_err_msg : String)
+        def <strong>thumbnails=</strong>(thumbnails : Array(Tuple(String, UInt32)))
 
-        <a class="method-permalink" href="#regex_err_msg%3D%28regex_err_msg%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#thumbnails%3D%28thumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Error message.</p>
+          <p>From one to four inclusive.
+Example: [{&quot;xs&quot;, 150},{&quot;sm&quot;, 300},{&quot;md&quot;, 600},{&quot;lg&quot;, 1200}].
+Hint: An Intel i7-4770 processor or better is recommended.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1094,7 +1276,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1115,7 +1297,7 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\password.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/3c700b09186643223414553e6e0549201bf3d12d/src\fields\image.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
