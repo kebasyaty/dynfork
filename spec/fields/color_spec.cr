@@ -27,6 +27,49 @@ describe Fields do
         f.errors.should eq(Array(String).new)
         f.group.should eq(1_u32)
       end
+
+      it "create an instance with input_type=color" do
+        f = Fields::ColorField.new(
+          label : String = "",
+          default : String | Nil = "#000000",
+          input_type : String = "color", # text | color
+          placeholder : String = "",
+          maxlength : UInt32 = 256,
+          minlength : UInt32 = 0,
+          is_hide : Bool = false,
+          is_unique : Bool = false,
+          is_required : Bool = false,
+          is_disabled : Bool = false,
+          is_readonly : Bool = false,
+          other_attrs : String = "",
+          css_classes : String = "",
+          hint : String = ""
+        )
+        f.input_type.should eq("color")
+      end
+
+      it "invalid input type - type=???" do
+        t : String = "???"
+        ex = expect_raises(Cryod::InvalidInputType) do
+          Fields::ColorField.new(
+            label : String = "",
+            default : String | Nil = "#000000",
+            input_type : String = t, # text | color
+            placeholder : String = "",
+            maxlength : UInt32 = 256,
+            minlength : UInt32 = 0,
+            is_hide : Bool = false,
+            is_unique : Bool = false,
+            is_required : Bool = false,
+            is_disabled : Bool = false,
+            is_readonly : Bool = false,
+            other_attrs : String = "",
+            css_classes : String = "",
+            hint : String = ""
+          )
+        end
+        ex.message.should eq %(The "#{t}" invalid input type.)
+      end
     end
   end
 end

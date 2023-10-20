@@ -1,20 +1,23 @@
 require "./field"
+require "../cryod/errors"
 
 module Fields
   # Field for entering color.
   # The default value is #000000 (black).
-  # Examples: #fff | #f2f2f2 | #ffffff00 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+  # By default type="text".
+  # WARNING: type="color" only seven-character hexadecimal notation.
+  # Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
   # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.
   struct ColorField < Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ColorField"
     # Html tag: input type="color".
-    # Example: #000000 (black)
+    # By default type="text".
     # WARNING: type="color" only seven-character hexadecimal notation.
-    getter input_type : String = "text"
+    getter input_type : String
     # Sets the value of an element.
     property value : String | Nil
-    # Value by default.
+    # The default value is #000000.
     property default : String | Nil
     # Displays prompt text.
     property placeholder : String
@@ -31,6 +34,7 @@ module Fields
     def initialize(
       @label : String = "",
       @default : String | Nil = "#000000",
+      @input_type : String = "text", # text | color
       @placeholder : String = "",
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 0,
@@ -42,6 +46,10 @@ module Fields
       @other_attrs : String = "",
       @css_classes : String = "",
       @hint : String = ""
-    ); end
+    )
+      if ["text", "color"].index(@input_type).nil?
+        raise Cryod::InvalidInputType.new(@input_type)
+      end
+    end
   end
 end

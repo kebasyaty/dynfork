@@ -5,7 +5,7 @@ module Fields
   struct U32Field < Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "U32Field"
-    # Html tag: input type="url".
+    # Html tag: input type="number|range".
     getter input_type : String = "number"
     # Sets the value of an element.
     property value : UInt32 | Nil
@@ -28,6 +28,7 @@ module Fields
     def initialize(
       @label : String = "",
       @default : UInt32 | Nil = nil,
+      @input_type : String = "number", # number | range
       @placeholder : String = "",
       @max : UInt32 = UInt32::MAX,
       @min : UInt32 = 0,
@@ -41,14 +42,18 @@ module Fields
       @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      if ["number", "range"].index(@input_type).nil?
+        raise Cryod::InvalidInputType.new(@input_type)
+      end
+    end
   end
 
   # Field for entering integer 64-bit numbers.
   struct I64Field < Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "I64Field"
-    # Html tag: input type="url".
+    # Html tag: input type="number|range".
     getter input_type : String = "number"
     # Sets the value of an element.
     property value : Int64 | Nil
@@ -71,6 +76,7 @@ module Fields
     def initialize(
       @label : String = "",
       @default : Int64 | Nil = nil,
+      @input_type : String = "number", # number | range
       @placeholder : String = "",
       @max : Int64 = Int64::MAX,
       @min : Int64 = 0,
@@ -84,15 +90,19 @@ module Fields
       @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      if ["number", "range"].index(@input_type).nil?
+        raise Cryod::InvalidInputType.new(@input_type)
+      end
+    end
   end
 
   # Field for entering float 64-bit numbers.
   struct F64Field < Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "F64Field"
-    # Html tag: input type="url".
-    getter input_type : String = "number"
+    # Html tag: input type="number|range".
+    getter input_type : String
     # Sets the value of an element.
     property value : Float64 | Nil
     # Value by default.
@@ -114,6 +124,7 @@ module Fields
     def initialize(
       @label : String = "",
       @default : Float64 | Nil = nil,
+      @input_type : String = "number", # number | range
       @placeholder : String = "",
       @max : Float64 = Float64::MAX,
       @min : Float64 = 0.0,
@@ -127,6 +138,10 @@ module Fields
       @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      if ["number", "range"].index(@input_type).nil?
+        raise Cryod::InvalidInputType.new(@input_type)
+      end
+    end
   end
 end
