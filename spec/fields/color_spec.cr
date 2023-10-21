@@ -30,42 +30,16 @@ describe Fields do
 
       it "create an instance with input_type=color" do
         f = Fields::ColorField.new(
-          label : String = "",
-          default : String | Nil = "#000000",
-          input_type : String = "color", # text | color
-          placeholder : String = "",
-          maxlength : UInt32 = 256,
-          minlength : UInt32 = 0,
-          is_hide : Bool = false,
-          is_unique : Bool = false,
-          is_required : Bool = false,
-          is_disabled : Bool = false,
-          is_readonly : Bool = false,
-          other_attrs : String = "",
-          css_classes : String = "",
-          hint : String = ""
+          input_type: "color"
         )
         f.input_type.should eq("color")
       end
 
-      it "invalid input type - type=???" do
+      it "invalid input type - input_type=???" do
         t : String = "???"
         ex = expect_raises(Crymon::InvalidInputType) do
           Fields::ColorField.new(
-            label : String = "",
-            default : String | Nil = "#000000",
-            input_type : String = t, # text | color
-            placeholder : String = "",
-            maxlength : UInt32 = 256,
-            minlength : UInt32 = 0,
-            is_hide : Bool = false,
-            is_unique : Bool = false,
-            is_required : Bool = false,
-            is_disabled : Bool = false,
-            is_readonly : Bool = false,
-            other_attrs : String = "",
-            css_classes : String = "",
-            hint : String = ""
+            input_type: t
           )
         end
         ex.message.should eq %(The "#{t}" invalid input type.)
