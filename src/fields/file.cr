@@ -1,5 +1,4 @@
 require "./field"
-require "json"
 
 module Fields
   # File upload field.
@@ -9,9 +8,9 @@ module Fields
     # Html tag: input type="url".
     getter input_type : String = "file"
     # Sets the value of an element.
-    property value : FileData | Nil
+    property value : Fields::FileData | Nil
     # Value by default.
-    property default : FileData | Nil
+    property default : Fields::FileData | Nil
     # Root directory for storing media files.
     property media_root : String
     # URL address for the media directory.
@@ -34,7 +33,7 @@ module Fields
 
     def initialize(
       @label : String = "",
-      @default : FileData | Nil = nil,
+      @default : Fields::FileData | Nil = nil,
       @media_root : String = "../assets/media",
       @media_url : String = "/media",
       @target_dir : String = "files",
@@ -49,28 +48,6 @@ module Fields
       @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
-    ); end
-  end
-
-  # Helper structure for FileField.
-  struct FileData
-    include JSON::Serializable
-    include JSON::Serializable::Strict
-    # Path to  file.
-    property path : String
-    # URL to the file.
-    property url : String = ""
-    # File name.
-    property name : String = ""
-    # File size in bytes.
-    property size : Float64 = 0
-    # If the file needs to be deleted: is_delete=true.
-    # By default is_delete=false.
-    property is_delete : Bool
-
-    def initialize(
-      @path : String = "",
-      @is_delete : Bool = false
     ); end
   end
 end
