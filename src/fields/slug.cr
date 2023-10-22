@@ -20,7 +20,7 @@ module Fields
     property slug_sources : Array(String)
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 2
+    getter group : UInt8 = 2
 
     def initialize(
       @label : String = "",

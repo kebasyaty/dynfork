@@ -19,7 +19,7 @@ module Fields
     property choices : Array(Tuple(String, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 4
+    getter group : UInt8 = 4
 
     def initialize(
       @label : String = "",

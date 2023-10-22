@@ -29,7 +29,7 @@ module Fields
     property is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 8
+    getter group : UInt8 = 8
 
     def initialize(
       @label : String = "",
