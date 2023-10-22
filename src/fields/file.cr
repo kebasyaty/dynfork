@@ -59,20 +59,17 @@ module Fields
     # Path to  file.
     property path : String
     # URL to the file.
-    property url : String
+    property url : String = ""
     # File name.
-    property name : String
+    property name : String = ""
     # File size in bytes.
-    property size : Float64
+    property size : Float64 = 0
     # If the file needs to be deleted: is_delete=true.
     # By default is_delete=false.
     property is_delete : Bool
 
     def initialize(
       @path : String = "",
-      @url : String = "",
-      @name : String = "",
-      @size : Float64 = 0,
       @is_delete : Bool = false
     ); end
   end

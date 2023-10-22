@@ -1,6 +1,29 @@
 require "../spec_helper"
 
 describe Fields do
+  describe "Fields::ImageData" do
+    describe ".new" do
+      it "create an instance of the ImageData" do
+        f = Fields::ImageData.new
+        f.path.should eq("")
+        f.path_xs.should eq("")
+        f.path_sm.should eq("")
+        f.path_md.should eq("")
+        f.path_lg.should eq("")
+        f.url.should eq("")
+        f.url_xs.should eq("")
+        f.url_sm.should eq("")
+        f.url_md.should eq("")
+        f.url_lg.should eq("")
+        f.name.should eq("")
+        f.size.should eq(0_f64)
+        f.width.should eq(0_f64)
+        f.height.should eq(0_f64)
+        f.is_delete.should be_false
+      end
+    end
+  end
+
   describe "Fields::ImageField" do
     describe ".new" do
       it "create an instance of the Image field" do
