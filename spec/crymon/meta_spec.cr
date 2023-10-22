@@ -40,7 +40,7 @@ describe Crymon do
         m.field_value_type_map.should eq(Hash(String, String).new)
         m.field_type_map.should eq(Hash(String, String).new)
         m.default_value_map.should eq(Hash(String, String).new)
-        m.ignore_fields.should eq(Hash(Array(String)).new)
+        m.ignore_fields.should eq(Array(String).new)
         m.choice_str_map.should eq(Hash(String, Array(String)).new)
         m.choice_i64_map.should eq(Hash(String, Array(Int64)).new)
         m.choice_f64_map.should eq(Hash(String, Array(Float64)).new)
