@@ -26,7 +26,7 @@ describe Fields do
 
   describe "Fields::ImageField" do
     describe ".new" do
-      it "create an instance of the Image field" do
+      it "create instance of Image field" do
         f = Fields::ImageField.new
         f.id.should eq("")
         f.label.should eq("")

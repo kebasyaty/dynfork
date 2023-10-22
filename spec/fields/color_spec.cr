@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::ColorField" do
     describe ".new" do
-      it "create an instance of the Color field" do
+      it "create instance of Color field" do
         f = Fields::ColorField.new
         f.id.should eq("")
         f.label.should eq("")

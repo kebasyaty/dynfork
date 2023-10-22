@@ -10,7 +10,7 @@ describe Fields do
       end
     end
     describe ".from_json" do
-      it "create an instance from json" do
+      it "create instance from json" do
         f = Fields::TextField.new
         j : String = f.to_json
         f = Fields::TextField.from_json(j)

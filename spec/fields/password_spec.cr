@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::PasswordField" do
     describe ".new" do
-      it "create an instance of the Password field" do
+      it "create instance of Password field" do
         f = Fields::PasswordField.new
         f.id.should eq("")
         f.label.should eq("")

@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::FileData" do
     describe ".new" do
-      it "create an instance of the FileData" do
+      it "create instance of FileData" do
         f = Fields::FileData.new
         f.path.should eq("")
         f.url.should eq("")
@@ -16,7 +16,7 @@ describe Fields do
 
   describe "Fields::FileField" do
     describe ".new" do
-      it "create an instance of the File field" do
+      it "create instance of  File field" do
         f = Fields::FileField.new
         f.id.should eq("")
         f.label.should eq("")

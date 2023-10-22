@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::ChoiceU32Field" do
     describe ".new" do
-      it "create an instance of the ChoiceU32Field" do
+      it "create instance of ChoiceU32Field" do
         f = Fields::ChoiceU32Field.new
         f.id.should eq("")
         f.label.should eq("")
@@ -30,7 +30,7 @@ describe Fields do
 
   describe "Fields::ChoiceU32MultField" do
     describe ".new" do
-      it "create an instance of the ChoiceU32MultField" do
+      it "create instance of ChoiceU32MultField" do
         f = Fields::ChoiceU32MultField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -57,7 +57,7 @@ describe Fields do
 
   describe "Fields::ChoiceU32DynField" do
     describe ".new" do
-      it "create an instance of the ChoiceU32DynField" do
+      it "create instance of ChoiceU32DynField" do
         f = Fields::ChoiceU32DynField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -83,7 +83,7 @@ describe Fields do
 
   describe "Fields::ChoiceU32MultDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceU32MultDynField" do
+      it "create instance of ChoiceU32MultDynField" do
         f = Fields::ChoiceU32MultDynField.new
         f.id.should eq("")
         f.label.should eq("")

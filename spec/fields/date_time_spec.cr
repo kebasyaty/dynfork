@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::DateTimeField" do
     describe ".new" do
-      it "create an instance of the Date-Time field" do
+      it "create instance of Date-Time field" do
         f = Fields::DateTimeField.new
         f.id.should eq("")
         f.label.should eq("")

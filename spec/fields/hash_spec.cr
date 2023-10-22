@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::HashField" do
     describe ".new" do
-      it "create an instance of the Hash field" do
+      it "create instance of Hash field" do
         f = Fields::HashField.new
         f.id.should eq("")
         f.label.should eq("")

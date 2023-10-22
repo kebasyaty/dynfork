@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::SlugField" do
     describe ".new" do
-      it "create an instance of the Slug field" do
+      it "create instance of Slug field" do
         f = Fields::SlugField.new
         f.id.should eq("")
         f.label.should eq("")

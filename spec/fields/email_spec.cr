@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::EmailField" do
     describe ".new" do
-      it "create an instance of the Email field" do
+      it "create instance of Email field" do
         f = Fields::EmailField.new
         f.id.should eq("")
         f.label.should eq("")

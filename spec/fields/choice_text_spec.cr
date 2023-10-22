@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::ChoiceTextField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextField" do
+      it "create instance of ChoiceTextField" do
         f = Fields::ChoiceTextField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -30,7 +30,7 @@ describe Fields do
 
   describe "Fields::ChoiceTextMultField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextMultField" do
+      it "create instance of ChoiceTextMultField" do
         f = Fields::ChoiceTextMultField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -57,7 +57,7 @@ describe Fields do
 
   describe "Fields::ChoiceTextDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextDynField" do
+      it "create instance of ChoiceTextDynField" do
         f = Fields::ChoiceTextDynField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -83,7 +83,7 @@ describe Fields do
 
   describe "Fields::ChoiceTextMultDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextMultDynField" do
+      it "create instance of ChoiceTextMultDynField" do
         f = Fields::ChoiceTextMultDynField.new
         f.id.should eq("")
         f.label.should eq("")

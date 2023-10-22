@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::TextField" do
     describe ".new" do
-      it "create an instance of the Text field" do
+      it "create instance of Text field" do
         f = Fields::TextField.new
         f.id.should eq("")
         f.label.should eq("")

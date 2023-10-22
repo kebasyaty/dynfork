@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::ChoiceF64Field" do
     describe ".new" do
-      it "create an instance of the ChoiceF64Field" do
+      it "create instance of ChoiceF64Field" do
         f = Fields::ChoiceF64Field.new
         f.id.should eq("")
         f.label.should eq("")
@@ -30,7 +30,7 @@ describe Fields do
 
   describe "Fields::ChoiceF64MultField" do
     describe ".new" do
-      it "create an instance of the ChoiceF64MultField" do
+      it "create instance of ChoiceF64MultField" do
         f = Fields::ChoiceF64MultField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -57,7 +57,7 @@ describe Fields do
 
   describe "Fields::ChoiceF64DynField" do
     describe ".new" do
-      it "create an instance of the ChoiceF64DynField" do
+      it "create instance of ChoiceF64DynField" do
         f = Fields::ChoiceF64DynField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -83,7 +83,7 @@ describe Fields do
 
   describe "Fields::ChoiceF64MultDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceF64MultDynField" do
+      it "create instance of ChoiceF64MultDynField" do
         f = Fields::ChoiceF64MultDynField.new
         f.id.should eq("")
         f.label.should eq("")

@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::IPField" do
     describe ".new" do
-      it "create an instance of the URL field" do
+      it "create instance of URL field" do
         f = Fields::IPField.new
         f.id.should eq("")
         f.label.should eq("")
