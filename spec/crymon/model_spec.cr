@@ -5,7 +5,7 @@ describe Crymon do
     describe ".new" do
       it "create instance of Model" do
         m = ModelName.new
-        m.model_name.should eq("")
+        m.name.should eq("")
       end
     end
   end
