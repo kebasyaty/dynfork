@@ -8,16 +8,16 @@ module Fields
     # Html tag: input type="url".
     getter input_type : String = "file"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : Fields::FileData | Nil
     # Value by default.
-    property default : String | Nil
+    property default : Fields::FileData | Nil
     # Root directory for storing media files.
-    property media_root : String = "../../assets/media"
+    property media_root : String
     # URL address for the media directory.
-    property media_url : String = "/media"
+    property media_url : String
     # Directory for files inside media directory (inner path).
     # Example: "files/resume".
-    property target_dir : String = "files"
+    property target_dir : String
     # HTML attribute: accept
     # Describing which file types to allow.
     # Example: "image/jpeg,image/png,image/gif"
@@ -33,8 +33,8 @@ module Fields
 
     def initialize(
       @label : String = "",
-      @default : String | Nil = nil,
-      @media_root : String = "../../assets/media",
+      @default : Fields::FileData | Nil = nil,
+      @media_root : String = "../assets/media",
       @media_url : String = "/media",
       @target_dir : String = "files",
       @accept : String = "",

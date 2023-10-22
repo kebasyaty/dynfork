@@ -8,9 +8,9 @@ module Fields
     # Html tag: input type="url".
     getter input_type : String = "file"
     # Sets the value of an element.
-    property value : String | Nil
+    property value : Fields::ImageData | Nil
     # Value by default.
-    property default : String | Nil
+    property default : Fields::ImageData | Nil
     # Displays prompt text.
     property placeholder : String
     # Root directory for storing media files.
@@ -40,7 +40,7 @@ module Fields
 
     def initialize(
       @label : String = "",
-      @default : String | Nil = nil,
+      @default : Fields::ImageData | Nil = nil,
       @placeholder : String = "",
       @media_root : String = "../../assets/media",
       @media_url : String = "/media",

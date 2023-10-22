@@ -1,6 +1,19 @@
 require "../spec_helper"
 
 describe Fields do
+  describe "Fields::FileData" do
+    describe ".new" do
+      it "create an instance of the FileData" do
+        f = Fields::FileData.new
+        f.path.should eq("")
+        f.url.should eq("")
+        f.name.should eq("")
+        f.size.should eq(0_f64)
+        f.is_delete.should be_false
+      end
+    end
+  end
+
   describe "Fields::FileField" do
     describe ".new" do
       it "create an instance of the File field" do
@@ -13,7 +26,7 @@ describe Fields do
         f.value.should be_nil
         f.default.should be_nil
         f.placeholder.should eq("")
-        f.media_root.should eq("../../assets/media")
+        f.media_root.should eq("../assets/media")
         f.media_url.should eq("/media")
         f.target_dir.should eq("files")
         f.accept.should eq("")

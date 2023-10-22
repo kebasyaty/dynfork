@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Fields::BoolField - crymon v0</title>
+  <title>Fields::FileData - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -82,7 +82,7 @@
       
         <ul>
   
-  <li class=" current" data-id="crymon/Fields/BoolField" data-name="fields::boolfield">
+  <li class=" " data-id="crymon/Fields/BoolField" data-name="fields::boolfield">
       <a href="../Fields/BoolField.html">BoolField</a>
       
     </li>
@@ -197,7 +197,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Fields/FileData" data-name="fields::filedata">
+  <li class=" current" data-id="crymon/Fields/FileData" data-name="fields::filedata">
       <a href="../Fields/FileData.html">FileData</a>
       
     </li>
@@ -276,12 +276,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Fields::<wbr>BoolField
+  <span class="kind">struct</span> Fields::<wbr>FileData
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/BoolField.html">Fields::BoolField</a></li><li class="superclass"><a href="../Fields/Field.html">Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Fields/FileData.html">Fields::FileData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -295,11 +295,27 @@
     Overview
   </h2>
 
-  <p>Boolean field.</p>
+  <p>Helper structure for FileField.</p>
 
 
 
 
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+      <li class="other-type">JSON::Serializable::Strict</li>
+    
+  </ul>
 
 
 
@@ -320,8 +336,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L5" target="_blank">
-        src\fields\bool.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L44" target="_blank">
+        src\fields\field.cr
       </a>
     
     <br/>
@@ -344,12 +360,10 @@
       <li class="entry-summary">
         <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
-          <div class="summary"><p>Boolean field.</p></div>
-        
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3ABool%7CNil%3Dfalse%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Bool | Nil = <span class="n">false</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)</a>
         
       </li>
     
@@ -370,51 +384,72 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3ABool%7CNil-instance-method" class="signature"><strong>#default</strong> : Bool | Nil</a>
+        <a href="#is_delete%3ABool-instance-method" class="signature"><strong>#is_delete</strong> : Bool</a>
         
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#default%3D%28default%3ABool%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : Bool | Nil)</a>
-        
-          <div class="summary"><p>Value by default.</p></div>
+          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
+        <a href="#is_delete%3D%28is_delete%3ABool%29-instance-method" class="signature"><strong>#is_delete=</strong>(is_delete : Bool)</a>
         
-          <div class="summary"><p>Field type - Structure Name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#group%3AUInt32-instance-method" class="signature"><strong>#group</strong> : UInt32</a>
-        
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
+          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
         
-          <div class="summary"><p>Field type - Html, input type.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3ABool%7CNil-instance-method" class="signature"><strong>#value</strong> : Bool | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><p>File name.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#value%3D%28value%3ABool%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : Bool | Nil)</a>
+        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
         
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><p>File name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
+        
+          <div class="summary"><p>Path to  file.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#path%3D%28path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(path : String)</a>
+        
+          <div class="summary"><p>Path to  file.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AFloat64-instance-method" class="signature"><strong>#size</strong> : Float64</a>
+        
+          <div class="summary"><p>File size in bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3D%28size%3AFloat64%29-instance-method" class="signature"><strong>#size=</strong>(size : Float64)</a>
+        
+          <div class="summary"><p>File size in bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
+        
+          <div class="summary"><p>URL to the file.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#url%3D%28url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(url : String)</a>
+        
+          <div class="summary"><p>URL to the file.</p></div>
         
       </li>
     
@@ -425,169 +460,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../Fields/Field.html">Fields::Field</a></code></h3>
-  
-  
-    <a href="../Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
-      <span>css_classes : String</span>
-    css_classes</a>, 
-    
-  
-    <a href="../Fields/Field.html#css_classes%3D%28css_classes%3AString%29-instance-method" class="tooltip">
-      <span>css_classes=(css_classes : String)</span>
-    css_classes=</a>, 
-    
-  
-    <a href="../Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../Fields/Field.html#group%3AUInt32-instance-method" class="tooltip">
-      <span>group : UInt32</span>
-    group</a>, 
-    
-  
-    <a href="../Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../Fields/Field.html#hint%3D%28hint%3AString%29-instance-method" class="tooltip">
-      <span>hint=(hint : String)</span>
-    hint=</a>, 
-    
-  
-    <a href="../Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
-      <span>is_disabled : Bool</span>
-    is_disabled</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
-      <span>is_hide : Bool</span>
-    is_hide</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
-      <span>is_readonly : Bool</span>
-    is_readonly</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
-      <span>is_required : Bool</span>
-    is_required</a>, 
-    
-  
-    <a href="../Fields/Field.html#is_required%3D%28is_required%3ABool%29-instance-method" class="tooltip">
-      <span>is_required=(is_required : Bool)</span>
-    is_required=</a>, 
-    
-  
-    <a href="../Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../Fields/Field.html#label%3D%28label%3AString%29-instance-method" class="tooltip">
-      <span>label=(label : String)</span>
-    label=</a>, 
-    
-  
-    <a href="../Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
-      <span>other_attrs : String</span>
-    other_attrs</a>, 
-    
-  
-    <a href="../Fields/Field.html#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="tooltip">
-      <span>other_attrs=(other_attrs : String)</span>
-    other_attrs=</a>, 
-    
-  
-    <a href="../Fields/Field.html#value-instance-method" class="tooltip">
-      <span>value</span>
-    value</a>, 
-    
-  
-    <a href="../Fields/Field.html#value%3D%28value%29-instance-method" class="tooltip">
-      <span>value=(value)</span>
-    value=</a>, 
-    
-  
-    <a href="../Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../Fields/Field.html">Fields::Field</a></code></h3>
-  
-  
-    <a href="../Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
   
     
 
@@ -659,31 +531,26 @@
         <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
       </div>
       
-        <div class="doc">
-          
-          <p>Boolean field.</p>
-        </div>
-      
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Bool|Nil=false,is_hide:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(path:String=&quot;&quot;,is_delete:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Bool | Nil = <span class="n">false</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3ABool%7CNil%3Dfalse%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -702,150 +569,214 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:Bool|Nil-instance-method">
+    <div class="entry-detail" id="is_delete:Bool-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : Bool | Nil
+        def <strong>is_delete</strong> : Bool
 
-        <a class="method-permalink" href="#default%3ABool%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#is_delete%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>If the file needs to be deleted: is_delete=true.
+By default is_delete=false.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="default=(default:Bool|Nil)-instance-method">
+    <div class="entry-detail" id="is_delete=(is_delete:Bool)-instance-method">
       <div class="signature">
         
-        def <strong>default=</strong>(default : Bool | Nil)
+        def <strong>is_delete=</strong>(is_delete : Bool)
 
-        <a class="method-permalink" href="#default%3D%28default%3ABool%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#is_delete%3D%28is_delete%3ABool%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>If the file needs to be deleted: is_delete=true.
+By default is_delete=false.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="field_type:String-instance-method">
+    <div class="entry-detail" id="name:String-instance-method">
       <div class="signature">
         
-        def <strong>field_type</strong> : String
+        def <strong>name</strong> : String
 
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Field type - Structure Name.</p>
+          <p>File name.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="group:UInt32-instance-method">
+    <div class="entry-detail" id="name=(name:String)-instance-method">
       <div class="signature">
         
-        def <strong>group</strong> : UInt32
+        def <strong>name=</strong>(name : String)
 
-        <a class="method-permalink" href="#group%3AUInt32-instance-method">#</a>
+        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.
-Hint: It is recommended not to change.</p>
+          <p>File name.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L16" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type:String-instance-method">
+    <div class="entry-detail" id="path:String-instance-method">
       <div class="signature">
         
-        def <strong>input_type</strong> : String
+        def <strong>path</strong> : String
 
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#path%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Field type - Html, input type.</p>
+          <p>Path to  file.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L9" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="value:Bool|Nil-instance-method">
+    <div class="entry-detail" id="path=(path:String)-instance-method">
       <div class="signature">
         
-        def <strong>value</strong> : Bool | Nil
+        def <strong>path=</strong>(path : String)
 
-        <a class="method-permalink" href="#value%3ABool%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#path%3D%28path%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>Path to  file.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="value=(value:Bool|Nil)-instance-method">
+    <div class="entry-detail" id="size:Float64-instance-method">
       <div class="signature">
         
-        def <strong>value=</strong>(value : Bool | Nil)
+        def <strong>size</strong> : Float64
 
-        <a class="method-permalink" href="#value%3D%28value%3ABool%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#size%3AFloat64-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Sets the value of an element.</p>
+          <p>File size in bytes.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\bool.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size=(size:Float64)-instance-method">
+      <div class="signature">
+        
+        def <strong>size=</strong>(size : Float64)
+
+        <a class="method-permalink" href="#size%3D%28size%3AFloat64%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>File size in bytes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>url</strong> : String
+
+        <a class="method-permalink" href="#url%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>URL to the file.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="url=(url:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>url=</strong>(url : String)
+
+        <a class="method-permalink" href="#url%3D%28url%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>URL to the file.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/0b2003637e3dbef32b1ad0ccf37900ad3007e40c/src\fields\field.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>
