@@ -4,7 +4,7 @@ describe Crymon do
   describe "Crymon::Model" do
     describe ".new" do
       it "create instance of Model" do
-        m = ModelName.new
+        m = Helper::ModelName.new
         m.name.should eq("")
       end
     end

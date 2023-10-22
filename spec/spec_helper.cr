@@ -1,4 +1,6 @@
 require "spec"
 require "../src/crymon"
 
-struct ModelName < Crymon::Model; end
+module Helper
+  struct ModelName < Crymon::Model; end
+end
