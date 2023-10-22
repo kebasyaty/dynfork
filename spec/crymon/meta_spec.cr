@@ -30,6 +30,18 @@ describe Crymon do
           is_use_hash_slug: false
         )
         m.model_name.should eq("")
+        m.app_name.should eq("")
+        m.unique_app_key.should eq("")
+        m.service_name.should eq("")
+        m.database_name.should eq("")
+        m.collection_name.should eq("")
+        m.fields_count.should eq(0_u32)
+        m.fields_name.should eq(Array(String).new)
+        m.field_value_type_map.should eq(Hash(String, String).new)
+        m.field_type_map.should eq(Hash(String, String).new)
+        m.default_value_map.should eq(Hash(String, String).new)
+        m.ignore_fields.should eq(Hash(Array(String).new)
+        m.choice_str_map.should eq(Hash(String, Array(String)).new)
       end
     end
   end
