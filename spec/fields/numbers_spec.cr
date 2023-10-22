@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::U32Field" do
     describe ".new" do
-      it "create an instance of the UInt32 field" do
+      it "create instance of UInt32 field" do
         f = Fields::U32Field.new
         f.id.should eq("")
         f.label.should eq("")
@@ -26,10 +26,10 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(11_u32)
+        f.group.should eq(11_u8)
       end
 
-      it "create an instance with input_type=range" do
+      it "create instance with input_type=range" do
         f = Fields::U32Field.new(
           input_type: "range"
         )
@@ -50,7 +50,7 @@ describe Fields do
 
   describe "Fields::I64Field" do
     describe ".new" do
-      it "create an instance of the Int64 field" do
+      it "create instance of Int64 field" do
         f = Fields::I64Field.new
         f.id.should eq("")
         f.label.should eq("")
@@ -73,10 +73,10 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(11_u32)
+        f.group.should eq(11_u8)
       end
 
-      it "create an instance with input_type=range" do
+      it "create instance with input_type=range" do
         f = Fields::I64Field.new(
           input_type: "range"
         )
@@ -97,7 +97,7 @@ describe Fields do
 
   describe "Fields::F64Field" do
     describe ".new" do
-      it "create an instance of the Float64 field" do
+      it "create instance of Float64 field" do
         f = Fields::F64Field.new
         f.id.should eq("")
         f.label.should eq("")
@@ -120,10 +120,10 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(12_u32)
+        f.group.should eq(12_u8)
       end
 
-      it "create an instance with input_type=range" do
+      it "create instance with input_type=range" do
         f = Fields::F64Field.new(
           input_type: "range"
         )

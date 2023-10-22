@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::ChoiceTextField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextField" do
+      it "create instance of ChoiceTextField" do
         f = Fields::ChoiceTextField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -23,14 +23,14 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(4_u32)
+        f.group.should eq(4_u8)
       end
     end
   end
 
   describe "Fields::ChoiceTextMultField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextMultField" do
+      it "create instance of ChoiceTextMultField" do
         f = Fields::ChoiceTextMultField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -50,14 +50,14 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(6_u32)
+        f.group.should eq(6_u8)
       end
     end
   end
 
   describe "Fields::ChoiceTextDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextDynField" do
+      it "create instance of ChoiceTextDynField" do
         f = Fields::ChoiceTextDynField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -76,14 +76,14 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(5_u32)
+        f.group.should eq(5_u8)
       end
     end
   end
 
   describe "Fields::ChoiceTextMultDynField" do
     describe ".new" do
-      it "create an instance of the ChoiceTextMultDynField" do
+      it "create instance of ChoiceTextMultDynField" do
         f = Fields::ChoiceTextMultDynField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -102,7 +102,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(7_u32)
+        f.group.should eq(7_u8)
       end
     end
   end

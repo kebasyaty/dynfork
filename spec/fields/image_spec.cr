@@ -26,7 +26,7 @@ describe Fields do
 
   describe "Fields::ImageField" do
     describe ".new" do
-      it "create an instance of the Image field" do
+      it "create instance of Image field" do
         f = Fields::ImageField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -52,7 +52,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(9_u32)
+        f.group.should eq(9_u8)
       end
     end
   end

@@ -26,7 +26,7 @@ module Fields
     property hint : String
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 3
+    getter group : UInt8 = 3
 
     def initialize(
       @label : String = "",

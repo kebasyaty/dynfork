@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Fields do
   describe "Fields::DateField" do
     describe ".new" do
-      it "create an instance of the Date field" do
+      it "create instance of Date field" do
         f = Fields::DateField.new
         f.id.should eq("")
         f.label.should eq("")
@@ -25,7 +25,7 @@ describe Fields do
         f.hint.should eq("Format: yyyy-mm-dd")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(3_u32)
+        f.group.should eq(3_u8)
       end
     end
   end
