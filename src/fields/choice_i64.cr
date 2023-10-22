@@ -54,7 +54,7 @@ module Fields
     property choices : Array(Tuple(Int64, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 6
+    getter group : UInt8 = 6
 
     def initialize(
       @label : String = "",
@@ -88,7 +88,7 @@ module Fields
     property choices : Array(Tuple(Int64, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 5
+    getter group : UInt8 = 5
 
     def initialize(
       @label : String = "",
@@ -121,7 +121,7 @@ module Fields
     property choices : Array(Tuple(Int64, String))
     # To optimize field traversal in the `paladins/check()` method.
     # Hint: It is recommended not to change.
-    getter group : UInt32 = 7
+    getter group : UInt8 = 7
 
     def initialize(
       @label : String = "",

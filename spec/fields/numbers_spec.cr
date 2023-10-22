@@ -26,7 +26,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(11_u32)
+        f.group.should eq(11_u8)
       end
 
       it "create instance with input_type=range" do
@@ -73,7 +73,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(11_u32)
+        f.group.should eq(11_u8)
       end
 
       it "create instance with input_type=range" do
@@ -120,7 +120,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(12_u32)
+        f.group.should eq(12_u8)
       end
 
       it "create instance with input_type=range" do

@@ -23,7 +23,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(2_u32)
+        f.group.should eq(2_u8)
       end
     end
   end

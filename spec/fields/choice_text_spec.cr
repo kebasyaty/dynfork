@@ -23,7 +23,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(4_u32)
+        f.group.should eq(4_u8)
       end
     end
   end
@@ -50,7 +50,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(6_u32)
+        f.group.should eq(6_u8)
       end
     end
   end
@@ -76,7 +76,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(5_u32)
+        f.group.should eq(5_u8)
       end
     end
   end
@@ -102,7 +102,7 @@ describe Fields do
         f.hint.should eq("")
         f.warning.should eq("")
         f.errors.should eq(Array(String).new)
-        f.group.should eq(7_u32)
+        f.group.should eq(7_u8)
       end
     end
   end
