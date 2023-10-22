@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="crymon">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="crymon">
+  <title>Crymon::Meta - crymon v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          crymon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="crymon/Crymon" data-name="crymon">
+      <a href="../Crymon.html">Crymon</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/CrymonException" data-name="crymon::crymonexception">
+      <a href="../Crymon/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/InvalidInputType" data-name="crymon::invalidinputtype">
+      <a href="../Crymon/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crymon/Crymon/Meta" data-name="crymon::meta">
+      <a href="../Crymon/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Model" data-name="crymon::model">
+      <a href="../Crymon/Model.html">Model</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Fields" data-name="fields">
+      <a href="../Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Fields/BoolField" data-name="fields::boolfield">
+      <a href="../Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64DynField" data-name="fields::choicef64dynfield">
+      <a href="../Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64Field" data-name="fields::choicef64field">
+      <a href="../Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64MultDynField" data-name="fields::choicef64multdynfield">
+      <a href="../Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceF64MultField" data-name="fields::choicef64multfield">
+      <a href="../Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64DynField" data-name="fields::choicei64dynfield">
+      <a href="../Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64Field" data-name="fields::choicei64field">
+      <a href="../Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64MultDynField" data-name="fields::choicei64multdynfield">
+      <a href="../Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceI64MultField" data-name="fields::choicei64multfield">
+      <a href="../Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextDynField" data-name="fields::choicetextdynfield">
+      <a href="../Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextField" data-name="fields::choicetextfield">
+      <a href="../Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextMultDynField" data-name="fields::choicetextmultdynfield">
+      <a href="../Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceTextMultField" data-name="fields::choicetextmultfield">
+      <a href="../Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32DynField" data-name="fields::choiceu32dynfield">
+      <a href="../Fields/ChoiceU32DynField.html">ChoiceU32DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32Field" data-name="fields::choiceu32field">
+      <a href="../Fields/ChoiceU32Field.html">ChoiceU32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32MultDynField" data-name="fields::choiceu32multdynfield">
+      <a href="../Fields/ChoiceU32MultDynField.html">ChoiceU32MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ChoiceU32MultField" data-name="fields::choiceu32multfield">
+      <a href="../Fields/ChoiceU32MultField.html">ChoiceU32MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ColorField" data-name="fields::colorfield">
+      <a href="../Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/DateField" data-name="fields::datefield">
+      <a href="../Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/DateTimeField" data-name="fields::datetimefield">
+      <a href="../Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/EmailField" data-name="fields::emailfield">
+      <a href="../Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/F64Field" data-name="fields::f64field">
+      <a href="../Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/Field" data-name="fields::field">
+      <a href="../Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/FileData" data-name="fields::filedata">
+      <a href="../Fields/FileData.html">FileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/FileField" data-name="fields::filefield">
+      <a href="../Fields/FileField.html">FileField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/HashField" data-name="fields::hashfield">
+      <a href="../Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/I64Field" data-name="fields::i64field">
+      <a href="../Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ImageData" data-name="fields::imagedata">
+      <a href="../Fields/ImageData.html">ImageData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/ImageField" data-name="fields::imagefield">
+      <a href="../Fields/ImageField.html">ImageField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/IPField" data-name="fields::ipfield">
+      <a href="../Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/PasswordField" data-name="fields::passwordfield">
+      <a href="../Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/PhoneField" data-name="fields::phonefield">
+      <a href="../Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/SlugField" data-name="fields::slugfield">
+      <a href="../Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/TextField" data-name="fields::textfield">
+      <a href="../Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/U32Field" data-name="fields::u32field">
+      <a href="../Fields/U32Field.html">U32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Fields/URLField" data-name="fields::urlfield">
+      <a href="../Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Crymon::<wbr>Meta
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Meta.html">Crymon::Meta</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Metadata for Model.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L3" target="_blank">
+        src\crymon\model\meta.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28model_name%3AString%2Capp_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cfields_count%3AUInt32%2Cfields_name%3AArray%28String%29%2Cfield_value_type_map%3AHash%28String%2CString%29%2Cfield_type_map%3AHash%28String%2CString%29%2Cdefault_value_map%3AHash%28String%2CString%29%2Cignore_fields%3AArray%28String%29%2Cchoice_str_map%3AHash%28String%2CArray%28String%29%29%2Cchoice_i64_map%3AHash%28String%2CArray%28Int64%29%29%2Cchoice_f64_map%3AHash%28String%2CArray%28Float64%29%29%2Cmodel_json%3AString%2Cdb_query_docs_limit%3AUInt32%3D1000%2Cis_add_doc%3ABool%3Dtrue%2Cis_up_doc%3ABool%3Dtrue%2Cis_del_doc%3ABool%3Dtrue%2Cis_use_addition%3ABool%3Dfalse%2Cis_use_hooks%3ABool%3Dfalse%2Cis_use_hash_slug%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(model_name : String, app_name : String, unique_app_key : String, service_name : String, database_name : String, collection_name : String, fields_count : UInt32, fields_name : Array(String), field_value_type_map : Hash(String, String), field_type_map : Hash(String, String), default_value_map : Hash(String, String), ignore_fields : Array(String), choice_str_map : Hash(String, Array(String)), choice_i64_map : Hash(String, Array(Int64)), choice_f64_map : Hash(String, Array(Float64)), model_json : String, db_query_docs_limit : UInt32 = <span class="n">1000</span>, is_add_doc : Bool = <span class="n">true</span>, is_up_doc : Bool = <span class="n">true</span>, is_del_doc : Bool = <span class="n">true</span>, is_use_addition : Bool = <span class="n">false</span>, is_use_hooks : Bool = <span class="n">false</span>, is_use_hash_slug : Bool = <span class="n">false</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#app_name%3AString-instance-method" class="signature"><strong>#app_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#choice_f64_map%3AHash%28String%2CArray%28Float64%29%29-instance-method" class="signature"><strong>#choice_f64_map</strong> : Hash(String, Array(Float64))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#choice_i64_map%3AHash%28String%2CArray%28Int64%29%29-instance-method" class="signature"><strong>#choice_i64_map</strong> : Hash(String, Array(Int64))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#choice_str_map%3AHash%28String%2CArray%28String%29%29-instance-method" class="signature"><strong>#choice_str_map</strong> : Hash(String, Array(String))</a>
+        
+          <div class="summary"><p>Choice maps for fields type <code>choice</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collection_name%3AString-instance-method" class="signature"><strong>#collection_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#database_name%3AString-instance-method" class="signature"><strong>#database_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#db_query_docs_limit%3AUInt32-instance-method" class="signature"><strong>#db_query_docs_limit</strong> : UInt32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default_value_map%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#default_value_map</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>Format: &lt;field_name, default_value&gt;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type_map%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#field_type_map</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>Format: &lt;field_name, fields_type&gt;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_value_type_map%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#field_value_type_map</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>Format: &lt;field_name, field_value_type&gt;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fields_count%3AUInt32-instance-method" class="signature"><strong>#fields_count</strong> : UInt32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#fields_name%3AArray%28String%29-instance-method" class="signature"><strong>#fields_name</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ignore_fields%3AArray%28String%29-instance-method" class="signature"><strong>#ignore_fields</strong> : Array(String)</a>
+        
+          <div class="summary"><p>List of field names that will not be saved to the database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_add_doc%3ABool-instance-method" class="signature"><strong>#is_add_doc</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_del_doc%3ABool-instance-method" class="signature"><strong>#is_del_doc</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_up_doc%3ABool-instance-method" class="signature"><strong>#is_up_doc</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_use_addition%3ABool-instance-method" class="signature"><strong>#is_use_addition</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_use_hash_slug%3ABool-instance-method" class="signature"><strong>#is_use_hash_slug</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_use_hooks%3ABool-instance-method" class="signature"><strong>#is_use_hooks</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#model_json%3AString-instance-method" class="signature"><strong>#model_json</strong> : String</a>
+        
+          <div class="summary"></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#model_name%3AString-instance-method" class="signature"><strong>#model_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#service_name%3AString-instance-method" class="signature"><strong>#service_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unique_app_key%3AString-instance-method" class="signature"><strong>#unique_app_key</strong> : String</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(model_name:String,app_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,fields_count:UInt32,fields_name:Array(String),field_value_type_map:Hash(String,String),field_type_map:Hash(String,String),default_value_map:Hash(String,String),ignore_fields:Array(String),choice_str_map:Hash(String,Array(String)),choice_i64_map:Hash(String,Array(Int64)),choice_f64_map:Hash(String,Array(Float64)),model_json:String,db_query_docs_limit:UInt32=1000,is_add_doc:Bool=true,is_up_doc:Bool=true,is_del_doc:Bool=true,is_use_addition:Bool=false,is_use_hooks:Bool=false,is_use_hash_slug:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(model_name : String, app_name : String, unique_app_key : String, service_name : String, database_name : String, collection_name : String, fields_count : UInt32, fields_name : Array(String), field_value_type_map : Hash(String, String), field_type_map : Hash(String, String), default_value_map : Hash(String, String), ignore_fields : Array(String), choice_str_map : Hash(String, Array(String)), choice_i64_map : Hash(String, Array(Int64)), choice_f64_map : Hash(String, Array(Float64)), model_json : String, db_query_docs_limit : UInt32 = <span class="n">1000</span>, is_add_doc : Bool = <span class="n">true</span>, is_up_doc : Bool = <span class="n">true</span>, is_del_doc : Bool = <span class="n">true</span>, is_use_addition : Bool = <span class="n">false</span>, is_use_hooks : Bool = <span class="n">false</span>, is_use_hash_slug : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new%28model_name%3AString%2Capp_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cfields_count%3AUInt32%2Cfields_name%3AArray%28String%29%2Cfield_value_type_map%3AHash%28String%2CString%29%2Cfield_type_map%3AHash%28String%2CString%29%2Cdefault_value_map%3AHash%28String%2CString%29%2Cignore_fields%3AArray%28String%29%2Cchoice_str_map%3AHash%28String%2CArray%28String%29%29%2Cchoice_i64_map%3AHash%28String%2CArray%28Int64%29%29%2Cchoice_f64_map%3AHash%28String%2CArray%28Float64%29%29%2Cmodel_json%3AString%2Cdb_query_docs_limit%3AUInt32%3D1000%2Cis_add_doc%3ABool%3Dtrue%2Cis_up_doc%3ABool%3Dtrue%2Cis_del_doc%3ABool%3Dtrue%2Cis_use_addition%3ABool%3Dfalse%2Cis_use_hooks%3ABool%3Dfalse%2Cis_use_hash_slug%3ABool%3Dfalse%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="app_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>app_name</strong> : String
+
+        <a class="method-permalink" href="#app_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="choice_f64_map:Hash(String,Array(Float64))-instance-method">
+      <div class="signature">
+        
+        def <strong>choice_f64_map</strong> : Hash(String, Array(Float64))
+
+        <a class="method-permalink" href="#choice_f64_map%3AHash%28String%2CArray%28Float64%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="choice_i64_map:Hash(String,Array(Int64))-instance-method">
+      <div class="signature">
+        
+        def <strong>choice_i64_map</strong> : Hash(String, Array(Int64))
+
+        <a class="method-permalink" href="#choice_i64_map%3AHash%28String%2CArray%28Int64%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L30" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="choice_str_map:Hash(String,Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>choice_str_map</strong> : Hash(String, Array(String))
+
+        <a class="method-permalink" href="#choice_str_map%3AHash%28String%2CArray%28String%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Choice maps for fields type <code>choice</code>.
+Format: HashMap&lt;field_name, choices&gt;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L29" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collection_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>collection_name</strong> : String
+
+        <a class="method-permalink" href="#collection_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="database_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>database_name</strong> : String
+
+        <a class="method-permalink" href="#database_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="db_query_docs_limit:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>db_query_docs_limit</strong> : UInt32
+
+        <a class="method-permalink" href="#db_query_docs_limit%3AUInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L10" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default_value_map:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>default_value_map</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#default_value_map%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Format: &lt;field_name, default_value&gt;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type_map:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type_map</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#field_type_map%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Format: &lt;field_name, fields_type&gt;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L22" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_value_type_map:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>field_value_type_map</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#field_value_type_map%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Format: &lt;field_name, field_value_type&gt;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fields_count:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>fields_count</strong> : UInt32
+
+        <a class="method-permalink" href="#fields_count%3AUInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="fields_name:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>fields_name</strong> : Array(String)
+
+        <a class="method-permalink" href="#fields_name%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ignore_fields:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>ignore_fields</strong> : Array(String)
+
+        <a class="method-permalink" href="#ignore_fields%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>List of field names that will not be saved to the database.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_add_doc:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_add_doc</strong> : Bool
+
+        <a class="method-permalink" href="#is_add_doc%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_del_doc:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_del_doc</strong> : Bool
+
+        <a class="method-permalink" href="#is_del_doc%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_up_doc:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_up_doc</strong> : Bool
+
+        <a class="method-permalink" href="#is_up_doc%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L14" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_use_addition:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_use_addition</strong> : Bool
+
+        <a class="method-permalink" href="#is_use_addition%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_use_hash_slug:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_use_hash_slug</strong> : Bool
+
+        <a class="method-permalink" href="#is_use_hash_slug%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_use_hooks:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_use_hooks</strong> : Bool
+
+        <a class="method-permalink" href="#is_use_hooks%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="model_json:String-instance-method">
+      <div class="signature">
+        
+        def <strong>model_json</strong> : String
+
+        <a class="method-permalink" href="#model_json%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="model_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>model_name</strong> : String
+
+        <a class="method-permalink" href="#model_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="service_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>service_name</strong> : String
+
+        <a class="method-permalink" href="#service_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unique_app_key:String-instance-method">
+      <div class="signature">
+        
+        def <strong>unique_app_key</strong> : String
+
+        <a class="method-permalink" href="#unique_app_key%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/456c69f90f71bf3474d200225e33d7070388af33/src\crymon\model\meta.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
