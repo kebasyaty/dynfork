@@ -59,4 +59,31 @@ module Fields
       @warning : String = ""
     ); end
   end
+
+  # Helper structure for ImageField.
+  struct ImageData
+    # # Path to  file.
+    property path : String
+    property path_xs : String
+    property path_sm : String
+    property path_md : String
+    property path_lg : String
+    # URL to the file.
+    property url : String
+    property url_xs : String
+    property url_sm : String
+    property url_md : String
+    property url_lg : String
+    # File name.
+    property name : String
+    # File size in bytes.
+    property size : Flaot64
+    # File width in pixels.
+    property width : Flaot64
+    # File height in pixels.
+    property height : Flaot64
+    # If the file needs to be deleted: is_delete=true.
+    # By default is_delete=false.
+    property is_delete : Bool
+  end
 end
