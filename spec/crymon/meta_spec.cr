@@ -21,7 +21,7 @@ describe Crymon do
           choice_i64_map: Hash(String, Array(Int64)).new,
           choice_f64_map: Hash(String, Array(Float64)).new,
           model_json: "",
-          db_query_docs_limit: 2000,
+          db_query_docs_limit: 2000_u32,
           is_add_doc: false,
           is_up_doc: false,
           is_del_doc: false,
