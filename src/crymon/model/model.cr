@@ -1,17 +1,17 @@
 module Crymon
-  # ???
+  # Abstraction for converting Crystal structures into Crymon Models.
   abstract struct Model
-    # ???
+    # Model name (Structure name).
     def model_name : String
       {{ @type.stringify }}.split("::")[-1]
     end
 
-    # ???
-    def fields_count : Int32
+    # Number of variables (fields).
+    def vars_count : Int32
       {{ @type.instance_vars.size }}
     end
 
-    # ???
+    # List of variable (field) names.
     def instance_vars_names : Array(String)
       {% if @type.instance_vars.size > 0 %}
         {{ @type.instance_vars.map &.name.stringify }}
@@ -20,7 +20,7 @@ module Crymon
       {% end %}
     end
 
-    # ???
+    # List is a list of variable (field) types.
     def instance_vars_types : Array(String)
       {% if @type.instance_vars.size > 0 %}
         {{ @type.instance_vars.map &.type.stringify }}
@@ -29,7 +29,7 @@ module Crymon
       {% end %}
     end
 
-    # ???
+    # List of names and types of variables (fields).
     # Format: <field_name, field_type>
     def instance_vars_name_and_type : Hash(String, String)
       {% if @type.instance_vars.size > 0 %}
@@ -42,7 +42,7 @@ module Crymon
       {% end %}
     end
 
-    # ???
+    # Determine the presence of a variable (field) in the model.
     def has_instance_var?(name) : Bool
       {% if @type.instance_vars.size > 0 %}
         {{ @type.instance_vars.map &.name.stringify }}.includes? name
