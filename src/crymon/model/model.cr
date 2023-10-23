@@ -3,7 +3,7 @@ module Crymon
   abstract struct Model
     # Model name (Structure name).
     def model_name : String
-      {{ @type.stringify }}.split("::")[-1]
+      {{ @type.name.stringify }}.split("::")[-1]
     end
 
     # Number of variables (fields).
@@ -24,6 +24,7 @@ module Crymon
     def instance_vars_types : Array(String)
       {% if @type.instance_vars.size > 0 %}
         {{ @type.instance_vars.map &.type.stringify }}
+          .map { |name| name.split("::")[-1] }
       {% else %}
         Array(String).new
       {% end %}
@@ -36,6 +37,7 @@ module Crymon
         Hash.zip(
           {{ @type.instance_vars.map &.name.stringify }},
           {{ @type.instance_vars.map &.type.stringify }}
+            .map { |name| name.split("::")[-1] }
         )
       {% else %}
         Hash(String, String).new
