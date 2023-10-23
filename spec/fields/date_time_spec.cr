@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::DateTimeField" do
+describe Crymon do
+  describe "Crymon::Fields::DateTimeField" do
     describe ".new" do
       it "create instance of Date-Time field" do
-        f = Fields::DateTimeField.new
+        f = Crymon::Fields::DateTimeField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("DateTimeField")

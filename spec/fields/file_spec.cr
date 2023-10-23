@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::FileData" do
+describe Crymon do
+  describe "Crymon::Fields::FileData" do
     describe ".new" do
       it "create instance of FileData" do
-        f = Fields::FileData.new
+        f = Crymon::Fields::FileData.new
         f.path.should eq("")
         f.url.should eq("")
         f.name.should eq("")
@@ -14,10 +14,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::FileField" do
+  describe "Crymon::Fields::FileField" do
     describe ".new" do
       it "create instance of  File field" do
-        f = Fields::FileField.new
+        f = Crymon::Fields::FileField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("FileField")

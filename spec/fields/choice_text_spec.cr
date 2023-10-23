@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::ChoiceTextField" do
+describe Crymon do
+  describe "Crymon::Fields::ChoiceTextField" do
     describe ".new" do
       it "create instance of ChoiceTextField" do
-        f = Fields::ChoiceTextField.new
+        f = Crymon::Fields::ChoiceTextField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceTextField")
@@ -28,10 +28,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceTextMultField" do
+  describe "Crymon::Fields::ChoiceTextMultField" do
     describe ".new" do
       it "create instance of ChoiceTextMultField" do
-        f = Fields::ChoiceTextMultField.new
+        f = Crymon::Fields::ChoiceTextMultField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceTextMultField")
@@ -55,10 +55,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceTextDynField" do
+  describe "Crymon::Fields::ChoiceTextDynField" do
     describe ".new" do
       it "create instance of ChoiceTextDynField" do
-        f = Fields::ChoiceTextDynField.new
+        f = Crymon::Fields::ChoiceTextDynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceTextDynField")
@@ -81,10 +81,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceTextMultDynField" do
+  describe "Crymon::Fields::ChoiceTextMultDynField" do
     describe ".new" do
       it "create instance of ChoiceTextMultDynField" do
-        f = Fields::ChoiceTextMultDynField.new
+        f = Crymon::Fields::ChoiceTextMultDynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceTextMultDynField")

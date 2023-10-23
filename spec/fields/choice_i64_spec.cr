@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::ChoiceI64Field" do
+describe Crymon do
+  describe "Crymon::Fields::ChoiceI64Field" do
     describe ".new" do
       it "create instance of ChoiceI64Field" do
-        f = Fields::ChoiceI64Field.new
+        f = Crymon::Fields::ChoiceI64Field.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceI64Field")
@@ -28,10 +28,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceI64MultField" do
+  describe "Crymon::Fields::ChoiceI64MultField" do
     describe ".new" do
       it "create instance of ChoiceI64MultField" do
-        f = Fields::ChoiceI64MultField.new
+        f = Crymon::Fields::ChoiceI64MultField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceI64MultField")
@@ -55,10 +55,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceI64DynField" do
+  describe "Crymon::Fields::ChoiceI64DynField" do
     describe ".new" do
       it "create instance of ChoiceI64DynField" do
-        f = Fields::ChoiceI64DynField.new
+        f = Crymon::Fields::ChoiceI64DynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceI64DynField")
@@ -81,10 +81,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceI64MultDynField" do
+  describe "Crymon::Fields::ChoiceI64MultDynField" do
     describe ".new" do
       it "create instance of ChoiceI64MultDynField" do
-        f = Fields::ChoiceI64MultDynField.new
+        f = Crymon::Fields::ChoiceI64MultDynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceI64MultDynField")

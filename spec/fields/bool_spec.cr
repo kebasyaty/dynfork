@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::BoolField" do
+describe Crymon do
+  describe "Crymon::Fields::BoolField" do
     describe ".new" do
       it "create instance of Boolean field" do
-        f = Fields::BoolField.new
+        f = Crymon::Fields::BoolField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("BoolField")

@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::PasswordField" do
+describe Crymon do
+  describe "Crymon::Fields::PasswordField" do
     describe ".new" do
       it "create instance of Password field" do
-        f = Fields::PasswordField.new
+        f = Crymon::Fields::PasswordField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("PasswordField")
