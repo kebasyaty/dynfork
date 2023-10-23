@@ -38,7 +38,7 @@ describe Crymon do
 
       it "invalid input type - input_type=???" do
         t : String = "???"
-        ex = expect_raises(Crymon::InvalidInputType) do
+        ex = expect_raises(Crymon::Errors::InvalidInputType) do
           Crymon::Fields::U32Field.new(
             input_type: t
           )
@@ -85,7 +85,7 @@ describe Crymon do
 
       it "invalid input type - input_type=???" do
         t : String = "???"
-        ex = expect_raises(Crymon::InvalidInputType) do
+        ex = expect_raises(Crymon::Errors::InvalidInputType) do
           Crymon::Fields::I64Field.new(
             input_type: t
           )
@@ -132,7 +132,7 @@ describe Crymon do
 
       it "invalid input type - input_type=???" do
         t : String = "???"
-        ex = expect_raises(Crymon::InvalidInputType) do
+        ex = expect_raises(Crymon::Errors::InvalidInputType) do
           Crymon::Fields::F64Field.new(
             input_type: t
           )
