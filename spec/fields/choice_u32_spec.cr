@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::ChoiceU32Field" do
+describe Crymon do
+  describe "Crymon::Fields::ChoiceU32Field" do
     describe ".new" do
       it "create instance of ChoiceU32Field" do
-        f = Fields::ChoiceU32Field.new
+        f = Crymon::Fields::ChoiceU32Field.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceU32Field")
@@ -28,10 +28,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceU32MultField" do
+  describe "Crymon::Fields::ChoiceU32MultField" do
     describe ".new" do
       it "create instance of ChoiceU32MultField" do
-        f = Fields::ChoiceU32MultField.new
+        f = Crymon::Fields::ChoiceU32MultField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceU32MultField")
@@ -55,10 +55,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceU32DynField" do
+  describe "Crymon::Fields::ChoiceU32DynField" do
     describe ".new" do
       it "create instance of ChoiceU32DynField" do
-        f = Fields::ChoiceU32DynField.new
+        f = Crymon::Fields::ChoiceU32DynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceU32DynField")
@@ -81,10 +81,10 @@ describe Fields do
     end
   end
 
-  describe "Fields::ChoiceU32MultDynField" do
+  describe "Crymon::Fields::ChoiceU32MultDynField" do
     describe ".new" do
       it "create instance of ChoiceU32MultDynField" do
-        f = Fields::ChoiceU32MultDynField.new
+        f = Crymon::Fields::ChoiceU32MultDynField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ChoiceU32MultDynField")

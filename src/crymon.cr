@@ -1,6 +1,6 @@
 require "./crymon/errors"
 require "./crymon/model/*"
-require "./fields/*"
+require "./crymon/fields/*"
 
 # ORM-like API MongoDB for Crystal
 module Crymon

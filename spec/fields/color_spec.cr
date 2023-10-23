@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::ColorField" do
+describe Crymon do
+  describe "Crymon::Fields::ColorField" do
     describe ".new" do
       it "create instance of Color field" do
-        f = Fields::ColorField.new
+        f = Crymon::Fields::ColorField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("ColorField")
@@ -29,7 +29,7 @@ describe Fields do
       end
 
       it "create an instance with input_type=color" do
-        f = Fields::ColorField.new(
+        f = Crymon::Fields::ColorField.new(
           input_type: "color"
         )
         f.input_type.should eq("color")
@@ -38,7 +38,7 @@ describe Fields do
       it "invalid input type - input_type=???" do
         t : String = "???"
         ex = expect_raises(Crymon::InvalidInputType) do
-          Fields::ColorField.new(
+          Crymon::Fields::ColorField.new(
             input_type: t
           )
         end

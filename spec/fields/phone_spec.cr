@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::PhoneField" do
+describe Crymon do
+  describe "Crymon::Fields::PhoneField" do
     describe ".new" do
       it "create instance of Phone field" do
-        f = Fields::PhoneField.new
+        f = Crymon::Fields::PhoneField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("PhoneField")

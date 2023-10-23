@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::IPField" do
+describe Crymon do
+  describe "Crymon::Fields::IPField" do
     describe ".new" do
       it "create instance of URL field" do
-        f = Fields::IPField.new
+        f = Crymon::Fields::IPField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("IPField")

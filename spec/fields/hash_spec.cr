@@ -1,10 +1,10 @@
 require "../spec_helper"
 
-describe Fields do
-  describe "Fields::HashField" do
+describe Crymon do
+  describe "Crymon::Fields::HashField" do
     describe ".new" do
       it "create instance of Hash field" do
-        f = Fields::HashField.new
+        f = Crymon::Fields::HashField.new
         f.id.should eq("")
         f.label.should eq("")
         f.field_type.should eq("HashField")
