@@ -2,5 +2,6 @@ require "spec"
 require "../src/crymon"
 
 module Helper
-  struct ModelName < Crymon::Model; end
+  # Model without variables and methods.
+  struct EmptyModel < Crymon::Model; end
 end

@@ -272,11 +272,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
-      <a href="../Crymon/Meta.html">Meta</a>
-      
-    </li>
-  
   <li class=" current" data-id="crymon/Crymon/Model" data-name="crymon::model">
       <a href="../Crymon/Model.html">Model</a>
       
@@ -306,6 +301,17 @@
 
 
 
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Abstraction for converting Crystal structures into Crymon Models.</p>
+
 
 
 
@@ -329,7 +335,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/c9e8c91cefa1a5c0cb7093d49dba60180eccff5a/src\crymon\model\model.cr#L2" target="_blank">
+      <a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L3" target="_blank">
         src\crymon\model\model.cr
       </a>
     
@@ -372,17 +378,49 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#has_instance_var%3F%28name%29%3ABool-instance-method" class="signature"><strong>#has_instance_var?</strong>(name) : Bool</a>
+        
+          <div class="summary"><p>Determine the presence of a variable (field) in the model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        <a href="#instance_vars_name_and_type%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#instance_vars_name_and_type</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>List of names and types of variables (fields).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
+        <a href="#instance_vars_names%3AArray%28String%29-instance-method" class="signature"><strong>#instance_vars_names</strong> : Array(String)</a>
+        
+          <div class="summary"><p>List of variable (field) names.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_vars_types%3AArray%28String%29-instance-method" class="signature"><strong>#instance_vars_types</strong> : Array(String)</a>
+        
+          <div class="summary"><p>List is a list of variable (field) types.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#model_name%3AString-instance-method" class="signature"><strong>#model_name</strong> : String</a>
+        
+          <div class="summary"><p>Model name (Structure name).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#vars_count%3AInt32-instance-method" class="signature"><strong>#vars_count</strong> : Int32</a>
+        
+          <div class="summary"><p>Number of variables (fields).</p></div>
         
       </li>
     
@@ -447,7 +485,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/c9e8c91cefa1a5c0cb7093d49dba60180eccff5a/src\crymon\model\model.cr#L2" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -466,6 +504,27 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="has_instance_var?(name):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_instance_var?</strong>(name) : Bool
+
+        <a class="method-permalink" href="#has_instance_var%3F%28name%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Determine the presence of a variable (field) in the model.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L46" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="initialize-instance-method">
       <div class="signature">
         
@@ -477,39 +536,113 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/c9e8c91cefa1a5c0cb7093d49dba60180eccff5a/src\crymon\model\model.cr#L2" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="name:String-instance-method">
+    <div class="entry-detail" id="instance_vars_name_and_type:Hash(String,String)-instance-method">
       <div class="signature">
         
-        def <strong>name</strong> : String
+        def <strong>instance_vars_name_and_type</strong> : Hash(String, String)
 
-        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#instance_vars_name_and_type%3AHash%28String%2CString%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>List of names and types of variables (fields).
+Format: &lt;field_name, field_type&gt;</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/c9e8c91cefa1a5c0cb7093d49dba60180eccff5a/src\crymon\model\model.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="name=(name:String)-instance-method">
+    <div class="entry-detail" id="instance_vars_names:Array(String)-instance-method">
       <div class="signature">
         
-        def <strong>name=</strong>(name : String)
+        def <strong>instance_vars_names</strong> : Array(String)
 
-        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#instance_vars_names%3AArray%28String%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>List of variable (field) names.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/c9e8c91cefa1a5c0cb7093d49dba60180eccff5a/src\crymon\model\model.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_vars_types:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_vars_types</strong> : Array(String)
+
+        <a class="method-permalink" href="#instance_vars_types%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>List is a list of variable (field) types.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="model_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>model_name</strong> : String
+
+        <a class="method-permalink" href="#model_name%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Model name (Structure name).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="vars_count:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>vars_count</strong> : Int32
+
+        <a class="method-permalink" href="#vars_count%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Number of variables (fields).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/392f96771b74a98b54a935b8b6fd247a477dc029/src\crymon\model\model.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
