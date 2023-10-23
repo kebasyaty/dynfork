@@ -37,7 +37,7 @@ describe Crymon do
 
       it "invalid input type - input_type=???" do
         t : String = "???"
-        ex = expect_raises(Crymon::InvalidInputType) do
+        ex = expect_raises(Crymon::Errors::InvalidInputType) do
           Crymon::Fields::ColorField.new(
             input_type: t
           )
