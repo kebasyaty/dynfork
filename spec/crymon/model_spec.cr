@@ -13,7 +13,7 @@ describe Crymon do
         m.has_instance_var?("???").should be_false
       end
 
-      it "create instance of empty Model" do
+      it "create instance of filled Model" do
         m = Helper::FilledModel.new(name: "Gene", age: 50_u32)
         m.model_name.should eq("FilledModel")
         m.vars_count.should eq(2_i32)
