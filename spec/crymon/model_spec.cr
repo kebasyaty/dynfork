@@ -13,7 +13,8 @@ describe Crymon do
         m.has_instance_var?("???").should be_false
         # Testing metadata.
         metadata = m.meta
-        metadata["app_name"].should eq("AppName")
+        metadata["app_name"].should eq(APP_NAME)
+        metadata["unique_app_key"].should eq(UNIQUE_APP_KEY)
       end
 
       it "create instance of filled Model" do
