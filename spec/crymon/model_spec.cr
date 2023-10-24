@@ -52,14 +52,14 @@ describe Crymon do
         metadata["service_name"].should eq(SERVICE_NAME)
         metadata["database_name"].should eq(DATABASE_NAME)
         metadata["collection_name"].should eq(COLLECTION_NAME)
-        metadata["db_query_docs_limit"].should eq(1000_u32)
+        metadata["db_query_docs_limit"].should eq(2000_u32)
         metadata["is_add_doc"].should be_true
         metadata["is_up_doc"].should be_true
         metadata["is_del_doc"].should be_true
         metadata["is_use_addition"].should be_false
         metadata["is_use_hooks"].should be_false
         metadata["is_use_hash_slug"].should be_false
-        metadata["ignore_fields"].should eq(Array(String).new)
+        metadata["ignore_fields"].should eq(["age", "birthday"])
       end
     end
   end
