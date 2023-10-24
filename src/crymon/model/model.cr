@@ -56,7 +56,7 @@ module Crymon
       {% end %}
     end
 
-    # ???
+    # Metadata for the Model.
     def meta : NamedTuple(
       "app_name": String,
       "unique_app_key": String,
