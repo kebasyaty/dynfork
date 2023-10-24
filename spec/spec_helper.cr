@@ -8,11 +8,11 @@ module Helper
   # Model with variables and methods.
   struct FilledModel < Crymon::Model
     getter name : String
-    getter age : Int32
+    getter age : UInt32
 
     def initialize(
       @name : String,
-      @age : Int32
+      @age : UInt32
     ); end
   end
 end
