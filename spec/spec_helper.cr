@@ -17,6 +17,11 @@ module Helper
   struct EmptyModel < Crymon::Model; end
 
   # Model with variables and methods.
+  @[Crymon::Metadata(
+    app_name: APP_NAME, unique_app_key: UNIQUE_APP_KEY,
+    service_name: SERVICE_NAME, database_name: DATABASE_NAME,
+    collection_name: COLLECTION_NAME
+  )]
   struct FilledModel < Crymon::Model
     getter name : String
     getter age : UInt32
