@@ -11,6 +11,21 @@ describe Crymon do
         m.instance_vars_types.should eq(Array(String).new)
         m.instance_vars_name_and_type.should eq(Hash(String, String).new)
         m.has_instance_var?("???").should be_false
+        # Testing metadata.
+        metadata = m.meta
+        metadata["app_name"].should eq(APP_NAME)
+        metadata["unique_app_key"].should eq(UNIQUE_APP_KEY)
+        metadata["service_name"].should eq(SERVICE_NAME)
+        metadata["database_name"].should eq(DATABASE_NAME)
+        metadata["collection_name"].should eq(COLLECTION_NAME)
+        metadata["db_query_docs_limit"].should eq(1000_u32)
+        metadata["is_add_doc"].should be_true
+        metadata["is_up_doc"].should be_true
+        metadata["is_del_doc"].should be_true
+        metadata["is_use_addition"].should be_false
+        metadata["is_use_hooks"].should be_false
+        metadata["is_use_hash_slug"].should be_false
+        metadata["ignore_fields"].should eq(Array(String).new)
       end
 
       it "create instance of filled Model" do
@@ -30,6 +45,21 @@ describe Crymon do
         m.age.should eq(32_u32)
         m.birthday.should eq(Helper::Birthday.new)
         m.birthday.date.should eq("1990-11-7")
+        # Testing metadata.
+        metadata = m.meta
+        metadata["app_name"].should eq(APP_NAME)
+        metadata["unique_app_key"].should eq(UNIQUE_APP_KEY)
+        metadata["service_name"].should eq(SERVICE_NAME)
+        metadata["database_name"].should eq(DATABASE_NAME)
+        metadata["collection_name"].should eq(COLLECTION_NAME)
+        metadata["db_query_docs_limit"].should eq(2000_u32)
+        metadata["is_add_doc"].should be_true
+        metadata["is_up_doc"].should be_true
+        metadata["is_del_doc"].should be_true
+        metadata["is_use_addition"].should be_false
+        metadata["is_use_hooks"].should be_false
+        metadata["is_use_hash_slug"].should be_false
+        metadata["ignore_fields"].should eq(["age", "birthday"])
       end
     end
   end
