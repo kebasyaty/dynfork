@@ -1,5 +1,5 @@
 module Crymon
-  # ???
+  # For define metadata in models.
   annotation Metadata; end
 
   # Abstraction for converting Crystal structures into Crymon Models.
