@@ -15,6 +15,9 @@ describe Crymon do
         metadata = m.meta
         metadata["app_name"].should eq(APP_NAME)
         metadata["unique_app_key"].should eq(UNIQUE_APP_KEY)
+        metadata["service_name"].should eq(SERVICE_NAME)
+        metadata["database_name"].should eq(DATABASE_NAME)
+        metadata["collection_name"].should eq(COLLECTION_NAME)
       end
 
       it "create instance of filled Model" do
@@ -34,6 +37,13 @@ describe Crymon do
         m.age.should eq(32_u32)
         m.birthday.should eq(Helper::Birthday.new)
         m.birthday.date.should eq("1990-11-7")
+        # Testing metadata.
+        metadata = m.meta
+        metadata["app_name"].should eq(APP_NAME)
+        metadata["unique_app_key"].should eq(UNIQUE_APP_KEY)
+        metadata["service_name"].should eq(SERVICE_NAME)
+        metadata["database_name"].should eq(DATABASE_NAME)
+        metadata["collection_name"].should eq(COLLECTION_NAME)
       end
     end
   end
