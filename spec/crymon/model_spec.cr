@@ -11,6 +11,9 @@ describe Crymon do
         m.instance_vars_types.should eq(Array(String).new)
         m.instance_vars_name_and_type.should eq(Hash(String, String).new)
         m.has_instance_var?("???").should be_false
+        # Testing metadata.
+        metadata = m.meta
+        metadata["app_name"].should eq("AppName")
       end
 
       it "create instance of filled Model" do
