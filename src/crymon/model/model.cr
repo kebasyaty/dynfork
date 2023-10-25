@@ -79,20 +79,20 @@ module Crymon
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String))
       {
-        "app_name":            {{ @type.annotation(Metadata)["app_name"] }},
-        "unique_app_key":      {{ @type.annotation(Metadata)["unique_app_key"] }},
-        "service_name":        {{ @type.annotation(Metadata)["service_name"] }},
-        "database_name":       {{ @type.annotation(Metadata)["database_name"] }},
-        "collection_name":     {{ @type.annotation(Metadata)["collection_name"] }},
-        "db_query_docs_limit": {{ @type.annotation(Metadata)["db_query_docs_limit"] }} || 1000_u32,
-        "is_add_doc":          {{ @type.annotation(Metadata)["is_add_doc"] }} || true,
-        "is_up_doc":           {{ @type.annotation(Metadata)["is_up_doc"] }} || true,
-        "is_del_doc":          {{ @type.annotation(Metadata)["is_del_doc"] }} || true,
-        "is_use_addition":     {{ @type.annotation(Metadata)["is_use_addition"] }} || false,
-        "is_use_hooks":        {{ @type.annotation(Metadata)["is_use_hooks"] }} || false,
-        "is_use_hash_slug":    {{ @type.annotation(Metadata)["is_use_hash_slug"] }} || false,
+        "app_name":            {{ @type.annotation(Crymon::Metadata)["app_name"] }},
+        "unique_app_key":      {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }},
+        "service_name":        {{ @type.annotation(Crymon::Metadata)["service_name"] }},
+        "database_name":       {{ @type.annotation(Crymon::Metadata)["database_name"] }},
+        "collection_name":     {{ @type.annotation(Crymon::Metadata)["collection_name"] }},
+        "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
+        "is_add_doc":          {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
+        "is_up_doc":           {{ @type.annotation(Crymon::Metadata)["is_up_doc"] }} || true,
+        "is_del_doc":          {{ @type.annotation(Crymon::Metadata)["is_del_doc"] }} || true,
+        "is_use_addition":     {{ @type.annotation(Crymon::Metadata)["is_use_addition"] }} || false,
+        "is_use_hooks":        {{ @type.annotation(Crymon::Metadata)["is_use_hooks"] }} || false,
+        "is_use_hash_slug":    {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
         # List of field names that will not be saved to the database.
-        "ignore_fields": {{ @type.annotation(Metadata)["ignore_fields"] }} || Array(String).new,
+        "ignore_fields": {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} || Array(String).new,
       }
     end
   end
