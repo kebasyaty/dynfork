@@ -1,9 +1,16 @@
+require "json"
+
 module Crymon
   # For define metadata in models.
   annotation Metadata; end
 
   # Abstraction for converting Crystal structures into Crymon Models.
   abstract struct Model
+    include JSON::Serializable
+    include JSON::Serializable::Strict
+
+    def initialize; end
+
     # Model name (Structure name).
     def model_name : String
       {{ @type.name.stringify }}.split("::").last
