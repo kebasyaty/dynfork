@@ -16,12 +16,8 @@ describe Crymon::Model do
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
-      metadata["database_name"].should eq(
-        "AppName_DatabaseName_RT0839370A074kVh"
-      )
-      metadata["collection_name"].should eq(
-        "ServiceName_EmptyModel"
-      )
+      metadata["database_name"].should eq("AppName_RT0839370A074kVh")
+      metadata["collection_name"].should eq("ServiceName_EmptyModel")
       metadata["db_query_docs_limit"].should eq(1000_u32)
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
@@ -55,12 +51,8 @@ describe Crymon::Model do
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
-      metadata["database_name"].should eq(
-        "AppName_DatabaseName_RT0839370A074kVh"
-      )
-      metadata["collection_name"].should eq(
-        "ServiceName_FilledModel"
-      )
+      metadata["database_name"].should eq("AppName_RT0839370A074kVh")
+      metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
