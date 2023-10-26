@@ -2,7 +2,7 @@ require "../spec_helper"
 
 describe Crymon::Model do
   describe ".new" do
-    it "create instance of empty Model" do
+    it "=> create instance of empty Model" do
       m = Helper::EmptyModel.new
       m.model_name.should eq("EmptyModel")
       m.vars_count.should eq(0_i32)
@@ -27,7 +27,7 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(Array(String).new)
     end
 
-    it "create instance of filled Model" do
+    it "=> create instance of filled Model" do
       m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
       m.model_name.should eq("FilledModel")
       m.vars_count.should eq(3_i32)
