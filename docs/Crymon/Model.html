@@ -321,6 +321,22 @@
 
 
 
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+      <li class="other-type">JSON::Serializable::Strict</li>
+    
+  </ul>
+
 
 
 
@@ -340,7 +356,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L6" target="_blank">
+      <a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L8" target="_blank">
         src\crymon\model\model.cr
       </a>
     
@@ -360,6 +376,11 @@
     Constructors
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#new-class-method" class="signature"><strong>.new</strong></a>
@@ -390,11 +411,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#instance_vars_name_and_type%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#instance_vars_name_and_type</strong> : Hash(String, String)</a>
         
           <div class="summary"><p>List of names and types of variables (fields).</p></div>
@@ -419,6 +435,13 @@
         <a href="#meta%3ANamedTuple%28app_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
         
           <div class="summary"><p>Metadata for the Model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#model_key%3AString-instance-method" class="signature"><strong>#model_key</strong> : String</a>
+        
+          <div class="summary"><p>Get model key.</p></div>
         
       </li>
     
@@ -474,6 +497,26 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
@@ -486,6 +529,22 @@
     Constructor Detail
   </h2>
   
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="new-class-method">
       <div class="signature">
         
@@ -497,7 +556,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -532,23 +591,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L51" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="initialize-instance-method">
-      <div class="signature">
-        
-        def <strong>initialize</strong>
-
-        <a class="method-permalink" href="#initialize-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -570,7 +613,7 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -591,7 +634,7 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -612,7 +655,7 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -633,7 +676,29 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L60" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L75" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="model_key:String-instance-method">
+      <div class="signature">
+        
+        def <strong>model_key</strong> : String
+
+        <a class="method-permalink" href="#model_key%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get model key.
+Hint: To access data in the cache.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -654,7 +719,7 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -675,7 +740,7 @@ Format: &lt;field_name, field_type&gt;</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/40c2bb3a8a422719be498dc1767a99402f36fde0/src\crymon\model\model.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/164221e67196e757d8d679949be9bfc487c207b4/src\crymon\model\model.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
