@@ -78,11 +78,16 @@ module Crymon
       "is_use_hooks": Bool,
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String))
+      #
+      app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }}.strip
+      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}.strip
+      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}.strip
+      database_name : String = {{ @type.annotation(Crymon::Metadata)["database_name"] }}.strip
       {
-        "app_name":            {{ @type.annotation(Crymon::Metadata)["app_name"] }}.strip,
-        "unique_app_key":      {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}.strip,
-        "service_name":        {{ @type.annotation(Crymon::Metadata)["service_name"] }}.strip,
-        "database_name":       {{ @type.annotation(Crymon::Metadata)["database_name"] }}.strip,
+        "app_name":            app_name,
+        "unique_app_key":      unique_app_key,
+        "service_name":        service_name,
+        "database_name":       database_name,
         "collection_name":     {{ @type.annotation(Crymon::Metadata)["collection_name"] }},
         "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
         "is_add_doc":          {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
