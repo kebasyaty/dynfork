@@ -16,7 +16,7 @@ describe Crymon::Model do
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq(
-        "#{metadata["app_name"]}_#{Settings::DATABASE_NAME}_#{metadata["unique_app_key"]}"
+        "AppName_DatabaseName_123"
       )
       metadata["collection_name"].should eq(
         "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
@@ -55,7 +55,7 @@ describe Crymon::Model do
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq(
-        "#{metadata["app_name"]}_#{Settings::DATABASE_NAME}_#{metadata["unique_app_key"]}"
+        "AppName_DatabaseName_123"
       )
       metadata["collection_name"].should eq(
         "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
