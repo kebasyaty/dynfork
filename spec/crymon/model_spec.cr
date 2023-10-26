@@ -15,8 +15,13 @@ describe Crymon::Model do
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
-      metadata["database_name"].should eq(Settings::DATABASE_NAME)
-      metadata["collection_name"].should eq(Settings::COLLECTION_NAME)
+      metadata["database_name"].should eq(
+        "#{metadata["app_name"]}_#{Settings::DATABASE_NAME}_#{metadata["unique_app_key"]}"
+      )
+      metadata["collection_name"].should eq(
+        "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
+          .downcase
+      )
       metadata["db_query_docs_limit"].should eq(1000_u32)
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
@@ -49,8 +54,13 @@ describe Crymon::Model do
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
-      metadata["database_name"].should eq(Settings::DATABASE_NAME)
-      metadata["collection_name"].should eq(Settings::COLLECTION_NAME)
+      metadata["database_name"].should eq(
+        "#{metadata["app_name"]}_#{Settings::DATABASE_NAME}_#{metadata["unique_app_key"]}"
+      )
+      metadata["collection_name"].should eq(
+        "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
+          .downcase
+      )
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
