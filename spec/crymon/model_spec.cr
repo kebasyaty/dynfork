@@ -19,8 +19,7 @@ describe Crymon::Model do
         "AppName_DatabaseName_123"
       )
       metadata["collection_name"].should eq(
-        "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
-          .downcase
+        "ServiceName_EmptyModel"
       )
       metadata["db_query_docs_limit"].should eq(1000_u32)
       metadata["is_add_doc"].should be_true
@@ -58,8 +57,7 @@ describe Crymon::Model do
         "AppName_DatabaseName_123"
       )
       metadata["collection_name"].should eq(
-        "#{Settings::SERVICE_NAME}_#{m.model_name.gsub(/(?<upper_chr>[A-Z])/, "_\\k<upper_chr>")}"
-          .downcase
+        "ServiceName_FilledModel"
       )
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["is_add_doc"].should be_true
