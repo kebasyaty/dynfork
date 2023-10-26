@@ -92,7 +92,7 @@ module Crymon
         "is_use_hooks":        {{ @type.annotation(Crymon::Metadata)["is_use_hooks"] }} || false,
         "is_use_hash_slug":    {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
         # List of field names that will not be saved to the database.
-        "ignore_fields": {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} || Array(String).new,
+        "ignore_fields": ({{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} || Array(String).new).map { |name| name.strip },
       }
     end
   end
