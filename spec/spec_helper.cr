@@ -3,7 +3,7 @@ require "../src/crymon"
 
 module Settings
   APP_NAME       = "AppName"
-  UNIQUE_APP_KEY = "123"
+  UNIQUE_APP_KEY = "RT0839370A074kVh"
   SERVICE_NAME   = "ServiceName"
   DATABASE_NAME  = "DatabaseName"
 end

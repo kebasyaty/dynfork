@@ -16,7 +16,7 @@ describe Crymon::Model do
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq(
-        "AppName_DatabaseName_123"
+        "AppName_DatabaseName_RT0839370A074kVh"
       )
       metadata["collection_name"].should eq(
         "ServiceName_EmptyModel"
@@ -54,7 +54,7 @@ describe Crymon::Model do
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq(
-        "AppName_DatabaseName_123"
+        "AppName_DatabaseName_RT0839370A074kVh"
       )
       metadata["collection_name"].should eq(
         "ServiceName_FilledModel"
