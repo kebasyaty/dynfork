@@ -16,6 +16,14 @@ module Crymon
       {{ @type.name.stringify }}.split("::").last
     end
 
+    # Get model key.
+    # Hint: To access data in the cache.
+    def model_key : String
+      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}.strip
+      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}.strip
+      "#{service_name}_#{self.model_name}_#{unique_app_key}"
+    end
+
     # Number of variables (fields).
     def vars_count : Int32
       {{ @type.instance_vars.size }}

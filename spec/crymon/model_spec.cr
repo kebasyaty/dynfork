@@ -5,6 +5,7 @@ describe Crymon::Model do
     it "=> create instance of empty Model" do
       m = Helper::EmptyModel.new
       m.model_name.should eq("EmptyModel")
+      m.model_key.should eq("ServiceName_EmptyModel_RT0839370A074kVh")
       m.vars_count.should eq(0_i32)
       m.instance_vars_names.should eq(Array(String).new)
       m.instance_vars_types.should eq(Array(String).new)
@@ -34,6 +35,7 @@ describe Crymon::Model do
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
       m.model_name.should eq("FilledModel")
+      m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
       m.vars_count.should eq(3_i32)
       m.instance_vars_names.should eq(["name", "age", "birthday"])
       m.instance_vars_types.should eq(["String", "UInt32", "Birthday"])
