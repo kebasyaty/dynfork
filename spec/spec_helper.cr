@@ -37,4 +37,19 @@ module Helper
   struct Birthday
     getter date : String = "1990-11-7"
   end
+
+  # Models without mandatory parameters for metadata.
+  @[Crymon::Metadata(
+    unique_app_key: Settings::UNIQUE_APP_KEY,
+    service_name: Settings::SERVICE_NAME
+  )]
+  struct NoParamAppNameModel < Crymon::Model
+    getter name : String
+    getter age : UInt32
+
+    def initialize(
+      @name : String,
+      @age : UInt32
+    ); end
+  end
 end
