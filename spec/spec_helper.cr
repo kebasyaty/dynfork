@@ -38,7 +38,7 @@ module Helper
     getter date : String = "1990-11-7"
   end
 
-  # Model without the required "app_name" parameter for metadata.
+  # Model without the required 'app_name' parameter for metadata.
   @[Crymon::Metadata(
     unique_app_key: Settings::UNIQUE_APP_KEY,
     service_name: Settings::SERVICE_NAME
@@ -53,12 +53,27 @@ module Helper
     ); end
   end
 
-  # Model without the required "unique_app_key" parameter for metadata.
+  # Model without the required 'unique_app_key' parameter for metadata.
   @[Crymon::Metadata(
     app_name: Settings::APP_NAME,
     service_name: Settings::SERVICE_NAME
   )]
   struct NoParamUniqueAppKeyModel < Crymon::Model
+    getter name : String
+    getter age : UInt32
+
+    def initialize(
+      @name : String,
+      @age : UInt32
+    ); end
+  end
+
+  # Model without the required 'service_name' parameter for metadata.
+  @[Crymon::Metadata(
+    app_name: Settings::APP_NAME,
+    unique_app_key: Settings::UNIQUE_APP_KEY
+  )]
+  struct NoParamServiceMameModel < Crymon::Model
     getter name : String
     getter age : UInt32
 
