@@ -11,7 +11,7 @@ module Crymon
       end
     end
 
-    # Error: Missing parameter.
+    # Error: Missing parameter for Metadata.
     class MissingParameter < CrymonException
       def initialize(parameter_name : String)
         super(%(Missing "#{parameter_name}" parameter for Metadata.))
