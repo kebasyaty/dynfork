@@ -23,7 +23,7 @@ module Crymon
       # Hide field from user.
       property is_hide : Bool
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 1
 
       def initialize(

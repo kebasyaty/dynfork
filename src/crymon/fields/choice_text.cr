@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Type of selective field with static of elements.
-    # With a single choice.
+    # NOTE: With a single choice.
     struct ChoiceTextField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextField"
@@ -16,10 +16,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool = false
       # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 4
 
       def initialize(
@@ -38,7 +38,7 @@ module Crymon
     end
 
     # Type of selective field with static of elements.
-    # With multiple choice.
+    # NOTE: With multiple choice.
     struct ChoiceTextMultField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultField"
@@ -51,10 +51,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool = false
       # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # Html tag: select multiple
+      # NOTE: Html tag: select multiple
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 6
 
       def initialize(
@@ -73,8 +73,8 @@ module Crymon
     end
 
     # Type of selective field with dynamic addition of elements.
-    # For simulate relationship Many-to-One.
-    # Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: For simulate relationship Many-to-One.
+    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
     struct ChoiceTextDynField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextDynField"
@@ -85,10 +85,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool = false
       # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 5
 
       def initialize(
@@ -106,8 +106,8 @@ module Crymon
     end
 
     # Type of selective field with dynamic addition of elements.
-    # For simulate relationship Many-to-Many.
-    # Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: For simulate relationship Many-to-Many.
+    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
     struct ChoiceTextMultDynField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultDynField"
@@ -118,10 +118,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 7
 
       def initialize(

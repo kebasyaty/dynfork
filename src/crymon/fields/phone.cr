@@ -25,7 +25,7 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 1
 
       def initialize(

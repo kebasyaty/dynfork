@@ -17,19 +17,19 @@ module Crymon
       # URL address for the media directory.
       property media_url : String
       # Directory for files inside media directory (inner path).
-      # Example: "files/resume".
+      # NOTE: Example: "files/resume".
       property target_dir : String
       # HTML attribute: accept
-      # Describing which file types to allow.
-      # Example: "image/jpeg,image/png,image/gif"
-      # https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
+      # NOTE: Describing which file types to allow.
+      # NOTE: Example: "image/jpeg,image/png,image/gif"
+      # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
       property accept : String = ""
       # Displays prompt text.
       property placeholder : String
       # The unique value of a field in a collection.
       property is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 8
 
       def initialize(
