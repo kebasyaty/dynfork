@@ -12,9 +12,16 @@ module Crymon
     end
 
     # Error: Missing parameter for Metadata.
-    class MissingParameter < CrymonException
+    class ParameterMissing < CrymonException
       def initialize(parameter_name : String)
         super(%(Missing "#{parameter_name}" parameter for Metadata.))
+      end
+    end
+
+    # Error: The names in the list of ignored fields do not match.
+    class FieldMissing < CrymonException
+      def initialize(field_name : String)
+        super(%(The "#{field_name}" field is missing from the list of ignored fields.))
       end
     end
   end

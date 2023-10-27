@@ -88,11 +88,11 @@ module Crymon
       "ignore_fields": Array(String))
       #
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
-        raise Crymon::Errors::MissingParameter.new("app_name")
+        raise Crymon::Errors::ParameterMissing.new("app_name")
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
-        raise Crymon::Errors::MissingParameter.new("unique_app_key")
+        raise Crymon::Errors::ParameterMissing.new("unique_app_key")
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
-        raise Crymon::Errors::MissingParameter.new("service_name")
+        raise Crymon::Errors::ParameterMissing.new("service_name")
       {
         "app_name":        app_name,
         "unique_app_key":  unique_app_key,

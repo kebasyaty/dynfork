@@ -64,21 +64,21 @@ describe Crymon::Model do
     end
 
     it "=> create instance of Model without mandatory 'app_name' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
+      ex = expect_raises(Crymon::Errors::ParameterMissing) do
         Helper::NoParamAppNameModel.new(name: "Gene", age: 32_u32).meta
       end
       ex.message.should eq %(Missing "app_name" parameter for Metadata.)
     end
 
     it "=> create instance of Model without mandatory 'unique_app_key' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
+      ex = expect_raises(Crymon::Errors::ParameterMissing) do
         Helper::NoParamUniqueAppKeyModel.new(name: "Gene", age: 32_u32).meta
       end
       ex.message.should eq %(Missing "unique_app_key" parameter for Metadata.)
     end
 
     it "=> create instance of Model without mandatory 'service_name' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
+      ex = expect_raises(Crymon::Errors::ParameterMissing) do
         Helper::NoParamServiceMameModel.new(name: "Gene", age: 32_u32).meta
       end
       ex.message.should eq %(Missing "service_name" parameter for Metadata.)
