@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::CrymonException - crymon v0</title>
+  <title>Crymon::Errors::MissingParameter - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -67,7 +67,7 @@
       
         <ul>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
+  <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
       
     </li>
@@ -77,7 +77,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/MissingParameter" data-name="crymon::errors::missingparameter">
+  <li class=" current" data-id="crymon/Crymon/Errors/MissingParameter" data-name="crymon::errors::missingparameter">
       <a href="../../Crymon/Errors/MissingParameter.html">MissingParameter</a>
       
     </li>
@@ -301,12 +301,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>CrymonException
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>MissingParameter
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/MissingParameter.html">Crymon::Errors::MissingParameter</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -320,7 +320,7 @@
     Overview
   </h2>
 
-  <p>Root custom exception.</p>
+  <p>Error: Missing parameter for Metadata.</p>
 
 
 
@@ -329,22 +329,6 @@
 
 
 
-
-  <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Direct Known Subclasses
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../../Crymon/Errors/InvalidInputType.html">Crymon::Errors::InvalidInputType</a></li>
-    
-      <li class="other-type"><a href="../../Crymon/Errors/MissingParameter.html">Crymon::Errors::MissingParameter</a></li>
-    
-  </ul>
 
 
 
@@ -361,7 +345,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/a4919b9316f47a08f623f4f21311b0c79e56ef26/src\crymon\errors.cr#L5" target="_blank">
+      <a href="https://github.com/kebasyaty/crymon/blob/a4919b9316f47a08f623f4f21311b0c79e56ef26/src\crymon\errors.cr#L15" target="_blank">
         src\crymon\errors.cr
       </a>
     
@@ -371,6 +355,23 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28parameter_name%3AString%29-class-method" class="signature"><strong>.new</strong>(parameter_name : String)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -412,8 +413,44 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(parameter_name:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(parameter_name : String)
+
+        <a class="method-permalink" href="#new%28parameter_name%3AString%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a4919b9316f47a08f623f4f21311b0c79e56ef26/src\crymon\errors.cr#L16" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
