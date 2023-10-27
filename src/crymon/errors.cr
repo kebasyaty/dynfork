@@ -19,7 +19,7 @@ module Crymon
     end
 
     # Error: The names in the list of ignored fields do not match.
-    class FieldMissing < CrymonException
+    class IgnoredFieldMissing < CrymonException
       def initialize(field_name : String)
         super(%(The "#{field_name}" field is missing from the list of ignored fields.))
       end

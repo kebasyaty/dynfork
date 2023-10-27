@@ -83,4 +83,20 @@ module Helper
       @age : UInt32
     ); end
   end
+
+  # Incorrect field names in the ignored list.
+  @[Crymon::Metadata(
+    app_name: Settings::APP_NAME, unique_app_key: Settings::UNIQUE_APP_KEY,
+    service_name: Settings::SERVICE_NAME, db_query_docs_limit: 2000_u32,
+    ignore_fields: ["age", "birthday"]
+  )]
+  struct IncorrectIgnoredListModel < Crymon::Model
+    getter name : String
+    getter age : UInt32
+
+    def initialize(
+      @name : String,
+      @age : UInt32
+    ); end
+  end
 end

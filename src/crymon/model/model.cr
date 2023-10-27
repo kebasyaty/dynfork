@@ -99,7 +99,7 @@ module Crymon
       instance_vars_names : Array(String) = self.instance_vars_names
       ignore_fields.each do |field_name|
         if !instance_vars_names.includes?(field_name)
-          raise Crymon::Errors::FieldMissing.new(field_name)
+          raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
       {
