@@ -8,7 +8,7 @@ module Crymon
       include JSON::Serializable
       include JSON::Serializable::Strict
       # The value is determined automatically.
-      # Format: "model-name--field-name".
+      # NOTE: Format: "model-name--field-name".
       property id : String = ""
       # Web form field name.
       property label : String = ""
@@ -37,7 +37,7 @@ module Crymon
       # The value is determined automatically.
       property errors : Array(String) = Array(String).new
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 0
     end
 
@@ -54,7 +54,7 @@ module Crymon
       # File size in bytes.
       property size : Float64 = 0
       # If the file needs to be deleted: is_delete=true.
-      # By default is_delete=false.
+      # NOTE: By default is_delete=false.
       property is_delete : Bool
 
       def initialize(
@@ -67,7 +67,7 @@ module Crymon
     struct ImageData
       include JSON::Serializable
       include JSON::Serializable::Strict
-      # # Path to  file.
+      # Path to  file.
       property path : String
       property path_xs : String = ""
       property path_sm : String = ""
@@ -88,7 +88,7 @@ module Crymon
       # File height in pixels.
       property height : Float64 = 0
       # If the file needs to be deleted: is_delete=true.
-      # By default is_delete=false.
+      # NOTE: By default is_delete=false.
       property is_delete : Bool
 
       def initialize(

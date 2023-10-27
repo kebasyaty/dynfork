@@ -13,7 +13,7 @@ module Crymon
       # Value by default.
       property default : Bool | Nil
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 13
 
       def initialize(

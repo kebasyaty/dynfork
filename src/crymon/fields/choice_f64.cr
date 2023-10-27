@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Type of selective field with static of elements.
-    # With a single choice.
+    # NOTE: With a single choice.
     struct ChoiceF64Field < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64Field"
@@ -16,10 +16,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 4
 
       def initialize(
@@ -38,7 +38,7 @@ module Crymon
     end
 
     # Type of selective field with static of elements.
-    # With multiple choice.
+    # NOTE: With multiple choice.
     struct ChoiceF64MultField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64MultField"
@@ -51,10 +51,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
-      # Html tag: select multiple
+      # NOTE: Html tag: select multiple
       property choices : Array(Tuple(Float64, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 6
 
       def initialize(
@@ -73,8 +73,8 @@ module Crymon
     end
 
     # Type of selective field with dynamic addition of elements.
-    # For simulate relationship Many-to-One.
-    # Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: For simulate relationship Many-to-One.
+    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
     struct ChoiceF64DynField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64DynField"
@@ -85,10 +85,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 5
 
       def initialize(
@@ -106,8 +106,8 @@ module Crymon
     end
 
     # Type of selective field with dynamic addition of elements.
-    # For simulate relationship Many-to-Many.
-    # Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: For simulate relationship Many-to-Many.
+    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
     struct ChoiceF64MultDynField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64MultDynField"
@@ -118,10 +118,10 @@ module Crymon
       # The unique value of a field in a collection.
       property is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
-      # Html tag: select
+      # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 7
 
       def initialize(

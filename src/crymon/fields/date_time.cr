@@ -3,17 +3,17 @@ require "./field"
 module Crymon
   module Fields
     # A field for entering a date и времени in the format yyyy-mm-ddThh:mm.
-    # Example: 1970-01-01T00:00
+    # NOTE: Example: 1970-01-01T00:00
     struct DateTimeField < Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateTimeField"
       # Html tag: input type="date".
       getter input_type : String = "datetime"
       # Sets the value of an element.
-      # Example: 1970-01-01T00:00
+      # NOTE: Example: 1970-01-01T00:00
       property value : String | Nil
       # Value by default.
-      # Example: 1970-01-01T00:00
+      # NOTE: Example: 1970-01-01T00:00
       property default : String | Nil
       # Displays prompt text.
       property placeholder : String
@@ -26,7 +26,7 @@ module Crymon
       # Additional explanation for the user.
       property hint : String
       # To optimize field traversal in the `paladins/check()` method.
-      # Hint: It is recommended not to change.
+      # WARNING: It is recommended not to change.
       getter group : UInt8 = 3
 
       def initialize(

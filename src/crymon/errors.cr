@@ -10,5 +10,12 @@ module Crymon
         super(%(The "#{input_type}" invalid input type.))
       end
     end
+
+    # Error: Missing parameter for Metadata.
+    class MissingParameter < CrymonException
+      def initialize(parameter_name : String)
+        super(%(Missing "#{parameter_name}" parameter for Metadata.))
+      end
+    end
   end
 end
