@@ -63,25 +63,34 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end
 
-    it "=> create instance of Model without mandatory 'app_name' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
-        Helper::NoParamAppNameModel.new(name: "Gene", age: 32_u32).meta
+    describe "#meta" do
+      it "=> Model without mandatory 'app_name' parameter for metadata" do
+        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+          Helper::NoParamAppNameModel.new(name: "Gene", age: 32_u32).meta
+        end
+        ex.message.should eq %(Missing "app_name" parameter for Metadata.)
       end
-      ex.message.should eq %(Missing "app_name" parameter for Metadata.)
-    end
 
-    it "=> create instance of Model without mandatory 'unique_app_key' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
-        Helper::NoParamUniqueAppKeyModel.new(name: "Gene", age: 32_u32).meta
+      it "=> Model without mandatory 'unique_app_key' parameter for metadata" do
+        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+          Helper::NoParamUniqueAppKeyModel.new(name: "Gene", age: 32_u32).meta
+        end
+        ex.message.should eq %(Missing "unique_app_key" parameter for Metadata.)
       end
-      ex.message.should eq %(Missing "unique_app_key" parameter for Metadata.)
-    end
 
-    it "=> create instance of Model without mandatory 'service_name' parameter for metadata" do
-      ex = expect_raises(Crymon::Errors::MissingParameter) do
-        Helper::NoParamServiceMameModel.new(name: "Gene", age: 32_u32).meta
+      it "=> Model without mandatory 'service_name' parameter for metadata" do
+        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+          Helper::NoParamServiceMameModel.new(name: "Gene", age: 32_u32).meta
+        end
+        ex.message.should eq %(Missing "service_name" parameter for Metadata.)
       end
-      ex.message.should eq %(Missing "service_name" parameter for Metadata.)
+
+      it "=> the names in the list of ignored fields do not match" do
+        ex = expect_raises(Crymon::Errors::IgnoredFieldMissing) do
+          Helper::IncorrectIgnoredListModel.new(name: "Gene", age: 32_u32).meta
+        end
+        ex.message.should eq %(The "birthday" field is missing from the list of ignored fields.)
+      end
     end
   end
 end

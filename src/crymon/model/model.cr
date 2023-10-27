@@ -88,11 +88,20 @@ module Crymon
       "ignore_fields": Array(String))
       #
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
-        raise Crymon::Errors::MissingParameter.new("app_name")
+        raise Crymon::Errors::ParameterMissing.new("app_name")
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
-        raise Crymon::Errors::MissingParameter.new("unique_app_key")
+        raise Crymon::Errors::ParameterMissing.new("unique_app_key")
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
-        raise Crymon::Errors::MissingParameter.new("service_name")
+        raise Crymon::Errors::ParameterMissing.new("service_name")
+      #
+      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
+        Array(String).new
+      instance_vars_names : Array(String) = self.instance_vars_names
+      ignore_fields.each do |field_name|
+        if !instance_vars_names.includes?(field_name)
+          raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
+        end
+      end
       {
         "app_name":        app_name,
         "unique_app_key":  unique_app_key,
@@ -115,7 +124,7 @@ module Crymon
         # Is the hash field used for the slug?
         "is_use_hash_slug": {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
         # List of field names that will not be saved to the database.
-        "ignore_fields": {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} || Array(String).new,
+        "ignore_fields": ignore_fields,
       }
     end
   end
