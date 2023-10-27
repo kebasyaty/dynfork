@@ -1,6 +1,7 @@
 require "spec"
 require "../src/crymon"
 
+# Parameters for Metadata.
 module Settings
   APP_NAME       = "AppName"
   UNIQUE_APP_KEY = "RT0839370A074kVh"
