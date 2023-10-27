@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::ChoiceI64MultDynField - crymon v0</title>
+  <title>Crymon::Fields::ChoiceI64MultDynField - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -74,6 +74,11 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
       <a href="../../Crymon/Errors/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/MissingParameter" data-name="crymon::errors::missingparameter">
+      <a href="../../Crymon/Errors/MissingParameter.html">MissingParameter</a>
       
     </li>
   
@@ -315,9 +320,9 @@
     Overview
   </h2>
 
-  <p>Type of selective field with dynamic addition of elements.
-For simulate relationship Many-to-Many.
-Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p>
+  <p>Type of selective field with dynamic addition of elements.</p>
+<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-Many.</p>
+<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p>
 
 
 
@@ -342,9 +347,7 @@ Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L111" target="_blank">
-        src\crymon\fields\choice_i64.cr
-      </a>
+      src\crymon\fields\choice_i64.cr
     
     <br/>
   
@@ -697,15 +700,13 @@ Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p
       
         <div class="doc">
           
-          <p>Type of selective field with dynamic addition of elements.
-For simulate relationship Many-to-Many.
-Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p>
+          <p>Type of selective field with dynamic addition of elements.</p>
+<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-Many.</p>
+<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L111" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -720,8 +721,6 @@ Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -750,14 +749,12 @@ Elements are added via the <code>ModelName::update_dyn_field()</code> method.</p
       
         <div class="doc">
           
-          <p>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}].
-Html tag: select</p>
+          <p>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}].</p>
+<p><span class="flag purple">NOTE</span>  Html tag: select</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L122" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -772,14 +769,12 @@ Html tag: select</p>
       
         <div class="doc">
           
-          <p>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}].
-Html tag: select</p>
+          <p>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}].</p>
+<p><span class="flag purple">NOTE</span>  Html tag: select</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L122" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -800,8 +795,6 @@ Html tag: select</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L113" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -815,14 +808,12 @@ Html tag: select</p>
       
         <div class="doc">
           
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.
-Hint: It is recommended not to change.</p>
+          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
+<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
         </div>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L125" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -843,8 +834,6 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L117" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -863,8 +852,6 @@ Hint: It is recommended not to change.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -885,8 +872,6 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L119" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -906,8 +891,6 @@ Hint: It is recommended not to change.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L115" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -926,8 +909,6 @@ Hint: It is recommended not to change.</p>
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/b7cd861da2aa67e429345cd82e8bb7e2b5a97eba/src\crymon\fields\choice_i64.cr#L115" target="_blank">View source</a>]
         
       </div>
     </div>
