@@ -18,6 +18,13 @@ module Crymon
       end
     end
 
+    # Error: The Model has no fields.
+    class FieldsMissing < CrymonException
+      def initialize(model_name : String)
+        super(%(Model "#{model_name}" has no fields.))
+      end
+    end
+
     # Error: The names in the list of ignored fields do not match.
     class IgnoredFieldMissing < CrymonException
       def initialize(field_name : String)

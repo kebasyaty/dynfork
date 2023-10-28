@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::InvalidInputType - crymon v0-dev</title>
+  <title>Crymon::Errors::FieldsMissing - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -72,7 +72,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/FieldsMissing" data-name="crymon::errors::fieldsmissing">
+  <li class=" current" data-id="crymon/Crymon/Errors/FieldsMissing" data-name="crymon::errors::fieldsmissing">
       <a href="../../Crymon/Errors/FieldsMissing.html">FieldsMissing</a>
       
     </li>
@@ -82,7 +82,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
       <a href="../../Crymon/Errors/InvalidInputType.html">InvalidInputType</a>
       
     </li>
@@ -311,12 +311,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>InvalidInputType
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>FieldsMissing
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/InvalidInputType.html">Crymon::Errors::InvalidInputType</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/FieldsMissing.html">Crymon::Errors::FieldsMissing</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -330,7 +330,7 @@
     Overview
   </h2>
 
-  <p>Error: Invalid input type.</p>
+  <p>Error: The Model has no fields.</p>
 
 
 
@@ -375,7 +375,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28input_type%3AString%29-class-method" class="signature"><strong>.new</strong>(input_type : String)</a>
+        <a href="#new%28model_name%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String)</a>
         
       </li>
     
@@ -443,12 +443,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(input_type:String)-class-method">
+    <div class="entry-detail" id="new(model_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(input_type : String)
+        def self.<strong>new</strong>(model_name : String)
 
-        <a class="method-permalink" href="#new%28input_type%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28model_name%3AString%29-class-method">#</a>
       </div>
       
       <br/>
