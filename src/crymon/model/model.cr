@@ -20,15 +20,6 @@ module Crymon
       "#{service_name}_#{model_name}_#{unique_app_key}"
     end
 
-    # List of variable (field) names.
-    def instance_vars_names : Array(String)
-      {% if @type.instance_vars.size > 0 %}
-        {{ @type.instance_vars.map &.name.stringify }}
-      {% else %}
-        Array(String).new
-      {% end %}
-    end
-
     # List is a list of variable (field) types.
     def instance_vars_types : Array(String)
       {% if @type.instance_vars.size > 0 %}
@@ -72,6 +63,7 @@ module Crymon
       "database_name": String,
       "collection_name": String,
       "db_query_docs_limit": UInt32,
+      "instance_fields_names": Array(String),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -88,12 +80,17 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
-      instance_vars_names : Array(String) = self.instance_vars_names
+      instance_fields_names : Array(String) = (
+        {% if @type.instance_vars.size > 0 %}
+          {{ @type.instance_vars.map &.name.stringify }}
+        {% end %}
+        raise Crymon::Errors::FieldsMissing.new(model_name)
+      )
       # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
         Array(String).new
       ignore_fields.each do |field_name|
-        if !instance_vars_names.includes?(field_name)
+        if !instance_fields_names.includes?(field_name)
           raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
@@ -110,6 +107,8 @@ module Crymon
         "collection_name": "#{service_name}_#{model_name}",
         # limiting query results.
         "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
+        # List of variable (field) names.
+        "instance_fields_names": instance_fields_names,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
         "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
