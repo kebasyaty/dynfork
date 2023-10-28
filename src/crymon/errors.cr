@@ -24,12 +24,12 @@ module Crymon
         super(%(Model "#{model_name}" has no fields.))
       end
     end
-  end
 
-  # Error: The names in the list of ignored fields do not match.
-  class IgnoredFieldMissing < CrymonException
-    def initialize(field_name : String)
-      super(%(The "#{field_name}" field is missing from the list of ignored fields.))
+    # Error: The names in the list of ignored fields do not match.
+    class IgnoredFieldMissing < CrymonException
+      def initialize(field_name : String)
+        super(%(The "#{field_name}" field is missing from the list of ignored fields.))
+      end
     end
   end
 end

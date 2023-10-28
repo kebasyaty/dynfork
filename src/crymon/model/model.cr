@@ -57,13 +57,13 @@ module Crymon
     def meta : NamedTuple(
       "app_name": String,
       "model_name": String,
-      "fields_count": Int32,
       "unique_app_key": String,
       "service_name": String,
       "database_name": String,
       "collection_name": String,
       "db_query_docs_limit": UInt32,
-      "instance_fields_names": Array(String),
+      "field_count": Int32,
+      "field_name_list": Array(String),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -80,17 +80,18 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
-      instance_fields_names : Array(String) = (
+      field_name_list : Array(String) = (
         {% if @type.instance_vars.size > 0 %}
           {{ @type.instance_vars.map &.name.stringify }}
+        {% else %}
+          raise Crymon::Errors::FieldsMissing.new(model_name)
         {% end %}
-        raise Crymon::Errors::FieldsMissing.new(model_name)
       )
       # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
         Array(String).new
       ignore_fields.each do |field_name|
-        if !instance_fields_names.includes?(field_name)
+        if !field_name_list.includes?(field_name)
           raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
@@ -98,17 +99,17 @@ module Crymon
       {
         "app_name": app_name,
         # Model name = Structure name.
-        "model_name": model_name,
-        # Number of variables (fields).
-        "fields_count":    {{ @type.instance_vars.size }},
+        "model_name":      model_name,
         "unique_app_key":  unique_app_key,
         "service_name":    service_name,
         "database_name":   "#{app_name}_#{unique_app_key}",
         "collection_name": "#{service_name}_#{model_name}",
         # limiting query results.
         "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
+        # Number of variables (fields).
+        "field_count": {{ @type.instance_vars.size }},
         # List of variable (field) names.
-        "instance_fields_names": instance_fields_names,
+        "field_name_list": field_name_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
         "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
