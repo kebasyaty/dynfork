@@ -15,10 +15,10 @@ describe Crymon::Model do
       m.instance_vars_name_and_type.should eq(
         {"name" => "String", "age" => "UInt32", "birthday" => "Birthday"}
       )
-      m.has_instance_var?("name").should be_true
-      m.has_instance_var?("age").should be_true
-      m.has_instance_var?("birthday").should be_true
-      m.has_instance_var?("???").should be_false
+      m.has_field?("name").should be_true
+      m.has_field?("age").should be_true
+      m.has_field?("birthday").should be_true
+      m.has_field?("???").should be_false
       m.name.should eq("Gene")
       m.age.should eq(32_u32)
       m.birthday.should eq(Helper::Birthday.new)

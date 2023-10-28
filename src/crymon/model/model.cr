@@ -35,7 +35,7 @@ module Crymon
     end
 
     # Determine the presence of a variable (field) in the model.
-    def has_instance_var?(name) : Bool
+    def has_field?(name) : Bool
       {% if @type.instance_vars.size > 0 %}
         {{ @type.instance_vars.map &.name.stringify }}.includes? name
       {% else %}
