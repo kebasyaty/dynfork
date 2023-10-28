@@ -4,7 +4,6 @@ describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model" do
       m = Helper::EmptyModel.new
-      m.model_name.should eq("EmptyModel")
       m.model_key.should eq("ServiceName_EmptyModel_RT0839370A074kVh")
       m.vars_count.should eq(0_i32)
       m.instance_vars_names.should eq(Array(String).new)
@@ -14,6 +13,7 @@ describe Crymon::Model do
       # Testing metadata.
       metadata = m.meta
       metadata["app_name"].should eq(Settings::APP_NAME)
+      metadata["model_name"].should eq("EmptyModel")
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq("AppName_RT0839370A074kVh")
@@ -30,7 +30,6 @@ describe Crymon::Model do
 
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
-      m.model_name.should eq("FilledModel")
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
       m.vars_count.should eq(3_i32)
       m.instance_vars_names.should eq(["name", "age", "birthday"])
@@ -49,6 +48,7 @@ describe Crymon::Model do
       # Testing metadata.
       metadata = m.meta
       metadata["app_name"].should eq(Settings::APP_NAME)
+      metadata["model_name"].should eq("FilledModel")
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
       metadata["service_name"].should eq(Settings::SERVICE_NAME)
       metadata["database_name"].should eq("AppName_RT0839370A074kVh")

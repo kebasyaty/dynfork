@@ -11,17 +11,13 @@ module Crymon
 
     def initialize; end
 
-    # Model name (Structure name).
-    def model_name : String
-      {{ @type.name.stringify }}.split("::").last
-    end
-
     # Get model key.
     # NOTE: To access data in the cache.
     def model_key : String
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}.strip
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}.strip
-      "#{service_name}_#{self.model_name}_#{unique_app_key}"
+      model_name : String = {{ @type.name.stringify }}.split("::").last
+      "#{service_name}_#{model_name}_#{unique_app_key}"
     end
 
     # Number of variables (fields).
@@ -74,6 +70,7 @@ module Crymon
     # Metadata for the Model.
     def meta : NamedTuple(
       "app_name": String,
+      "model_name": String,
       "unique_app_key": String,
       "service_name": String,
       "database_name": String,
@@ -89,25 +86,30 @@ module Crymon
       #
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
+      model_name : String = {{ @type.name.stringify }}.split("::").last
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
         raise Crymon::Errors::ParameterMissing.new("unique_app_key")
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("service_name")
-      #
+      # List of variable (field) names.
+      instance_vars_names : Array(String) = self.instance_vars_names
+      # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
         Array(String).new
-      instance_vars_names : Array(String) = self.instance_vars_names
       ignore_fields.each do |field_name|
         if !instance_vars_names.includes?(field_name)
           raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
+      #
       {
-        "app_name":        app_name,
+        "app_name": app_name,
+        # Model name = Structure name.
+        "model_name":      model_name,
         "unique_app_key":  unique_app_key,
         "service_name":    service_name,
         "database_name":   "#{app_name}_#{unique_app_key}",
-        "collection_name": "#{service_name}_#{self.model_name}",
+        "collection_name": "#{service_name}_#{model_name}",
         # limiting query results.
         "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
         # Create documents in the database. By default = true.
