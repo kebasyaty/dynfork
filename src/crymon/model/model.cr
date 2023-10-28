@@ -107,8 +107,10 @@ module Crymon
         # Unique project key.
         "unique_app_key": unique_app_key,
         # Service Name - Application subsection.
-        "service_name":    service_name,
-        "database_name":   "#{app_name}_#{unique_app_key}",
+        "service_name": service_name,
+        # Database name.
+        "database_name": "#{app_name}_#{unique_app_key}",
+        # Collection name.
         "collection_name": "#{service_name}_#{model_name}",
         # limiting query results.
         "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
