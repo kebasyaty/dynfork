@@ -50,11 +50,14 @@ module Crymon
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String))
       #
+      # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
       model_name : String = {{ @type.name.stringify }}.split("::").last
+      # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
         raise Crymon::Errors::ParameterMissing.new("unique_app_key")
+      # Service Name - Application subsection.
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
@@ -97,10 +100,13 @@ module Crymon
       )
       #
       {
+        # Project name.
         "app_name": app_name,
         # Model name = Structure name.
-        "model_name":      model_name,
-        "unique_app_key":  unique_app_key,
+        "model_name": model_name,
+        # Unique project key.
+        "unique_app_key": unique_app_key,
+        # Service Name - Application subsection.
         "service_name":    service_name,
         "database_name":   "#{app_name}_#{unique_app_key}",
         "collection_name": "#{service_name}_#{model_name}",
