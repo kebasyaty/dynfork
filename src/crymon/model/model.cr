@@ -71,6 +71,7 @@ module Crymon
     def meta : NamedTuple(
       "app_name": String,
       "model_name": String,
+      "fields_count": Int32,
       "unique_app_key": String,
       "service_name": String,
       "database_name": String,
@@ -106,6 +107,7 @@ module Crymon
         "app_name": app_name,
         # Model name = Structure name.
         "model_name":      model_name,
+        "fields_count":    {{ @type.instance_vars.size }},
         "unique_app_key":  unique_app_key,
         "service_name":    service_name,
         "database_name":   "#{app_name}_#{unique_app_key}",
