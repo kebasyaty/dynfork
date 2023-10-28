@@ -72,6 +72,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Errors/FieldsMissing" data-name="crymon::errors::fieldsmissing">
+      <a href="../Crymon/Errors/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Errors/IgnoredFieldMissing" data-name="crymon::errors::ignoredfieldmissing">
       <a href="../Crymon/Errors/IgnoredFieldMissing.html">IgnoredFieldMissing</a>
       
@@ -412,35 +417,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#has_instance_var%3F%28name%29%3ABool-instance-method" class="signature"><strong>#has_instance_var?</strong>(name) : Bool</a>
+        <a href="#has_field%3F%28name%29%3ABool-instance-method" class="signature"><strong>#has_field?</strong>(name) : Bool</a>
         
           <div class="summary"><p>Determine the presence of a variable (field) in the model.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#instance_vars_name_and_type%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#instance_vars_name_and_type</strong> : Hash(String, String)</a>
-        
-          <div class="summary"><p>List of names and types of variables (fields).</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#instance_vars_names%3AArray%28String%29-instance-method" class="signature"><strong>#instance_vars_names</strong> : Array(String)</a>
-        
-          <div class="summary"><p>List of variable (field) names.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#instance_vars_types%3AArray%28String%29-instance-method" class="signature"><strong>#instance_vars_types</strong> : Array(String)</a>
-        
-          <div class="summary"><p>List is a list of variable (field) types.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#meta%3ANamedTuple%28app_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
+        <a href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
         
           <div class="summary"><p>Metadata for the Model.</p></div>
         
@@ -450,20 +434,6 @@
         <a href="#model_key%3AString-instance-method" class="signature"><strong>#model_key</strong> : String</a>
         
           <div class="summary"><p>Get model key.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#model_name%3AString-instance-method" class="signature"><strong>#model_name</strong> : String</a>
-        
-          <div class="summary"><p>Model name (Structure name).</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#vars_count%3AInt32-instance-method" class="signature"><strong>#vars_count</strong> : Int32</a>
-        
-          <div class="summary"><p>Number of variables (fields).</p></div>
         
       </li>
     
@@ -579,12 +549,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="has_instance_var?(name):Bool-instance-method">
+    <div class="entry-detail" id="has_field?(name):Bool-instance-method">
       <div class="signature">
         
-        def <strong>has_instance_var?</strong>(name) : Bool
+        def <strong>has_field?</strong>(name) : Bool
 
-        <a class="method-permalink" href="#has_instance_var%3F%28name%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#has_field%3F%28name%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -598,70 +568,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="instance_vars_name_and_type:Hash(String,String)-instance-method">
+    <div class="entry-detail" id="meta:NamedTuple(app_name:String,model_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,db_query_docs_limit:UInt32,field_count:Int32,field_name_list:Array(String),field_type_list:Array(String),field_name_and_type_list:Hash(String,String),is_add_doc:Bool,is_up_doc:Bool,is_del_doc:Bool,is_use_addition:Bool,is_use_hooks:Bool,is_use_hash_slug:Bool,ignore_fields:Array(String))-instance-method">
       <div class="signature">
         
-        def <strong>instance_vars_name_and_type</strong> : Hash(String, String)
+        def <strong>meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))
 
-        <a class="method-permalink" href="#instance_vars_name_and_type%3AHash%28String%2CString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>List of names and types of variables (fields).</p>
-<p><span class="flag purple">NOTE</span>  Format: &lt;field_name, field_type&gt;</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="instance_vars_names:Array(String)-instance-method">
-      <div class="signature">
-        
-        def <strong>instance_vars_names</strong> : Array(String)
-
-        <a class="method-permalink" href="#instance_vars_names%3AArray%28String%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>List of variable (field) names.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="instance_vars_types:Array(String)-instance-method">
-      <div class="signature">
-        
-        def <strong>instance_vars_types</strong> : Array(String)
-
-        <a class="method-permalink" href="#instance_vars_types%3AArray%28String%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>List is a list of variable (field) types.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="meta:NamedTuple(app_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,db_query_docs_limit:UInt32,is_add_doc:Bool,is_up_doc:Bool,is_del_doc:Bool,is_use_addition:Bool,is_use_hooks:Bool,is_use_hash_slug:Bool,ignore_fields:Array(String))-instance-method">
-      <div class="signature">
-        
-        def <strong>meta</strong> : NamedTuple(app_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))
-
-        <a class="method-permalink" href="#meta%3ANamedTuple%28app_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -687,44 +599,6 @@
           
           <p>Get model key.</p>
 <p><span class="flag purple">NOTE</span>  To access data in the cache.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="model_name:String-instance-method">
-      <div class="signature">
-        
-        def <strong>model_name</strong> : String
-
-        <a class="method-permalink" href="#model_name%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Model name (Structure name).</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="vars_count:Int32-instance-method">
-      <div class="signature">
-        
-        def <strong>vars_count</strong> : Int32
-
-        <a class="method-permalink" href="#vars_count%3AInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Number of variables (fields).</p>
         </div>
       
       <br/>
