@@ -20,20 +20,6 @@ module Crymon
       "#{service_name}_#{model_name}_#{unique_app_key}"
     end
 
-    # List of names and types of variables (fields).
-    # NOTE: Format: <field_name, field_type>
-    def instance_vars_name_and_type : Hash(String, String)
-      {% if @type.instance_vars.size > 0 %}
-        Hash.zip(
-          {{ @type.instance_vars.map &.name.stringify }},
-          {{ @type.instance_vars.map &.type.stringify }}
-            .map { |name| name.split("::").last }
-        )
-      {% else %}
-        Hash(String, String).new
-      {% end %}
-    end
-
     # Determine the presence of a variable (field) in the model.
     def has_field?(name) : Bool
       {% if @type.instance_vars.size > 0 %}
@@ -55,6 +41,7 @@ module Crymon
       "field_count": Int32,
       "field_name_list": Array(String),
       "field_type_list": Array(String),
+      "field_name_and_type_list": Hash(String, String),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -95,6 +82,19 @@ module Crymon
           raise Crymon::Errors::FieldsMissing.new(model_name)
         {% end %}
       )
+      # List of names and types of variables (fields).
+      # NOTE: Format: <field_name, field_type>
+      field_name_and_type_list : Hash(String, String) = (
+        {% if @type.instance_vars.size > 0 %}
+          Hash.zip(
+            {{ @type.instance_vars.map &.name.stringify }},
+            {{ @type.instance_vars.map &.type.stringify }}
+              .map { |name| name.split("::").last }
+          )
+        {% else %}
+          raise Crymon::Errors::FieldsMissing.new(model_name)
+        {% end %}
+      )
       #
       {
         "app_name": app_name,
@@ -112,6 +112,9 @@ module Crymon
         "field_name_list": field_name_list,
         # List is a list of variable (field) types.
         field_type_list: field_type_list,
+        # List of names and types of variables (fields).
+        # NOTE: Format: <field_name, field_type>
+        "field_name_and_type_list": field_name_and_type_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
         "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
