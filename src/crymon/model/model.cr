@@ -29,6 +29,21 @@ module Crymon
       {% end %}
     end
 
+    # ???
+    def []=(variable, value)
+      {% for var in @type.instance_vars %}
+      if {{var.id.stringify}} == variable
+        if value.is_a?({{ var.type.id }})
+          @{{var}}.value = value
+        else
+          err_msg : String =
+           "Invalid type #{value.class} for {{ var.name.stringify }} (expected {{ var.type.id }})."
+          raise Crymon::Errors::InvalidType.new(err_msg)
+        end
+      end
+    {% end %}
+    end
+
     # Metadata for the Model.
     def meta : NamedTuple(
       "app_name": String,

@@ -31,5 +31,12 @@ module Crymon
         super(%(The "#{field_name}" field is missing from the list of ignored fields.))
       end
     end
+
+    # Error: Invalid type.
+    class InvalidType < CrymonException
+      def initialize(message : String)
+        super
+      end
+    end
   end
 end

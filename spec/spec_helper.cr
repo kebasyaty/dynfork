@@ -37,6 +37,7 @@ module Helper
   # For testing: Helper::Birthday to Birthday in Model.
   struct Birthday
     getter date : String = "1990-11-7"
+    property value : String = ""
   end
 
   # Model without the required 'app_name' parameter for metadata.
