@@ -12,7 +12,6 @@ describe Crymon::Model do
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
-      m.instance_vars_types.should eq(["String", "UInt32", "Birthday"])
       m.instance_vars_name_and_type.should eq(
         {"name" => "String", "age" => "UInt32", "birthday" => "Birthday"}
       )
@@ -35,6 +34,7 @@ describe Crymon::Model do
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(3_i32)
       metadata["field_name_list"].should eq(["name", "age", "birthday"])
+      metadata["field_type_list"].should eq(["String", "UInt32", "Birthday"])
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true

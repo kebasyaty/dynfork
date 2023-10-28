@@ -20,16 +20,6 @@ module Crymon
       "#{service_name}_#{model_name}_#{unique_app_key}"
     end
 
-    # List is a list of variable (field) types.
-    def instance_vars_types : Array(String)
-      {% if @type.instance_vars.size > 0 %}
-        {{ @type.instance_vars.map &.type.stringify }}
-          .map { |name| name.split("::").last }
-      {% else %}
-        Array(String).new
-      {% end %}
-    end
-
     # List of names and types of variables (fields).
     # NOTE: Format: <field_name, field_type>
     def instance_vars_name_and_type : Hash(String, String)
@@ -64,6 +54,7 @@ module Crymon
       "db_query_docs_limit": UInt32,
       "field_count": Int32,
       "field_name_list": Array(String),
+      "field_type_list": Array(String),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -95,6 +86,15 @@ module Crymon
           raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
+      # List is a list of variable (field) types.
+      field_type_list : Array(String) = (
+        {% if @type.instance_vars.size > 0 %}
+          {{ @type.instance_vars.map &.type.stringify }}
+            .map { |name| name.split("::").last }
+        {% else %}
+          raise Crymon::Errors::FieldsMissing.new(model_name)
+        {% end %}
+      )
       #
       {
         "app_name": app_name,
@@ -110,6 +110,8 @@ module Crymon
         "field_count": {{ @type.instance_vars.size }},
         # List of variable (field) names.
         "field_name_list": field_name_list,
+        # List is a list of variable (field) types.
+        field_type_list: field_type_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
         "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
