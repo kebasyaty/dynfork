@@ -20,6 +20,7 @@ describe Crymon::Model do
       m.age.should eq(32_u32)
       m.birthday.should eq(Helper::Birthday.new)
       m.birthday.date.should eq("1990-11-7")
+      m.birthday.value.should eq("")
       # Testing metadata.
       metadata = m.meta
       metadata["app_name"].should eq(Settings::APP_NAME)
