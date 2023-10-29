@@ -97,7 +97,7 @@ module Crymon
       )
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
-      field_name_and_type_list : Hash(String, Crymon::Globals::ValueTypes) = (
+      field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 0 %}
           Hash.zip(
             {{ @type.instance_vars.map &.name.stringify }},
@@ -110,8 +110,8 @@ module Crymon
       )
       # Default value list.
       # NOTE: Format: <field_name, default_value>
-      default_value_list : Hash(String, String) = (
-        hash : Hash(String, String) = Hash(String, String).new
+      default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
+        hash = Hash(String, Crymon::Globals::ValueTypes).new
         {% if @type.instance_vars.size > 0 %}
           {% for var in @type.instance_vars %}
             {% if var}}.default? %}
