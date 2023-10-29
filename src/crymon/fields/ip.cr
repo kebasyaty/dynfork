@@ -40,7 +40,7 @@ module Crymon
         @hint : String = ""
       ); end
 
-      # Check for variable existence.
+      # Determine the presence of a variable (field) in the model.
       def []?(variable) : Bool
         {% for var in @type.instance_vars %}
           if {{ var.name.stringify }} == variable

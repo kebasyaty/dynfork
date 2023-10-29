@@ -39,6 +39,16 @@ module Crymon
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 0
+
+      # Determine the presence of a variable (field) in the model.
+      def []?(variable) : Bool
+        {% for var in @type.instance_vars %}
+          if {{ var.name.stringify }} == variable
+              return true
+          end
+        {% end %}
+        false
+      end
     end
 
     # Helper structure for FileField.

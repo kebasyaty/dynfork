@@ -40,16 +40,6 @@ module Crymon
         @hint : String = "",
         @warning : String = ""
       ); end
-
-      # Check for variable existence.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
   end
 end
