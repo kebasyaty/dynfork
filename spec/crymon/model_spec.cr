@@ -45,6 +45,7 @@ describe Crymon::Model do
       metadata["field_name_and_type_list"].should eq(
         {"name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
       )
+      metadata["default_value_list"].should eq({"name" => nil, "age" => nil, "birthday" => nil})
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true
