@@ -14,7 +14,7 @@ module Crymon
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5, "Title"}, {10, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(UInt32, String))
@@ -49,7 +49,7 @@ module Crymon
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5, "Title"}, {10, "Title 2"}].
       # NOTE: Html tag: select multiple
       property choices : Array(Tuple(UInt32, String))
@@ -85,7 +85,7 @@ module Crymon
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5, "Title"}, {10, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(UInt32, String))
@@ -120,7 +120,7 @@ module Crymon
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5, "Title"}, {10, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(UInt32, String))
