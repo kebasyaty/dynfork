@@ -16,8 +16,6 @@ module Crymon
       property name : String = ""
       # Field type - Structure Name.
       getter field_type : String = ""
-      # Sets the value of an element.
-      property value
       # Required field.
       property is_required : Bool = false
       # Blocks access and modification of the element.
