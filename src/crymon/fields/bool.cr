@@ -11,7 +11,7 @@ module Crymon
       # Sets the value of an element.
       property value : Bool | Nil
       # Value by default.
-      property default : Bool | Nil
+      getter default : Bool | Nil
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 13

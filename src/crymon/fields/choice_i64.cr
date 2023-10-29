@@ -10,7 +10,7 @@ module Crymon
       # Sets the value of an element.
       property value : Int64 | Nil
       # Value by default.
-      property default : Int64 | Nil
+      getter default : Int64 | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -45,7 +45,7 @@ module Crymon
       # Sets the value of an element.
       property value : Array(Int64) | Nil
       # Value by default.
-      property default : Array(String) | Nil
+      getter default : Array(String) | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.

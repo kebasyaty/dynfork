@@ -11,7 +11,7 @@ module Crymon
       # Sets the value of an element.
       property value : Crymon::Fields::FileData | Nil
       # Value by default.
-      property default : Crymon::Fields::FileData | Nil
+      getter default : Crymon::Fields::FileData | Nil
       # Root directory for storing media files.
       property media_root : String
       # URL address for the media directory.

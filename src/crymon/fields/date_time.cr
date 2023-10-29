@@ -14,7 +14,7 @@ module Crymon
       property value : String | Nil
       # Value by default.
       # NOTE: Example: 1970-01-01T00:00
-      property default : String | Nil
+      getter default : String | Nil
       # Displays prompt text.
       property placeholder : String
       # The top value for entering a date and time.

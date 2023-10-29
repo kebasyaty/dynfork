@@ -10,7 +10,7 @@ module Crymon
       # Sets the value of an element.
       property value : UInt32 | Nil
       # Value by default.
-      property default : UInt32 | Nil
+      getter default : UInt32 | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -45,7 +45,7 @@ module Crymon
       # Sets the value of an element.
       property value : Array(UInt32) | Nil
       # Value by default.
-      property default : Array(UInt32) | Nil
+      getter default : Array(UInt32) | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.

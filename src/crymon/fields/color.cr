@@ -18,7 +18,7 @@ module Crymon
       # Sets the value of an element.
       property value : String | Nil
       # The default value is #000000.
-      property default : String | Nil
+      getter default : String | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.

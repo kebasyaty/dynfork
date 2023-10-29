@@ -11,7 +11,7 @@ module Crymon
       # Sets the value of an element.
       property value : UInt32 | Nil
       # Value by default.
-      property default : UInt32 | Nil
+      getter default : UInt32 | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
@@ -59,7 +59,7 @@ module Crymon
       # Sets the value of an element.
       property value : Int64 | Nil
       # Value by default.
-      property default : Int64 | Nil
+      getter default : Int64 | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
@@ -107,7 +107,7 @@ module Crymon
       # Sets the value of an element.
       property value : Float64 | Nil
       # Value by default.
-      property default : Float64 | Nil
+      getter default : Float64 | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
