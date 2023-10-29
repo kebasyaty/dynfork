@@ -51,7 +51,7 @@ module Crymon
       "field_name_list": Array(String),
       "field_type_list": Array(String),
       "field_name_and_type_list": Hash(String, String),
-      "default_value_list": Hash(String, String),
+      "default_value_list": Hash(String, Crymon::Globals::ValueTypes),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -97,7 +97,7 @@ module Crymon
       )
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
-      field_name_and_type_list : Hash(String, String) = (
+      field_name_and_type_list : Hash(String, Crymon::Globals::ValueTypes) = (
         {% if @type.instance_vars.size > 0 %}
           Hash.zip(
             {{ @type.instance_vars.map &.name.stringify }},
