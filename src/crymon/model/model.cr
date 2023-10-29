@@ -73,10 +73,11 @@ module Crymon
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
       field_name_list : Array(String) = (
-        if {{ @type.instance_vars.size }} == 0
+        {% if @type.instance_vars.size > 0 %}
+          {{ @type.instance_vars.map &.name.stringify }}
+        {% else %}
           raise Crymon::Errors::FieldsMissing.new(model_name)
-        end
-        {{ @type.instance_vars.map &.name.stringify }}
+        {% end %}
       )
       # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
@@ -88,37 +89,39 @@ module Crymon
       end
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
-        if {{ @type.instance_vars.size }} == 0
+        {% if @type.instance_vars.size > 0 %}
+          {{ @type.instance_vars.map &.type.stringify }}
+            .map { |name| name.split("::").last }
+        {% else %}
           raise Crymon::Errors::FieldsMissing.new(model_name)
-        end
-        {{ @type.instance_vars.map &.type.stringify }}
-          .map { |name| name.split("::").last }
+        {% end %}
       )
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
       field_name_and_type_list : Hash(String, String) = (
-        if {{ @type.instance_vars.size }} == 0
+        {% if @type.instance_vars.size > 0 %}
+          Hash.zip(
+            {{ @type.instance_vars.map &.name.stringify }},
+            {{ @type.instance_vars.map &.type.stringify }}
+              .map { |name| name.split("::").last }
+        {% else %}
           raise Crymon::Errors::FieldsMissing.new(model_name)
-        end
-        Hash.zip(
-          {{ @type.instance_vars.map &.name.stringify }},
-          {{ @type.instance_vars.map &.type.stringify }}
-            .map { |name| name.split("::").last }
-        )
+        {% end %}
       )
       # Default value list.
       # NOTE: Format: <field_name, default_value>
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-        if {{ @type.instance_vars.size }} == 0
-          raise Crymon::Errors::FieldsMissing.new(model_name)
-        end
-        hash = Hash(String, Crymon::Globals::ValueTypes).new
-        self.field_name_and_value_list.each do |key, value|
-          if value["default"]?
-            hash[key] = value.default
+        {% if @type.instance_vars.size > 0 %}
+          hash = Hash(String, Crymon::Globals::ValueTypes).new
+          self.field_name_and_value_list.each do |key, value|
+            if value["default"]?
+              hash[key] = value.default
+            end
           end
-        end
-        hash
+          hash
+        {% else %}
+          raise Crymon::Errors::FieldsMissing.new(model_name)
+        {% end %}
       )
       #
       {
