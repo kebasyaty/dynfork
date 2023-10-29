@@ -35,16 +35,6 @@ module Crymon
         @hint : String = "",
         @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
       ); end
-
-      # Check for variable existence.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
 
     # Type of selective field with static of elements.
@@ -80,16 +70,6 @@ module Crymon
         @hint : String = "",
         @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
       ); end
-
-      # Check for variable existence.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
 
     # Type of selective field with dynamic addition of elements.
@@ -123,16 +103,6 @@ module Crymon
         @hint : String = "",
         @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
       ); end
-
-      # Check for variable existence.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
 
     # Type of selective field with dynamic addition of elements.
@@ -166,16 +136,6 @@ module Crymon
         @hint : String = "",
         @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
       ); end
-
-      # Check for variable existence.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
   end
 end

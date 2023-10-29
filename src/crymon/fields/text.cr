@@ -42,16 +42,6 @@ module Crymon
         @css_classes : String = "",
         @hint : String = ""
       ); end
-
-      # Determine the presence of a variable (field) in the model.
-      def []?(variable) : Bool
-        {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-        false
-      end
     end
   end
 end
