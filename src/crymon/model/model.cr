@@ -104,6 +104,7 @@ module Crymon
             {{ @type.instance_vars.map &.name.stringify }},
             {{ @type.instance_vars.map &.type.stringify }}
               .map { |name| name.split("::").last }
+          )
         {% else %}
           raise Crymon::Errors::FieldsMissing.new(model_name)
         {% end %}
