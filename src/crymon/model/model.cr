@@ -115,7 +115,7 @@ module Crymon
         {% if @type.instance_vars.size > 0 %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
           self.field_name_and_value_list.each do |key, value|
-            hash[key] = value["default"]? ? value.default : nil
+            hash[key] = value.default
           end
           hash
         {% else %}
