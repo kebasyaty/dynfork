@@ -14,8 +14,8 @@ module Crymon
     # Get model key.
     # NOTE: To access data in the cache.
     def model_key : String
-      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}.strip
-      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}.strip
+      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
+      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}
       model_name : String = {{ @type.name.stringify }}.split("::").last
       "#{service_name}_#{model_name}_#{unique_app_key}"
     end
@@ -73,7 +73,7 @@ module Crymon
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
       field_name_list : Array(String) = (
-        if {{ @type.instance_vars.size }} > 0
+        if {{ @type.instance_vars.size }} == 0
           raise Crymon::Errors::FieldsMissing.new(model_name)
         end
         {{ @type.instance_vars.map &.name.stringify }}
@@ -88,7 +88,7 @@ module Crymon
       end
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
-        if {{ @type.instance_vars.size }} > 0
+        if {{ @type.instance_vars.size }} == 0
           raise Crymon::Errors::FieldsMissing.new(model_name)
         end
         {{ @type.instance_vars.map &.type.stringify }}
@@ -97,7 +97,7 @@ module Crymon
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
       field_name_and_type_list : Hash(String, String) = (
-        if {{ @type.instance_vars.size }} > 0
+        if {{ @type.instance_vars.size }} == 0
           raise Crymon::Errors::FieldsMissing.new(model_name)
         end
         Hash.zip(
@@ -109,7 +109,7 @@ module Crymon
       # Default value list.
       # NOTE: Format: <field_name, default_value>
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-        if {{ @type.instance_vars.size }} > 0
+        if {{ @type.instance_vars.size }} == 0
           raise Crymon::Errors::FieldsMissing.new(model_name)
         end
         hash = Hash(String, Crymon::Globals::ValueTypes).new
