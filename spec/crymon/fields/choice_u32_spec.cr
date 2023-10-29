@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::ChoiceU32Field do
   describe ".new" do
@@ -23,6 +23,7 @@ describe Crymon::Fields::ChoiceU32Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(4_u8)
+      f["default"]?.should be_true
     end
   end
 end
@@ -50,6 +51,7 @@ describe Crymon::Fields::ChoiceU32MultField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(6_u8)
+      f["default"]?.should be_true
     end
   end
 end
@@ -63,6 +65,7 @@ describe Crymon::Fields::ChoiceU32DynField do
       f.field_type.should eq("ChoiceU32DynField")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.is_multiple.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
@@ -76,6 +79,7 @@ describe Crymon::Fields::ChoiceU32DynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(5_u8)
+      f["default"]?.should be_true
     end
   end
 end
@@ -89,6 +93,7 @@ describe Crymon::Fields::ChoiceU32MultDynField do
       f.field_type.should eq("ChoiceU32MultDynField")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.is_multiple.should be_true
       f.is_required.should be_false
       f.is_unique.should be_false
@@ -102,6 +107,7 @@ describe Crymon::Fields::ChoiceU32MultDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
+      f["default"]?.should be_true
     end
   end
 end

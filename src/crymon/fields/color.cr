@@ -8,7 +8,7 @@ module Crymon
     # WARNING: type="color" only seven-character hexadecimal notation.
     # NOTE: Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
     # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.
-    struct ColorField < Fields::Field
+    struct ColorField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ColorField"
       # Html tag: input type="color".
@@ -18,15 +18,15 @@ module Crymon
       # Sets the value of an element.
       property value : String | Nil
       # The default value is #000000.
-      property default : String | Nil
+      getter default : String | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
-      property maxlength : UInt32
+      getter maxlength : UInt32
       # The minimum number of characters allowed in the text.
-      property minlength : UInt32
+      getter minlength : UInt32
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 1

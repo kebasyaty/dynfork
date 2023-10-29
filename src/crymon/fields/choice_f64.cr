@@ -4,17 +4,17 @@ module Crymon
   module Fields
     # Type of selective field with static of elements.
     # NOTE: With a single choice.
-    struct ChoiceF64Field < Fields::Field
+    struct ChoiceF64Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64Field"
       # Sets the value of an element.
       property value : Float64 | Nil
       # Value by default.
-      property default : Float64 | Nil
+      getter default : Float64 | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))
@@ -39,17 +39,17 @@ module Crymon
 
     # Type of selective field with static of elements.
     # NOTE: With multiple choice.
-    struct ChoiceF64MultField < Fields::Field
+    struct ChoiceF64MultField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64MultField"
       # Sets the value of an element.
       property value : Array(Float64) | Nil
       # Value by default.
-      property default : Array(String) | Nil
+      getter default : Array(String) | Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
       # NOTE: Html tag: select multiple
       property choices : Array(Tuple(Float64, String))
@@ -75,15 +75,17 @@ module Crymon
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-One.
     # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
-    struct ChoiceF64DynField < Fields::Field
+    struct ChoiceF64DynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64DynField"
       # Sets the value of an element.
       property value : Float64 | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))
@@ -108,15 +110,17 @@ module Crymon
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-Many.
     # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
-    struct ChoiceF64MultDynField < Fields::Field
+    struct ChoiceF64MultDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceF64MultDynField"
       # Sets the value of an element.
       property value : Array(Float64) | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Example: [{5.0, "Title"}, {5.25, "Title 2"}].
       # NOTE: Html tag: select
       property choices : Array(Tuple(Float64, String))

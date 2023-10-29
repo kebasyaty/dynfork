@@ -87,6 +87,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidType" data-name="crymon::errors::invalidtype">
+      <a href="../Crymon/Errors/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Errors/ParameterMissing" data-name="crymon::errors::parametermissing">
       <a href="../Crymon/Errors/ParameterMissing.html">ParameterMissing</a>
       
@@ -287,6 +292,26 @@
       
     </li>
   
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+      <a href="../Crymon/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/FieldTypes" data-name="crymon::globals::fieldtypes">
+      <a href="../Crymon/Globals/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
+      <a href="../Crymon/Globals/ValueTypes.html">ValueTypes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Metadata" data-name="crymon::metadata">
       <a href="../Crymon/Metadata.html">Metadata</a>
       
@@ -417,14 +442,21 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#has_field%3F%28name%29%3ABool-instance-method" class="signature"><strong>#has_field?</strong>(name) : Bool</a>
+        <a href="#%5B%5D%3F%28variable%29%3ABool-instance-method" class="signature"><strong>#[]?</strong>(variable) : Bool</a>
         
           <div class="summary"><p>Determine the presence of a variable (field) in the model.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
+        <a href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method" class="signature"><strong>#field_name_and_value_list</strong> : Hash(String, Crymon::Globals::FieldTypes)</a>
+        
+          <div class="summary"><p>Get a list of field names and their values.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cdefault_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AValueTypes%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), default_value_list: Hash(String, Crymon::Globals::ValueTypes), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
         
           <div class="summary"><p>Metadata for the Model.</p></div>
         
@@ -549,12 +581,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="has_field?(name):Bool-instance-method">
+    <div class="entry-detail" id="[]?(variable):Bool-instance-method">
       <div class="signature">
         
-        def <strong>has_field?</strong>(name) : Bool
+        def <strong>[]?</strong>(variable) : Bool
 
-        <a class="method-permalink" href="#has_field%3F%28name%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#%5B%5D%3F%28variable%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -568,12 +600,31 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="meta:NamedTuple(app_name:String,model_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,db_query_docs_limit:UInt32,field_count:Int32,field_name_list:Array(String),field_type_list:Array(String),field_name_and_type_list:Hash(String,String),is_add_doc:Bool,is_up_doc:Bool,is_del_doc:Bool,is_use_addition:Bool,is_use_hooks:Bool,is_use_hash_slug:Bool,ignore_fields:Array(String))-instance-method">
+    <div class="entry-detail" id="field_name_and_value_list:Hash(String,Crymon::Globals::FieldTypes)-instance-method">
       <div class="signature">
         
-        def <strong>meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))
+        def <strong>field_name_and_value_list</strong> : Hash(String, <a href="../Crymon/Globals/FieldTypes.html">Crymon::Globals::FieldTypes</a>)
 
-        <a class="method-permalink" href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get a list of field names and their values.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="meta:NamedTuple(app_name:String,model_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,db_query_docs_limit:UInt32,field_count:Int32,field_name_list:Array(String),field_type_list:Array(String),field_name_and_type_list:Hash(String,String),default_value_list:Hash(String,Crymon::Globals::ValueTypes),is_add_doc:Bool,is_up_doc:Bool,is_del_doc:Bool,is_use_addition:Bool,is_use_hooks:Bool,is_use_hash_slug:Bool,ignore_fields:Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), default_value_list: Hash(String, <a href="../Crymon/Globals/ValueTypes.html">Crymon::Globals::ValueTypes</a>), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))
+
+        <a class="method-permalink" href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cdefault_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AValueTypes%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">

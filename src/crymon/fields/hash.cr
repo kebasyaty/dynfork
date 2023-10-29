@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # This type was created specifically for the hash field.
-    struct HashField < Fields::Field
+    struct HashField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "HashField"
       # Html tag: input type="url".
@@ -11,15 +11,15 @@ module Crymon
       # Sets the value of an element.
       property value : String | Nil
       # Value by default.
-      property default : String | Nil
+      getter default : Nil = nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property maxlength : UInt32
+      getter maxlength : UInt32
       # The minimum number of characters allowed in the text.
-      property minlength : UInt32
+      getter minlength : UInt32
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Hide field from user.
       property is_hide : Bool
       # To optimize field traversal in the `paladins/check()` method.
@@ -28,7 +28,6 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = nil,
         @placeholder : String = "",
         @maxlength : UInt32 = 12,
         @minlength : UInt32 = 12,

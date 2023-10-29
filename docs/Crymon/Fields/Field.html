@@ -87,6 +87,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidType" data-name="crymon::errors::invalidtype">
+      <a href="../../Crymon/Errors/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Errors/ParameterMissing" data-name="crymon::errors::parametermissing">
       <a href="../../Crymon/Errors/ParameterMissing.html">ParameterMissing</a>
       
@@ -279,6 +284,26 @@
   
   <li class=" " data-id="crymon/Crymon/Fields/URLField" data-name="crymon::fields::urlfield">
       <a href="../../Crymon/Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+      <a href="../../Crymon/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/FieldTypes" data-name="crymon::globals::fieldtypes">
+      <a href="../../Crymon/Globals/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
+      <a href="../../Crymon/Globals/ValueTypes.html">ValueTypes</a>
       
     </li>
   
@@ -490,14 +515,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#css_classes%3AString-instance-method" class="signature"><strong>#css_classes</strong> : String</a>
+        <a href="#%5B%5D%3F%28variable%29%3ABool-instance-method" class="signature"><strong>#[]?</strong>(variable) : Bool</a>
         
-          <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
+          <div class="summary"><p>Determine the presence of a variable (field) in the model.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#css_classes%3D%28css_classes%3AString%29-instance-method" class="signature"><strong>#css_classes=</strong>(css_classes : String)</a>
+        <a href="#css_classes%3AString-instance-method" class="signature"><strong>#css_classes</strong> : String</a>
         
           <div class="summary"><p>Example: &quot;class-name-1 class-name-2&quot;.</p></div>
         
@@ -533,13 +558,6 @@
     
       <li class="entry-summary">
         <a href="#hint%3AString-instance-method" class="signature"><strong>#hint</strong> : String</a>
-        
-          <div class="summary"><p>Additional explanation for the user.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#hint%3D%28hint%3AString%29-instance-method" class="signature"><strong>#hint=</strong>(hint : String)</a>
         
           <div class="summary"><p>Additional explanation for the user.</p></div>
         
@@ -609,21 +627,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_required%3D%28is_required%3ABool%29-instance-method" class="signature"><strong>#is_required=</strong>(is_required : Bool)</a>
-        
-          <div class="summary"><p>Required field.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#label%3AString-instance-method" class="signature"><strong>#label</strong> : String</a>
-        
-          <div class="summary"><p>Web form field name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#label%3D%28label%3AString%29-instance-method" class="signature"><strong>#label=</strong>(label : String)</a>
         
           <div class="summary"><p>Web form field name.</p></div>
         
@@ -637,37 +641,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
-        
-          <div class="summary"><p>The value is determined automatically.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#other_attrs%3AString-instance-method" class="signature"><strong>#other_attrs</strong> : String</a>
         
           <div class="summary"><p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="signature"><strong>#other_attrs=</strong>(other_attrs : String)</a>
-        
-          <div class="summary"><p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value-instance-method" class="signature"><strong>#value</strong></a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%29-instance-method" class="signature"><strong>#value=</strong>(value)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
         
       </li>
     
@@ -783,17 +759,17 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="css_classes:String-instance-method">
+    <div class="entry-detail" id="[]?(variable):Bool-instance-method">
       <div class="signature">
         
-        def <strong>css_classes</strong> : String
+        def <strong>[]?</strong>(variable) : Bool
 
-        <a class="method-permalink" href="#css_classes%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#%5B%5D%3F%28variable%29%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Example: &quot;class-name-1 class-name-2&quot;.</p>
+          <p>Determine the presence of a variable (field) in the model.</p>
         </div>
       
       <br/>
@@ -802,12 +778,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="css_classes=(css_classes:String)-instance-method">
+    <div class="entry-detail" id="css_classes:String-instance-method">
       <div class="signature">
         
-        def <strong>css_classes=</strong>(css_classes : String)
+        def <strong>css_classes</strong> : String
 
-        <a class="method-permalink" href="#css_classes%3D%28css_classes%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#css_classes%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -904,25 +880,6 @@
         def <strong>hint</strong> : String
 
         <a class="method-permalink" href="#hint%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Additional explanation for the user.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="hint=(hint:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>hint=</strong>(hint : String)
-
-        <a class="method-permalink" href="#hint%3D%28hint%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1109,50 +1066,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_required=(is_required:Bool)-instance-method">
-      <div class="signature">
-        
-        def <strong>is_required=</strong>(is_required : Bool)
-
-        <a class="method-permalink" href="#is_required%3D%28is_required%3ABool%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Required field.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="label:String-instance-method">
       <div class="signature">
         
         def <strong>label</strong> : String
 
         <a class="method-permalink" href="#label%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Web form field name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="label=(label:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>label=</strong>(label : String)
-
-        <a class="method-permalink" href="#label%3D%28label%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1185,25 +1104,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="name=(name:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>name=</strong>(name : String)
-
-        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The value is determined automatically.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="other_attrs:String-instance-method">
       <div class="signature">
         
@@ -1215,63 +1115,6 @@
         <div class="doc">
           
           <p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="other_attrs=(other_attrs:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>other_attrs=</strong>(other_attrs : String)
-
-        <a class="method-permalink" href="#other_attrs%3D%28other_attrs%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Example: %(autofocus tabindex=&quot;some number&quot; size=&quot;some number&quot;).</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong>
-
-        <a class="method-permalink" href="#value-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value)
-
-        <a class="method-permalink" href="#value%3D%28value%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
         </div>
       
       <br/>

@@ -1,7 +1,7 @@
 require "spec"
 require "../src/crymon"
 
-# Parameters for Metadata.
+# Parameters for Model.
 module Settings
   APP_NAME       = "AppName"
   UNIQUE_APP_KEY = "RT0839370A074kVh"
@@ -23,20 +23,11 @@ module Helper
     ignore_fields: ["age", "birthday"]
   )]
   struct FilledModel < Crymon::Model
-    getter name : String
-    getter age : UInt32
-    getter birthday : Helper::Birthday
+    getter name = Crymon::Fields::TextField.new("default": "Cat")
+    getter age = Crymon::Fields::U32Field.new("default": 0)
+    getter birthday = Crymon::Fields::DateField.new("default": "0000-00-00")
 
-    def initialize(
-      @name : String,
-      @age : UInt32,
-      @birthday = Helper::Birthday.new
-    ); end
-  end
-
-  # For testing: Helper::Birthday to Birthday in Model.
-  struct Birthday
-    getter date : String = "1990-11-7"
+    def initialize; end
   end
 
   # Model without the required 'app_name' parameter for metadata.
@@ -45,13 +36,10 @@ module Helper
     service_name: Settings::SERVICE_NAME
   )]
   struct NoParamAppNameModel < Crymon::Model
-    getter name : String
-    getter age : UInt32
+    getter name = Crymon::Fields::TextField.new
+    getter age = Crymon::Fields::U32Field.new
 
-    def initialize(
-      @name : String,
-      @age : UInt32
-    ); end
+    def initialize; end
   end
 
   # Model without the required 'unique_app_key' parameter for metadata.
@@ -60,13 +48,10 @@ module Helper
     service_name: Settings::SERVICE_NAME
   )]
   struct NoParamUniqueAppKeyModel < Crymon::Model
-    getter name : String
-    getter age : UInt32
+    getter name = Crymon::Fields::TextField.new
+    getter age = Crymon::Fields::U32Field.new
 
-    def initialize(
-      @name : String,
-      @age : UInt32
-    ); end
+    def initialize; end
   end
 
   # Model without the required 'service_name' parameter for metadata.
@@ -75,13 +60,10 @@ module Helper
     unique_app_key: Settings::UNIQUE_APP_KEY
   )]
   struct NoParamServiceMameModel < Crymon::Model
-    getter name : String
-    getter age : UInt32
+    getter name = Crymon::Fields::TextField.new
+    getter age = Crymon::Fields::U32Field.new
 
-    def initialize(
-      @name : String,
-      @age : UInt32
-    ); end
+    def initialize; end
   end
 
   # Incorrect field names in the ignored list.
@@ -91,12 +73,9 @@ module Helper
     ignore_fields: ["age", "birthday"]
   )]
   struct IncorrectIgnoredListModel < Crymon::Model
-    getter name : String
-    getter age : UInt32
+    getter name = Crymon::Fields::TextField.new
+    getter age = Crymon::Fields::U32Field.new
 
-    def initialize(
-      @name : String,
-      @age : UInt32
-    ); end
+    def initialize; end
   end
 end

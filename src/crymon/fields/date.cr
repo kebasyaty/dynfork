@@ -4,7 +4,7 @@ module Crymon
   module Fields
     # A field for entering a date in the format yyyy-mm-dd.
     # NOTE: Example: 1970-01-01
-    struct DateField < Fields::Field
+    struct DateField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateField"
       # Html tag: input type="date".
@@ -14,17 +14,17 @@ module Crymon
       property value : String | Nil
       # Value by default.
       # NOTE: Example: 1970-01-01
-      property default : String | Nil
+      getter default : String | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The top value for entering a date.
-      property max : String
+      getter max : String
       # The lower value for entering a date.
-      property min : String
+      getter min : String
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Additional explanation for the user.
-      property hint : String
+      getter hint : String
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 3

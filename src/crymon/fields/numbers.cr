@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering unsigned 32-bit integers.
-    struct U32Field < Fields::Field
+    struct U32Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "U32Field"
       # Html tag: input type="number|range".
@@ -11,17 +11,17 @@ module Crymon
       # Sets the value of an element.
       property value : UInt32 | Nil
       # Value by default.
-      property default : UInt32 | Nil
+      getter default : UInt32 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : UInt32
+      getter max : UInt32
       # The minimum number of characters allowed in the text.
-      property min : UInt32
+      getter min : UInt32
       # Increment step for numeric fields.
-      property step : UInt32
+      getter step : UInt32
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 11
@@ -51,7 +51,7 @@ module Crymon
     end
 
     # Field for entering integer 64-bit numbers.
-    struct I64Field < Fields::Field
+    struct I64Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "I64Field"
       # Html tag: input type="number|range".
@@ -59,17 +59,17 @@ module Crymon
       # Sets the value of an element.
       property value : Int64 | Nil
       # Value by default.
-      property default : Int64 | Nil
+      getter default : Int64 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : Int64
+      getter max : Int64
       # The minimum number of characters allowed in the text.
-      property min : Int64
+      getter min : Int64
       # Increment step for numeric fields.
-      property step : Int64
+      getter step : Int64
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 11
@@ -99,7 +99,7 @@ module Crymon
     end
 
     # Field for entering float 64-bit numbers.
-    struct F64Field < Fields::Field
+    struct F64Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "F64Field"
       # Html tag: input type="number|range".
@@ -107,17 +107,17 @@ module Crymon
       # Sets the value of an element.
       property value : Float64 | Nil
       # Value by default.
-      property default : Float64 | Nil
+      getter default : Float64 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : Float64
+      getter max : Float64
       # The minimum number of characters allowed in the text.
-      property min : Float64
+      getter min : Float64
       # Increment step for numeric fields.
-      property step : Float64
+      getter step : Float64
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 12

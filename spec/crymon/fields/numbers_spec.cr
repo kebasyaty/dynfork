@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::U32Field do
   describe ".new" do
@@ -26,6 +26,7 @@ describe Crymon::Fields::U32Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(11_u8)
+      f["default"]?.should be_true
     end
 
     it "=> create instance with input_type=range" do
@@ -73,6 +74,7 @@ describe Crymon::Fields::I64Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(11_u8)
+      f["default"]?.should be_true
     end
 
     it "=> create instance with input_type=range" do
@@ -120,6 +122,7 @@ describe Crymon::Fields::F64Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(12_u8)
+      f["default"]?.should be_true
     end
 
     it "=> create instance with input_type=range" do

@@ -1,9 +1,18 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::TextField do
-  describe ".new" do
-    it "=> create instance of Text field" do
+  describe ".to_json" do
+    it "=> create json from structure" do
       f = Crymon::Fields::TextField.new
+      j : String = f.to_json
+      j.empty?.should be_false
+    end
+  end
+  describe ".from_json" do
+    it "=> create instance from json" do
+      f = Crymon::Fields::TextField.new
+      j : String = f.to_json
+      f = Crymon::Fields::TextField.from_json(j)
       f.id.should eq("")
       f.label.should eq("")
       f.field_type.should eq("TextField")
@@ -26,6 +35,7 @@ describe Crymon::Fields::TextField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
+      f["default"]?.should be_true
     end
   end
 end

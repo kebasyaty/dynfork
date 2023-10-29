@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::FileData do
   describe ".new" do
@@ -40,6 +40,7 @@ describe Crymon::Fields::FileField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(8_u8)
+      f["default"]?.should be_true
     end
   end
 end

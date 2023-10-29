@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::PasswordField do
   describe ".new" do
@@ -10,6 +10,7 @@ describe Crymon::Fields::PasswordField do
       f.input_type.should eq("password")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.placeholder.should eq("")
       f.is_disabled.should be_false
       f.is_readonly.should be_false
@@ -26,6 +27,7 @@ describe Crymon::Fields::PasswordField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
+      f["default"]?.should be_true
     end
   end
 end

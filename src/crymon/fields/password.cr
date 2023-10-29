@@ -3,25 +3,27 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering password.
-    struct PasswordField < Fields::Field
+    struct PasswordField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "PasswordField"
       # Html tag: input type="url".
       getter input_type : String = "password"
       # Sets the value of an element.
       property value : String | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property maxlength : UInt32
+      getter maxlength : UInt32
       # The minimum number of characters allowed in the text.
-      property minlength : UInt32
+      getter minlength : UInt32
       # Regular expression to validate the value.
-      property regex : String
+      getter regex : String
       # Error message.
-      property regex_err_msg : String
+      getter regex_err_msg : String
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 1
