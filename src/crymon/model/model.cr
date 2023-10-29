@@ -34,7 +34,7 @@ module Crymon
     def field_name_and_value_list : Hash(String, Crymon::Globals::FieldTypes)
       fields = Hash(String, Crymon::Globals::FieldTypes).new
       {% for var in @type.instance_vars %}
-        vars[{{ var.name.stringify }}] = @{{ var }}
+        fields[{{ var.name.stringify }}] = @{{ var }}
       {% end %}
       fields
     end
