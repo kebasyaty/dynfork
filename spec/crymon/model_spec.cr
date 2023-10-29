@@ -41,9 +41,9 @@ describe Crymon::Model do
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(3_i32)
       metadata["field_name_list"].should eq(["name", "age", "birthday"])
-      metadata["field_type_list"].should eq(["String", "UInt32", "Birthday"])
+      metadata["field_type_list"].should eq(["TextField", "U32Field", "DateField"])
       metadata["field_name_and_type_list"].should eq(
-        {"name" => "String", "age" => "UInt32", "birthday" => "Birthday"}
+        {"name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
       )
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
