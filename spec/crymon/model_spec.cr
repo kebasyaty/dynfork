@@ -12,9 +12,9 @@ describe Crymon::Model do
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new
       #
-      m.name.should eq(Crymon::Fields::TextField.new)
-      m.age.should eq(Crymon::Fields::U32Field.new)
-      m.birthday.should eq(Crymon::Fields::DateField.new)
+      m.name.should eq(Crymon::Fields::TextField.new("default": "Cat"))
+      m.age.should eq(Crymon::Fields::U32Field.new("default": 0))
+      m.birthday.should eq(Crymon::Fields::DateField.new("default": "0000-00-00"))
       #
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
       #
@@ -45,7 +45,7 @@ describe Crymon::Model do
       metadata["field_name_and_type_list"].should eq(
         {"name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
       )
-      metadata["default_value_list"].should eq({"name" => nil, "age" => nil, "birthday" => nil})
+      metadata["default_value_list"].should eq({"name" => "Cat", "age" => 0, "birthday" => "0000-00-00"})
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true
