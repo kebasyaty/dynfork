@@ -29,6 +29,15 @@ module Crymon
       {% end %}
     end
 
+    # Get a list of field names and their values.
+    def field_name_and_value_list : Hash(String, Crymon::Globals::FieldTypes)
+      fields = Hash(String, Crymon::Globals::FieldTypes).new
+      {% for var in @type.instance_vars %}
+        vars[{{ var.name.stringify }}] = @{{ var }}
+      {% end %}
+      fields
+    end
+
     # Metadata for the Model.
     def meta : NamedTuple(
       "app_name": String,
@@ -42,6 +51,7 @@ module Crymon
       "field_name_list": Array(String),
       "field_type_list": Array(String),
       "field_name_and_type_list": Hash(String, String),
+      "default_value_list": Hash(String, String),
       "is_add_doc": Bool,
       "is_up_doc": Bool,
       "is_del_doc": Bool,
@@ -98,6 +108,20 @@ module Crymon
           raise Crymon::Errors::FieldsMissing.new(model_name)
         {% end %}
       )
+      # Default value list.
+      # NOTE: Format: <field_name, default_value>
+      default_value_list : Hash(String, String) = (
+        hash : Hash(String, String) = Hash(String, String).new
+        {% if @type.instance_vars.size > 0 %}
+          {% for var in @type.instance_vars %}
+            {% if var}}.default? %}
+              hash[{{ var.name.stringify }}] = @{{ var }}.default.to_s
+            {% end %}
+          {% end %}
+        {% else %}
+          raise Crymon::Errors::FieldsMissing.new(model_name)
+        {% end %}
+      )
       #
       {
         # Project name.
@@ -123,6 +147,9 @@ module Crymon
         # List of names and types of variables (fields).
         # NOTE: Format: <field_name, field_type>
         "field_name_and_type_list": field_name_and_type_list,
+        # Default value list.
+        # NOTE: Format: <field_name, default_value>
+        "default_value_list": default_value_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
         "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
