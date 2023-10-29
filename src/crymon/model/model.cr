@@ -113,14 +113,15 @@ module Crymon
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
         hash = Hash(String, Crymon::Globals::ValueTypes).new
         {% if @type.instance_vars.size > 0 %}
-          {% for var in @type.instance_vars %}
-            {% if var}}.default? %}
-              hash[{{ var.name.stringify }}] = @{{ var }}.default.to_s
-            {% end %}
-          {% end %}
+          field_name_and_value_list.each do |key, value|
+            if value["default"]?
+              hash[key] = value.default
+            end
+          end
         {% else %}
           raise Crymon::Errors::FieldsMissing.new(model_name)
         {% end %}
+        hash
       )
       #
       {
