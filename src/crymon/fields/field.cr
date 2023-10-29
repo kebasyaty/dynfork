@@ -11,13 +11,13 @@ module Crymon
       # NOTE: Format: "model-name--field-name".
       property id : String = ""
       # Web form field name.
-      property label : String = ""
+      getter label : String = ""
       # The value is determined automatically.
-      property name : String = ""
+      getter name : String = ""
       # Field type - Structure Name.
       getter field_type : String = ""
       # Required field.
-      property is_required : Bool = false
+      getter is_required : Bool = false
       # Blocks access and modification of the element.
       property is_disabled : Bool = false
       # Specifies that the field cannot be modified by the user.
@@ -25,9 +25,9 @@ module Crymon
       # Hide field from user.
       property is_hide : Bool = false
       # Example: %(autofocus tabindex="some number" size="some number").
-      property other_attrs : String = ""
+      getter other_attrs : String = ""
       # Example: "class-name-1 class-name-2".
-      property css_classes : String = ""
+      getter css_classes : String = ""
       # Additional explanation for the user.
       property hint : String = ""
       # Warning information.
