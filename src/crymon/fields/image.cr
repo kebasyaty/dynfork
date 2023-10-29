@@ -9,9 +9,9 @@ module Crymon
       # Html tag: input type="url".
       getter input_type : String = "file"
       # Sets the value of an element.
-      property value : Fields::ImageData | Nil
+      property value : Crymon::Fields::ImageData | Nil
       # Value by default.
-      property default : Fields::ImageData | Nil
+      property default : Crymon::Fields::ImageData | Nil
       # Displays prompt text.
       property placeholder : String
       # Root directory for storing media files.
@@ -41,7 +41,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : Fields::ImageData | Nil = nil,
+        @default : Crymon::Fields::ImageData | Nil = nil,
         @placeholder : String = "",
         @media_root : String = "../../assets/media",
         @media_url : String = "/media",

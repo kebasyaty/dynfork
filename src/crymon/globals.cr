@@ -18,5 +18,10 @@ module Crymon
                        Crymon::Fields::ChoiceF64Field | Crymon::Fields::ChoiceF64MultField |
                        Crymon::Fields::ChoiceF64DynField | Crymon::Fields::ChoiceF64MultDynField |
                        Crymon::Fields::BoolField
+
+    # Field value types.
+    alias ValueTypes = String | UInt32 | Int64 | Float64 | Crymon::Fields::ImageData |
+                       Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
+                       Array(Float64) | Bool | Nil
   end
 end
