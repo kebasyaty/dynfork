@@ -25,6 +25,7 @@ describe Crymon::Fields::ColorField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
+      f["default"]?.should be_true
     end
 
     it "=> create an instance with input_type=color" do

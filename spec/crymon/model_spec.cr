@@ -18,10 +18,10 @@ describe Crymon::Model do
       #
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
       #
-      m.["name"]?.should be_true
-      m.["age"]?.should be_true
-      m.["birthday"]?.should be_true
-      m.["???"]?.should be_false
+      m["name"]?.should be_true
+      m["age"]?.should be_true
+      m["birthday"]?.should be_true
+      m["???"]?.should be_false
       #
       m.name.value = "Gene"
       m.age.value = 32
