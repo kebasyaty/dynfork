@@ -1,6 +1,6 @@
 module Crymon
   module Globals
-    # ???
+    # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
                        Crymon::Fields::SlugField | Crymon::Fields::PhoneField |
                        Crymon::Fields::PasswordField | Crymon::Fields::U32Field |
