@@ -4,7 +4,7 @@ module Crymon
   module Fields
     # Automatically creates a label from letters, numbers, and hyphens.
     # Convenient to use for Url addresses.
-    struct SlugField < Fields::Field
+    struct SlugField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "SlugField"
       # Html tag: input type="url".

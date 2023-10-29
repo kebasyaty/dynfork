@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering URL addresses.
-    struct URLField < Fields::Field
+    struct URLField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "URLField"
       # Html tag: input type="url".

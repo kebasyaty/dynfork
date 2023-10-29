@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Boolean field.
-    struct BoolField < Fields::Field
+    struct BoolField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "BoolField"
       # Field type - Html, input type.

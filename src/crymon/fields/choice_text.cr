@@ -4,7 +4,7 @@ module Crymon
   module Fields
     # Type of selective field with static of elements.
     # NOTE: With a single choice.
-    struct ChoiceTextField < Fields::Field
+    struct ChoiceTextField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextField"
       # Sets the value of an element.
@@ -39,7 +39,7 @@ module Crymon
 
     # Type of selective field with static of elements.
     # NOTE: With multiple choice.
-    struct ChoiceTextMultField < Fields::Field
+    struct ChoiceTextMultField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultField"
       # Sets the value of an element.
@@ -75,7 +75,7 @@ module Crymon
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-One.
     # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
-    struct ChoiceTextDynField < Fields::Field
+    struct ChoiceTextDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextDynField"
       # Sets the value of an element.
@@ -108,7 +108,7 @@ module Crymon
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-Many.
     # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
-    struct ChoiceTextMultDynField < Fields::Field
+    struct ChoiceTextMultDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultDynField"
       # Sets the value of an element.

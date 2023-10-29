@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # A field for entering a text string.
-    struct TextField < Fields::Field
+    struct TextField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "TextField"
       # Html tag: input type="text".

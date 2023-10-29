@@ -8,7 +8,7 @@ module Crymon
     # WARNING: type="color" only seven-character hexadecimal notation.
     # NOTE: Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
     # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff.
-    struct ColorField < Fields::Field
+    struct ColorField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ColorField"
       # Html tag: input type="color".

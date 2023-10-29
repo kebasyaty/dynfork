@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering unsigned 32-bit integers.
-    struct U32Field < Fields::Field
+    struct U32Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "U32Field"
       # Html tag: input type="number|range".
@@ -51,7 +51,7 @@ module Crymon
     end
 
     # Field for entering integer 64-bit numbers.
-    struct I64Field < Fields::Field
+    struct I64Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "I64Field"
       # Html tag: input type="number|range".
@@ -99,7 +99,7 @@ module Crymon
     end
 
     # Field for entering float 64-bit numbers.
-    struct F64Field < Fields::Field
+    struct F64Field < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "F64Field"
       # Html tag: input type="number|range".

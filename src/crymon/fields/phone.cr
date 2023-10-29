@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering Phone number.
-    struct PhoneField < Fields::Field
+    struct PhoneField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "PhoneField"
       # Html tag: input type="url".

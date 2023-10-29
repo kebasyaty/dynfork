@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering IP addresses.
-    struct IPField < Fields::Field
+    struct IPField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "IPField"
       # Html tag: input type="text".

@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # File upload field.
-    struct ImageField < Fields::Field
+    struct ImageField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ImageField"
       # Html tag: input type="url".

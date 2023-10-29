@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering password.
-    struct PasswordField < Fields::Field
+    struct PasswordField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "PasswordField"
       # Html tag: input type="url".

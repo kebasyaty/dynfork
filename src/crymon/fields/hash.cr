@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # This type was created specifically for the hash field.
-    struct HashField < Fields::Field
+    struct HashField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "HashField"
       # Html tag: input type="url".

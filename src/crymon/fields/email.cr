@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # Field for entering Email addresses.
-    struct EmailField < Fields::Field
+    struct EmailField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "EmailField"
       # Html tag: input type="url".
