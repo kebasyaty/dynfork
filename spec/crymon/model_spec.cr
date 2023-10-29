@@ -12,10 +12,10 @@ describe Crymon::Model do
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
-      m.has_field?("name").should be_true
-      m.has_field?("age").should be_true
-      m.has_field?("birthday").should be_true
-      m.has_field?("???").should be_false
+      m.[]?("name").should be_true
+      m.[]?("age").should be_true
+      m.[]?("birthday").should be_true
+      m.[]?("???").should be_false
       m.name.should eq("Gene")
       m.age.should eq(32_u32)
       m.birthday.should eq(Helper::Birthday.new)
