@@ -10,8 +10,6 @@ module Crymon
       getter input_type : String = "text"
       # Sets the value of an element.
       property value : String | Nil
-      # Value by default.
-      property default : String | Nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
@@ -28,7 +26,6 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = nil,
         @placeholder : String = "",
         @maxlength : UInt32 = 12,
         @minlength : UInt32 = 12,
@@ -41,6 +38,16 @@ module Crymon
         @css_classes : String = "",
         @hint : String = ""
       ); end
+
+      # Check for variable existence.
+      def []?(variable) : Bool
+        {% for var in @type.instance_vars %}
+          if {{ var.name.stringify }} == variable
+              return true
+          end
+        {% end %}
+        false
+      end
     end
   end
 end

@@ -48,6 +48,16 @@ module Crymon
           raise Crymon::Errors::InvalidInputType.new(@input_type)
         end
       end
+
+      # Check for variable existence.
+      def []?(variable) : Bool
+        {% for var in @type.instance_vars %}
+          if {{ var.name.stringify }} == variable
+              return true
+          end
+        {% end %}
+        false
+      end
     end
 
     # Field for entering integer 64-bit numbers.
@@ -96,6 +106,16 @@ module Crymon
           raise Crymon::Errors::InvalidInputType.new(@input_type)
         end
       end
+
+      # Check for variable existence.
+      def []?(variable) : Bool
+        {% for var in @type.instance_vars %}
+          if {{ var.name.stringify }} == variable
+              return true
+          end
+        {% end %}
+        false
+      end
     end
 
     # Field for entering float 64-bit numbers.
@@ -143,6 +163,16 @@ module Crymon
         if ["number", "range"].index(@input_type).nil?
           raise Crymon::Errors::InvalidInputType.new(@input_type)
         end
+      end
+
+      # Check for variable existence.
+      def []?(variable) : Bool
+        {% for var in @type.instance_vars %}
+          if {{ var.name.stringify }} == variable
+              return true
+          end
+        {% end %}
+        false
       end
     end
   end
