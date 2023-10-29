@@ -16,15 +16,15 @@ module Crymon
       # NOTE: Example: 1970-01-01T00:00
       getter default : String | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The top value for entering a date and time.
-      property max : String
+      getter max : String
       # The lower value for entering a date and time.
-      property min : String
+      getter min : String
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Additional explanation for the user.
-      property hint : String
+      getter hint : String
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 3

@@ -29,7 +29,7 @@ module Crymon
       # Example: "class-name-1 class-name-2".
       getter css_classes : String = ""
       # Additional explanation for the user.
-      property hint : String = ""
+      getter hint : String = ""
       # Warning information.
       property warning : String = ""
       # The value is determined automatically.

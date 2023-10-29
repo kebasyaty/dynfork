@@ -13,21 +13,21 @@ module Crymon
       # Value by default.
       getter default : Crymon::Fields::FileData | Nil
       # Root directory for storing media files.
-      property media_root : String
+      getter media_root : String
       # URL address for the media directory.
-      property media_url : String
+      getter media_url : String
       # Directory for files inside media directory (inner path).
       # NOTE: Example: "files/resume".
-      property target_dir : String
+      getter target_dir : String
       # HTML attribute: accept
       # NOTE: Describing which file types to allow.
       # NOTE: Example: "image/jpeg,image/png,image/gif"
       # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
-      property accept : String = ""
+      getter accept : String = ""
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 8

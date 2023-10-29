@@ -13,15 +13,15 @@ module Crymon
       # Value by default.
       getter default : UInt32 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : UInt32
+      getter max : UInt32
       # The minimum number of characters allowed in the text.
-      property min : UInt32
+      getter min : UInt32
       # Increment step for numeric fields.
-      property step : UInt32
+      getter step : UInt32
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 11
@@ -61,15 +61,15 @@ module Crymon
       # Value by default.
       getter default : Int64 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : Int64
+      getter max : Int64
       # The minimum number of characters allowed in the text.
-      property min : Int64
+      getter min : Int64
       # Increment step for numeric fields.
-      property step : Int64
+      getter step : Int64
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 11
@@ -109,15 +109,15 @@ module Crymon
       # Value by default.
       getter default : Float64 | Nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property max : Float64
+      getter max : Float64
       # The minimum number of characters allowed in the text.
-      property min : Float64
+      getter min : Float64
       # Increment step for numeric fields.
-      property step : Float64
+      getter step : Float64
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
       getter group : UInt8 = 12

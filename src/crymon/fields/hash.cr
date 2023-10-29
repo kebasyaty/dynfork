@@ -13,13 +13,13 @@ module Crymon
       # Value by default.
       getter default : Nil = nil
       # Displays prompt text.
-      property placeholder : String
+      getter placeholder : String
       # The maximum number of characters allowed in the text.
-      property maxlength : UInt32
+      getter maxlength : UInt32
       # The minimum number of characters allowed in the text.
-      property minlength : UInt32
+      getter minlength : UInt32
       # The unique value of a field in a collection.
-      property is_unique : Bool
+      getter is_unique : Bool
       # Hide field from user.
       property is_hide : Bool
       # To optimize field traversal in the `paladins/check()` method.
