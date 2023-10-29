@@ -87,6 +87,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidType" data-name="crymon::errors::invalidtype">
+      <a href="../../Crymon/Errors/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Errors/ParameterMissing" data-name="crymon::errors::parametermissing">
       <a href="../../Crymon/Errors/ParameterMissing.html">ParameterMissing</a>
       
@@ -287,6 +292,26 @@
       
     </li>
   
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+      <a href="../../Crymon/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/FieldTypes" data-name="crymon::globals::fieldtypes">
+      <a href="../../Crymon/Globals/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
+      <a href="../../Crymon/Globals/ValueTypes.html">ValueTypes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Metadata" data-name="crymon::metadata">
       <a href="../../Crymon/Metadata.html">Metadata</a>
       
@@ -382,7 +407,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D12%2Cminlength%3AUInt32%3D12%2Cis_hide%3ABool%3Dtrue%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">12</span>, minlength : UInt32 = <span class="n">12</span>, is_hide : Bool = <span class="n">true</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D12%2Cminlength%3AUInt32%3D12%2Cis_hide%3ABool%3Dtrue%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">12</span>, minlength : UInt32 = <span class="n">12</span>, is_hide : Bool = <span class="n">true</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -403,14 +428,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
-        
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#default%3D%28default%3AString%7CNil%29-instance-method" class="signature"><strong>#default=</strong>(default : String | Nil)</a>
+        <a href="#default%3ANil-instance-method" class="signature"><strong>#default</strong> : Nil</a>
         
           <div class="summary"><p>Value by default.</p></div>
         
@@ -459,21 +477,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_unique%3D%28is_unique%3ABool%29-instance-method" class="signature"><strong>#is_unique=</strong>(is_unique : Bool)</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method" class="signature"><strong>#maxlength=</strong>(maxlength : UInt32)</a>
         
           <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
         
@@ -487,21 +491,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3D%28minlength%3AUInt32%29-instance-method" class="signature"><strong>#minlength=</strong>(minlength : UInt32)</a>
-        
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3D%28placeholder%3AString%29-instance-method" class="signature"><strong>#placeholder=</strong>(placeholder : String)</a>
         
           <div class="summary"><p>Displays prompt text.</p></div>
         
@@ -534,14 +524,14 @@
   <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
   
   
+    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
+      <span>[]?(variable) : Bool</span>
+    []?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
       <span>css_classes : String</span>
     css_classes</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#css_classes%3D%28css_classes%3AString%29-instance-method" class="tooltip">
-      <span>css_classes=(css_classes : String)</span>
-    css_classes=</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
@@ -567,11 +557,6 @@
     <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
       <span>hint : String</span>
     hint</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#hint%3D%28hint%3AString%29-instance-method" class="tooltip">
-      <span>hint=(hint : String)</span>
-    hint=</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
@@ -619,19 +604,9 @@
     is_required</a>, 
     
   
-    <a href="../../Crymon/Fields/Field.html#is_required%3D%28is_required%3ABool%29-instance-method" class="tooltip">
-      <span>is_required=(is_required : Bool)</span>
-    is_required=</a>, 
-    
-  
     <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
       <span>label : String</span>
     label</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#label%3D%28label%3AString%29-instance-method" class="tooltip">
-      <span>label=(label : String)</span>
-    label=</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
@@ -639,29 +614,9 @@
     name</a>, 
     
   
-    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
     <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
       <span>other_attrs : String</span>
     other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#other_attrs%3D%28other_attrs%3AString%29-instance-method" class="tooltip">
-      <span>other_attrs=(other_attrs : String)</span>
-    other_attrs=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#value-instance-method" class="tooltip">
-      <span>value</span>
-    value</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#value%3D%28value%29-instance-method" class="tooltip">
-      <span>value=(value)</span>
-    value=</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
@@ -773,12 +728,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,maxlength:UInt32=12,minlength:UInt32=12,is_hide:Bool=true,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,placeholder:String=&quot;&quot;,maxlength:UInt32=12,minlength:UInt32=12,is_hide:Bool=true,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">12</span>, minlength : UInt32 = <span class="n">12</span>, is_hide : Bool = <span class="n">true</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">12</span>, minlength : UInt32 = <span class="n">12</span>, is_hide : Bool = <span class="n">true</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D12%2Cminlength%3AUInt32%3D12%2Cis_hide%3ABool%3Dtrue%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D12%2Cminlength%3AUInt32%3D12%2Cis_hide%3ABool%3Dtrue%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -801,31 +756,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:String|Nil-instance-method">
+    <div class="entry-detail" id="default:Nil-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : String | Nil
+        def <strong>default</strong> : Nil
 
-        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="default=(default:String|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>default=</strong>(default : String | Nil)
-
-        <a class="method-permalink" href="#default%3D%28default%3AString%7CNil%29-instance-method">#</a>
+        <a class="method-permalink" href="#default%3ANil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -954,50 +890,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_unique=(is_unique:Bool)-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique=</strong>(is_unique : Bool)
-
-        <a class="method-permalink" href="#is_unique%3D%28is_unique%3ABool%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="maxlength:UInt32-instance-method">
       <div class="signature">
         
         def <strong>maxlength</strong> : UInt32
 
         <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The maximum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="maxlength=(maxlength:UInt32)-instance-method">
-      <div class="signature">
-        
-        def <strong>maxlength=</strong>(maxlength : UInt32)
-
-        <a class="method-permalink" href="#maxlength%3D%28maxlength%3AUInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1030,50 +928,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="minlength=(minlength:UInt32)-instance-method">
-      <div class="signature">
-        
-        def <strong>minlength=</strong>(minlength : UInt32)
-
-        <a class="method-permalink" href="#minlength%3D%28minlength%3AUInt32%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The minimum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="placeholder:String-instance-method">
       <div class="signature">
         
         def <strong>placeholder</strong> : String
 
         <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder=(placeholder:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder=</strong>(placeholder : String)
-
-        <a class="method-permalink" href="#placeholder%3D%28placeholder%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
