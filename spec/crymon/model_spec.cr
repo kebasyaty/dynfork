@@ -10,19 +10,26 @@ describe Crymon::Model do
     end
 
     it "=> create instance of filled Model" do
-      m = Helper::FilledModel.new(name: "Gene", age: 32_u32)
+      m = Helper::FilledModel.new
+      #
+      m.name.should eq(Crymon::Fields::TextField.new)
+      m.age.should eq(Crymon::Fields::U32Field.new)
+      m.birthday.should eq(Crymon::Fields::DateField.new)
+      #
       m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
+      #
       m.["name"]?.should be_true
       m.["age"]?.should be_true
       m.["birthday"]?.should be_true
       m.["???"]?.should be_false
-      m.name.should eq("Gene")
-      m.age.should eq(32_u32)
-      m.birthday.should eq(Helper::Birthday.new)
-      m.birthday.date.should eq("1990-11-7")
-      m.birthday.value.should eq("")
-      m.birthday.value = "Hello world!"
-      m.birthday.value.should eq("Hello world!")
+      #
+      m.name.value = "Gene"
+      m.age.value = 32
+      m.birthday.value = "1990-11-7"
+      #
+      m.name.value.should eq("Gene")
+      m.age.value.should eq(32_u32)
+      m.birthday.value.should eq("1990-11-7")
       # Testing metadata.
       metadata = m.meta
       metadata["app_name"].should eq(Settings::APP_NAME)
