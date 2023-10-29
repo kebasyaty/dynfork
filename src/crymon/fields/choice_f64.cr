@@ -80,6 +80,8 @@ module Crymon
       getter field_type : String = "ChoiceF64DynField"
       # Sets the value of an element.
       property value : Float64 | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -113,6 +115,8 @@ module Crymon
       getter field_type : String = "ChoiceF64MultDynField"
       # Sets the value of an element.
       property value : Array(Float64) | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.

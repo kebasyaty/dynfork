@@ -80,6 +80,8 @@ module Crymon
       getter field_type : String = "ChoiceU32DynField"
       # Sets the value of an element.
       property value : UInt32 | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -113,6 +115,8 @@ module Crymon
       getter field_type : String = "ChoiceU32MultDynField"
       # Sets the value of an element.
       property value : Array(UInt32) | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.

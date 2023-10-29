@@ -10,6 +10,8 @@ module Crymon
       getter input_type : String = "password"
       # Sets the value of an element.
       property value : String | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.

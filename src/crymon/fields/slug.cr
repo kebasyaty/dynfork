@@ -11,6 +11,8 @@ module Crymon
       getter input_type : String = "text"
       # Sets the value of an element.
       property value : String | Nil
+      # Value by default.
+      getter default : Nil = nil
       # Displays prompt text.
       property placeholder : String
       # The unique value of a field in a collection.
