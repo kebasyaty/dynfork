@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 
 describe Crymon::Fields::BoolField do
   describe ".new" do

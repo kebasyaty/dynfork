@@ -65,6 +65,7 @@ describe Crymon::Fields::ChoiceTextDynField do
       f.field_type.should eq("ChoiceTextDynField")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.is_multiple.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
@@ -78,7 +79,7 @@ describe Crymon::Fields::ChoiceTextDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(5_u8)
-      f["default"]?.should be_false
+      f["default"]?.should be_true
     end
   end
 end
@@ -92,6 +93,7 @@ describe Crymon::Fields::ChoiceTextMultDynField do
       f.field_type.should eq("ChoiceTextMultDynField")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.is_multiple.should be_true
       f.is_required.should be_false
       f.is_unique.should be_false
@@ -105,7 +107,7 @@ describe Crymon::Fields::ChoiceTextMultDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
-      f["default"]?.should be_false
+      f["default"]?.should be_true
     end
   end
 end

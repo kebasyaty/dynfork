@@ -10,6 +10,7 @@ describe Crymon::Fields::SlugField do
       f.input_type.should eq("text")
       f.name.should eq("")
       f.value.should be_nil
+      f.default.should be_nil
       f.placeholder.should eq("")
       f.is_disabled.should be_false
       f.is_readonly.should be_true
