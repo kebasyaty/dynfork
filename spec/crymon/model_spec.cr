@@ -19,12 +19,12 @@ describe Crymon::Model do
       m["birthday"]?.should be_true
       m["???"]?.should be_false
       #
-      # m.name.id.should eq("FilledModel--name")
-      # m.name.name.should eq("name")
-      # m.age.id.should eq("FilledModel--age")
-      # m.age.name.should eq("age")
-      # m.birthday.id.should eq("FilledModel--birthday")
-      # m.birthday.name.should eq("birthday")
+      m.name.id.should eq("FilledModel--name")
+      m.name.name.should eq("name")
+      m.age.id.should eq("FilledModel--age")
+      m.age.name.should eq("age")
+      m.birthday.id.should eq("FilledModel--birthday")
+      m.birthday.name.should eq("birthday")
       #
       m.name.value = "Gene"
       m.age.value = 32
