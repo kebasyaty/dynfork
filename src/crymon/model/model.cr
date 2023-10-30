@@ -9,7 +9,8 @@ module Crymon
     include JSON::Serializable
     include JSON::Serializable::Strict
 
-    def initialize; end
+    def initialize
+    end
 
     # Get model key.
     # NOTE: To access data in the cache.

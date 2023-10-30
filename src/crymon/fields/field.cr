@@ -7,12 +7,13 @@ module Crymon
     abstract struct Field
       include JSON::Serializable
       include JSON::Serializable::Strict
-      # The value is determined automatically.
       # NOTE: Format: "model-name--field-name".
+      # WARNING: The value is determined automatically.
       getter id : String = ""
       # Web form field name.
       getter label : String = ""
-      # The value is determined automatically.
+      # Field name.
+      # WARNING: The value is determined automatically.
       getter name : String = ""
       # Field type - Structure Name.
       getter field_type : String = ""
@@ -32,7 +33,7 @@ module Crymon
       getter hint : String = ""
       # Warning information.
       property warning : String = ""
-      # The value is determined automatically.
+      # WARNING: The value is determined automatically.
       property errors : Array(String) = Array(String).new
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
