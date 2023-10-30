@@ -105,6 +105,31 @@ describe Helper::FilledModel do
       f.age.group.should eq(11_u8)
       f["age"]?.should be_true
       f["no_var"]?.should be_false
+      #
+      # DateField
+      f.birthday.id.should eq("")
+      f.birthday.label.should eq("")
+      f.birthday.field_type.should eq("DateField")
+      f.birthday.input_type.should eq("date")
+      f.birthday.name.should eq("")
+      f.birthday.value.should be_nil
+      f.birthday.default.should eq("0000-00-00")
+      f.birthday.placeholder.should eq("")
+      f.birthday.is_disabled.should be_false
+      f.birthday.is_readonly.should be_false
+      f.birthday.is_hide.should be_false
+      f.birthday.is_required.should be_false
+      f.birthday.is_unique.should be_false
+      f.birthday.max.should eq("")
+      f.birthday.min.should eq("")
+      f.birthday.other_attrs.should eq("")
+      f.birthday.css_classes.should eq("")
+      f.birthday.hint.should eq("Format: yyyy-mm-dd")
+      f.birthday.warning.should eq("")
+      f.birthday.errors.should eq(Array(String).new)
+      f.birthday.group.should eq(3_u8)
+      f["birthday"]?.should be_true
+      f["no_var"]?.should be_false
     end
   end
 end
