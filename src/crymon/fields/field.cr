@@ -10,7 +10,7 @@ module Crymon
       # NOTE: Format: "ModelName--field_name".
       # WARNING: The value is determined automatically.
       getter id : String = ""
-      # Web form field name.
+      # Text label for a web form field.
       getter label : String = ""
       # Field name.
       # WARNING: The value is determined automatically.
