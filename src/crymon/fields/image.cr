@@ -9,7 +9,7 @@ module Crymon
       # Html tag: input type="url".
       getter input_type : String = "file"
       # Sets the value of an element.
-      property value : Crymon::Fields::ImageData | Nil
+      property value : Crymon::Fields::ImageData | Nil = nil
       # Value by default.
       getter default : Crymon::Fields::ImageData | Nil
       # Displays prompt text.

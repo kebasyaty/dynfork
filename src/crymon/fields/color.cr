@@ -16,7 +16,7 @@ module Crymon
       # WARNING: type="color" only seven-character hexadecimal notation.
       getter input_type : String
       # Sets the value of an element.
-      property value : String | Nil
+      property value : String | Nil = nil
       # The default value is #000000.
       getter default : String | Nil
       # Displays prompt text.

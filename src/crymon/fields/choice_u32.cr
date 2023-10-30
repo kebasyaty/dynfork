@@ -8,7 +8,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32Field"
       # Sets the value of an element.
-      property value : UInt32 | Nil
+      property value : UInt32 | Nil = nil
       # Value by default.
       getter default : UInt32 | Nil
       # Specifies that multiple options can be selected at once.
@@ -43,7 +43,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32MultField"
       # Sets the value of an element.
-      property value : Array(UInt32) | Nil
+      property value : Array(UInt32) | Nil = nil
       # Value by default.
       getter default : Array(UInt32) | Nil
       # Specifies that multiple options can be selected at once.
@@ -79,7 +79,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32DynField"
       # Sets the value of an element.
-      property value : UInt32 | Nil
+      property value : UInt32 | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
@@ -114,7 +114,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32MultDynField"
       # Sets the value of an element.
-      property value : Array(UInt32) | Nil
+      property value : Array(UInt32) | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
