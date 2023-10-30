@@ -14,9 +14,9 @@ module Crymon
     # Get model key.
     # NOTE: To access data in the cache.
     def model_key : String
+      model_name : String = {{ @type.name.stringify }}.split("::").last
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}
-      model_name : String = {{ @type.name.stringify }}.split("::").last
       "#{service_name}_#{model_name}_#{unique_app_key}"
     end
 
