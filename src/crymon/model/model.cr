@@ -16,8 +16,7 @@ module Crymon
     def model_key : String
       model_name : String = {{ @type.name.stringify }}.split("::").last
       service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
-      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}
-      "#{service_name}_#{model_name}_#{unique_app_key}"
+      "#{service_name}_#{model_name}"
     end
 
     # Determine the presence of a variable (field) in the model.

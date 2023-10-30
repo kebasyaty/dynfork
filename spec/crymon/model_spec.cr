@@ -16,7 +16,7 @@ describe Crymon::Model do
       m.age.should eq(Crymon::Fields::U32Field.new("default": 0))
       m.birthday.should eq(Crymon::Fields::DateField.new("default": "0000-00-00"))
       #
-      m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
+      m.model_key.should eq("ServiceName_FilledModel")
       #
       m["name"]?.should be_true
       m["age"]?.should be_true
