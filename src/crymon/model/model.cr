@@ -10,6 +10,14 @@ module Crymon
     include JSON::Serializable::Strict
 
     def initialize
+      {% if @type.instance_vars.size > 0 %}
+        {% for var in @type.instance_vars %}
+          @{{ var }}.id = "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}}"
+          @{{ var }}.name = {{ var.name.stringify }}
+        {% end %}
+      {% else %}
+        raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+      {% end %}
     end
 
     # Get model key.
