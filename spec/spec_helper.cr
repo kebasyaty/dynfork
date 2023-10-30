@@ -26,8 +26,6 @@ module Helper
     getter name = Crymon::Fields::TextField.new("default": "Cat")
     getter age = Crymon::Fields::U32Field.new("default": 0)
     getter birthday = Crymon::Fields::DateField.new("default": "0000-00-00")
-
-    def initialize; end
   end
 
   # Model without the required 'app_name' parameter for metadata.
@@ -38,8 +36,6 @@ module Helper
   struct NoParamAppNameModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
-
-    def initialize; end
   end
 
   # Model without the required 'unique_app_key' parameter for metadata.
@@ -50,8 +46,6 @@ module Helper
   struct NoParamUniqueAppKeyModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
-
-    def initialize; end
   end
 
   # Model without the required 'service_name' parameter for metadata.
@@ -62,8 +56,6 @@ module Helper
   struct NoParamServiceMameModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
-
-    def initialize; end
   end
 
   # Incorrect field names in the ignored list.
@@ -75,7 +67,5 @@ module Helper
   struct IncorrectIgnoredListModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
-
-    def initialize; end
   end
 end
