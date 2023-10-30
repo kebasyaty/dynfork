@@ -77,10 +77,10 @@ module Crymon
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
       field_name_list : Array(String) = (
-        {% if @type.instance_vars.empty? %}
-          Array(String).new
-        {% else %}
+        {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.name.stringify }}
+        {% else %}
+          Array(String).new
         {% end %}
       )
       # List of field names that will not be saved to the database.
@@ -93,37 +93,37 @@ module Crymon
       end
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
-        {% if @type.instance_vars.empty? %}
-          Array(String).new
-        {% else %}
+        {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.type.stringify }}
             .map { |name| name.split("::").last }
+        {% else %}
+          Array(String).new
         {% end %}
       )
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
       field_name_and_type_list : Hash(String, String) = (
-        {% if @type.instance_vars.empty? %}
-          Hash(String, String).new
-        {% else %}
+        {% unless @type.instance_vars.empty? %}
           Hash.zip(
             {{ @type.instance_vars.map &.name.stringify }},
             {{ @type.instance_vars.map &.type.stringify }}
               .map { |name| name.split("::").last }
           )
+        {% else %}
+          Hash(String, String).new
         {% end %}
       )
       # Default value list.
       # NOTE: Format: <field_name, default_value>
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-        {% if @type.instance_vars.empty? %}
-          Hash(String, Crymon::Globals::ValueTypes).new
-        {% else %}
+        {% unless @type.instance_vars.empty? %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
           self.field_name_and_value_list.each do |key, value|
             hash[key] = value.default
           end
           hash
+        {% else %}
+          Hash(String, Crymon::Globals::ValueTypes).new
         {% end %}
       )
       #
