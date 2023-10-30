@@ -10,7 +10,7 @@ module Crymon
       # Html tag: input type="url".
       getter input_type : String = "text"
       # Sets the value of an element.
-      property value : String | Nil
+      property value : String | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Displays prompt text.

@@ -8,7 +8,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceI64Field"
       # Sets the value of an element.
-      property value : Int64 | Nil
+      property value : Int64 | Nil = nil
       # Value by default.
       getter default : Int64 | Nil
       # Specifies that multiple options can be selected at once.
@@ -43,7 +43,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceI64MultField"
       # Sets the value of an element.
-      property value : Array(Int64) | Nil
+      property value : Array(Int64) | Nil = nil
       # Value by default.
       getter default : Array(String) | Nil
       # Specifies that multiple options can be selected at once.
@@ -79,7 +79,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceI64DynField"
       # Sets the value of an element.
-      property value : Int64 | Nil
+      property value : Int64 | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
@@ -114,7 +114,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceI64MultDynField"
       # Sets the value of an element.
-      property value : Array(Int64) | Nil
+      property value : Array(Int64) | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.

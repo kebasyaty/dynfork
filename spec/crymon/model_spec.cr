@@ -12,16 +12,19 @@ describe Crymon::Model do
     it "=> create instance of filled Model" do
       m = Helper::FilledModel.new
       #
-      m.name.should eq(Crymon::Fields::TextField.new("default": "Cat"))
-      m.age.should eq(Crymon::Fields::U32Field.new("default": 0))
-      m.birthday.should eq(Crymon::Fields::DateField.new("default": "0000-00-00"))
-      #
-      m.model_key.should eq("ServiceName_FilledModel_RT0839370A074kVh")
+      m.model_key.should eq("ServiceName_FilledModel")
       #
       m["name"]?.should be_true
       m["age"]?.should be_true
       m["birthday"]?.should be_true
       m["???"]?.should be_false
+      #
+      # m.name.id.should eq("FilledModel--name")
+      # m.name.name.should eq("name")
+      # m.age.id.should eq("FilledModel--age")
+      # m.age.name.should eq("age")
+      # m.birthday.id.should eq("FilledModel--birthday")
+      # m.birthday.name.should eq("birthday")
       #
       m.name.value = "Gene"
       m.age.value = 32

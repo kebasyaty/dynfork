@@ -14,10 +14,9 @@ module Crymon
     # Get model key.
     # NOTE: To access data in the cache.
     def model_key : String
-      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
-      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }}
       model_name : String = {{ @type.name.stringify }}.split("::").last
-      "#{service_name}_#{model_name}_#{unique_app_key}"
+      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
+      "#{service_name}_#{model_name}"
     end
 
     # Determine the presence of a variable (field) in the model.
@@ -60,11 +59,15 @@ module Crymon
       "is_use_hooks": Bool,
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String))
-      #
+      # Model name = Structure name.
+      model_name : String = {{ @type.name.stringify }}.split("::").last
+      # If there are no fields in the model, a FieldsMissing exception is raise.
+      {% if @type.instance_vars.empty? %}
+        raise Crymon::Errors::FieldsMissing.new(model_name)
+      {% end %}
       # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
-      model_name : String = {{ @type.name.stringify }}.split("::").last
       # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
         raise Crymon::Errors::ParameterMissing.new("unique_app_key")
@@ -73,53 +76,53 @@ module Crymon
         raise Crymon::Errors::ParameterMissing.new("service_name")
       # List of variable (field) names.
       field_name_list : Array(String) = (
-        {% if @type.instance_vars.size > 0 %}
+        {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.name.stringify }}
         {% else %}
-          raise Crymon::Errors::FieldsMissing.new(model_name)
+          Array(String).new
         {% end %}
       )
       # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
         Array(String).new
       ignore_fields.each do |field_name|
-        if !field_name_list.includes?(field_name)
+        unless field_name_list.includes?(field_name)
           raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
       end
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
-        {% if @type.instance_vars.size > 0 %}
+        {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.type.stringify }}
             .map { |name| name.split("::").last }
         {% else %}
-          raise Crymon::Errors::FieldsMissing.new(model_name)
+          Array(String).new
         {% end %}
       )
       # List of names and types of variables (fields).
       # NOTE: Format: <field_name, field_type>
       field_name_and_type_list : Hash(String, String) = (
-        {% if @type.instance_vars.size > 0 %}
+        {% unless @type.instance_vars.empty? %}
           Hash.zip(
             {{ @type.instance_vars.map &.name.stringify }},
             {{ @type.instance_vars.map &.type.stringify }}
               .map { |name| name.split("::").last }
           )
         {% else %}
-          raise Crymon::Errors::FieldsMissing.new(model_name)
+          Hash(String, String).new
         {% end %}
       )
       # Default value list.
       # NOTE: Format: <field_name, default_value>
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-        {% if @type.instance_vars.size > 0 %}
+        {% unless @type.instance_vars.empty? %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
           self.field_name_and_value_list.each do |key, value|
             hash[key] = value.default
           end
           hash
         {% else %}
-          raise Crymon::Errors::FieldsMissing.new(model_name)
+          Hash(String, Crymon::Globals::ValueTypes).new
         {% end %}
       )
       #

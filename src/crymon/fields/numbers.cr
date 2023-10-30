@@ -9,7 +9,7 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String = "number"
       # Sets the value of an element.
-      property value : UInt32 | Nil
+      property value : UInt32 | Nil = nil
       # Value by default.
       getter default : UInt32 | Nil
       # Displays prompt text.
@@ -57,7 +57,7 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String = "number"
       # Sets the value of an element.
-      property value : Int64 | Nil
+      property value : Int64 | Nil = nil
       # Value by default.
       getter default : Int64 | Nil
       # Displays prompt text.
@@ -105,7 +105,7 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String
       # Sets the value of an element.
-      property value : Float64 | Nil
+      property value : Float64 | Nil = nil
       # Value by default.
       getter default : Float64 | Nil
       # Displays prompt text.

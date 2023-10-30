@@ -9,7 +9,7 @@ module Crymon
       # Field type - Html, input type.
       getter input_type : String = "checkbox"
       # Sets the value of an element.
-      property value : Bool | Nil
+      property value : Bool | Nil = nil
       # Value by default.
       getter default : Bool | Nil
       # To optimize field traversal in the `paladins/check()` method.

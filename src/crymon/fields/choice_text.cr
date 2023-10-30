@@ -8,7 +8,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextField"
       # Sets the value of an element.
-      property value : String | Nil
+      property value : String | Nil = nil
       # Value by default.
       getter default : String | Nil
       # Specifies that multiple options can be selected at once.
@@ -43,7 +43,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultField"
       # Sets the value of an element.
-      property value : Array(String) | Nil
+      property value : Array(String) | Nil = nil
       # Value by default.
       getter default : Array(String) | Nil
       # Specifies that multiple options can be selected at once.
@@ -79,7 +79,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextDynField"
       # Sets the value of an element.
-      property value : String | Nil
+      property value : String | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.
@@ -114,7 +114,7 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultDynField"
       # Sets the value of an element.
-      property value : Array(String) | Nil
+      property value : Array(String) | Nil = nil
       # Value by default.
       getter default : Nil = nil
       # Specifies that multiple options can be selected at once.

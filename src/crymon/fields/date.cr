@@ -11,7 +11,7 @@ module Crymon
       getter input_type : String = "date"
       # Sets the value of an element.
       # NOTE: Example: 1970-01-01
-      property value : String | Nil
+      property value : String | Nil = nil
       # Value by default.
       # NOTE: Example: 1970-01-01
       getter default : String | Nil

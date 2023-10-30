@@ -11,7 +11,7 @@ module Crymon
       # For Html textarea.
       getter is_textarea : Bool
       # Sets the value of an element.
-      property value : String | Nil
+      property value : String | Nil = nil
       # Value by default.
       getter default : String | Nil
       # Displays prompt text.

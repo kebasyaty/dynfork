@@ -24,6 +24,7 @@ describe Crymon::Fields::ChoiceF64Field do
       f.errors.should eq(Array(String).new)
       f.group.should eq(4_u8)
       f["default"]?.should be_true
+      f["no_var"]?.should be_false
     end
   end
 end
@@ -52,6 +53,7 @@ describe Crymon::Fields::ChoiceF64MultField do
       f.errors.should eq(Array(String).new)
       f.group.should eq(6_u8)
       f["default"]?.should be_true
+      f["no_var"]?.should be_false
     end
   end
 end
@@ -80,6 +82,7 @@ describe Crymon::Fields::ChoiceF64DynField do
       f.errors.should eq(Array(String).new)
       f.group.should eq(5_u8)
       f["default"]?.should be_true
+      f["no_var"]?.should be_false
     end
   end
 end
@@ -108,6 +111,7 @@ describe Crymon::Fields::ChoiceF64MultDynField do
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
       f["default"]?.should be_true
+      f["no_var"]?.should be_false
     end
   end
 end
