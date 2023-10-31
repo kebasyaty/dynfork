@@ -10,11 +10,11 @@ module Crymon
     include JSON::Serializable::Strict
 
     def initialize
-      self.run
+      self.extra
     end
 
-    # ???
-    def run
+    # Additional initialization.
+    def extra
       {% unless @type.instance_vars.empty? %}
         {% for var in @type.instance_vars %}
           @{{ var }}.id = "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}}"
