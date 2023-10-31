@@ -55,11 +55,11 @@ describe Helper::FilledModel do
       j : String = f.to_json
       f = Helper::FilledModel.from_json(j)
       # TextField
-      f.name.id.should eq("")
+      f.name.id.should eq("FilledModel--name")
       f.name.label.should eq("")
       f.name.field_type.should eq("TextField")
       f.name.input_type.should eq("text")
-      f.name.name.should eq("")
+      f.name.name.should eq("name")
       f.name.value.should be_nil
       f.name.default.should eq("Cat")
       f.name.placeholder.should eq("")
@@ -81,11 +81,11 @@ describe Helper::FilledModel do
       f["no_var"]?.should be_false
       #
       # U32Field
-      f.age.id.should eq("")
+      f.age.id.should eq("FilledModel--age")
       f.age.label.should eq("")
       f.age.field_type.should eq("U32Field")
       f.age.input_type.should eq("number") # number | range
-      f.age.name.should eq("")
+      f.age.name.should eq("age")
       f.age.value.should be_nil
       f.age.default.should eq(0_u32)
       f.age.placeholder.should eq("")
@@ -107,11 +107,11 @@ describe Helper::FilledModel do
       f["no_var"]?.should be_false
       #
       # DateField
-      f.birthday.id.should eq("")
+      f.birthday.id.should eq("FilledModel--birthday")
       f.birthday.label.should eq("")
       f.birthday.field_type.should eq("DateField")
       f.birthday.input_type.should eq("date")
-      f.birthday.name.should eq("")
+      f.birthday.name.should eq("birthday")
       f.birthday.value.should be_nil
       f.birthday.default.should eq("0000-00-00")
       f.birthday.placeholder.should eq("")

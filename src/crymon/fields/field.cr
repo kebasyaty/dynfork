@@ -9,12 +9,12 @@ module Crymon
       include JSON::Serializable::Strict
       # NOTE: Format: "ModelName--field-name".
       # WARNING: The value is determined automatically.
-      getter id : String = ""
+      property id : String = ""
       # Text label for a web form field.
       getter label : String = ""
       # Field name.
       # WARNING: The value is determined automatically.
-      getter name : String = ""
+      property name : String = ""
       # Field type - Structure Name.
       getter field_type : String = ""
       # Required field.

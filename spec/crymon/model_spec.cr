@@ -4,7 +4,7 @@ describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model" do
       ex = expect_raises(Crymon::Errors::FieldsMissing) do
-        Helper::EmptyModel.new.meta
+        Helper::EmptyModel.new
       end
       ex.message.should eq(%(Model "EmptyModel" has no fields.))
     end
