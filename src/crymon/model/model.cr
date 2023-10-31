@@ -9,7 +9,22 @@ module Crymon
     include JSON::Serializable
     include JSON::Serializable::Strict
 
-    def initialize; end
+    def initialize
+      self.extra
+    end
+
+    # Additional initialization.
+    def extra
+      {% unless @type.instance_vars.empty? %}
+        {% for var in @type.instance_vars %}
+          @{{ var }}.id = "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}}"
+          @{{ var }}.name = {{ var.name.stringify }}
+        {% end %}
+      {% else %}
+        # If there are no fields in the model, a FieldsMissing exception is raise.
+        raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+      {% end %}
+    end
 
     # Get model key.
     # NOTE: To access data in the cache.
@@ -59,15 +74,12 @@ module Crymon
       "is_use_hooks": Bool,
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String))
-      # Model name = Structure name.
-      model_name : String = {{ @type.name.stringify }}.split("::").last
-      # If there are no fields in the model, a FieldsMissing exception is raise.
-      {% if @type.instance_vars.empty? %}
-        raise Crymon::Errors::FieldsMissing.new(model_name)
-      {% end %}
+      #
       # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
+      # Model name = Structure name.
+      model_name : String = {{ @type.name.stringify }}.split("::").last
       # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
         raise Crymon::Errors::ParameterMissing.new("unique_app_key")
