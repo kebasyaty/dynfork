@@ -17,10 +17,12 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
+      var_name : String = ""
       {% unless @type.instance_vars.empty? %}
         {% for var in @type.instance_vars %}
-          @{{ var }}.id = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["id"]
-          @{{ var }}.name = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["name"]
+          var_name = {{ var.name.stringify }}
+          @{{ var }}.id = Crymon::Globals.store[model_key]["field_attrs"][var_name]["id"]
+          @{{ var }}.name = Crymon::Globals.store[model_key]["field_attrs"][var_name]["name"]
         {% end %}
       {% end %}
     end
