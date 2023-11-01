@@ -1,9 +1,6 @@
 module Crymon
   module Globals
     # Global storage for metadata caching.
-    # NOTE: "meta" - metadata for Model.
-    # NOTE: "attrs" - attributes value: id and name.
-    # NOTE: "dyns" - data for dynamic fields.
     class_property store : Hash(String, Crymon::Globals::MetaData) = Hash(String, Crymon::Globals::MetaData).new
 
     # All field types.
