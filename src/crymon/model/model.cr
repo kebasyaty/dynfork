@@ -10,16 +10,16 @@ module Crymon
     include JSON::Serializable::Strict
 
     def initialize
-      self.extra
       self.caching
+      self.extra
     end
 
     # Additional initialization.
     def extra
       {% unless @type.instance_vars.empty? %}
         {% for var in @type.instance_vars %}
-          @{{ var }}.id = "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}"
-          @{{ var }}.name = {{ var.name.stringify }}
+          @{{ var }}.id = Crymon::Globals.store[self.model_key]["field_attrs"][{{ var.name.stringify }}]["id"]
+          @{{ var }}.name = Crymon::Globals.store[self.model_key]["field_attrs"][{{ var.name.stringify }}]["name"]
         {% end %}
       {% else %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
@@ -59,78 +59,72 @@ module Crymon
     def caching
       model_key : String = self.model_key
       if Crymon::Globals.store[model_key]?.nil?
-        Crymon::Globals.store[model_key] = self.meta
-      end
-    end
-
-    # Metadata for the Model.
-    def meta : Crymon::Globals::MetaData
-      # Project name.
-      app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
-        raise Crymon::Errors::ParameterMissing.new("app_name")
-      # Model name = Structure name.
-      model_name : String = {{ @type.name.stringify }}.split("::").last
-      # Unique project key.
-      unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
-        raise Crymon::Errors::ParameterMissing.new("unique_app_key")
-      # Service Name - Application subsection.
-      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
-        raise Crymon::Errors::ParameterMissing.new("service_name")
-      # List of variable (field) names.
-      field_name_list : Array(String) = (
-        {% unless @type.instance_vars.empty? %}
+        # Project name.
+        app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
+          raise Crymon::Errors::ParameterMissing.new("app_name")
+        # Model name = Structure name.
+        model_name : String = {{ @type.name.stringify }}.split("::").last
+        # Unique project key.
+        unique_app_key : String = {{ @type.annotation(Crymon::Metadata)["unique_app_key"] }} ||
+          raise Crymon::Errors::ParameterMissing.new("unique_app_key")
+        # Service Name - Application subsection.
+        service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
+          raise Crymon::Errors::ParameterMissing.new("service_name")
+        # List of variable (field) names.
+        field_name_list : Array(String) = (
+          {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.name.stringify }}
         {% else %}
-          Array(String).new
-        {% end %}
-      )
-      # List is a list of variable (field) types.
-      field_type_list : Array(String) = (
-        {% unless @type.instance_vars.empty? %}
+            Array(String).new
+          {% end %}
+        )
+        # List is a list of variable (field) types.
+        field_type_list : Array(String) = (
+          {% unless @type.instance_vars.empty? %}
           {{ @type.instance_vars.map &.type.stringify }}
             .map { |name| name.split("::").last }
         {% else %}
-          Array(String).new
-        {% end %}
-      )
-      # List of names and types of variables (fields).
-      # NOTE: Format: <field_name, field_type>
-      field_name_and_type_list : Hash(String, String) = (
-        {% unless @type.instance_vars.empty? %}
+            Array(String).new
+          {% end %}
+        )
+        # List of names and types of variables (fields).
+        # NOTE: Format: <field_name, field_type>
+        field_name_and_type_list : Hash(String, String) = (
+          {% unless @type.instance_vars.empty? %}
           Hash.zip(
             {{ @type.instance_vars.map &.name.stringify }},
             {{ @type.instance_vars.map &.type.stringify }}
               .map { |name| name.split("::").last }
           )
         {% else %}
-          Hash(String, String).new
-        {% end %}
-      )
-      # Default value list.
-      # NOTE: Format: <field_name, default_value>
-      default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-        {% unless @type.instance_vars.empty? %}
-          hash = Hash(String, Crymon::Globals::ValueTypes).new
-          self.field_name_and_value_list.each do |key, value|
-            hash[key] = value.default
+            Hash(String, String).new
+          {% end %}
+        )
+        # Default value list.
+        # NOTE: Format: <field_name, default_value>
+        default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
+          {% unless @type.instance_vars.empty? %}
+            hash = Hash(String, Crymon::Globals::ValueTypes).new
+            self.field_name_and_value_list.each do |key, value|
+              hash[key] = value.default
+            end
+            hash
+          {% else %}
+            Hash(String, Crymon::Globals::ValueTypes).new
+          {% end %}
+        )
+        # List of field names that will not be saved to the database.
+        ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
+          Array(String).new
+        ignore_fields.each do |field_name|
+          unless field_name_list.includes?(field_name)
+            raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
           end
-          hash
-        {% else %}
-          Hash(String, Crymon::Globals::ValueTypes).new
-        {% end %}
-      )
-      # List of field names that will not be saved to the database.
-      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
-        Array(String).new
-      ignore_fields.each do |field_name|
-        unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
         end
-      end
-      # Attributes value for fields of Model: id, name.
-      field_attrs : Hash(String, NamedTuple("id": String, "name": String)) = (
-        hash = Hash(String, NamedTuple("id": String, "name": String)).new
-        {% unless @type.instance_vars.empty? %}
+        # Attributes value for fields of Model: id, name.
+        field_attrs : Hash(String, NamedTuple("id": String, "name": String)) = (
+          hash = Hash(String, NamedTuple("id": String, "name": String)).new
+          {% unless @type.instance_vars.empty? %}
           {% for var in @type.instance_vars %}
             hash[{{ var.name.stringify }}] = {
               "id": "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
@@ -138,54 +132,56 @@ module Crymon
             }
           {% end %}
         {% end %}
-        hash
-      )
-      #
-      {
-        # Project name.
-        "app_name": app_name,
-        # Model name = Structure name.
-        "model_name": model_name,
-        # Unique project key.
-        "unique_app_key": unique_app_key,
-        # Service Name - Application subsection.
-        "service_name": service_name,
-        # Database name.
-        "database_name": "#{app_name}_#{unique_app_key}",
-        # Collection name.
-        "collection_name": "#{service_name}_#{model_name}",
-        # limiting query results.
-        "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
-        # Number of variables (fields).
-        "field_count": {{ @type.instance_vars.size }},
-        # List of variable (field) names.
-        "field_name_list": field_name_list,
-        # List is a list of variable (field) types.
-        field_type_list: field_type_list,
-        # List of names and types of variables (fields).
-        # NOTE: Format: <field_name, field_type>
-        "field_name_and_type_list": field_name_and_type_list,
-        # Default value list.
-        # NOTE: Format: <field_name, default_value>
-        "default_value_list": default_value_list,
-        # Create documents in the database. By default = true.
-        # NOTE: false - Alternatively, use it to validate data from web forms.
-        "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
-        # Update documents in the database.
-        "is_up_doc": {{ @type.annotation(Crymon::Metadata)["is_up_doc"] }} || true,
-        # Delete documents from the database.
-        "is_del_doc": {{ @type.annotation(Crymon::Metadata)["is_del_doc"] }} || true,
-        # Allows methods for additional actions and additional validation.
-        "is_use_addition": {{ @type.annotation(Crymon::Metadata)["is_use_addition"] }} || false,
-        # Allows hooks methods - impl Hooks for ModelName.
-        "is_use_hooks": {{ @type.annotation(Crymon::Metadata)["is_use_hooks"] }} || false,
-        # Is the hash field used for the slug?
-        "is_use_hash_slug": {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
-        # List of field names that will not be saved to the database.
-        "ignore_fields": ignore_fields,
-        # Attributes value for fields of Model: id, name.
-        "field_attrs": field_attrs,
-      }
+          hash
+        )
+        #
+        # Add metadata to the global store.
+        Crymon::Globals.store[self.model_key] = {
+          # Project name.
+          "app_name": app_name,
+          # Model name = Structure name.
+          "model_name": model_name,
+          # Unique project key.
+          "unique_app_key": unique_app_key,
+          # Service Name - Application subsection.
+          "service_name": service_name,
+          # Database name.
+          "database_name": "#{app_name}_#{unique_app_key}",
+          # Collection name.
+          "collection_name": "#{service_name}_#{model_name}",
+          # limiting query results.
+          "db_query_docs_limit": {{ @type.annotation(Crymon::Metadata)["db_query_docs_limit"] }} || 1000_u32,
+          # Number of variables (fields).
+          "field_count": {{ @type.instance_vars.size }},
+          # List of variable (field) names.
+          "field_name_list": field_name_list,
+          # List is a list of variable (field) types.
+          field_type_list: field_type_list,
+          # List of names and types of variables (fields).
+          # NOTE: Format: <field_name, field_type>
+          "field_name_and_type_list": field_name_and_type_list,
+          # Default value list.
+          # NOTE: Format: <field_name, default_value>
+          "default_value_list": default_value_list,
+          # Create documents in the database. By default = true.
+          # NOTE: false - Alternatively, use it to validate data from web forms.
+          "is_add_doc": {{ @type.annotation(Crymon::Metadata)["is_add_doc"] }} || true,
+          # Update documents in the database.
+          "is_up_doc": {{ @type.annotation(Crymon::Metadata)["is_up_doc"] }} || true,
+          # Delete documents from the database.
+          "is_del_doc": {{ @type.annotation(Crymon::Metadata)["is_del_doc"] }} || true,
+          # Allows methods for additional actions and additional validation.
+          "is_use_addition": {{ @type.annotation(Crymon::Metadata)["is_use_addition"] }} || false,
+          # Allows hooks methods - impl Hooks for ModelName.
+          "is_use_hooks": {{ @type.annotation(Crymon::Metadata)["is_use_hooks"] }} || false,
+          # Is the hash field used for the slug?
+          "is_use_hash_slug": {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
+          # List of field names that will not be saved to the database.
+          "ignore_fields": ignore_fields,
+          # Attributes value for fields of Model: id, name.
+          "field_attrs": field_attrs,
+        }
+      end
     end
   end
 end

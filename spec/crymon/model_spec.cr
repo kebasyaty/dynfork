@@ -34,7 +34,7 @@ describe Crymon::Model do
       m.age.value.should eq(32_u32)
       m.birthday.value.should eq("1990-11-7")
       # Testing metadata.
-      metadata = m.meta
+      metadata = Crymon::Globals.store[m.model_key]
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["model_name"].should eq("FilledModel")
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
@@ -61,28 +61,28 @@ describe Crymon::Model do
     describe "#meta" do
       it "=> Model without mandatory 'app_name' parameter for metadata" do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
-          Helper::NoParamAppNameModel.new.meta
+          Helper::NoParamAppNameModel.new
         end
         ex.message.should eq(%(Missing "app_name" parameter for Metadata.))
       end
 
       it "=> Model without mandatory 'unique_app_key' parameter for metadata" do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
-          Helper::NoParamUniqueAppKeyModel.new.meta
+          Helper::NoParamUniqueAppKeyModel.new
         end
         ex.message.should eq(%(Missing "unique_app_key" parameter for Metadata.))
       end
 
       it "=> Model without mandatory 'service_name' parameter for metadata" do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
-          Helper::NoParamServiceMameModel.new.meta
+          Helper::NoParamServiceMameModel.new
         end
         ex.message.should eq(%(Missing "service_name" parameter for Metadata.))
       end
 
       it "=> the names in the list of ignored fields do not match" do
         ex = expect_raises(Crymon::Errors::IgnoredFieldMissing) do
-          Helper::IncorrectIgnoredListModel.new.meta
+          Helper::IncorrectIgnoredListModel.new
         end
         ex.message.should eq(%(The "birthday" field is missing from the list of ignored fields.))
       end
