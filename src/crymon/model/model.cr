@@ -11,6 +11,7 @@ module Crymon
 
     def initialize
       self.extra
+      self.caching
     end
 
     # Additional initialization.
@@ -30,7 +31,8 @@ module Crymon
     # NOTE: To access data in the cache.
     def model_key : String
       model_name : String = {{ @type.name.stringify }}.split("::").last
-      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }}
+      service_name : String = {{ @type.annotation(Crymon::Metadata)["service_name"] }} ||
+        raise Crymon::Errors::ParameterMissing.new("service_name")
       "#{service_name}_#{model_name}"
     end
 
@@ -55,7 +57,10 @@ module Crymon
 
     # Add metadata to the global store.
     def caching
-      # ...
+      model_key : String = self.model_key
+      if Crymon::Globals.store[model_key]?.nil?
+        Crymon::Globals.store[model_key] = {"meta" => self.meta}
+      end
     end
 
     # Metadata for the Model.

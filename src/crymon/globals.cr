@@ -5,7 +5,10 @@ module Crymon
     # NOTE: "meta" - metadata for Model.
     # NOTE: "attrs" - attributes value: id and name.
     # NOTE: "dyns" - data for dynamic fields.
-    STORE = Hash(String, Hash(String, Crymon::Globals::MetaNamedTuple | Hash(String, String) | Array(String | UInt32 | Int64 | Float64))).new
+    class_property store : Crymon::Globals::StoreType = Crymon::Globals::StoreType.new
+
+    # The data type for the global store.
+    alias StoreType = Hash(String, Hash(String, Crymon::Globals::MetaNamedTuple | Hash(String, String) | Array(String | UInt32 | Int64 | Float64)))
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
