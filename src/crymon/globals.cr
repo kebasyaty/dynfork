@@ -1,14 +1,10 @@
 module Crymon
   module Globals
     # Global storage for metadata caching.
-    # NOTE: Format: <Model_key: <"meta": Crymon::Globals::MetaData, "attrs": Hash(String, String), "dyns": Array(String | UInt32 | Int64 | Float64)>>
     # NOTE: "meta" - metadata for Model.
     # NOTE: "attrs" - attributes value: id and name.
     # NOTE: "dyns" - data for dynamic fields.
     class_property store : Hash(String, Crymon::Globals::MetaData) = Hash(String, Crymon::Globals::MetaData).new
-
-    # The data type for the global store.
-    alias StoreType = Hash(String, Hash(String, Crymon::Globals::MetaData | Hash(String, String) | Array(String | UInt32 | Int64 | Float64)))
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
@@ -54,6 +50,7 @@ module Crymon
       "is_use_addition": Bool,
       "is_use_hooks": Bool,
       "is_use_hash_slug": Bool,
-      "ignore_fields": Array(String))
+      "ignore_fields": Array(String),
+    )
   end
 end

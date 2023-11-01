@@ -14,23 +14,23 @@ describe Crymon::Model do
       #
       m.model_key.should eq("ServiceName_FilledModel")
       #
-      m["name"]?.should be_true
+      m["first_name"]?.should be_true
       m["age"]?.should be_true
       m["birthday"]?.should be_true
       m["???"]?.should be_false
       #
-      m.name.id.should eq("FilledModel--name")
-      m.name.name.should eq("name")
+      m.first_name.id.should eq("FilledModel--first-name")
+      m.first_name.name.should eq("first_name")
       m.age.id.should eq("FilledModel--age")
       m.age.name.should eq("age")
       m.birthday.id.should eq("FilledModel--birthday")
       m.birthday.name.should eq("birthday")
       #
-      m.name.value = "Gene"
+      m.first_name.value = "Gene"
       m.age.value = 32
       m.birthday.value = "1990-11-7"
       #
-      m.name.value.should eq("Gene")
+      m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)
       m.birthday.value.should eq("1990-11-7")
       # Testing metadata.
@@ -43,12 +43,12 @@ describe Crymon::Model do
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(3_i32)
-      metadata["field_name_list"].should eq(["name", "age", "birthday"])
+      metadata["field_name_list"].should eq(["first_name", "age", "birthday"])
       metadata["field_type_list"].should eq(["TextField", "U32Field", "DateField"])
       metadata["field_name_and_type_list"].should eq(
-        {"name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
+        {"first_name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
       )
-      metadata["default_value_list"].should eq({"name" => "Cat", "age" => 0, "birthday" => "0000-00-00"})
+      metadata["default_value_list"].should eq({"first_name" => "Cat", "age" => 0, "birthday" => "0000-00-00"})
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true

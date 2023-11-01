@@ -23,7 +23,7 @@ module Helper
     ignore_fields: ["age", "birthday"]
   )]
   struct FilledModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new("default": "Cat")
+    getter first_name = Crymon::Fields::TextField.new("default": "Cat")
     getter age = Crymon::Fields::U32Field.new("default": 0)
     getter birthday = Crymon::Fields::DateField.new("default": "0000-00-00")
   end
@@ -34,7 +34,7 @@ module Helper
     service_name: Settings::SERVICE_NAME
   )]
   struct NoParamAppNameModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
+    getter first_name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
 
@@ -44,7 +44,7 @@ module Helper
     service_name: Settings::SERVICE_NAME
   )]
   struct NoParamUniqueAppKeyModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
+    getter first_name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
 
@@ -54,7 +54,7 @@ module Helper
     unique_app_key: Settings::UNIQUE_APP_KEY
   )]
   struct NoParamServiceMameModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
+    getter first_name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
 
@@ -65,7 +65,7 @@ module Helper
     ignore_fields: ["age", "birthday"]
   )]
   struct IncorrectIgnoredListModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
+    getter first_name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
 end
