@@ -54,26 +54,7 @@ module Crymon
     end
 
     # Metadata for the Model.
-    def meta : NamedTuple(
-      "app_name": String,
-      "model_name": String,
-      "unique_app_key": String,
-      "service_name": String,
-      "database_name": String,
-      "collection_name": String,
-      "db_query_docs_limit": UInt32,
-      "field_count": Int32,
-      "field_name_list": Array(String),
-      "field_type_list": Array(String),
-      "field_name_and_type_list": Hash(String, String),
-      "default_value_list": Hash(String, Crymon::Globals::ValueTypes),
-      "is_add_doc": Bool,
-      "is_up_doc": Bool,
-      "is_del_doc": Bool,
-      "is_use_addition": Bool,
-      "is_use_hooks": Bool,
-      "is_use_hash_slug": Bool,
-      "ignore_fields": Array(String))
+    def meta : Crymon::Globals::MetaNamedTuple
       #
       # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||

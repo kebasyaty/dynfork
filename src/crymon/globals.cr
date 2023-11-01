@@ -1,5 +1,8 @@
 module Crymon
   module Globals
+    # ???
+    # STORE = Hash(String, Hash(String, {"meta" => }))
+
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
                        Crymon::Fields::SlugField | Crymon::Fields::PhoneField |
@@ -23,5 +26,27 @@ module Crymon
     alias ValueTypes = String | UInt32 | Int64 | Float64 | Crymon::Fields::ImageData |
                        Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
                        Array(Float64) | Bool | Nil
+
+    # Metadata type for Model.
+    alias MetaNamedTuple = NamedTuple(
+      "app_name": String,
+      "model_name": String,
+      "unique_app_key": String,
+      "service_name": String,
+      "database_name": String,
+      "collection_name": String,
+      "db_query_docs_limit": UInt32,
+      "field_count": Int32,
+      "field_name_list": Array(String),
+      "field_type_list": Array(String),
+      "field_name_and_type_list": Hash(String, String),
+      "default_value_list": Hash(String, Crymon::Globals::ValueTypes),
+      "is_add_doc": Bool,
+      "is_up_doc": Bool,
+      "is_del_doc": Bool,
+      "is_use_addition": Bool,
+      "is_use_hooks": Bool,
+      "is_use_hash_slug": Bool,
+      "ignore_fields": Array(String))
   end
 end
