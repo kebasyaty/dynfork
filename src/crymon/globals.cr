@@ -51,6 +51,7 @@ module Crymon
       "is_use_hooks": Bool,
       "is_use_hash_slug": Bool,
       "ignore_fields": Array(String),
+      "field_attrs": Hash(String, NamedTuple("id": String, "name": String)),
     )
   end
 end

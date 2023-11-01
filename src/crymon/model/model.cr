@@ -59,7 +59,7 @@ module Crymon
     def caching
       model_key : String = self.model_key
       if Crymon::Globals.store[model_key]?.nil?
-        # Crymon::Globals.store[model_key] = self.meta
+        Crymon::Globals.store[model_key] = self.meta
       end
     end
 
@@ -84,14 +84,6 @@ module Crymon
           Array(String).new
         {% end %}
       )
-      # List of field names that will not be saved to the database.
-      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
-        Array(String).new
-      ignore_fields.each do |field_name|
-        unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
-        end
-      end
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
         {% unless @type.instance_vars.empty? %}
@@ -126,6 +118,27 @@ module Crymon
         {% else %}
           Hash(String, Crymon::Globals::ValueTypes).new
         {% end %}
+      )
+      # List of field names that will not be saved to the database.
+      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Metadata)["ignore_fields"] }} ||
+        Array(String).new
+      ignore_fields.each do |field_name|
+        unless field_name_list.includes?(field_name)
+          raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
+        end
+      end
+      # Attributes value for fields of Model: id, name.
+      field_attrs : Hash(String, NamedTuple("id": String, "name": String)) = (
+        hash = Hash(String, NamedTuple("id": String, "name": String)).new
+        {% unless @type.instance_vars.empty? %}
+          {% for var in @type.instance_vars %}
+            hash[{{ var.name.stringify }}] = {
+              "id": "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+              "name": {{ var.name.stringify }}
+            }
+          {% end %}
+        {% end %}
+        hash
       )
       #
       {
@@ -170,6 +183,8 @@ module Crymon
         "is_use_hash_slug": {{ @type.annotation(Crymon::Metadata)["is_use_hash_slug"] }} || false,
         # List of field names that will not be saved to the database.
         "ignore_fields": ignore_fields,
+        # Attributes value for fields of Model: id, name.
+        "field_attrs": field_attrs,
       }
     end
   end
