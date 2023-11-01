@@ -17,7 +17,7 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
-      var_name : String = ""
+      var_name : String | Nil
       {% unless @type.instance_vars.empty? %}
         {% for var in @type.instance_vars %}
           var_name = {{ var.name.stringify }}
