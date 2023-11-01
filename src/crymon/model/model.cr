@@ -16,10 +16,11 @@ module Crymon
 
     # Additional initialization.
     def extra
+      model_key : String = self.model_key
       {% unless @type.instance_vars.empty? %}
         {% for var in @type.instance_vars %}
-          @{{ var }}.id = Crymon::Globals.store[self.model_key]["field_attrs"][{{ var.name.stringify }}]["id"]
-          @{{ var }}.name = Crymon::Globals.store[self.model_key]["field_attrs"][{{ var.name.stringify }}]["name"]
+          @{{ var }}.id = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["id"]
+          @{{ var }}.name = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["name"]
         {% end %}
       {% else %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
