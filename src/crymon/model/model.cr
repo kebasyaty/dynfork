@@ -22,9 +22,6 @@ module Crymon
           @{{ var }}.id = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["id"]
           @{{ var }}.name = Crymon::Globals.store[model_key]["field_attrs"][{{ var.name.stringify }}]["name"]
         {% end %}
-      {% else %}
-        # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
     end
 
@@ -58,7 +55,13 @@ module Crymon
 
     # Add metadata to the global store.
     def caching
+      {% if @type.instance_vars.empty? %}
+        # If there are no fields in the model, a FieldsMissing exception is raise.
+        raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+      {% end %}
+      # Get model key.
       model_key : String = self.model_key
+      # Run caching.
       if Crymon::Globals.store[model_key]?.nil?
         # Project name.
         app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
@@ -137,7 +140,7 @@ module Crymon
         )
         #
         # Add metadata to the global store.
-        Crymon::Globals.store[self.model_key] = {
+        Crymon::Globals.store[model_key] = {
           # Project name.
           "app_name": app_name,
           # Model name = Structure name.
