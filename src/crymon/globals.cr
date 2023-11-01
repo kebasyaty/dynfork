@@ -1,14 +1,14 @@
 module Crymon
   module Globals
     # Global storage for metadata caching.
-    # NOTE: Format: <Model_key: <"meta": Crymon::Globals::MetaNamedTuple, "attrs": Hash(String, String), "dyns": Array(String | UInt32 | Int64 | Float64)>>
+    # NOTE: Format: <Model_key: <"meta": Crymon::Globals::MetaData, "attrs": Hash(String, String), "dyns": Array(String | UInt32 | Int64 | Float64)>>
     # NOTE: "meta" - metadata for Model.
     # NOTE: "attrs" - attributes value: id and name.
     # NOTE: "dyns" - data for dynamic fields.
-    class_property store : Crymon::Globals::StoreType = Crymon::Globals::StoreType.new
+    class_property store : Hash(String, Crymon::Globals::MetaData) = Hash(String, Crymon::Globals::MetaData).new
 
     # The data type for the global store.
-    alias StoreType = Hash(String, Hash(String, Crymon::Globals::MetaNamedTuple | Hash(String, String) | Array(String | UInt32 | Int64 | Float64)))
+    alias StoreType = Hash(String, Hash(String, Crymon::Globals::MetaData | Hash(String, String) | Array(String | UInt32 | Int64 | Float64)))
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
@@ -35,7 +35,7 @@ module Crymon
                        Array(Float64) | Bool | Nil
 
     # Metadata type for Model.
-    alias MetaNamedTuple = NamedTuple(
+    alias MetaData = NamedTuple(
       "app_name": String,
       "model_name": String,
       "unique_app_key": String,

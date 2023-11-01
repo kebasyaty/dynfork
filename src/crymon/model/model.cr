@@ -58,13 +58,14 @@ module Crymon
     # Add metadata to the global store.
     def caching
       model_key : String = self.model_key
-      if Crymon::Globals.store[model_key]?.nil?
-        Crymon::Globals.store[model_key] = {"meta" => self.meta}
+      if Crymon::Globals.store.nil?
+        # Crymon::Globals.store[model_key] = {"meta" => self.meta, "attrs" => Hash(String, String).new, "dyns" => Array(String | UInt32 | Int64 | Float64)}
+        Crymon::Globals.store[model_key] = self.meta
       end
     end
 
     # Metadata for the Model.
-    def meta : Crymon::Globals::MetaNamedTuple
+    def meta : Crymon::Globals::MetaData
       # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
