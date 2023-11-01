@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Model - crymon v0</title>
+  <title>Crymon::Model - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -302,6 +302,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Globals/MetaData" data-name="crymon::globals::metadata">
+      <a href="../Crymon/Globals/MetaData.html">MetaData</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
       <a href="../Crymon/Globals/ValueTypes.html">ValueTypes</a>
       
@@ -312,8 +317,8 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Metadata" data-name="crymon::metadata">
-      <a href="../Crymon/Metadata.html">Metadata</a>
+  <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
+      <a href="../Crymon/Meta.html">Meta</a>
       
     </li>
   
@@ -396,9 +401,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L8" target="_blank">
-        src\crymon\model\model.cr
-      </a>
+      src\crymon\model\model.cr
     
     <br/>
   
@@ -451,6 +454,13 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#caching-instance-method" class="signature"><strong>#caching</strong></a>
+        
+          <div class="summary"><p>Add metadata to the global store.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#extra-instance-method" class="signature"><strong>#extra</strong></a>
         
           <div class="summary"><p>Additional initialization.</p></div>
@@ -461,13 +471,6 @@
         <a href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method" class="signature"><strong>#field_name_and_value_list</strong> : Hash(String, Crymon::Globals::FieldTypes)</a>
         
           <div class="summary"><p>Get a list of field names and their values.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cdefault_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AValueTypes%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method" class="signature"><strong>#meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), default_value_list: Hash(String, Crymon::Globals::ValueTypes), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))</a>
-        
-          <div class="summary"><p>Metadata for the Model.</p></div>
         
       </li>
     
@@ -559,8 +562,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L9" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -574,8 +575,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -610,7 +609,24 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L38" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="caching-instance-method">
+      <div class="signature">
+        
+        def <strong>caching</strong>
+
+        <a class="method-permalink" href="#caching-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add metadata to the global store.</p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -631,8 +647,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L17" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -651,29 +665,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L48" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="meta:NamedTuple(app_name:String,model_name:String,unique_app_key:String,service_name:String,database_name:String,collection_name:String,db_query_docs_limit:UInt32,field_count:Int32,field_name_list:Array(String),field_type_list:Array(String),field_name_and_type_list:Hash(String,String),default_value_list:Hash(String,Crymon::Globals::ValueTypes),is_add_doc:Bool,is_up_doc:Bool,is_del_doc:Bool,is_use_addition:Bool,is_use_hooks:Bool,is_use_hash_slug:Bool,ignore_fields:Array(String))-instance-method">
-      <div class="signature">
-        
-        def <strong>meta</strong> : NamedTuple(app_name: String, model_name: String, unique_app_key: String, service_name: String, database_name: String, collection_name: String, db_query_docs_limit: UInt32, field_count: Int32, field_name_list: Array(String), field_type_list: Array(String), field_name_and_type_list: Hash(String, String), default_value_list: Hash(String, <a href="../Crymon/Globals/ValueTypes.html">Crymon::Globals::ValueTypes</a>), is_add_doc: Bool, is_up_doc: Bool, is_del_doc: Bool, is_use_addition: Bool, is_use_hooks: Bool, is_use_hash_slug: Bool, ignore_fields: Array(String))
-
-        <a class="method-permalink" href="#meta%3ANamedTuple%28app_name%3AString%2Cmodel_name%3AString%2Cunique_app_key%3AString%2Cservice_name%3AString%2Cdatabase_name%3AString%2Ccollection_name%3AString%2Cdb_query_docs_limit%3AUInt32%2Cfield_count%3AInt32%2Cfield_name_list%3AArray%28String%29%2Cfield_type_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cdefault_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AValueTypes%29%2Cis_add_doc%3ABool%2Cis_up_doc%3ABool%2Cis_del_doc%3ABool%2Cis_use_addition%3ABool%2Cis_use_hooks%3ABool%2Cis_use_hash_slug%3ABool%2Cignore_fields%3AArray%28String%29%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Metadata for the Model.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L57" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -694,8 +685,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/1a99c681024e9fa3d29a20c35413d9c3d750c91c/src\crymon\model\model.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>

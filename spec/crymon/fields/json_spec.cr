@@ -55,29 +55,29 @@ describe Helper::FilledModel do
       j : String = f.to_json
       f = Helper::FilledModel.from_json(j)
       # TextField
-      f.name.id.should eq("FilledModel--name")
-      f.name.label.should eq("")
-      f.name.field_type.should eq("TextField")
-      f.name.input_type.should eq("text")
-      f.name.name.should eq("name")
-      f.name.value.should be_nil
-      f.name.default.should eq("Cat")
-      f.name.placeholder.should eq("")
-      f.name.is_textarea.should be_false
-      f.name.is_disabled.should be_false
-      f.name.is_readonly.should be_false
-      f.name.is_hide.should be_false
-      f.name.is_required.should be_false
-      f.name.is_unique.should be_false
-      f.name.maxlength.should eq(256)
-      f.name.minlength.should eq(0)
-      f.name.other_attrs.should eq("")
-      f.name.css_classes.should eq("")
-      f.name.hint.should eq("")
-      f.name.warning.should eq("")
-      f.name.errors.should eq(Array(String).new)
-      f.name.group.should eq(1_u8)
-      f["name"]?.should be_true
+      f.first_name.id.should eq("FilledModel--first-name")
+      f.first_name.label.should eq("")
+      f.first_name.field_type.should eq("TextField")
+      f.first_name.input_type.should eq("text")
+      f.first_name.name.should eq("first_name")
+      f.first_name.value.should be_nil
+      f.first_name.default.should eq("Cat")
+      f.first_name.placeholder.should eq("")
+      f.first_name.is_textarea.should be_false
+      f.first_name.is_disabled.should be_false
+      f.first_name.is_readonly.should be_false
+      f.first_name.is_hide.should be_false
+      f.first_name.is_required.should be_false
+      f.first_name.is_unique.should be_false
+      f.first_name.maxlength.should eq(256)
+      f.first_name.minlength.should eq(0)
+      f.first_name.other_attrs.should eq("")
+      f.first_name.css_classes.should eq("")
+      f.first_name.hint.should eq("")
+      f.first_name.warning.should eq("")
+      f.first_name.errors.should eq(Array(String).new)
+      f.first_name.group.should eq(1_u8)
+      f["first_name"]?.should be_true
       f["no_var"]?.should be_false
       #
       # U32Field
