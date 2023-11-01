@@ -53,9 +53,13 @@ module Crymon
       fields
     end
 
+    # Add metadata to the global store.
+    def caching
+      # ...
+    end
+
     # Metadata for the Model.
     def meta : Crymon::Globals::MetaNamedTuple
-      #
       # Project name.
       app_name : String = {{ @type.annotation(Crymon::Metadata)["app_name"] }} ||
         raise Crymon::Errors::ParameterMissing.new("app_name")
