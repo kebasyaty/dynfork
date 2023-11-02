@@ -43,7 +43,9 @@ describe Crymon::Model do
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(6_i32)
-      metadata["field_name_list"].should eq(["hash", "created_at", "updated_at", "first_name", "age", "birthday"])
+      metadata["field_name_list"].should eq(
+        ["hash", "created_at", "updated_at", "first_name", "age", "birthday"]
+      )
       metadata["field_type_list"].should eq(
         ["HashField",
          "DateTimeField",
