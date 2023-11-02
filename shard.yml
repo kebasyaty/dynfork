@@ -12,3 +12,7 @@ description: |
 homepage: https://github.com/kebasyaty/crymon
 repository: https://github.com/kebasyaty/crymon
 documentation: https://kebasyaty.github.io/crymon/
+
+dependencies:
+  cryomongo:
+    github: elbywan/cryomongo
