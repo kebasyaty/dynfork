@@ -17,6 +17,9 @@ describe Crymon::Model do
       m["first_name"]?.should be_true
       m["age"]?.should be_true
       m["birthday"]?.should be_true
+      m["hash"]?.should be_true
+      m["created_at"]?.should be_true
+      m["updated_at"]?.should be_true
       m["???"]?.should be_false
       #
       m.first_name.id.should eq("FilledModel--first-name")
@@ -25,14 +28,25 @@ describe Crymon::Model do
       m.age.name.should eq("age")
       m.birthday.id.should eq("FilledModel--birthday")
       m.birthday.name.should eq("birthday")
+      m.hash.id.should eq("FilledModel--hash")
+      m.hash.name.should eq("hash")
+      m.created_at.id.should eq("FilledModel--created-at")
+      m.created_at.name.should eq("created_at")
+      m.updated_at.id.should eq("FilledModel--updated-at")
+      m.updated_at.name.should eq("updated_at")
       #
       m.first_name.value = "Gene"
       m.age.value = 32
       m.birthday.value = "1990-11-7"
+      m.hash.value = "507f191e810c19729de860ea"
+      m.created_at.value = "2023-11-02"
+      m.updated_at.value = "2023-11-02"
       #
       m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)
-      m.birthday.value.should eq("1990-11-7")
+      m.hash.value.should eq("507f191e810c19729de860ea")
+      m.created_at.value.should eq("2023-11-02")
+      m.updated_at.value.should eq("2023-11-02")
       # Testing metadata.
       metadata = Crymon::Globals.store[m.model_key]
       metadata["app_name"].should eq(Settings::APP_NAME)
