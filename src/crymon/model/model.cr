@@ -22,7 +22,7 @@ module Crymon
     def extra
       model_key : String = self.model_key
       var_name : String | Nil
-      {% unless @type.instance_vars.empty? %}
+      {% if @type.instance_vars.size > 3 %}
         {% for var in @type.instance_vars %}
           var_name = {{ var.name.stringify }}
           @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
@@ -61,7 +61,7 @@ module Crymon
 
     # Add metadata to the global store.
     def caching
-      {% if @type.instance_vars.empty? %}
+      {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
         raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
@@ -82,7 +82,7 @@ module Crymon
           raise Crymon::Errors::ParameterMissing.new("service_name")
         # List of variable (field) names.
         field_name_list : Array(String) = (
-          {% unless @type.instance_vars.empty? %}
+          {% if @type.instance_vars.size > 3 %}
           {{ @type.instance_vars.map &.name.stringify }}
         {% else %}
             Array(String).new
@@ -90,30 +90,30 @@ module Crymon
         )
         # List is a list of variable (field) types.
         field_type_list : Array(String) = (
-          {% unless @type.instance_vars.empty? %}
-          {{ @type.instance_vars.map &.type.stringify }}
-            .map { |name| name.split("::").last }
-        {% else %}
+          {% if @type.instance_vars.size > 3 %}
+            {{ @type.instance_vars.map &.type.stringify }}
+              .map { |name| name.split("::").last }
+          {% else %}
             Array(String).new
           {% end %}
         )
         # List of names and types of variables (fields).
         # NOTE: Format: <field_name, field_type>
         field_name_and_type_list : Hash(String, String) = (
-          {% unless @type.instance_vars.empty? %}
-          Hash.zip(
-            {{ @type.instance_vars.map &.name.stringify }},
-            {{ @type.instance_vars.map &.type.stringify }}
-              .map { |name| name.split("::").last }
-          )
-        {% else %}
+          {% if @type.instance_vars.size > 3 %}
+            Hash.zip(
+              {{ @type.instance_vars.map &.name.stringify }},
+              {{ @type.instance_vars.map &.type.stringify }}
+                .map { |name| name.split("::").last }
+            )
+          {% else %}
             Hash(String, String).new
           {% end %}
         )
         # Default value list.
         # NOTE: Format: <field_name, default_value>
         default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-          {% unless @type.instance_vars.empty? %}
+          {% if @type.instance_vars.size > 3 %}
             hash = Hash(String, Crymon::Globals::ValueTypes).new
             self.field_name_and_value_list.each do |key, value|
               hash[key] = value.default
@@ -134,14 +134,14 @@ module Crymon
         # Attributes value for fields of Model: id, name.
         field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
           hash = Hash(String, NamedTuple(id: String, name: String)).new
-          {% unless @type.instance_vars.empty? %}
-          {% for var in @type.instance_vars %}
-            hash[{{ var.name.stringify }}] = {
-              id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-              name: {{ var.name.stringify }}
-            }
+          {% if @type.instance_vars.size > 3 %}
+            {% for var in @type.instance_vars %}
+              hash[{{ var.name.stringify }}] = {
+                id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+                name: {{ var.name.stringify }}
+              }
+            {% end %}
           {% end %}
-        {% end %}
           hash
         )
         #

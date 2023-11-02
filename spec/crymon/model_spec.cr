@@ -42,13 +42,32 @@ describe Crymon::Model do
       metadata["database_name"].should eq("AppName_RT0839370A074kVh")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
-      metadata["field_count"].should eq(3_i32)
-      metadata["field_name_list"].should eq(["first_name", "age", "birthday"])
-      metadata["field_type_list"].should eq(["TextField", "U32Field", "DateField"])
-      metadata["field_name_and_type_list"].should eq(
-        {"first_name" => "TextField", "age" => "U32Field", "birthday" => "DateField"}
+      metadata["field_count"].should eq(6_i32)
+      metadata["field_name_list"].should eq(["hash", "created_at", "updated_at", "first_name", "age", "birthday"])
+      metadata["field_type_list"].should eq(
+        ["HashField",
+         "DateTimeField",
+         "DateTimeField",
+         "TextField",
+         "U32Field",
+         "DateField"]
       )
-      metadata["default_value_list"].should eq({"first_name" => "Cat", "age" => 0, "birthday" => "0000-00-00"})
+      metadata["field_name_and_type_list"].should eq(
+        {"hash"       => "HashField",
+         "created_at" => "DateTimeField",
+         "updated_at" => "DateTimeField",
+         "first_name" => "TextField",
+         "age"        => "U32Field",
+         "birthday"   => "DateField"}
+      )
+      metadata["default_value_list"].should eq(
+        {"hash"       => nil,
+         "created_at" => nil,
+         "updated_at" => nil,
+         "first_name" => "Cat",
+         "age"        => 0,
+         "birthday"   => "0000-00-00"}
+      )
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true
