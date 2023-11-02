@@ -22,6 +22,7 @@ module Crymon
     def extra
       model_key : String = self.model_key
       var_name : String | Nil
+      # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
         @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
