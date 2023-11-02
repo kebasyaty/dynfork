@@ -63,21 +63,21 @@ describe Crymon::Model do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
           Helper::NoParamAppNameModel.new
         end
-        ex.message.should eq(%(Missing "app_name" parameter for Metadata.))
+        ex.message.should eq(%(Missing "app_name" parameter for Meta.))
       end
 
       it "=> Model without mandatory 'unique_app_key' parameter for metadata" do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
           Helper::NoParamUniqueAppKeyModel.new
         end
-        ex.message.should eq(%(Missing "unique_app_key" parameter for Metadata.))
+        ex.message.should eq(%(Missing "unique_app_key" parameter for Meta.))
       end
 
       it "=> Model without mandatory 'service_name' parameter for metadata" do
         ex = expect_raises(Crymon::Errors::ParameterMissing) do
           Helper::NoParamServiceMameModel.new
         end
-        ex.message.should eq(%(Missing "service_name" parameter for Metadata.))
+        ex.message.should eq(%(Missing "service_name" parameter for Meta.))
       end
 
       it "=> the names in the list of ignored fields do not match" do
