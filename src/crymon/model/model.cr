@@ -22,12 +22,10 @@ module Crymon
     def extra
       model_key : String = self.model_key
       var_name : String | Nil
-      {% if @type.instance_vars.size > 3 %}
-        {% for var in @type.instance_vars %}
-          var_name = {{ var.name.stringify }}
-          @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
-          @{{ var }}.name = Crymon::Globals.store[model_key][:field_attrs][var_name][:name]
-        {% end %}
+      {% for var in @type.instance_vars %}
+        var_name = {{ var.name.stringify }}
+        @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
+        @{{ var }}.name = Crymon::Globals.store[model_key][:field_attrs][var_name][:name]
       {% end %}
     end
 
