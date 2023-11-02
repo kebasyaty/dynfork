@@ -22,6 +22,7 @@ module Crymon
     def extra
       model_key : String = self.model_key
       var_name : String | Nil
+      # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
         @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
@@ -41,10 +42,10 @@ module Crymon
     # Determine the presence of a variable (field) in the model.
     def []?(variable) : Bool
       {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
+        if {{ var.name.stringify }} == variable
+          return true
+        end
+      {% end %}
       false
     end
 
@@ -59,14 +60,14 @@ module Crymon
 
     # Add metadata to the global store.
     def caching
-      {% if @type.instance_vars.size < 4 %}
-        # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
-      {% end %}
       # Get model key.
       model_key : String = self.model_key
       # Run caching.
       if Crymon::Globals.store[model_key]?.nil?
+        {% if @type.instance_vars.size < 4 %}
+          # If there are no fields in the model, a FieldsMissing exception is raise.
+          raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+        {% end %}
         # Project name.
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
           raise Crymon::Errors::ParameterMissing.new("app_name")
@@ -81,8 +82,8 @@ module Crymon
         # List of variable (field) names.
         field_name_list : Array(String) = (
           {% if @type.instance_vars.size > 3 %}
-          {{ @type.instance_vars.map &.name.stringify }}
-        {% else %}
+            {{ @type.instance_vars.map &.name.stringify }}
+          {% else %}
             Array(String).new
           {% end %}
         )
