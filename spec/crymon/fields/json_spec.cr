@@ -78,7 +78,12 @@ describe Helper::FilledModel do
       f.first_name.errors.should eq(Array(String).new)
       f.first_name.group.should eq(1_u8)
       f["first_name"]?.should be_true
-      f["no_var"]?.should be_false
+      f["age"]?.should be_true
+      f["birthday"]?.should be_true
+      f["hash"]?.should be_true
+      f["created_at"]?.should be_true
+      f["updated_at"]?.should be_true
+      f["???"]?.should be_false
       #
       # U32Field
       f.age.id.should eq("FilledModel--age")
@@ -103,8 +108,13 @@ describe Helper::FilledModel do
       f.age.warning.should eq("")
       f.age.errors.should eq(Array(String).new)
       f.age.group.should eq(11_u8)
+      f["first_name"]?.should be_true
       f["age"]?.should be_true
-      f["no_var"]?.should be_false
+      f["birthday"]?.should be_true
+      f["hash"]?.should be_true
+      f["created_at"]?.should be_true
+      f["updated_at"]?.should be_true
+      f["???"]?.should be_false
       #
       # DateField
       f.birthday.id.should eq("FilledModel--birthday")
@@ -128,8 +138,13 @@ describe Helper::FilledModel do
       f.birthday.warning.should eq("")
       f.birthday.errors.should eq(Array(String).new)
       f.birthday.group.should eq(3_u8)
+      f["first_name"]?.should be_true
+      f["age"]?.should be_true
       f["birthday"]?.should be_true
-      f["no_var"]?.should be_false
+      f["hash"]?.should be_true
+      f["created_at"]?.should be_true
+      f["updated_at"]?.should be_true
+      f["???"]?.should be_false
     end
   end
 end
