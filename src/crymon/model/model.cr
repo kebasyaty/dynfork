@@ -9,6 +9,10 @@ module Crymon
     include JSON::Serializable
     include JSON::Serializable::Strict
 
+    getter hash = Crymon::Fields::HashField.new
+    getter created_at = Crymon::Fields::DateTimeField.new("label": "Created at", "is_hide": true)
+    getter updated_at = Crymon::Fields::DateTimeField.new("label": "Updated at", "is_hide": true)
+
     def initialize
       self.caching
       self.extra

@@ -27,18 +27,18 @@ module Crymon
       getter group : UInt8 = 1
 
       def initialize(
-        @label : String = "",
-        @placeholder : String = "",
+        @label : String = "Hash ID",
+        @placeholder : String = "Enter the Document ID for MongoDB",
         @maxlength : UInt32 = 12,
         @minlength : UInt32 = 12,
         @is_hide : Bool = true,
-        @is_unique : Bool = false,
+        @is_unique : Bool = true,
         @is_required : Bool = false,
         @is_disabled : Bool = false,
         @is_readonly : Bool = false,
         @other_attrs : String = "",
         @css_classes : String = "",
-        @hint : String = ""
+        @hint : String = "For enter a document ID"
       ); end
     end
   end
