@@ -7,11 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-20.04]
-        mongodb-version: ["7.0", "6.0", "5.0", "4.4", "4.2"]
+    runs-on: ubuntu-latest
     container:
       image: crystallang/crystal:latest
       options: --user root
@@ -23,9 +19,20 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.10.0
+        uses: DigiPie/mongo-action@v2.0.1
         with:
-          mongodb-version: ${{ matrix.mongodb-version }}
+          image_version: latest
           port: 27017
+      - name: Install mongosh command
+        run: |
+          apt install sudo
+          sudo apt update
+          sudo apt install -y wget gnupg
+          wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+          sudo apt update
+          sudo apt install -y mongodb-mongosh
+      - name: Test mongo connection
+        run: "sudo mongosh localhost:27017"
       - name: Run tests
         run: crystal spec
