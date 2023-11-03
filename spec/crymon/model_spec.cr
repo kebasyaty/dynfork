@@ -3,7 +3,7 @@ require "../spec_helper"
 describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model" do
-      ex = expect_raises(Crymon::Errors::FieldsMissing) do
+      ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
       ex.message.should eq(%(Model "EmptyModel" has no fields.))
@@ -95,28 +95,28 @@ describe Crymon::Model do
 
     describe "#meta" do
       it "=> Model without mandatory 'app_name' parameter for metadata" do
-        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamAppNameModel.new
         end
         ex.message.should eq(%(Missing "app_name" parameter for Meta.))
       end
 
       it "=> Model without mandatory 'unique_app_key' parameter for metadata" do
-        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamUniqueAppKeyModel.new
         end
         ex.message.should eq(%(Missing "unique_app_key" parameter for Meta.))
       end
 
       it "=> Model without mandatory 'service_name' parameter for metadata" do
-        ex = expect_raises(Crymon::Errors::ParameterMissing) do
+        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamServiceMameModel.new
         end
         ex.message.should eq(%(Missing "service_name" parameter for Meta.))
       end
 
       it "=> the names in the list of ignored fields do not match" do
-        ex = expect_raises(Crymon::Errors::IgnoredFieldMissing) do
+        ex = expect_raises(Crymon::Errors::MetaIgnoredFieldMissing) do
           Helper::IncorrectIgnoredListModel.new
         end
         ex.message.should eq(%(The "birthday" field is missing from the list of ignored fields.))
