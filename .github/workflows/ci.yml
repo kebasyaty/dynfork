@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  wget:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,15 +18,12 @@ jobs:
     steps:
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install wget
-        run: |
-          sudo apt install wget
       - name: Install dependencies
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: ankane/setup-mongodb@v1
+        uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
