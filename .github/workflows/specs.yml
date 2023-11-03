@@ -26,5 +26,6 @@ jobs:
         uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+          port: 27017
       - name: Run tests
         run: crystal spec
