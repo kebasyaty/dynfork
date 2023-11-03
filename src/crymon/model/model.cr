@@ -35,7 +35,7 @@ module Crymon
     def model_key : String
       model_name : String = {{ @type.name.stringify }}.split("::").last
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-        raise Crymon::Errors::ParameterMissing.new("service_name")
+        raise Crymon::Errors::MetaParameterMissing.new("service_name")
       "#{service_name}_#{model_name}"
     end
 
@@ -66,19 +66,19 @@ module Crymon
       if Crymon::Globals.store[model_key]?.nil?
         {% if @type.instance_vars.size < 4 %}
           # If there are no fields in the model, a FieldsMissing exception is raise.
-          raise Crymon::Errors::FieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+          raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
         {% end %}
         # Project name.
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
-          raise Crymon::Errors::ParameterMissing.new("app_name")
+          raise Crymon::Errors::MetaParameterMissing.new("app_name")
         # Model name = Structure name.
         model_name : String = {{ @type.name.stringify }}.split("::").last
         # Unique project key.
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
-          raise Crymon::Errors::ParameterMissing.new("unique_app_key")
+          raise Crymon::Errors::MetaParameterMissing.new("unique_app_key")
         # Service Name - Application subsection.
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-          raise Crymon::Errors::ParameterMissing.new("service_name")
+          raise Crymon::Errors::MetaParameterMissing.new("service_name")
         # List of variable (field) names.
         field_name_list : Array(String) = (
           {% if @type.instance_vars.size > 3 %}
@@ -127,7 +127,7 @@ module Crymon
           Array(String).new
         ignore_fields.each do |field_name|
           unless field_name_list.includes?(field_name)
-            raise Crymon::Errors::IgnoredFieldMissing.new(field_name)
+            raise Crymon::Errors::MetaIgnoredFieldMissing.new(field_name)
           end
         end
         # Attributes value for fields of Model: id, name.
