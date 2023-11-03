@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mongodb-version: ["4.2", "4.4", "5.0", "6.0"]
     container:
       image: crystallang/crystal:latest
       options: --user root
@@ -18,5 +21,9 @@ jobs:
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.9.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
         run: crystal spec
