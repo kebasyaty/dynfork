@@ -18,6 +18,8 @@ jobs:
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
+      - name: Install sudo
+        run: apt install sudo
       - name: Start MongoDB
         uses: DigiPie/mongo-action@v2.0.1
         with:
@@ -25,7 +27,6 @@ jobs:
           port: 27017
       - name: Install mongosh command
         run: |
-          apt install sudo
           sudo apt update
           sudo apt install -y wget gnupg
           wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
