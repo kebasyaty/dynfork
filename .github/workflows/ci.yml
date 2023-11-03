@@ -18,14 +18,13 @@ jobs:
     steps:
       - name: Download source
         uses: actions/checkout@v4
+      - name: Install wget
+        run: |
+          sudo apt install wget
       - name: Install dependencies
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
-      - name: wget
-        uses: wei/wget@v1
-        with:
-          args: -qO- https://httpbin.org/get
       - name: Start MongoDB
         uses: ankane/setup-mongodb@v1
         with:
