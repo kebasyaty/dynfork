@@ -16,7 +16,7 @@ jobs:
       options: --user root
     steps:
       - name: Download source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Check formatting
