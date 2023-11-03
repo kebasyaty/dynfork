@@ -16,20 +16,18 @@ jobs:
       image: crystallang/crystal:latest
       options: --user root
     steps:
-      - name: Install wget
+      - name: Install MongoDB
         run: |
           apt update
           apt install sudo
           sudo apt install -y wget gnupg2
+          sudo apt install -y mongodb-org
+          sudo systemctl enable --now mongod
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
-      - name: Start MongoDB
-        uses: ankane/setup-mongodb@v1
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
         run: crystal spec
