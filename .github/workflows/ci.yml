@@ -11,15 +11,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-20.04]
-        mongodb-version: [6.0]
+        mongodb-version: ["6.0"]
     container:
       image: crystallang/crystal:latest
       options: --user root
     steps:
-      - name: Ubuntu install curl
-        run: |
-          apt update
-          apt install -y curl
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
@@ -30,7 +26,5 @@ jobs:
         uses: MongoCamp/mongodb-github-action@1.2.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
-      - name: XXX
-        run: curl http://localhost:27017
       - name: Run tests
         run: crystal spec
