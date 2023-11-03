@@ -19,7 +19,8 @@ jobs:
       - name: Install wget
         run: |
           apt update
-          apt install -y wget
+          apt install sudo
+          sudo apt install -y wget
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
