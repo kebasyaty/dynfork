@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  wget:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -22,9 +22,12 @@ jobs:
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
+      - name: wget
+        uses: wei/wget@v1
+        with:
+          args: -qO- https://httpbin.org/get
       - name: Start MongoDB
         uses: ankane/setup-mongodb@v1
-        uses: ./.
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
