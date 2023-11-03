@@ -11,7 +11,7 @@ The project is focused on web development.
     alt="Status Project">
 </p>
 
-[![Specs](https://github.com/kebasyaty/crymon/workflows/CI/badge.svg)](https://github.com/kebasyaty/crymon/actions)
+[![Specs](https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg)](https://github.com/kebasyaty/crymon/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
