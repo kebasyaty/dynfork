@@ -29,8 +29,8 @@ module Crymon
       def initialize(
         @label : String = "Hash ID",
         @placeholder : String = "Enter the Document ID for MongoDB",
-        @maxlength : UInt32 = 12,
-        @minlength : UInt32 = 12,
+        @maxlength : UInt32 = 24,
+        @minlength : UInt32 = 24,
         @is_hide : Bool = true,
         @is_unique : Bool = true,
         @is_required : Bool = false,
