@@ -16,16 +16,16 @@ jobs:
       image: crystallang/crystal:latest
       options: --user root
     steps:
+      - name: Add wget
+        uses: wei/wget@v1
+        with:
+          args: -qO- https://httpbin.org/get
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
-      - name: wget
-        uses: wei/wget@v1
-        with:
-          args: -qO- https://httpbin.org/get
       - name: Start MongoDB
         uses: ankane/setup-mongodb@v1
         with:
