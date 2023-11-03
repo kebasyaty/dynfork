@@ -26,5 +26,11 @@ jobs:
         uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+      - if: ${{ matrix.mongodb-version >= 6 }}
+        run: |
+          mongosh --eval "db.version()"
+      - if: ${{ matrix.mongodb-version < 6 }}
+        run: |
+          mongo --eval "db.version()"
       - name: Run tests
         run: crystal spec
