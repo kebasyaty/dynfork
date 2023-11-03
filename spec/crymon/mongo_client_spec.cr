@@ -17,6 +17,7 @@ describe "Cryomongo" do
     collection.delete_one({two: 2})
     collection.count_documents.should eq(0)
 
+    #
     # The overwhelming majority of programs should use a single client and should not bother with closing clients.
     # Otherwise, to free the underlying resources a client must be manually closed.
     client.close
