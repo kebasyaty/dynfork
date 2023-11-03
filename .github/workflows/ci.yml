@@ -16,6 +16,10 @@ jobs:
       image: crystallang/crystal:latest
       options: --user root
     steps:
+      - name: Ubuntu install curl
+        run: |
+          apt update
+          apt install -y curl
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
@@ -26,5 +30,6 @@ jobs:
         uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+        run: curl http://localhost:27017
       - name: Run tests
         run: crystal spec
