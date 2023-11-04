@@ -20,7 +20,10 @@ jobs:
 
     steps:
       - name: Install sudo
-        run: apt update && apt install -y sudo
+        run: |
+          apt update
+          apt install -y sudo
+          sudo apt install -y wget gnupg2
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
