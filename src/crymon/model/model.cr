@@ -73,14 +73,14 @@ module Crymon
         raise Crymon::Errors::MetaSizeExceeded.new(model_name, "model_name", 25) if model_name.size > 25
         # Project name.
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
-          raise Crymon::Errors::MetaParameterMissing.new("app_name")
+          raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
         raise Crymon::Errors::MetaSizeExceeded.new(model_name, "app_name", 44) if app_name.size > 44
         # Unique project key.
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
-          raise Crymon::Errors::MetaParameterMissing.new("unique_app_key")
+          raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
         # Service Name - Application subsection.
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-          raise Crymon::Errors::MetaParameterMissing.new("service_name")
+          raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
         raise Crymon::Errors::MetaSizeExceeded.new(model_name, "service_name", 25) if service_name.size > 25
         # Database name.
         database_name : String = "#{app_name}_#{unique_app_key}"
@@ -136,7 +136,7 @@ module Crymon
           Array(String).new
         ignore_fields.each do |field_name|
           unless field_name_list.includes?(field_name)
-            raise Crymon::Errors::MetaIgnoredFieldMissing.new(field_name)
+            raise Crymon::Errors::MetaIgnoredFieldMissing.new(model_name, "ignore_fields", field_name)
           end
         end
         # Attributes value for fields of Model: id, name.

@@ -6,15 +6,15 @@ module Crymon
 
     # Error: Missing parameter for Metadata.
     class MetaParameterMissing < CrymonException
-      def initialize(parameter_name : String)
-        super(%(Missing "#{parameter_name}" parameter for Meta.))
+      def initialize(model_name : String, parameter_name : String)
+        super(%(Model: #{model_name} => Missing "#{parameter_name}" parameter for Meta.))
       end
     end
 
     # Error: The names in the list of ignored fields do not match.
     class MetaIgnoredFieldMissing < CrymonException
-      def initialize(field_name : String)
-        super(%(The "#{field_name}" field is missing from the list of ignored fields.))
+      def initialize(model_name : String, parameter_name : String, field_name : String)
+        super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => The "#{field_name}" field is missing from the list of ignored fields.))
       end
     end
 
