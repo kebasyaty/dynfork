@@ -35,7 +35,7 @@ module Crymon
     def model_key : String
       model_name : String = {{ @type.name.stringify }}.split("::").last
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new("service_name")
+        raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       "#{service_name}_#{model_name}"
     end
 
