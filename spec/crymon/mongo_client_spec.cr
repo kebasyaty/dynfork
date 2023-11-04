@@ -6,7 +6,7 @@ describe "Cryomongo" do
     client : Mongo::Client = Mongo::Client.new # defaults to: "mongodb://localhost:27017"
 
     # Get database and collection.
-    database = client["database_name"]
+    database = client["test"]
     collection = database["collection_name"]
 
     # Perform crud operations.
