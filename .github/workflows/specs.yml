@@ -8,9 +8,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     container:
       image: crystallang/crystal:latest
       options: --user root
+
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          # will assign a random free host port
+          - 27017/tcp
+
     steps:
       - name: Download source
         uses: actions/checkout@v4
@@ -20,20 +29,5 @@ jobs:
         run: crystal tool format --check
       - name: Install sudo
         run: apt install sudo
-      - name: Start MongoDB
-        uses: DigiPie/mongo-action@v2.0.1
-        with:
-          image_version: latest
-          port: 27017
-      - name: Install mongosh command
-        run: |
-          sudo apt update
-          sudo apt install -y wget gnupg
-          wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
-          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-          sudo apt update
-          sudo apt install -y mongodb-mongosh
-      - name: Test mongo connection
-        run: "sudo mongosh localhost:27017"
       - name: Run tests
         run: crystal spec
