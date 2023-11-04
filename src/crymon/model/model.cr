@@ -68,17 +68,26 @@ module Crymon
           # If there are no fields in the model, a FieldsMissing exception is raise.
           raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
         {% end %}
+        # Model name = Structure name.
+        model_name : String = {{ @type.name.stringify }}.split("::").last
+        raise Crymon::Errors::MetaSizeExceeded.new(model_name, "model_name", 25) if model_name.size > 25
         # Project name.
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new("app_name")
-        # Model name = Structure name.
-        model_name : String = {{ @type.name.stringify }}.split("::").last
+        raise Crymon::Errors::MetaSizeExceeded.new(model_name, "app_name", 44) if app_name.size > 44
         # Unique project key.
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
           raise Crymon::Errors::MetaParameterMissing.new("unique_app_key")
         # Service Name - Application subsection.
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new("service_name")
+        raise Crymon::Errors::MetaSizeExceeded.new(model_name, "service_name", 25) if service_name.size > 25
+        # Database name.
+        database_name : String = "#{app_name}_#{unique_app_key}"
+        raise Crymon::Errors::MetaSizeExceeded.new(model_name, "database_name", 60) if database_name.size > 60
+        # Collection name.
+        collection_name : String = "#{service_name}_#{model_name}"
+        raise Crymon::Errors::MetaSizeExceeded.new(model_name, "collection_name", 50) if collection_name.size > 50
         # List of variable (field) names.
         field_name_list : Array(String) = (
           {% if @type.instance_vars.size > 3 %}
@@ -155,9 +164,9 @@ module Crymon
           # Service Name - Application subsection.
           service_name: service_name,
           # Database name.
-          database_name: "#{app_name}_#{unique_app_key}",
+          database_name: database_name,
           # Collection name.
-          collection_name: "#{service_name}_#{model_name}",
+          collection_name: collection_name,
           # limiting query results.
           db_query_docs_limit: {{ @type.annotation(Crymon::Meta)[:db_query_docs_limit] }} || 1000_u32,
           # Number of variables (fields).
