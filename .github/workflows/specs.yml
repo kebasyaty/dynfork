@@ -21,8 +21,8 @@ jobs:
           - 27017/tcp
 
     steps:
-      - name: Install sudo
-        run: apt install sudo
+      - name: Install sudo package
+        run: apt update && apt install sudo
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
