@@ -11,8 +11,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        mongodb-version: ["7.0", "6.0", "5.0", "4.4", "4.2"]
+        os: [macos-13]
+        mongodb-version: [7.0, 6.0, 5.0, 4.4]
 
     container:
       image: crystallang/crystal:latest
@@ -26,7 +26,7 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.10.0
+        uses: ankane/setup-mongodb@v1
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
