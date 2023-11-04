@@ -19,7 +19,7 @@ module Crymon
     end
 
     # Error: The allowed number of characters has been exceeded.
-    class MetaSizeExceeded < CrymonException
+    class MetaExcessCharacters < CrymonException
       def initialize(model_name : String, parameter_name : String, limit_size : UInt32)
         super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => The line size of #{limit_size} characters has been exceeded.))
       end
