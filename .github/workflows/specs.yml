@@ -8,14 +8,23 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
-        os: [ubuntu-20.04]
-        mongodb-version: ["7.0", "6.0", "5.0", "4.4", "4.2"]
+        os: [ubuntu-22.04]
+        mongodb-version: [7.0, 6.0]
+
     container:
       image: crystallang/crystal:latest
       options: --user root
+
     steps:
+      - name: Install sudo
+        run: |
+          apt update
+          apt install -y sudo
+          sudo apt install -y wget gnupg2
+          sudo apt -y install systemctl
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
@@ -23,7 +32,7 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.10.0
+        uses: kebasyaty/setup-mongodb@v1
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
