@@ -7,11 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        mongodb-version: ["4.4.14", "5.0.9"]
+        os: [ubuntu-20.04]
+        mongodb-version: ["7.0", "6.0", "5.0", "4.4", "4.2"]
 
     container:
       image: crystallang/crystal:latest
@@ -25,9 +26,8 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: MongoCamp/mongodb-github-action@1.2.0
+        uses: supercharge/mongodb-github-action@1.10.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
-      - run: curl http://localhost:27017
       - name: Run tests
         run: crystal spec
