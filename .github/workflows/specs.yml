@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Install sudo package
-        run: apt update && apt install sudo && sudo apt install curl
+        run: apt update && apt install curl
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
