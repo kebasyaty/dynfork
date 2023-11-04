@@ -29,7 +29,8 @@ jobs:
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
-      - name: Install sudo
-        run: apt install sudo
+        env:
+          MONGODB_HOST: localhost
+          MONGODB_PORT: ${{ job.services.mongodb.ports[27017] }}
       - name: Run tests
         run: crystal spec
