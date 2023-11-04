@@ -9,16 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    container:
-      image: crystallang/crystal:latest
-      options: --user root
-
     services:
       mongodb:
         image: mongo
         ports:
           # will assign a random free host port
           - 27017/tcp
+
+    container:
+      image: crystallang/crystal:latest
+      options: --user root
 
     steps:
       - name: Install sudo package
@@ -27,10 +27,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
-      - name: Check formatting
-        run: crystal tool format --check
         env:
           MONGODB_HOST: localhost
           MONGODB_PORT: ${{ job.services.mongodb.ports[27017] }}
+      - name: Check formatting
+        run: crystal tool format --check
       - name: Run tests
         run: crystal spec
