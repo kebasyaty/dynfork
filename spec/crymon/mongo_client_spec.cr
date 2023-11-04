@@ -1,9 +1,10 @@
 require "../spec_helper"
 
 describe "Cryomongo" do
-  it "=> initialize mongodb client" do
-    # Create a Mongo client, using a standard mongodb connection string.
-    client : Mongo::Client = Mongo::Client.new # defaults to: "mongodb://localhost:27017"
+  it "=> initialize mongo client" do
+    # Create a Mongo client.
+    uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
+    client : Mongo::Client = Mongo::Client.new
 
     # Get database and collection.
     database = client["database_name"]
