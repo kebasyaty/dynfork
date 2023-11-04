@@ -69,9 +69,11 @@ module Crymon
           raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
         {% end %}
         # Model name = Structure name.
+        # WARNING: Maximum 25 characters.
         model_name : String = {{ @type.name.stringify }}.split("::").last
         raise Crymon::Errors::ModelNameExcessCharacters.new(model_name) if model_name.size > 25
         # Project name.
+        # WARNING: Maximum 44 characters.
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "app_name", 44) if app_name.size > 44
@@ -79,15 +81,16 @@ module Crymon
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
         # Service Name - Application subsection.
+        # WARNING: Maximum 25 characters.
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "service_name", 25) if service_name.size > 25
         # Database name.
+        # WARNING: Maximum 60 characters.
         database_name : String = "#{app_name}_#{unique_app_key}"
-        raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "database_name", 60) if database_name.size > 60
         # Collection name.
+        # WARNING: Maximum 50 characters.
         collection_name : String = "#{service_name}_#{model_name}"
-        raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "collection_name", 50) if collection_name.size > 50
         # List of variable (field) names.
         field_name_list : Array(String) = (
           {% if @type.instance_vars.size > 3 %}
