@@ -25,6 +25,13 @@ module Crymon
       end
     end
 
+    # The metadata parameter fails regular expression validation.
+    class MetaParamRegexFails < CrymonException
+      def initialize(model_name : String, parameter_name : String, regex_str : String)
+        super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => Regular expression check fails: "#{regex_str}".))
+      end
+    end
+
     # The Model has no fields.
     class ModelFieldsMissing < CrymonException
       def initialize(model_name : String)

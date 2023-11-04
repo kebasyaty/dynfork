@@ -77,14 +77,23 @@ module Crymon
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "app_name", 44) if app_name.size > 44
+        if /^[a-z][_a-z\d]{0,43}$/i.matches?(app_name)
+          raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][_a-zA-Z0-9]{0,43}$/")
+        end
         # Unique project key.
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
+        if /^[_a-z\d]{16}$/i.matches?(unique_app_key)
+          raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z][_a-zA-Z0-9]{16}$/")
+        end
         # Service Name - Application subsection.
         # WARNING: Maximum 25 characters.
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "service_name", 25) if service_name.size > 25
+        if /^[a-z][_a-z\d]{0,24}$/i.matches?(service_name)
+          raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[a-zA-Z][_a-zA-Z0-9]{0,24}$/")
+        end
         # Database name.
         # WARNING: Maximum 60 characters.
         database_name : String = "#{app_name}_#{unique_app_key}"
