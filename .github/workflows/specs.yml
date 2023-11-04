@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-11]
+        os: [windows-2022]
         mongodb-version: [7.0, 6.0, 5.0, 4.4]
 
     container:
