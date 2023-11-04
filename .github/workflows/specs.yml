@@ -31,7 +31,7 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
       - name: Start MongoDB
-        uses: ankane/setup-mongodb@v1
+        uses: kebasyaty/setup-mongodb@v1
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
