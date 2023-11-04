@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-20.04]
+        os: [ubuntu-22.04]
         mongodb-version: [7.0, 6.0]
 
     container:
@@ -24,6 +24,7 @@ jobs:
           apt update
           apt install -y sudo
           sudo apt install -y wget gnupg2
+          sudo apt -y install systemctl
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
