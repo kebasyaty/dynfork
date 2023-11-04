@@ -19,7 +19,7 @@ jobs:
       options: --user root
 
     steps:
-      - name: Install sudo
+      - name: Install sudo, wget, gnupg2 and systemctl
         run: |
           apt update
           apt install -y sudo
