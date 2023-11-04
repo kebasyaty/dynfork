@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mongodb:
+      mongo:
         image: mongo
         env:
-          MONGO_INITDB_ROOT_USERNAME: test
+          MONGO_INITDB_ROOT_USERNAME: username
           MONGO_INITDB_ROOT_PASSWORD: password
-          MONGO_INITDB_DATABASE: test
         options: >-
-          --health-cmd mongo
+          --health-cmd "echo 'db.runCommand("ping").ok' | mongosh --quiet"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+          --name mongo_container
         ports:
           - 27017:27017
 
