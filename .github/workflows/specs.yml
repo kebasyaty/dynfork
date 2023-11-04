@@ -19,6 +19,8 @@ jobs:
       options: --user root
 
     steps:
+      - name: Install sudo
+        run: apt update && apt install -y sudo
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
