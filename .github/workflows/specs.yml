@@ -7,22 +7,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
-    services:
-      mongo:
-        image: mongo
-        env:
-          MONGO_INITDB_ROOT_USERNAME: None
-          MONGO_INITDB_ROOT_PASSWORD: None
-        options: >-
-          --health-cmd "echo 'db.runCommand("ping").ok' | mongosh --quiet"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-          --name mongo_container
-        ports:
-          - 27017:27017
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        mongodb-version: ["7.0", "6.0", "5.0", "4.4", "4.2"]
 
     container:
       image: crystallang/crystal:latest
@@ -35,5 +25,9 @@ jobs:
         run: shards install
       - name: Check formatting
         run: crystal tool format --check
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.10.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
         run: crystal spec
