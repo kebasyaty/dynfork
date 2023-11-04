@@ -13,8 +13,8 @@ jobs:
       mongo:
         image: mongo
         env:
-          MONGO_INITDB_ROOT_USERNAME: username
-          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_ROOT_USERNAME: None
+          MONGO_INITDB_ROOT_PASSWORD: None
         options: >-
           --health-cmd "echo 'db.runCommand("ping").ok' | mongosh --quiet"
           --health-interval 10s
