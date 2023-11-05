@@ -80,8 +80,8 @@ module Crymon
         app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "app_name", 44) if app_name.size > 44
-        unless /^[a-zA-Z][_a-zA-Z0-9]{0,43}$/.matches?(app_name)
-          raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][_a-zA-Z0-9]{0,43}$/")
+        unless /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?(app_name)
+          raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
         end
         # Unique project key.
         unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||

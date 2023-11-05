@@ -16,6 +16,8 @@ module Helper
   )]
   struct EmptyModel < Crymon::Model; end
 
+  struct EMPTYMODEL < Crymon::Model; end
+
   # Model with variables and methods.
   @[Crymon::Meta(
     app_name: Settings::APP_NAME, unique_app_key: Settings::UNIQUE_APP_KEY,
