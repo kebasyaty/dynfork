@@ -1,8 +1,9 @@
 module Crymon
   module Globals
-    # Global storage:
-    # For metadata caching.
+    # Global storage for metadata caching.
     class_property store_metadata : Hash(String, Crymon::Globals::MetaDataType) = Hash(String, Crymon::Globals::MetaDataType).new
+    # Global storage for Mongo client.
+    class_property store_mongo_client : Mongo::Client?
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
