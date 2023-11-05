@@ -4,6 +4,8 @@ module Crymon
     class_property store_metadata : Hash(String, Crymon::Globals::StoreMetaDataType) = Hash(String, Crymon::Globals::StoreMetaDataType).new
     # Global storage for Mongodb client caching.
     class_property store_mongo_client : Mongo::Client?
+    # Global storage for super collection name caching.
+    class_property store_super_collection_name : String = "super_collection"
     # Global storage for regex caching.
     class_property store_regex : StoreRegexType = NamedTuple.new(
       model_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
