@@ -36,7 +36,7 @@ module Crymon
                        Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
                        Array(Float64) | Bool | Nil
 
-    # Metadata type for Model.
+    # A type for caching Metadata of Model.
     alias StoreMetaDataType = NamedTuple(
       app_name: String,
       model_name: String,
@@ -60,7 +60,7 @@ module Crymon
       field_attrs: Hash(String, NamedTuple(id: String, name: String)),
     )
 
-    # ???
+    # A type for caching regular expressions.
     alias StoreRegexType = NamedTuple(
       model_name: Regex,
       app_name: Regex,
