@@ -93,6 +93,12 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end
 
+    it "=> create instance of Model with a predefined database name", tags: "model" do
+      m = Helper::ParamDBNameModel.new
+      metadata = Crymon::Globals.store[m.model_key]
+      metadata["database_name"].should eq("DatabaseName360")
+    end
+
     describe "#caching" do
       it "=> Model without mandatory 'app_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do

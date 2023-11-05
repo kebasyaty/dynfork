@@ -28,6 +28,15 @@ module Helper
     getter birthday = Crymon::Fields::DateField.new("default": "0000-00-00")
   end
 
+  # Model with a predefined database name.
+  @[Crymon::Meta(
+    app_name: Settings::APP_NAME, unique_app_key: Settings::UNIQUE_APP_KEY,
+    service_name: Settings::SERVICE_NAME, database_name: "DatabaseName360"
+  )]
+  struct ParamDBNameModel < Crymon::Model
+    getter name = Crymon::Fields::TextField.new
+  end
+
   # Model without the required 'app_name' parameter for metadata.
   @[Crymon::Meta(
     unique_app_key: Settings::UNIQUE_APP_KEY,
