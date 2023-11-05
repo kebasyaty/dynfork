@@ -32,4 +32,19 @@ describe "Regular Expression" do
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("Electric-Car_Store").should be_true
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("ElectricCarStore").should be_true
   end
+
+  it "=> for unique_app_key" do
+    # To generate a key (This is not an advertisement): https://randompasswordgen.com/
+    # Negative:
+    /^[a-zA-Z0-9]{16}$/.matches?("").should be_false
+    # < 16 characters
+    /^[a-zA-Z0-9]{16}$/.matches?("Ia2g8163MI59Zs8").should be_false
+    # > 16 characters
+    /^[a-zA-Z0-9]{16}$/.matches?("K73H5f1z812j61728").should be_false
+    /^[a-zA-Z0-9]{16}$/.matches?("/A[gX5)^?7o[1R~y").should be_false
+    # Positive:
+    /^[a-zA-Z0-9]{16}$/.matches?("7721W783kPX7EFOu").should be_true
+    /^[a-zA-Z0-9]{16}$/.matches?("E5lo5Z8i5m2K6W75").should be_true
+    /^[a-zA-Z0-9]{16}$/.matches?("x4N83BGV26b3Npg2").should be_true
+  end
 end
