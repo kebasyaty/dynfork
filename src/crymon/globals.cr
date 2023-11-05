@@ -1,7 +1,8 @@
 module Crymon
   module Globals
-    # Global storage for metadata caching.
-    class_property store : Hash(String, Crymon::Globals::MetaDataType) = Hash(String, Crymon::Globals::MetaDataType).new
+    # Global storage:
+    # For metadata caching.
+    class_property store_metadata : Hash(String, Crymon::Globals::MetaDataType) = Hash(String, Crymon::Globals::MetaDataType).new
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |

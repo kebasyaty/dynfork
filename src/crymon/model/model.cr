@@ -25,8 +25,8 @@ module Crymon
       # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
-        @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
-        @{{ var }}.name = Crymon::Globals.store[model_key][:field_attrs][var_name][:name]
+        @{{ var }}.id = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:id]
+        @{{ var }}.name = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:name]
       {% end %}
     end
 
@@ -63,7 +63,7 @@ module Crymon
       # Get model key.
       model_key : String = self.model_key
       # Stop caching if metadata is in storage.
-      return unless Crymon::Globals.store[model_key]?.nil?
+      return unless Crymon::Globals.store_metadata[model_key]?.nil?
       # Check the model for the presence of variables (fields).
       {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
@@ -172,7 +172,7 @@ module Crymon
       )
       #
       # Add metadata to the global store.
-      Crymon::Globals.store[model_key] = {
+      Crymon::Globals.store_metadata[model_key] = {
         # Project name.
         app_name: app_name,
         # Model name = Structure name.

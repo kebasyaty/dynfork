@@ -48,7 +48,7 @@ describe Crymon::Model do
       m.created_at.value.should eq("2023-11-02")
       m.updated_at.value.should eq("2023-11-02")
       # Testing metadata.
-      metadata = Crymon::Globals.store[m.model_key]
+      metadata = Crymon::Globals.store_metadata[m.model_key]
       metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["model_name"].should eq("FilledModel")
       metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
@@ -95,7 +95,7 @@ describe Crymon::Model do
 
     it "=> create instance of Model with a predefined database name", tags: "model" do
       m = Helper::ParamDBNameModel.new
-      metadata = Crymon::Globals.store[m.model_key]
+      metadata = Crymon::Globals.store_metadata[m.model_key]
       metadata["database_name"].should eq("DatabaseName360")
     end
 
