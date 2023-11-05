@@ -20,6 +20,10 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
 
+## Requirements
+
+[View the list of requirements.](https://github.com/kebasyaty/crymon/blob/v0/REQUIREMENTS.md "View the list of requirements.")
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
