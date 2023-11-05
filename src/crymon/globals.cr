@@ -1,9 +1,16 @@
 module Crymon
   module Globals
     # Global storage for metadata caching.
-    class_property store_metadata : Hash(String, Crymon::Globals::MetaDataType) = Hash(String, Crymon::Globals::MetaDataType).new
-    # Global storage for Mongo client.
+    class_property store_metadata : Hash(String, Crymon::Globals::StoreMetaDataType) = Hash(String, Crymon::Globals::StoreMetaDataType).new
+    # Global storage for Mongodb client caching.
     class_property store_mongo_client : Mongo::Client?
+    # Global storage for regex caching.
+    class_property store_regex : StoreRegexType = NamedTuple.new(
+      model_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
+      app_name: Regex.new("^[a-zA-Z][-_a-zA-Z0-9]{0,43}$"),
+      unique_app_key: Regex.new("^[a-zA-Z0-9]{16}$"),
+      service_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
+    )
 
     # All field types.
     alias FieldTypes = Crymon::Fields::URLField | Crymon::Fields::TextField |
@@ -30,7 +37,7 @@ module Crymon
                        Array(Float64) | Bool | Nil
 
     # Metadata type for Model.
-    alias MetaDataType = NamedTuple(
+    alias StoreMetaDataType = NamedTuple(
       app_name: String,
       model_name: String,
       unique_app_key: String,
@@ -51,6 +58,14 @@ module Crymon
       is_use_hash_slug: Bool,
       ignore_fields: Array(String),
       field_attrs: Hash(String, NamedTuple(id: String, name: String)),
+    )
+
+    # ???
+    alias StoreRegexType = NamedTuple(
+      model_name: Regex,
+      app_name: Regex,
+      unique_app_key: Regex,
+      service_name: Regex,
     )
   end
 end
