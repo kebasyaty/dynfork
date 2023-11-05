@@ -2,14 +2,14 @@ require "../spec_helper"
 
 describe Crymon::Model do
   describe ".new" do
-    it "=> create instance of empty Model" do
+    it "=> create instance of empty Model", tags: "model" do
       ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
       ex.message.should eq(%(Model "EmptyModel" has no fields.))
     end
 
-    it "=> create instance of filled Model" do
+    it "=> create instance of filled Model", tags: "model" do
       m = Helper::FilledModel.new
       #
       m.model_key.should eq("ServiceName_FilledModel")
@@ -94,28 +94,28 @@ describe Crymon::Model do
     end
 
     describe "#caching" do
-      it "=> Model without mandatory 'app_name' parameter for metadata" do
+      it "=> Model without mandatory 'app_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamAppNameModel.new
         end
         ex.message.should eq(%(Model: NoParamAppNameModel => Missing "app_name" parameter for Meta.))
       end
 
-      it "=> Model without mandatory 'unique_app_key' parameter for metadata" do
+      it "=> Model without mandatory 'unique_app_key' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamUniqueAppKeyModel.new
         end
         ex.message.should eq(%(Model: NoParamUniqueAppKeyModel => Missing "unique_app_key" parameter for Meta.))
       end
 
-      it "=> Model without mandatory 'service_name' parameter for metadata" do
+      it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamServiceMameModel.new
         end
         ex.message.should eq(%(Model: NoParamServiceMameModel => Missing "service_name" parameter for Meta.))
       end
 
-      it "=> the names in the list of ignored fields do not match" do
+      it "=> the names in the list of ignored fields do not match", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaIgnoredFieldMissing) do
           Helper::IncorrectIgnoredListModel.new
         end

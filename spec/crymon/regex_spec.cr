@@ -1,7 +1,7 @@
 require "../spec_helper"
 
 describe "Regular Expression" do
-  it "=> for model_name" do
+  it "=> for model_name", tags: "regex" do
     # Negative:
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("").should be_false
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("360").should be_false
@@ -17,7 +17,7 @@ describe "Regular Expression" do
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("MODELNAME360").should be_true
   end
 
-  it "=> for app_name" do
+  it "=> for app_name", tags: "regex" do
     # Negative:
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("").should be_false
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric car store").should be_false
@@ -33,7 +33,7 @@ describe "Regular Expression" do
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("ElectricCarStore").should be_true
   end
 
-  it "=> for unique_app_key" do
+  it "=> for unique_app_key", tags: "regex" do
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
     # Negative:
     /^[a-zA-Z0-9]{16}$/.matches?("").should be_false
@@ -48,7 +48,7 @@ describe "Regular Expression" do
     /^[a-zA-Z0-9]{16}$/.matches?("x4N83BGV26b3Npg2").should be_true
   end
 
-  it "=> for service_name" do
+  it "=> for service_name", tags: "regex" do
     # Negative:
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("").should be_false
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Auto parts").should be_false

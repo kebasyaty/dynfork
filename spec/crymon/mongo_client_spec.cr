@@ -1,7 +1,7 @@
 require "../spec_helper"
 
 describe "Cryomongo" do
-  it "=> initialize mongo client" do
+  it "=> initialize mongo client", tags: "mongo_client" do
     # Create a Mongo client.
     uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
     client : Mongo::Client = Mongo::Client.new
