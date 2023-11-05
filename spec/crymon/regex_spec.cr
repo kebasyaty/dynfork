@@ -23,7 +23,8 @@ describe "Regular Expression" do
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric car store").should be_false
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric-car store").should be_false
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("Electric Car_Store").should be_false
-    /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("").should be_false
+    # > 44 characters
+    /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("Loremipsumdolorsitametconsloremipsumdolorsita").should be_false
     # Positive:
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric_car_store").should be_true
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric-car-store").should be_true
