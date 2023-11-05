@@ -74,7 +74,7 @@ module Crymon
       # NOTE: Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
-      unless /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?(model_name)
+      unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Project name.
@@ -82,13 +82,13 @@ module Crymon
       app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "app_name", 44) if app_name.size > 44
-      unless /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?(app_name)
+      unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
       end
       # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
-      unless /^[a-zA-Z0-9]{16}$/.matches?(unique_app_key)
+      unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z0-9]{16}$/")
       end
       # Service Name = Application subsection = Module name.
@@ -97,7 +97,7 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
-      unless /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?(service_name)
+      unless Crymon::Globals.store_regex[:service_name].matches?(service_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Database name.
