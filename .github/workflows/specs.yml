@@ -36,4 +36,8 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
-        run: crystal spec
+        run: |
+          crystal spec --tag regex
+          crystal spec --tag fields
+          crystal spec --tag model
+          crystal spec --tag mongo_client

@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::SlugField do
   describe ".new" do
-    it "=> create instance of Slug field" do
+    it "=> create instance of Slug field", tags: "fields" do
       f = Crymon::Fields::SlugField.new
       f.id.should eq("")
       f.label.should eq("")

@@ -19,7 +19,7 @@ module Crymon
     end
 
     # The allowed number of characters in the metadata parameters has been exceeded.
-    class MetaParamExcessCharacters < CrymonException
+    class MetaParamExcessChars < CrymonException
       def initialize(model_name : String, parameter_name : String, limit_size : UInt32)
         super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => The line size of #{limit_size} characters has been exceeded.))
       end
@@ -40,7 +40,7 @@ module Crymon
     end
 
     # The maximum number of characters in the model name has been exceeded.
-    class ModelNameExcessCharacters < CrymonException
+    class ModelNameExcessChars < CrymonException
       def initialize(model_name : String)
         super(%(Model: #{model_name} => The Model name exceeds 25 characters.))
       end

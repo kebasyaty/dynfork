@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::HashField do
   describe ".new" do
-    it "=> create instance of Hash field" do
+    it "=> create instance of Hash field", tags: "fields" do
       f = Crymon::Fields::HashField.new
       f.id.should eq("")
       f.label.should eq("Hash ID")
