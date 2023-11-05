@@ -102,7 +102,6 @@ module Crymon
         # Database name.
         # WARNING: Maximum 60 characters.
         database_name : String = {{ @type.annotation(Crymon::Meta)[:database_name] }} || "#{app_name}_#{unique_app_key}"
-        raise Crymon::Errors::MetaParamExcessChars.new(model_name, "database_name", 25) if database_name.size > 60
         # Collection name.
         # WARNING: Maximum 50 characters.
         collection_name : String = "#{service_name}_#{model_name}"
