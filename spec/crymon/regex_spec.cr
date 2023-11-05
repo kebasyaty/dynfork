@@ -1,7 +1,7 @@
 require "../spec_helper"
 
 describe "Regular Expression" do
-  it "=> for model name" do
+  it "=> for model_name" do
     # Negative:
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("").should be_false
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("360").should be_false
@@ -17,7 +17,7 @@ describe "Regular Expression" do
     /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("MODELNAME360").should be_true
   end
 
-  it "=> for app name" do
+  it "=> for app_name" do
     # Negative:
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("").should be_false
     /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?("electric car store").should be_false
@@ -46,5 +46,21 @@ describe "Regular Expression" do
     /^[a-zA-Z0-9]{16}$/.matches?("7721W783kPX7EFOu").should be_true
     /^[a-zA-Z0-9]{16}$/.matches?("E5lo5Z8i5m2K6W75").should be_true
     /^[a-zA-Z0-9]{16}$/.matches?("x4N83BGV26b3Npg2").should be_true
+  end
+
+  it "=> for service_name" do
+    # Negative:
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("").should be_false
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Auto parts").should be_false
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Auto Parts").should be_false
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("autoparts").should be_false
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Auto_parts").should be_false
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Auto-parts").should be_false
+    # > 25 characters
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Loremipsumdolorsitametcons").should be_false
+    # Positive:
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("AutoParts").should be_true
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("Autoparts").should be_true
+    /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?("AutoParts360").should be_true
   end
 end
