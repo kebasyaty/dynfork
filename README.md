@@ -6,7 +6,7 @@ ORM-like API MongoDB for Crystal.
 <br>
 The project is focused on web development.
 <br>
-Compatible with MongoDB 3.6+. Tested against: 6.0, 7.0.
+_Compatible with MongoDB 3.6+. Tested against: 6.0, 7.0._
 
 <p>
   <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/status_project/Status_Project-Development-.svg"
