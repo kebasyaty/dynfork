@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::ColorField do
   describe ".new" do
-    it "=> create instance of Color field" do
+    it "=> create instance of Color field", tags: "fields" do
       f = Crymon::Fields::ColorField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -29,14 +29,14 @@ describe Crymon::Fields::ColorField do
       f["no_var"]?.should be_false
     end
 
-    it "=> create an instance with input_type=color" do
+    it "=> create an instance with input_type=color", tags: "fields" do
       f = Crymon::Fields::ColorField.new(
         input_type: "color"
       )
       f.input_type.should eq("color")
     end
 
-    it "=> invalid input type - input_type=???" do
+    it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
       ex = expect_raises(Crymon::Errors::InvalidInputType) do
         Crymon::Fields::ColorField.new(

@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::ChoiceI64Field do
   describe ".new" do
-    it "=> create instance of ChoiceI64Field" do
+    it "=> create instance of ChoiceI64Field", tags: "fields" do
       f = Crymon::Fields::ChoiceI64Field.new
       f.id.should eq("")
       f.label.should eq("")
@@ -31,7 +31,7 @@ end
 
 describe Crymon::Fields::ChoiceI64MultField do
   describe ".new" do
-    it "=> create instance of ChoiceI64MultField" do
+    it "=> create instance of ChoiceI64MultField", tags: "fields" do
       f = Crymon::Fields::ChoiceI64MultField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -60,7 +60,7 @@ end
 
 describe Crymon::Fields::ChoiceI64DynField do
   describe ".new" do
-    it "=> create instance of ChoiceI64DynField" do
+    it "=> create instance of ChoiceI64DynField", tags: "fields" do
       f = Crymon::Fields::ChoiceI64DynField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -89,7 +89,7 @@ end
 
 describe Crymon::Fields::ChoiceI64MultDynField do
   describe ".new" do
-    it "=> create instance of ChoiceI64MultDynField" do
+    it "=> create instance of ChoiceI64MultDynField", tags: "fields" do
       f = Crymon::Fields::ChoiceI64MultDynField.new
       f.id.should eq("")
       f.label.should eq("")

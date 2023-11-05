@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::ChoiceTextField do
   describe ".new" do
-    it "=> create instance of ChoiceTextField" do
+    it "=> create instance of ChoiceTextField", tags: "fields" do
       f = Crymon::Fields::ChoiceTextField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -31,7 +31,7 @@ end
 
 describe Crymon::Fields::ChoiceTextMultField do
   describe ".new" do
-    it "=> create instance of ChoiceTextMultField" do
+    it "=> create instance of ChoiceTextMultField", tags: "fields" do
       f = Crymon::Fields::ChoiceTextMultField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -60,7 +60,7 @@ end
 
 describe Crymon::Fields::ChoiceTextDynField do
   describe ".new" do
-    it "=> create instance of ChoiceTextDynField" do
+    it "=> create instance of ChoiceTextDynField", tags: "fields" do
       f = Crymon::Fields::ChoiceTextDynField.new
       f.id.should eq("")
       f.label.should eq("")
@@ -89,7 +89,7 @@ end
 
 describe Crymon::Fields::ChoiceTextMultDynField do
   describe ".new" do
-    it "=> create instance of ChoiceTextMultDynField" do
+    it "=> create instance of ChoiceTextMultDynField", tags: "fields" do
       f = Crymon::Fields::ChoiceTextMultDynField.new
       f.id.should eq("")
       f.label.should eq("")

@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::PhoneField do
   describe ".new" do
-    it "=> create instance of Phone field" do
+    it "=> create instance of Phone field", tags: "fields" do
       f = Crymon::Fields::PhoneField.new
       f.id.should eq("")
       f.label.should eq("")

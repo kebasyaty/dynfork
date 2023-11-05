@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::U32Field do
   describe ".new" do
-    it "=> create instance of UInt32 field" do
+    it "=> create instance of UInt32 field", tags: "fields" do
       f = Crymon::Fields::U32Field.new
       f.id.should eq("")
       f.label.should eq("")
@@ -30,14 +30,14 @@ describe Crymon::Fields::U32Field do
       f["no_var"]?.should be_false
     end
 
-    it "=> create instance with input_type=range" do
+    it "=> create instance with input_type=range", tags: "fields" do
       f = Crymon::Fields::U32Field.new(
         input_type: "range"
       )
       f.input_type.should eq("range")
     end
 
-    it "=> invalid input type - input_type=???" do
+    it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
       ex = expect_raises(Crymon::Errors::InvalidInputType) do
         Crymon::Fields::U32Field.new(
@@ -51,7 +51,7 @@ end
 
 describe Crymon::Fields::I64Field do
   describe ".new" do
-    it "=> create instance of Int64 field" do
+    it "=> create instance of Int64 field", tags: "fields" do
       f = Crymon::Fields::I64Field.new
       f.id.should eq("")
       f.label.should eq("")
@@ -79,14 +79,14 @@ describe Crymon::Fields::I64Field do
       f["no_var"]?.should be_false
     end
 
-    it "=> create instance with input_type=range" do
+    it "=> create instance with input_type=range", tags: "fields" do
       f = Crymon::Fields::I64Field.new(
         input_type: "range"
       )
       f.input_type.should eq("range")
     end
 
-    it "=> invalid input type - input_type=???" do
+    it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
       ex = expect_raises(Crymon::Errors::InvalidInputType) do
         Crymon::Fields::I64Field.new(
@@ -100,7 +100,7 @@ end
 
 describe Crymon::Fields::F64Field do
   describe ".new" do
-    it "=> create instance of Float64 field" do
+    it "=> create instance of Float64 field", tags: "fields" do
       f = Crymon::Fields::F64Field.new
       f.id.should eq("")
       f.label.should eq("")
@@ -128,14 +128,14 @@ describe Crymon::Fields::F64Field do
       f["no_var"]?.should be_false
     end
 
-    it "=> create instance with input_type=range" do
+    it "=> create instance with input_type=range", tags: "fields" do
       f = Crymon::Fields::F64Field.new(
         input_type: "range"
       )
       f.input_type.should eq("range")
     end
 
-    it "=> invalid input type - input_type=???" do
+    it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
       ex = expect_raises(Crymon::Errors::InvalidInputType) do
         Crymon::Fields::F64Field.new(

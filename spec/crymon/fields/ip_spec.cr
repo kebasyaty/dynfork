@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::IPField do
   describe ".new" do
-    it "=> create instance of URL field" do
+    it "=> create instance of URL field", tags: "fields" do
       f = Crymon::Fields::IPField.new
       f.id.should eq("")
       f.label.should eq("")

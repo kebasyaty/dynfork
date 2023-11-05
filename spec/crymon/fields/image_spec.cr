@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::ImageData do
   describe ".new" do
-    it "=> create an instance of the ImageData" do
+    it "=> create an instance of the ImageData", tags: "fields" do
       f = Crymon::Fields::ImageData.new
       f.path.should eq("")
       f.path_xs.should eq("")
@@ -25,7 +25,7 @@ end
 
 describe Crymon::Fields::ImageField do
   describe ".new" do
-    it "=> create instance of Image field" do
+    it "=> create instance of Image field", tags: "fields" do
       f = Crymon::Fields::ImageField.new
       f.id.should eq("")
       f.label.should eq("")

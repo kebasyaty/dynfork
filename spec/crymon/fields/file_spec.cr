@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Fields::FileData do
   describe ".new" do
-    it "=> create instance of FileData" do
+    it "=> create instance of FileData", tags: "fields" do
       f = Crymon::Fields::FileData.new
       f.path.should eq("")
       f.url.should eq("")
@@ -15,7 +15,7 @@ end
 
 describe Crymon::Fields::FileField do
   describe ".new" do
-    it "=> create instance of  File field" do
+    it "=> create instance of  File field", tags: "fields" do
       f = Crymon::Fields::FileField.new
       f.id.should eq("")
       f.label.should eq("")
