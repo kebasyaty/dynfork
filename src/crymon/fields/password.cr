@@ -9,9 +9,9 @@ module Crymon
       # Html tag: input type="url".
       getter input_type : String = "password"
       # Sets the value of an element.
-      property value : String | Nil = nil
+      property value : String?
       # Value by default.
-      getter default : Nil = nil
+      getter default : Nil
       # Displays prompt text.
       getter placeholder : String
       # The maximum number of characters allowed in the text.

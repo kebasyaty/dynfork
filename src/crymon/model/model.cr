@@ -21,7 +21,7 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
-      var_name : String | Nil
+      var_name : String?
       # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}

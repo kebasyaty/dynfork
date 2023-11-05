@@ -9,9 +9,9 @@ module Crymon
       # Html tag: input type="url".
       getter input_type : String = "tel"
       # Sets the value of an element.
-      property value : String | Nil = nil
+      property value : String?
       # Value by default.
-      getter default : String | Nil
+      getter default : String?
       # Displays prompt text.
       getter placeholder : String
       # The maximum number of characters allowed in the text.
@@ -30,7 +30,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = nil,
+        @default : String? = nil,
         @placeholder : String = "",
         @maxlength : UInt32 = 15,
         @minlength : UInt32 = 8,

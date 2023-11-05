@@ -8,9 +8,9 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextField"
       # Sets the value of an element.
-      property value : String | Nil = nil
+      property value : String?
       # Value by default.
-      getter default : String | Nil
+      getter default : String?
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -24,7 +24,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = nil,
+        @default : String? = nil,
         @is_hide : Bool = false,
         @is_unique : Bool = false,
         @is_required : Bool = false,
@@ -43,9 +43,9 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultField"
       # Sets the value of an element.
-      property value : Array(String) | Nil = nil
+      property value : Array(String)?
       # Value by default.
-      getter default : Array(String) | Nil
+      getter default : Array(String)?
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
@@ -59,7 +59,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : Array(String) | Nil = nil,
+        @default : Array(String)? = nil,
         @is_hide : Bool = false,
         @is_unique : Bool = false,
         @is_required : Bool = false,
@@ -79,9 +79,9 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextDynField"
       # Sets the value of an element.
-      property value : String | Nil = nil
+      property value : String?
       # Value by default.
-      getter default : Nil = nil
+      getter default : Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
@@ -114,9 +114,9 @@ module Crymon
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultDynField"
       # Sets the value of an element.
-      property value : Array(String) | Nil = nil
+      property value : Array(String)?
       # Value by default.
-      getter default : Nil = nil
+      getter default : Nil
       # Specifies that multiple options can be selected at once.
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
