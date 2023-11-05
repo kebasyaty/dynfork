@@ -16,9 +16,9 @@ module Crymon
       # WARNING: type="color" only seven-character hexadecimal notation.
       getter input_type : String
       # Sets the value of an element.
-      property value : String | Nil = nil
+      property value : String?
       # The default value is #000000.
-      getter default : String | Nil
+      getter default : String?
       # Displays prompt text.
       property placeholder : String
       # The maximum number of characters allowed in the text.
@@ -33,7 +33,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = "#000000",
+        @default : String? = "#000000",
         @input_type : String = "text", # text | color
         @placeholder : String = "",
         @maxlength : UInt32 = 256,

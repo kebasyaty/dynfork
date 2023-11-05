@@ -322,8 +322,13 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/MetaDataType" data-name="crymon::globals::metadatatype">
-      <a href="../Crymon/Globals/MetaDataType.html">MetaDataType</a>
+  <li class=" " data-id="crymon/Crymon/Globals/StoreMetaDataType" data-name="crymon::globals::storemetadatatype">
+      <a href="../Crymon/Globals/StoreMetaDataType.html">StoreMetaDataType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/StoreRegexType" data-name="crymon::globals::storeregextype">
+      <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
       
     </li>
   
@@ -414,16 +419,44 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#store%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AMetaDataType%29-class-method" class="signature"><strong>.store</strong> : Hash(String, Crymon::Globals::MetaDataType)</a>
+        <a href="#store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29-class-method" class="signature"><strong>.store_metadata</strong> : Hash(String, Crymon::Globals::StoreMetaDataType)</a>
         
           <div class="summary"><p>Global storage for metadata caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store%3D%28store%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AMetaDataType%29%29-class-method" class="signature"><strong>.store=</strong>(store : Hash(String, Crymon::Globals::MetaDataType))</a>
+        <a href="#store_metadata%3D%28store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29%29-class-method" class="signature"><strong>.store_metadata=</strong>(store_metadata : Hash(String, Crymon::Globals::StoreMetaDataType))</a>
         
           <div class="summary"><p>Global storage for metadata caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_mongo_client%3AMongo%3A%3AClient%7CNil-class-method" class="signature"><strong>.store_mongo_client</strong> : Mongo::Client | Nil</a>
+        
+          <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method" class="signature"><strong>.store_mongo_client=</strong>(store_mongo_client : Mongo::Client | Nil)</a>
+        
+          <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_regex%3AStoreRegexType-class-method" class="signature"><strong>.store_regex</strong> : StoreRegexType</a>
+        
+          <div class="summary"><p>Global storage for regex caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_regex%3D%28store_regex%3AStoreRegexType%29-class-method" class="signature"><strong>.store_regex=</strong>(store_regex : StoreRegexType)</a>
+        
+          <div class="summary"><p>Global storage for regex caching.</p></div>
         
       </li>
     
@@ -451,12 +484,12 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="store:Hash(String,Crymon::Globals::MetaDataType)-class-method">
+    <div class="entry-detail" id="store_metadata:Hash(String,Crymon::Globals::StoreMetaDataType)-class-method">
       <div class="signature">
         
-        def self.<strong>store</strong> : Hash(String, <a href="../Crymon/Globals/MetaDataType.html">Crymon::Globals::MetaDataType</a>)
+        def self.<strong>store_metadata</strong> : Hash(String, <a href="../Crymon/Globals/StoreMetaDataType.html">Crymon::Globals::StoreMetaDataType</a>)
 
-        <a class="method-permalink" href="#store%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AMetaDataType%29-class-method">#</a>
+        <a class="method-permalink" href="#store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -470,17 +503,93 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store=(store:Hash(String,Crymon::Globals::MetaDataType))-class-method">
+    <div class="entry-detail" id="store_metadata=(store_metadata:Hash(String,Crymon::Globals::StoreMetaDataType))-class-method">
       <div class="signature">
         
-        def self.<strong>store=</strong>(store : Hash(String, <a href="../Crymon/Globals/MetaDataType.html">Crymon::Globals::MetaDataType</a>))
+        def self.<strong>store_metadata=</strong>(store_metadata : Hash(String, <a href="../Crymon/Globals/StoreMetaDataType.html">Crymon::Globals::StoreMetaDataType</a>))
 
-        <a class="method-permalink" href="#store%3D%28store%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AMetaDataType%29%29-class-method">#</a>
+        <a class="method-permalink" href="#store_metadata%3D%28store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Global storage for metadata caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_mongo_client:Mongo::Client|Nil-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_mongo_client</strong> : Mongo::Client | Nil
+
+        <a class="method-permalink" href="#store_mongo_client%3AMongo%3A%3AClient%7CNil-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global storage for Mongodb client caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_mongo_client=(store_mongo_client:Mongo::Client|Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_mongo_client=</strong>(store_mongo_client : Mongo::Client | Nil)
+
+        <a class="method-permalink" href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global storage for Mongodb client caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_regex:StoreRegexType-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_regex</strong> : <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
+
+        <a class="method-permalink" href="#store_regex%3AStoreRegexType-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global storage for regex caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_regex=(store_regex:StoreRegexType)-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_regex=</strong>(store_regex : <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>)
+
+        <a class="method-permalink" href="#store_regex%3D%28store_regex%3AStoreRegexType%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global storage for regex caching.</p>
         </div>
       
       <br/>

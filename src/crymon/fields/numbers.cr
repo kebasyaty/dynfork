@@ -9,9 +9,9 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String = "number"
       # Sets the value of an element.
-      property value : UInt32 | Nil = nil
+      property value : UInt32?
       # Value by default.
-      getter default : UInt32 | Nil
+      getter default : UInt32?
       # Displays prompt text.
       getter placeholder : String
       # The maximum number of characters allowed in the text.
@@ -28,7 +28,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : UInt32 | Nil = nil,
+        @default : UInt32? = nil,
         @input_type : String = "number", # number | range
         @placeholder : String = "",
         @max : UInt32 = UInt32::MAX,
@@ -57,9 +57,9 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String = "number"
       # Sets the value of an element.
-      property value : Int64 | Nil = nil
+      property value : Int64?
       # Value by default.
-      getter default : Int64 | Nil
+      getter default : Int64?
       # Displays prompt text.
       getter placeholder : String
       # The maximum number of characters allowed in the text.
@@ -76,7 +76,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : Int64 | Nil = nil,
+        @default : Int64? = nil,
         @input_type : String = "number", # number | range
         @placeholder : String = "",
         @max : Int64 = Int64::MAX,
@@ -105,9 +105,9 @@ module Crymon
       # Html tag: input type="number|range".
       getter input_type : String
       # Sets the value of an element.
-      property value : Float64 | Nil = nil
+      property value : Float64?
       # Value by default.
-      getter default : Float64 | Nil
+      getter default : Float64?
       # Displays prompt text.
       getter placeholder : String
       # The maximum number of characters allowed in the text.
@@ -124,7 +124,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : Float64 | Nil = nil,
+        @default : Float64? = nil,
         @input_type : String = "number", # number | range
         @placeholder : String = "",
         @max : Float64 = Float64::MAX,

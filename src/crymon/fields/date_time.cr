@@ -11,10 +11,10 @@ module Crymon
       getter input_type : String = "datetime"
       # Sets the value of an element.
       # NOTE: Example: 1970-01-01T00:00
-      property value : String | Nil = nil
+      property value : String?
       # Value by default.
       # NOTE: Example: 1970-01-01T00:00
-      getter default : String | Nil
+      getter default : String?
       # Displays prompt text.
       getter placeholder : String
       # The top value for entering a date and time.
@@ -31,7 +31,7 @@ module Crymon
 
       def initialize(
         @label : String = "",
-        @default : String | Nil = nil,
+        @default : String? = nil,
         @placeholder : String = "",
         @max : String = "",
         @min : String = "",

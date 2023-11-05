@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::InvalidInputType - crymon v0-dev</title>
+  <title>Crymon::Globals::StoreRegexType - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -62,7 +62,7 @@
       
         <ul>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -72,7 +72,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
       <a href="../../Crymon/Errors/InvalidInputType.html">InvalidInputType</a>
       
     </li>
@@ -312,7 +312,7 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../Crymon/Globals.html">Globals</a>
       
         <ul>
@@ -327,7 +327,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/StoreRegexType" data-name="crymon::globals::storeregextype">
+  <li class=" current" data-id="crymon/Crymon/Globals/StoreRegexType" data-name="crymon::globals::storeregextype">
       <a href="../../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
       
     </li>
@@ -366,12 +366,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>InvalidInputType
+  <span class="kind">alias</span> Crymon::<wbr>Globals::<wbr>StoreRegexType
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/InvalidInputType.html">Crymon::Errors::InvalidInputType</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -385,9 +383,19 @@
     Overview
   </h2>
 
-  <p>Invalid input type.</p>
+  <p>A type for caching regular expressions.</p>
 
 
+
+  <h2>
+    <a id="alias-definition" class="anchor" href="#alias-definition">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Alias Definition
+  </h2>
+  <code>{model_name: Regex, app_name: Regex, unique_app_key: Regex, service_name: Regex}</code>
 
 
 
@@ -410,7 +418,7 @@
   </h2>
   
     
-      src\crymon\errors.cr
+      src\crymon\globals.cr
     
     <br/>
   
@@ -418,23 +426,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28input_type%3AString%29-class-method" class="signature"><strong>.new</strong>(input_type : String)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -446,72 +437,8 @@
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(input_type:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(input_type : String)
-
-        <a class="method-permalink" href="#new%28input_type%3AString%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 

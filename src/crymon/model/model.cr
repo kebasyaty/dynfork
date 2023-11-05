@@ -21,12 +21,12 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
-      var_name : String | Nil
+      var_name : String?
       # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
-        @{{ var }}.id = Crymon::Globals.store[model_key][:field_attrs][var_name][:id]
-        @{{ var }}.name = Crymon::Globals.store[model_key][:field_attrs][var_name][:name]
+        @{{ var }}.id = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:id]
+        @{{ var }}.name = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:name]
       {% end %}
     end
 
@@ -63,7 +63,7 @@ module Crymon
       # Get model key.
       model_key : String = self.model_key
       # Stop caching if metadata is in storage.
-      return unless Crymon::Globals.store[model_key]?.nil?
+      return unless Crymon::Globals.store_metadata[model_key]?.nil?
       # Check the model for the presence of variables (fields).
       {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
@@ -74,7 +74,7 @@ module Crymon
       # NOTE: Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
-      unless /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?(model_name)
+      unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Project name.
@@ -82,13 +82,13 @@ module Crymon
       app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "app_name", 44) if app_name.size > 44
-      unless /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.matches?(app_name)
+      unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
       end
       # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
-      unless /^[a-zA-Z0-9]{16}$/.matches?(unique_app_key)
+      unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z0-9]{16}$/")
       end
       # Service Name = Application subsection = Module name.
@@ -97,7 +97,7 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
-      unless /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?(service_name)
+      unless Crymon::Globals.store_regex[:service_name].matches?(service_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Database name.
@@ -172,7 +172,7 @@ module Crymon
       )
       #
       # Add metadata to the global store.
-      Crymon::Globals.store[model_key] = {
+      Crymon::Globals.store_metadata[model_key] = {
         # Project name.
         app_name: app_name,
         # Model name = Structure name.
