@@ -62,12 +62,13 @@ module Crymon
     def caching
       # Get model key.
       model_key : String = self.model_key
-      # Run caching.
+      # Stop caching if metadata is in storage.
       return unless Crymon::Globals.store[model_key]?.nil?
+      # Check the model for the presence of variables (fields).
       {% if @type.instance_vars.size < 4 %}
-          # If there are no fields in the model, a FieldsMissing exception is raise.
-          raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
-        {% end %}
+        # If there are no fields in the model, a FieldsMissing exception is raise.
+        raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
+      {% end %}
       # Model name = Structure name.
       # WARNING: Maximum 25 characters.
       # NOTE: Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore
