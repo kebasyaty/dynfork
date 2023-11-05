@@ -70,6 +70,7 @@ module Crymon
         {% end %}
         # Model name = Structure name.
         # WARNING: Maximum 25 characters.
+        # NOTE: Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore
         model_name : String = {{ @type.name.stringify }}.split("::").last
         raise Crymon::Errors::ModelNameExcessCharacters.new(model_name) if model_name.size > 25
         unless /^[A-Z][a-zA-Z0-9]{0,24}$/.matches?(model_name)
@@ -91,6 +92,7 @@ module Crymon
         end
         # Service Name = Application subsection = Module name.
         # WARNING: Maximum 25 characters.
+        # NOTE: Examples: AutoParts | Autoparts | AutoParts360
         service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
           raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
         raise Crymon::Errors::MetaParamExcessCharacters.new(model_name, "service_name", 25) if service_name.size > 25
