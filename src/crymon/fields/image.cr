@@ -20,22 +20,23 @@ module Crymon
       getter media_url : String = "/media"
       # Directory for files inside media directory (inner path).
       # <br>
-      # *Example: "files/resume"*
+      # _Example: "files/resume"_
       getter target_dir : String = "images"
       # HTML attribute: accept.
       # <br>
       # Describing which file types to allow.
       # <br>
-      # *Example: "image/jpeg,image/png,image/gif"*
+      # _Example: "image/jpeg,image/png,image/gif"_
       # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
       getter accept : String = ""
       # From one to four inclusive.
       # <br>
-      # *Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]*
+      # _Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]_
       # NOTE: An Intel i7-4770 processor or better is recommended.
       getter thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new
       # Thumbnail quality level: - Fast=false or Qualitatively=true.
-      # NOTE: By default: true.
+      # <br>
+      # By default: true.
       getter is_quality : Bool = true
       # The unique value of a field in a collection.
       getter is_unique : Bool

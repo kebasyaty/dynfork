@@ -4,7 +4,7 @@ module Crymon
   module Fields
     # A field for entering a date и времени in the format yyyy-mm-ddThh:mm.
     # <br>
-    # *Example: 1970-01-01T00:00*
+    # _Example: 1970-01-01T00:00_
     struct DateTimeField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateTimeField"
@@ -12,11 +12,11 @@ module Crymon
       getter input_type : String = "datetime"
       # Sets the value of an element.
       # <br>
-      # *Example: 1970-01-01T00:00*
+      # _Example: 1970-01-01T00:00_
       property value : String?
       # Value by default.
       # <br>
-      # *Example: 1970-01-01T00:00*
+      # _Example: 1970-01-01T00:00_
       getter default : String?
       # Displays prompt text.
       getter placeholder : String

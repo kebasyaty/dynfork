@@ -25,9 +25,9 @@ module Crymon
       property is_readonly : Bool = false
       # Hide field from user.
       property is_hide : Bool = false
-      # Example: %(autofocus tabindex="some number" size="some number").
+      # _Example: %(autofocus tabindex="some number" size="some number")_
       getter other_attrs : String = ""
-      # Example: "class-name-1 class-name-2".
+      # _Example: "class-name-1 class-name-2"_
       getter css_classes : String = ""
       # Additional explanation for the user.
       getter hint : String = ""
@@ -63,7 +63,8 @@ module Crymon
       # File size in bytes.
       property size : Float64 = 0
       # If the file needs to be deleted: is_delete=true.
-      # NOTE: By default is_delete=false.
+      # <br>
+      # By default is_delete=false.
       property is_delete : Bool
 
       def initialize(
@@ -97,7 +98,8 @@ module Crymon
       # File height in pixels.
       property height : Float64 = 0
       # If the file needs to be deleted: is_delete=true.
-      # NOTE: By default is_delete=false.
+      # <br>
+      # By default is_delete=false.
       property is_delete : Bool
 
       def initialize(
