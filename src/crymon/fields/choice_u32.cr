@@ -15,8 +15,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Example: [{5, "Title"}, {10, "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select
+      # <br>
+      # *Example: [{5, "Title"}, {10, "Title 2"}]*
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -74,7 +75,7 @@ module Crymon
 
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-One.
-    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
     struct ChoiceU32DynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32DynField"
@@ -86,8 +87,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Example: [{5, "Title"}, {10, "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select.
+      # <br>
+      # *Example: [{5, "Title"}, {10, "Title 2"}]*
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -121,8 +123,9 @@ module Crymon
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Example: [{5, "Title"}, {10, "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select.
+      # <br>
+      # *Example: [{5, "Title"}, {10, "Title 2"}]*
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.

@@ -15,8 +15,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool = false
-      # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select.
+      # <br>
+      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -50,8 +51,9 @@ module Crymon
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
       getter is_unique : Bool = false
-      # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # NOTE: Html tag: select multiple
+      # Html tag: select multiple.
+      # <br>
+      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -86,8 +88,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool = false
-      # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select
+      # <br>
+      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -121,8 +124,9 @@ module Crymon
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Example: [{"value", "Title"}, {"value 2", "Title 2"}].
-      # NOTE: Html tag: select
+      # Html tag: select.
+      # <br>
+      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.

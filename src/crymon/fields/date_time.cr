@@ -3,17 +3,20 @@ require "./field"
 module Crymon
   module Fields
     # A field for entering a date и времени in the format yyyy-mm-ddThh:mm.
-    # NOTE: Example: 1970-01-01T00:00
+    # <br>
+    # *Example: 1970-01-01T00:00*
     struct DateTimeField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateTimeField"
       # Html tag: input type="date".
       getter input_type : String = "datetime"
       # Sets the value of an element.
-      # NOTE: Example: 1970-01-01T00:00
+      # <br>
+      # *Example: 1970-01-01T00:00*
       property value : String?
       # Value by default.
-      # NOTE: Example: 1970-01-01T00:00
+      # <br>
+      # *Example: 1970-01-01T00:00*
       getter default : String?
       # Displays prompt text.
       getter placeholder : String

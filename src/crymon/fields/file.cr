@@ -17,11 +17,13 @@ module Crymon
       # URL address for the media directory.
       getter media_url : String
       # Directory for files inside media directory (inner path).
-      # NOTE: Example: "files/resume".
+      # *Example: "files/resume"*
       getter target_dir : String
       # HTML attribute: accept
-      # NOTE: Describing which file types to allow.
-      # NOTE: Example: "image/jpeg,image/png,image/gif"
+      # <br>
+      # Describing which file types to allow.
+      # <br>
+      # *Example: "image/jpeg,image/png,image/gif"*
       # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
       getter accept : String = ""
       # Displays prompt text.

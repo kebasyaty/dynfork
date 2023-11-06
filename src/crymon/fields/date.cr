@@ -3,7 +3,7 @@ require "./field"
 module Crymon
   module Fields
     # A field for entering a date in the format yyyy-mm-dd.
-    # NOTE: Example: 1970-01-01
+    # *Example: 1970-01-01*
     struct DateField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateField"
@@ -13,7 +13,8 @@ module Crymon
       # NOTE: Example: 1970-01-01
       property value : String?
       # Value by default.
-      # NOTE: Example: 1970-01-01
+      # <br>
+      # *Example: 1970-01-01*
       getter default : String?
       # Displays prompt text.
       getter placeholder : String

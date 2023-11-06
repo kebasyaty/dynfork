@@ -71,7 +71,8 @@ module Crymon
       {% end %}
       # Model name = Structure name.
       # WARNING: Maximum 25 characters.
-      # NOTE: Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore
+      # <br>
+      # *Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore*
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
@@ -93,7 +94,8 @@ module Crymon
       end
       # Service Name = Application subsection = Module name.
       # WARNING: Maximum 25 characters.
-      # NOTE: Examples: AutoParts | Autoparts | AutoParts360
+      # <br>
+      # *Examples: AutoParts | Autoparts | AutoParts360*
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
@@ -124,7 +126,8 @@ module Crymon
         {% end %}
       )
       # List of names and types of variables (fields).
-      # NOTE: Format: <field_name, field_type>
+      # <br>
+      # *Format: <field_name, field_type>*
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
             Hash.zip(
@@ -137,7 +140,8 @@ module Crymon
         {% end %}
       )
       # Default value list.
-      # NOTE: Format: <field_name, default_value>
+      # <br>
+      # *Format: <field_name, default_value>*
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
         {% if @type.instance_vars.size > 3 %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
@@ -194,10 +198,12 @@ module Crymon
         # List is a list of variable (field) types.
         field_type_list: field_type_list,
         # List of names and types of variables (fields).
-        # NOTE: Format: <field_name, field_type>
+        # <br>
+        # *Format: <field_name, field_type>*
         field_name_and_type_list: field_name_and_type_list,
         # Default value list.
-        # NOTE: Format: <field_name, default_value>
+        # <br>
+        # *Format: <field_name, default_value>*
         default_value_list: default_value_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.

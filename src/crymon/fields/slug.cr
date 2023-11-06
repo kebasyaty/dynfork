@@ -19,7 +19,8 @@ module Crymon
       getter is_unique : Bool
       # Names of the fields whose contents will be used for the slug.
       # NOTE: The default is ["hash"].
-      # NOTE: Examples: ["title"] | ["hash", "username"] | ["email", "first_name", "last_name"].
+      # <br>
+      # *Examples: ["title"] | ["hash", "username"] | ["email", "first_name", "last_name"].*
       getter slug_sources : Array(String)
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
