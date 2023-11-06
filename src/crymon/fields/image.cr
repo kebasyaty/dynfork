@@ -19,15 +19,19 @@ module Crymon
       # URL address for the media directory.
       getter media_url : String = "/media"
       # Directory for files inside media directory (inner path).
-      # NOTE: Example: "files/resume".
+      # <br>
+      # *Example: "files/resume"*
       getter target_dir : String = "images"
       # HTML attribute: accept.
-      # NOTE: Describing which file types to allow.
-      # NOTE: Example: "image/jpeg,image/png,image/gif"
+      # <br>
+      # Describing which file types to allow.
+      # <br>
+      # *Example: "image/jpeg,image/png,image/gif"*
       # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
       getter accept : String = ""
       # From one to four inclusive.
-      # NOTE: Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}].
+      # <br>
+      # *Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]*
       # NOTE: An Intel i7-4770 processor or better is recommended.
       getter thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new
       # Thumbnail quality level: - Fast=false or Qualitatively=true.

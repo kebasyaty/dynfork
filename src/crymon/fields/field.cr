@@ -7,7 +7,7 @@ module Crymon
     abstract struct Field
       include JSON::Serializable
       include JSON::Serializable::Strict
-      # NOTE: Format: "ModelName--field-name".
+      # *Format: "ModelName--field-name"*
       # WARNING: The value is determined automatically.
       property id : String = ""
       # Text label for a web form field.
