@@ -4,13 +4,13 @@ module Crymon
   module Fields
     # Field for entering color.
     # <br>
-    # The default value is #000000 (black).
+    # The default value is _#000000_ (black).
     # <br>
     # By default type="text".
     # WARNING: type="color" only seven-character hexadecimal notation.
     # <br>
-    # *Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
-    # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff*
+    # _Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+    # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff_
     struct ColorField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ColorField"

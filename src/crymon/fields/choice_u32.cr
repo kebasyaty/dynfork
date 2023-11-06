@@ -15,9 +15,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Html tag: select
+      # Html tag: select.
       # <br>
-      # *Example: [{5, "Title"}, {10, "Title 2"}]*
+      # _Example: [{5, "Title"}, {10, "Title 2"}]_
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -51,8 +51,9 @@ module Crymon
       getter is_multiple : Bool = true
       # The unique value of a field in a collection.
       getter is_unique : Bool
-      # Example: [{5, "Title"}, {10, "Title 2"}].
-      # NOTE: Html tag: select multiple
+      # Html tag: select multiple.
+      # <br>
+      # _Example: [{5, "Title"}, {10, "Title 2"}]_
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -89,7 +90,7 @@ module Crymon
       getter is_unique : Bool
       # Html tag: select.
       # <br>
-      # *Example: [{5, "Title"}, {10, "Title 2"}]*
+      # _Example: [{5, "Title"}, {10, "Title 2"}]_
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -111,7 +112,7 @@ module Crymon
 
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-Many.
-    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
     struct ChoiceU32MultDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceU32MultDynField"
@@ -125,7 +126,7 @@ module Crymon
       getter is_unique : Bool
       # Html tag: select.
       # <br>
-      # *Example: [{5, "Title"}, {10, "Title 2"}]*
+      # _Example: [{5, "Title"}, {10, "Title 2"}]_
       property choices : Array(Tuple(UInt32, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.

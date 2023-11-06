@@ -72,7 +72,7 @@ module Crymon
       # Model name = Structure name.
       # WARNING: Maximum 25 characters.
       # <br>
-      # *Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore*
+      # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
@@ -95,7 +95,7 @@ module Crymon
       # Service Name = Application subsection = Module name.
       # WARNING: Maximum 25 characters.
       # <br>
-      # *Examples: AutoParts | Autoparts | AutoParts360*
+      # _Examples: AutoParts | Autoparts | AutoParts360_
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
@@ -127,7 +127,7 @@ module Crymon
       )
       # List of names and types of variables (fields).
       # <br>
-      # *Format: <field_name, field_type>*
+      # _Format: <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
             Hash.zip(
@@ -141,7 +141,7 @@ module Crymon
       )
       # Default value list.
       # <br>
-      # *Format: <field_name, default_value>*
+      # _Format: <field_name, default_value>_
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
         {% if @type.instance_vars.size > 3 %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
@@ -199,11 +199,11 @@ module Crymon
         field_type_list: field_type_list,
         # List of names and types of variables (fields).
         # <br>
-        # *Format: <field_name, field_type>*
+        # _Format: <field_name, field_type>_
         field_name_and_type_list: field_name_and_type_list,
         # Default value list.
         # <br>
-        # *Format: <field_name, default_value>*
+        # _Format: <field_name, default_value>_
         default_value_list: default_value_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.

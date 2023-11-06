@@ -3,18 +3,20 @@ require "./field"
 module Crymon
   module Fields
     # A field for entering a date in the format yyyy-mm-dd.
-    # *Example: 1970-01-01*
+    # <br>
+    # _Example: 1970-01-01_
     struct DateField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "DateField"
       # Html tag: input type="date".
       getter input_type : String = "date"
       # Sets the value of an element.
-      # NOTE: Example: 1970-01-01
+      # <br>
+      # _Example: 1970-01-01_
       property value : String?
       # Value by default.
       # <br>
-      # *Example: 1970-01-01*
+      # _Example: 1970-01-01_
       getter default : String?
       # Displays prompt text.
       getter placeholder : String

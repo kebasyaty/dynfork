@@ -23,7 +23,7 @@ module Crymon
       # <br>
       # Describing which file types to allow.
       # <br>
-      # *Example: "image/jpeg,image/png,image/gif"*
+      # _Example: "image/jpeg,image/png,image/gif"_
       # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
       getter accept : String = ""
       # Displays prompt text.

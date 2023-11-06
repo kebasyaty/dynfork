@@ -17,7 +17,7 @@ module Crymon
       getter is_unique : Bool = false
       # Html tag: select.
       # <br>
-      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
+      # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -53,7 +53,7 @@ module Crymon
       getter is_unique : Bool = false
       # Html tag: select multiple.
       # <br>
-      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
+      # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -76,7 +76,7 @@ module Crymon
 
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-One.
-    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
     struct ChoiceTextDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextDynField"
@@ -88,9 +88,9 @@ module Crymon
       getter is_multiple : Bool = false
       # The unique value of a field in a collection.
       getter is_unique : Bool = false
-      # Html tag: select
+      # Html tag: select.
       # <br>
-      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
+      # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
@@ -112,7 +112,7 @@ module Crymon
 
     # Type of selective field with dynamic addition of elements.
     # NOTE: For simulate relationship Many-to-Many.
-    # NOTE: Elements are added via the `ModelName::update_dyn_field()` method.
+    # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
     struct ChoiceTextMultDynField < Crymon::Fields::Field
       # Field type - Structure Name.
       getter field_type : String = "ChoiceTextMultDynField"
@@ -126,7 +126,7 @@ module Crymon
       getter is_unique : Bool
       # Html tag: select.
       # <br>
-      # *Example: [{"value", "Title"}, {"value 2", "Title 2"}]*
+      # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
       property choices : Array(Tuple(String, String))
       # To optimize field traversal in the `paladins/check()` method.
       # WARNING: It is recommended not to change.
