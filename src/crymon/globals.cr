@@ -5,7 +5,11 @@ module Crymon
     # Global storage for Mongodb client caching.
     class_property store_mongo_client : Mongo::Client?
     # Global storage for super collection name caching.
-    class_property store_super_collection_name : String = "super_collection"
+    # <br>
+    # **Super collection is used for:**
+    # - _Store technical data for Models migration into a database._
+    # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
+    class_property store_super_collection_name : String = "SUPER_COLLECTION"
     # Global storage for regex caching.
     class_property store_regex : StoreRegexType = NamedTuple.new(
       model_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
