@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::BoolField - crymon v0-dev</title>
+  <title>Crymon::Globals::DataDynamicTypes - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -122,12 +122,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
       <a href="../../Crymon/Fields.html">Fields</a>
       
         <ul>
   
-  <li class=" current" data-id="crymon/Crymon/Fields/BoolField" data-name="crymon::fields::boolfield">
+  <li class=" " data-id="crymon/Crymon/Fields/BoolField" data-name="crymon::fields::boolfield">
       <a href="../../Crymon/Fields/BoolField.html">BoolField</a>
       
     </li>
@@ -312,12 +312,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../Crymon/Globals.html">Globals</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
+  <li class=" current" data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
       <a href="../../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
       
     </li>
@@ -371,12 +371,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>BoolField
+  <span class="kind">alias</span> Crymon::<wbr>Globals::<wbr>DataDynamicTypes
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/BoolField.html">Crymon::Fields::BoolField</a></li><li class="superclass"><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -390,9 +388,19 @@
     Overview
   </h2>
 
-  <p>Boolean field.</p>
+  <p>Data types to select in dynamic fields.</p>
 
 
+
+  <h2>
+    <a id="alias-definition" class="anchor" href="#alias-definition">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Alias Definition
+  </h2>
+  <code>Array(Float64) | Array(Int64) | Array(String) | Array(UInt32) | Nil</code>
 
 
 
@@ -415,7 +423,7 @@
   </h2>
   
     
-      src\crymon\fields\bool.cr
+      src\crymon\globals.cr
     
     <br/>
   
@@ -424,87 +432,9 @@
 
 
 
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Boolean field.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3ABool%7CNil%3Dfalse%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Bool | Nil = <span class="n">false</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#default%3ABool%7CNil-instance-method" class="signature"><strong>#default</strong> : Bool | Nil</a>
-        
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
-        
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Html, input type.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3ABool%7CNil-instance-method" class="signature"><strong>#value</strong> : Bool | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3ABool%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : Bool | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -512,363 +442,12 @@
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
-      <span>css_classes : String</span>
-    css_classes</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
-      <span>is_disabled : Bool</span>
-    is_disabled</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
-      <span>is_hide : Bool</span>
-    is_hide</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
-      <span>is_readonly : Bool</span>
-    is_readonly</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
-      <span>is_required : Bool</span>
-    is_required</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
-      <span>other_attrs : String</span>
-    other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(pull : JSON::PullParser)
-
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Boolean field.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Bool|Nil=false,is_hide:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Bool | Nil = <span class="n">false</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)
-
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3ABool%7CNil%3Dfalse%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="default:Bool|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>default</strong> : Bool | Nil
-
-        <a class="method-permalink" href="#default%3ABool%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>field_type</strong> : String
-
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field type - Structure Name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="group:UInt8-instance-method">
-      <div class="signature">
-        
-        def <strong>group</strong> : UInt8
-
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="input_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>input_type</strong> : String
-
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field type - Html, input type.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:Bool|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : Bool | Nil
-
-        <a class="method-permalink" href="#value%3ABool%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:Bool|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : Bool | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3ABool%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
