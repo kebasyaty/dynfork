@@ -43,6 +43,9 @@ module Crymon
                        Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
                        Array(Float64) | Bool | Nil
 
+    # Data types to select in dynamic fields.
+    alias DataDynamicTypes = Array(String) | Array(UInt32) | Array(Int64) | Array(Float64) | Nil
+
     # A type for caching Metadata of Model.
     alias StoreMetaDataType = NamedTuple(
       app_name: String,
@@ -65,6 +68,7 @@ module Crymon
       is_use_hash_slug: Bool,
       ignore_fields: Array(String),
       field_attrs: Hash(String, NamedTuple(id: String, name: String)),
+      data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes),
     )
 
     # A type for caching regular expressions.
