@@ -222,6 +222,8 @@ module Crymon
         ignore_fields: ignore_fields,
         # Attributes value for fields of Model: id, name.
         field_attrs: field_attrs,
+        # Data for dynamic fields.
+        data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes).new,
       }
     end
   end
