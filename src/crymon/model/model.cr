@@ -70,9 +70,9 @@ module Crymon
         raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
       # Model name = Structure name.
-      # WARNING: Maximum 25 characters.
       # <br>
       # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
+      # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
@@ -93,9 +93,9 @@ module Crymon
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z0-9]{16}$/")
       end
       # Service Name = Application subsection = Module name.
-      # WARNING: Maximum 25 characters.
       # <br>
-      # _Examples: AutoParts | Autoparts | AutoParts360_
+      # _Examples: Accounts | Smartphones | Washing machines | etc ..._
+      # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
@@ -183,7 +183,7 @@ module Crymon
         model_name: model_name,
         # Unique project key.
         unique_app_key: unique_app_key,
-        # Service Name - Application subsection.
+        # Service Name = Application subsection = Module name.
         service_name: service_name,
         # Database name.
         database_name: database_name,
