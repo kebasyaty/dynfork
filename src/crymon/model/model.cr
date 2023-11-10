@@ -78,14 +78,6 @@ module Crymon
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Project name.
-      # WARNING: Maximum 44 characters.
-      app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
-      raise Crymon::Errors::MetaParamExcessChars.new(model_name, "app_name", 44) if app_name.size > 44
-      unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
-      end
       # Unique project key.
       unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
@@ -177,16 +169,10 @@ module Crymon
       #
       # Add metadata to the global store.
       Crymon::Globals.store_metadata[model_key] = {
-        # Project name.
-        app_name: app_name,
         # Model name = Structure name.
         model_name: model_name,
-        # Unique project key.
-        unique_app_key: unique_app_key,
         # Service Name = Application subsection = Module name.
         service_name: service_name,
-        # Database name.
-        database_name: database_name,
         # Collection name.
         collection_name: collection_name,
         # limiting query results.

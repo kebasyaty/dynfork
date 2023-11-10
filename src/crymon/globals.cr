@@ -12,7 +12,7 @@ module Crymon
     # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
     class_getter store_super_collection_name : String = "SUPER_COLLECTION"
     # Global project settings.
-    class_property store_settings : Crymon::Globals::StoreSettingsType?
+    class_property store_settings : Crymon::Globals::StoreSettings?
     # Global storage for regex caching.
     class_getter store_regex : Crymon::Globals::StoreRegexType = NamedTuple.new(
       model_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
@@ -50,11 +50,8 @@ module Crymon
 
     # A type for caching Metadata of Model.
     alias StoreMetaDataType = NamedTuple(
-      app_name: String,
       model_name: String,
-      unique_app_key: String,
       service_name: String,
-      database_name: String,
       collection_name: String,
       db_query_docs_limit: UInt32,
       field_count: Int32,
@@ -73,13 +70,6 @@ module Crymon
       data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes),
     )
 
-    # Type for global project settings.
-    alias StoreSettingsType = NamedTuple(
-      app_name: Symbol,
-      unique_app_key: Symbol,
-      database_name: Symbol,
-    )
-
     # A type for caching regular expressions.
     alias StoreRegexType = NamedTuple(
       model_name: Regex,
@@ -87,5 +77,27 @@ module Crymon
       unique_app_key: Regex,
       service_name: Regex,
     )
+
+    # Type for global project settings.
+    struct StoreSettings
+      getter app_name : Symbol
+      getter unique_app_key : Symbol
+      getter database_name : Symbol
+
+      def initialize(@app_name : Symbol, @unique_app_key : Symbol, @database_name : Symbol)
+        self.is_valid_app_name @app_name
+      end
+
+      # App name = Project name.
+      # WARNING: Maximum 44 characters.
+      # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
+      def is_valid_app_name(app_name : Symbol)
+        app_name_str : String = app_name.to_s
+        raise Crymon::Errors::StoreSettingsExcessChars.new("app_name", 44) if app_name_str.size > 44
+        unless Crymon::Globals.store_regex[:app_name].matches?(app_name_str)
+          raise Crymon::Errors::StoreSettingsRegexFails.new("app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
+        end
+      end
+    end
   end
 end
