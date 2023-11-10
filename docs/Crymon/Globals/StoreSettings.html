@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::PasswordField - crymon v0-dev</title>
+  <title>Crymon::Globals::StoreSettings - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -132,7 +132,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
       <a href="../../Crymon/Fields.html">Fields</a>
       
         <ul>
@@ -287,7 +287,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Fields/PasswordField" data-name="crymon::fields::passwordfield">
+  <li class=" " data-id="crymon/Crymon/Fields/PasswordField" data-name="crymon::fields::passwordfield">
       <a href="../../Crymon/Fields/PasswordField.html">PasswordField</a>
       
     </li>
@@ -322,7 +322,7 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../Crymon/Globals.html">Globals</a>
       
         <ul>
@@ -347,7 +347,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/StoreSettings" data-name="crymon::globals::storesettings">
+  <li class=" current" data-id="crymon/Crymon/Globals/StoreSettings" data-name="crymon::globals::storesettings">
       <a href="../../Crymon/Globals/StoreSettings.html">StoreSettings</a>
       
     </li>
@@ -386,12 +386,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>PasswordField
+  <span class="kind">struct</span> Crymon::<wbr>Globals::<wbr>StoreSettings
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/PasswordField.html">Crymon::Fields::PasswordField</a></li><li class="superclass"><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Globals/StoreSettings.html">Crymon::Globals::StoreSettings</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -405,7 +405,7 @@
     Overview
   </h2>
 
-  <p>Field for entering password.</p>
+  <p>Type for global project settings.</p>
 
 
 
@@ -430,7 +430,7 @@
   </h2>
   
     
-      src\crymon\fields\password.cr
+      src\crymon\globals.cr
     
     <br/>
   
@@ -450,14 +450,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Field for entering password.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D256%2Cminlength%3AUInt32%3D8%2Cregex%3AString%3D%22%5E%5Ba-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%5D%7B8%2C256%7D%24%22%2Cregex_err_msg%3AString%3D%22Allowedchars%3Aa-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">256</span>, minlength : UInt32 = <span class="n">8</span>, regex : String = <span class="s">&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;</span>, regex_err_msg : String = <span class="s">&quot;Allowed chars: a-z A-Z 0-9 @ # $ % ^ &amp; + = * ! ~ ) (&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cdatabase_name%3AString%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, database_name : String | Nil = <span class="n">nil</span>)</a>
         
       </li>
     
@@ -478,86 +471,38 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3ANil-instance-method" class="signature"><strong>#default</strong> : Nil</a>
-        
-          <div class="summary"><p>Value by default.</p></div>
+        <a href="#app_name%3AString-instance-method" class="signature"><strong>#app_name</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
+        <a href="#database_name%3AString%7CNil-instance-method" class="signature"><strong>#database_name</strong> : String | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
+        <a href="#is_valid_app_name%28app_name%3AString%29-instance-method" class="signature"><strong>#is_valid_app_name</strong>(app_name : String)</a>
         
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
-        
-          <div class="summary"><p>Html tag: input type=&quot;url&quot;.</p></div>
+          <div class="summary"><p>App name = Project name.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
+        <a href="#is_valid_database_name%28database_name%3AString%29-instance-method" class="signature"><strong>#is_valid_database_name</strong>(database_name : String)</a>
         
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+          <div class="summary"><p>Database name.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#minlength%3AUInt32-instance-method" class="signature"><strong>#minlength</strong> : UInt32</a>
+        <a href="#is_valid_unique_app_key%28unique_app_key%3AString%29-instance-method" class="signature"><strong>#is_valid_unique_app_key</strong>(unique_app_key : String)</a>
         
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
+          <div class="summary"><p>Unique project key.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#regex%3AString-instance-method" class="signature"><strong>#regex</strong> : String</a>
-        
-          <div class="summary"><p>Regular expression to validate the value.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#regex_err_msg%3AString-instance-method" class="signature"><strong>#regex_err_msg</strong> : String</a>
-        
-          <div class="summary"><p>Error message.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3AString%7CNil-instance-method" class="signature"><strong>#value</strong> : String | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+        <a href="#unique_app_key%3AString-instance-method" class="signature"><strong>#unique_app_key</strong> : String</a>
         
       </li>
     
@@ -568,159 +513,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
-      <span>css_classes : String</span>
-    css_classes</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
-      <span>is_disabled : Bool</span>
-    is_disabled</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
-      <span>is_hide : Bool</span>
-    is_hide</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
-      <span>is_readonly : Bool</span>
-    is_readonly</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
-      <span>is_required : Bool</span>
-    is_required</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
-      <span>other_attrs : String</span>
-    other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
     
 
@@ -764,31 +556,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,database_name:String|Nil=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(pull : JSON::PullParser)
+        def self.<strong>new</strong>(app_name : String, unique_app_key : String, database_name : String | Nil = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field for entering password.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,placeholder:String=&quot;&quot;,maxlength:UInt32=256,minlength:UInt32=8,regex:String=&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;,regex_err_msg:String=&quot;Allowedchars:a-zA-Z0-9@#$%^&amp;+=*!~)(&quot;,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">256</span>, minlength : UInt32 = <span class="n">8</span>, regex : String = <span class="s">&quot;^[a-zA-Z0-9@#$%^&amp;+=*!~)(]{8,256}$&quot;</span>, regex_err_msg : String = <span class="s">&quot;Allowed chars: a-z A-Z 0-9 @ # $ % ^ &amp; + = * ! ~ ) (&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
-
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D256%2Cminlength%3AUInt32%3D8%2Cregex%3AString%3D%22%5E%5Ba-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%5D%7B8%2C256%7D%24%22%2Cregex_err_msg%3AString%3D%22Allowedchars%3Aa-zA-Z0-9%40%23%24%25%5E%26%2B%3D%2A%21~%29%28%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cdatabase_name%3AString%7CNil%3Dnil%29-class-method">#</a>
       </div>
       
       <br/>
@@ -811,17 +584,47 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:Nil-instance-method">
+    <div class="entry-detail" id="app_name:String-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : Nil
+        def <strong>app_name</strong> : String
 
-        <a class="method-permalink" href="#default%3ANil-instance-method">#</a>
+        <a class="method-permalink" href="#app_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="database_name:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>database_name</strong> : String | Nil
+
+        <a class="method-permalink" href="#database_name%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_valid_app_name(app_name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_valid_app_name</strong>(app_name : String)
+
+        <a class="method-permalink" href="#is_valid_app_name%28app_name%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
+          <p>App name = Project name.</p>
+<p><span class="flag yellow">WARNING</span>  Maximum 44 characters.</p>
+<p><span class="flag yellow">WARNING</span>  Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/</p>
         </div>
       
       <br/>
@@ -830,17 +633,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="field_type:String-instance-method">
+    <div class="entry-detail" id="is_valid_database_name(database_name:String)-instance-method">
       <div class="signature">
         
-        def <strong>field_type</strong> : String
+        def <strong>is_valid_database_name</strong>(database_name : String)
 
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#is_valid_database_name%28database_name%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Field type - Structure Name.</p>
+          <p>Database name.</p>
+<p><span class="flag yellow">WARNING</span>  Maximum 60 characters.</p>
         </div>
       
       <br/>
@@ -849,18 +653,18 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="group:UInt8-instance-method">
+    <div class="entry-detail" id="is_valid_unique_app_key(unique_app_key:String)-instance-method">
       <div class="signature">
         
-        def <strong>group</strong> : UInt8
+        def <strong>is_valid_unique_app_key</strong>(unique_app_key : String)
 
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
+        <a class="method-permalink" href="#is_valid_unique_app_key%28unique_app_key%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
+          <p>Unique project key.</p>
+<p><span class="flag yellow">WARNING</span>  Match regular expression: /^[a-zA-Z0-9]{16}$/</p>
         </div>
       
       <br/>
@@ -869,170 +673,13 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type:String-instance-method">
+    <div class="entry-detail" id="unique_app_key:String-instance-method">
       <div class="signature">
         
-        def <strong>input_type</strong> : String
+        def <strong>unique_app_key</strong> : String
 
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#unique_app_key%3AString-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Html tag: input type=&quot;url&quot;.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_unique:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="maxlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>maxlength</strong> : UInt32
-
-        <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The maximum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="minlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>minlength</strong> : UInt32
-
-        <a class="method-permalink" href="#minlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The minimum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder:String-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder</strong> : String
-
-        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="regex:String-instance-method">
-      <div class="signature">
-        
-        def <strong>regex</strong> : String
-
-        <a class="method-permalink" href="#regex%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Regular expression to validate the value.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="regex_err_msg:String-instance-method">
-      <div class="signature">
-        
-        def <strong>regex_err_msg</strong> : String
-
-        <a class="method-permalink" href="#regex_err_msg%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Error message.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:String|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : String | Nil
-
-        <a class="method-permalink" href="#value%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:String|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : String | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
       
       <br/>
       <div>

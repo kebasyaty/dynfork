@@ -70,58 +70,41 @@ module Crymon
         raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
       # Model name = Structure name.
-      # WARNING: Maximum 25 characters.
       # <br>
       # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
+      # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Project name.
-      # WARNING: Maximum 44 characters.
-      app_name : String = {{ @type.annotation(Crymon::Meta)[:app_name] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "app_name")
-      raise Crymon::Errors::MetaParamExcessChars.new(model_name, "app_name", 44) if app_name.size > 44
-      unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
-      end
-      # Unique project key.
-      unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
-      unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z0-9]{16}$/")
-      end
       # Service Name = Application subsection = Module name.
-      # WARNING: Maximum 25 characters.
       # <br>
-      # _Examples: AutoParts | Autoparts | AutoParts360_
+      # _Examples: Accounts | Smartphones | Washing machines | etc ..._
+      # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
       unless Crymon::Globals.store_regex[:service_name].matches?(service_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Database name.
-      # WARNING: Maximum 60 characters.
-      database_name : String = {{ @type.annotation(Crymon::Meta)[:database_name] }} || "#{app_name}_#{unique_app_key}"
       # Collection name.
       # WARNING: Maximum 50 characters.
       collection_name : String = "#{service_name}_#{model_name}"
       # List of variable (field) names.
       field_name_list : Array(String) = (
         {% if @type.instance_vars.size > 3 %}
-            {{ @type.instance_vars.map &.name.stringify }}
-          {% else %}
+          {{ @type.instance_vars.map &.name.stringify }}
+        {% else %}
           Array(String).new
         {% end %}
       )
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
         {% if @type.instance_vars.size > 3 %}
-            {{ @type.instance_vars.map &.type.stringify }}
-              .map { |name| name.split("::").last }
-          {% else %}
+          {{ @type.instance_vars.map &.type.stringify }}
+            .map { |name| name.split("::").last }
+        {% else %}
           Array(String).new
         {% end %}
       )
@@ -130,12 +113,12 @@ module Crymon
       # _Format: <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
-            Hash.zip(
-              {{ @type.instance_vars.map &.name.stringify }},
-              {{ @type.instance_vars.map &.type.stringify }}
-                .map { |name| name.split("::").last }
-            )
-          {% else %}
+          Hash.zip(
+            {{ @type.instance_vars.map &.name.stringify }},
+            {{ @type.instance_vars.map &.type.stringify }}
+              .map { |name| name.split("::").last }
+          )
+        {% else %}
           Hash(String, String).new
         {% end %}
       )
@@ -165,28 +148,22 @@ module Crymon
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
         {% if @type.instance_vars.size > 3 %}
-            {% for var in @type.instance_vars %}
-              hash[{{ var.name.stringify }}] = {
-                id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-                name: {{ var.name.stringify }}
-              }
-            {% end %}
+          {% for var in @type.instance_vars %}
+            hash[{{ var.name.stringify }}] = {
+              id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+              name: {{ var.name.stringify }}
+            }
           {% end %}
+        {% end %}
         hash
       )
       #
       # Add metadata to the global store.
       Crymon::Globals.store_metadata[model_key] = {
-        # Project name.
-        app_name: app_name,
         # Model name = Structure name.
         model_name: model_name,
-        # Unique project key.
-        unique_app_key: unique_app_key,
-        # Service Name - Application subsection.
+        # Service Name = Application subsection = Module name.
         service_name: service_name,
-        # Database name.
-        database_name: database_name,
         # Collection name.
         collection_name: collection_name,
         # limiting query results.
