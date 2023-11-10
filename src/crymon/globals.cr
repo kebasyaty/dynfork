@@ -86,16 +86,25 @@ module Crymon
 
       def initialize(@app_name : Symbol, @unique_app_key : Symbol, @database_name : Symbol)
         self.is_valid_app_name @app_name
+        self.is_valid_unique_app_key @unique_app_key
       end
 
       # App name = Project name.
       # WARNING: Maximum 44 characters.
       # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
       def is_valid_app_name(app_name : Symbol)
-        app_name_str : String = app_name.to_s
-        raise Crymon::Errors::StoreSettingsExcessChars.new("app_name", 44) if app_name_str.size > 44
-        unless Crymon::Globals.store_regex[:app_name].matches?(app_name_str)
+        param : String = app_name.to_s
+        raise Crymon::Errors::StoreSettingsExcessChars.new("app_name", 44) if param.size > 44
+        unless Crymon::Globals.store_regex[:app_name].matches?(param)
           raise Crymon::Errors::StoreSettingsRegexFails.new("app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
+        end
+      end
+
+      # Unique project key.
+      # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
+      def is_valid_unique_app_key(unique_app_key : Symbol)
+        unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key.to_s)
+          raise Crymon::Errors::StoreSettingsRegexFails.new("unique_app_key", "/^[a-zA-Z0-9]{16}$/")
         end
       end
     end
