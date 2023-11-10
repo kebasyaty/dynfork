@@ -80,14 +80,14 @@ module Crymon
 
     # Type for global project settings.
     struct StoreSettings
-      getter app_name : Symbol
-      getter unique_app_key : Symbol
-      getter database_name : Symbol
+      getter app_name : String
+      getter unique_app_key : String
+      getter database_name : String?
 
       def initialize(
-        @app_name : Symbol,
-        @unique_app_key : Symbol,
-        database_name : Symbol? = nil
+        @app_name : String,
+        @unique_app_key : String,
+        database_name : String? = nil
       )
         self.is_valid_app_name @app_name
         self.is_valid_unique_app_key @unique_app_key
@@ -102,12 +102,11 @@ module Crymon
       # App name = Project name.
       # WARNING: Maximum 44 characters.
       # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
-      def is_valid_app_name(app_name : Symbol)
-        param : String = app_name.to_s
+      def is_valid_app_name(app_name : String)
         raise Crymon::Errors::StoreSettingsExcessChars.new(
           "app_name", 44
-        ) if param.size > 44
-        unless Crymon::Globals.store_regex[:app_name].matches?(param)
+        ) if app_name.size > 44
+        unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
           raise Crymon::Errors::StoreSettingsRegexFails.new(
             "app_name",
             "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/"
@@ -117,8 +116,8 @@ module Crymon
 
       # Unique project key.
       # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
-      def is_valid_unique_app_key(unique_app_key : Symbol)
-        unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key.to_s)
+      def is_valid_unique_app_key(unique_app_key : String)
+        unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
           raise Crymon::Errors::StoreSettingsRegexFails.new(
             "unique_app_key",
             "/^[a-zA-Z0-9]{16}$/"
@@ -128,10 +127,10 @@ module Crymon
 
       # Database name.
       # WARNING: Maximum 60 characters.
-      def is_valid_database_name(database_name : Symbol)
+      def is_valid_database_name(database_name : String)
         raise Crymon::Errors::StoreSettingsExcessChars.new(
           "database_name", 60
-        ) if database_name.to_s > 60
+        ) if database_name.size > 60
       end
     end
   end

@@ -49,11 +49,8 @@ describe Crymon::Model do
       m.updated_at.value.should eq("2023-11-02")
       # Testing metadata.
       metadata = Crymon::Globals.store_metadata[m.model_key]
-      metadata["app_name"].should eq(Settings::APP_NAME)
       metadata["model_name"].should eq("FilledModel")
-      metadata["unique_app_key"].should eq(Settings::UNIQUE_APP_KEY)
-      metadata["service_name"].should eq(Settings::SERVICE_NAME)
-      metadata["database_name"].should eq("AppName_RT0839370A074kVh")
+      metadata["service_name"].should eq("ServiceName")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(6_i32)
@@ -93,32 +90,18 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end
 
-    it "=> create instance of Model with a predefined database name", tags: "model" do
+    it "=> create instance of Model with a predefined service name", tags: "model" do
       m = Helper::ParamDBNameModel.new
       metadata = Crymon::Globals.store_metadata[m.model_key]
-      metadata["database_name"].should eq("DatabaseName360")
+      metadata["service_name"].should eq("ServiceName")
     end
 
     describe "#caching" do
-      it "=> Model without mandatory 'app_name' parameter for metadata", tags: "model" do
-        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
-          Helper::NoParamAppNameModel.new
-        end
-        ex.message.should eq(%(Model: NoParamAppNameModel => Missing "app_name" parameter for Meta.))
-      end
-
-      it "=> Model without mandatory 'unique_app_key' parameter for metadata", tags: "model" do
-        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
-          Helper::NoParamUniqueAppKeyModel.new
-        end
-        ex.message.should eq(%(Model: NoParamUniqueAppKeyModel => Missing "unique_app_key" parameter for Meta.))
-      end
-
       it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
-          Helper::NoParamServiceMameModel.new
+          Helper::NoParamServiceNameModel.new
         end
-        ex.message.should eq(%(Model: NoParamServiceMameModel => Missing "service_name" parameter for Meta.))
+        ex.message.should eq(%(Model: NoParamServiceNameModel => Missing "service_name" parameter for Meta.))
       end
 
       it "=> the names in the list of ignored fields do not match", tags: "model" do
