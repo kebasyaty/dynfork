@@ -111,17 +111,17 @@ module Crymon
       # List of variable (field) names.
       field_name_list : Array(String) = (
         {% if @type.instance_vars.size > 3 %}
-            {{ @type.instance_vars.map &.name.stringify }}
-          {% else %}
+          {{ @type.instance_vars.map &.name.stringify }}
+        {% else %}
           Array(String).new
         {% end %}
       )
       # List is a list of variable (field) types.
       field_type_list : Array(String) = (
         {% if @type.instance_vars.size > 3 %}
-            {{ @type.instance_vars.map &.type.stringify }}
-              .map { |name| name.split("::").last }
-          {% else %}
+          {{ @type.instance_vars.map &.type.stringify }}
+            .map { |name| name.split("::").last }
+        {% else %}
           Array(String).new
         {% end %}
       )
@@ -130,12 +130,12 @@ module Crymon
       # _Format: <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
-            Hash.zip(
-              {{ @type.instance_vars.map &.name.stringify }},
-              {{ @type.instance_vars.map &.type.stringify }}
-                .map { |name| name.split("::").last }
-            )
-          {% else %}
+          Hash.zip(
+            {{ @type.instance_vars.map &.name.stringify }},
+            {{ @type.instance_vars.map &.type.stringify }}
+              .map { |name| name.split("::").last }
+          )
+        {% else %}
           Hash(String, String).new
         {% end %}
       )
@@ -165,13 +165,13 @@ module Crymon
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
         {% if @type.instance_vars.size > 3 %}
-            {% for var in @type.instance_vars %}
-              hash[{{ var.name.stringify }}] = {
-                id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-                name: {{ var.name.stringify }}
-              }
-            {% end %}
+          {% for var in @type.instance_vars %}
+            hash[{{ var.name.stringify }}] = {
+              id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+              name: {{ var.name.stringify }}
+            }
           {% end %}
+        {% end %}
         hash
       )
       #
