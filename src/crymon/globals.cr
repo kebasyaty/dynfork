@@ -11,8 +11,10 @@ module Crymon
     # - _Store technical data for Models migration into a database._
     # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
     class_getter store_super_collection_name : String = "SUPER_COLLECTION"
+    # ???
+    class_property store_settings : Crymon::Globals::StoreSettingsType?
     # Global storage for regex caching.
-    class_getter store_regex : StoreRegexType = NamedTuple.new(
+    class_getter store_regex : Crymon::Globals::StoreRegexType = NamedTuple.new(
       model_name: Regex.new("^[A-Z][a-zA-Z0-9]{0,24}$"),
       app_name: Regex.new("^[a-zA-Z][-_a-zA-Z0-9]{0,43}$"),
       unique_app_key: Regex.new("^[a-zA-Z0-9]{16}$"),
@@ -69,6 +71,13 @@ module Crymon
       ignore_fields: Array(String),
       field_attrs: Hash(String, NamedTuple(id: String, name: String)),
       data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes),
+    )
+
+    # Type for global project settings.
+    alias StoreSettingsType = NamedTuple(
+      app_name: Symbol,
+      unique_app_key: Symbol,
+      database_name: Symbol,
     )
 
     # A type for caching regular expressions.
