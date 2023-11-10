@@ -78,12 +78,6 @@ module Crymon
       unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Unique project key.
-      unique_app_key : String = {{ @type.annotation(Crymon::Meta)[:unique_app_key] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "unique_app_key")
-      unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "unique_app_key", "/^[a-zA-Z0-9]{16}$/")
-      end
       # Service Name = Application subsection = Module name.
       # <br>
       # _Examples: Accounts | Smartphones | Washing machines | etc ..._

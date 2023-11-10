@@ -84,9 +84,15 @@ module Crymon
       getter unique_app_key : Symbol
       getter database_name : Symbol
 
-      def initialize(@app_name : Symbol, @unique_app_key : Symbol, @database_name : Symbol)
+      def initialize(@app_name : Symbol, @unique_app_key : Symbol, database_name : Symbol? = nil)
         self.is_valid_app_name @app_name
         self.is_valid_unique_app_key @unique_app_key
+        if database_name.nil?
+          @database_name = "#{@app_name}_#{@unique_app_key}"
+        else
+          self.is_valid_database_name database_name
+          @database_name = database_name
+        end
       end
 
       # App name = Project name.
@@ -106,6 +112,12 @@ module Crymon
         unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key.to_s)
           raise Crymon::Errors::StoreSettingsRegexFails.new("unique_app_key", "/^[a-zA-Z0-9]{16}$/")
         end
+      end
+
+      # Database name.
+      # WARNING: Maximum 60 characters.
+      def is_valid_database_name(database_name : Symbol)
+        raise Crymon::Errors::StoreSettingsExcessChars.new("database_name", 60) if database_name.to_s > 60
       end
     end
   end
