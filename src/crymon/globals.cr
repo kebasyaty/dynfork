@@ -84,7 +84,11 @@ module Crymon
       getter unique_app_key : Symbol
       getter database_name : Symbol
 
-      def initialize(@app_name : Symbol, @unique_app_key : Symbol, database_name : Symbol? = nil)
+      def initialize(
+        @app_name : Symbol,
+        @unique_app_key : Symbol,
+        database_name : Symbol? = nil
+      )
         self.is_valid_app_name @app_name
         self.is_valid_unique_app_key @unique_app_key
         if database_name.nil?
@@ -100,9 +104,14 @@ module Crymon
       # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
       def is_valid_app_name(app_name : Symbol)
         param : String = app_name.to_s
-        raise Crymon::Errors::StoreSettingsExcessChars.new("app_name", 44) if param.size > 44
+        raise Crymon::Errors::StoreSettingsExcessChars.new(
+          "app_name", 44
+        ) if param.size > 44
         unless Crymon::Globals.store_regex[:app_name].matches?(param)
-          raise Crymon::Errors::StoreSettingsRegexFails.new("app_name", "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/")
+          raise Crymon::Errors::StoreSettingsRegexFails.new(
+            "app_name",
+            "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/"
+          )
         end
       end
 
@@ -110,14 +119,19 @@ module Crymon
       # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
       def is_valid_unique_app_key(unique_app_key : Symbol)
         unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key.to_s)
-          raise Crymon::Errors::StoreSettingsRegexFails.new("unique_app_key", "/^[a-zA-Z0-9]{16}$/")
+          raise Crymon::Errors::StoreSettingsRegexFails.new(
+            "unique_app_key",
+            "/^[a-zA-Z0-9]{16}$/"
+          )
         end
       end
 
       # Database name.
       # WARNING: Maximum 60 characters.
       def is_valid_database_name(database_name : Symbol)
-        raise Crymon::Errors::StoreSettingsExcessChars.new("database_name", 60) if database_name.to_s > 60
+        raise Crymon::Errors::StoreSettingsExcessChars.new(
+          "database_name", 60
+        ) if database_name.to_s > 60
       end
     end
   end
