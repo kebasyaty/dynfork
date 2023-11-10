@@ -4,6 +4,20 @@ module Crymon
     # Root custom exception.
     class CrymonException < Exception; end
 
+    # The allowed number of characters in global settings has been exceeded.
+    class StoreSettingsExcessChars < CrymonException
+      def initialize(parameter_name : String, limit_size : UInt32)
+        super(%(StoreSettings > Parameter: "#{parameter_name}" => The line size of #{limit_size} characters has been exceeded.))
+      end
+    end
+
+    # The global settings fails regular expression validation.
+    class StoreSettingsRegexFails < CrymonException
+      def initialize(parameter_name : String, regex_str : String)
+        super(%(StoreSettings > Parameter: "#{parameter_name}" => Regular expression check fails: "#{regex_str}".))
+      end
+    end
+
     # Missing parameter for Metadata.
     class MetaParameterMissing < CrymonException
       def initialize(model_name : String, parameter_name : String)
