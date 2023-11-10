@@ -1,6 +1,13 @@
 require "spec"
 require "../src/crymon"
 
+# Global project settings.
+Crymon::Globals.store_settings = {
+  app_name:       :AppName,
+  unique_app_key: :RT0839370A074kVh,
+  database_name:  :DatabaseName360,
+}
+
 # Parameters for Model.
 module Settings
   APP_NAME       = "AppName"

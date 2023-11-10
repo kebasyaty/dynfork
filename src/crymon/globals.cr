@@ -11,7 +11,7 @@ module Crymon
     # - _Store technical data for Models migration into a database._
     # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
     class_getter store_super_collection_name : String = "SUPER_COLLECTION"
-    # ???
+    # Global project settings.
     class_property store_settings : Crymon::Globals::StoreSettingsType?
     # Global storage for regex caching.
     class_getter store_regex : Crymon::Globals::StoreRegexType = NamedTuple.new(
