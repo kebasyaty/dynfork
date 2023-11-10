@@ -26,10 +26,7 @@ module Helper
   end
 
   # Model with a predefined database name.
-  @[Crymon::Meta(
-    service_name: :ServiceName,
-    database_name: "DatabaseName360"
-  )]
+  @[Crymon::Meta(service_name: :ServiceName)]
   struct ParamDBNameModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
   end
