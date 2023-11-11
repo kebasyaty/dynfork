@@ -347,8 +347,8 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/StoreSettings" data-name="crymon::globals::storesettings">
-      <a href="../Crymon/Globals/StoreSettings.html">StoreSettings</a>
+  <li class=" " data-id="crymon/Crymon/Globals/ValidationStoreSettings" data-name="crymon::globals::validationstoresettings">
+      <a href="../Crymon/Globals/ValidationStoreSettings.html">ValidationStoreSettings</a>
       
     </li>
   
@@ -439,51 +439,71 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29-class-method" class="signature"><strong>.store_metadata</strong> : Hash(String, Crymon::Globals::StoreMetaDataType)</a>
+        <a href="#store_app_name%3AString-class-method" class="signature"><strong>.store_app_name</strong> : String</a>
+        
+          <div class="summary"><p>Global Crymon settings.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_app_name%3D%28store_app_name%3AString%29-class-method" class="signature"><strong>.store_app_name=</strong>(store_app_name : String)</a>
+        
+          <div class="summary"><p>Global Crymon settings.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_database_name%3AString-class-method" class="signature"><strong>.store_database_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_database_name%3D%28store_database_name%3AString%29-class-method" class="signature"><strong>.store_database_name=</strong>(store_database_name : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_metadata-class-method" class="signature"><strong>.store_metadata</strong></a>
         
           <div class="summary"><p>Global storage for metadata caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_mongo_client%3AMongo%3A%3AClient%7CNil-class-method" class="signature"><strong>.store_mongo_client</strong> : Mongo::Client | Nil</a>
+        <a href="#store_mongo_client%3AMongo%3A%3AClient-class-method" class="signature"><strong>.store_mongo_client</strong> : Mongo::Client</a>
         
           <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method" class="signature"><strong>.store_mongo_client=</strong>(store_mongo_client : Mongo::Client | Nil)</a>
+        <a href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%29-class-method" class="signature"><strong>.store_mongo_client=</strong>(store_mongo_client : Mongo::Client)</a>
         
           <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_regex%3ACrymon%3A%3AGlobals%3A%3AStoreRegexType-class-method" class="signature"><strong>.store_regex</strong> : Crymon::Globals::StoreRegexType</a>
+        <a href="#store_regex%3AStoreRegexType-class-method" class="signature"><strong>.store_regex</strong> : StoreRegexType</a>
         
           <div class="summary"><p>Global storage for regex caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_settings%3ACrymon%3A%3AGlobals%3A%3AStoreSettings%7CNil-class-method" class="signature"><strong>.store_settings</strong> : Crymon::Globals::StoreSettings | Nil</a>
-        
-          <div class="summary"><p>Global project settings.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#store_settings%3D%28store_settings%3ACrymon%3A%3AGlobals%3A%3AStoreSettings%7CNil%29-class-method" class="signature"><strong>.store_settings=</strong>(store_settings : Crymon::Globals::StoreSettings | Nil)</a>
-        
-          <div class="summary"><p>Global project settings.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#store_super_collection_name%3AString-class-method" class="signature"><strong>.store_super_collection_name</strong> : String</a>
+        <a href="#store_super_collection_name-class-method" class="signature"><strong>.store_super_collection_name</strong></a>
         
           <div class="summary"><p>Global storage for super collection name caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_unique_app_key%3AString-class-method" class="signature"><strong>.store_unique_app_key</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#store_unique_app_key%3D%28store_unique_app_key%3AString%29-class-method" class="signature"><strong>.store_unique_app_key=</strong>(store_unique_app_key : String)</a>
         
       </li>
     
@@ -511,12 +531,78 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="store_metadata:Hash(String,Crymon::Globals::StoreMetaDataType)-class-method">
+    <div class="entry-detail" id="store_app_name:String-class-method">
       <div class="signature">
         
-        def self.<strong>store_metadata</strong> : Hash(String, <a href="../Crymon/Globals/StoreMetaDataType.html">Crymon::Globals::StoreMetaDataType</a>)
+        def self.<strong>store_app_name</strong> : String
 
-        <a class="method-permalink" href="#store_metadata%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AStoreMetaDataType%29-class-method">#</a>
+        <a class="method-permalink" href="#store_app_name%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global Crymon settings.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_app_name=(store_app_name:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_app_name=</strong>(store_app_name : String)
+
+        <a class="method-permalink" href="#store_app_name%3D%28store_app_name%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Global Crymon settings.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_database_name:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_database_name</strong> : String
+
+        <a class="method-permalink" href="#store_database_name%3AString-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_database_name=(store_database_name:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_database_name=</strong>(store_database_name : String)
+
+        <a class="method-permalink" href="#store_database_name%3D%28store_database_name%3AString%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_metadata-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_metadata</strong>
+
+        <a class="method-permalink" href="#store_metadata-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -530,12 +616,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_mongo_client:Mongo::Client|Nil-class-method">
+    <div class="entry-detail" id="store_mongo_client:Mongo::Client-class-method">
       <div class="signature">
         
-        def self.<strong>store_mongo_client</strong> : Mongo::Client | Nil
+        def self.<strong>store_mongo_client</strong> : Mongo::Client
 
-        <a class="method-permalink" href="#store_mongo_client%3AMongo%3A%3AClient%7CNil-class-method">#</a>
+        <a class="method-permalink" href="#store_mongo_client%3AMongo%3A%3AClient-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -549,12 +635,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_mongo_client=(store_mongo_client:Mongo::Client|Nil)-class-method">
+    <div class="entry-detail" id="store_mongo_client=(store_mongo_client:Mongo::Client)-class-method">
       <div class="signature">
         
-        def self.<strong>store_mongo_client=</strong>(store_mongo_client : Mongo::Client | Nil)
+        def self.<strong>store_mongo_client=</strong>(store_mongo_client : Mongo::Client)
 
-        <a class="method-permalink" href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method">#</a>
+        <a class="method-permalink" href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -568,12 +654,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_regex:Crymon::Globals::StoreRegexType-class-method">
+    <div class="entry-detail" id="store_regex:StoreRegexType-class-method">
       <div class="signature">
         
-        def self.<strong>store_regex</strong> : <a href="../Crymon/Globals/StoreRegexType.html">Crymon::Globals::StoreRegexType</a>
+        def self.<strong>store_regex</strong> : <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
 
-        <a class="method-permalink" href="#store_regex%3ACrymon%3A%3AGlobals%3A%3AStoreRegexType-class-method">#</a>
+        <a class="method-permalink" href="#store_regex%3AStoreRegexType-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -587,50 +673,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_settings:Crymon::Globals::StoreSettings|Nil-class-method">
+    <div class="entry-detail" id="store_super_collection_name-class-method">
       <div class="signature">
         
-        def self.<strong>store_settings</strong> : <a href="../Crymon/Globals/StoreSettings.html">Crymon::Globals::StoreSettings</a> | Nil
+        def self.<strong>store_super_collection_name</strong>
 
-        <a class="method-permalink" href="#store_settings%3ACrymon%3A%3AGlobals%3A%3AStoreSettings%7CNil-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Global project settings.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="store_settings=(store_settings:Crymon::Globals::StoreSettings|Nil)-class-method">
-      <div class="signature">
-        
-        def self.<strong>store_settings=</strong>(store_settings : <a href="../Crymon/Globals/StoreSettings.html">Crymon::Globals::StoreSettings</a> | Nil)
-
-        <a class="method-permalink" href="#store_settings%3D%28store_settings%3ACrymon%3A%3AGlobals%3A%3AStoreSettings%7CNil%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Global project settings.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="store_super_collection_name:String-class-method">
-      <div class="signature">
-        
-        def self.<strong>store_super_collection_name</strong> : String
-
-        <a class="method-permalink" href="#store_super_collection_name%3AString-class-method">#</a>
+        <a class="method-permalink" href="#store_super_collection_name-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -644,6 +692,34 @@ Super collection is used for:</p>
 <li><em>Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю.</em></li>
 </ul>
         </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_unique_app_key:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_unique_app_key</strong> : String
+
+        <a class="method-permalink" href="#store_unique_app_key%3AString-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="store_unique_app_key=(store_unique_app_key:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>store_unique_app_key=</strong>(store_unique_app_key : String)
+
+        <a class="method-permalink" href="#store_unique_app_key%3D%28store_unique_app_key%3AString%29-class-method">#</a>
+      </div>
       
       <br/>
       <div>
