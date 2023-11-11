@@ -11,7 +11,7 @@ module Crymon::Globals
   # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
   class_getter store_super_collection_name = "SUPER_COLLECTION"
   # Global project settings.
-  class_property store_settings = Hash(Symbol, StoreSettingTypes).new
+  class_property store_settings : StoreSettings?
   # Global storage for regex caching.
   class_getter store_regex : StoreRegexType = NamedTuple.new(
     model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
@@ -77,31 +77,31 @@ module Crymon::Globals
     service_name: Regex,
   )
 
-  # Type of values for global settings.
-  alias StoreSettingTypes = String | Int32 | UInt32 | Int64 | Float64 |
-                            Range(Int32, Int32) | Range(UInt32, UInt32) |
-                            Range(Int64, Int64) | Range(Float64, Float64) |
-                            Array(String) | Array(Int32) | Array(UInt32) |
-                            Array(Int64) | Array(Float64) | Bool
+  # Type for global settings.
+  struct StoreSettings
+    getter app_name : String
+    getter unique_app_key : String
+    getter database_name : String?
 
-  # For validate global settings.
-  struct ValidStoreSettings
-    def self.validation
-      self.valid_app_name Crymon::Globals.store_settings[:app_name]
-      self.valid_unique_app_key Crymon::Globals.store_settings[:unique_app_key]
-      if Crymon::Globals.store_settings[:database_name]?.nil?
-        app_name = Crymon::Globals.store_settings[:app_name]
-        unique_app_key = Crymon::Globals.store_settings[:unique_app_key]
-        Crymon::Globals.store_settings[:database_name] = "#{app_name}_#{unique_app_key}"
+    def initialize(
+      @app_name : String,
+      @unique_app_key : String,
+      database_name : String? = nil
+    )
+      self.valid_app_name @app_name
+      self.valid_unique_app_key @unique_app_key
+      if database_name.nil?
+        @database_name = "#{@app_name}_#{@unique_app_key}"
       else
-        self.valid_database_name Crymon::Globals.store_settings[:database_name]
+        self.valid_database_name database_name
+        @database_name = database_name
       end
     end
 
     # App name = Project name.
     # WARNING: Maximum 44 characters.
     # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
-    def self.valid_app_name(app_name : String)
+    def valid_app_name(app_name : String)
       raise Crymon::Errors::StoreSettingsExcessChars.new(
         "app_name", 44
       ) if app_name.size > 44
@@ -115,7 +115,7 @@ module Crymon::Globals
 
     # Unique project key.
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
-    def self.valid_unique_app_key(unique_app_key : String)
+    def valid_unique_app_key(unique_app_key : String)
       unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
         raise Crymon::Errors::StoreSettingsRegexFails.new(
           "unique_app_key",
@@ -126,7 +126,7 @@ module Crymon::Globals
 
     # Database name.
     # WARNING: Maximum 60 characters.
-    def self.valid_database_name(database_name : String)
+    def valid_database_name(database_name : String)
       raise Crymon::Errors::StoreSettingsExcessChars.new(
         "database_name", 60
       ) if database_name.size > 60
