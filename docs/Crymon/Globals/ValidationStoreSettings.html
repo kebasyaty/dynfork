@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Globals::StoreSettings - crymon v0-dev</title>
+  <title>Crymon::Globals::ValidationStoreSettings - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -347,8 +347,8 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Globals/StoreSettings" data-name="crymon::globals::storesettings">
-      <a href="../../Crymon/Globals/StoreSettings.html">StoreSettings</a>
+  <li class=" current" data-id="crymon/Crymon/Globals/ValidationStoreSettings" data-name="crymon::globals::validationstoresettings">
+      <a href="../../Crymon/Globals/ValidationStoreSettings.html">ValidationStoreSettings</a>
       
     </li>
   
@@ -386,12 +386,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Globals::<wbr>StoreSettings
+  <span class="kind">struct</span> Crymon::<wbr>Globals::<wbr>ValidationStoreSettings
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Globals/StoreSettings.html">Crymon::Globals::StoreSettings</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Globals/ValidationStoreSettings.html">Crymon::Globals::ValidationStoreSettings</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -405,7 +405,7 @@
     Overview
   </h2>
 
-  <p>Type for global project settings.</p>
+  <p>Validation global Crymon settings.</p>
 
 
 
@@ -450,13 +450,51 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cdatabase_name%3AString%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, database_name : String | Nil = <span class="n">nil</span>)</a>
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
         
       </li>
     
   </ul>
 
 
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#valid_app_name%28app_name%3AString%29-class-method" class="signature"><strong>.valid_app_name</strong>(app_name : String)</a>
+        
+          <div class="summary"><p>App name = Project name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#valid_database_name%28database_name%3AString%29-class-method" class="signature"><strong>.valid_database_name</strong>(database_name : String)</a>
+        
+          <div class="summary"><p>Database name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#valid_unique_app_key%28unique_app_key%3AString%29-class-method" class="signature"><strong>.valid_unique_app_key</strong>(unique_app_key : String)</a>
+        
+          <div class="summary"><p>Unique project key.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#validation-class-method" class="signature"><strong>.validation</strong></a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -471,38 +509,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#app_name%3AString-instance-method" class="signature"><strong>#app_name</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#database_name%3AString%7CNil-instance-method" class="signature"><strong>#database_name</strong> : String | Nil</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_valid_app_name%28app_name%3AString%29-instance-method" class="signature"><strong>#is_valid_app_name</strong>(app_name : String)</a>
-        
-          <div class="summary"><p>App name = Project name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_valid_database_name%28database_name%3AString%29-instance-method" class="signature"><strong>#is_valid_database_name</strong>(database_name : String)</a>
-        
-          <div class="summary"><p>Database name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_valid_unique_app_key%28unique_app_key%3AString%29-instance-method" class="signature"><strong>#is_valid_unique_app_key</strong>(unique_app_key : String)</a>
-        
-          <div class="summary"><p>Unique project key.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#unique_app_key%3AString-instance-method" class="signature"><strong>#unique_app_key</strong> : String</a>
+        <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
         
       </li>
     
@@ -556,12 +563,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,database_name:String|Nil=nil)-class-method">
+    <div class="entry-detail" id="new-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(app_name : String, unique_app_key : String, database_name : String | Nil = <span class="n">nil</span>)
+        def self.<strong>new</strong>
 
-        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cdatabase_name%3AString%7CNil%3Dnil%29-class-method">#</a>
+        <a class="method-permalink" href="#new-class-method">#</a>
       </div>
       
       <br/>
@@ -570,54 +577,24 @@
       </div>
     </div>
   
-
-
 
 
 
   <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Detail
+    Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="app_name:String-instance-method">
+    <div class="entry-detail" id="valid_app_name(app_name:String)-class-method">
       <div class="signature">
         
-        def <strong>app_name</strong> : String
+        def self.<strong>valid_app_name</strong>(app_name : String)
 
-        <a class="method-permalink" href="#app_name%3AString-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="database_name:String|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>database_name</strong> : String | Nil
-
-        <a class="method-permalink" href="#database_name%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_valid_app_name(app_name:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>is_valid_app_name</strong>(app_name : String)
-
-        <a class="method-permalink" href="#is_valid_app_name%28app_name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#valid_app_name%28app_name%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -633,12 +610,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_valid_database_name(database_name:String)-instance-method">
+    <div class="entry-detail" id="valid_database_name(database_name:String)-class-method">
       <div class="signature">
         
-        def <strong>is_valid_database_name</strong>(database_name : String)
+        def self.<strong>valid_database_name</strong>(database_name : String)
 
-        <a class="method-permalink" href="#is_valid_database_name%28database_name%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#valid_database_name%28database_name%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -653,12 +630,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_valid_unique_app_key(unique_app_key:String)-instance-method">
+    <div class="entry-detail" id="valid_unique_app_key(unique_app_key:String)-class-method">
       <div class="signature">
         
-        def <strong>is_valid_unique_app_key</strong>(unique_app_key : String)
+        def self.<strong>valid_unique_app_key</strong>(unique_app_key : String)
 
-        <a class="method-permalink" href="#is_valid_unique_app_key%28unique_app_key%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#valid_unique_app_key%28unique_app_key%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -673,12 +650,38 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="unique_app_key:String-instance-method">
+    <div class="entry-detail" id="validation-class-method">
       <div class="signature">
         
-        def <strong>unique_app_key</strong> : String
+        def self.<strong>validation</strong>
 
-        <a class="method-permalink" href="#unique_app_key%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#validation-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="initialize-instance-method">
+      <div class="signature">
+        
+        def <strong>initialize</strong>
+
+        <a class="method-permalink" href="#initialize-instance-method">#</a>
       </div>
       
       <br/>
