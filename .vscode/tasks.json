@@ -13,7 +13,7 @@
         "crystal spec --tag global_alias;",
         "crystal spec --tag global_regex;",
         "crystal spec --tag global_settings;",
-        "crystal spec --tag global_other_vars;",
+        "crystal spec --tag global_super_collection;",
         "crystal spec --tag fields;",
         "crystal spec --tag model;",
         "crystal spec --tag mongo_client"
