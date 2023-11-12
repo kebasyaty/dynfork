@@ -11,7 +11,7 @@ a simplified alternative (Types of selective fields with dynamic addition of ele
 The project is focused on web development.
 <br>
 <br>
-_Compatible with MongoDB 3.6+. Tested against: 6.0_
+_Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
