@@ -31,5 +31,11 @@ describe Crymon::Globals do
         Array(Float64) | Bool | Nil
       )
     end
+
+    it "=> DataDynamicTypes - type checking", tags: "global_alias" do
+      Crymon::Globals::DataDynamicTypes.should eq(
+        Array(String) | Array(UInt32) | Array(Int64) | Array(Float64) | Nil
+      )
+    end
   end
 end
