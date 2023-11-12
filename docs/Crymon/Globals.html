@@ -67,6 +67,16 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsExcessChars" data-name="crymon::errors::cachesettingsexcesschars">
+      <a href="../Crymon/Errors/CacheSettingsExcessChars.html">CacheSettingsExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsRegexFails" data-name="crymon::errors::cachesettingsregexfails">
+      <a href="../Crymon/Errors/CacheSettingsRegexFails.html">CacheSettingsRegexFails</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../Crymon/Errors/CrymonException.html">CrymonException</a>
       
@@ -114,16 +124,6 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
       <a href="../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Errors/StoreSettingsExcessChars" data-name="crymon::errors::storesettingsexcesschars">
-      <a href="../Crymon/Errors/StoreSettingsExcessChars.html">StoreSettingsExcessChars</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Errors/StoreSettingsRegexFails" data-name="crymon::errors::storesettingsregexfails">
-      <a href="../Crymon/Errors/StoreSettingsRegexFails.html">StoreSettingsRegexFails</a>
       
     </li>
   
@@ -327,6 +327,11 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Globals/CacheRegexType" data-name="crymon::globals::cacheregextype">
+      <a href="../Crymon/Globals/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
       <a href="../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
       
@@ -342,13 +347,8 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/StoreRegexType" data-name="crymon::globals::storeregextype">
-      <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Globals/ValidationStoreSettings" data-name="crymon::globals::validationstoresettings">
-      <a href="../Crymon/Globals/ValidationStoreSettings.html">ValidationStoreSettings</a>
+  <li class=" " data-id="crymon/Crymon/Globals/ValidationCacheSettings" data-name="crymon::globals::validationcachesettings">
+      <a href="../Crymon/Globals/ValidationCacheSettings.html">ValidationCacheSettings</a>
       
     </li>
   
@@ -439,71 +439,71 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#store_app_name%3AString-class-method" class="signature"><strong>.store_app_name</strong> : String</a>
+        <a href="#cache_app_name%3AString-class-method" class="signature"><strong>.cache_app_name</strong> : String</a>
         
           <div class="summary"><p>Global Crymon settings.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_app_name%3D%28store_app_name%3AString%29-class-method" class="signature"><strong>.store_app_name=</strong>(store_app_name : String)</a>
+        <a href="#cache_app_name%3D%28cache_app_name%3AString%29-class-method" class="signature"><strong>.cache_app_name=</strong>(cache_app_name : String)</a>
         
           <div class="summary"><p>Global Crymon settings.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_database_name%3AString-class-method" class="signature"><strong>.store_database_name</strong> : String</a>
+        <a href="#cache_database_name%3AString-class-method" class="signature"><strong>.cache_database_name</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_database_name%3D%28store_database_name%3AString%29-class-method" class="signature"><strong>.store_database_name=</strong>(store_database_name : String)</a>
+        <a href="#cache_database_name%3D%28cache_database_name%3AString%29-class-method" class="signature"><strong>.cache_database_name=</strong>(cache_database_name : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_metadata-class-method" class="signature"><strong>.store_metadata</strong></a>
+        <a href="#cache_metadata-class-method" class="signature"><strong>.cache_metadata</strong></a>
         
           <div class="summary"><p>Global storage for metadata caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_mongo_client%3AMongo%3A%3AClient-class-method" class="signature"><strong>.store_mongo_client</strong> : Mongo::Client</a>
+        <a href="#cache_mongo_client%3AMongo%3A%3AClient-class-method" class="signature"><strong>.cache_mongo_client</strong> : Mongo::Client</a>
         
           <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%29-class-method" class="signature"><strong>.store_mongo_client=</strong>(store_mongo_client : Mongo::Client)</a>
+        <a href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%29-class-method" class="signature"><strong>.cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client)</a>
         
           <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_regex%3AStoreRegexType-class-method" class="signature"><strong>.store_regex</strong> : StoreRegexType</a>
+        <a href="#cache_regex%3ACacheRegexType-class-method" class="signature"><strong>.cache_regex</strong> : CacheRegexType</a>
         
           <div class="summary"><p>Global storage for regex caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_super_collection_name-class-method" class="signature"><strong>.store_super_collection_name</strong></a>
+        <a href="#cache_super_collection_name-class-method" class="signature"><strong>.cache_super_collection_name</strong></a>
         
           <div class="summary"><p>Global storage for super collection name caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_unique_app_key%3AString-class-method" class="signature"><strong>.store_unique_app_key</strong> : String</a>
+        <a href="#cache_unique_app_key%3AString-class-method" class="signature"><strong>.cache_unique_app_key</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#store_unique_app_key%3D%28store_unique_app_key%3AString%29-class-method" class="signature"><strong>.store_unique_app_key=</strong>(store_unique_app_key : String)</a>
+        <a href="#cache_unique_app_key%3D%28cache_unique_app_key%3AString%29-class-method" class="signature"><strong>.cache_unique_app_key=</strong>(cache_unique_app_key : String)</a>
         
       </li>
     
@@ -531,12 +531,12 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="store_app_name:String-class-method">
+    <div class="entry-detail" id="cache_app_name:String-class-method">
       <div class="signature">
         
-        def self.<strong>store_app_name</strong> : String
+        def self.<strong>cache_app_name</strong> : String
 
-        <a class="method-permalink" href="#store_app_name%3AString-class-method">#</a>
+        <a class="method-permalink" href="#cache_app_name%3AString-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -550,12 +550,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_app_name=(store_app_name:String)-class-method">
+    <div class="entry-detail" id="cache_app_name=(cache_app_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>store_app_name=</strong>(store_app_name : String)
+        def self.<strong>cache_app_name=</strong>(cache_app_name : String)
 
-        <a class="method-permalink" href="#store_app_name%3D%28store_app_name%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#cache_app_name%3D%28cache_app_name%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -569,12 +569,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_database_name:String-class-method">
+    <div class="entry-detail" id="cache_database_name:String-class-method">
       <div class="signature">
         
-        def self.<strong>store_database_name</strong> : String
+        def self.<strong>cache_database_name</strong> : String
 
-        <a class="method-permalink" href="#store_database_name%3AString-class-method">#</a>
+        <a class="method-permalink" href="#cache_database_name%3AString-class-method">#</a>
       </div>
       
       <br/>
@@ -583,12 +583,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_database_name=(store_database_name:String)-class-method">
+    <div class="entry-detail" id="cache_database_name=(cache_database_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>store_database_name=</strong>(store_database_name : String)
+        def self.<strong>cache_database_name=</strong>(cache_database_name : String)
 
-        <a class="method-permalink" href="#store_database_name%3D%28store_database_name%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#cache_database_name%3D%28cache_database_name%3AString%29-class-method">#</a>
       </div>
       
       <br/>
@@ -597,12 +597,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_metadata-class-method">
+    <div class="entry-detail" id="cache_metadata-class-method">
       <div class="signature">
         
-        def self.<strong>store_metadata</strong>
+        def self.<strong>cache_metadata</strong>
 
-        <a class="method-permalink" href="#store_metadata-class-method">#</a>
+        <a class="method-permalink" href="#cache_metadata-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -616,12 +616,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_mongo_client:Mongo::Client-class-method">
+    <div class="entry-detail" id="cache_mongo_client:Mongo::Client-class-method">
       <div class="signature">
         
-        def self.<strong>store_mongo_client</strong> : Mongo::Client
+        def self.<strong>cache_mongo_client</strong> : Mongo::Client
 
-        <a class="method-permalink" href="#store_mongo_client%3AMongo%3A%3AClient-class-method">#</a>
+        <a class="method-permalink" href="#cache_mongo_client%3AMongo%3A%3AClient-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -635,12 +635,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_mongo_client=(store_mongo_client:Mongo::Client)-class-method">
+    <div class="entry-detail" id="cache_mongo_client=(cache_mongo_client:Mongo::Client)-class-method">
       <div class="signature">
         
-        def self.<strong>store_mongo_client=</strong>(store_mongo_client : Mongo::Client)
+        def self.<strong>cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client)
 
-        <a class="method-permalink" href="#store_mongo_client%3D%28store_mongo_client%3AMongo%3A%3AClient%29-class-method">#</a>
+        <a class="method-permalink" href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%29-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -654,12 +654,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_regex:StoreRegexType-class-method">
+    <div class="entry-detail" id="cache_regex:CacheRegexType-class-method">
       <div class="signature">
         
-        def self.<strong>store_regex</strong> : <a href="../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
+        def self.<strong>cache_regex</strong> : <a href="../Crymon/Globals/CacheRegexType.html">CacheRegexType</a>
 
-        <a class="method-permalink" href="#store_regex%3AStoreRegexType-class-method">#</a>
+        <a class="method-permalink" href="#cache_regex%3ACacheRegexType-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -673,12 +673,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="store_super_collection_name-class-method">
+    <div class="entry-detail" id="cache_super_collection_name-class-method">
       <div class="signature">
         
-        def self.<strong>store_super_collection_name</strong>
+        def self.<strong>cache_super_collection_name</strong>
 
-        <a class="method-permalink" href="#store_super_collection_name-class-method">#</a>
+        <a class="method-permalink" href="#cache_super_collection_name-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -699,12 +699,12 @@ Super collection is used for:</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="store_unique_app_key:String-class-method">
+    <div class="entry-detail" id="cache_unique_app_key:String-class-method">
       <div class="signature">
         
-        def self.<strong>store_unique_app_key</strong> : String
+        def self.<strong>cache_unique_app_key</strong> : String
 
-        <a class="method-permalink" href="#store_unique_app_key%3AString-class-method">#</a>
+        <a class="method-permalink" href="#cache_unique_app_key%3AString-class-method">#</a>
       </div>
       
       <br/>
@@ -713,12 +713,12 @@ Super collection is used for:</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="store_unique_app_key=(store_unique_app_key:String)-class-method">
+    <div class="entry-detail" id="cache_unique_app_key=(cache_unique_app_key:String)-class-method">
       <div class="signature">
         
-        def self.<strong>store_unique_app_key=</strong>(store_unique_app_key : String)
+        def self.<strong>cache_unique_app_key=</strong>(cache_unique_app_key : String)
 
-        <a class="method-permalink" href="#store_unique_app_key%3D%28store_unique_app_key%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#cache_unique_app_key%3D%28cache_unique_app_key%3AString%29-class-method">#</a>
       </div>
       
       <br/>
