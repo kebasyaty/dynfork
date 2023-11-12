@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Crystal: spec",
+      "type": "crystal",
+      "command": "spec"
+    },
+    {
+      "label": "Crystal: spec tags",
+      "type": "shell",
+      "command": [
+        "crystal spec --tag global_alias;",
+        "crystal spec --tag global_regex;",
+        "crystal spec --tag global_settings;",
+        "crystal spec --tag global_super_collection;",
+        "crystal spec --tag fields;",
+        "crystal spec --tag model;",
+        "crystal spec --tag mongo_client"
+      ]
+    }
+  ]
+}
