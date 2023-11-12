@@ -74,4 +74,18 @@ describe Crymon::Globals do
       Crymon::Globals.cache_unique_app_key = "RT0839370A074kVh"
     end
   end
+
+  describe "cache_database_name" do
+    it "=> number of characters exceeded", tags: "global_settings" do
+      ex = expect_raises(Crymon::Errors::CacheSettingsExcessChars) do
+        Crymon::Globals.cache_database_name = "LoremIpsumDolorSitAmetConsecteturAdipiscingElitIntegerLacinia"
+        Crymon::Globals::ValidationCacheSettings.validation
+      end
+      ex.message.should eq(
+        %(Global settings > Parameter: "cache_database_name" => The line size of 60 characters has been exceeded.)
+      )
+      # Reset the state to working.
+      Crymon::Globals.cache_database_name = "DatabaseName360"
+    end
+  end
 end
