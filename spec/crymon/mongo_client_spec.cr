@@ -4,7 +4,7 @@ describe "Cryomongo" do
   it "=> initialize mongo client", tags: "mongo_client" do
     # Create a Mongo client.
     uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
-    client : Mongo::Client = Mongo::Client.new
+    client : Mongo::Client = Mongo::Client.new(uri)
 
     # Get database and collection.
     database = client["database_name"]
