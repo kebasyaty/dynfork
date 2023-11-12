@@ -23,5 +23,13 @@ describe Crymon::Globals do
         Crymon::Fields::BoolField
       )
     end
+
+    it "=> ValueTypes - type checking", tags: "global_alias" do
+      Crymon::Globals::ValueTypes.should eq(
+        String | UInt32 | Int64 | Float64 | Crymon::Fields::ImageData |
+        Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
+        Array(Float64) | Bool | Nil
+      )
+    end
   end
 end
