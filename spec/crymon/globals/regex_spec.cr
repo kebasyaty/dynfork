@@ -1,6 +1,17 @@
 require "../../spec_helper"
 
 describe Crymon::Globals do
+  it "=> cache_regex - type checking", tags: "global_regex" do
+    Crymon::Globals.cache_regex.should eq(
+      NamedTuple.new(
+        model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
+        app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
+        unique_app_key: /^[a-zA-Z0-9]{16}$/,
+        service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
+      )
+    )
+  end
+
   describe "Regular Expression" do
     it "=> for model_name", tags: "global_regex" do
       r : Regex = Crymon::Globals.cache_regex[:model_name]
