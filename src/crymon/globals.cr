@@ -111,6 +111,9 @@ module Crymon::Globals
     # Unique project key.
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
     def self.valid_unique_app_key(unique_app_key : String)
+      raise Crymon::Errors::CacheSettingsExcessChars.new(
+        "cache_unique_app_key", 16
+      ) if unique_app_key.size > 16
       unless Crymon::Globals.cache_regex[:unique_app_key].matches?(unique_app_key)
         raise Crymon::Errors::CacheSettingsRegexFails.new(
           "cache_unique_app_key",
