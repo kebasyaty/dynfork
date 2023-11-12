@@ -1,6 +1,6 @@
 module Crymon::Globals
   # Global storage for metadata caching.
-  class_getter cache_metadata = Hash(String, Crymon::Globals::StoreMetaDataType).new
+  class_getter cache_metadata = Hash(String, Crymon::Globals::CacheMetaDataType).new
   # Global storage for Mongodb client caching.
   class_property cache_mongo_client : Mongo::Client = Mongo::Client.new
   # Global storage for super collection name caching.
@@ -50,7 +50,7 @@ module Crymon::Globals
   alias DataDynamicTypes = Array(String) | Array(UInt32) | Array(Int64) | Array(Float64) | Nil
 
   # A type for caching Metadata of Model.
-  alias StoreMetaDataType = NamedTuple(
+  alias CacheMetaDataType = NamedTuple(
     model_name: String,
     service_name: String,
     collection_name: String,

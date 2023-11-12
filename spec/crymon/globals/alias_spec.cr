@@ -37,5 +37,30 @@ describe Crymon::Globals do
         Array(String) | Array(UInt32) | Array(Int64) | Array(Float64) | Nil
       )
     end
+
+    it "=> CacheMetaDataType - type checking", tags: "global_alias" do
+      Crymon::Globals::CacheMetaDataType.should eq(
+        NamedTuple(
+          model_name: String,
+          service_name: String,
+          collection_name: String,
+          db_query_docs_limit: UInt32,
+          field_count: Int32,
+          field_name_list: Array(String),
+          field_type_list: Array(String),
+          field_name_and_type_list: Hash(String, String),
+          default_value_list: Hash(String, Crymon::Globals::ValueTypes),
+          is_add_doc: Bool,
+          is_up_doc: Bool,
+          is_del_doc: Bool,
+          is_use_addition: Bool,
+          is_use_hooks: Bool,
+          is_use_hash_slug: Bool,
+          ignore_fields: Array(String),
+          field_attrs: Hash(String, NamedTuple(id: String, name: String)),
+          data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes),
+        )
+      )
+    end
   end
 end
