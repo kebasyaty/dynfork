@@ -48,7 +48,7 @@ describe Crymon::Model do
       m.created_at.value.should eq("2023-11-02")
       m.updated_at.value.should eq("2023-11-02")
       # Testing metadata.
-      metadata = Crymon::Globals.store_metadata[m.model_key]
+      metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
@@ -92,7 +92,7 @@ describe Crymon::Model do
 
     it "=> create instance of Model with a predefined service name", tags: "model" do
       m = Helper::ParamDBNameModel.new
-      metadata = Crymon::Globals.store_metadata[m.model_key]
+      metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
     end
 
@@ -101,14 +101,18 @@ describe Crymon::Model do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
           Helper::NoParamServiceNameModel.new
         end
-        ex.message.should eq(%(Model: NoParamServiceNameModel => Missing "service_name" parameter for Meta.))
+        ex.message.should eq(
+          %(Model: NoParamServiceNameModel => Missing "service_name" parameter for Meta.)
+        )
       end
 
       it "=> the names in the list of ignored fields do not match", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaIgnoredFieldMissing) do
           Helper::IncorrectIgnoredListModel.new
         end
-        ex.message.should eq(%(Model: IncorrectIgnoredListModel > Meta parameter: "ignore_fields" => The "birthday" field is missing from the list of ignored fields.))
+        ex.message.should eq(
+          %(Model: IncorrectIgnoredListModel > Meta parameter: "ignore_fields" => The "birthday" field is missing from the list of ignored fields.)
+        )
       end
     end
   end

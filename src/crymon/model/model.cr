@@ -25,8 +25,8 @@ module Crymon
       # Injection of metadata from storage.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
-        @{{ var }}.id = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:id]
-        @{{ var }}.name = Crymon::Globals.store_metadata[model_key][:field_attrs][var_name][:name]
+        @{{ var }}.id = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:id]
+        @{{ var }}.name = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:name]
       {% end %}
     end
 
@@ -63,7 +63,7 @@ module Crymon
       # Get model key.
       model_key : String = self.model_key
       # Stop caching if metadata is in storage.
-      return unless Crymon::Globals.store_metadata[model_key]?.nil?
+      return unless Crymon::Globals.cache_metadata[model_key]?.nil?
       # Check the model for the presence of variables (fields).
       {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
@@ -75,7 +75,7 @@ module Crymon
       # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
-      unless Crymon::Globals.store_regex[:model_name].matches?(model_name)
+      unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Service Name = Application subsection = Module name.
@@ -85,7 +85,7 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
-      unless Crymon::Globals.store_regex[:service_name].matches?(service_name)
+      unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Collection name.
@@ -159,7 +159,7 @@ module Crymon
       )
       #
       # Add metadata to the global store.
-      Crymon::Globals.store_metadata[model_key] = {
+      Crymon::Globals.cache_metadata[model_key] = {
         # Model name = Structure name.
         model_name: model_name,
         # Service Name = Application subsection = Module name.

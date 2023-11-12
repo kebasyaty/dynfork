@@ -2,8 +2,8 @@ require "../../spec_helper"
 
 describe Crymon::Globals do
   describe "Regular Expression" do
-    it "=> for model_name", tags: "globals_regex" do
-      r : Regex = Crymon::Globals.store_regex[:model_name]
+    it "=> for model_name", tags: "global_regex" do
+      r : Regex = Crymon::Globals.cache_regex[:model_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("360").should be_false
@@ -19,8 +19,8 @@ describe Crymon::Globals do
       r.matches?("MODELNAME360").should be_true
     end
 
-    it "=> for app_name", tags: "globals_regex" do
-      r : Regex = Crymon::Globals.store_regex[:app_name]
+    it "=> for app_name", tags: "global_regex" do
+      r : Regex = Crymon::Globals.cache_regex[:app_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("electric car store").should be_false
@@ -37,8 +37,8 @@ describe Crymon::Globals do
     end
 
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    it "=> for unique_app_key", tags: "globals_regex" do
-      r : Regex = Crymon::Globals.store_regex[:unique_app_key]
+    it "=> for unique_app_key", tags: "global_regex" do
+      r : Regex = Crymon::Globals.cache_regex[:unique_app_key]
       # Negative:
       r.matches?("").should be_false
       # < 16 characters
@@ -52,8 +52,8 @@ describe Crymon::Globals do
       r.matches?("x4N83BGV26b3Npg2").should be_true
     end
 
-    it "=> for service_name", tags: "globals_regex" do
-      r : Regex = Crymon::Globals.store_regex[:service_name]
+    it "=> for service_name", tags: "global_regex" do
+      r : Regex = Crymon::Globals.cache_regex[:service_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("Auto parts").should be_false
