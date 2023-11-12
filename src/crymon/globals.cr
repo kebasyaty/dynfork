@@ -1,21 +1,21 @@
 module Crymon::Globals
   # Global storage for metadata caching.
-  class_getter store_metadata = Hash(String, Crymon::Globals::StoreMetaDataType).new
+  class_getter cache_metadata = Hash(String, Crymon::Globals::StoreMetaDataType).new
   # Global storage for Mongodb client caching.
-  class_property store_mongo_client : Mongo::Client = Mongo::Client.new
+  class_property cache_mongo_client : Mongo::Client = Mongo::Client.new
   # Global storage for super collection name caching.
   # <br>
   # <br>
   # Super collection is used for:
   # - _Store technical data for Models migration into a database._
   # - _Store dynamic field data for simulate relationship Many-to-One and Many-to-Manyю._
-  class_getter store_super_collection_name = "SUPER_COLLECTION"
+  class_getter cache_super_collection_name = "SUPER_COLLECTION"
   # Global Crymon settings.
-  class_property store_app_name : String = ""
-  class_property store_unique_app_key : String = ""
-  class_property store_database_name : String = ""
+  class_property cache_app_name : String = ""
+  class_property cache_unique_app_key : String = ""
+  class_property cache_database_name : String = ""
   # Global storage for regex caching.
-  class_getter store_regex : StoreRegexType = NamedTuple.new(
+  class_getter cache_regex : CacheRegexType = NamedTuple.new(
     model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
     unique_app_key: /^[a-zA-Z0-9]{16}$/,
@@ -72,7 +72,7 @@ module Crymon::Globals
   )
 
   # A type for caching regular expressions.
-  alias StoreRegexType = NamedTuple(
+  alias CacheRegexType = NamedTuple(
     model_name: Regex,
     app_name: Regex,
     unique_app_key: Regex,
@@ -80,16 +80,16 @@ module Crymon::Globals
   )
 
   # Validation global Crymon settings.
-  struct ValidationStoreSettings
+  struct ValidationCacheSettings
     def self.validation
-      self.valid_app_name Crymon::Globals.store_app_name
-      self.valid_unique_app_key Crymon::Globals.store_unique_app_key
-      if Crymon::Globals.store_database_name.empty?
-        app_name = Crymon::Globals.store_app_name
-        unique_app_key = Crymon::Globals.store_unique_app_key
-        Crymon::Globals.store_database_name = "#{app_name}_#{unique_app_key}"
+      self.valid_app_name Crymon::Globals.cache_app_name
+      self.valid_unique_app_key Crymon::Globals.cache_unique_app_key
+      if Crymon::Globals.cache_database_name.empty?
+        app_name = Crymon::Globals.cache_app_name
+        unique_app_key = Crymon::Globals.cache_unique_app_key
+        Crymon::Globals.cache_database_name = "#{app_name}_#{unique_app_key}"
       else
-        self.valid_database_name Crymon::Globals.store_database_name
+        self.valid_database_name Crymon::Globals.cache_database_name
       end
     end
 
@@ -97,12 +97,12 @@ module Crymon::Globals
     # WARNING: Maximum 44 characters.
     # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
     def self.valid_app_name(app_name : String)
-      raise Crymon::Errors::StoreSettingsExcessChars.new(
-        "app_name", 44
+      raise Crymon::Errors::CacheSettingsExcessChars.new(
+        "cache_app_name", 44
       ) if app_name.size > 44
-      unless Crymon::Globals.store_regex[:app_name].matches?(app_name)
-        raise Crymon::Errors::StoreSettingsRegexFails.new(
-          "app_name",
+      unless Crymon::Globals.cache_regex[:app_name].matches?(app_name)
+        raise Crymon::Errors::CacheSettingsRegexFails.new(
+          "cache_app_name",
           "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/"
         )
       end
@@ -111,9 +111,12 @@ module Crymon::Globals
     # Unique project key.
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
     def self.valid_unique_app_key(unique_app_key : String)
-      unless Crymon::Globals.store_regex[:unique_app_key].matches?(unique_app_key)
-        raise Crymon::Errors::StoreSettingsRegexFails.new(
-          "unique_app_key",
+      raise Crymon::Errors::CacheSettingsExcessChars.new(
+        "cache_unique_app_key", 16
+      ) if unique_app_key.size > 16
+      unless Crymon::Globals.cache_regex[:unique_app_key].matches?(unique_app_key)
+        raise Crymon::Errors::CacheSettingsRegexFails.new(
+          "cache_unique_app_key",
           "/^[a-zA-Z0-9]{16}$/"
         )
       end
@@ -122,8 +125,8 @@ module Crymon::Globals
     # Database name.
     # WARNING: Maximum 60 characters.
     def self.valid_database_name(database_name : String)
-      raise Crymon::Errors::StoreSettingsExcessChars.new(
-        "database_name", 60
+      raise Crymon::Errors::CacheSettingsExcessChars.new(
+        "cache_database_name", 60
       ) if database_name.size > 60
     end
   end

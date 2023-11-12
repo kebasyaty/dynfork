@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::StoreSettingsExcessChars - crymon v0-dev</title>
+  <title>Crymon::Globals::CacheRegexType - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -62,10 +62,20 @@
       
         <ul>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsExcessChars" data-name="crymon::errors::cachesettingsexcesschars">
+      <a href="../../Crymon/Errors/CacheSettingsExcessChars.html">CacheSettingsExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsRegexFails" data-name="crymon::errors::cachesettingsregexfails">
+      <a href="../../Crymon/Errors/CacheSettingsRegexFails.html">CacheSettingsRegexFails</a>
+      
+    </li>
   
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
@@ -114,16 +124,6 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
       <a href="../../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
-      
-    </li>
-  
-  <li class=" current" data-id="crymon/Crymon/Errors/StoreSettingsExcessChars" data-name="crymon::errors::storesettingsexcesschars">
-      <a href="../../Crymon/Errors/StoreSettingsExcessChars.html">StoreSettingsExcessChars</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Errors/StoreSettingsRegexFails" data-name="crymon::errors::storesettingsregexfails">
-      <a href="../../Crymon/Errors/StoreSettingsRegexFails.html">StoreSettingsRegexFails</a>
       
     </li>
   
@@ -322,10 +322,15 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../Crymon/Globals.html">Globals</a>
       
         <ul>
+  
+  <li class=" current" data-id="crymon/Crymon/Globals/CacheRegexType" data-name="crymon::globals::cacheregextype">
+      <a href="../../Crymon/Globals/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
   
   <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
       <a href="../../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
@@ -342,13 +347,8 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Globals/StoreRegexType" data-name="crymon::globals::storeregextype">
-      <a href="../../Crymon/Globals/StoreRegexType.html">StoreRegexType</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Globals/ValidationStoreSettings" data-name="crymon::globals::validationstoresettings">
-      <a href="../../Crymon/Globals/ValidationStoreSettings.html">ValidationStoreSettings</a>
+  <li class=" " data-id="crymon/Crymon/Globals/ValidationCacheSettings" data-name="crymon::globals::validationcachesettings">
+      <a href="../../Crymon/Globals/ValidationCacheSettings.html">ValidationCacheSettings</a>
       
     </li>
   
@@ -386,12 +386,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>StoreSettingsExcessChars
+  <span class="kind">alias</span> Crymon::<wbr>Globals::<wbr>CacheRegexType
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/StoreSettingsExcessChars.html">Crymon::Errors::StoreSettingsExcessChars</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -405,9 +403,19 @@
     Overview
   </h2>
 
-  <p>The allowed number of characters in global settings has been exceeded.</p>
+  <p>A type for caching regular expressions.</p>
 
 
+
+  <h2>
+    <a id="alias-definition" class="anchor" href="#alias-definition">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Alias Definition
+  </h2>
+  <code>{model_name: Regex, app_name: Regex, unique_app_key: Regex, service_name: Regex}</code>
 
 
 
@@ -430,7 +438,7 @@
   </h2>
   
     
-      src\crymon\errors.cr
+      src\crymon\globals.cr
     
     <br/>
   
@@ -438,23 +446,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28parameter_name%3AString%2Climit_size%3AUInt32%29-class-method" class="signature"><strong>.new</strong>(parameter_name : String, limit_size : UInt32)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -466,72 +457,8 @@
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(parameter_name:String,limit_size:UInt32)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(parameter_name : String, limit_size : UInt32)
-
-        <a class="method-permalink" href="#new%28parameter_name%3AString%2Climit_size%3AUInt32%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
