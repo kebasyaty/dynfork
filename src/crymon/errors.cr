@@ -13,7 +13,7 @@ module Crymon::Errors
   # The global settings fails regular expression validation.
   class CacheSettingsRegexFails < CrymonException
     def initialize(parameter_name : String, regex_str : String)
-      super(%(Global settings > Parameter: "#{parameter_name}" => Regular expression check fails: "#{regex_str}".))
+      super(%(Global settings > Parameter: "#{parameter_name}" => Regular expression check fails: #{regex_str}.))
     end
   end
 
@@ -41,7 +41,7 @@ module Crymon::Errors
   # The metadata parameter fails regular expression validation.
   class MetaParamRegexFails < CrymonException
     def initialize(model_name : String, parameter_name : String, regex_str : String)
-      super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => Regular expression check fails: "#{regex_str}".))
+      super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => Regular expression check fails: #{regex_str}.))
     end
   end
 
@@ -62,7 +62,7 @@ module Crymon::Errors
   # The Model name fails regular expression validation.
   class ModelNameRegexFails < CrymonException
     def initialize(model_name : String, regex_str : String)
-      super(%(Model: #{model_name} => The model name fails the regular expression test "#{regex_str}".))
+      super(%(Model: #{model_name} => The model name fails the regular expression test #{regex_str}.))
     end
   end
 

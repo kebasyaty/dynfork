@@ -36,5 +36,15 @@ describe Crymon::Globals do
         %(Global settings > Parameter: "cache_app_name" => The line size of 44 characters has been exceeded.)
       )
     end
+
+    it "=> not matching regular expression", tags: "global_settings" do
+      ex = expect_raises(Crymon::Errors::CacheSettingsRegexFails) do
+        Crymon::Globals.cache_app_name = "Lorem ipsum dolor sit amet consectetur adipi"
+        Crymon::Globals::ValidationCacheSettings.validation
+      end
+      ex.message.should eq(
+        %(Global settings > Parameter: "cache_app_name" => Regular expression check fails: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/.)
+      )
+    end
   end
 end

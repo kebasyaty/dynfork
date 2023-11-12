@@ -15,7 +15,7 @@ module Crymon::Globals
   class_property cache_unique_app_key : String = ""
   class_property cache_database_name : String = ""
   # Global storage for regex caching.
-  class_getter cache_regex : StoreRegexType = NamedTuple.new(
+  class_getter cache_regex : CacheRegexType = NamedTuple.new(
     model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
     unique_app_key: /^[a-zA-Z0-9]{16}$/,
@@ -72,7 +72,7 @@ module Crymon::Globals
   )
 
   # A type for caching regular expressions.
-  alias StoreRegexType = NamedTuple(
+  alias CacheRegexType = NamedTuple(
     model_name: Regex,
     app_name: Regex,
     unique_app_key: Regex,
