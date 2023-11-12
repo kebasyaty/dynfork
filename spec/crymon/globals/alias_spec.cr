@@ -62,5 +62,16 @@ describe Crymon::Globals do
         )
       )
     end
+
+    it "=> CacheRegexType - type checking", tags: "global_alias" do
+      Crymon::Globals::CacheRegexType.should eq(
+        NamedTuple(
+          model_name: Regex,
+          app_name: Regex,
+          unique_app_key: Regex,
+          service_name: Regex,
+        )
+      )
+    end
   end
 end
