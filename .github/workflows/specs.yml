@@ -7,11 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
-        os: [ubuntu-22.04]
         mongodb-version: [7.0, 6.0]
 
     container:
