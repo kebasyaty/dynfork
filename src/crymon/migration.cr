@@ -3,7 +3,7 @@
 # your models (adding a field, deleting a collection, etc.) into
 # your database schema.
 module Crymon::Migration
-  # For monitoring the state of models.
+  # Monitoring and updating the database of application.
   struct Monitor
     getter app_name : String
     getter unique_app_key : String
