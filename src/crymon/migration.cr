@@ -11,7 +11,7 @@ module Crymon::Migration
 
     getter collection_name : String
     getter field_list : Array(String)
-    getter field_types : Hash(String, Crymon::Globals::FieldTypes)
+    getter field_types : Hash(String, String)
     property is_updated_state : Bool = false
     getter is_model : Bool = true
 
