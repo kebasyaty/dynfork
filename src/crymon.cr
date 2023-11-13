@@ -4,6 +4,7 @@ require "./crymon/model/*"
 require "./crymon/fields/*"
 require "./crymon/migration"
 #
+require "bson"
 require "cryomongo"
 
 # ORM-like API MongoDB for Crystal.
