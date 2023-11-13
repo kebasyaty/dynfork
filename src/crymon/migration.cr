@@ -3,7 +3,7 @@
 # your models (adding a field, deleting a collection, etc.) into
 # your database schema.
 module Crymon::Migration
-  # Monitoring and updating the database of application.
+  # Monitoring and update the database state for the application.
   struct Monitor
     def initialize(
       app_name : String,
@@ -19,6 +19,13 @@ module Crymon::Migration
         Crymon::Globals.cache_database_name = database_name
       end
       Crymon::Globals::ValidationCacheSettings.validation
+    end
+
+    # 1) Add a super collection to the database if it is missing.
+    # <br>
+    # 2) Update the state of Models in the super collection.
+    def refresh
+      # ...
     end
   end
 end
