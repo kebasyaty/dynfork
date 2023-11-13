@@ -25,7 +25,15 @@ module Crymon::Migration
     # <br>
     # 2) Update the state of Models in the super collection.
     def refresh
-      # ...
+      # Get database and super collection.
+      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
+      super_collection = database[Crymon::Globals.cache_super_collection_name]
+      #
+      if super_collection.count_documents == 0
+        # ...
+      else
+        # ...
+      end
     end
   end
 end
