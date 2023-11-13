@@ -5,6 +5,8 @@
 module Crymon::Migration
   # To control the state of Models in the super collection.
   struct ModelState
+    include BSON::Serializable
+
     getter collection_name : String
     getter field_list : Array(String)
     getter field_types : Hash(String, Crymon::Globals::FieldTypes)
@@ -50,7 +52,7 @@ module Crymon::Migration
         # Fetch a Cursor pointing to the super collection.
         cursor = super_collection.find(filter)
         cursor.each { |document|
-        # ...
+          model_state = ModelState.from_bson(document)
         }
       end
     end
