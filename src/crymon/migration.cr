@@ -15,7 +15,7 @@ module Crymon::Migration
       Crymon::Globals.cache_app_name = app_name
       Crymon::Globals.cache_unique_app_key = unique_app_key
       Crymon::Globals.cache_mongo_client = Mongo::Client.new(mongo_uri)
-      unless @database_name.empty?
+      unless database_name.empty?
         Crymon::Globals.cache_database_name = database_name
       end
       Crymon::Globals::ValidationCacheSettings.validation
