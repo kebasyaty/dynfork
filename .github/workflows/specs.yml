@@ -43,3 +43,4 @@ jobs:
           crystal spec --tag fields
           crystal spec --tag model
           crystal spec --tag mongo_client
+          crystal spec --tag migration

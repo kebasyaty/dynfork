@@ -26,6 +26,7 @@ module Crymon::Migration
       unless @database_name.empty?
         Crymon::Globals.cache_database_name = @database_name
       end
+      Crymon::Globals::ValidationCacheSettings.validation
     end
   end
 end

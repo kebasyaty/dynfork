@@ -2,6 +2,7 @@ require "./crymon/errors"
 require "./crymon/globals"
 require "./crymon/model/*"
 require "./crymon/fields/*"
+require "./crymon/migration"
 #
 require "cryomongo"
 
