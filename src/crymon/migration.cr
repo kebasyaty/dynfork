@@ -53,6 +53,10 @@ module Crymon::Migration
         cursor = super_collection.find(filter)
         cursor.each { |document|
           model_state = ModelState.from_bson(document)
+          model_state.is_updated_state = false
+          filter = {"collection_name": model_state.collection_name}
+          update = {"$set": model_state.to_bson}
+          super_collection.update_one(filter, update)
         }
       end
     end
