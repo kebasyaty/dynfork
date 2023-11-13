@@ -3,13 +3,20 @@
 # your models (adding a field, deleting a collection, etc.) into
 # your database schema.
 module Crymon::Migration
-  # To control the status of Models in the super collection.
+  # To control the state of Models in the super collection.
   struct ModelState
     getter collection_name : String
     getter field_list : Array(String)
     getter field_types : Hash(String, Crymon::Globals::FieldTypes)
     property is_updated_state : Bool = false
     getter is_model : Bool = true
+
+    def initialize(
+      @collection_name : String,
+      @field_list : Array(String),
+      @field_types : Hash(String, Crymon::Globals::FieldTypes)
+    )
+    end
   end
 
   # Monitoring and update the database state for the application.
