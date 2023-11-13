@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Globals::DataDynamicTypes - crymon v0-dev</title>
+  <title>Crymon::Migration::ModelState - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -322,7 +322,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../Crymon/Globals.html">Globals</a>
       
         <ul>
@@ -337,7 +337,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
+  <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
       <a href="../../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
       
     </li>
@@ -367,12 +367,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Migration" data-name="crymon::migration">
+  <li class="parent open current" data-id="crymon/Crymon/Migration" data-name="crymon::migration">
       <a href="../../Crymon/Migration.html">Migration</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Migration/ModelState" data-name="crymon::migration::modelstate">
+  <li class=" current" data-id="crymon/Crymon/Migration/ModelState" data-name="crymon::migration::modelstate">
       <a href="../../Crymon/Migration/ModelState.html">ModelState</a>
       
     </li>
@@ -406,10 +406,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> Crymon::<wbr>Globals::<wbr>DataDynamicTypes
+  <span class="kind">struct</span> Crymon::<wbr>Migration::<wbr>ModelState
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Migration/ModelState.html">Crymon::Migration::ModelState</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -423,21 +425,25 @@
     Overview
   </h2>
 
-  <p>Data types to select in dynamic fields.</p>
+  <p>To control the state of Models in the super collection.</p>
+
+
 
 
 
   <h2>
-    <a id="alias-definition" class="anchor" href="#alias-definition">
+    <a id="included-modules" class="anchor" href="#included-modules">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Alias Definition
+    Included Modules
   </h2>
-  <code>Array(Float64) | Array(Int64) | Array(String) | Array(UInt32) | Nil</code>
-
-
+  <ul class="other-types-list">
+    
+      <li class="other-type">BSON::Serializable</li>
+    
+  </ul>
 
 
 
@@ -458,7 +464,7 @@
   </h2>
   
     
-      src\crymon\globals.cr
+      src\crymon\migration.cr
     
     <br/>
   
@@ -467,9 +473,101 @@
 
 
 
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28collection_name%3AString%2Cfield_list%3AArray%28String%29%2Cfield_types%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29%29-class-method" class="signature"><strong>.new</strong>(collection_name : String, field_list : Array(String), field_types : Hash(String, Crymon::Globals::FieldTypes))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28bson%3ABSON%29-class-method" class="signature"><strong>.new</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p>Allocate an instance and copies data from a BSON struct.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from_bson%28bson%3ABSON%29-class-method" class="signature"><strong>.from_bson</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_list%3AArray%28String%29%2Cfield_types%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29%29-class-method">.new</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#collection_name%3AString-instance-method" class="signature"><strong>#collection_name</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_list%3AArray%28String%29-instance-method" class="signature"><strong>#field_list</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_types%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#field_types</strong> : Hash(String, String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_model%3ABool-instance-method" class="signature"><strong>#is_model</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_updated_state%3ABool-instance-method" class="signature"><strong>#is_updated_state</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_updated_state%3D%28is_updated_state%3ABool%29-instance-method" class="signature"><strong>#is_updated_state=</strong>(is_updated_state : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_bson%28bson%3DBSON.new%29-instance-method" class="signature"><strong>#to_bson</strong>(bson = <span class="t">BSON</span>.new)</a>
+        
+          <div class="summary"><p>Converts to a BSON representation.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -477,12 +575,249 @@
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(collection_name:String,field_list:Array(String),field_types:Hash(String,Crymon::Globals::FieldTypes))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(collection_name : String, field_list : Array(String), field_types : Hash(String, <a href="../../Crymon/Globals/FieldTypes.html">Crymon::Globals::FieldTypes</a>))
+
+        <a class="method-permalink" href="#new%28collection_name%3AString%2Cfield_list%3AArray%28String%29%2Cfield_types%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#new%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allocate an instance and copies data from a BSON struct.</p>
+<pre><code class="language-crystal">class User
+  include BSON::Serializable
+  property name : String
+end
+
+data = BSON.new
+data[&quot;name&quot;] = &quot;John&quot;
+User.new(data)
+```</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="from_bson(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_bson</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#from_bson%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_list%3AArray%28String%29%2Cfield_types%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29%29-class-method">.new</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="collection_name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>collection_name</strong> : String
+
+        <a class="method-permalink" href="#collection_name%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_list:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>field_list</strong> : Array(String)
+
+        <a class="method-permalink" href="#field_list%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_types:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>field_types</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#field_types%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_model:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_model</strong> : Bool
+
+        <a class="method-permalink" href="#is_model%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_updated_state:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_updated_state</strong> : Bool
+
+        <a class="method-permalink" href="#is_updated_state%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_updated_state=(is_updated_state:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>is_updated_state=</strong>(is_updated_state : Bool)
+
+        <a class="method-permalink" href="#is_updated_state%3D%28is_updated_state%3ABool%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_bson(bson=BSON.new)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_bson</strong>(bson = <span class="t">BSON</span>.new)
+
+        <a class="method-permalink" href="#to_bson%28bson%3DBSON.new%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts to a BSON representation.</p>
+<pre><code class="language-crystal">user = User.new name: &quot;John&quot;
+bson = user.to_bson
+```</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
