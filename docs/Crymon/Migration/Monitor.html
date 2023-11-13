@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::EmailField - crymon v0-dev</title>
+  <title>Crymon::Migration::Monitor - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -132,7 +132,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
       <a href="../../Crymon/Fields.html">Fields</a>
       
         <ul>
@@ -237,7 +237,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Fields/EmailField" data-name="crymon::fields::emailfield">
+  <li class=" " data-id="crymon/Crymon/Fields/EmailField" data-name="crymon::fields::emailfield">
       <a href="../../Crymon/Fields/EmailField.html">EmailField</a>
       
     </li>
@@ -367,12 +367,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Migration" data-name="crymon::migration">
+  <li class="parent open current" data-id="crymon/Crymon/Migration" data-name="crymon::migration">
       <a href="../../Crymon/Migration.html">Migration</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor">
+  <li class=" current" data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor">
       <a href="../../Crymon/Migration/Monitor.html">Monitor</a>
       
     </li>
@@ -401,12 +401,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>EmailField
+  <span class="kind">struct</span> Crymon::<wbr>Migration::<wbr>Monitor
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/EmailField.html">Crymon::Fields::EmailField</a></li><li class="superclass"><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Migration/Monitor.html">Crymon::Migration::Monitor</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -420,7 +420,7 @@
     Overview
   </h2>
 
-  <p>Field for entering Email addresses.</p>
+  <p>Monitoring and update the database state for the application.</p>
 
 
 
@@ -445,7 +445,7 @@
   </h2>
   
     
-      src\crymon\fields\email.cr
+      src\crymon\migration.cr
     
     <br/>
   
@@ -465,14 +465,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Field for entering Email addresses.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D320%2Cminlength%3AUInt32%3D0%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">320</span>, minlength : UInt32 = <span class="n">0</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -493,72 +486,11 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
+        <a href="#refresh-instance-method" class="signature"><strong>#refresh</strong></a>
         
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
-        
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
-        
-          <div class="summary"><p>Html tag: input type=&quot;url&quot;.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#maxlength%3AUInt32-instance-method" class="signature"><strong>#maxlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#minlength%3AUInt32-instance-method" class="signature"><strong>#minlength</strong> : UInt32</a>
-        
-          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
-        
-          <div class="summary"><p>Displays prompt text.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3AString%7CNil-instance-method" class="signature"><strong>#value</strong> : String | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><ol>
+<li>Add a super collection to the database if it is missing.</li>
+</ol></div>
         
       </li>
     
@@ -569,159 +501,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
-      <span>css_classes : String</span>
-    css_classes</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
-      <span>is_disabled : Bool</span>
-    is_disabled</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
-      <span>is_hide : Bool</span>
-    is_hide</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
-      <span>is_readonly : Bool</span>
-    is_readonly</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
-      <span>is_required : Bool</span>
-    is_required</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
-      <span>other_attrs : String</span>
-    other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
     
 
@@ -765,31 +544,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,database_name:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(pull : JSON::PullParser)
+        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field for entering Email addresses.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,maxlength:UInt32=320,minlength:UInt32=0,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : UInt32 = <span class="n">320</span>, minlength : UInt32 = <span class="n">0</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>)
-
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AUInt32%3D320%2Cminlength%3AUInt32%3D0%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -812,189 +572,21 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="default:String|Nil-instance-method">
+    <div class="entry-detail" id="refresh-instance-method">
       <div class="signature">
         
-        def <strong>default</strong> : String | Nil
+        def <strong>refresh</strong>
 
-        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#refresh-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>field_type</strong> : String
-
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field type - Structure Name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="group:UInt8-instance-method">
-      <div class="signature">
-        
-        def <strong>group</strong> : UInt8
-
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="input_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>input_type</strong> : String
-
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Html tag: input type=&quot;url&quot;.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_unique:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="maxlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>maxlength</strong> : UInt32
-
-        <a class="method-permalink" href="#maxlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The maximum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="minlength:UInt32-instance-method">
-      <div class="signature">
-        
-        def <strong>minlength</strong> : UInt32
-
-        <a class="method-permalink" href="#minlength%3AUInt32-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The minimum number of characters allowed in the text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="placeholder:String-instance-method">
-      <div class="signature">
-        
-        def <strong>placeholder</strong> : String
-
-        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Displays prompt text.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:String|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : String | Nil
-
-        <a class="method-permalink" href="#value%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:String|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : String | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
+          <ol>
+<li>Add a super collection to the database if it is missing.</li>
+</ol>
+<br>
+2) Update the state of Models in the super collection.
         </div>
       
       <br/>
