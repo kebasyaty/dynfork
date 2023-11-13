@@ -27,4 +27,15 @@ describe Crymon::Migration::Monitor do
       Crymon::Globals.cache_database_name.should eq("DatabaseName360")
     end
   end
+
+  describe ".refresh" do
+    it "=> create instance and run refresh method", tags: "migration" do
+      m = Crymon::Migration::Monitor.new(
+        "app_name": "AppName",
+        "unique_app_key": "070kI4s05i8F8uep",
+        "mongo_uri": "mongodb://localhost:27017"
+      )
+      m.refresh.should be_nil
+    end
+  end
 end
