@@ -29,11 +29,6 @@ module Crymon::Migration
       database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
       super_collection = database[Crymon::Globals.cache_super_collection_name]
       #
-      if super_collection.count_documents == 0
-        # ...
-      else
-        # ...
-      end
     end
   end
 end
