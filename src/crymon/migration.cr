@@ -48,19 +48,16 @@ module Crymon::Migration
       # Get database and super collection.
       database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
       super_collection = database[Crymon::Globals.cache_super_collection_name]
+      # Fetch a Cursor pointing to the super collection.
+      cursor = super_collection.find({is_model: true})
       # Reset Models state information.
-      filter = {is_model: true}
-      if super_collection.count_documents(filter) > 0
-        # Fetch a Cursor pointing to the super collection.
-        cursor = super_collection.find(filter)
-        cursor.each { |document|
-          model_state = ModelState.from_bson(document)
-          model_state.is_updated_state = false
-          filter = {"collection_name": model_state.collection_name}
-          update = {"$set": model_state.to_bson}
-          super_collection.update_one(filter, update)
-        }
-      end
+      cursor.each { |document|
+        model_state = ModelState.from_bson(document)
+        model_state.is_updated_state = false
+        filter = {"collection_name": model_state.collection_name}
+        update = {"$set": model_state.to_bson}
+        super_collection.update_one(filter, update)
+      }
     end
   end
 end
