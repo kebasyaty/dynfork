@@ -1,5 +1,6 @@
 require "../spec_helper"
 
+# https://github.com/elbywan/cryomongo
 describe "Cryomongo" do
   it "=> initialize mongo client", tags: "mongo_client" do
     # Create a Mongo client.
