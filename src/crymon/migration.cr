@@ -17,8 +17,9 @@ module Crymon::Migration
 
     def initialize(
       @collection_name : String,
-      @field_list : Array(String),
-      @field_types : Hash(String, Crymon::Globals::FieldTypes)
+      @field_name_list : Array(String),
+      @field_name_and_type_list : Hash(String, String),
+      @is_updated_state : Bool = false
     )
     end
   end
