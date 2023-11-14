@@ -470,7 +470,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_key_list%3AArray%28String%29%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_key_list : Array(String), database_name : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -491,11 +491,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#model_key_list%3AArray%28String%29-instance-method" class="signature"><strong>#model_key_list</strong> : Array(String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#refresh-instance-method" class="signature"><strong>#refresh</strong></a>
         
-          <div class="summary"><ol>
-<li>Add a super collection to the database if it is missing.</li>
-</ol></div>
+          <div class="summary"><p>Update the state of Models in the super collection.</p></div>
         
       </li>
     
@@ -549,12 +552,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,database_name:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,model_key_list:Array(String),database_name:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_key_list : Array(String), database_name : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_key_list%3AArray%28String%29%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -577,6 +580,20 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="model_key_list:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>model_key_list</strong> : Array(String)
+
+        <a class="method-permalink" href="#model_key_list%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="refresh-instance-method">
       <div class="signature">
         
@@ -587,11 +604,7 @@
       
         <div class="doc">
           
-          <ol>
-<li>Add a super collection to the database if it is missing.</li>
-</ol>
-<br>
-2) Update the state of Models in the super collection.
+          <p>Update the state of Models in the super collection.</p>
         </div>
       
       <br/>

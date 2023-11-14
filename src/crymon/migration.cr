@@ -10,25 +10,29 @@ module Crymon::Migration
     include BSON::Serializable
 
     getter collection_name : String
-    getter field_list : Array(String)
-    getter field_types : Hash(String, String)
-    property is_updated_state : Bool = false
-    getter is_model : Bool = true
+    getter field_name_list : Array(String)
+    getter field_name_and_type_list : Hash(String, String)
+    property? is_updated_state : Bool = false
+    getter? is_model : Bool = true
 
     def initialize(
       @collection_name : String,
-      @field_list : Array(String),
-      @field_types : Hash(String, Crymon::Globals::FieldTypes)
+      @field_name_list : Array(String),
+      @field_name_and_type_list : Hash(String, String),
+      @is_updated_state : Bool = false
     )
     end
   end
 
   # Monitoring and update the database state for the application.
   struct Monitor
+    getter model_key_list : Array(String)
+
     def initialize(
       app_name : String,
       unique_app_key : String,
       mongo_uri : String,
+      @model_key_list : Array(String),
       database_name : String = ""
     )
       # Update global storage state.
@@ -41,13 +45,12 @@ module Crymon::Migration
       Crymon::Globals::ValidationCacheSettings.validation
     end
 
-    # 1) Add a super collection to the database if it is missing.
-    # <br>
-    # 2) Update the state of Models in the super collection.
+    # Update the state of Models in the super collection.
     def refresh
-      # Get database and super collection.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
-      super_collection = database[Crymon::Globals.cache_super_collection_name]
+      # Get super collection.
+      super_collection = Crymon::Globals.cache_mongo_client[
+        Crymon::Globals.cache_database_name][
+        Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor = super_collection.find({is_model: true})
       # Reset Models state information.
@@ -55,7 +58,7 @@ module Crymon::Migration
         model_state = ModelState.from_bson(document)
         model_state.is_updated_state = false
         filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state.to_bson}
+        update = {"$set": model_state}
         super_collection.update_one(filter, update)
       }
     end
