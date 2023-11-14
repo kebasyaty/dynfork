@@ -26,13 +26,13 @@ module Crymon::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
-    getter model_list : Array(Crymon::Model)
+    getter model_key_list : Array(String)
 
     def initialize(
       app_name : String,
       unique_app_key : String,
       mongo_uri : String,
-      @model_list : Array(Crymon::Model),
+      @model_key_list : Array(String),
       database_name : String = ""
     )
       # Update global storage state.
