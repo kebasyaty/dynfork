@@ -18,9 +18,9 @@ module Helper
     getter birthday = Crymon::Fields::DateField.new("default": "0000-00-00")
   end
 
-  # Model with a predefined database name.
+  # Auxiliary Model for tests.
   @[Crymon::Meta(service_name: "ServiceName")]
-  struct ParamDBNameModel < Crymon::Model
+  struct AuxiliaryModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
   end
 

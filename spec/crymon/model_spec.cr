@@ -90,8 +90,8 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end
 
-    it "=> create instance of Model with a predefined service name", tags: "model" do
-      m = Helper::ParamDBNameModel.new
+    it "=> create instance of auxiliary Model", tags: "model" do
+      m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
     end
