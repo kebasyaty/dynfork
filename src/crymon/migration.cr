@@ -41,9 +41,7 @@ module Crymon::Migration
       Crymon::Globals::ValidationCacheSettings.validation
     end
 
-    # 1) Add a super collection to the database if it is missing.
-    # <br>
-    # 2) Update the state of Models in the super collection.
+    # Update the state of Models in the super collection.
     def refresh
       # Get super collection.
       super_collection = Crymon::Globals.cache_mongo_client[
