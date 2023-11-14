@@ -4,7 +4,8 @@
     {
       "label": "Crystal: spec",
       "type": "crystal",
-      "command": "spec"
+      "command": "spec",
+      "problemMatcher": []
     },
     {
       "label": "Crystal: spec tags",
