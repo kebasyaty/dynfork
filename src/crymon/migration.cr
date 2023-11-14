@@ -10,8 +10,8 @@ module Crymon::Migration
     include BSON::Serializable
 
     getter collection_name : String
-    getter field_list : Array(String)
-    getter field_types : Hash(String, String)
+    getter field_name_list : Array(String)
+    getter field_name_and_type_list : Hash(String, String)
     property? is_updated_state : Bool = false
     getter? is_model : Bool = true
 
