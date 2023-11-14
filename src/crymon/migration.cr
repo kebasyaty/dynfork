@@ -10,14 +10,11 @@ module Crymon::Migration
     include BSON::Serializable
 
     getter collection_name : String
-    getter field_name_list : Array(String)
     getter field_name_and_type_list : Hash(String, String)
-    property? is_updated_state : Bool = false
-    getter? is_model : Bool = true
+    property? is_updated_state : Bool
 
     def initialize(
       @collection_name : String,
-      @field_name_list : Array(String),
       @field_name_and_type_list : Hash(String, String),
       @is_updated_state : Bool = false
     )
@@ -47,12 +44,12 @@ module Crymon::Migration
 
     # Update the state of Models in the super collection.
     def refresh
-      # Get super collection.
+      # Get super collection - State of Models and dynamic field data.
       super_collection = Crymon::Globals.cache_mongo_client[
         Crymon::Globals.cache_database_name][
         Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
-      cursor = super_collection.find({is_model: true})
+      cursor = super_collection.find
       # Reset Models state information.
       cursor.each { |document|
         model_state = ModelState.from_bson(document)
@@ -60,6 +57,24 @@ module Crymon::Migration
         filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
+      }
+    end
+
+    # Delete data for non-existent Models from a
+    # super collection and delete collections associated with those Models.
+    def napalm
+      # Get database of application.
+      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
+      # Get super collection - State of Models and dynamic field data.
+      super_collection = database[Crymon::Globals.cache_super_collection_name]
+      # Fetch a Cursor pointing to the super collection.
+      cursor = super_collection.find
+      # Delete data for non-existent Models.
+      cursor.each { |document|
+        model_state = ModelState.from_bson(document)
+        unless model_state.is_updated_state
+          # ...
+        end
       }
     end
   end

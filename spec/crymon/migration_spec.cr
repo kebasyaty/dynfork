@@ -5,28 +5,22 @@ describe Crymon::Migration do
     it "=> create instance without is_updated_state", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
-        "field_name_list": ["field_name", "field_name_2"],
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"}
       )
       ms.collection_name.should eq("ServiceName_ModelName")
-      ms.field_name_list.should eq(["field_name", "field_name_2"])
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
       ms.is_updated_state?.should be_false
-      ms.is_model?.should be_true
     end
 
     it "=> create instance with is_updated_state", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
-        "field_name_list": ["field_name", "field_name_2"],
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"},
         "is_updated_state": true
       )
       ms.collection_name.should eq("ServiceName_ModelName")
-      ms.field_name_list.should eq(["field_name", "field_name_2"])
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
       ms.is_updated_state?.should be_true
-      ms.is_model?.should be_true
     end
   end
 
