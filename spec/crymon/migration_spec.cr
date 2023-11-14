@@ -97,5 +97,20 @@ describe Crymon::Migration do
         m.refresh.should be_nil
       end
     end
+
+    describe ".napalm" do
+      it "=> create instance and run napalm method", tags: "migration" do
+        m = Crymon::Migration::Monitor.new(
+          "app_name": "AppName",
+          "unique_app_key": "070kI4s05i8F8uep",
+          "mongo_uri": "mongodb://localhost:27017",
+          "model_key_list": [
+            Helper::FilledModel.new.model_key,
+            Helper::AuxiliaryModel.new.model_key,
+          ]
+        )
+        m.napalm.should be_nil
+      end
+    end
   end
 end

@@ -72,7 +72,7 @@ module Crymon::Migration
       # Delete data for non-existent Models.
       cursor.each { |document|
         model_state = ModelState.from_bson(document)
-        unless model_state.is_updated_state
+        unless model_state.is_updated_state?
           collection_name = model_state.collection_name
           # Delete data for non-existent Model.
           super_collection.delete_one({"collection_name": collection_name})
