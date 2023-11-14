@@ -73,7 +73,11 @@ module Crymon::Migration
       cursor.each { |document|
         model_state = ModelState.from_bson(document)
         unless model_state.is_updated_state
-          # ...
+          collection_name = model_state.collection_name
+          # Delete data for non-existent Model.
+          super_collection.delete_one({"collection_name": collection_name})
+          # Delete collection associated with non-existent Model.
+          database.command(Mongo::Commands::Drop, name: collection_name)
         end
       }
     end
