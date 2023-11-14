@@ -45,9 +45,10 @@ module Crymon::Migration
     # <br>
     # 2) Update the state of Models in the super collection.
     def refresh
-      # Get database and super collection.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
-      super_collection = database[Crymon::Globals.cache_super_collection_name]
+      # Get super collection.
+      super_collection = Crymon::Globals.cache_mongo_client[
+        Crymon::Globals.cache_database_name][
+        Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor = super_collection.find({is_model: true})
       # Reset Models state information.
@@ -55,7 +56,7 @@ module Crymon::Migration
         model_state = ModelState.from_bson(document)
         model_state.is_updated_state = false
         filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state.to_bson}
+        update = {"$set": model_state}
         super_collection.update_one(filter, update)
       }
     end
