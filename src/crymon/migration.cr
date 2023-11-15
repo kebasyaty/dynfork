@@ -40,10 +40,15 @@ module Crymon::Migration
         Crymon::Globals.cache_database_name = database_name
       end
       Crymon::Globals::ValidationCacheSettings.validation
+      # Run the migration process.
+      # WARNING: It is not safe to change the order of methods.
+      self.refresh
+      self.migrat
+      self.napalm
     end
 
     # Update the state of Models in the super collection.
-    def refresh
+    private def refresh
       # Get super collection - State of Models and dynamic field data.
       super_collection = Crymon::Globals.cache_mongo_client[
         Crymon::Globals.cache_database_name][
@@ -62,7 +67,7 @@ module Crymon::Migration
 
     # Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
-    def napalm
+    private def napalm
       # Get database of application.
       database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
       # Get super collection - State of Models and dynamic field data.
@@ -80,6 +85,13 @@ module Crymon::Migration
           database.command(Mongo::Commands::Drop, name: collection_name)
         end
       }
+    end
+
+    # 1) Add models states to the super collection if missing.
+    # <br>
+    # 2) Check the changes in the models and (if necessary) apply to the database.
+    private def migrat
+      # ...
     end
   end
 end
