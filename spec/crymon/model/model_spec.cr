@@ -10,7 +10,6 @@ describe Crymon::Model do
     end
 
     it "=> create instance of filled Model", tags: "model" do
-      Crymon::Globals.cache_database_name = "DatabaseName360"
       m = Helper::FilledModel.new
       #
       m.model_key.should eq("ServiceName_FilledModel")
@@ -81,7 +80,6 @@ describe Crymon::Model do
     end
 
     it "=> create instance of auxiliary Model", tags: "model" do
-      Crymon::Globals.cache_database_name = "DatabaseName360"
       m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
