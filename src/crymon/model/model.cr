@@ -141,18 +141,6 @@ module Crymon
         {% end %}
         hash
       )
-      # Get data for dynamic fields.
-      data_dynamic_fields : Hash(String, Crymon::Globals::DataDynamicTypes) = (
-        super_collection = Crymon::Globals.cache_mongo_client[
-          Crymon::Globals.cache_database_name][
-          Crymon::Globals.cache_super_collection_name]
-        document = super_collection.find_one({"collection_name": collection_name})
-        unless document.nil?
-          Crymon::Migration::ModelState.from_bson(document).data_dynamic_fields
-        else
-          Hash(String, Crymon::Globals::DataDynamicTypes).new
-        end
-      )
       #
       # Add metadata to the global store.
       Crymon::Globals.cache_metadata[model_key] = {
@@ -192,7 +180,7 @@ module Crymon
         # Attributes value for fields of Model: id, name.
         field_attrs: field_attrs,
         # Data for dynamic fields.
-        data_dynamic_fields: data_dynamic_fields,
+        data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes).new,
       }
     end
   end
