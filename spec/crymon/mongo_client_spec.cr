@@ -8,8 +8,8 @@ describe "Cryomongo" do
     client : Mongo::Client = Crymon::Globals.cache_mongo_client
 
     # Get database and collection.
-    database = client["database_name"]
-    collection = database["collection_name"]
+    database = client["test_database_name"]
+    collection = database["test_collection_name"]
 
     # Perform crud operations.
     collection.insert_one({one: 1})
