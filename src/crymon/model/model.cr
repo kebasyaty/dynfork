@@ -69,7 +69,7 @@ module Crymon
         # If there are no fields in the model, a FieldsMissing exception is raise.
         raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
-      # Model name = Structure name.
+      # Get model name = structure name.
       # <br>
       # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
       # WARNING: Maximum 25 characters.
@@ -78,7 +78,7 @@ module Crymon
       unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Service Name = Application subsection = Module name.
+      # Get service name = module name.
       # <br>
       # _Examples: Accounts | Smartphones | Washing machines | etc ..._
       # WARNING: Maximum 25 characters.
@@ -88,10 +88,10 @@ module Crymon
       unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
         raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Collection name.
+      # Get collection name.
       # WARNING: Maximum 50 characters.
       collection_name : String = "#{service_name}_#{model_name}"
-      # List of names and types of variables (fields).
+      # Get list of names and types of variables (fields).
       # <br>
       # _Format: <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
@@ -105,7 +105,7 @@ module Crymon
           Hash(String, String).new
         {% end %}
       )
-      # Default value list.
+      # Get default value list.
       # <br>
       # _Format: <field_name, default_value>_
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
@@ -119,7 +119,7 @@ module Crymon
           Hash(String, Crymon::Globals::ValueTypes).new
         {% end %}
       )
-      # List of field names that will not be saved to the database.
+      # Get list of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Meta)[:ignore_fields] }} ||
         Array(String).new
       (field_name_list = field_name_and_type_list.keys
@@ -128,7 +128,7 @@ module Crymon
           raise Crymon::Errors::MetaIgnoredFieldMissing.new(model_name, "ignore_fields", field_name)
         end
       end)
-      # Attributes value for fields of Model: id, name.
+      # Get attributes value for fields of Model: id, name.
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
         {% if @type.instance_vars.size > 3 %}
