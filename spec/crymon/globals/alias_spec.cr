@@ -34,7 +34,7 @@ describe Crymon::Globals do
 
     it "=> DataDynamicTypes - type checking", tags: "global_alias" do
       Crymon::Globals::DataDynamicTypes.should eq(
-        Array(String | UInt32 | Int64 | Float64) | Nil
+        Array(String | UInt32 | Int64 | Float64)
       )
     end
 

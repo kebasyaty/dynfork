@@ -48,7 +48,7 @@ module Crymon::Globals
                      Array(Float64) | Bool | Nil
 
   # Data types to select in dynamic fields.
-  alias DataDynamicTypes = Array(String | UInt32 | Int64 | Float64) | Nil
+  alias DataDynamicTypes = Array(String | UInt32 | Int64 | Float64)
 
   # A type for caching Metadata of Model.
   alias CacheMetaDataType = NamedTuple(
