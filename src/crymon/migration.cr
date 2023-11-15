@@ -11,7 +11,7 @@ module Crymon::Migration
 
     getter collection_name : String
     getter field_name_and_type_list : Hash(String, String)
-    property data_dynamic_fields : Hash(String, Crymon::Globals::DataDynamicTypes)?
+    property data_dynamic_fields : Hash(String, Array(String))?
     property? is_updated_state : Bool
 
     def initialize(
