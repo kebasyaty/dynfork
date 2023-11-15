@@ -11,7 +11,7 @@ module Crymon::Migration
 
     getter collection_name : String
     getter field_name_and_type_list : Hash(String, String)
-    property data_dynamic_fields : Hash(String, Array(String))?
+    property data_dynamic_fields : Hash(String, Crymon::Globals::DataDynamicTypes)?
     property? is_updated_state : Bool
 
     def initialize(
@@ -58,7 +58,7 @@ module Crymon::Migration
       cursor = super_collection.find
       # Reset Models state information.
       cursor.each { |document|
-        model_state = ModelState.from_bson(document)
+        model_state = Crymon::Migration::ModelState.from_bson(document)
         model_state.is_updated_state = false
         filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
@@ -77,7 +77,7 @@ module Crymon::Migration
       cursor = super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
-        model_state = ModelState.from_bson(document)
+        model_state = Crymon::Migration::ModelState.from_bson(document)
         unless model_state.is_updated_state?
           collection_name = model_state.collection_name
           # Delete data for non-existent Model.
