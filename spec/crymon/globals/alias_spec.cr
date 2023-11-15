@@ -46,8 +46,6 @@ describe Crymon::Globals do
           collection_name: String,
           db_query_docs_limit: UInt32,
           field_count: Int32,
-          field_name_list: Array(String),
-          field_type_list: Array(String),
           field_name_and_type_list: Hash(String, String),
           default_value_list: Hash(String, Crymon::Globals::ValueTypes),
           is_add_doc: Bool,

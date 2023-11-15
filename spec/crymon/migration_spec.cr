@@ -5,28 +5,22 @@ describe Crymon::Migration do
     it "=> create instance without is_updated_state", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
-        "field_name_list": ["field_name", "field_name_2"],
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"}
       )
       ms.collection_name.should eq("ServiceName_ModelName")
-      ms.field_name_list.should eq(["field_name", "field_name_2"])
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
       ms.is_updated_state?.should be_false
-      ms.is_model?.should be_true
     end
 
     it "=> create instance with is_updated_state", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
-        "field_name_list": ["field_name", "field_name_2"],
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"},
         "is_updated_state": true
       )
       ms.collection_name.should eq("ServiceName_ModelName")
-      ms.field_name_list.should eq(["field_name", "field_name_2"])
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
       ms.is_updated_state?.should be_true
-      ms.is_model?.should be_true
     end
   end
 
@@ -86,21 +80,6 @@ describe Crymon::Migration do
           metadata = Crymon::Globals.cache_metadata[model_key]
           metadata["service_name"].should eq("ServiceName")
         end
-      end
-    end
-
-    describe ".refresh" do
-      it "=> create instance and run refresh method", tags: "migration" do
-        m = Crymon::Migration::Monitor.new(
-          "app_name": "AppName",
-          "unique_app_key": "070kI4s05i8F8uep",
-          "mongo_uri": "mongodb://localhost:27017",
-          "model_key_list": [
-            Helper::FilledModel.new.model_key,
-            Helper::AuxiliaryModel.new.model_key,
-          ]
-        )
-        m.refresh.should be_nil
       end
     end
   end

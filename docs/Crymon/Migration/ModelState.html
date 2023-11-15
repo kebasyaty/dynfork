@@ -484,7 +484,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28collection_name%3AString%2Cfield_name_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(collection_name : String, field_name_list : Array(String), field_name_and_type_list : Hash(String, String), is_updated_state : Bool = <span class="n">false</span>)</a>
+        <a href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), is_updated_state : Bool = <span class="n">false</span>)</a>
         
       </li>
     
@@ -512,7 +512,7 @@
       <li class="entry-summary">
         <a href="#from_bson%28bson%3ABSON%29-class-method" class="signature"><strong>.from_bson</strong>(bson : BSON)</a>
         
-          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">.new</a></code>.</p></div>
+          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">.new</a></code>.</p></div>
         
       </li>
     
@@ -536,17 +536,17 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#data_dynamic_fields%3AHash%28String%2CArray%28String%29%29%7CNil-instance-method" class="signature"><strong>#data_dynamic_fields</strong> : Hash(String, Array(String)) | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data_dynamic_fields%3D%28data_dynamic_fields%3AHash%28String%2CArray%28String%29%29%7CNil%29-instance-method" class="signature"><strong>#data_dynamic_fields=</strong>(data_dynamic_fields : Hash(String, Array(String)) | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#field_name_and_type_list%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#field_name_and_type_list</strong> : Hash(String, String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_name_list%3AArray%28String%29-instance-method" class="signature"><strong>#field_name_list</strong> : Array(String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_model%3F%3ABool-instance-method" class="signature"><strong>#is_model?</strong> : Bool</a>
         
       </li>
     
@@ -627,12 +627,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(collection_name:String,field_name_list:Array(String),field_name_and_type_list:Hash(String,String),is_updated_state:Bool=false)-class-method">
+    <div class="entry-detail" id="new(collection_name:String,field_name_and_type_list:Hash(String,String),is_updated_state:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(collection_name : String, field_name_list : Array(String), field_name_and_type_list : Hash(String, String), is_updated_state : Bool = <span class="n">false</span>)
+        def self.<strong>new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), is_updated_state : Bool = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new%28collection_name%3AString%2Cfield_name_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">#</a>
       </div>
       
       <br/>
@@ -691,7 +691,7 @@ User.new(data)
       
         <div class="doc">
           
-          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_list%3AArray%28String%29%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">.new</a></code>.</p>
+          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_updated_state%3ABool%3Dfalse%29-class-method">.new</a></code>.</p>
         </div>
       
       <br/>
@@ -726,40 +726,40 @@ User.new(data)
       </div>
     </div>
   
+    <div class="entry-detail" id="data_dynamic_fields:Hash(String,Array(String))|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>data_dynamic_fields</strong> : Hash(String, Array(String)) | Nil
+
+        <a class="method-permalink" href="#data_dynamic_fields%3AHash%28String%2CArray%28String%29%29%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data_dynamic_fields=(data_dynamic_fields:Hash(String,Array(String))|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>data_dynamic_fields=</strong>(data_dynamic_fields : Hash(String, Array(String)) | Nil)
+
+        <a class="method-permalink" href="#data_dynamic_fields%3D%28data_dynamic_fields%3AHash%28String%2CArray%28String%29%29%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="field_name_and_type_list:Hash(String,String)-instance-method">
       <div class="signature">
         
         def <strong>field_name_and_type_list</strong> : Hash(String, String)
 
         <a class="method-permalink" href="#field_name_and_type_list%3AHash%28String%2CString%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_name_list:Array(String)-instance-method">
-      <div class="signature">
-        
-        def <strong>field_name_list</strong> : Array(String)
-
-        <a class="method-permalink" href="#field_name_list%3AArray%28String%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_model?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_model?</strong> : Bool
-
-        <a class="method-permalink" href="#is_model%3F%3ABool-instance-method">#</a>
       </div>
       
       <br/>

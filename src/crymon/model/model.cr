@@ -91,23 +91,6 @@ module Crymon
       # Collection name.
       # WARNING: Maximum 50 characters.
       collection_name : String = "#{service_name}_#{model_name}"
-      # List of variable (field) names.
-      field_name_list : Array(String) = (
-        {% if @type.instance_vars.size > 3 %}
-          {{ @type.instance_vars.map &.name.stringify }}
-        {% else %}
-          Array(String).new
-        {% end %}
-      )
-      # List is a list of variable (field) types.
-      field_type_list : Array(String) = (
-        {% if @type.instance_vars.size > 3 %}
-          {{ @type.instance_vars.map &.type.stringify }}
-            .map { |name| name.split("::").last }
-        {% else %}
-          Array(String).new
-        {% end %}
-      )
       # List of names and types of variables (fields).
       # <br>
       # _Format: <field_name, field_type>_
@@ -139,11 +122,12 @@ module Crymon
       # List of field names that will not be saved to the database.
       ignore_fields : Array(String) = {{ @type.annotation(Crymon::Meta)[:ignore_fields] }} ||
         Array(String).new
+      (field_name_list = field_name_and_type_list.keys
       ignore_fields.each do |field_name|
         unless field_name_list.includes?(field_name)
           raise Crymon::Errors::MetaIgnoredFieldMissing.new(model_name, "ignore_fields", field_name)
         end
-      end
+      end)
       # Attributes value for fields of Model: id, name.
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
@@ -170,10 +154,6 @@ module Crymon
         db_query_docs_limit: {{ @type.annotation(Crymon::Meta)[:db_query_docs_limit] }} || 1000_u32,
         # Number of variables (fields).
         field_count: {{ @type.instance_vars.size }},
-        # List of variable (field) names.
-        field_name_list: field_name_list,
-        # List is a list of variable (field) types.
-        field_type_list: field_type_list,
         # List of names and types of variables (fields).
         # <br>
         # _Format: <field_name, field_type>_
