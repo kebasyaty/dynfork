@@ -9,7 +9,8 @@ describe "Cryomongo" do
 
     # Get database and collection.
     database = client["test_database_name"]
-    collection = database["test_collection_name"]
+    collection_name = "test_collection_name"
+    collection = database[collection_name]
 
     # Perform crud operations.
     collection.insert_one({one: 1})
@@ -19,6 +20,11 @@ describe "Cryomongo" do
     collection.count_documents.should eq(1)
     collection.delete_one({two: 2})
     collection.count_documents.should eq(0)
+    # Delete the database after the test.
+    cursor = database.list_collections("name_only": true)
+    cursor.each { |coll|
+      database.command(Mongo::Commands::Drop, name: coll["name"].as(String | Int32))
+    }
 
     # The overwhelming majority of programs should use a single client and should not bother with closing clients.
     # Otherwise, to free the underlying resources a client must be manually closed.

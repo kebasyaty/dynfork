@@ -86,9 +86,11 @@ describe Crymon::Migration::Monitor do
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
+      database_name = "test_database_name_2"
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
-        "unique_app_key": "0w7n5731X13s1641",
+        "unique_app_key": "0585I0S5huR5r08q",
+        "database_name": database_name,
         "mongo_uri": "mongodb://localhost:27017",
         "model_key_list": [
           Helper::FilledModel.new.model_key,
@@ -97,11 +99,13 @@ describe Crymon::Migration::Monitor do
       )
       #
       m.migrat.should be_nil
-      # Clear the database after the test.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
-      model_collection_name : String = Crymon::Globals.cache_metadata[
-        m.model_key][:collection_name]
-      database.command(Mongo::Commands::Drop, name: model_collection_name)
+      # Delete the database after the test.
+      client : Mongo::Client = Crymon::Globals.cache_mongo_client
+      database = client[database_name]
+      cursor = database.list_collections
+      cursor.each { |coll|
+        database.command(Mongo::Commands::Drop, name: coll["name"].as(String | Int32))
+      }
     end
   end
 end
