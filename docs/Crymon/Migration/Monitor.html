@@ -491,6 +491,13 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#migrat-instance-method" class="signature"><strong>#migrat</strong></a>
+        
+          <div class="summary"><p>Run migration process.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#model_key_list%3AArray%28String%29-instance-method" class="signature"><strong>#model_key_list</strong> : Array(String)</a>
         
       </li>
@@ -572,6 +579,36 @@
 </a>
     Instance Method Detail
   </h2>
+  
+    <div class="entry-detail" id="migrat-instance-method">
+      <div class="signature">
+        
+        def <strong>migrat</strong>
+
+        <a class="method-permalink" href="#migrat-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Run migration process.
+<br></p>
+<ol>
+<li>Update the state of Models in the super collection.</li>
+</ol>
+<br>
+2) Add models states to the super collection if missing.
+<br>
+3) Check the changes in the models and (if necessary) apply to the database.
+<br>
+4) Delete data for non-existent Models from a
+super collection and delete collections associated with those Models.
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
   
     <div class="entry-detail" id="model_key_list:Array(String)-instance-method">
       <div class="signature">
