@@ -12,12 +12,12 @@ module Crymon::Migration
     getter collection_name : String
     getter field_name_and_type_list : Hash(String, String)
     property data_dynamic_fields : Hash(String, Crymon::Globals::DataDynamicTypes)
-    property? is_updated_state : Bool
+    property? is_model_exists : Bool
 
     def initialize(
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
-      @is_updated_state : Bool = false
+      @is_model_exists : Bool = false
     )
       @data_dynamic_fields = Hash(String, Crymon::Globals::DataDynamicTypes).new
     end
@@ -46,16 +46,16 @@ module Crymon::Migration
 
     # Update the state of Models in the super collection.
     private def refresh
-      # Get database of application.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
       # Get super collection - State of Models and dynamic field data.
-      super_collection = database[Crymon::Globals.cache_super_collection_name]
+      super_collection = Crymon::Globals.cache_mongo_client[
+        Crymon::Globals.cache_database_name][
+        Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor : Mongo::Cursor = super_collection.find
       # Reset Models state information.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
-        model_state.is_updated_state = false
+        model_state.is_model_exists = false
         filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
@@ -74,7 +74,7 @@ module Crymon::Migration
       # Delete data for non-existent Models.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
-        unless model_state.is_updated_state?
+        unless model_state.is_model_exists?
           # Get the name of the collection associated with the Model.
           model_collection_name : String = model_state.collection_name
           # Delete data for non-existent Model.
@@ -114,24 +114,32 @@ module Crymon::Migration
           document = super_collection.find_one(filter)
           unless document.nil?
             # Get existing ModelState for the current model.
-            Crymon::Migration::ModelState.from_bson(document)
+            m_state = Crymon::Migration::ModelState.from_bson(document)
+            m_state.is_model_exists = true
+            m_state
           else
             # Create a new ModelState for current model.
-            model_state = Crymon::Migration::ModelState.new(
+            m_state = Crymon::Migration::ModelState.new(
               "collection_name": model_collection_name,
               "field_name_and_type_list": Crymon::Globals.cache_metadata[
                 model_key][:field_name_and_type_list],
-              "is_updated_state": true,
+              "is_model_exists": true,
             )
-            super_collection.insert_one(model_state.to_bson)
+            super_collection.insert_one(m_state.to_bson)
             database.command(Mongo::Commands::Create, name: model_collection_name)
-            model_state
+            m_state
           end
         )
         # Get dynamic field data and add it to the current model's metadata.
         model_state.data_dynamic_fields.each do |key, value|
           Crymon::Globals.cache_metadata[model_key][:data_dynamic_fields][key] = value
         end
+        # Some code...
+        # ----------------------------------------------------------------------
+        # ???
+        filter = {"collection_name": model_collection_name}
+        update = {"$set": model_state}
+        super_collection.update_one(filter, update)
       end
       # ------------------------------------------------------------------------
       # Delete data for non-existent Models from a
