@@ -25,6 +25,8 @@ module Crymon::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
+    getter database : Mongo::Database
+    getter super_collection : Mongo::Collection
     getter model_key_list : Array(String)
 
     def initialize(
@@ -42,58 +44,64 @@ module Crymon::Migration
         Crymon::Globals.cache_database_name = database_name
       end
       Crymon::Globals::ValidationCacheSettings.validation
-      # Run the migration process.
-      # WARNING: It is not safe to change the order of methods.
-      self.refresh
-      self.migrat
-      self.napalm
+      # Get database of application.
+      @database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
+      # Get super collection - State of Models and dynamic field data.
+      @super_collection = @database[Crymon::Globals.cache_super_collection_name]
     end
 
     # Update the state of Models in the super collection.
     private def refresh
-      # Get super collection - State of Models and dynamic field data.
-      super_collection = Crymon::Globals.cache_mongo_client[
-        Crymon::Globals.cache_database_name][
-        Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
-      cursor = super_collection.find
+      cursor = @super_collection.find
       # Reset Models state information.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
         model_state.is_updated_state = false
         filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
-        super_collection.update_one(filter, update)
+        @super_collection.update_one(filter, update)
       }
     end
 
     # Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
     private def napalm
-      # Get database of application.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
-      # Get super collection - State of Models and dynamic field data.
-      super_collection = database[Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
-      cursor = super_collection.find
+      cursor = @super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
         unless model_state.is_updated_state?
+          # Get the name of the collection associated with the Model.
           collection_name = model_state.collection_name
           # Delete data for non-existent Model.
-          super_collection.delete_one({"collection_name": collection_name})
+          @super_collection.delete_one({"collection_name": collection_name})
           # Delete collection associated with non-existent Model.
-          database.command(Mongo::Commands::Drop, name: collection_name)
+          @database.command(Mongo::Commands::Drop, name: collection_name)
         end
       }
     end
 
-    # 1) Add models states to the super collection if missing.
+    # Run the migration process.
     # <br>
-    # 2) Check the changes in the models and (if necessary) apply to the database.
-    private def migrat
+    # 1) Update the state of Models in the super collection.
+    # <br>
+    # 2) Add models states to the super collection if missing.
+    # <br>
+    # 3) Check the changes in the models and (if necessary) apply to the database.
+    # <br>
+    # 4) Delete data for non-existent Models from a
+    # super collection and delete collections associated with those Models.
+    def migrat
+      # Update the state of Models in the super collection.
+      self.refresh
+      # ------------------------------------------------------------------------
       # ...
+      # ------------------------------------------------------------------------
+      # Delete data for non-existent Models from a
+      # super collection and delete collections associated with those Models.
+      self.napalm
     end
   end
 end

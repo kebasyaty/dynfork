@@ -36,6 +36,7 @@ describe Crymon::Migration do
             Helper::AuxiliaryModel.new.model_key,
           ]
         )
+        m.migrat.should be_nil
         #
         Crymon::Globals.cache_app_name.should eq("AppName")
         Crymon::Globals.cache_unique_app_key.should eq("0w7n5731X13s1641")
@@ -55,6 +56,7 @@ describe Crymon::Migration do
             Helper::AuxiliaryModel.new.model_key,
           ]
         )
+        m.migrat.should be_nil
         #
         Crymon::Globals.cache_app_name.should eq("AppName")
         Crymon::Globals.cache_unique_app_key.should eq("0585I0S5huR5r08q")
@@ -73,6 +75,7 @@ describe Crymon::Migration do
             Helper::AuxiliaryModel.new.model_key,
           ]
         )
+        m.migrat.should be_nil
         #
         m.model_key_list.should eq(["ServiceName_FilledModel", "ServiceName_AuxiliaryModel"])
         #
