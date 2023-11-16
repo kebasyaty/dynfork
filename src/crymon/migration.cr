@@ -85,7 +85,7 @@ module Crymon::Migration
       }
     end
 
-    # Run the migration process.
+    # Run migration process.
     # <br>
     # 1) Update the state of Models in the super collection.
     # <br>
@@ -136,7 +136,7 @@ module Crymon::Migration
         end
         # Some code...
         # ----------------------------------------------------------------------
-        # ???
+        # Update the state of the current Model.
         filter = {"collection_name": model_collection_name}
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
