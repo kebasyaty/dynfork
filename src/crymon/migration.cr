@@ -100,7 +100,8 @@ module Crymon::Migration
       # Enumeration of keys for Model migration.
       @model_key_list.each do |model_key|
         # Get collection name for current model.
-        model_collection_name : String = Crymon::Globals.cache_metadata[model_key][:collection_name]
+        model_collection_name : String = Crymon::Globals.cache_metadata[
+          model_key][:collection_name]
         # Get ModelState for current model.
         model_state : Crymon::Migration::ModelState = (
           filter = {"collection_name": model_collection_name}
@@ -112,7 +113,8 @@ module Crymon::Migration
             # Create a new ModelState for current model.
             Crymon::Migration::ModelState.new(
               "collection_name": model_collection_name,
-              "field_name_and_type_list": Crymon::Globals.cache_metadata[model_key][:field_name_and_type_list],
+              "field_name_and_type_list": Crymon::Globals.cache_metadata[
+                model_key][:field_name_and_type_list],
               "is_updated_state": true,
             )
           end
