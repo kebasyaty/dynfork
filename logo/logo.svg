@@ -19,7 +19,7 @@
   <linearGradient id="linearGradient9" x1="119.98" x2="380.01" y1="88.89" y2="88.89" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2"/>
   <linearGradient id="linearGradient14" x1="68.477" x2="194.79" y1="-14.828" y2="-14.828" gradientUnits="userSpaceOnUse">
    <stop stop-color="#ffb200" stop-opacity=".2" offset="0"/>
-   <stop stop-color="#e10057" stop-opacity=".2" offset=".49718"/>
+   <stop stop-color="#e10057" stop-opacity=".2" offset=".75"/>
    <stop stop-color="#5a1a80" stop-opacity=".2" offset="1"/>
   </linearGradient>
  </defs>
