@@ -102,7 +102,7 @@ describe Crymon::Migration::Monitor do
       # Delete the database after the test.
       client : Mongo::Client = Crymon::Globals.cache_mongo_client
       database = client[database_name]
-      cursor = database.list_collections
+      cursor = database.list_collections("name_only": true)
       cursor.each { |coll|
         database.command(Mongo::Commands::Drop, name: coll["name"].as(String | Int32))
       }
