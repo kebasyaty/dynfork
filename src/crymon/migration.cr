@@ -53,7 +53,7 @@ module Crymon::Migration
     # Update the state of Models in the super collection.
     private def refresh
       # Fetch a Cursor pointing to the super collection.
-      cursor = @super_collection.find
+      cursor : Mongo::Cursor = @super_collection.find
       # Reset Models state information.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
@@ -68,13 +68,13 @@ module Crymon::Migration
     # super collection and delete collections associated with those Models.
     private def napalm
       # Fetch a Cursor pointing to the super collection.
-      cursor = @super_collection.find
+      cursor : Mongo::Cursor = @super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
         model_state = Crymon::Migration::ModelState.from_bson(document)
         unless model_state.is_updated_state?
           # Get the name of the collection associated with the Model.
-          collection_name = model_state.collection_name
+          collection_name : String = model_state.collection_name
           # Delete data for non-existent Model.
           @super_collection.delete_one({"collection_name": collection_name})
           # Delete collection associated with non-existent Model.
@@ -97,7 +97,31 @@ module Crymon::Migration
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------
-      # ...
+      # Enumeration of keys for Model migration.
+      @model_key_list.each do |model_key|
+        # Get collection name for current model.
+        model_collection_name : String = Crymon::Globals.cache_metadata[model_key][:collection_name]
+        # Get ModelState for current model.
+        model_state : Crymon::Migration::ModelState = (
+          filter = {"collection_name": model_collection_name}
+          document = @super_collection.find_one(filter)
+          unless document.nil?
+            # Get existing ModelState for the current model.
+            Crymon::Migration::ModelState.from_bson(document)
+          else
+            # Create a new ModelState for current model.
+            Crymon::Migration::ModelState.new(
+              "collection_name": model_collection_name,
+              "field_name_and_type_list": Crymon::Globals.cache_metadata[model_key][:field_name_and_type_list],
+              "is_updated_state": true,
+            )
+          end
+        )
+        # Get dynamic field data and add it to the current model's metadata.
+        model_state.data_dynamic_fields.each do |key, value|
+          Crymon::Globals.cache_metadata[model_key][:data_dynamic_fields][key] = value
+        end
+      end
       # ------------------------------------------------------------------------
       # Delete data for non-existent Models from a
       # super collection and delete collections associated with those Models.
