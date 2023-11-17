@@ -1,4 +1,5 @@
 require "spec"
+require "./testing_tools"
 require "../src/crymon"
 
 module Helper

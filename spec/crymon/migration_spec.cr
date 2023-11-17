@@ -87,7 +87,7 @@ describe Crymon::Migration::Monitor do
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
       # Generate data for test.
-      test_data = Crymon::Tools::Testing.generate_test_data
+      test_data = Helper::TestingTools.generate_test_data
       unique_app_key = test_data[:unique_app_key]
       database_name = test_data[:database_name]
       #
@@ -104,7 +104,7 @@ describe Crymon::Migration::Monitor do
       #
       m.migrat.should be_nil
       # Delete database after test.
-      Crymon::Tools::Testing.delete_test_db(database_name)
+      Helper::TestingTools.delete_test_db(database_name)
     end
   end
 end
