@@ -1,5 +1,5 @@
 # Auxiliary tools for testing.
-module Crymon::TestingTools
+module Crymon::Tools::Testing
   ALPHANUMERIC_CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
   # Delete database after test.

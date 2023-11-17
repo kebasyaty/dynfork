@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::TestingTools - crymon v0-dev</title>
+  <title>Crymon::Tools - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -392,8 +392,18 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/TestingTools" data-name="crymon::testingtools">
-      <a href="../Crymon/TestingTools.html">TestingTools</a>
+  <li class="parent open current" data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Testing" data-name="crymon::tools::testing">
+      <a href="../Crymon/Tools/Testing.html">Testing</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -411,24 +421,13 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Crymon::<wbr>TestingTools
+  <span class="kind">module</span> Crymon::<wbr>Tools
 
 </h1>
 
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p>Auxiliary tools for testing.</p>
 
 
 
@@ -453,68 +452,16 @@
   </h2>
   
     
-      src\crymon\tools\testing_tools.cr
+      src\crymon\tools\testing.cr
     
     <br/>
   
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="ALPHANUMERIC_CHARS">
-        <strong>ALPHANUMERIC_CHARS</strong> = <code><span class="s">&quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></code>
-      </dt>
-      
-    
-  </dl>
 
 
 
-
-
-  <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#delete_test_db%28database_name%3AString%29-class-method" class="signature"><strong>.delete_test_db</strong>(database_name : String)</a>
-        
-          <div class="summary"><p>Delete database after test.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method" class="signature"><strong>.generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)</a>
-        
-          <div class="summary"><p>Generate data for test.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#generate_unique_app_key%3AString-class-method" class="signature"><strong>.generate_unique_app_key</strong> : String</a>
-        
-          <div class="summary"><p>Generate unique app key.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -528,84 +475,6 @@
 
 
 
-
-  <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="delete_test_db(database_name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>delete_test_db</strong>(database_name : String)
-
-        <a class="method-permalink" href="#delete_test_db%28database_name%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Delete database after test.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="c"># Delete database after test.</span>
-<span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.delete_test_db(database_name)</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="generate_test_data:NamedTuple(unique_app_key:String,database_name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)
-
-        <a class="method-permalink" href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Generate data for test.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
-test_data <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.generate_test_data
-unique_app_key <span class="o">=</span> test_data[<span class="n">:unique_app_key</span>]
-database_name <span class="o">=</span> test_data[<span class="n">:database_name</span>]</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="generate_unique_app_key:String-class-method">
-      <div class="signature">
-        
-        def self.<strong>generate_unique_app_key</strong> : String
-
-        <a class="method-permalink" href="#generate_unique_app_key%3AString-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Generate unique app key.</p>
-<p>Example:</p>
-<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
-unique_app_key <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.generate_unique_app_key</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 

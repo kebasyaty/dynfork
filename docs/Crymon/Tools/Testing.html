@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::ChoiceI64MultField - crymon v0-dev</title>
+  <title>Crymon::Tools::Testing - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -132,7 +132,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
       <a href="../../Crymon/Fields.html">Fields</a>
       
         <ul>
@@ -177,7 +177,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Fields/ChoiceI64MultField" data-name="crymon::fields::choicei64multfield">
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64MultField" data-name="crymon::fields::choicei64multfield">
       <a href="../../Crymon/Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
       
     </li>
@@ -392,12 +392,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+  <li class="parent open current" data-id="crymon/Crymon/Tools" data-name="crymon::tools">
       <a href="../../Crymon/Tools.html">Tools</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Tools/Testing" data-name="crymon::tools::testing">
+  <li class=" current" data-id="crymon/Crymon/Tools/Testing" data-name="crymon::tools::testing">
       <a href="../../Crymon/Tools/Testing.html">Testing</a>
       
     </li>
@@ -421,12 +421,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>ChoiceI64MultField
+  <span class="kind">module</span> Crymon::<wbr>Tools::<wbr>Testing
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/ChoiceI64MultField.html">Crymon::Fields::ChoiceI64MultField</a></li><li class="superclass"><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -440,8 +438,7 @@
     Overview
   </h2>
 
-  <p>Type of selective field with static of elements.</p>
-<p><span class="flag purple">NOTE</span>  With multiple choice.</p>
+  <p>Auxiliary tools for testing.</p>
 
 
 
@@ -466,117 +463,70 @@
   </h2>
   
     
-      src\crymon\fields\choice_i64.cr
+      src\crymon\tools\testing.cr
     
     <br/>
   
 
 
 
-
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
+      Constant Summary
+    </h2>
+  
+  <dl>
     
-      <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Type of selective field with static of elements.</p></div>
-        
-      </li>
+      <dt class="entry-const" id="ALPHANUMERIC_CHARS">
+        <strong>ALPHANUMERIC_CHARS</strong> = <code><span class="s">&quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></code>
+      </dt>
+      
     
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AArray%28Int64%29%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28Int64%2CString%29%29%3DArray%28Tuple%28Int64%2CString%29%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Array(Int64) | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(Int64, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">Int64</span>, <span class="t">String</span>)).new)</a>
-        
-      </li>
-    
-  </ul>
+  </dl>
 
 
 
 
 
   <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Summary
+    Class Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#choices%3AArray%28Tuple%28Int64%2CString%29%29-instance-method" class="signature"><strong>#choices</strong> : Array(Tuple(Int64, String))</a>
+        <a href="#delete_test_db%28database_name%3AString%29-class-method" class="signature"><strong>.delete_test_db</strong>(database_name : String)</a>
         
-          <div class="summary"><p>Html tag: select multiple.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#choices%3D%28choices%3AArray%28Tuple%28Int64%2CString%29%29%29-instance-method" class="signature"><strong>#choices=</strong>(choices : Array(Tuple(Int64, String)))</a>
-        
-          <div class="summary"><p>Html tag: select multiple.</p></div>
+          <div class="summary"><p>Delete database after test.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#default%3AArray%28String%29%7CNil-instance-method" class="signature"><strong>#default</strong> : Array(String) | Nil</a>
+        <a href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method" class="signature"><strong>.generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)</a>
         
-          <div class="summary"><p>Value by default.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
+          <div class="summary"><p>Generate data for test.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
+        <a href="#generate_unique_app_key%3AString-class-method" class="signature"><strong>.generate_unique_app_key</strong> : String</a>
         
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_multiple%3ABool-instance-method" class="signature"><strong>#is_multiple</strong> : Bool</a>
-        
-          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3AArray%28Int64%29%7CNil-instance-method" class="signature"><strong>#value</strong> : Array(Int64) | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3AArray%28Int64%29%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : Array(Int64) | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><p>Generate unique app key.</p></div>
         
       </li>
     
   </ul>
+
+
 
 
 
@@ -584,213 +534,34 @@
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
-      <span>css_classes : String</span>
-    css_classes</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
-      <span>is_disabled : Bool</span>
-    is_disabled</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
-      <span>is_hide : Bool</span>
-    is_hide</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
-      <span>is_readonly : Bool</span>
-    is_readonly</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
-      <span>is_required : Bool</span>
-    is_required</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
-      <span>other_attrs : String</span>
-    other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../Crymon/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+    <div class="entry-detail" id="delete_test_db(database_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(pull : JSON::PullParser)
+        def self.<strong>delete_test_db</strong>(database_name : String)
 
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+        <a class="method-permalink" href="#delete_test_db%28database_name%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Type of selective field with static of elements.</p>
-<p><span class="flag purple">NOTE</span>  With multiple choice.</p>
+          <p>Delete database after test.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Delete database after test.</span>
+<span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.delete_test_db(database_name)</code></pre>
         </div>
       
       <br/>
@@ -799,47 +570,22 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Array(Int64)|Nil=nil,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,choices:Array(Tuple(Int64,String))=Array(Tuple(Int64,String)).new)-class-method">
+    <div class="entry-detail" id="generate_test_data:NamedTuple(unique_app_key:String,database_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Array(Int64) | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(Int64, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">Int64</span>, <span class="t">String</span>)).new)
+        def self.<strong>generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AArray%28Int64%29%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28Int64%2CString%29%29%3DArray%28Tuple%28Int64%2CString%29%29.new%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-
-
-
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="choices:Array(Tuple(Int64,String))-instance-method">
-      <div class="signature">
-        
-        def <strong>choices</strong> : Array(Tuple(Int64, String))
-
-        <a class="method-permalink" href="#choices%3AArray%28Tuple%28Int64%2CString%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Html tag: select multiple.
-<br>
-<em>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}]</em></p>
+          <p>Generate data for test.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
+test_data <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.generate_test_data
+unique_app_key <span class="o">=</span> test_data[<span class="n">:unique_app_key</span>]
+database_name <span class="o">=</span> test_data[<span class="n">:database_name</span>]</code></pre>
         </div>
       
       <br/>
@@ -848,19 +594,20 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="choices=(choices:Array(Tuple(Int64,String)))-instance-method">
+    <div class="entry-detail" id="generate_unique_app_key:String-class-method">
       <div class="signature">
         
-        def <strong>choices=</strong>(choices : Array(Tuple(Int64, String)))
+        def self.<strong>generate_unique_app_key</strong> : String
 
-        <a class="method-permalink" href="#choices%3D%28choices%3AArray%28Tuple%28Int64%2CString%29%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#generate_unique_app_key%3AString-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Html tag: select multiple.
-<br>
-<em>Example: [{5, &quot;Title&quot;}, {10, &quot;Title 2&quot;}]</em></p>
+          <p>Generate unique app key.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
+unique_app_key <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">TestingTools</span>.generate_unique_app_key</code></pre>
         </div>
       
       <br/>
@@ -869,140 +616,8 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="default:Array(String)|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>default</strong> : Array(String) | Nil
 
-        <a class="method-permalink" href="#default%3AArray%28String%29%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Value by default.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>field_type</strong> : String
 
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field type - Structure Name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="group:UInt8-instance-method">
-      <div class="signature">
-        
-        def <strong>group</strong> : UInt8
-
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_multiple:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_multiple</strong> : Bool
-
-        <a class="method-permalink" href="#is_multiple%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies that multiple options can be selected at once.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_unique:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:Array(Int64)|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : Array(Int64) | Nil
-
-        <a class="method-permalink" href="#value%3AArray%28Int64%29%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:Array(Int64)|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : Array(Int64) | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3AArray%28Int64%29%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
