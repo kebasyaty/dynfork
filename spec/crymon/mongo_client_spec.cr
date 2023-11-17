@@ -7,8 +7,11 @@ describe "Cryomongo" do
     # uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
     client : Mongo::Client = Crymon::Globals.cache_mongo_client
 
+    # Generate data for test.
+    test_data = Crymon::TestingTools.generate_test_data
+    database_name = test_data[:database_name]
+
     # Get database and collection.
-    database_name = "test_OWU11F1xB4uz7K2Y"
     database = client[database_name]
     collection_name = "test_collection_name"
     collection = database[collection_name]

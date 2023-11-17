@@ -86,8 +86,10 @@ describe Crymon::Migration::Monitor do
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
-      unique_app_key = "93XDw1a5NL485N3L"
-      database_name = "test_#{unique_app_key}"
+      # Generate data for test.
+      test_data = Crymon::TestingTools.generate_test_data
+      unique_app_key = test_data[:unique_app_key]
+      database_name = test_data[:database_name]
       #
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
