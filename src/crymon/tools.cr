@@ -14,7 +14,7 @@ module Crymon::TestingTools
     database = Crymon::Globals.cache_mongo_client[database_name]
     cursor = database.list_collections("name_only": true)
     cursor.each { |collection|
-      database.command(Mongo::Commands::Drop, name: collection["name"].as(String | Int32))
+      database.command(Mongo::Commands::Drop, name: collection["name"].as(Int32 | String))
     }
   end
 end

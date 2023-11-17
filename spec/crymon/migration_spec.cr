@@ -86,10 +86,12 @@ describe Crymon::Migration::Monitor do
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
-      database_name = "test_database_name_2"
+      unique_app_key = "93XDw1a5NL485N3L"
+      database_name = "test_#{unique_app_key}"
+      #
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
-        "unique_app_key": "0585I0S5huR5r08q",
+        "unique_app_key": unique_app_key,
         "database_name": database_name,
         "mongo_uri": "mongodb://localhost:27017",
         "model_key_list": [

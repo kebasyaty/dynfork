@@ -8,7 +8,7 @@ describe "Cryomongo" do
     client : Mongo::Client = Crymon::Globals.cache_mongo_client
 
     # Get database and collection.
-    database_name = "test_database_name"
+    database_name = "test_OWU11F1xB4uz7K2Y"
     database = client[database_name]
     collection_name = "test_collection_name"
     collection = database[collection_name]
@@ -22,7 +22,11 @@ describe "Cryomongo" do
     collection.delete_one({two: 2})
     collection.count_documents.should eq(0)
     # Delete database after test.
-    Crymon::TestingTools.delete_test_db(database_name)
+    Crymon::TestingTools.delete_test_db(database_name).should be_nil
+    # Let's check the result of the delete_test_db method.
+    cursor = database.list_collections("name_only": true)
+    elements = cursor.to_a
+    elements.size.should eq(0)
 
     # The overwhelming majority of programs should use a single client and should not bother with closing clients.
     # Otherwise, to free the underlying resources a client must be manually closed.
