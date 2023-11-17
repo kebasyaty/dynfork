@@ -21,6 +21,7 @@ describe "Cryomongo" do
     collection.count_documents.should eq(1)
     collection.delete_one({two: 2})
     collection.count_documents.should eq(0)
+
     # Delete database after test.
     Crymon::TestingTools.delete_test_db(database_name).should be_nil
     # Let's check the result of the delete_test_db method.
