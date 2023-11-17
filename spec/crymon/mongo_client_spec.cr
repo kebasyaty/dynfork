@@ -8,7 +8,7 @@ describe "Cryomongo" do
     client : Mongo::Client = Crymon::Globals.cache_mongo_client
 
     # Generate data for test.
-    test_data = Crymon::TestingTools.generate_test_data
+    test_data = Crymon::Tools::Testing.generate_test_data
     database_name = test_data[:database_name]
 
     # Get database and collection.
@@ -26,7 +26,7 @@ describe "Cryomongo" do
     collection.count_documents.should eq(0)
 
     # Delete database after test.
-    Crymon::TestingTools.delete_test_db(database_name).should be_nil
+    Crymon::Tools::Testing.delete_test_db(database_name).should be_nil
     # Let's check the result of the delete_test_db method.
     cursor = database.list_collections("name_only": true)
     elements = cursor.to_a
