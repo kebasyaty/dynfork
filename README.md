@@ -1,25 +1,19 @@
-<div align="center">
-  <a href="https://github.com/kebasyaty/crymon">
-    <img width="50%" src="https://github.com/kebasyaty/crymon/raw/v0/logo/logo.svg"
-      alt="Logo">
-  </a>
+[![Logo](https://github.com/kebasyaty/crymon/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/crymon "Logo")
 
-  <h1>crymon</h1>
-  <h3>ORM-like API MongoDB for Crystal.</h3>
+# crymon
 
-  <a href="https://github.com/kebasyaty/crymon/actions"><img src="https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg" alt="Specs"></a>
-  <a href="https://kebasyaty.github.io/crymon/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
-  <a href="https://crystal-lang.org/"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red" alt="Crystal"></a>
-  <a href="https://github.com/kebasyaty/crymon/blob/v0/LICENSE"><img src="https://badgen.net/github/license/kebasyaty/crymon" alt="GitHub license"></a>
-</div>
-
-<hr/>
-
-**For simulate relationship Many-to-One and Many-to-Many,
+ORM-like API MongoDB for Crystal.
 <br>
-a simplified alternative (Types of selective fields with dynamic addition of elements) is used.**
+For simulate relationship Many-to-One and Many-to-Many,
 <br>
-**The project is focused on web development.**
+a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
+<br>
+The project is focused on web development.
+
+[![Specs](https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg)](https://github.com/kebasyaty/crymon/actions)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
+[![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
+[![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
 <br>
 <br>
 _Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
