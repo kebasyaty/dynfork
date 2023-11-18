@@ -1,5 +1,5 @@
-# Auxiliary tools for testing.
-module Helper::TestingTools
+# Auxiliary methods for testing.
+module Helper
   ALPHANUMERIC_CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
   # Delete database after test.
@@ -7,7 +7,7 @@ module Helper::TestingTools
   # Example:
   # ```
   # # Delete database after test.
-  # Helper::TestingTools.delete_test_db(database_name)
+  # Helper.delete_test_db(database_name)
   # ```
   #
   def self.delete_test_db(database_name : String)
@@ -23,7 +23,7 @@ module Helper::TestingTools
   # Example:
   # ```
   # # Generate data for test.
-  # test_data = Helper::TestingTools.generate_test_data
+  # test_data = Helper.generate_test_data
   # unique_app_key = test_data[:unique_app_key]
   # database_name = test_data[:database_name]
   # ```
@@ -38,7 +38,7 @@ module Helper::TestingTools
   # Example:
   # ```
   # # Generate data for test.
-  # unique_app_key = Helper::TestingTools.generate_unique_app_key
+  # unique_app_key = Helper.generate_unique_app_key
   # ```
   #
   def self.generate_unique_app_key : String
