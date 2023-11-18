@@ -15,6 +15,8 @@ _Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
+<br>
+
 <p>
   <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/status_project/Status_Project-Development-.svg"
     alt="Status Project">
