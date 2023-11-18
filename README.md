@@ -1,31 +1,35 @@
-[![Logo](https://github.com/kebasyaty/crymon/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/crymon "Logo")
+<div align="center">
+  <a href="https://github.com/kebasyaty/crymon">
+    <img width="50%" src="https://github.com/kebasyaty/crymon/raw/v0/logo/logo.svg"
+      alt="Logo">
+  </a>
 
-# crymon
+  <h1>crymon</h1>
+  <h3>ORM-like API MongoDB for Crystal.</h3>
 
-ORM-like API MongoDB for Crystal.
+  <a href="https://github.com/kebasyaty/crymon/actions"><img src="https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg" alt="Specs"></a>
+  <a href="https://kebasyaty.github.io/crymon/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
+  <a href="https://crystal-lang.org/"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red" alt="Crystal"></a>
+  <a href="https://github.com/kebasyaty/crymon/blob/v0/LICENSE"><img src="https://badgen.net/github/license/kebasyaty/crymon" alt="GitHub license"></a>
+</div>
+
+<hr/>
+
+**For simulate relationship Many-to-One and Many-to-Many,
 <br>
-For simulate relationship Many-to-One and Many-to-Many,
+a simplified alternative (Types of selective fields with dynamic addition of elements) is used.**
 <br>
-a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
-<br>
-The project is focused on web development.
+**The project is focused on web development.**
 <br>
 <br>
 _Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
-<br>
-
 <p>
   <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/status_project/Status_Project-Development-.svg"
     alt="Status Project">
 </p>
-
-[![Specs](https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg)](https://github.com/kebasyaty/crymon/actions)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
-[![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
-[![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
 
 ## Requirements
 
