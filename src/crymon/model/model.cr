@@ -23,30 +23,30 @@ module Crymon
       model_key : String = self.model_key
       regex_get_value_type : Regex = Crymon::Globals.cache_regex[:get_value_type]
       metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+      var_name : String = ""
+      field_type : String = ""
+      data_dynamic_field : String = ""
+      value_type : Regex::MatchData?
       # Injection of metadata from storage in Model.
       {% for var in @type.instance_vars %}
-        var_name : String = {{ var.name.stringify }}
+        var_name = {{ var.name.stringify }}
         field_attrs = metadata[:field_attrs][var_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
         #???
-        field_type : String = metadata[:field_name_and_type_list][var_name]
+        field_type = metadata[:field_name_and_type_list][var_name]
         if field_type.includes?("Dyn")
-          data_dynamic_field : String = metadata[:data_dynamic_fields][var_name]
-          if value_type : Regex::MatchData? = regex_get_value_type.match(field_type)
+          data_dynamic_field = metadata[:data_dynamic_fields][var_name]
+          if value_type = regex_get_value_type.match(field_type)
             case value_type[1]
               when "Text"
-                @{{ var }}.choices = Array(Tuple(String, String))
-                  .from_json(data_dynamic_field)
+                @{{ var }}.set_choices(data_dynamic_field)
               when "U32"
-                @{{ var }}.choices = Array(Tuple(UInt32, String))
-                  .from_json(data_dynamic_field)
+                @{{ var }}.set_choices(data_dynamic_field)
               when "I64"
-                @{{ var }}.choices = Array(Tuple(Int64, String))
-                  .from_json(data_dynamic_field)
+                @{{ var }}.set_choices(data_dynamic_field)
               when "F64"
-                 @{{ var }}.choices = Array(Tuple(Float64, String))
-                  .from_json(data_dynamic_field)
+                 @{{ var }}.set_choices(data_dynamic_field)
             end
           end
         end

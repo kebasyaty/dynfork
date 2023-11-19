@@ -107,6 +107,11 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
     ); end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
   end
 
   # Type of selective field with dynamic addition of elements.
@@ -143,5 +148,10 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
     ); end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
   end
 end

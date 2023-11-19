@@ -47,6 +47,11 @@ module Crymon::Fields
         {% end %}
       false
     end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      # Stub
+    end
   end
 
   # Helper structure for FileField.
