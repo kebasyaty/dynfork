@@ -81,7 +81,7 @@ module Crymon::Fields
     getter field_type : String = "ChoiceI64DynField"
     # Sets the value of an element.
     property value : Int64?
-    # Value by default.
+    # Stub
     getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = false
@@ -117,7 +117,7 @@ module Crymon::Fields
     getter field_type : String = "ChoiceI64MultDynField"
     # Sets the value of an element.
     property value : Array(Int64)?
-    # Value by default.
+    # Stub
     getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = true
