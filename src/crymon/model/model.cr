@@ -21,12 +21,35 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
-      var_name : String?
-      # Injection of metadata from storage.
+      regex_get_value_type : Regex = Crymon::Globals.cache_regex[:get_value_type]
+      metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+      # Injection of metadata from storage in Model.
       {% for var in @type.instance_vars %}
-        var_name = {{ var.name.stringify }}
-        @{{ var }}.id = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:id]
-        @{{ var }}.name = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:name]
+        var_name : String = {{ var.name.stringify }}
+        field_attrs = metadata[:field_attrs][var_name]
+        @{{ var }}.id = field_attrs[:id]
+        @{{ var }}.name = field_attrs[:name]
+        #???
+        field_type : String = metadata[:field_name_and_type_list][var_name]
+        if field_type.includes?("Dyn")
+          data_dynamic_field : String = metadata[:data_dynamic_fields][var_name]
+          if value_type : Regex::MatchData? = regex_get_value_type.match(field_type)
+            case value_type[1]
+              when "Text"
+                @{{ var }}.choices = Array(Tuple(String, String))
+                  .from_json(data_dynamic_field)
+              when "U32"
+                @{{ var }}.choices = Array(Tuple(UInt32, String))
+                  .from_json(data_dynamic_field)
+              when "I64"
+                @{{ var }}.choices = Array(Tuple(Int64, String))
+                  .from_json(data_dynamic_field)
+              when "F64"
+                 @{{ var }}.choices = Array(Tuple(Float64, String))
+                  .from_json(data_dynamic_field)
+            end
+          end
+        end
       {% end %}
     end
 
@@ -180,7 +203,7 @@ module Crymon
         # Attributes value for fields of Model: id, name.
         field_attrs: field_attrs,
         # Data for dynamic fields.
-        data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes).new,
+        data_dynamic_fields: Hash(String, String).new,
       }
     end
   end
