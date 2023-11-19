@@ -10,8 +10,10 @@ module Crymon
     include JSON::Serializable::Strict
 
     getter hash = Crymon::Fields::HashField.new
-    getter created_at = Crymon::Fields::DateTimeField.new("label": "Created at", "is_hide": true)
-    getter updated_at = Crymon::Fields::DateTimeField.new("label": "Updated at", "is_hide": true)
+    getter created_at = Crymon::Fields::DateTimeField
+      .new("label": "Created at", "is_hide": true)
+    getter updated_at = Crymon::Fields::DateTimeField
+      .new("label": "Updated at", "is_hide": true)
 
     def initialize
       self.caching
@@ -107,9 +109,11 @@ module Crymon
       # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
-      raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
+      raise Crymon::Errors::MetaParamExcessChars
+        .new(model_name, "service_name", 25) if service_name.size > 25
       unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+        raise Crymon::Errors::MetaParamRegexFails
+          .new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Get collection name.
       # WARNING: Maximum 50 characters.
@@ -148,7 +152,8 @@ module Crymon
       (field_name_list = field_name_and_type_list.keys
       ignore_fields.each do |field_name|
         unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::MetaIgnoredFieldMissing.new(model_name, "ignore_fields", field_name)
+          raise Crymon::Errors::MetaIgnoredFieldMissing
+            .new(model_name, "ignore_fields", field_name)
         end
       end)
       # Get attributes value for fields of Model: id, name.
