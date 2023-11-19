@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="crymon">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="crymon">
+  <title>Crymon::Fields::U32Field - crymon v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          crymon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="crymon/Crymon" data-name="crymon">
+      <a href="../../Crymon.html">Crymon</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+      <a href="../../Crymon/Errors.html">Errors</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsExcessChars" data-name="crymon::errors::cachesettingsexcesschars">
+      <a href="../../Crymon/Errors/CacheSettingsExcessChars.html">CacheSettingsExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsRegexFails" data-name="crymon::errors::cachesettingsregexfails">
+      <a href="../../Crymon/Errors/CacheSettingsRegexFails.html">CacheSettingsRegexFails</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
+      <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidInputType" data-name="crymon::errors::invalidinputtype">
+      <a href="../../Crymon/Errors/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidType" data-name="crymon::errors::invalidtype">
+      <a href="../../Crymon/Errors/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/MetaIgnoredFieldMissing" data-name="crymon::errors::metaignoredfieldmissing">
+      <a href="../../Crymon/Errors/MetaIgnoredFieldMissing.html">MetaIgnoredFieldMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/MetaParameterMissing" data-name="crymon::errors::metaparametermissing">
+      <a href="../../Crymon/Errors/MetaParameterMissing.html">MetaParameterMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/MetaParamExcessChars" data-name="crymon::errors::metaparamexcesschars">
+      <a href="../../Crymon/Errors/MetaParamExcessChars.html">MetaParamExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/MetaParamRegexFails" data-name="crymon::errors::metaparamregexfails">
+      <a href="../../Crymon/Errors/MetaParamRegexFails.html">MetaParamRegexFails</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/ModelFieldsMissing" data-name="crymon::errors::modelfieldsmissing">
+      <a href="../../Crymon/Errors/ModelFieldsMissing.html">ModelFieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/ModelNameExcessChars" data-name="crymon::errors::modelnameexcesschars">
+      <a href="../../Crymon/Errors/ModelNameExcessChars.html">ModelNameExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
+      <a href="../../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+      <a href="../../Crymon/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/BoolField" data-name="crymon::fields::boolfield">
+      <a href="../../Crymon/Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64DynField" data-name="crymon::fields::choicef64dynfield">
+      <a href="../../Crymon/Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64Field" data-name="crymon::fields::choicef64field">
+      <a href="../../Crymon/Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64MultDynField" data-name="crymon::fields::choicef64multdynfield">
+      <a href="../../Crymon/Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64MultField" data-name="crymon::fields::choicef64multfield">
+      <a href="../../Crymon/Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64DynField" data-name="crymon::fields::choicei64dynfield">
+      <a href="../../Crymon/Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64Field" data-name="crymon::fields::choicei64field">
+      <a href="../../Crymon/Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64MultDynField" data-name="crymon::fields::choicei64multdynfield">
+      <a href="../../Crymon/Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64MultField" data-name="crymon::fields::choicei64multfield">
+      <a href="../../Crymon/Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextDynField" data-name="crymon::fields::choicetextdynfield">
+      <a href="../../Crymon/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextField" data-name="crymon::fields::choicetextfield">
+      <a href="../../Crymon/Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextMultDynField" data-name="crymon::fields::choicetextmultdynfield">
+      <a href="../../Crymon/Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextMultField" data-name="crymon::fields::choicetextmultfield">
+      <a href="../../Crymon/Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32DynField" data-name="crymon::fields::choiceu32dynfield">
+      <a href="../../Crymon/Fields/ChoiceU32DynField.html">ChoiceU32DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32Field" data-name="crymon::fields::choiceu32field">
+      <a href="../../Crymon/Fields/ChoiceU32Field.html">ChoiceU32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultDynField" data-name="crymon::fields::choiceu32multdynfield">
+      <a href="../../Crymon/Fields/ChoiceU32MultDynField.html">ChoiceU32MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultField" data-name="crymon::fields::choiceu32multfield">
+      <a href="../../Crymon/Fields/ChoiceU32MultField.html">ChoiceU32MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ColorField" data-name="crymon::fields::colorfield">
+      <a href="../../Crymon/Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/DateField" data-name="crymon::fields::datefield">
+      <a href="../../Crymon/Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/DateTimeField" data-name="crymon::fields::datetimefield">
+      <a href="../../Crymon/Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/EmailField" data-name="crymon::fields::emailfield">
+      <a href="../../Crymon/Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/F64Field" data-name="crymon::fields::f64field">
+      <a href="../../Crymon/Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/Field" data-name="crymon::fields::field">
+      <a href="../../Crymon/Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/FileData" data-name="crymon::fields::filedata">
+      <a href="../../Crymon/Fields/FileData.html">FileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/FileField" data-name="crymon::fields::filefield">
+      <a href="../../Crymon/Fields/FileField.html">FileField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/HashField" data-name="crymon::fields::hashfield">
+      <a href="../../Crymon/Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/I64Field" data-name="crymon::fields::i64field">
+      <a href="../../Crymon/Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ImageData" data-name="crymon::fields::imagedata">
+      <a href="../../Crymon/Fields/ImageData.html">ImageData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ImageField" data-name="crymon::fields::imagefield">
+      <a href="../../Crymon/Fields/ImageField.html">ImageField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/IPField" data-name="crymon::fields::ipfield">
+      <a href="../../Crymon/Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/PasswordField" data-name="crymon::fields::passwordfield">
+      <a href="../../Crymon/Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/PhoneField" data-name="crymon::fields::phonefield">
+      <a href="../../Crymon/Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/SlugField" data-name="crymon::fields::slugfield">
+      <a href="../../Crymon/Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/TextField" data-name="crymon::fields::textfield">
+      <a href="../../Crymon/Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crymon/Crymon/Fields/U32Field" data-name="crymon::fields::u32field">
+      <a href="../../Crymon/Fields/U32Field.html">U32Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/URLField" data-name="crymon::fields::urlfield">
+      <a href="../../Crymon/Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+      <a href="../../Crymon/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/CacheMetaDataType" data-name="crymon::globals::cachemetadatatype">
+      <a href="../../Crymon/Globals/CacheMetaDataType.html">CacheMetaDataType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/CacheRegexType" data-name="crymon::globals::cacheregextype">
+      <a href="../../Crymon/Globals/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
+      <a href="../../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/FieldTypes" data-name="crymon::globals::fieldtypes">
+      <a href="../../Crymon/Globals/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValidationCacheSettings" data-name="crymon::globals::validationcachesettings">
+      <a href="../../Crymon/Globals/ValidationCacheSettings.html">ValidationCacheSettings</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
+      <a href="../../Crymon/Globals/ValueTypes.html">ValueTypes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
+      <a href="../../Crymon/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Migration" data-name="crymon::migration">
+      <a href="../../Crymon/Migration.html">Migration</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Migration/ModelState" data-name="crymon::migration::modelstate">
+      <a href="../../Crymon/Migration/ModelState.html">ModelState</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor">
+      <a href="../../Crymon/Migration/Monitor.html">Monitor</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Model" data-name="crymon::model">
+      <a href="../../Crymon/Model.html">Model</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>U32Field
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/U32Field.html">Crymon::Fields::U32Field</a></li><li class="superclass"><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Field for entering unsigned 32-bit integers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L5" target="_blank">
+        src\crymon\fields\numbers.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+          <div class="summary"><p>Field for entering unsigned 32-bit integers.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AUInt32%7CNil%3Dnil%2Cinput_type%3AString%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AUInt32%3DUInt32%3A%3AMAX%2Cmin%3AUInt32%3D0%2Cstep%3AUInt32%3D1%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : UInt32 | Nil = <span class="n">nil</span>, input_type : String = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : UInt32 = <span class="t">UInt32</span><span class="t">::</span><span class="t">MAX</span>, min : UInt32 = <span class="n">0</span>, step : UInt32 = <span class="n">1</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#default%3AUInt32%7CNil-instance-method" class="signature"><strong>#default</strong> : UInt32 | Nil</a>
+        
+          <div class="summary"><p>Value by default.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
+        
+          <div class="summary"><p>Field type - Structure Name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
+        
+          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;number|range&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_unique%3ABool-instance-method" class="signature"><strong>#is_unique</strong> : Bool</a>
+        
+          <div class="summary"><p>The unique value of a field in a collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max%3AUInt32-instance-method" class="signature"><strong>#max</strong> : UInt32</a>
+        
+          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3AUInt32-instance-method" class="signature"><strong>#min</strong> : UInt32</a>
+        
+          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
+        
+          <div class="summary"><p>Displays prompt text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#step%3AUInt32-instance-method" class="signature"><strong>#step</strong> : UInt32</a>
+        
+          <div class="summary"><p>Increment step for numeric fields.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3AUInt32%7CNil-instance-method" class="signature"><strong>#value</strong> : UInt32 | Nil</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3D%28value%3AUInt32%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : UInt32 | Nil)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
+  
+  
+    <a href="../../Crymon/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
+      <span>[]?(variable) : Bool</span>
+    []?</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#css_classes%3AString-instance-method" class="tooltip">
+      <span>css_classes : String</span>
+    css_classes</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
+      <span>errors : Array(String)</span>
+    errors</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
+      <span>errors=(errors : Array(String))</span>
+    errors=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
+      <span>field_type : String</span>
+    field_type</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
+      <span>group : UInt8</span>
+    group</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
+      <span>hint : String</span>
+    hint</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#id%3AString-instance-method" class="tooltip">
+      <span>id : String</span>
+    id</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
+      <span>id=(id : String)</span>
+    id=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_disabled%3ABool-instance-method" class="tooltip">
+      <span>is_disabled : Bool</span>
+    is_disabled</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
+      <span>is_disabled=(is_disabled : Bool)</span>
+    is_disabled=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_hide%3ABool-instance-method" class="tooltip">
+      <span>is_hide : Bool</span>
+    is_hide</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
+      <span>is_hide=(is_hide : Bool)</span>
+    is_hide=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
+      <span>is_readonly : Bool</span>
+    is_readonly</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
+      <span>is_readonly=(is_readonly : Bool)</span>
+    is_readonly=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_required%3ABool-instance-method" class="tooltip">
+      <span>is_required : Bool</span>
+    is_required</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
+      <span>label : String</span>
+    label</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#name%3AString-instance-method" class="tooltip">
+      <span>name : String</span>
+    name</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
+      <span>name=(name : String)</span>
+    name=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
+      <span>other_attrs : String</span>
+    other_attrs</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#set_choices%28json%3AString%29-instance-method" class="tooltip">
+      <span>set_choices(json : String)</span>
+    set_choices</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
+      <span>warning : String</span>
+    warning</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
+      <span>warning=(warning : String)</span>
+    warning=</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Fields/Field.html">Crymon::Fields::Field</a></code></h3>
+  
+  
+    <a href="../../Crymon/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
+      <span>new(pull : JSON::PullParser)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Field for entering unsigned 32-bit integers.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:UInt32|Nil=nil,input_type:String=&quot;number&quot;,placeholder:String=&quot;&quot;,max:UInt32=UInt32::MAX,min:UInt32=0,step:UInt32=1,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : UInt32 | Nil = <span class="n">nil</span>, input_type : String = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : UInt32 = <span class="t">UInt32</span><span class="t">::</span><span class="t">MAX</span>, min : UInt32 = <span class="n">0</span>, step : UInt32 = <span class="n">1</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
+
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AUInt32%7CNil%3Dnil%2Cinput_type%3AString%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AUInt32%3DUInt32%3A%3AMAX%2Cmin%3AUInt32%3D0%2Cstep%3AUInt32%3D1%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="default:UInt32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default</strong> : UInt32 | Nil
+
+        <a class="method-permalink" href="#default%3AUInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type:String-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type</strong> : String
+
+        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Field type - Structure Name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group:UInt8-instance-method">
+      <div class="signature">
+        
+        def <strong>group</strong> : UInt8
+
+        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
+<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L26" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type:String-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type</strong> : String
+
+        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Html tag: input type=&quot;number|range&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_unique:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_unique</strong> : Bool
+
+        <a class="method-permalink" href="#is_unique%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The unique value of a field in a collection.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>max</strong> : UInt32
+
+        <a class="method-permalink" href="#max%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The maximum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>min</strong> : UInt32
+
+        <a class="method-permalink" href="#min%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The minimum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder:String-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder</strong> : String
+
+        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="step:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>step</strong> : UInt32
+
+        <a class="method-permalink" href="#step%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Increment step for numeric fields.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value:UInt32|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value</strong> : UInt32 | Nil
+
+        <a class="method-permalink" href="#value%3AUInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value=(value:UInt32|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>value=</strong>(value : UInt32 | Nil)
+
+        <a class="method-permalink" href="#value%3D%28value%3AUInt32%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\fields\numbers.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
