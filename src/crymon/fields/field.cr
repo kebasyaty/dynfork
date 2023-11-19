@@ -38,7 +38,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 0
 
-    # Determine the presence of a variable (field) in the model.
+    # Determine the presence of a variable (attribute) in the Field type.
     def []?(variable) : Bool
       {% for var in @type.instance_vars %}
           if {{ var.name.stringify }} == variable
@@ -46,6 +46,11 @@ module Crymon::Fields
           end
         {% end %}
       false
+    end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      # Stub
     end
   end
 

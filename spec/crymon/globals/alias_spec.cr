@@ -56,7 +56,7 @@ describe Crymon::Globals do
           is_use_hash_slug: Bool,
           ignore_fields: Array(String),
           field_attrs: Hash(String, NamedTuple(id: String, name: String)),
-          data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes),
+          data_dynamic_fields: Hash(String, String),
         )
       )
     end
@@ -68,6 +68,7 @@ describe Crymon::Globals do
           app_name: Regex,
           unique_app_key: Regex,
           service_name: Regex,
+          get_value_type: Regex,
         )
       )
     end

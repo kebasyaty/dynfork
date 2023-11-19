@@ -10,8 +10,10 @@ module Crymon
     include JSON::Serializable::Strict
 
     getter hash = Crymon::Fields::HashField.new
-    getter created_at = Crymon::Fields::DateTimeField.new("label": "Created at", "is_hide": true)
-    getter updated_at = Crymon::Fields::DateTimeField.new("label": "Updated at", "is_hide": true)
+    getter created_at = Crymon::Fields::DateTimeField
+      .new("label": "Created at", "is_hide": true)
+    getter updated_at = Crymon::Fields::DateTimeField
+      .new("label": "Updated at", "is_hide": true)
 
     def initialize
       self.caching
@@ -21,12 +23,35 @@ module Crymon
     # Additional initialization.
     def extra
       model_key : String = self.model_key
-      var_name : String?
-      # Injection of metadata from storage.
+      regex_get_value_type : Regex = Crymon::Globals.cache_regex[:get_value_type]
+      metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+      var_name : String = ""
+      field_type : String = ""
+      data_dynamic_field : String = ""
+      value_type : Regex::MatchData?
+      # Injection of metadata from storage in Model.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
-        @{{ var }}.id = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:id]
-        @{{ var }}.name = Crymon::Globals.cache_metadata[model_key][:field_attrs][var_name][:name]
+        field_attrs = metadata[:field_attrs][var_name]
+        @{{ var }}.id = field_attrs[:id]
+        @{{ var }}.name = field_attrs[:name]
+        # Add dynamic field data from the cache to the Model.
+        field_type = metadata[:field_name_and_type_list][var_name]
+        if field_type.includes?("Dyn")
+          data_dynamic_field = metadata[:data_dynamic_fields][var_name]
+          if value_type = regex_get_value_type.match(field_type)
+            case value_type[1]
+              when "Text"
+                @{{ var }}.set_choices(data_dynamic_field)
+              when "U32"
+                @{{ var }}.set_choices(data_dynamic_field)
+              when "I64"
+                @{{ var }}.set_choices(data_dynamic_field)
+              when "F64"
+                @{{ var }}.set_choices(data_dynamic_field)
+            end
+          end
+        end
       {% end %}
     end
 
@@ -84,9 +109,11 @@ module Crymon
       # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
-      raise Crymon::Errors::MetaParamExcessChars.new(model_name, "service_name", 25) if service_name.size > 25
+      raise Crymon::Errors::MetaParamExcessChars
+        .new(model_name, "service_name", 25) if service_name.size > 25
       unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
-        raise Crymon::Errors::MetaParamRegexFails.new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+        raise Crymon::Errors::MetaParamRegexFails
+          .new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
       # Get collection name.
       # WARNING: Maximum 50 characters.
@@ -125,7 +152,8 @@ module Crymon
       (field_name_list = field_name_and_type_list.keys
       ignore_fields.each do |field_name|
         unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::MetaIgnoredFieldMissing.new(model_name, "ignore_fields", field_name)
+          raise Crymon::Errors::MetaIgnoredFieldMissing
+            .new(model_name, "ignore_fields", field_name)
         end
       end)
       # Get attributes value for fields of Model: id, name.
@@ -180,7 +208,7 @@ module Crymon
         # Attributes value for fields of Model: id, name.
         field_attrs: field_attrs,
         # Data for dynamic fields.
-        data_dynamic_fields: Hash(String, Crymon::Globals::DataDynamicTypes).new,
+        data_dynamic_fields: Hash(String, String).new,
       }
     end
   end

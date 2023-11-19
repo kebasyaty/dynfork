@@ -11,7 +11,7 @@ module Crymon::Migration
 
     getter collection_name : String
     getter field_name_and_type_list : Hash(String, String)
-    property data_dynamic_fields : Hash(String, Crymon::Globals::DataDynamicTypes)
+    property data_dynamic_fields : Hash(String, String)
     property? is_model_exists : Bool
 
     def initialize(
@@ -19,7 +19,7 @@ module Crymon::Migration
       @field_name_and_type_list : Hash(String, String),
       @is_model_exists : Bool = false
     )
-      @data_dynamic_fields = Hash(String, Crymon::Globals::DataDynamicTypes).new
+      @data_dynamic_fields = Hash(String, String).new
     end
   end
 

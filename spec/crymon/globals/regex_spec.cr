@@ -8,6 +8,7 @@ describe Crymon::Globals do
         app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
         unique_app_key: /^[a-zA-Z0-9]{16}$/,
         service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
+        get_value_type: /(Text|U32|I64|F64)/,
       )
     )
   end

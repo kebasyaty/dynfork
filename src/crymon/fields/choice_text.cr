@@ -81,7 +81,7 @@ module Crymon::Fields
     getter field_type : String = "ChoiceTextDynField"
     # Sets the value of an element.
     property value : String?
-    # Value by default.
+    # Stub
     getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = false
@@ -107,6 +107,11 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
     ); end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      @choices = Array(Tuple(String, String)).from_json(json)
+    end
   end
 
   # Type of selective field with dynamic addition of elements.
@@ -117,7 +122,7 @@ module Crymon::Fields
     getter field_type : String = "ChoiceTextMultDynField"
     # Sets the value of an element.
     property value : Array(String)?
-    # Value by default.
+    # Stub
     getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = true
@@ -143,5 +148,10 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(String, String)) = Array(Tuple(String, String)).new
     ); end
+
+    # To work around the error - undefined method 'choices='.
+    def set_choices(json : String)
+      @choices = Array(Tuple(String, String)).from_json(json)
+    end
   end
 end

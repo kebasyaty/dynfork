@@ -10,7 +10,7 @@ module Crymon::Fields
     getter input_type : String = "text"
     # Sets the value of an element.
     property value : String?
-    # Value by default.
+    # Stub
     getter default : Nil
     # Displays prompt text.
     getter placeholder : String
