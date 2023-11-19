@@ -33,7 +33,7 @@ module Crymon
         field_attrs = metadata[:field_attrs][var_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
-        #???
+        # Add dynamic field data from the cache to the Model.
         field_type = metadata[:field_name_and_type_list][var_name]
         if field_type.includes?("Dyn")
           data_dynamic_field = metadata[:data_dynamic_fields][var_name]
@@ -46,7 +46,7 @@ module Crymon
               when "I64"
                 @{{ var }}.set_choices(data_dynamic_field)
               when "F64"
-                 @{{ var }}.set_choices(data_dynamic_field)
+                @{{ var }}.set_choices(data_dynamic_field)
             end
           end
         end
