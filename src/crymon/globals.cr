@@ -21,7 +21,7 @@ module Crymon::Globals
     app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
     unique_app_key: /^[a-zA-Z0-9]{16}$/,
     service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
-    get_value_type: /(Text|U32|I64|F64)/,
+    get_type_marker: /(Text|U32|I64|F64)/,
   )
 
   # All field types.
@@ -77,7 +77,7 @@ module Crymon::Globals
     app_name: Regex,
     unique_app_key: Regex,
     service_name: Regex,
-    get_value_type: Regex,
+    get_type_marker: Regex,
   )
 
   # Validation global Crymon settings.

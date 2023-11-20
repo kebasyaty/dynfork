@@ -17,40 +17,24 @@ module Crymon
 
     def initialize
       self.caching
-      self.extra
+      self.injection
     end
 
-    # Additional initialization.
-    def extra
+    # Injection of metadata from storage in Model.
+    def injection
       model_key : String = self.model_key
-      regex_get_value_type : Regex = Crymon::Globals.cache_regex[:get_value_type]
       metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
       var_name : String = ""
-      field_type : String = ""
-      data_dynamic_field : String = ""
-      value_type : Regex::MatchData?
-      # Injection of metadata from storage in Model.
+      json : String?
+      # Add the values of the attributes **id** and **name** from the cache to the Model.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
         field_attrs = metadata[:field_attrs][var_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
         # Add dynamic field data from the cache to the Model.
-        field_type = metadata[:field_name_and_type_list][var_name]
-        if field_type.includes?("Dyn")
-          data_dynamic_field = metadata[:data_dynamic_fields][var_name]
-          if value_type = regex_get_value_type.match(field_type)
-            case value_type[1]
-              when "Text"
-                @{{ var }}.set_choices(data_dynamic_field)
-              when "U32"
-                @{{ var }}.set_choices(data_dynamic_field)
-              when "I64"
-                @{{ var }}.set_choices(data_dynamic_field)
-              when "F64"
-                @{{ var }}.set_choices(data_dynamic_field)
-            end
-          end
+        if json = metadata[:data_dynamic_fields][var_name]?
+          @{{ var }}.set_choices(json)
         end
       {% end %}
     end
