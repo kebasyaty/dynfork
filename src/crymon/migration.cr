@@ -144,6 +144,8 @@ module Crymon::Migration
         end
         # Get ignored field list of Model from cache.
         ignore_fields : Array(String) = metadata[:ignore_fields]
+        # Review field changes in the current Model and (if necessary)
+        # update documents in the appropriate Collection.
         # Some code...
       end
       # ------------------------------------------------------------------------
