@@ -109,15 +109,18 @@ module Crymon::Migration
         database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
         # Get super collection - State of Models and dynamic field data.
         super_collection = database[Crymon::Globals.cache_super_collection_name]
-        # Get collection name for current model.
+        # Get collection name for current Model.
         model_collection_name : String = metadata[:collection_name]
-        # Get ModelState for current model.
+        # Get a list of names and types of Model fields in the previous state.
+        old_field_name_and_type_list : Hash(String, String)
+        # Get ModelState for current Model.
         model_state, is_next = (
           filter = {"collection_name": model_collection_name}
           document = super_collection.find_one(filter)
           unless document.nil?
-            # Get existing ModelState for the current model.
+            # Get existing ModelState for the current Model.
             m_state = Crymon::Migration::ModelState.from_bson(document)
+            old_field_name_and_type_list = m_state.field_name_and_type_list
             m_state.field_name_and_type_list = metadata[:field_name_and_type_list]
             m_state.is_model_exists = true
             # Update the state of the current Model.
@@ -125,7 +128,7 @@ module Crymon::Migration
             super_collection.update_one(filter, update)
             {m_state, false}
           else
-            # Create a new ModelState for current model.
+            # Create a new ModelState for current Model.
             m_state = Crymon::Migration::ModelState.new(
               "collection_name": model_collection_name,
               "field_name_and_type_list": Hash(String, String).new,
@@ -138,11 +141,11 @@ module Crymon::Migration
         )
         # If this is a new Model, move on to the next iteration.
         next if is_next
-        # Get dynamic field data and add it to the current model's metadata.
+        # Get dynamic field data and add it to the current Model metadata.
         model_state.data_dynamic_fields.each do |key, value|
           metadata[:data_dynamic_fields][key] = value
         end
-        # Get a list of ignored model fields from the cache.
+        # Get a list of ignored Model fields from the cache.
         ignore_fields : Array(String) = metadata[:ignore_fields]
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
