@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Model - crymon v0</title>
+  <title>Crymon::Model - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -466,9 +466,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L8" target="_blank">
-        src\crymon\model\model.cr
-      </a>
+      src\crymon\model\model.cr
     
     <br/>
   
@@ -533,13 +531,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#extra-instance-method" class="signature"><strong>#extra</strong></a>
-        
-          <div class="summary"><p>Additional initialization.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method" class="signature"><strong>#field_name_and_value_list</strong> : Hash(String, Crymon::Globals::FieldTypes)</a>
         
           <div class="summary"><p>Get a list of field names and their values.</p></div>
@@ -550,6 +541,13 @@
         <a href="#hash%3ACrymon%3A%3AFields%3A%3AHashField-instance-method" class="signature"><strong>#hash</strong> : Crymon::Fields::HashField</a>
         
           <div class="summary"><p>Generates an <code>UInt64</code> hash value for this object.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#injection-instance-method" class="signature"><strong>#injection</strong></a>
+        
+          <div class="summary"><p>Injection of metadata from storage in Model.</p></div>
         
       </li>
     
@@ -646,8 +644,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L9" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -661,8 +657,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -697,8 +691,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L66" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -718,8 +710,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L85" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -733,29 +723,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L13" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="extra-instance-method">
-      <div class="signature">
-        
-        def <strong>extra</strong>
-
-        <a class="method-permalink" href="#extra-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Additional initialization.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -775,8 +742,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -806,7 +771,24 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L12" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="injection-instance-method">
+      <div class="signature">
+        
+        def <strong>injection</strong>
+
+        <a class="method-permalink" href="#injection-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Injection of metadata from storage in Model.</p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
@@ -828,8 +810,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L58" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -843,8 +823,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/2bc5d49ae4df247476f4869e004a5131c9a975ac/src\crymon\model\model.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
