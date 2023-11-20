@@ -68,7 +68,7 @@ describe Crymon::Globals do
           app_name: Regex,
           unique_app_key: Regex,
           service_name: Regex,
-          get_value_type: Regex,
+          get_type_marker: Regex,
         )
       )
     end
