@@ -16,13 +16,13 @@ module Crymon
       .new("label": "Updated at", "is_hide": true)
 
     def initialize
-      self.caching
-      self.inject
+      model_key : String = self.model_key
+      self.caching(model_key) if Crymon::Globals.cache_metadata[model_key]?.nil?
+      self.inject(model_key)
     end
 
     # Injecting metadata from storage in Model.
-    def inject
-      model_key : String = self.model_key
+    def inject(model_key : String)
       metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
       var_name : String = ""
       json : String?
@@ -68,11 +68,7 @@ module Crymon
     end
 
     # Add metadata to the global store.
-    def caching
-      # Get model key.
-      model_key : String = self.model_key
-      # Stop caching if metadata is in storage.
-      return unless Crymon::Globals.cache_metadata[model_key]?.nil?
+    def caching(model_key : String)
       # Check the model for the presence of variables (fields).
       {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
