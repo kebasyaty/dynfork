@@ -17,11 +17,11 @@ module Crymon
 
     def initialize
       self.caching
-      self.injection
+      self.inject
     end
 
     # Injecting metadata from storage in Model.
-    def injection
+    def inject
       model_key : String = self.model_key
       metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
       var_name : String = ""
