@@ -142,6 +142,8 @@ module Crymon::Migration
         model_state.data_dynamic_fields.each do |key, value|
           metadata[:data_dynamic_fields][key] = value
         end
+        # Get ignored field list of Model from cache.
+        ignore_fields : Array(String) = metadata[:ignore_fields]
         # Some code...
       end
       # ------------------------------------------------------------------------
