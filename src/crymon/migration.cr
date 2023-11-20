@@ -101,13 +101,16 @@ module Crymon::Migration
       # ------------------------------------------------------------------------
       # Enumeration of keys for Model migration.
       @model_key_list.each do |model_key|
+        # Get metadata of Model from cache.
+        metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+        # If the Model parameter is_add_doc is false, skip the iteration.
+        next unless metadata[:is_add_doc]
         # Get database of application.
         database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
         # Get super collection - State of Models and dynamic field data.
         super_collection = database[Crymon::Globals.cache_super_collection_name]
         # Get collection name for current model.
-        model_collection_name : String = Crymon::Globals.cache_metadata[
-          model_key][:collection_name]
+        model_collection_name : String = metadata[:collection_name]
         # Get ModelState for current model.
         model_state : Crymon::Migration::ModelState = (
           filter = {"collection_name": model_collection_name}
@@ -121,8 +124,7 @@ module Crymon::Migration
             # Create a new ModelState for current model.
             m_state = Crymon::Migration::ModelState.new(
               "collection_name": model_collection_name,
-              "field_name_and_type_list": Crymon::Globals.cache_metadata[
-                model_key][:field_name_and_type_list],
+              "field_name_and_type_list": metadata[:field_name_and_type_list],
               "is_model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
@@ -132,7 +134,7 @@ module Crymon::Migration
         )
         # Get dynamic field data and add it to the current model's metadata.
         model_state.data_dynamic_fields.each do |key, value|
-          Crymon::Globals.cache_metadata[model_key][:data_dynamic_fields][key] = value
+          metadata[:data_dynamic_fields][key] = value
         end
         # Some code...
         # ----------------------------------------------------------------------
