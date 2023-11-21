@@ -1,9 +1,6 @@
 require "json"
 
 module Crymon
-  # For define metadata in models.
-  annotation Meta; end
-
   # Abstraction for converting Crystal structures into Crymon Models.
   abstract struct Model
     include JSON::Serializable
@@ -74,16 +71,16 @@ module Crymon
         # If there are no fields in the model, a FieldsMissing exception is raise.
         raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
-      # Get model name = structure name.
+      # Get Model name = Structure name.
       # <br>
-      # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
+      # _Examples: User | UserProfile | ElectricCar | etc ..._
       # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Get service name = module name.
+      # Get Service name = Module name.
       # <br>
       # _Examples: Accounts | Smartphones | Washing machines | etc ..._
       # WARNING: Maximum 25 characters.
