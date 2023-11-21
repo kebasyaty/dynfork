@@ -41,5 +41,10 @@ module Crymon::Fields
       @hint : String = "",
       @warning : String = ""
     ); end
+
+    # To work around the error - undefined method 'slug_sources='.
+    def get_slug_sources : Array(String)
+      @slug_sources
+    end
   end
 end

@@ -54,6 +54,12 @@ module Crymon::Fields
     def set_choices(json : String)
       # Stub
     end
+
+    # To work around the error - undefined method 'slug_sources='.
+    def get_slug_sources : Array(String)
+      # Stub
+      Array(String).new
+    end
   end
 
   # Helper structure for FileField.

@@ -129,12 +129,12 @@ module Crymon
         field_name_list : Array(String) = field_name_and_type_list.keys
         {% for var in @type.instance_vars %}
           if @{{ var }}.field_type == "SlugField"
-            @{{ var }}.slug_sources.each do |source_name|
+            @{{ var }}.get_slug_sources.each do |source_name|
               unless field_name_list.includes?(source_name)
-                raise Crymon::Errors::SlugSourceInvalid(model_name, {{ var.name.stringify }}, source_name)
+                raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
               end
             end
-            if !flag && @{{ var }}.slug_sources.includes?("hash")
+            if !flag && @{{ var }}.get_slug_sources.includes?("hash")
               flag = true
             end
           end
