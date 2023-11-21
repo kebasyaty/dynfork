@@ -17,6 +17,7 @@ describe Crymon::Fields::PhoneField do
       f.is_hide.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
+      f.is_ignored.should be_false
       f.maxlength.should eq(15)
       f.minlength.should eq(8)
       f.regex.should eq("^+?[0-9]{8,15}$")

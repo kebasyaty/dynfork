@@ -46,6 +46,7 @@ describe Crymon::Fields::ImageField do
       f.is_hide.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
+      f.is_ignored.should be_false
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")
