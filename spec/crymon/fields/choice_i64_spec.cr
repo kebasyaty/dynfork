@@ -16,6 +16,7 @@ describe Crymon::Fields::ChoiceI64Field do
       f.is_disabled.should be_false
       f.is_readonly.should be_false
       f.is_hide.should be_false
+      f.is_ignored.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
@@ -45,6 +46,7 @@ describe Crymon::Fields::ChoiceI64MultField do
       f.is_disabled.should be_false
       f.is_readonly.should be_false
       f.is_hide.should be_false
+      f.is_ignored.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
@@ -74,6 +76,7 @@ describe Crymon::Fields::ChoiceI64DynField do
       f.is_disabled.should be_false
       f.is_readonly.should be_false
       f.is_hide.should be_false
+      f.is_ignored.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
@@ -103,6 +106,7 @@ describe Crymon::Fields::ChoiceI64MultDynField do
       f.is_disabled.should be_false
       f.is_readonly.should be_false
       f.is_hide.should be_false
+      f.is_ignored.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")

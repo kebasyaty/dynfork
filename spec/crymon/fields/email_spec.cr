@@ -17,6 +17,7 @@ describe Crymon::Fields::EmailField do
       f.is_hide.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
+      f.is_ignored.should be_false
       f.maxlength.should eq(320)
       f.minlength.should eq(0)
       f.other_attrs.should eq("")

@@ -44,7 +44,7 @@ describe Crymon::Fields::U32Field do
           input_type: t
         )
       end
-      ex.message.should eq %(The "#{t}" invalid input type.)
+      ex.message.should eq "The `#{t}` invalid input type."
     end
   end
 end
@@ -93,7 +93,7 @@ describe Crymon::Fields::I64Field do
           input_type: t
         )
       end
-      ex.message.should eq %(The "#{t}" invalid input type.)
+      ex.message.should eq "The `#{t}` invalid input type."
     end
   end
 end
@@ -115,6 +115,7 @@ describe Crymon::Fields::F64Field do
       f.is_hide.should be_false
       f.is_required.should be_false
       f.is_unique.should be_false
+      f.is_ignored.should be_false
       f.max.should eq(Float64::MAX)
       f.min.should eq(0_f64)
       f.step.should eq(1_f64)
@@ -142,7 +143,7 @@ describe Crymon::Fields::F64Field do
           input_type: t
         )
       end
-      ex.message.should eq %(The "#{t}" invalid input type.)
+      ex.message.should eq "The `#{t}` invalid input type."
     end
   end
 end

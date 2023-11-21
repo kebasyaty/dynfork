@@ -17,6 +17,7 @@ describe Crymon::Fields::SlugField do
       f.is_hide.should be_false
       f.is_required.should be_false
       f.is_unique.should be_true
+      f.is_ignored.should be_false
       f.slug_sources.should eq(["hash"])
       f.other_attrs.should eq("")
       f.css_classes.should eq("")

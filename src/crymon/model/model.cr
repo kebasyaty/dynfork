@@ -1,9 +1,6 @@
 require "json"
 
 module Crymon
-  # For define metadata in models.
-  annotation Meta; end
-
   # Abstraction for converting Crystal structures into Crymon Models.
   abstract struct Model
     include JSON::Serializable
@@ -74,18 +71,18 @@ module Crymon
         # If there are no fields in the model, a FieldsMissing exception is raise.
         raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
       {% end %}
-      # Get model name = structure name.
+      # Get Model name = Structure name.
       # <br>
-      # _Examples: electric_car_store | electric-car-store | Electric-Car_Store | ElectricCarStore_
+      # _**Examples:** User | UserProfile | ElectricCar | etc ..._
       # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
       unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
         raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
       end
-      # Get service name = module name.
+      # Get Service name = Module name.
       # <br>
-      # _Examples: Accounts | Smartphones | Washing machines | etc ..._
+      # _**Examples:** Accounts | Smartphones | Washing machines | etc ..._
       # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
@@ -100,7 +97,7 @@ module Crymon
       collection_name : String = "#{service_name}_#{model_name}"
       # Get list of names and types of variables (fields).
       # <br>
-      # _Format: <field_name, field_type>_
+      # _**Format:** <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
           Hash.zip(
@@ -114,7 +111,7 @@ module Crymon
       )
       # Get default value list.
       # <br>
-      # _Format: <field_name, default_value>_
+      # _**Format:** <field_name, default_value>_
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
         {% if @type.instance_vars.size > 3 %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
@@ -126,26 +123,42 @@ module Crymon
           Hash(String, Crymon::Globals::ValueTypes).new
         {% end %}
       )
+      # Does a field of type SlugField use a hash field as its source?
+      is_use_hash_slug : Bool = (
+        flag : Bool = false
+        field_name_list : Array(String) = field_name_and_type_list.keys
+        {% for var in @type.instance_vars %}
+          if @{{ var }}.field_type == "SlugField"
+            @{{ var }}.get_slug_sources.each do |source_name|
+              unless field_name_list.includes?(source_name)
+                raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
+              end
+            end
+            if !flag && @{{ var }}.get_slug_sources.includes?("hash")
+              flag = true
+            end
+          end
+        {% end %}
+        flag
+      )
       # Get list of field names that will not be saved to the database.
-      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Meta)[:ignore_fields] }} ||
-        Array(String).new
-      (field_name_list = field_name_and_type_list.keys
-      ignore_fields.each do |field_name|
-        unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::MetaIgnoredFieldMissing
-            .new(model_name, "ignore_fields", field_name)
-        end
-      end)
+      ignore_fields : Array(String) = (
+        f_list = Array(String).new
+        {% for var in @type.instance_vars %}
+          if @{{ var }}.is_ignored
+            f_list << {{ var.name.stringify }}
+          end
+        {% end %}
+        f_list
+      )
       # Get attributes value for fields of Model: id, name.
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
-        {% if @type.instance_vars.size > 3 %}
-          {% for var in @type.instance_vars %}
-            hash[{{ var.name.stringify }}] = {
-              id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-              name: {{ var.name.stringify }}
-            }
-          {% end %}
+        {% for var in @type.instance_vars %}
+          hash[{{ var.name.stringify }}] = {
+            id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+            name: {{ var.name.stringify }}
+          }
         {% end %}
         hash
       )
@@ -164,11 +177,11 @@ module Crymon
         field_count: {{ @type.instance_vars.size }},
         # List of names and types of variables (fields).
         # <br>
-        # _Format: <field_name, field_type>_
+        # _**Format:** <field_name, field_type>_
         field_name_and_type_list: field_name_and_type_list,
         # Default value list.
         # <br>
-        # _Format: <field_name, default_value>_
+        # _**Format:** <field_name, default_value>_
         default_value_list: default_value_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
@@ -177,12 +190,8 @@ module Crymon
         is_up_doc: {{ @type.annotation(Crymon::Meta)[:is_up_doc] }} || true,
         # Delete documents from the database.
         is_del_doc: {{ @type.annotation(Crymon::Meta)[:is_del_doc] }} || true,
-        # Allows methods for additional actions and additional validation.
-        is_use_addition: {{ @type.annotation(Crymon::Meta)[:is_use_addition] }} || false,
-        # Allows hooks methods - impl Hooks for ModelName.
-        is_use_hooks: {{ @type.annotation(Crymon::Meta)[:is_use_hooks] }} || false,
-        # Is the hash field used for the slug?
-        is_use_hash_slug: {{ @type.annotation(Crymon::Meta)[:is_use_hash_slug] }} || false,
+        # Does a field of type SlugField use a hash field as its source?
+        is_use_hash_slug: is_use_hash_slug,
         # List of field names that will not be saved to the database.
         ignore_fields: ignore_fields,
         # Attributes value for fields of Model: id, name.

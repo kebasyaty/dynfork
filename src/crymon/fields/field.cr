@@ -24,6 +24,8 @@ module Crymon::Fields
     property is_readonly : Bool = false
     # Hide field from user.
     property is_hide : Bool = false
+    # If true, the value of this field is not saved in the database.
+    getter is_ignored : Bool = false
     # _Example: %(autofocus tabindex="some number" size="some number")_
     getter other_attrs : String = ""
     # _Example: "class-name-1 class-name-2"_
@@ -51,6 +53,12 @@ module Crymon::Fields
     # To work around the error - undefined method 'choices='.
     def set_choices(json : String)
       # Stub
+    end
+
+    # To work around the error - undefined method 'slug_sources='.
+    def get_slug_sources : Array(String)
+      # Stub
+      Array(String).new
     end
   end
 

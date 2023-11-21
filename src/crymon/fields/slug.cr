@@ -34,11 +34,17 @@ module Crymon::Fields
       @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = true,
+      @is_ignored : Bool = false,
       @slug_sources : Array(String) = ["hash"],
       @other_attrs : String = "",
       @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
     ); end
+
+    # To work around the error - undefined method 'slug_sources='.
+    def get_slug_sources : Array(String)
+      @slug_sources
+    end
   end
 end

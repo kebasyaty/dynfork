@@ -6,7 +6,7 @@ describe Crymon::Model do
       ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
-      ex.message.should eq(%(Model "EmptyModel" has no fields.))
+      ex.message.should eq("Model EmptyModel has no fields.")
     end
 
     it "=> create instance of filled Model", tags: "model" do
@@ -73,8 +73,6 @@ describe Crymon::Model do
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true
-      metadata["is_use_addition"].should be_false
-      metadata["is_use_hooks"].should be_false
       metadata["is_use_hash_slug"].should be_false
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end
@@ -83,6 +81,16 @@ describe Crymon::Model do
       m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
+      metadata["is_use_hash_slug"].should be_true
+    end
+
+    it "=> create instance of SlugSourceInvalidModel", tags: "model" do
+      ex = expect_raises(Crymon::Errors::SlugSourceInvalid) do
+        Helper::SlugSourceInvalidModel.new
+      end
+      ex.message.should eq(
+        "Model: SlugSourceInvalidModel > Field: slug > Attribute: slug_sources => Incorrect source `first_name`."
+      )
     end
 
     describe "#caching" do
@@ -91,16 +99,7 @@ describe Crymon::Model do
           Helper::NoParamServiceNameModel.new
         end
         ex.message.should eq(
-          %(Model: NoParamServiceNameModel => Missing "service_name" parameter for Meta.)
-        )
-      end
-
-      it "=> the names in the list of ignored fields do not match", tags: "model" do
-        ex = expect_raises(Crymon::Errors::MetaIgnoredFieldMissing) do
-          Helper::IncorrectIgnoredListModel.new
-        end
-        ex.message.should eq(
-          %(Model: IncorrectIgnoredListModel > Meta parameter: "ignore_fields" => The "birthday" field is missing from the list of ignored fields.)
+          "Model: NoParamServiceNameModel => Missing `service_name` parameter for Meta."
         )
       end
     end
