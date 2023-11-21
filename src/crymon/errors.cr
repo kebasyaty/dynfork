@@ -48,7 +48,7 @@ module Crymon::Errors
   # The Model has no fields.
   class ModelFieldsMissing < CrymonException
     def initialize(model_name : String)
-      super("Model: #{model_name} has no fields.")
+      super("Model #{model_name} has no fields.")
     end
   end
 
