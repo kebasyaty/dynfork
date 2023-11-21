@@ -24,13 +24,6 @@ module Crymon::Errors
     end
   end
 
-  # The names in the list of ignored fields do not match.
-  class MetaIgnoredFieldMissing < CrymonException
-    def initialize(model_name : String, parameter_name : String, field_name : String)
-      super(%(Model: #{model_name} > Meta parameter: "#{parameter_name}" => The "#{field_name}" field is missing from the list of ignored fields.))
-    end
-  end
-
   # The allowed number of characters in the metadata parameters has been exceeded.
   class MetaParamExcessChars < CrymonException
     def initialize(model_name : String, parameter_name : String, limit_size : UInt32)

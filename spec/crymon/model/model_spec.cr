@@ -94,15 +94,6 @@ describe Crymon::Model do
           %(Model: NoParamServiceNameModel => Missing "service_name" parameter for Meta.)
         )
       end
-
-      it "=> the names in the list of ignored fields do not match", tags: "model" do
-        ex = expect_raises(Crymon::Errors::MetaIgnoredFieldMissing) do
-          Helper::IncorrectIgnoredListModel.new
-        end
-        ex.message.should eq(
-          %(Model: IncorrectIgnoredListModel > Meta parameter: "ignore_fields" => The "birthday" field is missing from the list of ignored fields.)
-        )
-      end
     end
   end
 end

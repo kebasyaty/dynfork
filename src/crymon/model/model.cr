@@ -127,25 +127,23 @@ module Crymon
         {% end %}
       )
       # Get list of field names that will not be saved to the database.
-      ignore_fields : Array(String) = {{ @type.annotation(Crymon::Meta)[:ignore_fields] }} ||
-        Array(String).new
-      (field_name_list = field_name_and_type_list.keys
-      ignore_fields.each do |field_name|
-        unless field_name_list.includes?(field_name)
-          raise Crymon::Errors::MetaIgnoredFieldMissing
-            .new(model_name, "ignore_fields", field_name)
-        end
-      end)
+      ignore_fields : Array(String) = (
+        f_list = Array(String).new
+        {% for var in @type.instance_vars %}
+          if @{{ var }}.is_ignored
+            f_list << {{ var.name.stringify }}
+          end
+        {% end %}
+        f_list
+      )
       # Get attributes value for fields of Model: id, name.
       field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
         hash = Hash(String, NamedTuple(id: String, name: String)).new
-        {% if @type.instance_vars.size > 3 %}
-          {% for var in @type.instance_vars %}
-            hash[{{ var.name.stringify }}] = {
-              id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-              name: {{ var.name.stringify }}
-            }
-          {% end %}
+        {% for var in @type.instance_vars %}
+          hash[{{ var.name.stringify }}] = {
+            id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+            name: {{ var.name.stringify }}
+          }
         {% end %}
         hash
       )
