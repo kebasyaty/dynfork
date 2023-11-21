@@ -177,7 +177,7 @@ module Crymon
         # Allows hooks methods - impl Hooks for ModelName.
         is_use_hooks: {{ @type.annotation(Crymon::Meta)[:is_use_hooks] }} || false,
         # Is the hash field used for the slug?
-        is_use_hash_slug: {{ @type.annotation(Crymon::Meta)[:is_use_hash_slug] }} || false,
+        is_use_hash_slug: false,
         # List of field names that will not be saved to the database.
         ignore_fields: ignore_fields,
         # Attributes value for fields of Model: id, name.
