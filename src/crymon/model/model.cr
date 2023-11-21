@@ -73,7 +73,7 @@ module Crymon
       {% end %}
       # Get Model name = Structure name.
       # <br>
-      # _Examples: User | UserProfile | ElectricCar | etc ..._
+      # _**Examples:** User | UserProfile | ElectricCar | etc ..._
       # WARNING: Maximum 25 characters.
       model_name : String = {{ @type.name.stringify }}.split("::").last
       raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
@@ -82,7 +82,7 @@ module Crymon
       end
       # Get Service name = Module name.
       # <br>
-      # _Examples: Accounts | Smartphones | Washing machines | etc ..._
+      # _**Examples:** Accounts | Smartphones | Washing machines | etc ..._
       # WARNING: Maximum 25 characters.
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
@@ -97,7 +97,7 @@ module Crymon
       collection_name : String = "#{service_name}_#{model_name}"
       # Get list of names and types of variables (fields).
       # <br>
-      # _Format: <field_name, field_type>_
+      # _**Format:** <field_name, field_type>_
       field_name_and_type_list : Hash(String, String) = (
         {% if @type.instance_vars.size > 3 %}
           Hash.zip(
@@ -111,7 +111,7 @@ module Crymon
       )
       # Get default value list.
       # <br>
-      # _Format: <field_name, default_value>_
+      # _**Format:** <field_name, default_value>_
       default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
         {% if @type.instance_vars.size > 3 %}
           hash = Hash(String, Crymon::Globals::ValueTypes).new
@@ -159,11 +159,11 @@ module Crymon
         field_count: {{ @type.instance_vars.size }},
         # List of names and types of variables (fields).
         # <br>
-        # _Format: <field_name, field_type>_
+        # _**Format:** <field_name, field_type>_
         field_name_and_type_list: field_name_and_type_list,
         # Default value list.
         # <br>
-        # _Format: <field_name, default_value>_
+        # _**Format:** <field_name, default_value>_
         default_value_list: default_value_list,
         # Create documents in the database. By default = true.
         # NOTE: false - Alternatively, use it to validate data from web forms.
