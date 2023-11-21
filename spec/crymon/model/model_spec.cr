@@ -73,8 +73,6 @@ describe Crymon::Model do
       metadata["is_add_doc"].should be_true
       metadata["is_up_doc"].should be_true
       metadata["is_del_doc"].should be_true
-      metadata["is_use_addition"].should be_false
-      metadata["is_use_hooks"].should be_false
       metadata["is_use_hash_slug"].should be_false
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end

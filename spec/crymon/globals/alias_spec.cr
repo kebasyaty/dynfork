@@ -51,8 +51,6 @@ describe Crymon::Globals do
           is_add_doc: Bool,
           is_up_doc: Bool,
           is_del_doc: Bool,
-          is_use_addition: Bool,
-          is_use_hooks: Bool,
           is_use_hash_slug: Bool,
           ignore_fields: Array(String),
           field_attrs: Hash(String, NamedTuple(id: String, name: String)),
