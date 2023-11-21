@@ -84,6 +84,15 @@ describe Crymon::Model do
       metadata["is_use_hash_slug"].should be_true
     end
 
+    it "=> create instance of SlugSourceInvalidModel", tags: "model" do
+      ex = expect_raises(Crymon::Errors::SlugSourceInvalid) do
+        Helper::SlugSourceInvalidModel.new
+      end
+      ex.message.should eq(
+        "Model: SlugSourceInvalidModel > Field: slug > Attribute: slug_sources => Incorrect source `first_name`."
+      )
+    end
+
     describe "#caching" do
       it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::MetaParameterMissing) do

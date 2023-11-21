@@ -32,6 +32,15 @@ module Helper
     getter slug = Crymon::Fields::SlugField.new
   end
 
+  # Model with an incorrect slug source.
+  @[Crymon::Meta(service_name: "ServiceName")]
+  struct SlugSourceInvalidModel < Crymon::Model
+    getter name = Crymon::Fields::TextField.new
+    getter slug = Crymon::Fields::SlugField.new(
+      "slug_sources": ["first_name", "hash"]
+    )
+  end
+
   # Model without the required 'service_name' parameter for metadata.
   @[Crymon::Meta]
   struct NoParamServiceNameModel < Crymon::Model
