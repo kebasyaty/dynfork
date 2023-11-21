@@ -92,11 +92,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/MetaIgnoredFieldMissing" data-name="crymon::errors::metaignoredfieldmissing">
-      <a href="../../Crymon/Errors/MetaIgnoredFieldMissing.html">MetaIgnoredFieldMissing</a>
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Errors/MetaParameterMissing" data-name="crymon::errors::metaparametermissing">
       <a href="../../Crymon/Errors/MetaParameterMissing.html">MetaParameterMissing</a>
       
@@ -124,6 +119,11 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
       <a href="../../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/SlugSourceInvalid" data-name="crymon::errors::slugsourceinvalid">
+      <a href="../../Crymon/Errors/SlugSourceInvalid.html">SlugSourceInvalid</a>
       
     </li>
   
@@ -478,7 +478,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)</a>
         
       </li>
     
@@ -599,6 +599,11 @@
     field_type</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#get_slug_sources%3AArray%28String%29-instance-method" class="tooltip">
+      <span>get_slug_sources : Array(String)</span>
+    get_slug_sources</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
       <span>group : UInt8</span>
     group</a>, 
@@ -637,6 +642,11 @@
     <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
       <span>is_hide=(is_hide : Bool)</span>
     is_hide=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#is_ignored%3ABool-instance-method" class="tooltip">
+      <span>is_ignored : Bool</span>
+    is_ignored</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#is_readonly%3ABool-instance-method" class="tooltip">
@@ -789,12 +799,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,choices:Array(Tuple(String,String))=Array(Tuple(String,String)).new)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,is_ignored:Bool=false,other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,choices:Array(Tuple(String,String))=Array(Tuple(String,String)).new)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method">#</a>
       </div>
       
       <br/>

@@ -92,11 +92,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/MetaIgnoredFieldMissing" data-name="crymon::errors::metaignoredfieldmissing">
-      <a href="../../Crymon/Errors/MetaIgnoredFieldMissing.html">MetaIgnoredFieldMissing</a>
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Errors/MetaParameterMissing" data-name="crymon::errors::metaparametermissing">
       <a href="../../Crymon/Errors/MetaParameterMissing.html">MetaParameterMissing</a>
       
@@ -124,6 +119,11 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
       <a href="../../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/SlugSourceInvalid" data-name="crymon::errors::slugsourceinvalid">
+      <a href="../../Crymon/Errors/SlugSourceInvalid.html">SlugSourceInvalid</a>
       
     </li>
   
@@ -620,6 +620,13 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#get_slug_sources%3AArray%28String%29-instance-method" class="signature"><strong>#get_slug_sources</strong> : Array(String)</a>
+        
+          <div class="summary"><p>To work around the error - undefined method 'slug_sources='.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
         
           <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
@@ -672,6 +679,13 @@
         <a href="#is_hide%3D%28is_hide%3ABool%29-instance-method" class="signature"><strong>#is_hide=</strong>(is_hide : Bool)</a>
         
           <div class="summary"><p>Hide field from user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_ignored%3ABool-instance-method" class="signature"><strong>#is_ignored</strong> : Bool</a>
+        
+          <div class="summary"><p>If true, the value of this field is not saved in the database.</p></div>
         
       </li>
     
@@ -938,6 +952,25 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="get_slug_sources:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>get_slug_sources</strong> : Array(String)
+
+        <a class="method-permalink" href="#get_slug_sources%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>To work around the error - undefined method 'slug_sources='.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="group:UInt8-instance-method">
       <div class="signature">
         
@@ -1085,6 +1118,25 @@
         <div class="doc">
           
           <p>Hide field from user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_ignored:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_ignored</strong> : Bool
+
+        <a class="method-permalink" href="#is_ignored%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>If true, the value of this field is not saved in the database.</p>
         </div>
       
       <br/>

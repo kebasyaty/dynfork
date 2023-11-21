@@ -92,11 +92,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/MetaIgnoredFieldMissing" data-name="crymon::errors::metaignoredfieldmissing">
-      <a href="../Crymon/Errors/MetaIgnoredFieldMissing.html">MetaIgnoredFieldMissing</a>
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Errors/MetaParameterMissing" data-name="crymon::errors::metaparametermissing">
       <a href="../Crymon/Errors/MetaParameterMissing.html">MetaParameterMissing</a>
       
@@ -124,6 +119,11 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/ModelNameRegexFails" data-name="crymon::errors::modelnameregexfails">
       <a href="../Crymon/Errors/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/SlugSourceInvalid" data-name="crymon::errors::slugsourceinvalid">
+      <a href="../Crymon/Errors/SlugSourceInvalid.html">SlugSourceInvalid</a>
       
     </li>
   
@@ -423,7 +423,17 @@
     Overview
   </h2>
 
-  <p>For define metadata in models.</p>
+  <p>Model parameters:
+<br>
+<em>( only <strong>service_name</strong> is a required parameter )</em>
+<br>
+| Parameter:          | Default:     | Description:                                                                                         |
+| :------------------ | :----------- | :--------------------------------------------------------------------------------------------------- |
+| service_name        | no           | <strong>Examples:</strong> Accounts | Smartphones | Washing machines | etc ...                                    |                                        |
+| db_query_docs_limit | 1000         | limiting query results.                                                                              |
+| is_add_doc          | true         | Create documents in the database. <strong>false</strong> - Alternatively, use it to validate data from web forms. |
+| is_up_doc           | true         | Update documents in the database.                                                                    |
+| is_del_doc          | true         | Delete documents from the database.                                                                  |</p>
 
 
 
@@ -448,7 +458,7 @@
   </h2>
   
     
-      src\crymon\model\model.cr
+      src\crymon\model\meta.cr
     
     <br/>
   
