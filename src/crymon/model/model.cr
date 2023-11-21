@@ -172,7 +172,7 @@ module Crymon
         is_up_doc: {{ @type.annotation(Crymon::Meta)[:is_up_doc] }} || true,
         # Delete documents from the database.
         is_del_doc: {{ @type.annotation(Crymon::Meta)[:is_del_doc] }} || true,
-        # Is the hash field used for the slug?
+        # Does a field of type SlugField use a hash field as its source?
         is_use_hash_slug: false,
         # List of field names that will not be saved to the database.
         ignore_fields: ignore_fields,
