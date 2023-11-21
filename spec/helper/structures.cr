@@ -29,6 +29,7 @@ module Helper
   @[Crymon::Meta(service_name: "ServiceName")]
   struct AuxiliaryModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
+    getter slug = Crymon::Fields::SlugField.new
   end
 
   # Model without the required 'service_name' parameter for metadata.

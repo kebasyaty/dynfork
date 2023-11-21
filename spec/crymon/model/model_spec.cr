@@ -81,6 +81,7 @@ describe Crymon::Model do
       m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
+      metadata["is_use_hash_slug"].should be_true
     end
 
     describe "#caching" do
