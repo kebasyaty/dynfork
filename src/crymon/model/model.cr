@@ -172,10 +172,6 @@ module Crymon
         is_up_doc: {{ @type.annotation(Crymon::Meta)[:is_up_doc] }} || true,
         # Delete documents from the database.
         is_del_doc: {{ @type.annotation(Crymon::Meta)[:is_del_doc] }} || true,
-        # Allows methods for additional actions and additional validation.
-        is_use_addition: {{ @type.annotation(Crymon::Meta)[:is_use_addition] }} || false,
-        # Allows hooks methods - impl Hooks for ModelName.
-        is_use_hooks: {{ @type.annotation(Crymon::Meta)[:is_use_hooks] }} || false,
         # Is the hash field used for the slug?
         is_use_hash_slug: false,
         # List of field names that will not be saved to the database.

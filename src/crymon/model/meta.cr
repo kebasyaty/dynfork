@@ -1,7 +1,7 @@
 module Crymon
-  # **Model parameters**
+  # Model parameters:
   # <br>
-  # _( only service_name is a required parameter )_
+  # _( only **service_name** is a required parameter )_
   # <br>
   # | Parameter:          | Default:     | Description:                                                                                         |
   # | :------------------ | :----------- | :--------------------------------------------------------------------------------------------------- |
