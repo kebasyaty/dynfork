@@ -25,7 +25,7 @@ module Crymon::Fields
     # Hide field from user.
     property is_hide : Bool = false
     # If true, the value of this field is not saved in the database.
-    is_ignored : Bool = false
+    getter is_ignored : Bool = false
     # _Example: %(autofocus tabindex="some number" size="some number")_
     getter other_attrs : String = ""
     # _Example: "class-name-1 class-name-2"_
