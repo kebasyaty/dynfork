@@ -110,14 +110,5 @@ module Crymon
       {% end %}
       false
     end
-
-    # Get a list of field names and their values.
-    def field_name_and_value_list : Hash(String, Crymon::Globals::FieldTypes)
-      fields = Hash(String, Crymon::Globals::FieldTypes).new
-      {% for var in @type.instance_vars %}
-        fields[{{ var.name.stringify }}] = @{{ var }}
-      {% end %}
-      fields
-    end
   end
 end

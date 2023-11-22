@@ -50,9 +50,15 @@ module Crymon::Caching
     # _**Format:** <field_name, default_value>_
     default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
       {% if @type.instance_vars.size > 3 %}
+        # Get a list of field names and their values.
+        fields = Hash(String, Crymon::Globals::FieldTypes).new
+        {% for var in @type.instance_vars %}
+            fields[{{ var.name.stringify }}] = @{{ var }}
+        {% end %}
+        # Get default value list.
         hash = Hash(String, Crymon::Globals::ValueTypes).new
-        self.field_name_and_value_list.each do |key, value|
-          hash[key] = value.default
+        fields.each do |name, field|
+          hash[name] = field.default
         end
         hash
       {% else %}
