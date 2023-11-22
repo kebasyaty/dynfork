@@ -1,14 +1,14 @@
 require "../../spec_helper"
 
 describe Helper::FilledModel do
-  describe ".to_json" do
+  describe "#to_json" do
     it "=> create json from structure", tags: "model" do
       f = Helper::FilledModel.new
       j : String = f.to_json
       j.empty?.should be_false
     end
   end
-  describe ".from_json" do
+  describe "#from_json" do
     it "=> create instance from json", tags: "model" do
       f = Helper::FilledModel.new
       j : String = f.to_json
@@ -30,6 +30,8 @@ describe Helper::FilledModel do
       f.first_name.is_unique.should be_false
       f.first_name.maxlength.should eq(256)
       f.first_name.minlength.should eq(0)
+      f.first_name.regex.should eq("")
+      f.first_name.regex_err_msg.should eq("")
       f.first_name.other_attrs.should eq("")
       f.first_name.css_classes.should eq("")
       f.first_name.hint.should eq("")
