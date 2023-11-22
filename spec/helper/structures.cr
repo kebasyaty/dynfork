@@ -44,7 +44,7 @@ module Helper
   # Model without the required 'service_name' parameter for metadata.
   @[Crymon::Meta]
   struct NoParamServiceNameModel < Crymon::Model
-    getter first_name = Crymon::Fields::TextField.new
+    getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
 end
