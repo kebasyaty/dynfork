@@ -14,7 +14,10 @@ module Crymon
   #
   # Extended Example:
   # ```
-  # @[Crymon::Meta(service_name: "Accounts")]
+  # @[Crymon::Meta(
+  #   service_name: "Accounts",
+  #   is_del_doc: false
+  # )]
   # struct User < Crymon::Model
   #   getter username = Crymon::Fields::TextField.new(
   #     "label": "Username",
@@ -48,7 +51,7 @@ module Crymon
   #     "is_ignored": true
   #   )
   #   getter is_active: Crymon::Fields::BoolField.new(
-  #     "label": "Is active?",
+  #     "label": "is active?",
   #     "default": true
   #   )
   # end
