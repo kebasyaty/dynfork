@@ -35,5 +35,15 @@ module Crymon
   #     <td align="left">Delete documents from the database.</td>
   #   </tr>
   # </table>
+  #
+  # Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  # ```
+  #
   annotation Meta; end
 end
