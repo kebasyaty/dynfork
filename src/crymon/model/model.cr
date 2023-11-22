@@ -2,6 +2,58 @@ require "json"
 
 module Crymon
   # Abstraction for converting Crystal structures into Crymon Models.
+  #
+  # Simple example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  # ```
+  #
+  # Extended Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new(
+  #     "label": "Username",
+  #     "maxlength": 150,
+  #     "minlength": 1,
+  #     "regex": "^[a-zA-Z0-9_@.+]$",
+  #     "regex_err_msg": "Allowed chars: a-z A-Z 0-9 _ @ . +",
+  #     "is_required": true,
+  #     "is_unique": true
+  #   )
+  #   getter email = Crymon::Fields::EmailField.new(
+  #     "label": "E-mail",
+  #     "maxlength": 320,
+  #     "is_required": true,
+  #     "is_unique": true
+  #   )
+  #   getter birthday = Crymon::Fields::DateField.new(
+  #     "label": "Birthday",
+  #   )
+  #   getter slug = Crymon::Fields::SlugField.new(
+  #     "label": "Slug",
+  #     "slug_sources": ["hash", "username"]
+  #   )
+  #   getter password = Crymon::Fields::PasswordField.new(
+  #     "label": "Password",
+  #   )
+  #   # Do not save the value of this field to the database.
+  #   # This field is for verification purposes only.
+  #   getter confirm_password = Crymon::Fields::PasswordField.new(
+  #     "label": "Confirm password",
+  #     "is_ignored": true
+  #   )
+  #   getter is_active: Crymon::Fields::BoolField.new(
+  #     "label": "Is active?",
+  #     "default": true
+  #   )
+  # end
+  # ```
+  #
   abstract struct Model
     include JSON::Serializable
     include JSON::Serializable::Strict

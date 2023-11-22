@@ -17,7 +17,7 @@ module Crymon::Fields
     getter maxlength : UInt32
     # The minimum number of characters allowed in the text.
     getter minlength : UInt32
-    # Regular expression to validate the value.
+    # Regular expression to validate the `value`.
     getter regex : String
     # Error message.
     getter regex_err_msg : String
