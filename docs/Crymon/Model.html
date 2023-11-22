@@ -62,6 +62,11 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
+      <a href="../Crymon/Caching.html">Caching</a>
+      
+    </li>
+  
   <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../Crymon/Errors.html">Errors</a>
       
@@ -362,6 +367,16 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Hooks" data-name="crymon::hooks">
+      <a href="../Crymon/Hooks.html">Hooks</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Implement" data-name="crymon::implement">
+      <a href="../Crymon/Implement.html">Implement</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../Crymon/Meta.html">Meta</a>
       
@@ -411,7 +426,7 @@
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Model.html">Crymon::Model</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Model.html">Crymon::Model</a></li><li class="superclass"><a href="../Crymon/Implement.html">Crymon::Implement</a></li><li class="superclass"><a href="../Crymon/Hooks.html">Crymon::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -426,6 +441,54 @@
   </h2>
 
   <p>Abstraction for converting Crystal structures into Crymon Models.</p>
+<p>Simple example:</p>
+<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span></code></pre>
+<p>Extended Example:</p>
+<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(
+  service_name: <span class="s">&quot;Accounts&quot;</span>,
+  is_del_doc: <span class="n">false</span>
+)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Username&quot;</span>,
+    <span class="s">&quot;maxlength&quot;</span>: <span class="n">150</span>,
+    <span class="s">&quot;minlength&quot;</span>: <span class="n">1</span>,
+    <span class="s">&quot;regex&quot;</span>: <span class="s">&quot;^[a-zA-Z0-9_@.+]$&quot;</span>,
+    <span class="s">&quot;regex_err_msg&quot;</span>: <span class="s">&quot;Allowed chars: a-z A-Z 0-9 _ @ . +&quot;</span>,
+    <span class="s">&quot;is_required&quot;</span>: <span class="n">true</span>,
+    <span class="s">&quot;is_unique&quot;</span>: <span class="n">true</span>
+  )
+  getter email <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;E-mail&quot;</span>,
+    <span class="s">&quot;maxlength&quot;</span>: <span class="n">320</span>,
+    <span class="s">&quot;is_required&quot;</span>: <span class="n">true</span>,
+    <span class="s">&quot;is_unique&quot;</span>: <span class="n">true</span>
+  )
+  getter birthday <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Birthday&quot;</span>,
+  )
+  getter slug <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">SlugField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Slug&quot;</span>,
+    <span class="s">&quot;slug_sources&quot;</span>: [<span class="s">&quot;hash&quot;</span>, <span class="s">&quot;username&quot;</span>]
+  )
+  getter password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Password&quot;</span>,
+  )
+  <span class="c"># Do not save the value of this field to the database.</span>
+  <span class="c"># This field is for verification purposes only.</span>
+  getter confirm_password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Confirm password&quot;</span>,
+    <span class="s">&quot;is_ignored&quot;</span>: <span class="n">true</span>
+  )
+  getter is_active: <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">BoolField</span>.new(
+    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;is active?&quot;</span>,
+    <span class="s">&quot;default&quot;</span>: <span class="n">true</span>
+  )
+<span class="k">end</span></code></pre>
 
 
 
@@ -440,6 +503,8 @@
     Included Modules
   </h2>
   <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Crymon/Caching.html">Crymon::Caching</a></li>
     
       <li class="other-type">JSON::Serializable</li>
     
@@ -519,21 +584,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#caching%28model_key%3AString%29-instance-method" class="signature"><strong>#caching</strong>(model_key : String)</a>
-        
-          <div class="summary"><p>Add metadata to the global store.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#created_at%3ACrymon%3A%3AFields%3A%3ADateTimeField-instance-method" class="signature"><strong>#created_at</strong> : Crymon::Fields::DateTimeField</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method" class="signature"><strong>#field_name_and_value_list</strong> : Hash(String, Crymon::Globals::FieldTypes)</a>
-        
-          <div class="summary"><p>Get a list of field names and their values.</p></div>
         
       </li>
     
@@ -573,6 +624,15 @@
   
     
 
+  <h3>Instance methods inherited from module <code><a href="../Crymon/Caching.html">Crymon::Caching</a></code></h3>
+  
+  
+    <a href="../Crymon/Caching.html#caching%28model_key%3AString%29-instance-method" class="tooltip">
+      <span>caching(model_key : String)</span>
+    caching</a>
+    
+  
+
 
     
 
@@ -585,6 +645,54 @@
 
 
     
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from struct <code><a href="../Crymon/Hooks.html">Crymon::Hooks</a></code></h3>
+  
+  
+    <a href="../Crymon/Hooks.html#initialize-instance-method" class="tooltip">
+      <span>initialize</span>
+    initialize</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from struct <code><a href="../Crymon/Hooks.html">Crymon::Hooks</a></code></h3>
+  
+  
+    <a href="../Crymon/Hooks.html#new-class-method" class="tooltip">
+      <span>new</span>
+    new</a>
+    
+  
 
 
     
@@ -694,25 +802,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="caching(model_key:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>caching</strong>(model_key : String)
-
-        <a class="method-permalink" href="#caching%28model_key%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Add metadata to the global store.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="created_at:Crymon::Fields::DateTimeField-instance-method">
       <div class="signature">
         
@@ -720,25 +809,6 @@
 
         <a class="method-permalink" href="#created_at%3ACrymon%3A%3AFields%3A%3ADateTimeField-instance-method">#</a>
       </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_name_and_value_list:Hash(String,Crymon::Globals::FieldTypes)-instance-method">
-      <div class="signature">
-        
-        def <strong>field_name_and_value_list</strong> : Hash(String, <a href="../Crymon/Globals/FieldTypes.html">Crymon::Globals::FieldTypes</a>)
-
-        <a class="method-permalink" href="#field_name_and_value_list%3AHash%28String%2CCrymon%3A%3AGlobals%3A%3AFieldTypes%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Get a list of field names and their values.</p>
-        </div>
       
       <br/>
       <div>

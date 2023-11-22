@@ -120,7 +120,7 @@ module Crymon::Migration
           unless document.nil?
             # Get existing ModelState for the current Model.
             m_state = Crymon::Migration::ModelState.from_bson(document)
-            old_field_name_and_type_list = m_state.field_name_and_type_list
+            old_field_name_and_type_list = m_state.field_name_and_type_list.clone
             m_state.field_name_and_type_list = metadata[:field_name_and_type_list]
             m_state.is_model_exists = true
             # Update the state of the current Model.
@@ -131,9 +131,10 @@ module Crymon::Migration
             # Create a new ModelState for current Model.
             m_state = Crymon::Migration::ModelState.new(
               "collection_name": model_collection_name,
-              "field_name_and_type_list": Hash(String, String).new,
+              "field_name_and_type_list": metadata[:field_name_and_type_list],
               "is_model_exists": true,
             )
+            old_field_name_and_type_list = metadata[:field_name_and_type_list].clone
             super_collection.insert_one(m_state.to_bson)
             database.command(Mongo::Commands::Create, name: model_collection_name)
             {m_state, true}
@@ -149,7 +150,9 @@ module Crymon::Migration
         ignore_fields : Array(String) = metadata[:ignore_fields]
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
-        # Some code...
+        unless old_field_name_and_type_list == metadata[:field_name_and_type_list]
+          # Some code...
+        end
       end
       # ------------------------------------------------------------------------
       # Delete data for non-existent Models from a
