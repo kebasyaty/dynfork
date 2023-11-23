@@ -58,7 +58,7 @@ module Crymon
   # end
   # ```
   #
-  abstract struct Model < Crymon::Implement::Implement
+  abstract struct Model < Crymon::Implement::Mediator
     include JSON::Serializable
     include JSON::Serializable::Strict
     include Crymon::Caching
