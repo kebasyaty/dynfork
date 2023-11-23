@@ -1,8 +1,8 @@
 require "./hooks_impl"
 
-module Crymon
+module Crymon::Implement
   # A set of tools for additional actions.
-  abstract struct Addition < Crymon::Hooks
+  abstract struct Addition < Crymon::Implement::Hooks
     # It is supposed to be use to additional validation of fields.
     # WARNING: The method is called automatically when checking or saving the Model.
     #

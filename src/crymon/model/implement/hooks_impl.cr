@@ -1,4 +1,4 @@
-module Crymon
+module Crymon::Implement
   # Methods that are called at different stages when accessing the database.
   abstract struct Hooks
     # Called before a new document is created in the database.
