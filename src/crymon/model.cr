@@ -12,7 +12,7 @@ module Crymon
   # end
   # ```
   #
-  # Extended Example:
+  # Extended example:
   # ```
   # @[Crymon::Meta(
   #   service_name: "Accounts",
