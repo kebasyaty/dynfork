@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::FileData - crymon v0-dev</title>
+  <title>Crymon::Implement::Addition - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -137,7 +137,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
       <a href="../../Crymon/Fields.html">Fields</a>
       
         <ul>
@@ -257,7 +257,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Fields/FileData" data-name="crymon::fields::filedata">
+  <li class=" " data-id="crymon/Crymon/Fields/FileData" data-name="crymon::fields::filedata">
       <a href="../../Crymon/Fields/FileData.html">FileData</a>
       
     </li>
@@ -367,12 +367,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Implement" data-name="crymon::implement">
+  <li class="parent open current" data-id="crymon/Crymon/Implement" data-name="crymon::implement">
       <a href="../../Crymon/Implement.html">Implement</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
+  <li class=" current" data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
       <a href="../../Crymon/Implement/Addition.html">Addition</a>
       
     </li>
@@ -436,12 +436,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Fields::<wbr>FileData
+  <span class="kind">abstract struct</span> Crymon::<wbr>Implement::<wbr>Addition
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Fields/FileData.html">Crymon::Fields::FileData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></li><li class="superclass"><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -455,31 +455,29 @@
     Overview
   </h2>
 
-  <p>Helper structure for FileField.</p>
+  <p>A set of tools for additional actions.</p>
+
+
+
+
 
 
 
 
 
   <h2>
-    <a id="included-modules" class="anchor" href="#included-modules">
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Included Modules
+    Direct Known Subclasses
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type">JSON::Serializable</li>
-    
-      <li class="other-type">JSON::Serializable::Strict</li>
+      <li class="other-type"><a href="../../Crymon/Implement/Mediator.html">Crymon::Implement::Mediator</a></li>
     
   </ul>
-
-
-
-
 
 
 
@@ -496,7 +494,7 @@
   </h2>
   
     
-      src\crymon\fields\field.cr
+      src\crymon\model\implement\addition_impl.cr
     
     <br/>
   
@@ -505,113 +503,9 @@
 
 
 
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#is_delete%3ABool-instance-method" class="signature"><strong>#is_delete</strong> : Bool</a>
-        
-          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_delete%3D%28is_delete%3ABool%29-instance-method" class="signature"><strong>#is_delete=</strong>(is_delete : Bool)</a>
-        
-          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
-        
-          <div class="summary"><p>File name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
-        
-          <div class="summary"><p>File name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
-        
-          <div class="summary"><p>Path to  file.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#path%3D%28path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(path : String)</a>
-        
-          <div class="summary"><p>Path to  file.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#size%3AFloat64-instance-method" class="signature"><strong>#size</strong> : Float64</a>
-        
-          <div class="summary"><p>File size in bytes.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#size%3D%28size%3AFloat64%29-instance-method" class="signature"><strong>#size=</strong>(size : Float64)</a>
-        
-          <div class="summary"><p>File size in bytes.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
-        
-          <div class="summary"><p>URL to the file.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#url%3D%28url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(url : String)</a>
-        
-          <div class="summary"><p>URL to the file.</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -621,18 +515,26 @@
   
     
 
-
-    
-
-
-    
-
-
+  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
   
+  
+    <a href="../../Crymon/Implement/Hooks.html#initialize-instance-method" class="tooltip">
+      <span>initialize</span>
+    initialize</a>
     
+  
 
 
     
+
+  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
+  
+  
+    <a href="../../Crymon/Implement/Hooks.html#new-class-method" class="tooltip">
+      <span>new</span>
+    new</a>
+    
+  
 
 
     
@@ -672,251 +574,9 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(pull : JSON::PullParser)
-
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(path:String=&quot;&quot;,is_delete:Bool=false)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)
-
-        <a class="method-permalink" href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="is_delete:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_delete</strong> : Bool
-
-        <a class="method-permalink" href="#is_delete%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: is_delete=true.
-<br>
-By default is_delete=false.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_delete=(is_delete:Bool)-instance-method">
-      <div class="signature">
-        
-        def <strong>is_delete=</strong>(is_delete : Bool)
-
-        <a class="method-permalink" href="#is_delete%3D%28is_delete%3ABool%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: is_delete=true.
-<br>
-By default is_delete=false.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="name:String-instance-method">
-      <div class="signature">
-        
-        def <strong>name</strong> : String
-
-        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>File name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="name=(name:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>name=</strong>(name : String)
-
-        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>File name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="path:String-instance-method">
-      <div class="signature">
-        
-        def <strong>path</strong> : String
-
-        <a class="method-permalink" href="#path%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Path to  file.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="path=(path:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>path=</strong>(path : String)
-
-        <a class="method-permalink" href="#path%3D%28path%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Path to  file.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="size:Float64-instance-method">
-      <div class="signature">
-        
-        def <strong>size</strong> : Float64
-
-        <a class="method-permalink" href="#size%3AFloat64-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>File size in bytes.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="size=(size:Float64)-instance-method">
-      <div class="signature">
-        
-        def <strong>size=</strong>(size : Float64)
-
-        <a class="method-permalink" href="#size%3D%28size%3AFloat64%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>File size in bytes.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url:String-instance-method">
-      <div class="signature">
-        
-        def <strong>url</strong> : String
-
-        <a class="method-permalink" href="#url%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>URL to the file.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="url=(url:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>url=</strong>(url : String)
-
-        <a class="method-permalink" href="#url%3D%28url%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>URL to the file.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
