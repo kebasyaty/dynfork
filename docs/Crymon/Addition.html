@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Migration - crymon v0-dev</title>
+  <title>Crymon::Addition - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -62,7 +62,7 @@
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+  <li class=" current" data-id="crymon/Crymon/Addition" data-name="crymon::addition">
       <a href="../Crymon/Addition.html">Addition</a>
       
     </li>
@@ -387,7 +387,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Migration" data-name="crymon::migration">
+  <li class="parent " data-id="crymon/Crymon/Migration" data-name="crymon::migration">
       <a href="../Crymon/Migration.html">Migration</a>
       
         <ul>
@@ -426,10 +426,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Crymon::<wbr>Migration
+  <span class="kind">abstract struct</span> Crymon::<wbr>Addition
 
 </h1>
 
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Addition.html">Crymon::Addition</a></li><li class="superclass"><a href="../Crymon/Hooks.html">Crymon::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -443,10 +445,7 @@
     Overview
   </h2>
 
-  <p>Migrations are Crymon way of
-propagating changes you make to
-your models (adding a field, deleting a collection, etc.) into
-your database schema.</p>
+  <p>A set of tools for additional actions.</p>
 
 
 
@@ -455,6 +454,20 @@ your database schema.</p>
 
 
 
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Crymon/Implement.html">Crymon::Implement</a></li>
+    
+  </ul>
 
 
 
@@ -471,7 +484,7 @@ your database schema.</p>
   </h2>
   
     
-      src\crymon\migration.cr
+      src\crymon\model\implement\addition_impl.cr
     
     <br/>
   
@@ -489,6 +502,64 @@ your database schema.</p>
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from struct <code><a href="../Crymon/Hooks.html">Crymon::Hooks</a></code></h3>
+  
+  
+    <a href="../Crymon/Hooks.html#initialize-instance-method" class="tooltip">
+      <span>initialize</span>
+    initialize</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from struct <code><a href="../Crymon/Hooks.html">Crymon::Hooks</a></code></h3>
+  
+  
+    <a href="../Crymon/Hooks.html#new-class-method" class="tooltip">
+      <span>new</span>
+    new</a>
+    
+  
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
   
 </div>
 
