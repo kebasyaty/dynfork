@@ -494,7 +494,7 @@
   </h2>
   
     
-      src\crymon\model\implement\addition_impl.cr
+      src\crymon\implement\addition_impl.cr
     
     <br/>
   
@@ -506,6 +506,25 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add_validation%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#add_validation</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>It is supposed to be use to additional validation of fields.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -520,7 +539,37 @@
   
     <a href="../../Crymon/Implement/Hooks.html#initialize-instance-method" class="tooltip">
       <span>initialize</span>
-    initialize</a>
+    initialize</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#post_create-instance-method" class="tooltip">
+      <span>post_create</span>
+    post_create</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#post_delete-instance-method" class="tooltip">
+      <span>post_delete</span>
+    post_delete</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#post_update-instance-method" class="tooltip">
+      <span>post_update</span>
+    post_update</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#pre_create-instance-method" class="tooltip">
+      <span>pre_create</span>
+    pre_create</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#pre_delete-instance-method" class="tooltip">
+      <span>pre_delete</span>
+    pre_delete</a>, 
+    
+  
+    <a href="../../Crymon/Implement/Hooks.html#pre_update-instance-method" class="tooltip">
+      <span>pre_update</span>
+    pre_update</a>
     
   
 
@@ -577,6 +626,57 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="add_validation:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>add_validation</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#add_validation%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>It is supposed to be use to additional validation of fields.</p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically when checking or saving the Model.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new
+  getter confirm_password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
+    <span class="s">&quot;is_ignored&quot;</span>: <span class="n">true</span>
+  )
+
+  <span class="k">private</span> <span class="k">def</span> <span class="m">add_validation</span> : <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>)
+    error_map <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>).new
+    <span class="c"># Get clean data.</span>
+    password <span class="o">=</span> @password.value <span class="o">||</span> <span class="s">&quot;&quot;</span>
+    confirm_password <span class="o">=</span> @confirm_password.value <span class="o">||</span> <span class="s">&quot;&quot;</span>
+    <span class="c"># Fields validation.</span>
+    <span class="k">if</span> <span class="o">!</span>password.empty? <span class="o">&amp;&amp;</span> password <span class="o">!=</span> confirm_password
+      error_map[<span class="s">&quot;confirm_password&quot;</span>] <span class="o">=</span> <span class="s">&quot;Password confirmation does not match.&quot;</span>
+    <span class="k">end</span>
+    error_map
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
