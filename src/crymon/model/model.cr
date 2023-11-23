@@ -1,4 +1,5 @@
 require "json"
+require "./implement/impl"
 
 module Crymon
   # Abstraction for converting Crystal structures into Crymon Models.

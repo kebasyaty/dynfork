@@ -1,4 +1,6 @@
+require "./addition_impl"
+
 module Crymon
-  # Multiple inheritance mediator for abstract Model.
+  # Mediator for multiple inheritance, for an abstract Model.
   abstract struct Implement < Crymon::Addition; end
 end
