@@ -1,5 +1,5 @@
 require "json"
-require "./implement/impl"
+require "./implement/mediator_impl"
 
 module Crymon
   # Abstraction for converting Crystal structures into Crymon Models.
