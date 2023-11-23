@@ -22,7 +22,7 @@ module Crymon::Implement
     #     password = @password.value
     #     confirm_password = @confirm_password.value
     #     # Fields validation.
-    #     if !password.nil? && password != confirm_password
+    #     if password != confirm_password
     #       error_map["confirm_password"] = "Password confirmation does not match."
     #     end
     #     error_map
