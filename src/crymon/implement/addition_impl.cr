@@ -19,10 +19,10 @@ module Crymon::Implement
     #   private def add_validation : Hash(String, String)
     #     error_map = Hash(String, String).new
     #     # Get clean data.
-    #     password = @password.value || ""
-    #     confirm_password = @confirm_password.value || ""
+    #     password = @password.value
+    #     confirm_password = @confirm_password.value
     #     # Fields validation.
-    #     if !password.empty? && password != confirm_password
+    #     if !password.nil? && password != confirm_password
     #       error_map["confirm_password"] = "Password confirmation does not match."
     #     end
     #     error_map
