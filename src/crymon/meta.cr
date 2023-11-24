@@ -20,17 +20,17 @@ module Crymon
   #     <td align="left">limiting query results.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">is_add_doc</td>
+  #     <td align="left">is_save_doc</td>
   #     <td align="left">true</td>
   #     <td align="left">Create documents in the database. **false** - Alternatively, use it to validate data from web forms.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">is_up_doc </td>
+  #     <td align="left">is_update_doc </td>
   #     <td align="left">true</td>
   #     <td align="left">Update documents in the database.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">is_del_doc</td>
+  #     <td align="left">is_delete_doc</td>
   #     <td align="left">true</td>
   #     <td align="left">Delete documents from the database.</td>
   #   </tr>
