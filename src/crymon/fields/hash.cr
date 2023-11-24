@@ -1,5 +1,4 @@
 require "./field"
-require "bson"
 
 module Crymon::Fields
   # This type was created specifically for the hash field.
@@ -9,7 +8,7 @@ module Crymon::Fields
     # Html tag: input type="url".
     getter input_type : String = "text"
     # Sets the value of an element.
-    @value : String?
+    property value : String?
     # Stub
     getter default : Nil
     # Displays prompt text.
@@ -41,17 +40,5 @@ module Crymon::Fields
       @css_classes : String = "",
       @hint : String = "For enter a document ID"
     ); end
-
-    def value=(hash : String?)
-      # Hash string validation.
-      if !hash.nil? && !BSON::ObjectId.validate(hash.as(String))
-        raise Crymon::Errors::InvalidHashField.new(hash)
-      end
-      @value = hash
-    end
-
-    def value
-      @value
-    end
   end
 end

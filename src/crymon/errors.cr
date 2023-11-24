@@ -66,13 +66,6 @@ module Crymon::Errors
     end
   end
 
-  # Invalid value for hash field.
-  class InvalidHashField < CrymonException
-    def initialize(hash : String)
-      super("Invalid value `#{hash}` for hash field.")
-    end
-  end
-
   # Invalid input type.
   class InvalidInputType < CrymonException
     def initialize(input_type : String)
