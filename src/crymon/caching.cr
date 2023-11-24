@@ -127,11 +127,11 @@ module Crymon::Caching
       default_value_list: default_value_list,
       # Create documents in the database. By default = true.
       # NOTE: false - Alternatively, use it to validate data from web forms.
-      is_add_doc: {{ @type.annotation(Crymon::Meta)[:is_add_doc] }} || true,
+      is_save_doc: {{ @type.annotation(Crymon::Meta)[:is_save_doc] }} || true,
       # Update documents in the database.
-      is_up_doc: {{ @type.annotation(Crymon::Meta)[:is_up_doc] }} || true,
+      is_update_doc: {{ @type.annotation(Crymon::Meta)[:is_update_doc] }} || true,
       # Delete documents from the database.
-      is_del_doc: {{ @type.annotation(Crymon::Meta)[:is_del_doc] }} || true,
+      is_delete_doc: {{ @type.annotation(Crymon::Meta)[:is_delete_doc] }} || true,
       # Does a field of type SlugField use a hash field as its source?
       is_use_hash_slug: is_use_hash_slug,
       # List of field names that will not be saved to the database.
