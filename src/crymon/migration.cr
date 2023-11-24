@@ -130,7 +130,7 @@ module Crymon::Migration
           else
             # Create a new ModelState for current Model.
             m_state = Crymon::Migration::ModelState.new(
-              "collection_name": model_collection_name,
+              "collection_name": metadata[:collection_name],
               "field_name_and_type_list": metadata[:field_name_and_type_list],
               "is_model_exists": true,
             )
