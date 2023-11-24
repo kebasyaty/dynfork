@@ -13,6 +13,7 @@ The project is focused on web development.
 [![Specs](https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg)](https://github.com/kebasyaty/crymon/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
+[![Github all releases](https://img.shields.io/github/downloads/kebasyaty/crymon/total.svg)](https://GitHub.com/kebasyaty/crymon/releases/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/crymon)](https://github.com/kebasyaty/crymon/blob/v0/LICENSE)
 <br>
 <br>
@@ -21,8 +22,10 @@ _Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 <p>
-  <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/status_project/Status_Project-Development-.svg"
-    alt="Status Project">
+  <a href="https://github.com/kebasyaty/crymon" target="_blank">
+    <img src="https://github.com/kebasyaty/crymon/raw/v0/pictures/status_project/Status_Project-Development-.svg"
+      alt="Status Project">
+  </a>
 </p>
 
 ## Requirements
