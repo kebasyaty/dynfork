@@ -21,12 +21,6 @@
         "crystal spec --tag migration"
       ],
       "problemMatcher": []
-    },
-    {
-      "label": "Generate test data",
-      "type": "shell",
-      "command": ["crystal spec --tag get_test_data"],
-      "problemMatcher": []
     }
   ]
 }

@@ -42,13 +42,12 @@ module Crymon::Fields
       @hint : String = "For enter a document ID"
     ); end
 
-    def value=(value : String?)
-      # Validating ObjectId.
-      if !value.nil? && !BSON::ObjectId.validate(value.as(String))
-        # ...
+    def value=(hash : String?)
+      # Hash string validation.
+      if !hash.nil? && !BSON::ObjectId.validate(hash.as(String))
+        raise Crymon::Errors::InvalidHashField.new(hash)
       end
-      #
-      @value = value
+      @value = hash
     end
 
     def value
