@@ -8,8 +8,7 @@ describe "Cryomongo" do
     client : Mongo::Client = Mongo::Client.new
 
     # Generate data for test.
-    test_data = Helper.generate_test_data
-    database_name = test_data[:database_name]
+    database_name = "test_pcSenRPaSdaUiIjZ"
 
     # Get database and collection.
     database = client[database_name]
