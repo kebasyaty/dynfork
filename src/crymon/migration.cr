@@ -148,7 +148,7 @@ module Crymon::Migration
           # ...
           }
         end
-        # ------------------------------------------------------------------------
+        # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
         model_state.data_dynamic_fields.each do |key, value|
           metadata[:data_dynamic_fields][key] = value
