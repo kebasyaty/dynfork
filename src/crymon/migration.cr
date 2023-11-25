@@ -104,7 +104,7 @@ module Crymon::Migration
         # Get metadata of Model from cache.
         metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
         # If the Model parameter is_add_doc is false, skip the iteration.
-        next unless metadata[:is_save_doc]
+        next unless metadata[:is_saving_docs]
         # Get database of application.
         database : Mongo::Database = Crymon::Globals.cache_mongo_client[
           Crymon::Globals.cache_database_name]
