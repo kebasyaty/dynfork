@@ -160,7 +160,7 @@ module Crymon::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              document[field_name] = self.get_default_value(default_value_list[field_name])
+              document[field_name] = default_value_list[field_name]
             end
           }
         end
@@ -180,24 +180,6 @@ module Crymon::Migration
       # Delete data for non-existent Models from a
       # super collection and delete collections associated with those Models.
       self.napalm
-    end
-
-    # Get default value for a Model field.
-    def get_default_value(default_value : Crymon::Globals::ValueTypes) : Bson
-      case typeof(default_value).to_s
-      when "String"                    then return default_value.as(String).to_bson
-      when "UInt32"                    then return default_value.as(UInt32).to_bson
-      when "Int64"                     then return default_value.as(Int64).to_bson
-      when "Float64"                   then return default_value.as(Float64).to_bson
-      when "Crymon::Fields::ImageData" then return default_value.as(Crymon::Fields::ImageData).to_bson
-      when "Crymon::Fields::FileData"  then return default_value.as(Crymon::Fields::FileData).to_bson
-      when "Array(UInt32)"             then return default_value.as(Array(UInt32)).to_bson
-      when "Array(String)"             then return default_value.as(Array(String)).to_bson
-      when "Array(Int64)"              then return default_value.as(Array(Int64)).to_bson
-      when "Array(Float64)"            then return default_value.as(Array(Float64)).to_bson
-      when "Bool"                      then return default_value.as(Bool).to_bson
-      when "Nil"                       then return default_value.as(Nil).to_bson
-      end
     end
   end
 end
