@@ -1,3 +1,4 @@
+require "bson"
 require "json"
 
 module Crymon::Fields
@@ -64,6 +65,7 @@ module Crymon::Fields
 
   # Helper structure for FileField.
   struct FileData
+    include BSON::Serializable
     include JSON::Serializable
     include JSON::Serializable::Strict
     # Path to  file.
@@ -87,6 +89,7 @@ module Crymon::Fields
 
   # Helper structure for ImageField.
   struct ImageData
+    include BSON::Serializable
     include JSON::Serializable
     include JSON::Serializable::Strict
     # Path to  file.

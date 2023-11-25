@@ -139,19 +139,33 @@ module Crymon::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
+          # Get a list of missing fields.
+          missing_fields : Array(String) = model_state.field_name_and_type_list.keys -
+            metadata[:field_name_and_type_list].keys
+          # Get a list of new fields.
+          new_fields : Array(String) = metadata[:field_name_and_type_list].keys -
+            model_state.field_name_and_type_list.keys
           # Get collection for current Model.
           model_collection : Mongo::Collection = database[metadata[:collection_name]]
           # Fetch a Cursor pointing to the collection of current Model.
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |document|
-          # ...
+            # Remove missing fields.
+            missing_fields.each do |field_name|
+              document.delete(field_name)
+            end
+            # Add new fields with default value or
+            # update existing fields whose field type has changed.
+            new_fields.each do |field_name|
+              document[field_name] = self.get_default_value(field_name)
+            end
           }
         end
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
-        model_state.data_dynamic_fields.each do |key, value|
-          metadata[:data_dynamic_fields][key] = value
+        model_state.data_dynamic_fields.each do |field_name, data|
+          metadata[:data_dynamic_fields][field_name] = data
         end
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
@@ -164,6 +178,11 @@ module Crymon::Migration
       # Delete data for non-existent Models from a
       # super collection and delete collections associated with those Models.
       self.napalm
+    end
+
+    # ???
+    def get_default_value(field_name : String, default_value_list : Hash(String, Crymon::Globals::ValueTypes)) : Bson
+      Bson.new
     end
   end
 end
