@@ -139,6 +139,8 @@ module Crymon::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
+          # Get a list of default values.
+          default_value_list = metadata[:default_value_list]
           # Get a list of missing fields.
           missing_fields : Array(String) = model_state.field_name_and_type_list.keys -
             metadata[:field_name_and_type_list].keys
@@ -158,7 +160,7 @@ module Crymon::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              document[field_name] = self.get_default_value(field_name)
+              document[field_name] = self.get_default_value(default_value_list[field_name])
             end
           }
         end
@@ -180,9 +182,22 @@ module Crymon::Migration
       self.napalm
     end
 
-    # ???
-    def get_default_value(field_name : String, default_value_list : Hash(String, Crymon::Globals::ValueTypes)) : Bson
-      Bson.new
+    # Get default value for a Model field.
+    def get_default_value(default_value : Crymon::Globals::ValueTypes) : Bson
+      case typeof(default_value).to_s
+      when "String" then return default_value.as(String).to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      when "" then return default_value.as().to_bson
+      end
     end
   end
 end
