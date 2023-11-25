@@ -185,18 +185,18 @@ module Crymon::Migration
     # Get default value for a Model field.
     def get_default_value(default_value : Crymon::Globals::ValueTypes) : Bson
       case typeof(default_value).to_s
-      when "String" then return default_value.as(String).to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
-      when "" then return default_value.as().to_bson
+      when "String"                    then return default_value.as(String).to_bson
+      when "UInt32"                    then return default_value.as(UInt32).to_bson
+      when "Int64"                     then return default_value.as(Int64).to_bson
+      when "Float64"                   then return default_value.as(Float64).to_bson
+      when "Crymon::Fields::ImageData" then return default_value.as(Crymon::Fields::ImageData).to_bson
+      when "Crymon::Fields::FileData"  then return default_value.as(Crymon::Fields::FileData).to_bson
+      when "Array(UInt32)"             then return default_value.as(Array(UInt32)).to_bson
+      when "Array(String)"             then return default_value.as(Array(String)).to_bson
+      when "Array(Int64)"              then return default_value.as(Array(Int64)).to_bson
+      when "Array(Float64)"            then return default_value.as(Array(Float64)).to_bson
+      when "Bool"                      then return default_value.as(Bool).to_bson
+      when "Nil"                       then return default_value.as(Nil).to_bson
       end
     end
   end
