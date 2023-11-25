@@ -70,9 +70,9 @@ describe Crymon::Model do
          "age"        => 0,
          "birthday"   => "0000-00-00"}
       )
-      metadata["is_save_doc"].should be_true
-      metadata["is_update_doc"].should be_true
-      metadata["is_delete_doc"].should be_true
+      metadata["is_saving_docs"].should be_true
+      metadata["is_updating_docs"].should be_true
+      metadata["is_deleting_docs"].should be_true
       metadata["is_use_hash_slug"].should be_false
       metadata["ignore_fields"].should eq(["age", "birthday"])
     end

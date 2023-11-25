@@ -104,55 +104,61 @@ module Crymon::Migration
         # Get metadata of Model from cache.
         metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
         # If the Model parameter is_add_doc is false, skip the iteration.
-        next unless metadata[:is_save_doc]
+        next unless metadata[:is_saving_docs]
         # Get database of application.
-        database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
-        # Get super collection - State of Models and dynamic field data.
-        super_collection = database[Crymon::Globals.cache_super_collection_name]
-        # Get collection name for current Model.
-        model_collection_name : String = metadata[:collection_name]
-        # Get a list of names and types of Model fields in the previous state.
-        old_field_name_and_type_list : Hash(String, String)
+        database : Mongo::Database = Crymon::Globals.cache_mongo_client[
+          Crymon::Globals.cache_database_name]
+        # Get super collection - State of Models and dynamic fields data.
+        super_collection : Mongo::Collection = database[
+          Crymon::Globals.cache_super_collection_name]
         # Get ModelState for current Model.
         model_state, is_next = (
-          filter = {"collection_name": model_collection_name}
+          filter = {"collection_name": metadata[:collection_name]}
           document = super_collection.find_one(filter)
           unless document.nil?
             # Get existing ModelState for the current Model.
             m_state = Crymon::Migration::ModelState.from_bson(document)
-            old_field_name_and_type_list = m_state.field_name_and_type_list.clone
-            m_state.field_name_and_type_list = metadata[:field_name_and_type_list]
             m_state.is_model_exists = true
-            # Update the state of the current Model.
-            update = {"$set": m_state}
-            super_collection.update_one(filter, update)
             {m_state, false}
           else
             # Create a new ModelState for current Model.
             m_state = Crymon::Migration::ModelState.new(
-              "collection_name": model_collection_name,
+              "collection_name": metadata[:collection_name],
               "field_name_and_type_list": metadata[:field_name_and_type_list],
               "is_model_exists": true,
             )
-            old_field_name_and_type_list = metadata[:field_name_and_type_list].clone
             super_collection.insert_one(m_state.to_bson)
-            database.command(Mongo::Commands::Create, name: model_collection_name)
+            database.command(Mongo::Commands::Create, name: metadata[:collection_name])
             {m_state, true}
           end
         )
         # If this is a new Model, move on to the next iteration.
         next if is_next
-        # Get dynamic field data and add it to the current Model metadata.
-        model_state.data_dynamic_fields.each do |key, value|
-          metadata[:data_dynamic_fields][key] = value
-        end
         # Get a list of ignored Model fields from the cache.
         ignore_fields : Array(String) = metadata[:ignore_fields]
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
-        unless old_field_name_and_type_list == metadata[:field_name_and_type_list]
-          # Some code...
+        if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
+          # Get collection for current Model.
+          model_collection : Mongo::Collection = database[metadata[:collection_name]]
+          # Fetch a Cursor pointing to the collection of current Model.
+          cursor : Mongo::Cursor = model_collection.find
+          # Go through all documents to make changes.
+          cursor.each { |document|
+          # ...
+          }
         end
+        # ------------------------------------------------------------------------
+        # Get dynamic field data and add it to the current Model metadata.
+        model_state.data_dynamic_fields.each do |key, value|
+          metadata[:data_dynamic_fields][key] = value
+        end
+        # Update list.
+        model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
+        # Update the state of the current Model.
+        filter = {"collection_name": metadata[:collection_name]}
+        update = {"$set": model_state}
+        super_collection.update_one(filter, update)
       end
       # ------------------------------------------------------------------------
       # Delete data for non-existent Models from a

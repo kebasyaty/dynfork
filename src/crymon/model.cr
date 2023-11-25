@@ -16,7 +16,7 @@ module Crymon
   # ```
   # @[Crymon::Meta(
   #   service_name: "Accounts",
-  #   is_delete_doc: false
+  #   is_deleting_docs: false
   # )]
   # struct User < Crymon::Model
   #   getter username = Crymon::Fields::TextField.new(
