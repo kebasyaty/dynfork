@@ -145,8 +145,13 @@ module Crymon::Migration
           missing_fields : Array(String) = model_state.field_name_and_type_list.keys -
             metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
-          new_fields : Array(String) = metadata[:field_name_and_type_list].keys -
-            model_state.field_name_and_type_list.keys
+          new_fields = Array(String).new
+          metadata[:field_name_and_type_list].each do |field_name, field_type|
+            old_field_type : String? = model_state.field_name_and_type_list[field_name]?
+            if old_field_type.nil? || old_field_type != field_type
+              new_fields << field_name
+            end
+          end
           # Get collection for current Model.
           model_collection : Mongo::Collection = database[metadata[:collection_name]]
           # Fetch a Cursor pointing to the collection of current Model.
