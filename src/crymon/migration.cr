@@ -165,7 +165,18 @@ module Crymon::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              document[field_name] = default_value_list[field_name]
+              document[field_name] = (
+                default_value = default_value_list[field_name]
+                field_type : String = metadata[:field_name_and_type_list][field_name]
+                if field_type == "DateTimeField"
+                  default_value = Time.parse(
+                    default_value.to_s, "%Y-%m-%d %H:%M %z", Time::Location::UTC)
+                elsif field_type == "DateField"
+                  default_value = Time.parse(
+                    "#{default_value.to_s} 00:00 +00:00", "%Y-%m-%d %H:%M %z", Time::Location::UTC)
+                end
+                default_value
+              )
             end
             # Update document.
             filter = {"_id": document["_id"]}
