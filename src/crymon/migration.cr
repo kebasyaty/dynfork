@@ -152,6 +152,8 @@ module Crymon::Migration
               new_fields << field_name
             end
           end
+          # Date and time format.
+          datetime_format = "%Y-%m-%d %H:%M %z"
           # Get collection for current Model.
           model_collection : Mongo::Collection = database[metadata[:collection_name]]
           # Fetch a Cursor pointing to the collection of current Model.
@@ -169,11 +171,9 @@ module Crymon::Migration
                 default_value = default_value_list[field_name]
                 field_type : String = metadata[:field_name_and_type_list][field_name]
                 if field_type == "DateTimeField"
-                  default_value = Time.parse(
-                    default_value.to_s, "%Y-%m-%d %H:%M %z", Time::Location::UTC)
+                  default_value = Time.parse(default_value.to_s, datetime_format)
                 elsif field_type == "DateField"
-                  default_value = Time.parse(
-                    "#{default_value.to_s} 00:00 +00:00", "%Y-%m-%d %H:%M %z", Time::Location::UTC)
+                  default_value = Time.parse("#{default_value.to_s} 00:00 +00:00", datetime_format)
                 end
                 default_value
               )
