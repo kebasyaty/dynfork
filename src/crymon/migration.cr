@@ -141,8 +141,10 @@ module Crymon::Migration
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
           # Get a list of default values.
           default_value_list = metadata[:default_value_list]
+          # List of previous field names.
+          old_field_name_list : Array(String) = model_state.field_name_and_type_list.keys
           # Get a list of missing fields.
-          missing_fields : Array(String) = model_state.field_name_and_type_list.keys -
+          missing_fields : Array(String) = old_field_name_list -
             metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
           new_fields = Array(String).new
@@ -160,9 +162,13 @@ module Crymon::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |document|
-            # Remove missing fields.
-            missing_fields.each do |field_name|
-              document.delete(field_name)
+            # Create a new document for the updated state.
+            new_document = BSON.new
+            # Create a new document without the deleted fields.
+            old_field_name_list.each do |field_name|
+              unless missing_fields.includes?(field_name)
+                new_document[field_name] = document[field_name]
+              end
             end
             # Add new fields with default value or
             # update existing fields whose field type has changed.
