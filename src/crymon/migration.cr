@@ -163,11 +163,11 @@ module Crymon::Migration
           # Go through all documents to make changes.
           cursor.each { |document|
             # Create a new document for the updated state.
-            new_document = BSON.new
+            freshed_document = BSON.new({"_id": document["_id"]})
             # Create a new document without the deleted fields.
             old_field_name_list.each do |field_name|
               unless missing_fields.includes?(field_name)
-                new_document[field_name] = document[field_name]
+                freshed_document[field_name] = document[field_name]
               end
             end
             # Add new fields with default value or
@@ -177,16 +177,16 @@ module Crymon::Migration
                 default_value = default_value_list[field_name]
                 field_type : String = metadata[:field_name_and_type_list][field_name]
                 if field_type == "DateTimeField"
-                  default_value = Time.parse(default_value.to_s, datetime_format)
+                  default_value = Time.parse!(default_value.to_s, datetime_format)
                 elsif field_type == "DateField"
-                  default_value = Time.parse("#{default_value.to_s} 00:00 +00:00", datetime_format)
+                  default_value = Time.parse!("#{default_value.to_s} 00:00 +00:00", datetime_format)
                 end
                 default_value
               )
             end
             # Update document.
-            filter = {"_id": document["_id"]}
-            update = {"$set": document}
+            filter = {"_id": freshed_document["_id"]}
+            update = {"$set": freshed_document}
             model_collection.update_one(filter, update)
           }
         end
