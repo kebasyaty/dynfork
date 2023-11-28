@@ -12,8 +12,7 @@ describe "Cryomongo" do
 
     # Get database and collection.
     database = client[database_name]
-    collection_name = "test_collection_name"
-    collection = database[collection_name]
+    collection = database["test_collection_name"]
 
     # Perform crud operations.
     collection.insert_one({one: 1})
