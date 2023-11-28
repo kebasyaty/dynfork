@@ -167,6 +167,10 @@ module Crymon::Migration
             new_fields.each do |field_name|
               document[field_name] = default_value_list[field_name]
             end
+            # Update document.
+            filter = {"_id": document["_id"]}
+            update = {"$set": document}
+            model_collection.update_one(filter, update)
           }
         end
         # ----------------------------------------------------------------------
