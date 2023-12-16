@@ -4,11 +4,15 @@ module Crymon::Tools::Test
   #
   # Example:
   # ```
-  # Crymon::Tools::Test.delete_test_db(database_name)
+  # # Data for test.
+  # # To generate a key (This is not an advertisement): https://randompasswordgen.com/
+  # unique_app_key = "jeKZ9lIGL9aLRvlz"
+  # database_name = "test_#{unique_app_key}"
+  # database = Crymon::Globals.cache_mongo_client[database_name]
+  # Crymon::Tools::Test.delete_test_db(database)
   # ```
   #
-  def self.delete_test_db(database_name : String)
-    database = Crymon::Globals.cache_mongo_client[database_name]
+  def self.delete_test_db(database : Mongo::Database)
     cursor = database.list_collections("name_only": true)
     cursor.each { |collection|
       database.command(Mongo::Commands::Drop, name: collection["name"].as(Int32 | String))

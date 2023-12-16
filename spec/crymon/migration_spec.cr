@@ -91,9 +91,12 @@ describe Crymon::Migration::Monitor do
       unique_app_key = "jeKZ9lIGL9aLRvlz"
       database_name = "test_#{unique_app_key}"
       #
+      # Get database.
+      database = Crymon::Globals.cache_mongo_client[database_name]
+      #
       # Delete database before test.
       # (if the test fails)
-      Crymon::Tools::Test.delete_test_db(database_name)
+      Crymon::Tools::Test.delete_test_db(database)
       #
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
@@ -108,7 +111,7 @@ describe Crymon::Migration::Monitor do
       #
       m.migrat.should be_nil
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(database_name)
+      Crymon::Tools::Test.delete_test_db(database)
     end
   end
 end

@@ -17,7 +17,7 @@ describe "Cryomongo" do
 
     # Delete database before test.
     # (if the test fails)
-    Crymon::Tools::Test.delete_test_db(database_name).should be_nil
+    Crymon::Tools::Test.delete_test_db(database).should be_nil
     # Let's check the result of the delete_test_db method.
     cursor = database.list_collections("name_only": true)
     elements = cursor.to_a
@@ -44,9 +44,13 @@ describe "Cryomongo" do
     collection.count_documents.should eq(1)
     collection.delete_one({two: 3})
     collection.count_documents.should eq(0)
+    #
+    cursor = database.list_collections("name_only": true)
+    elements = cursor.to_a
+    elements.size.should eq(1)
 
     # Delete database after test.
-    Crymon::Tools::Test.delete_test_db(database_name).should be_nil
+    Crymon::Tools::Test.delete_test_db(database).should be_nil
     # Let's check the result of the delete_test_db method.
     cursor = database.list_collections("name_only": true)
     elements = cursor.to_a
