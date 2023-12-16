@@ -5,6 +5,7 @@ require "./crymon/meta"
 require "./crymon/caching"
 require "./crymon/addition"
 require "./crymon/model"
+require "./crymon/tools/*"
 require "./crymon/migration"
 #
 require "cryomongo"

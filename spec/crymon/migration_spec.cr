@@ -93,7 +93,7 @@ describe Crymon::Migration::Monitor do
       #
       # Delete database before test.
       # (if the test fails)
-      Helper.delete_test_db(database_name)
+      Crymon::Tools::Test.delete_test_db(database_name)
       #
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
@@ -108,7 +108,7 @@ describe Crymon::Migration::Monitor do
       #
       m.migrat.should be_nil
       # Delete database after test.
-      Helper.delete_test_db(database_name)
+      Crymon::Tools::Test.delete_test_db(database_name)
     end
   end
 end
