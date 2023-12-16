@@ -54,10 +54,8 @@ module Crymon::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Reset Models state information.
       cursor.each { |document|
-        model_state = Crymon::Migration::ModelState.from_bson(document)
-        model_state.is_model_exists = false
-        filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state}
+        filter = {"collection_name": document["collection_name"]}
+        update = {"$set": {"is_model_exists": false}}
         super_collection.update_one(filter, update)
       }
     end
