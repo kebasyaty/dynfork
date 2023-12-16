@@ -63,7 +63,7 @@ module Crymon::Caching
       {% for var in @type.instance_vars %}
           if @{{ var }}.field_type == "SlugField"
             @{{ var }}.get_slug_sources.each do |source_name|
-              unless field_name_list.includes?(source_name)
+              unless field_name_list.includes?(source_name) || source_name == "hash"
                 raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
               end
             end
