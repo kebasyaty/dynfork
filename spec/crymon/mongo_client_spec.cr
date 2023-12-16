@@ -32,6 +32,19 @@ describe "Cryomongo" do
     collection.count_documents.should eq(1)
     collection.delete_one({two: 2})
     collection.count_documents.should eq(0)
+    #
+    collection.insert_one({one: 1, two: 2})
+    bson = collection.find_one({one: 1})
+    bson.not_nil!.["one"].should eq(1)
+    bson.not_nil!.["two"].should eq(2)
+    collection.count_documents.should eq(1)
+    collection.update_one({one: 1}, {"$set": {two: 3}})
+    bson = collection.find_one({one: 1})
+    bson.not_nil!.["one"].should eq(1)
+    bson.not_nil!.["two"].should eq(3)
+    collection.count_documents.should eq(1)
+    collection.delete_one({two: 3})
+    collection.count_documents.should eq(0)
 
     # Delete database after test.
     Helper.delete_test_db(database_name).should be_nil
