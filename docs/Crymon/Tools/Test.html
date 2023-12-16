@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::ModelNameExcessChars - crymon v0</title>
+  <title>Crymon::Tools::Test - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -72,7 +72,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -122,7 +122,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/ModelNameExcessChars" data-name="crymon::errors::modelnameexcesschars">
+  <li class=" " data-id="crymon/Crymon/Errors/ModelNameExcessChars" data-name="crymon::errors::modelnameexcesschars">
       <a href="../../Crymon/Errors/ModelNameExcessChars.html">ModelNameExcessChars</a>
       
     </li>
@@ -402,12 +402,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+  <li class="parent open current" data-id="crymon/Crymon/Tools" data-name="crymon::tools">
       <a href="../../Crymon/Tools.html">Tools</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+  <li class=" current" data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
       <a href="../../Crymon/Tools/Test.html">Test</a>
       
     </li>
@@ -431,12 +431,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>ModelNameExcessChars
+  <span class="kind">module</span> Crymon::<wbr>Tools::<wbr>Test
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/ModelNameExcessChars.html">Crymon::Errors::ModelNameExcessChars</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -450,7 +448,7 @@
     Overview
   </h2>
 
-  <p>The maximum number of characters in the model name has been exceeded.</p>
+  <p>Auxiliary methods for testing.</p>
 
 
 
@@ -475,8 +473,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\errors.cr#L56" target="_blank">
-        src\crymon\errors.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\tools\testing.cr#L2" target="_blank">
+        src\crymon\tools\testing.cr
       </a>
     
     <br/>
@@ -486,18 +484,22 @@
 
 
 
+
+
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Class Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28model_name%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String)</a>
+        <a href="#delete_test_db%28database%3AMongo%3A%3ADatabase%29-class-method" class="signature"><strong>.delete_test_db</strong>(database : Mongo::Database)</a>
+        
+          <div class="summary"><p>Delete database (before|after) test.</p></div>
         
       </li>
     
@@ -509,80 +511,50 @@
 
 
 
-
-
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
 
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(model_name:String)-class-method">
+    <div class="entry-detail" id="delete_test_db(database:Mongo::Database)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(model_name : String)
+        def self.<strong>delete_test_db</strong>(database : Mongo::Database)
 
-        <a class="method-permalink" href="#new%28model_name%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#delete_test_db%28database%3AMongo%3A%3ADatabase%29-class-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Delete database (before|after) test.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Data for test.</span>
+<span class="c"># To generate a key (This is not an advertisement): https://randompasswordgen.com/</span>
+unique_app_key <span class="o">=</span> <span class="s">&quot;jeKZ9lIGL9aLRvlz&quot;</span>
+database_name <span class="o">=</span> <span class="s">&quot;test_</span><span class="i">#{</span>unique_app_key<span class="i">}</span><span class="s">&quot;</span>
+database <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Globals</span>.cache_mongo_client[database_name]
+<span class="t">Crymon</span><span class="t">::</span><span class="t">Tools</span><span class="t">::</span><span class="t">Test</span>.delete_test_db(database)</code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\errors.cr#L57" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\tools\testing.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 
