@@ -177,7 +177,7 @@ module Crymon::Migration
                 default_value = default_value_list[field_name]
                 field_type : String = metadata[:field_name_and_type_list][field_name]
                 if field_type == "DateTimeField"
-                  default_value = Time.parse!(default_value.to_s, datetime_format)
+                  default_value = Time.parse!("#{default_value.to_s} +00:00", datetime_format)
                 elsif field_type == "DateField"
                   default_value = Time.parse!("#{default_value.to_s} 00:00 +00:00", datetime_format)
                 end
