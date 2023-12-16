@@ -71,10 +71,9 @@ module Crymon::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
-        model_state = Crymon::Migration::ModelState.from_bson(document)
-        unless model_state.is_model_exists?
+        unless document["is_model_exists"]
           # Get the name of the collection associated with the Model.
-          model_collection_name : String = model_state.collection_name
+          model_collection_name : String = document["collection_name"]
           # Delete data for non-existent Model.
           super_collection.delete_one({"collection_name": model_collection_name})
           # Delete collection associated with non-existent Model.
