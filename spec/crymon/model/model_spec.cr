@@ -71,7 +71,7 @@ describe Crymon::Model do
       metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
     end
 
-    it "=> create instance of auxiliary Model", tags: "model" do
+    it "=> create instance of AuxiliaryModel", tags: "model" do
       m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")
