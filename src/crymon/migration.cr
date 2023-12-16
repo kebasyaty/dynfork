@@ -125,7 +125,7 @@ module Crymon::Migration
               "is_model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
-            database.command(Mongo::Commands::Create, name: metadata[:collection_name])
+            database.command(Mongo::Commands::Create, name: m_state.collection_name)
             {m_state, true}
           end
         )
@@ -195,7 +195,7 @@ module Crymon::Migration
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.
-        filter = {"collection_name": metadata[:collection_name]}
+        filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
       end
