@@ -54,10 +54,8 @@ module Crymon::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Reset Models state information.
       cursor.each { |document|
-        model_state = Crymon::Migration::ModelState.from_bson(document)
-        model_state.is_model_exists = false
-        filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state}
+        filter = {"collection_name": document["collection_name"]}
+        update = {"$set": {"is_model_exists": false}}
         super_collection.update_one(filter, update)
       }
     end
@@ -73,10 +71,9 @@ module Crymon::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
-        model_state = Crymon::Migration::ModelState.from_bson(document)
-        unless model_state.is_model_exists?
+        unless document["is_model_exists"]
           # Get the name of the collection associated with the Model.
-          model_collection_name : String = model_state.collection_name
+          model_collection_name : String = document["collection_name"].as(String)
           # Delete data for non-existent Model.
           super_collection.delete_one({"collection_name": model_collection_name})
           # Delete collection associated with non-existent Model.
@@ -128,7 +125,7 @@ module Crymon::Migration
               "is_model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
-            database.command(Mongo::Commands::Create, name: metadata[:collection_name])
+            database.command(Mongo::Commands::Create, name: m_state.collection_name)
             {m_state, true}
           end
         )
@@ -139,24 +136,66 @@ module Crymon::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
+          # Get a list of default values.
+          default_value_list = metadata[:default_value_list]
+          # List of previous field names.
+          old_field_name_list : Array(String) = model_state.field_name_and_type_list.keys
+          # Get a list of missing fields.
+          missing_fields : Array(String) = old_field_name_list -
+            metadata[:field_name_and_type_list].keys
+          # Get a list of new fields.
+          new_fields = Array(String).new
+          metadata[:field_name_and_type_list].each do |field_name, field_type|
+            old_field_type : String? = model_state.field_name_and_type_list[field_name]?
+            if old_field_type.nil? || old_field_type != field_type
+              new_fields << field_name
+            end
+          end
+          # Date and time format.
+          datetime_format = "%Y-%m-%d %H:%M %z"
           # Get collection for current Model.
           model_collection : Mongo::Collection = database[metadata[:collection_name]]
           # Fetch a Cursor pointing to the collection of current Model.
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |document|
-          # ...
+            # Create a new document for the updated state.
+            freshed_document = BSON.new({"_id": document["_id"]})
+            # Create a new document without the deleted fields.
+            old_field_name_list.each do |field_name|
+              unless missing_fields.includes?(field_name)
+                freshed_document[field_name] = document[field_name]
+              end
+            end
+            # Add new fields with default value or
+            # update existing fields whose field type has changed.
+            new_fields.each do |field_name|
+              document[field_name] = (
+                default_value = default_value_list[field_name]
+                field_type : String = metadata[:field_name_and_type_list][field_name]
+                if field_type == "DateTimeField"
+                  default_value = Time.parse!("#{default_value.to_s} +00:00", datetime_format)
+                elsif field_type == "DateField"
+                  default_value = Time.parse!("#{default_value.to_s} 00:00 +00:00", datetime_format)
+                end
+                default_value
+              )
+            end
+            # Update document.
+            filter = {"_id": freshed_document["_id"]}
+            update = {"$set": freshed_document}
+            model_collection.update_one(filter, update)
           }
         end
-        # ------------------------------------------------------------------------
+        # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
-        model_state.data_dynamic_fields.each do |key, value|
-          metadata[:data_dynamic_fields][key] = value
+        model_state.data_dynamic_fields.each do |field_name, data|
+          metadata[:data_dynamic_fields][field_name] = data
         end
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.
-        filter = {"collection_name": metadata[:collection_name]}
+        filter = {"collection_name": model_state.collection_name}
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
       end

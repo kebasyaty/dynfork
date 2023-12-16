@@ -35,35 +35,26 @@ module Crymon::Caching
     # <br>
     # _**Format:** <field_name, field_type>_
     field_name_and_type_list : Hash(String, String) = (
-      {% if @type.instance_vars.size > 3 %}
-          Hash.zip(
-            {{ @type.instance_vars.map &.name.stringify }},
-            {{ @type.instance_vars.map &.type.stringify }}
-              .map { |name| name.split("::").last }
-          )
-        {% else %}
-        Hash(String, String).new
+      fields = Hash(String, String).new
+      {% for var in @type.instance_vars %}
+        unless @{{ var }}.is_ignored
+          fields[{{ var.name.stringify }}] = {{ var.type.stringify }}.split("::").last
+        end
       {% end %}
+      fields
     )
     # Get default value list.
     # <br>
     # _**Format:** <field_name, default_value>_
     default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
-      {% if @type.instance_vars.size > 3 %}
-        # Get a list of field names and their values.
-        fields = Hash(String, Crymon::Globals::FieldTypes).new
-        {% for var in @type.instance_vars %}
-            fields[{{ var.name.stringify }}] = @{{ var }}
-        {% end %}
-        # Get default value list.
-        hash = Hash(String, Crymon::Globals::ValueTypes).new
-        fields.each do |name, field|
-          hash[name] = field.default
+      # Get default value.
+      fields = Hash(String, Crymon::Globals::ValueTypes).new
+      {% for var in @type.instance_vars %}
+        unless @{{ var }}.is_ignored
+          fields[{{ var.name.stringify }}] = @{{ var }}.default
         end
-        hash
-      {% else %}
-        Hash(String, Crymon::Globals::ValueTypes).new
       {% end %}
+      fields
     )
     # Does a field of type SlugField use a hash field as its source?
     is_use_hash_slug : Bool = (
@@ -72,7 +63,7 @@ module Crymon::Caching
       {% for var in @type.instance_vars %}
           if @{{ var }}.field_type == "SlugField"
             @{{ var }}.get_slug_sources.each do |source_name|
-              unless field_name_list.includes?(source_name)
+              unless field_name_list.includes?(source_name) || source_name == "hash"
                 raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
               end
             end
@@ -85,24 +76,24 @@ module Crymon::Caching
     )
     # Get list of field names that will not be saved to the database.
     ignore_fields : Array(String) = (
-      f_list = Array(String).new
+      fields = Array(String).new
       {% for var in @type.instance_vars %}
           if @{{ var }}.is_ignored
-            f_list << {{ var.name.stringify }}
+            fields << {{ var.name.stringify }}
           end
         {% end %}
-      f_list
+      fields
     )
     # Get attributes value for fields of Model: id, name.
     field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
-      hash = Hash(String, NamedTuple(id: String, name: String)).new
+      fields = Hash(String, NamedTuple(id: String, name: String)).new
       {% for var in @type.instance_vars %}
-          hash[{{ var.name.stringify }}] = {
+          fields[{{ var.name.stringify }}] = {
             id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
             name: {{ var.name.stringify }}
           }
         {% end %}
-      hash
+      fields
     )
     #
     # Add metadata to the global store.

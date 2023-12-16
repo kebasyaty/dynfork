@@ -55,29 +55,23 @@ describe Crymon::Model do
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(6_i32)
       metadata["field_name_and_type_list"].should eq(
-        {"hash"       => "HashField",
-         "created_at" => "DateTimeField",
+        {"created_at" => "DateTimeField",
          "updated_at" => "DateTimeField",
-         "first_name" => "TextField",
-         "age"        => "U32Field",
-         "birthday"   => "DateField"}
+         "first_name" => "TextField"}
       )
       metadata["default_value_list"].should eq(
-        {"hash"       => nil,
-         "created_at" => nil,
+        {"created_at" => nil,
          "updated_at" => nil,
-         "first_name" => "Cat",
-         "age"        => 0,
-         "birthday"   => "0000-00-00"}
+         "first_name" => "Cat"}
       )
       metadata["is_saving_docs"].should be_true
       metadata["is_updating_docs"].should be_true
       metadata["is_deleting_docs"].should be_true
       metadata["is_use_hash_slug"].should be_false
-      metadata["ignore_fields"].should eq(["age", "birthday"])
+      metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
     end
 
-    it "=> create instance of auxiliary Model", tags: "model" do
+    it "=> create instance of AuxiliaryModel", tags: "model" do
       m = Helper::AuxiliaryModel.new
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["service_name"].should eq("ServiceName")

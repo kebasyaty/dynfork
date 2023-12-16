@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::ImageData - crymon v0-dev</title>
+  <title>Crymon::Fields::ImageData - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -61,6 +61,11 @@
       <a href="../../Crymon.html">Crymon</a>
       
         <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+      <a href="../../Crymon/Addition.html">Addition</a>
+      
+    </li>
   
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../../Crymon/Caching.html">Caching</a>
@@ -367,31 +372,6 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Implement" data-name="crymon::implement">
-      <a href="../../Crymon/Implement.html">Implement</a>
-      
-        <ul>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
-      <a href="../../Crymon/Implement/Addition.html">Addition</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Hooks" data-name="crymon::implement::hooks">
-      <a href="../../Crymon/Implement/Hooks.html">Hooks</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Mediator" data-name="crymon::implement::mediator">
-      <a href="../../Crymon/Implement/Mediator.html">Mediator</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../../Crymon/Meta.html">Meta</a>
       
@@ -419,6 +399,21 @@
   
   <li class=" " data-id="crymon/Crymon/Model" data-name="crymon::model">
       <a href="../../Crymon/Model.html">Model</a>
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -471,6 +466,8 @@
   </h2>
   <ul class="other-types-list">
     
+      <li class="other-type">BSON::Serializable</li>
+    
       <li class="other-type">JSON::Serializable</li>
     
       <li class="other-type">JSON::Serializable::Strict</li>
@@ -496,7 +493,9 @@
   </h2>
   
     
-      src\crymon\fields\field.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L91" target="_blank">
+        src\crymon\fields\field.cr
+      </a>
     
     <br/>
   
@@ -516,6 +515,13 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#new%28bson%3ABSON%29-class-method" class="signature"><strong>.new</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p>Allocate an instance and copies data from a BSON struct.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
       </li>
@@ -528,6 +534,25 @@
   </ul>
 
 
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from_bson%28bson%3ABSON%29-class-method" class="signature"><strong>.from_bson</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Fields/ImageData.html#new%28bson%3ABSON%29-class-method">.new</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -648,6 +673,13 @@
         <a href="#size%3D%28size%3AFloat64%29-instance-method" class="signature"><strong>#size=</strong>(size : Float64)</a>
         
           <div class="summary"><p>File size in bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_bson%28bson%3DBSON.new%29-instance-method" class="signature"><strong>#to_bson</strong>(bson = <span class="t">BSON</span>.new)</a>
+        
+          <div class="summary"><p>Converts to a BSON representation.</p></div>
         
       </li>
     
@@ -777,6 +809,16 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
@@ -789,6 +831,36 @@
     Constructor Detail
   </h2>
   
+    <div class="entry-detail" id="new(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#new%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allocate an instance and copies data from a BSON struct.</p>
+<pre><code class="language-crystal">class User
+  include BSON::Serializable
+  property name : String
+end
+
+data = BSON.new
+data[&quot;name&quot;] = &quot;John&quot;
+User.new(data)
+```</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
       <div class="signature">
         
@@ -799,6 +871,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L93" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -814,11 +888,44 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L120" target="_blank">View source</a>]
+        
       </div>
     </div>
   
 
 
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="from_bson(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_bson</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#from_bson%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Fields/ImageData.html#new%28bson%3ABSON%29-class-method">.new</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -847,6 +954,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L114" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -865,6 +974,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L114" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -887,6 +998,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L118" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -908,6 +1021,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L118" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -926,6 +1041,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -946,6 +1063,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L108" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -964,6 +1083,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L96" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -984,6 +1105,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L96" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -997,6 +1120,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1012,6 +1137,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L100" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1025,6 +1152,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L99" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1040,6 +1169,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L99" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1053,6 +1184,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1068,6 +1201,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L98" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1082,6 +1217,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L97" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1095,6 +1232,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L97" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1115,6 +1254,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L110" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1133,6 +1274,32 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L110" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_bson(bson=BSON.new)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_bson</strong>(bson = <span class="t">BSON</span>.new)
+
+        <a class="method-permalink" href="#to_bson%28bson%3DBSON.new%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts to a BSON representation.</p>
+<pre><code class="language-crystal">user = User.new name: &quot;John&quot;
+bson = user.to_bson
+```</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1153,6 +1320,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L102" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1172,6 +1341,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L102" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1185,6 +1356,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L106" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1200,6 +1373,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L106" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1213,6 +1388,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L105" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1228,6 +1405,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L105" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1241,6 +1420,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L104" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1256,6 +1437,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L104" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1270,6 +1453,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L103" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1283,6 +1468,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L103" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1303,6 +1490,8 @@ By default is_delete=false.</p>
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L112" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1321,6 +1510,8 @@ By default is_delete=false.</p>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\fields\field.cr#L112" target="_blank">View source</a>]
         
       </div>
     </div>

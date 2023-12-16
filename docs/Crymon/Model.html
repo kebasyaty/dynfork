@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Model - crymon v0-dev</title>
+  <title>Crymon::Model - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -61,6 +61,11 @@
       <a href="../Crymon.html">Crymon</a>
       
         <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+      <a href="../Crymon/Addition.html">Addition</a>
+      
+    </li>
   
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../Crymon/Caching.html">Caching</a>
@@ -367,31 +372,6 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Implement" data-name="crymon::implement">
-      <a href="../Crymon/Implement.html">Implement</a>
-      
-        <ul>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
-      <a href="../Crymon/Implement/Addition.html">Addition</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Hooks" data-name="crymon::implement::hooks">
-      <a href="../Crymon/Implement/Hooks.html">Hooks</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Mediator" data-name="crymon::implement::mediator">
-      <a href="../Crymon/Implement/Mediator.html">Mediator</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../Crymon/Meta.html">Meta</a>
       
@@ -422,6 +402,21 @@
       
     </li>
   
+  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
 </ul>
 
       
@@ -441,7 +436,7 @@
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Model.html">Crymon::Model</a></li><li class="superclass"><a href="../Crymon/Implement/Mediator.html">Crymon::Implement::Mediator</a></li><li class="superclass"><a href="../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></li><li class="superclass"><a href="../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Crymon/Model.html">Crymon::Model</a></li><li class="superclass"><a href="../Crymon/Addition.html">Crymon::Addition</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -546,7 +541,9 @@
   </h2>
   
     
-      src\crymon\model.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L60" target="_blank">
+        src\crymon\model.cr
+      </a>
     
     <br/>
   
@@ -678,81 +675,22 @@
   
     
 
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></code></h3>
+  <h3>Instance methods inherited from struct <code><a href="../Crymon/Addition.html">Crymon::Addition</a></code></h3>
   
   
-    <a href="../Crymon/Implement/Addition.html#add_validation%3AHash%28String%2CString%29-instance-method" class="tooltip">
-      <span>add_validation : Hash(String, String)</span>
-    add_validation</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
-  
-  
-    <a href="../Crymon/Implement/Hooks.html#initialize-instance-method" class="tooltip">
+    <a href="../Crymon/Addition.html#initialize-instance-method" class="tooltip">
       <span>initialize</span>
-    initialize</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#post_create-instance-method" class="tooltip">
-      <span>post_create</span>
-    post_create</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#post_delete-instance-method" class="tooltip">
-      <span>post_delete</span>
-    post_delete</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#post_update-instance-method" class="tooltip">
-      <span>post_update</span>
-    post_update</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#pre_create-instance-method" class="tooltip">
-      <span>pre_create</span>
-    pre_create</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#pre_delete-instance-method" class="tooltip">
-      <span>pre_delete</span>
-    pre_delete</a>, 
-    
-  
-    <a href="../Crymon/Implement/Hooks.html#pre_update-instance-method" class="tooltip">
-      <span>pre_update</span>
-    pre_update</a>
+    initialize</a>
     
   
 
 
     
 
-  <h3>Constructor methods inherited from struct <code><a href="../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
+  <h3>Constructor methods inherited from struct <code><a href="../Crymon/Addition.html">Crymon::Addition</a></code></h3>
   
   
-    <a href="../Crymon/Implement/Hooks.html#new-class-method" class="tooltip">
+    <a href="../Crymon/Addition.html#new-class-method" class="tooltip">
       <span>new</span>
     new</a>
     
@@ -816,6 +754,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L61" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -829,6 +769,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L71" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -863,6 +805,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L105" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -876,6 +820,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -905,6 +851,8 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L65" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -923,6 +871,8 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -944,6 +894,8 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L97" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -957,6 +909,8 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L68" target="_blank">View source</a>]
         
       </div>
     </div>

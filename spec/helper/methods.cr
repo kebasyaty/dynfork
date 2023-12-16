@@ -2,22 +2,6 @@
 module Helper
   ALPHANUMERIC_CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-  # Delete database after test.
-  #
-  # Example:
-  # ```
-  # # Delete database after test.
-  # Helper.delete_test_db(database_name)
-  # ```
-  #
-  def self.delete_test_db(database_name : String)
-    database = Crymon::Globals.cache_mongo_client[database_name]
-    cursor = database.list_collections("name_only": true)
-    cursor.each { |collection|
-      database.command(Mongo::Commands::Drop, name: collection["name"].as(Int32 | String))
-    }
-  end
-
   # Generate data for test.
   #
   # Example:
