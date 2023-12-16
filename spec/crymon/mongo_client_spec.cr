@@ -18,7 +18,6 @@ describe "Cryomongo" do
     # Delete database before test.
     # (if the test fails)
     Helper.delete_test_db(database_name).should be_nil
-
     # Let's check the result of the delete_test_db method.
     cursor = database.list_collections("name_only": true)
     elements = cursor.to_a

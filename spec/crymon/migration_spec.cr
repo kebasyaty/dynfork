@@ -90,6 +90,7 @@ describe Crymon::Migration::Monitor do
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
       unique_app_key = "jeKZ9lIGL9aLRvlz"
       database_name = "test_#{unique_app_key}"
+      #
       # Delete database before test.
       # (if the test fails)
       Helper.delete_test_db(database_name)

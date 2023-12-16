@@ -73,7 +73,7 @@ module Crymon::Migration
       cursor.each { |document|
         unless document["is_model_exists"]
           # Get the name of the collection associated with the Model.
-          model_collection_name : String = document["collection_name"]
+          model_collection_name : String = document["collection_name"].as(String)
           # Delete data for non-existent Model.
           super_collection.delete_one({"collection_name": model_collection_name})
           # Delete collection associated with non-existent Model.
