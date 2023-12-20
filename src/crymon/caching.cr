@@ -59,14 +59,16 @@ module Crymon::Caching
     # Does a field of type SlugField use a hash field as its source?
     is_use_hash_slug : Bool = (
       flag : Bool = false
-      field_name_list : Array(String) = field_name_and_type_list.keys
+      field_name_list : Array(String) = field_name_and_type_list.keys << "hash"
       {% for var in @type.instance_vars %}
           if @{{ var }}.field_type == "SlugField"
+            # Throw an exception if a non-existent field is specified.
             @{{ var }}.get_slug_sources.each do |source_name|
-              unless field_name_list.includes?(source_name) || source_name == "hash"
+              unless field_name_list.includes?(source_name)
                 raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
               end
             end
+            # Check the presence of a hash field.
             if !flag && @{{ var }}.get_slug_sources.includes?("hash")
               flag = true
             end
