@@ -5,8 +5,9 @@ module Crymon::Caching
     # Check the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
-      {% end %}
+        raise Crymon::Errors::ModelFieldsMissing
+          .new({{ @type.name.stringify }}.split("::").last)
+    {% end %}
     # Get Model name = Structure name.
     # <br>
     # _**Examples:** User | UserProfile | ElectricCar | etc ..._
@@ -14,7 +15,8 @@ module Crymon::Caching
     model_name : String = {{ @type.name.stringify }}.split("::").last
     raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
-      raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+      raise Crymon::Errors::ModelNameRegexFails
+        .new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get Service name = Module name.
     # <br>
@@ -65,7 +67,8 @@ module Crymon::Caching
             # Throw an exception if a non-existent field is specified.
             @{{ var }}.get_slug_sources.each do |source_name|
               unless field_name_list.includes?(source_name)
-                raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
+                raise Crymon::Errors::SlugSourceInvalid
+                  .new(model_name, {{ var.name.stringify }}, source_name)
               end
             end
             # Check the presence of a hash field.
@@ -91,7 +94,10 @@ module Crymon::Caching
       fields = Hash(String, NamedTuple(id: String, name: String)).new
       {% for var in @type.instance_vars %}
           fields[{{ var.name.stringify }}] = {
-            id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
+            id: "#{{{ @type.name.stringify }}
+              .split("::")
+              .last}--#{{{ var.name.stringify }}
+              .gsub("_", "-")}",
             name: {{ var.name.stringify }}
           }
         {% end %}
