@@ -1,11 +1,11 @@
 require "./crymon/errors"
 require "./crymon/globals"
+require "./crymon/tools/*"
 require "./crymon/fields/*"
 require "./crymon/meta"
 require "./crymon/caching"
 require "./crymon/addition"
 require "./crymon/model"
-require "./crymon/tools/*"
 require "./crymon/migration"
 #
 require "cryomongo"

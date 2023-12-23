@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Model - crymon v0</title>
+  <title>Crymon::Model - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -89,6 +89,16 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../Crymon/Errors/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDate" data-name="crymon::errors::invaliddate">
+      <a href="../Crymon/Errors/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDateTime" data-name="crymon::errors::invaliddatetime">
+      <a href="../Crymon/Errors/InvalidDateTime.html">InvalidDateTime</a>
       
     </li>
   
@@ -407,6 +417,11 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Tools/Date" data-name="crymon::tools::date">
+      <a href="../Crymon/Tools/Date.html">Date</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
       <a href="../Crymon/Tools/Test.html">Test</a>
       
@@ -516,6 +531,8 @@
     
       <li class="other-type"><a href="../Crymon/Caching.html">Crymon::Caching</a></li>
     
+      <li class="other-type"><a href="../Crymon/Tools/Date.html">Crymon::Tools::Date</a></li>
+    
       <li class="other-type">JSON::Serializable</li>
     
       <li class="other-type">JSON::Serializable::Strict</li>
@@ -541,9 +558,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L60" target="_blank">
-        src\crymon\model.cr
-      </a>
+      src\crymon\model.cr
     
     <br/>
   
@@ -633,6 +648,30 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../Crymon/Tools/Date.html">Crymon::Tools::Date</a></code></h3>
+  
+  
+    <a href="../Crymon/Tools/Date.html#date_parse%28date%3AString%29%3ATime-instance-method" class="tooltip">
+      <span>date_parse(date : String) : Time</span>
+    date_parse</a>, 
+    
+  
+    <a href="../Crymon/Tools/Date.html#datetime_parse%28datetime%3AString%29%3ATime-instance-method" class="tooltip">
+      <span>datetime_parse(datetime : String) : Time</span>
+    datetime_parse</a>
+    
+  
+
+
+    
+
+
+    
+
+
   
     
 
@@ -754,8 +793,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L61" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -769,8 +806,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L71" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -805,8 +840,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L105" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -820,8 +853,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -851,8 +882,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L65" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -871,8 +900,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -894,8 +921,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L97" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -909,8 +934,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/46ff66245dc5ce63da5166567742927e06f97fd2/src\crymon\model.cr#L68" target="_blank">View source</a>]
         
       </div>
     </div>

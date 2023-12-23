@@ -67,6 +67,10 @@ describe Crymon::Globals do
           unique_app_key: Regex,
           service_name: Regex,
           get_type_marker: Regex,
+          date_parse: Regex,
+          date_parse_reverse: Regex,
+          datetime_parse: Regex,
+          datetime_parse_reverse: Regex,
         )
       )
     end

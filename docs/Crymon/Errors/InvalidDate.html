@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Implement::Addition - crymon v0-dev</title>
+  <title>Crymon::Errors::InvalidDate - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -62,12 +62,17 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+      <a href="../../Crymon/Addition.html">Addition</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../../Crymon/Caching.html">Caching</a>
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -84,6 +89,16 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crymon/Crymon/Errors/InvalidDate" data-name="crymon::errors::invaliddate">
+      <a href="../../Crymon/Errors/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDateTime" data-name="crymon::errors::invaliddatetime">
+      <a href="../../Crymon/Errors/InvalidDateTime.html">InvalidDateTime</a>
       
     </li>
   
@@ -367,31 +382,6 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Implement" data-name="crymon::implement">
-      <a href="../../Crymon/Implement.html">Implement</a>
-      
-        <ul>
-  
-  <li class=" current" data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
-      <a href="../../Crymon/Implement/Addition.html">Addition</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Hooks" data-name="crymon::implement::hooks">
-      <a href="../../Crymon/Implement/Hooks.html">Hooks</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Mediator" data-name="crymon::implement::mediator">
-      <a href="../../Crymon/Implement/Mediator.html">Mediator</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../../Crymon/Meta.html">Meta</a>
       
@@ -422,6 +412,26 @@
       
     </li>
   
+  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Date" data-name="crymon::tools::date">
+      <a href="../../Crymon/Tools/Date.html">Date</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
 </ul>
 
       
@@ -436,12 +446,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">abstract struct</span> Crymon::<wbr>Implement::<wbr>Addition
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>InvalidDate
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></li><li class="superclass"><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/InvalidDate.html">Crymon::Errors::InvalidDate</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -455,7 +465,7 @@
     Overview
   </h2>
 
-  <p>A set of tools for additional actions.</p>
+  <p>Invalid date.</p>
 
 
 
@@ -464,20 +474,6 @@
 
 
 
-
-  <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Direct Known Subclasses
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../../Crymon/Implement/Mediator.html">Crymon::Implement::Mediator</a></li>
-    
-  </ul>
 
 
 
@@ -494,7 +490,7 @@
   </h2>
   
     
-      src\crymon\implement\addition_impl.cr
+      src\crymon\errors.cr
     
     <br/>
   
@@ -503,24 +499,18 @@
 
 
 
-
-
-
-
   <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+    <a id="constructors" class="anchor" href="#constructors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Summary
+    Constructors
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#add_validation%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#add_validation</strong> : Hash(String, String)</a>
-        
-          <div class="summary"><p>It is supposed to be use to additional validation of fields.</p></div>
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
         
       </li>
     
@@ -530,60 +520,16 @@
 
 
 
+
+
+
+
 <div class="methods-inherited">
   
     
 
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
-  
-  
-    <a href="../../Crymon/Implement/Hooks.html#initialize-instance-method" class="tooltip">
-      <span>initialize</span>
-    initialize</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_create-instance-method" class="tooltip">
-      <span>post_create</span>
-    post_create</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_delete-instance-method" class="tooltip">
-      <span>post_delete</span>
-    post_delete</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_update-instance-method" class="tooltip">
-      <span>post_update</span>
-    post_update</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_create-instance-method" class="tooltip">
-      <span>pre_create</span>
-    pre_create</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_delete-instance-method" class="tooltip">
-      <span>pre_delete</span>
-    pre_delete</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_update-instance-method" class="tooltip">
-      <span>pre_update</span>
-    pre_update</a>
-    
-  
-
 
     
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
-  
-  
-    <a href="../../Crymon/Implement/Hooks.html#new-class-method" class="tooltip">
-      <span>new</span>
-    new</a>
-    
-  
 
 
     
@@ -623,53 +569,22 @@
 </div>
 
 
-
-
-
-
   <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Detail
+    Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="add_validation:Hash(String,String)-instance-method">
+    <div class="entry-detail" id="new-class-method">
       <div class="signature">
         
-        def <strong>add_validation</strong> : Hash(String, String)
+        def self.<strong>new</strong>
 
-        <a class="method-permalink" href="#add_validation%3AHash%28String%2CString%29-instance-method">#</a>
+        <a class="method-permalink" href="#new-class-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>It is supposed to be use to additional validation of fields.</p>
-<p><span class="flag yellow">WARNING</span>  The method is called automatically when checking or saving the Model.</p>
-<p>Example:</p>
-<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
-<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
-  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
-  getter password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new
-  getter confirm_password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
-    <span class="s">&quot;is_ignored&quot;</span>: <span class="n">true</span>
-  )
-
-  <span class="k">private</span> <span class="k">def</span> <span class="m">add_validation</span> : <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>)
-    error_map <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>).new
-    <span class="c"># Get clean data.</span>
-    password <span class="o">=</span> @password.value
-    confirm_password <span class="o">=</span> @confirm_password.value
-    <span class="c"># Fields validation.</span>
-    <span class="k">if</span> password <span class="o">!=</span> confirm_password
-      error_map[<span class="s">&quot;confirm_password&quot;</span>] <span class="o">=</span> <span class="s">&quot;Password confirmation does not match.&quot;</span>
-    <span class="k">end</span>
-    error_map
-  <span class="k">end</span>
-<span class="k">end</span></code></pre>
-        </div>
       
       <br/>
       <div>
@@ -677,6 +592,10 @@
       </div>
     </div>
   
+
+
+
+
 
 
 
