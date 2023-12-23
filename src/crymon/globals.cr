@@ -22,6 +22,10 @@ module Crymon::Globals
     unique_app_key: /^[a-zA-Z0-9]{16}$/,
     service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     get_type_marker: /(Text|U32|I64|F64)/,
+    date_parse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})$/,
+    date_parse_reverse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})$/,
+    datetime_parse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/,
+    datetime_parse_reverse: /^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/,
   )
 
   # All field types.
@@ -76,6 +80,10 @@ module Crymon::Globals
     unique_app_key: Regex,
     service_name: Regex,
     get_type_marker: Regex,
+    date_parse: Regex,
+    date_parse_reverse: Regex,
+    datetime_parse: Regex,
+    datetime_parse_reverse: Regex,
   )
 
   # Validation global Crymon settings.

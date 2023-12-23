@@ -5,8 +5,8 @@ module Crymon::Tools::Date
   # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
   # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
   def date_parse(date : String) : Time
-    md = date.match(/^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})$/) ||
-         date.match(/^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})$/)
+    md = Crymon::Globals.cache_regex[:date_parse].match(date) ||
+         Crymon::Globals.cache_regex[:date_parse_reverse].match(date)
     raise "Invalid date." if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]}", "%F")
   end
@@ -18,8 +18,8 @@ module Crymon::Tools::Date
   # yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
   # yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm_
   def datetime_parse(datetime : String) : Time
-    md = datetime.match(/^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/) ||
-         datetime.match(/^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/)
+    md = Crymon::Globals.cache_regex[:datetime_parse].match(datetime) ||
+         Crymon::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
     raise "Invalid date." if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]} #{md["t"]}", "%F %H:%M")
   end
