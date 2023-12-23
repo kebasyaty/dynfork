@@ -9,7 +9,7 @@ module Crymon::Tools::Test
   # unique_app_key = "jeKZ9lIGL9aLRvlz"
   # database_name = "test_#{unique_app_key}"
   # database = Crymon::Globals.cache_mongo_client[database_name]
-  # Delete the database for the test.
+  # # Delete the database for the test.
   # Crymon::Tools::Test.delete_test_db(database)
   # ```
   #
