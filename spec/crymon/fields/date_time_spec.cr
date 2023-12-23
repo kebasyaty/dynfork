@@ -18,8 +18,8 @@ describe Crymon::Fields::DateTimeField do
       f.is_required.should be_false
       f.is_unique.should be_false
       f.is_ignored.should be_false
-      f.max.should eq("")
-      f.min.should eq("")
+      f.max.should be_nil
+      f.min.should be_nil
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("Format: yyyy-mm-ddThh:mm")

@@ -91,8 +91,8 @@ describe Helper::FilledModel do
       f.birthday.is_hide.should be_false
       f.birthday.is_required.should be_false
       f.birthday.is_unique.should be_false
-      f.birthday.max.should eq("")
-      f.birthday.min.should eq("")
+      f.birthday.max.should be_nil
+      f.birthday.min.should be_nil
       f.birthday.other_attrs.should eq("")
       f.birthday.css_classes.should eq("")
       f.birthday.hint.should eq("Format: yyyy-mm-dd")

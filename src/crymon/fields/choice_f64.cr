@@ -21,6 +21,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 4
+    #
+    # Stubs
+    getter max : Nil
+    getter min : Nil
 
     def initialize(
       @label : String = "",
@@ -58,6 +62,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 6
+    #
+    # Stubs
+    getter max : Nil
+    getter min : Nil
 
     def initialize(
       @label : String = "",
@@ -83,8 +91,6 @@ module Crymon::Fields
     getter field_type : String = "ChoiceF64DynField"
     # Sets the value of an element.
     property value : Float64?
-    # Stub
-    getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = false
     # The unique value of a field in a collection.
@@ -96,6 +102,11 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
+    #
+    # Stubs
+    getter default : Nil
+    getter max : Nil
+    getter min : Nil
 
     def initialize(
       @label : String = "",
@@ -125,8 +136,6 @@ module Crymon::Fields
     getter field_type : String = "ChoiceF64MultDynField"
     # Sets the value of an element.
     property value : Array(Float64)?
-    # Stub
-    getter default : Nil
     # Specifies that multiple options can be selected at once.
     getter is_multiple : Bool = true
     # The unique value of a field in a collection.
@@ -138,6 +147,11 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 7
+    #
+    # Stubs
+    getter default : Nil
+    getter max : Nil
+    getter min : Nil
 
     def initialize(
       @label : String = "",

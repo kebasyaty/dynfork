@@ -112,17 +112,18 @@ module Crymon::Caching
       {% for var in @type.instance_vars %}
         if @{{ var }}.field_type.includes?("Date")
           if @{{ var }}.field_type == "DateField"
-            default_time = !@{{ var }}.default.nil? ? self.date_parse(@{{ var }}.default.as(String)) : nil
-            max_time = !@{{ var }}.max.empty? ? self.date_parse(@{{ var }}.max) : nil
-            min_time = !@{{ var }}.min.empty? ? self.date_parse(@{{ var }}.min) : nil
+            default_time = !@{{ var }}.default.nil? ? self.date_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max.nil? ? self.date_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min.nil? ? self.date_parse(@{{ var }}.min.to_s) : nil
           elsif @{{ var }}.field_type == "DateTimeField"
-            default_time = !@{{ var }}.default.nil? ? self.datetime_parse(@{{ var }}.default.as(String)) : nil
-            max_time = !@{{ var }}.max.empty? ? self.datetime_parse(@{{ var }}.max) : nil
-            min_time = !@{{ var }}.min.empty? ? self.datetime_parse(@{{ var }}.min) : nil
+            default_time = !@{{ var }}.default.nil? ? self.datetime_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max.nil? ? self.datetime_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min.nil? ? self.datetime_parse(@{{ var }}.min.to_s) : nil
           end
-          hash[{{ var.name.stringify }}] = NamedTuple(default: default_time, max: max_time, min: min_time)
+          hash[{{ var.name.stringify }}] = {default: default_time, max: max_time, min: min_time}
           default_time = max_time = min_time = nil
         end
+        hash
       {% end %}
     )
     #
