@@ -20,9 +20,9 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The top value for entering a date.
-    getter max : String
+    getter max : String?
     # The lower value for entering a date.
-    getter min : String
+    getter min : String?
     # The unique value of a field in a collection.
     getter is_unique : Bool
     # Additional explanation for the user.
@@ -35,8 +35,8 @@ module Crymon::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
-      @max : String = "",
-      @min : String = "",
+      @max : String? = nil,
+      @min : String? = nil,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,

@@ -25,8 +25,6 @@ module Crymon::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
-    include Crymon::Tools::Date
-
     getter model_key_list : Array(String)
 
     def initialize(
@@ -171,14 +169,11 @@ module Crymon::Migration
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
               document[field_name] = (
-                default_value = default_value_list[field_name]
-                field_type : String = metadata[:field_name_and_type_list][field_name]
-                if field_type == "DateTimeField"
-                  default_value = self.date_parse(default_value.as(String))
-                elsif field_type == "DateField"
-                  default_value = self.datetime_parse(default_value.as(String))
+                if metadata[:field_name_and_type_list][field_name].includes?("Date")
+                  metadata[:time_object_list][field_name][:default]
+                else
+                  default_value_list[field_name]
                 end
-                default_value
               )
             end
             # Update document.

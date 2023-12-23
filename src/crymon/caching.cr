@@ -5,8 +5,9 @@ module Crymon::Caching
     # Check the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::ModelFieldsMissing.new({{ @type.name.stringify }}.split("::").last)
-      {% end %}
+        raise Crymon::Errors::ModelFieldsMissing
+          .new({{ @type.name.stringify }}.split("::").last)
+    {% end %}
     # Get Model name = Structure name.
     # <br>
     # _**Examples:** User | UserProfile | ElectricCar | etc ..._
@@ -14,7 +15,8 @@ module Crymon::Caching
     model_name : String = {{ @type.name.stringify }}.split("::").last
     raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
-      raise Crymon::Errors::ModelNameRegexFails.new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+      raise Crymon::Errors::ModelNameRegexFails
+        .new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get Service name = Module name.
     # <br>
@@ -61,41 +63,68 @@ module Crymon::Caching
       flag : Bool = false
       field_name_list : Array(String) = field_name_and_type_list.keys << "hash"
       {% for var in @type.instance_vars %}
-          if @{{ var }}.field_type == "SlugField"
-            # Throw an exception if a non-existent field is specified.
-            @{{ var }}.get_slug_sources.each do |source_name|
-              unless field_name_list.includes?(source_name)
-                raise Crymon::Errors::SlugSourceInvalid.new(model_name, {{ var.name.stringify }}, source_name)
-              end
-            end
-            # Check the presence of a hash field.
-            if !flag && @{{ var }}.get_slug_sources.includes?("hash")
-              flag = true
+        if @{{ var }}.field_type == "SlugField"
+          # Throw an exception if a non-existent field is specified.
+          @{{ var }}.get_slug_sources.each do |source_name|
+            unless field_name_list.includes?(source_name)
+              raise Crymon::Errors::SlugSourceInvalid
+                .new(model_name, {{ var.name.stringify }}, source_name)
             end
           end
-        {% end %}
+          # Check the presence of a hash field.
+          if !flag && @{{ var }}.get_slug_sources.includes?("hash")
+            flag = true
+          end
+        end
+      {% end %}
       flag
     )
     # Get list of field names that will not be saved to the database.
     ignore_fields : Array(String) = (
       fields = Array(String).new
       {% for var in @type.instance_vars %}
-          if @{{ var }}.is_ignored
-            fields << {{ var.name.stringify }}
-          end
-        {% end %}
+        if @{{ var }}.is_ignored
+          fields << {{ var.name.stringify }}
+        end
+      {% end %}
       fields
     )
     # Get attributes value for fields of Model: id, name.
     field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
       fields = Hash(String, NamedTuple(id: String, name: String)).new
       {% for var in @type.instance_vars %}
-          fields[{{ var.name.stringify }}] = {
-            id: "#{{{ @type.name.stringify }}.split("::").last}--#{{{ var.name.stringify }}.gsub("_", "-")}",
-            name: {{ var.name.stringify }}
-          }
-        {% end %}
+        fields[{{ var.name.stringify }}] = {
+          id: "#{{{ @type.name.stringify }}
+            .split("::")
+            .last}--#{{{ var.name.stringify }}
+            .gsub("_", "-")}",
+          name: {{ var.name.stringify }}
+        }
+      {% end %}
       fields
+    )
+    # Caching Time objects for date and time fields.
+    time_object_list : Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)) = (
+      hash = Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)).new
+      default_time : Time?
+      max_time : Time?
+      min_time : Time?
+      {% for var in @type.instance_vars %}
+        if @{{ var }}.field_type.includes?("Date")
+          if @{{ var }}.field_type == "DateField"
+            default_time = !@{{ var }}.default.nil? ? self.date_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max.nil? ? self.date_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min.nil? ? self.date_parse(@{{ var }}.min.to_s) : nil
+          elsif @{{ var }}.field_type == "DateTimeField"
+            default_time = !@{{ var }}.default.nil? ? self.datetime_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max.nil? ? self.datetime_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min.nil? ? self.datetime_parse(@{{ var }}.min.to_s) : nil
+          end
+          hash[{{ var.name.stringify }}] = {default: default_time, max: max_time, min: min_time}
+          default_time = max_time = min_time = nil
+        end
+      {% end %}
+      hash
     )
     #
     # Add metadata to the global store.
@@ -133,6 +162,8 @@ module Crymon::Caching
       field_attrs: field_attrs,
       # Data for dynamic fields.
       data_dynamic_fields: Hash(String, String).new,
+      # Caching Time objects for date and time fields.
+      time_object_list: time_object_list,
     }
   end
 end

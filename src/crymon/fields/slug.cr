@@ -10,8 +10,6 @@ module Crymon::Fields
     getter input_type : String = "text"
     # Sets the value of an element.
     property value : String?
-    # Stub
-    getter default : Nil
     # Displays prompt text.
     getter placeholder : String
     # The unique value of a field in a collection.
@@ -25,6 +23,11 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 2
+    #
+    # Stubs
+    getter default : Nil
+    getter max : Nil
+    getter min : Nil
 
     def initialize(
       @label : String = "",

@@ -84,15 +84,15 @@ describe Helper::FilledModel do
       f.birthday.input_type.should eq("date")
       f.birthday.name.should eq("birthday")
       f.birthday.value.should be_nil
-      f.birthday.default.should eq("0000-00-00")
+      f.birthday.default.should eq("23.12.2023")
       f.birthday.placeholder.should eq("")
       f.birthday.is_disabled.should be_false
       f.birthday.is_readonly.should be_false
       f.birthday.is_hide.should be_false
       f.birthday.is_required.should be_false
       f.birthday.is_unique.should be_false
-      f.birthday.max.should eq("")
-      f.birthday.min.should eq("")
+      f.birthday.max.should be_nil
+      f.birthday.min.should be_nil
       f.birthday.other_attrs.should eq("")
       f.birthday.css_classes.should eq("")
       f.birthday.hint.should eq("Format: yyyy-mm-dd")

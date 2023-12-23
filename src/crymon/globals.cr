@@ -23,7 +23,7 @@ module Crymon::Globals
     service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     get_type_marker: /(Text|U32|I64|F64)/,
     date_parse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})$/,
-    date_parse_reverse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})$/,
+    date_parse_reverse: /^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})$/,
     datetime_parse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/,
     datetime_parse_reverse: /^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2})$/,
   )
@@ -71,6 +71,7 @@ module Crymon::Globals
     ignore_fields: Array(String),
     field_attrs: Hash(String, NamedTuple(id: String, name: String)),
     data_dynamic_fields: Hash(String, String),
+    time_object_list: Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)),
   )
 
   # A type for caching regular expressions.
