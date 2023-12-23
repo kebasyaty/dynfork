@@ -79,4 +79,18 @@ module Crymon::Errors
       super
     end
   end
+
+  # Invalid date.
+  class InvalidDate < CrymonException
+    def initialize
+      super("Invalid date.")
+    end
+  end
+
+  # Invalid date and time.
+  class InvalidDateTime < CrymonException
+    def initialize
+      super("Invalid date and time.")
+    end
+  end
 end
