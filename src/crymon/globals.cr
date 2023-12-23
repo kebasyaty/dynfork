@@ -71,6 +71,7 @@ module Crymon::Globals
     ignore_fields: Array(String),
     field_attrs: Hash(String, NamedTuple(id: String, name: String)),
     data_dynamic_fields: Hash(String, String),
+    time_object_list: Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)),
   )
 
   # A type for caching regular expressions.
