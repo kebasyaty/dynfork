@@ -20,7 +20,7 @@ module Helper
       "is_ignored": true
     )
     getter birthday = Crymon::Fields::DateField.new(
-      "default": "0000-00-00",
+      "default": "23.12.2023",
       "is_ignored": true
     )
   end
