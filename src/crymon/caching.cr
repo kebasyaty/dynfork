@@ -120,9 +120,7 @@ module Crymon::Caching
             max_time = !@{{ var }}.max.empty? ? self.datetime_parse(@{{ var }}.max) : nil
             min_time = !@{{ var }}.min.empty? ? self.datetime_parse(@{{ var }}.min) : nil
           end
-          #
           hash[{{ var.name.stringify }}] = NamedTuple(default: default_time, max: max_time, min: min_time)
-          #
           default_time = max_time = min_time = nil
         end
       {% end %}
