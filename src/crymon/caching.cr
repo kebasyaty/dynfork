@@ -123,8 +123,8 @@ module Crymon::Caching
           hash[{{ var.name.stringify }}] = {default: default_time, max: max_time, min: min_time}
           default_time = max_time = min_time = nil
         end
-        hash
       {% end %}
+      hash
     )
     #
     # Add metadata to the global store.
