@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Implement::Hooks - crymon v0-dev</title>
+  <title>Crymon::Errors::InvalidDateTime - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -62,12 +62,17 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+      <a href="../../Crymon/Addition.html">Addition</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../../Crymon/Caching.html">Caching</a>
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -84,6 +89,16 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDate" data-name="crymon::errors::invaliddate">
+      <a href="../../Crymon/Errors/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" current" data-id="crymon/Crymon/Errors/InvalidDateTime" data-name="crymon::errors::invaliddatetime">
+      <a href="../../Crymon/Errors/InvalidDateTime.html">InvalidDateTime</a>
       
     </li>
   
@@ -367,31 +382,6 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Implement" data-name="crymon::implement">
-      <a href="../../Crymon/Implement.html">Implement</a>
-      
-        <ul>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
-      <a href="../../Crymon/Implement/Addition.html">Addition</a>
-      
-    </li>
-  
-  <li class=" current" data-id="crymon/Crymon/Implement/Hooks" data-name="crymon::implement::hooks">
-      <a href="../../Crymon/Implement/Hooks.html">Hooks</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Mediator" data-name="crymon::implement::mediator">
-      <a href="../../Crymon/Implement/Mediator.html">Mediator</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../../Crymon/Meta.html">Meta</a>
       
@@ -422,6 +412,26 @@
       
     </li>
   
+  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Date" data-name="crymon::tools::date">
+      <a href="../../Crymon/Tools/Date.html">Date</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
 </ul>
 
       
@@ -436,12 +446,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">abstract struct</span> Crymon::<wbr>Implement::<wbr>Hooks
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>InvalidDateTime
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/InvalidDateTime.html">Crymon::Errors::InvalidDateTime</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -455,7 +465,7 @@
     Overview
   </h2>
 
-  <p>Methods that are called at different stages when accessing the database.</p>
+  <p>Invalid date and time.</p>
 
 
 
@@ -464,20 +474,6 @@
 
 
 
-
-  <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Direct Known Subclasses
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></li>
-    
-  </ul>
 
 
 
@@ -494,7 +490,7 @@
   </h2>
   
     
-      src\crymon\implement\hooks_impl.cr
+      src\crymon\errors.cr
     
     <br/>
   
@@ -524,70 +520,21 @@
 
 
 
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#post_create-instance-method" class="signature"><strong>#post_create</strong></a>
-        
-          <div class="summary"><p>Called after a new document has been created in the database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#post_delete-instance-method" class="signature"><strong>#post_delete</strong></a>
-        
-          <div class="summary"><p>Called after an existing document in the database has been deleted.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#post_update-instance-method" class="signature"><strong>#post_update</strong></a>
-        
-          <div class="summary"><p>Called after an existing document in the database is updated.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#pre_create-instance-method" class="signature"><strong>#pre_create</strong></a>
-        
-          <div class="summary"><p>Called before a new document is created in the database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#pre_delete-instance-method" class="signature"><strong>#pre_delete</strong></a>
-        
-          <div class="summary"><p>Called before deleting an existing document in the database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#pre_update-instance-method" class="signature"><strong>#pre_update</strong></a>
-        
-          <div class="summary"><p>Called before updating an existing document in the database.</p></div>
-        
-      </li>
-    
-  </ul>
-
 
 
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -649,144 +596,6 @@
 
 
 
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="initialize-instance-method">
-      <div class="signature">
-        
-        def <strong>initialize</strong>
-
-        <a class="method-permalink" href="#initialize-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="post_create-instance-method">
-      <div class="signature">
-        
-        def <strong>post_create</strong>
-
-        <a class="method-permalink" href="#post_create-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called after a new document has been created in the database.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="post_delete-instance-method">
-      <div class="signature">
-        
-        def <strong>post_delete</strong>
-
-        <a class="method-permalink" href="#post_delete-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called after an existing document in the database has been deleted.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="post_update-instance-method">
-      <div class="signature">
-        
-        def <strong>post_update</strong>
-
-        <a class="method-permalink" href="#post_update-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called after an existing document in the database is updated.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="pre_create-instance-method">
-      <div class="signature">
-        
-        def <strong>pre_create</strong>
-
-        <a class="method-permalink" href="#pre_create-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called before a new document is created in the database.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="pre_delete-instance-method">
-      <div class="signature">
-        
-        def <strong>pre_delete</strong>
-
-        <a class="method-permalink" href="#pre_delete-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called before deleting an existing document in the database.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="pre_update-instance-method">
-      <div class="signature">
-        
-        def <strong>pre_update</strong>
-
-        <a class="method-permalink" href="#pre_update-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Called before updating an existing document in the database.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 

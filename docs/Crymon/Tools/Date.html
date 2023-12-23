@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Implement::Mediator - crymon v0-dev</title>
+  <title>Crymon::Tools::Date - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -62,6 +62,11 @@
       
         <ul>
   
+  <li class=" " data-id="crymon/Crymon/Addition" data-name="crymon::addition">
+      <a href="../../Crymon/Addition.html">Addition</a>
+      
+    </li>
+  
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../../Crymon/Caching.html">Caching</a>
       
@@ -84,6 +89,16 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/CrymonException" data-name="crymon::errors::crymonexception">
       <a href="../../Crymon/Errors/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDate" data-name="crymon::errors::invaliddate">
+      <a href="../../Crymon/Errors/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidDateTime" data-name="crymon::errors::invaliddatetime">
+      <a href="../../Crymon/Errors/InvalidDateTime.html">InvalidDateTime</a>
       
     </li>
   
@@ -367,31 +382,6 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Implement" data-name="crymon::implement">
-      <a href="../../Crymon/Implement.html">Implement</a>
-      
-        <ul>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Addition" data-name="crymon::implement::addition">
-      <a href="../../Crymon/Implement/Addition.html">Addition</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Implement/Hooks" data-name="crymon::implement::hooks">
-      <a href="../../Crymon/Implement/Hooks.html">Hooks</a>
-      
-    </li>
-  
-  <li class=" current" data-id="crymon/Crymon/Implement/Mediator" data-name="crymon::implement::mediator">
-      <a href="../../Crymon/Implement/Mediator.html">Mediator</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
       <a href="../../Crymon/Meta.html">Meta</a>
       
@@ -422,6 +412,26 @@
       
     </li>
   
+  <li class="parent open current" data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="crymon/Crymon/Tools/Date" data-name="crymon::tools::date">
+      <a href="../../Crymon/Tools/Date.html">Date</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
 </ul>
 
       
@@ -436,12 +446,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">abstract struct</span> Crymon::<wbr>Implement::<wbr>Mediator
+  <span class="kind">module</span> Crymon::<wbr>Tools::<wbr>Date
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Implement/Mediator.html">Crymon::Implement::Mediator</a></li><li class="superclass"><a href="../../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></li><li class="superclass"><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -455,7 +463,9 @@
     Overview
   </h2>
 
-  <p>Mediator for multiple inheritance, for an abstract Model.</p>
+  <p>Converting string Date and DateTime to object Time.</p>
+
+
 
 
 
@@ -466,20 +476,20 @@
 
 
   <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Direct Known Subclasses
+    Direct including types
   </h2>
   <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Crymon/Migration/Monitor.html">Crymon::Migration::Monitor</a></li>
     
       <li class="other-type"><a href="../../Crymon/Model.html">Crymon::Model</a></li>
     
   </ul>
-
-
 
 
 
@@ -494,7 +504,7 @@
   </h2>
   
     
-      src\crymon\implement\mediator_impl.cr
+      src\crymon\tools\date.cr
     
     <br/>
   
@@ -507,118 +517,37 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#date_parse%28date%3AString%29%3ATime-instance-method" class="signature"><strong>#date_parse</strong>(date : String) : Time</a>
+        
+          <div class="summary"><p>Converting string Date to object Time.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#datetime_parse%28datetime%3AString%29%3ATime-instance-method" class="signature"><strong>#datetime_parse</strong>(datetime : String) : Time</a>
+        
+          <div class="summary"><p>Converting string DateTime to object Time.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Implement/Addition.html">Crymon::Implement::Addition</a></code></h3>
-  
-  
-    <a href="../../Crymon/Implement/Addition.html#add_validation%3AHash%28String%2CString%29-instance-method" class="tooltip">
-      <span>add_validation : Hash(String, String)</span>
-    add_validation</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
-  
-  
-    <a href="../../Crymon/Implement/Hooks.html#initialize-instance-method" class="tooltip">
-      <span>initialize</span>
-    initialize</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_create-instance-method" class="tooltip">
-      <span>post_create</span>
-    post_create</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_delete-instance-method" class="tooltip">
-      <span>post_delete</span>
-    post_delete</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#post_update-instance-method" class="tooltip">
-      <span>post_update</span>
-    post_update</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_create-instance-method" class="tooltip">
-      <span>pre_create</span>
-    pre_create</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_delete-instance-method" class="tooltip">
-      <span>pre_delete</span>
-    pre_delete</a>, 
-    
-  
-    <a href="../../Crymon/Implement/Hooks.html#pre_update-instance-method" class="tooltip">
-      <span>pre_update</span>
-    pre_update</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../Crymon/Implement/Hooks.html">Crymon::Implement::Hooks</a></code></h3>
-  
-  
-    <a href="../../Crymon/Implement/Hooks.html#new-class-method" class="tooltip">
-      <span>new</span>
-    new</a>
-    
-  
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
@@ -626,6 +555,62 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="date_parse(date:String):Time-instance-method">
+      <div class="signature">
+        
+        def <strong>date_parse</strong>(date : String) : Time
+
+        <a class="method-permalink" href="#date_parse%28date%3AString%29%3ATime-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converting string Date to object Time.
+<br>
+<em><strong>Formats:</strong> dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
+yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="datetime_parse(datetime:String):Time-instance-method">
+      <div class="signature">
+        
+        def <strong>datetime_parse</strong>(datetime : String) : Time
+
+        <a class="method-permalink" href="#datetime_parse%28datetime%3AString%29%3ATime-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converting string DateTime to object Time.
+<br>
+<em><strong>Formats:</strong> dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm |
+dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm |
+yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
+yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
