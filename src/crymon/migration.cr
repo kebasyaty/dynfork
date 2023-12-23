@@ -5,8 +5,6 @@ require "bson"
 # your models (adding a field, deleting a collection, etc.) into
 # your database schema.
 module Crymon::Migration
-  include Crymon::Tools::Time
-
   # To control the state of Models in the super collection.
   struct ModelState
     include BSON::Serializable
@@ -27,6 +25,8 @@ module Crymon::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
+    include Crymon::Tools::Date
+
     getter model_key_list : Array(String)
 
     def initialize(

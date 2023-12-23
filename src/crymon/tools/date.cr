@@ -1,5 +1,5 @@
 # Converting string Date and DateTime to object Time.
-module Crymon::Tools::Time
+module Crymon::Tools::Date
   # Converting string Date to object Time.
   # <br>
   # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
