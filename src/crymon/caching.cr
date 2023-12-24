@@ -161,6 +161,8 @@ module Crymon::Caching
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
+      # <br>
+      # _**Format:** <field_name, json>_
       data_dynamic_fields: Hash(String, String).new,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,

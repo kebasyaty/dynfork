@@ -182,6 +182,10 @@ module Crymon::Migration
             model_collection.update_one(filter, update)
           }
         end
+        # ???
+        if true
+          # ...
+        end
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
         model_state.data_dynamic_fields.each do |field_name, data|
