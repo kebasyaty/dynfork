@@ -5,6 +5,8 @@ module Crymon::Fields
   # <br>
   # _Example: 1970-01-01T00:00_
   struct DateTimeField < Crymon::Fields::Field
+    include Crymon::Tools::Date
+
     # Field type - Structure Name.
     getter field_type : String = "DateTimeField"
     # Html tag: input type="date".
@@ -47,5 +49,10 @@ module Crymon::Fields
       @css_classes : String = "",
       @hint : String = "Format: yyyy-mm-ddThh:mm"
     ); end
+
+    # Get time object from value.
+    def get_time_object : Time?
+      self.datetime_parse(@value.as(String)) unless @value.nil?
+    end
   end
 end
