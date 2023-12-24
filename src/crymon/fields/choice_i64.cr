@@ -22,7 +22,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 4
     #
-    # Stubs
+    # WARNING: Stubs
     getter max : Nil
     getter min : Nil
 
@@ -63,7 +63,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 6
     #
-    # Stubs
+    # WARNING: Stubs
     getter max : Nil
     getter min : Nil
 
@@ -103,7 +103,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
     #
-    # Stubs
+    # WARNING: Stubs
     getter default : Nil
     getter max : Nil
     getter min : Nil
@@ -148,7 +148,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 7
     #
-    # Stubs
+    # WARNING: Stubs
     getter default : Nil
     getter max : Nil
     getter min : Nil

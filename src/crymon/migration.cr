@@ -181,6 +181,22 @@ module Crymon::Migration
             update = {"$set": freshed_document}
             model_collection.update_one(filter, update)
           }
+          #
+          # Update dynamic fields data in ModelState.
+          # <br>
+          # <br>
+          # Get a list of names of current dynamic fields.
+          current_dynamic_fields : Array(String) = metadata[:field_name_and_type_list]
+            .select { |_, field_type| field_type.includes?("Dyn") }.keys
+          # Remove missing dynamic fields.
+          model_state.data_dynamic_fields
+            .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
+          # Add new dynamic fields.
+          current_dynamic_fields.each do |field_name|
+            unless model_state.data_dynamic_fields.includes?(field_name)
+              model_state.data_dynamic_fields[field_name] = ""
+            end
+          end
         end
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.

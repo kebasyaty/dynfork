@@ -10,7 +10,7 @@ module Crymon::Caching
     {% end %}
     # Get Model name = Structure name.
     # <br>
-    # _**Examples:** User | UserProfile | ElectricCar | etc ..._
+    # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
     model_name : String = {{ @type.name.stringify }}.split("::").last
     raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
@@ -20,7 +20,7 @@ module Crymon::Caching
     end
     # Get Service name = Module name.
     # <br>
-    # _**Examples:** Accounts | Smartphones | Washing machines | etc ..._
+    # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
       raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
@@ -35,7 +35,7 @@ module Crymon::Caching
     collection_name : String = "#{service_name}_#{model_name}"
     # Get list of names and types of variables (fields).
     # <br>
-    # _**Format:** <field_name, field_type>_
+    # **Format:** _<field_name, field_type>_
     field_name_and_type_list : Hash(String, String) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
@@ -47,7 +47,7 @@ module Crymon::Caching
     )
     # Get default value list.
     # <br>
-    # _**Format:** <field_name, default_value>_
+    # **Format:** _<field_name, default_value>_
     default_value_list : Hash(String, Crymon::Globals::ValueTypes) = (
       # Get default value.
       fields = Hash(String, Crymon::Globals::ValueTypes).new
@@ -141,11 +141,11 @@ module Crymon::Caching
       field_count: {{ @type.instance_vars.size }},
       # List of names and types of variables (fields).
       # <br>
-      # _**Format:** <field_name, field_type>_
+      # **Format:** _<field_name, field_type>_
       field_name_and_type_list: field_name_and_type_list,
       # Default value list.
       # <br>
-      # _**Format:** <field_name, default_value>_
+      # **Format:** _<field_name, default_value>_
       default_value_list: default_value_list,
       # Create documents in the database. By default = true.
       # NOTE: false - Alternatively, use it to validate data from web forms.
@@ -161,6 +161,8 @@ module Crymon::Caching
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
+      # <br>
+      # **Format:** _<field_name, json>_
       data_dynamic_fields: Hash(String, String).new,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,

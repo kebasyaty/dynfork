@@ -52,13 +52,12 @@ module Crymon::Fields
     end
 
     # To work around the error - undefined method 'choices='.
-    def set_choices(json : String)
-      # Stub
-    end
+    # WARNING: Stub
+    def set_choices(json : String); end
 
     # To work around the error - undefined method 'slug_sources='.
+    # WARNING: Stub
     def get_slug_sources : Array(String)
-      # Stub
       Array(String).new
     end
   end

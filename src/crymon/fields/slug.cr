@@ -24,7 +24,7 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 2
     #
-    # Stubs
+    # WARNING: Stubs
     getter default : Nil
     getter max : Nil
     getter min : Nil
