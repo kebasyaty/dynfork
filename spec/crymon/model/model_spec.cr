@@ -37,16 +37,18 @@ describe Crymon::Model do
       #
       m.first_name.value = "Gene"
       m.age.value = 32
-      m.birthday.value = "1990-11-7"
+      m.birthday.value = "23.12.2023"
+      m.birthday.get_time_object.should eq(Crymon::Tools::Date.date_parse("23.12.2023"))
       m.hash.value = "507f191e810c19729de860ea"
-      m.created_at.value = "2023-11-02"
-      m.updated_at.value = "2023-11-02"
+      m.created_at.value = "2023-11-02T12:15"
+      m.updated_at.value = "24.12.2023T08:54"
+      m.updated_at.get_time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
       #
       m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)
       m.hash.value.should eq("507f191e810c19729de860ea")
-      m.created_at.value.should eq("2023-11-02")
-      m.updated_at.value.should eq("2023-11-02")
+      m.created_at.value.should eq("2023-11-02T12:15")
+      m.updated_at.value.should eq("24.12.2023T08:54")
       # Testing metadata.
       metadata = Crymon::Globals.cache_metadata[m.model_key]
       metadata["model_name"].should eq("FilledModel")

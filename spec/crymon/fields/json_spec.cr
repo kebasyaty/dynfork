@@ -2,14 +2,14 @@ require "../../spec_helper"
 
 describe Crymon::Fields::TextField do
   describe ".to_json" do
-    it "=> create json from structure", tags: "fields" do
+    it "=> create json from structure", tags: "json" do
       f = Crymon::Fields::TextField.new
       j : String = f.to_json
       j.empty?.should be_false
     end
   end
   describe ".from_json" do
-    it "=> create instance from json", tags: "fields" do
+    it "=> create instance from json", tags: "json" do
       f = Crymon::Fields::TextField.new
       j : String = f.to_json
       f = Crymon::Fields::TextField.from_json(j)
