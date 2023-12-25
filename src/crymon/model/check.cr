@@ -22,10 +22,12 @@ module Crymon::Check
     is_updated : Bool = !@hash.value.empty?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
+    # Errors from additional validation of fields.
+    error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
     db_data_bson : BSON = BSON.new
 
     # --------------------------------------------------------------------------
-    OutputData.new(db_data_bson, is_error_symptom)
+    OutputData.new(db_data_bson, !is_error_symptom)
   end
 end
