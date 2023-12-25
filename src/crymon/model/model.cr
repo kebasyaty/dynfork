@@ -103,6 +103,11 @@ module Crymon
       "#{service_name}_#{model_name}"
     end
 
+    # Get ObjectId from hash field.
+    def get_object_id : BSON::ObjectId?
+      BSON::ObjectId.new(@hash.value.to_s) unless @hash.value.nil?
+    end
+
     # Determine the presence of a variable (field) in the model.
     def []?(variable) : Bool
       {% for var in @type.instance_vars %}
