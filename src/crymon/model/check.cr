@@ -15,6 +15,7 @@ module Crymon::Check
   end
 
   # Validation of Model data.
+  # NOTE: only_validation = true - No accumulation of errors.
   private def check(only_validation : Bool = false) : OutputData
     # Get model key.
     model_key : String = self.model_key
