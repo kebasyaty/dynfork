@@ -27,6 +27,19 @@ module Crymon::Check
     # Data to save or update to the database.
     db_data_bson : BSON = BSON.new
 
+    # Start checking all fields.
+    {% for var in @type.instance_vars %}
+      case @{{ var }}.group
+      when 1
+        # "ColorField" | "EmailField" | "PasswordField" | "PhoneField"
+        # | "TextField" | "HashField" | "URLField" | "IPField"
+        #
+        next if @{{ var }}.is_ignored
+      else
+        nil
+      end
+    {% end %}
+    #
     # --------------------------------------------------------------------------
     OutputData.new(db_data_bson, !is_error_symptom)
   end
