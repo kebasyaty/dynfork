@@ -139,9 +139,9 @@ module Crymon::Migration
           # Get a list of default values.
           default_value_list = metadata[:default_value_list]
           # List of previous field names.
-          old_field_name_list : Array(String) = model_state.field_name_and_type_list.keys
+          old_fields : Array(String) = model_state.field_name_and_type_list.keys
           # Get a list of missing fields.
-          missing_fields : Array(String) = old_field_name_list -
+          missing_fields : Array(String) = old_fields -
             metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
           new_fields = Array(String).new
@@ -160,7 +160,7 @@ module Crymon::Migration
             # Create a new document for the updated state.
             freshed_document = BSON.new({"_id": document["_id"]})
             # Create a new document without the deleted fields.
-            old_field_name_list.each do |field_name|
+            old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)
                 freshed_document[field_name] = document[field_name]
               end
@@ -194,7 +194,7 @@ module Crymon::Migration
           # Add new dynamic fields.
           current_dynamic_fields.each do |field_name|
             unless model_state.data_dynamic_fields.includes?(field_name)
-              model_state.data_dynamic_fields[field_name] = ""
+              model_state.data_dynamic_fields[field_name] = "[]"
             end
           end
         end
