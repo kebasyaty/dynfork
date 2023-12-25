@@ -194,7 +194,7 @@ module Crymon::Migration
           # Add new dynamic fields.
           current_dynamic_fields.each do |field_name|
             unless model_state.data_dynamic_fields.includes?(field_name)
-              model_state.data_dynamic_fields[field_name] = ""
+              model_state.data_dynamic_fields[field_name] = "[]"
             end
           end
         end
