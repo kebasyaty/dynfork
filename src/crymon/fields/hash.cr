@@ -44,8 +44,9 @@ module Crymon::Fields
       @hint : String = "For enter a document ID"
     ); end
 
-    def get_object_id
-      # ...
+    # Get ObjectId from value.
+    def get_object_id : BSON::ObjectId?
+      BSON::ObjectId.new(@value.to_s) unless @value.nil?
     end
   end
 end
