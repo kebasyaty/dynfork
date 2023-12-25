@@ -1,4 +1,4 @@
-# ## Additional Abstractions.
+# ## Additional abstraction.
 # NOTE: How to use, see examples.
 # <br>
 # <br>
