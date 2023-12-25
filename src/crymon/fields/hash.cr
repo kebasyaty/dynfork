@@ -43,5 +43,9 @@ module Crymon::Fields
       @css_classes : String = "",
       @hint : String = "For enter a document ID"
     ); end
+
+    def get_object_id
+      # ...
+    end
   end
 end

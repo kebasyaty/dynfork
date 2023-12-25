@@ -19,7 +19,7 @@ module Crymon::Check
     # Get model key.
     model_key : String = self.model_key
     # Does the document exist in the database?
-    is_updated : Bool = !@hash.value.empty?
+    is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
     # Errors from additional validation of fields.
