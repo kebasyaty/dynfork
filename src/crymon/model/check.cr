@@ -29,22 +29,25 @@ module Crymon::Check
     end
     # Data to save or update to the database.
     db_data_bson : BSON = BSON.new
+    # Current error message.
+    err_msg : String?
 
     # Start checking all fields.
     {% for var in @type.instance_vars %}
-      (err_msg : String? = error_map[{{ var.name.stringify }}]?
-        errors_accumulation(err_msg.to_s) unless err_msg.nil?)
-      next if @{{ var }}.is_ignored
+      err_msg  = error_map[{{ var.name.stringify }}]?
+      @{{ var }}.errors_accumulation(err_msg.to_s) unless err_msg.nil?
       #
-      case @{{ var }}.group
-      when 1
-        # Validation of Text type fields:
-        # <br>
-        # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
-        # | "TextField" | "HashField" | "URLField" | "IPField"_
-        #
-      else
-        nil
+      if @{{ var }}.is_ignored
+        case @{{ var }}.group
+        when 1
+          # Validation of Text type fields:
+          # <br>
+          # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
+          # | "TextField" | "HashField" | "URLField" | "IPField"_
+          #
+        else
+          nil
+        end
       end
     {% end %}
     #
