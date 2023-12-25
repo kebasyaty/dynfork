@@ -11,12 +11,11 @@ module Crymon::Check
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
   def is_valid : Bool
-    self.check(true).is_valid
+    self.check.is_valid
   end
 
   # Validation of Model data.
-  # NOTE: only_validation = true - No accumulation of errors.
-  private def check(only_validation : Bool = false) : OutputData
+  private def check : OutputData
     # Get model key.
     model_key : String = self.model_key
     # Does the document exist in the database?
@@ -35,13 +34,14 @@ module Crymon::Check
     {% for var in @type.instance_vars %}
       (err_msg : String? = error_map[{{ var.name.stringify }}]?
         errors_accumulation(err_msg.to_s) unless err_msg.nil?)
-      #
       next if @{{ var }}.is_ignored
       #
       case @{{ var }}.group
       when 1
-        # "ColorField" | "EmailField" | "PasswordField" | "PhoneField"
-        # | "TextField" | "HashField" | "URLField" | "IPField"
+        # Validation of Text type fields:
+        # <br>
+        # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
+        # | "TextField" | "HashField" | "URLField" | "IPField"_
         #
       else
         nil
