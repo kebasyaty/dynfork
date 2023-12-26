@@ -19,6 +19,9 @@ module Crymon::Fields
     getter is_unique : Bool
     # Hide field from user.
     property is_hide : Bool
+    # Alert message for the entire web form.
+    # The value is determined automatically.
+    property alert : String = ""
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1

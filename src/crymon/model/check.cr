@@ -49,6 +49,8 @@ module Crymon::Check
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           #
           # ...
+        when 2
+          # ...
         else
           raise Crymon::Errors::InvalidGroupNumber
             .new(model_name, {{ var.name.stringify }})
