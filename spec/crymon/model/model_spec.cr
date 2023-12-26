@@ -6,7 +6,7 @@ describe Crymon::Model do
       ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
-      ex.message.should eq("Model EmptyModel has no fields.")
+      ex.message.should eq("Model `EmptyModel` has no fields.")
     end
 
     it "=> create instance of filled Model", tags: "model" do
@@ -90,7 +90,7 @@ describe Crymon::Model do
         Helper::SlugSourceInvalidModel.new
       end
       ex.message.should eq(
-        "Model: SlugSourceInvalidModel > Field: slug > Attribute: slug_sources => Incorrect source `first_name`."
+        "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => Incorrect source `first_name`."
       )
     end
 
@@ -100,7 +100,7 @@ describe Crymon::Model do
           Helper::NoParamServiceNameModel.new
         end
         ex.message.should eq(
-          "Model: NoParamServiceNameModel => Missing `service_name` parameter for Meta."
+          "Model: `NoParamServiceNameModel` => Missing `service_name` parameter for Meta."
         )
       end
     end
