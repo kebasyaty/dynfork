@@ -24,9 +24,6 @@ module Crymon::Check
     is_error_symptom : Bool = false
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
-    unless error_map.empty?
-      is_error_symptom = true
-    end
     # Data to save or update to the database.
     db_data_bson : BSON = BSON.new
     # Current error message.
@@ -34,10 +31,14 @@ module Crymon::Check
 
     # Start checking all fields.
     {% for var in @type.instance_vars %}
-      err_msg  = error_map[{{ var.name.stringify }}]?
-      @{{ var }}.errors_accumulation(err_msg.to_s) unless err_msg.nil?
+      @{{ var }}.errors = Array(String).new
       #
-      if @{{ var }}.is_ignored
+      if err_msg = error_map[{{ var.name.stringify }}]?
+          @{{ var }}.errors_accumulation(err_msg.to_s)
+          (is_error_symptom = true) unless is_error_symptom
+      end
+      #
+      unless @{{ var }}.is_ignored
         case @{{ var }}.group
         when 1
           # Validation of Text type fields:
