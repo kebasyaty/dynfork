@@ -33,7 +33,7 @@ describe Crymon::Globals do
         Crymon::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: cache_app_name => The line size of 44 characters has been exceeded."
+        "Global settings > Parameter: `cache_app_name` => The line size of 44 characters has been exceeded."
       )
     end
 
@@ -43,7 +43,7 @@ describe Crymon::Globals do
         Crymon::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: cache_app_name => Regular expression check fails: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/."
+        "Global settings > Parameter: `cache_app_name` => Regular expression check fails: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/."
       )
       # Reset the state to working.
       Crymon::Globals.cache_app_name = "AppName"
@@ -58,7 +58,7 @@ describe Crymon::Globals do
         Crymon::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: cache_unique_app_key => The line size of 16 characters has been exceeded."
+        "Global settings > Parameter: `cache_unique_app_key` => The line size of 16 characters has been exceeded."
       )
     end
 
@@ -68,7 +68,7 @@ describe Crymon::Globals do
         Crymon::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: cache_unique_app_key => Regular expression check fails: /^[a-zA-Z0-9]{16}$/."
+        "Global settings > Parameter: `cache_unique_app_key` => Regular expression check fails: /^[a-zA-Z0-9]{16}$/."
       )
       # Reset the state to working.
       Crymon::Globals.cache_unique_app_key = "RT0839370A074kVh"
@@ -82,7 +82,7 @@ describe Crymon::Globals do
         Crymon::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: cache_database_name => The line size of 60 characters has been exceeded."
+        "Global settings > Parameter: `cache_database_name` => The line size of 60 characters has been exceeded."
       )
       # Reset the state to working.
       Crymon::Globals.cache_database_name = "DatabaseName360"
