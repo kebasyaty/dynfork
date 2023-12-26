@@ -6,6 +6,8 @@ module Crymon::Tools::Date
   # <br>
   # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
   # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
+  # <br>
+  # WARNING:
   def date_parse(date : String) : Time
     md = Crymon::Globals.cache_regex[:date_parse].match(date) ||
          Crymon::Globals.cache_regex[:date_parse_reverse].match(date)
@@ -19,6 +21,15 @@ module Crymon::Tools::Date
   # dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm |
   # yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
   # yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm_
+  # <br>
+  # WARNING: Unsupported formats:
+  # <br>USA - M/D/YYYY
+  # <br>Kazakhstan, Latvia - YYYY.DD.MM
+  # <br>PRC - YYYY-M-D
+  # <br>Hong Kong, Taiwan - YYYY/M/D
+  # <br>Finland, Czech Republic - D.M.YYYY
+  # <br>Netherlands - D-M-YYYY
+  # <br>Brazil, Greece, Thailand - D/M/YYYY
   def datetime_parse(datetime : String) : Time
     md = Crymon::Globals.cache_regex[:datetime_parse].match(datetime) ||
          Crymon::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
