@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::CacheSettingsExcessChars - crymon v0-dev</title>
+  <title>Crymon::Check::Groups - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -72,12 +72,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Check" data-name="crymon::check">
+  <li class="parent open current" data-id="crymon/Crymon/Check" data-name="crymon::check">
       <a href="../../Crymon/Check.html">Check</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Check/Groups" data-name="crymon::check::groups">
+  <li class=" current" data-id="crymon/Crymon/Check/Groups" data-name="crymon::check::groups">
       <a href="../../Crymon/Check/Groups.html">Groups</a>
       
     </li>
@@ -92,12 +92,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../Crymon/Errors.html">Errors</a>
       
         <ul>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/CacheSettingsExcessChars" data-name="crymon::errors::cachesettingsexcesschars">
+  <li class=" " data-id="crymon/Crymon/Errors/CacheSettingsExcessChars" data-name="crymon::errors::cachesettingsexcesschars">
       <a href="../../Crymon/Errors/CacheSettingsExcessChars.html">CacheSettingsExcessChars</a>
       
     </li>
@@ -471,36 +471,37 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>CacheSettingsExcessChars
+  <span class="kind">module</span> Crymon::<wbr>Check::<wbr>Groups
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Errors/CacheSettingsExcessChars.html">Crymon::Errors::CacheSettingsExcessChars</a></li><li class="superclass"><a href="../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
 
 
 
 
   <h2>
-    <a id="overview" class="anchor" href="#overview">
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Overview
+    Direct including types
   </h2>
-
-  <p>The allowed number of characters in global settings has been exceeded.</p>
-
-
-
-
-
-
-
-
-
-
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Crymon/Check.html">Crymon::Check</a></li>
+    
+  </ul>
 
 
 
@@ -515,7 +516,62 @@
   </h2>
   
     
-      src\crymon\errors.cr
+      src\crymon\model\check\groups\group_1.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_10.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_11.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_12.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_2.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_3.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_4.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_5.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_6.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_7.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_8.cr
+    
+    <br/>
+  
+    
+      src\crymon\model\check\groups\group_9.cr
     
     <br/>
   
@@ -524,18 +580,101 @@
 
 
 
+
+
+
+
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Instance Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28parameter_name%3AString%2Climit_size%3AUInt32%29-class-method" class="signature"><strong>.new</strong>(parameter_name : String, limit_size : UInt32)</a>
+        <a href="#group_1%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_1</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>text</code> type fields: <br> <em>&quot;ColorField&quot; | &quot;EmailField&quot; | &quot;PasswordField&quot; | &quot;PhoneField&quot; | &quot;TextField&quot; | &quot;HashField&quot; | &quot;URLField&quot; | &quot;IPField&quot;</em></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_10%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_10</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>number</code> type fields: <br> &quot;U32Field&quot; | &quot;I64Field&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_11%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_11</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>number</code> type fields: <br> &quot;F64Field&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_12%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_12</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>boolean</code> type fields: <br> &quot;BoolField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_2%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_2</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>slug</code> type fields: <br> &quot;SlugField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_3%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_3</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>date</code> type fields: <br> &quot;DatField&quot; | &quot;DateTimeField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_4%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_4</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>choice</code> type fields: <br> &quot;ChoiceTextField&quot; | &quot;ChoiceU32Field&quot; | &quot;ChoiceI64Field&quot; | &quot;ChoiceF64Field&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_5%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_5</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>choice</code> type fields: <br> &quot;ChoiceTextDynField&quot; | &quot;ChoiceU32DynField&quot; | &quot;ChoiceI64DynField&quot; | &quot;ChoiceF64DynField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_6%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_6</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>choice</code> type fields: <br> &quot;ChoiceTextMultField&quot; | &quot;ChoiceU32MultField&quot; | &quot;ChoiceI64MultField&quot; | &quot;ChoiceF64MultField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_7%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_7</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>choice</code> type fields: <br> &quot;ChoiceTextMultDynField&quot; | &quot;ChoiceU32MultDynField&quot; | &quot;ChoiceI64MultDynField&quot; | &quot;ChoiceF64MultDynField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_8%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_8</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>file</code> type fields: <br> &quot;FileField&quot;</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group_9%28field%3APointer%29%3ABool-instance-method" class="signature"><strong>#group_9</strong>(field : Pointer) : Bool</a>
+        
+          <div class="summary"><p>Validation of <code>file</code> type fields: <br> &quot;ImageField&quot;</p></div>
         
       </li>
     
@@ -545,71 +684,39 @@
 
 
 
-
-
-
-
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
 
+
+
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(parameter_name:String,limit_size:UInt32)-class-method">
+    <div class="entry-detail" id="group_1(field:Pointer):Bool-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(parameter_name : String, limit_size : UInt32)
+        def <strong>group_1</strong>(field : Pointer) : Bool
 
-        <a class="method-permalink" href="#new%28parameter_name%3AString%2Climit_size%3AUInt32%29-class-method">#</a>
+        <a class="method-permalink" href="#group_1%28field%3APointer%29%3ABool-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>text</code> type fields:
+<br>
+<em>&quot;ColorField&quot; | &quot;EmailField&quot; | &quot;PasswordField&quot; | &quot;PhoneField&quot;
+| &quot;TextField&quot; | &quot;HashField&quot; | &quot;URLField&quot; | &quot;IPField&quot;</em></p>
+        </div>
       
       <br/>
       <div>
@@ -617,10 +724,241 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="group_10(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_10</strong>(field : Pointer) : Bool
 
+        <a class="method-permalink" href="#group_10%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>number</code> type fields:
+<br>
+&quot;U32Field&quot; | &quot;I64Field&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_11(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_11</strong>(field : Pointer) : Bool
 
+        <a class="method-permalink" href="#group_11%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>number</code> type fields:
+<br>
+&quot;F64Field&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_12(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_12</strong>(field : Pointer) : Bool
 
+        <a class="method-permalink" href="#group_12%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>boolean</code> type fields:
+<br>
+&quot;BoolField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_2(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_2</strong>(field : Pointer) : Bool
 
+        <a class="method-permalink" href="#group_2%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>slug</code> type fields:
+<br>
+&quot;SlugField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_3(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_3</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_3%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>date</code> type fields:
+<br>
+&quot;DatField&quot; | &quot;DateTimeField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_4(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_4</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_4%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>choice</code> type fields:
+<br>
+&quot;ChoiceTextField&quot; | &quot;ChoiceU32Field&quot;
+| &quot;ChoiceI64Field&quot; | &quot;ChoiceF64Field&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_5(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_5</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_5%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>choice</code> type fields:
+<br>
+&quot;ChoiceTextDynField&quot; | &quot;ChoiceU32DynField&quot;
+| &quot;ChoiceI64DynField&quot; | &quot;ChoiceF64DynField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_6(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_6</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_6%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>choice</code> type fields:
+<br>
+&quot;ChoiceTextMultField&quot; | &quot;ChoiceU32MultField&quot;
+| &quot;ChoiceI64MultField&quot; | &quot;ChoiceF64MultField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_7(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_7</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_7%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>choice</code> type fields:
+<br>
+&quot;ChoiceTextMultDynField&quot; | &quot;ChoiceU32MultDynField&quot;
+| &quot;ChoiceI64MultDynField&quot; | &quot;ChoiceF64MultDynField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_8(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_8</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_8%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>file</code> type fields:
+<br>
+&quot;FileField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group_9(field:Pointer):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>group_9</strong>(field : Pointer) : Bool
+
+        <a class="method-permalink" href="#group_9%28field%3APointer%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validation of <code>file</code> type fields:
+<br>
+&quot;ImageField&quot;</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
