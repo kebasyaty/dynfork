@@ -13,7 +13,7 @@ module Crymon::Fields
     getter default : Bool?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 13
+    getter group : UInt8 = 12
     #
     # WARNING: Stubs
     getter max : Nil

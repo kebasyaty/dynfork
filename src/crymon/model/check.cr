@@ -43,13 +43,70 @@ module Crymon::Check
       unless @{{ var }}.is_ignored
         case @{{ var }}.group
         when 1
-          # Validation of Text type fields:
+          # Validation of `text` type fields:
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           #
           # ...
         when 2
+          # Validation of `slug` type fields:
+          # <br>
+          # "SlugField"
+          # ...
+        when 3
+          # Validation of `date` type fields:
+          # <br>
+          # "DatField" | "DateTimeField"
+          # ...
+        when 4
+          # Validation of `choice` type fields:
+          # <br>
+          # "ChoiceTextField" | "ChoiceU32Field"
+          # | "ChoiceI64Field" | "ChoiceF64Field"
+          # ...
+        when 5
+          # Validation of `choice` type fields:
+          # <br>
+          # "ChoiceTextDynField" | "ChoiceU32DynField"
+          # | "ChoiceI64DynField" | "ChoiceF64DynField"
+          # ...
+        when 6
+          # Validation of `choice` type fields:
+          # <br>
+          # "ChoiceTextMultField" | "ChoiceU32MultField"
+          # | "ChoiceI64MultField" | "ChoiceF64MultField"
+          # ...
+        when 7
+          # Validation of `choice` type fields:
+          # <br>
+          # "ChoiceTextMultDynField" | "ChoiceU32MultDynField"
+          # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
+          # ...
+        when 8
+          # Validation of `file` type fields:
+          # <br>
+          # "FileField"
+          # ...
+        when 9
+          # Validation of `file` type fields:
+          # <br>
+          # "ImageField"
+          # ...
+        when 10
+          # Validation of `number` type fields:
+          # <br>
+          # "U32Field" | "I64Field"
+          # ...
+        when 11
+          # Validation of `number` type fields:
+          # <br>
+          # "F64Field"
+          # ...
+        when 12
+          # Validation of `boolean` type fields:
+          # <br>
+          # "BoolField"
           # ...
         else
           raise Crymon::Errors::InvalidGroupNumber
