@@ -62,7 +62,7 @@ module Crymon::Errors
   # The Model name fails regular expression validation.
   class ModelNameRegexFails < CrymonException
     def initialize(model_name : String, regex_str : String)
-      super("Model: `#{model_name`} => The model name fails the regular expression test #{regex_str}")
+      super("Model: `#{model_name}` => The model name fails the regular expression test #{regex_str}")
     end
   end
 
