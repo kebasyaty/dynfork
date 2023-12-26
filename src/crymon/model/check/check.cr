@@ -36,7 +36,7 @@ module Crymon::Check
     err_msg : String?
 
     # Start checking all fields.
-    {% for field in @type.instance_fields %}
+    {% for field in @type.instance_vars %}
       @{{ field }}.errors = Array(String).new
       #
       if err_msg = error_map[{{ field.name.stringify }}]?
@@ -45,6 +45,7 @@ module Crymon::Check
       end
       #
       unless @{{ field }}.is_ignored
+        #group_num : UInt8 = @{{ field }}.group
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:
@@ -52,66 +53,66 @@ module Crymon::Check
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           #
-          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}))
         when 2
           # Validation of `slug` type fields:
           # <br>
           # "SlugField"
-          (is_error_symptom = true) if self.group_2(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_2(pointerof(@{{ field }}))
         when 3
           # Validation of `date` type fields:
           # <br>
           # "DatField" | "DateTimeField"
-          (is_error_symptom = true) if self.group_3(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_3(pointerof(@{{ field }}))
         when 4
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextField" | "ChoiceU32Field"
           # | "ChoiceI64Field" | "ChoiceF64Field"
-          (is_error_symptom = true) if self.group_4(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_4(pointerof(@{{ field }}))
         when 5
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextDynField" | "ChoiceU32DynField"
           # | "ChoiceI64DynField" | "ChoiceF64DynField"
-          (is_error_symptom = true) if self.group_5(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_5(pointerof(@{{ field }}))
         when 6
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextMultField" | "ChoiceU32MultField"
           # | "ChoiceI64MultField" | "ChoiceF64MultField"
-          (is_error_symptom = true) if self.group_6(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_6(pointerof(@{{ field }}))
         when 7
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextMultDynField" | "ChoiceU32MultDynField"
           # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
-          (is_error_symptom = true) if self.group_7(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_7(pointerof(@{{ field }}))
         when 8
           # Validation of `file` type fields:
           # <br>
           # "FileField"
-          (is_error_symptom = true) if self.group_8(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_8(pointerof(@{{ field }}))
         when 9
           # Validation of `file` type fields:
           # <br>
           # "ImageField"
-          (is_error_symptom = true) if self.group_9(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_9(pointerof(@{{ field }}))
         when 10
           # Validation of `number` type fields:
           # <br>
           # "U32Field" | "I64Field"
-          (is_error_symptom = true) if self.group_10(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_10(pointerof(@{{ field }}))
         when 11
           # Validation of `number` type fields:
           # <br>
           # "F64Field"
-          (is_error_symptom = true) if self.group_11(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_11(pointerof(@{{ field }}))
         when 12
           # Validation of `boolean` type fields:
           # <br>
           # "BoolField"
-          (is_error_symptom = true) if self.group_12(pointerof(@{{ field }})
+          (is_error_symptom = true) if self.group_12(pointerof(@{{ field }}))
         else
           raise Crymon::Errors::InvalidGroupNumber
             .new(model_name, {{ field.name.stringify }})
