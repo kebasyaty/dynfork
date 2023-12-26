@@ -68,7 +68,7 @@ describe Helper::FilledModel do
       f.age.hint.should eq("")
       f.age.warning.should eq("")
       f.age.errors.should eq(Array(String).new)
-      f.age.group.should eq(11_u8)
+      f.age.group.should eq(10_u8)
       f["first_name"]?.should be_true
       f["age"]?.should be_true
       f["birthday"]?.should be_true
