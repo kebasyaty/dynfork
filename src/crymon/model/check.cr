@@ -18,6 +18,8 @@ module Crymon::Check
   private def check : OutputData
     # Get model key.
     model_key : String = self.model_key
+    # Get model name.
+    model_name : String = Crymon::Globals.cache_metadata[model_key][:model_name]
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
@@ -46,8 +48,10 @@ module Crymon::Check
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           #
+          # ...
         else
-          nil
+          raise Crymon::Errors::InvalidGroupNumber
+            .new(model_name, {{ var.name.stringify }})
         end
       end
     {% end %}
