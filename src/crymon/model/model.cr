@@ -1,4 +1,7 @@
 require "json"
+require "./addition"
+require "./caching"
+require "./check/check"
 
 module Crymon
   # Abstraction for converting Crystal structures into Crymon Models.
