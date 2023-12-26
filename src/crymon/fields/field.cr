@@ -37,7 +37,7 @@ module Crymon::Fields
     property warning : String = ""
     # WARNING: The value is determined automatically.
     property errors : Array(String) = Array(String).new
-    # To optimize field traversal in the `paladins/check()` method.
+    # To optimize field traversal in the `check` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 0
 
@@ -59,6 +59,11 @@ module Crymon::Fields
     # WARNING: Stub
     def get_slug_sources : Array(String)
       Array(String).new
+    end
+
+    # Accumulation of error messages.
+    def errors_accumulation(err_msg : String)
+      !@errors.empty? ? @errors << "<br>#{err_msg}" : @errors << err_msg
     end
   end
 

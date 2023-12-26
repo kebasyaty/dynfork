@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Fields::HashField - crymon v0-dev</title>
+  <title>Crymon::Fields::HashField - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -72,8 +72,18 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/CheckModel" data-name="crymon::checkmodel">
-      <a href="../../Crymon/CheckModel.html">CheckModel</a>
+  <li class="parent " data-id="crymon/Crymon/Check" data-name="crymon::check">
+      <a href="../../Crymon/Check.html">Check</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Check/OutputData" data-name="crymon::check::outputdata">
+      <a href="../../Crymon/Check/OutputData.html">OutputData</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -104,6 +114,11 @@
   
   <li class=" " data-id="crymon/Crymon/Errors/InvalidDateTime" data-name="crymon::errors::invaliddatetime">
       <a href="../../Crymon/Errors/InvalidDateTime.html">InvalidDateTime</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/InvalidGroupNumber" data-name="crymon::errors::invalidgroupnumber">
+      <a href="../../Crymon/Errors/InvalidGroupNumber.html">InvalidGroupNumber</a>
       
     </li>
   
@@ -495,7 +510,9 @@
   </h2>
   
     
-      src\crymon\fields\hash.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L5" target="_blank">
+        src\crymon\fields\hash.cr
+      </a>
     
     <br/>
   
@@ -543,6 +560,20 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#alert%3AString-instance-method" class="signature"><strong>#alert</strong> : String</a>
+        
+          <div class="summary"><p>Alert message for the entire web form.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#alert%3D%28alert%3AString%29-instance-method" class="signature"><strong>#alert=</strong>(alert : String)</a>
+        
+          <div class="summary"><p>Alert message for the entire web form.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#default%3ANil-instance-method" class="signature"><strong>#default</strong> : Nil</a>
         
           <div class="summary"><p><span class="flag yellow">WARNING</span>  Stubs</p></div>
@@ -553,6 +584,13 @@
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_object_id%3ABSON%3A%3AObjectId%7CNil-instance-method" class="signature"><strong>#get_object_id</strong> : BSON::ObjectId | Nil</a>
+        
+          <div class="summary"><p>Get ObjectId from value.</p></div>
         
       </li>
     
@@ -667,6 +705,11 @@
     <a href="../../Crymon/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
       <span>errors=(errors : Array(String))</span>
     errors=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#errors_accumulation%28err_msg%3AString%29-instance-method" class="tooltip">
+      <span>errors_accumulation(err_msg : String)</span>
+    errors_accumulation</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
@@ -870,6 +913,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L5" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -883,6 +928,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -901,6 +948,50 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="alert:String-instance-method">
+      <div class="signature">
+        
+        def <strong>alert</strong> : String
+
+        <a class="method-permalink" href="#alert%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Alert message for the entire web form.
+The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="alert=(alert:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>alert=</strong>(alert : String)
+
+        <a class="method-permalink" href="#alert%3D%28alert%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Alert message for the entire web form.
+The value is determined automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="default:Nil-instance-method">
       <div class="signature">
         
@@ -916,6 +1007,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -935,6 +1028,29 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_object_id:BSON::ObjectId|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>get_object_id</strong> : BSON::ObjectId | Nil
+
+        <a class="method-permalink" href="#get_object_id%3ABSON%3A%3AObjectId%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get ObjectId from value.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L51" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -956,6 +1072,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L27" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -974,6 +1092,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -994,6 +1114,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L21" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1012,6 +1134,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1032,6 +1156,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L19" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1045,6 +1171,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1065,6 +1193,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L15" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1078,6 +1208,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1098,6 +1230,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L17" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1116,6 +1250,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1136,6 +1272,8 @@
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L11" target="_blank">View source</a>]
+        
       </div>
     </div>
   
@@ -1154,6 +1292,8 @@
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\fields\hash.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>

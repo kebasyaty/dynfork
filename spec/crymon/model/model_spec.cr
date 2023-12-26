@@ -6,7 +6,7 @@ describe Crymon::Model do
       ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
-      ex.message.should eq("Model EmptyModel has no fields.")
+      ex.message.should eq("Model `EmptyModel` has no fields.")
     end
 
     it "=> create instance of filled Model", tags: "model" do
@@ -39,7 +39,12 @@ describe Crymon::Model do
       m.age.value = 32
       m.birthday.value = "23.12.2023"
       m.birthday.get_time_object.should eq(Crymon::Tools::Date.date_parse("23.12.2023"))
+      m.hash.value.should be_nil
+      m.get_object_id.should be_nil
+      m.hash.get_object_id.should be_nil
       m.hash.value = "507f191e810c19729de860ea"
+      m.get_object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
+      m.hash.get_object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
       m.created_at.value = "2023-11-02T12:15"
       m.updated_at.value = "24.12.2023T08:54"
       m.updated_at.get_time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
@@ -85,7 +90,7 @@ describe Crymon::Model do
         Helper::SlugSourceInvalidModel.new
       end
       ex.message.should eq(
-        "Model: SlugSourceInvalidModel > Field: slug > Attribute: slug_sources => Incorrect source `first_name`."
+        "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => Incorrect source `first_name`."
       )
     end
 
@@ -95,7 +100,7 @@ describe Crymon::Model do
           Helper::NoParamServiceNameModel.new
         end
         ex.message.should eq(
-          "Model: NoParamServiceNameModel => Missing `service_name` parameter for Meta."
+          "Model: `NoParamServiceNameModel` => Missing `service_name` parameter for Meta."
         )
       end
     end

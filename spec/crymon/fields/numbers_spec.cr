@@ -25,7 +25,7 @@ describe Crymon::Fields::U32Field do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(11_u8)
+      f.group.should eq(10_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end
@@ -74,7 +74,7 @@ describe Crymon::Fields::I64Field do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(11_u8)
+      f.group.should eq(10_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end
@@ -124,7 +124,7 @@ describe Crymon::Fields::F64Field do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(12_u8)
+      f.group.should eq(11_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end

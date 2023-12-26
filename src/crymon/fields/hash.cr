@@ -19,6 +19,9 @@ module Crymon::Fields
     getter is_unique : Bool
     # Hide field from user.
     property is_hide : Bool
+    # Alert message for the entire web form.
+    # The value is determined automatically.
+    property alert : String = ""
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
@@ -43,5 +46,10 @@ module Crymon::Fields
       @css_classes : String = "",
       @hint : String = "For enter a document ID"
     ); end
+
+    # Get ObjectId from value.
+    def get_object_id : BSON::ObjectId?
+      BSON::ObjectId.new(@value.to_s) unless @value.nil?
+    end
   end
 end

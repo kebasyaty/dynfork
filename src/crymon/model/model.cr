@@ -62,7 +62,7 @@ module Crymon
     include JSON::Serializable::Strict
     include Crymon::Caching
     include Crymon::Tools::Date
-    include Crymon::CheckModel
+    include Crymon::Check
 
     getter hash = Crymon::Fields::HashField.new("is_ignored": true)
     getter created_at = Crymon::Fields::DateTimeField
@@ -101,6 +101,11 @@ module Crymon
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       "#{service_name}_#{model_name}"
+    end
+
+    # Get ObjectId from hash field.
+    def get_object_id : BSON::ObjectId?
+      BSON::ObjectId.new(@hash.value.to_s) unless @hash.value.nil?
     end
 
     # Determine the presence of a variable (field) in the model.

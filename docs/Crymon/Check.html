@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors - crymon v0</title>
+  <title>Crymon::Check - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -72,7 +72,7 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Check" data-name="crymon::check">
+  <li class="parent open current" data-id="crymon/Crymon/Check" data-name="crymon::check">
       <a href="../Crymon/Check.html">Check</a>
       
         <ul>
@@ -87,7 +87,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -466,7 +466,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> Crymon::<wbr>Errors
+  <span class="kind">module</span> Crymon::<wbr>Check
 
 </h1>
 
@@ -483,7 +483,7 @@
     Overview
   </h2>
 
-  <p>Custom exceptions for Crymon.</p>
+  <p>Validation of Model data before saving to the database.</p>
 
 
 
@@ -494,6 +494,20 @@
 
 
 
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Crymon/Model.html">Crymon::Model</a></li>
+    
+  </ul>
 
 
 
@@ -508,8 +522,8 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\errors.cr#L2" target="_blank">
-        src\crymon\errors.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\model\check.cr#L2" target="_blank">
+        src\crymon\model\check.cr
       </a>
     
     <br/>
@@ -523,6 +537,25 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#is_valid%3ABool-instance-method" class="signature"><strong>#is_valid</strong> : Bool</a>
+        
+          <div class="summary"><p>Check data validity.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -535,6 +568,38 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="is_valid:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_valid</strong> : Bool
+
+        <a class="method-permalink" href="#is_valid%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check data validity.</p>
+<p><span class="flag purple">NOTE</span>  The main use is to check data from web forms.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/a1c2b34988a473167d46ebff660573ca2586034a/src\crymon\model\check.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
