@@ -20,7 +20,7 @@ module Crymon::Errors
   # If slug source does not match field of Model.
   class SlugSourceInvalid < CrymonException
     def initialize(model_name : String, field_name : String, source_name : String)
-      super("Model: `#{model_name}` > Field: `#{field_name}` > Attribute: slug_sources => Incorrect source `#{source_name}`.")
+      super("Model: `#{model_name}` > Field: `#{field_name}` > Attribute: `slug_sources` => Incorrect source `#{source_name}`.")
     end
   end
 
