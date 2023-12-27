@@ -22,8 +22,10 @@ module Crymon::Paladins::Check
   private def check : OutputData
     # Get model key.
     model_key : String = self.model_key
+    # Get metadata of Model from cache.
+    metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
     # Get model name.
-    model_name : String = Crymon::Globals.cache_metadata[model_key][:model_name]
+    model_name : String = metadata[:model_name]
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
@@ -38,7 +40,7 @@ module Crymon::Paladins::Check
     # Start checking all fields.
     {% for field in @type.instance_vars %}
       @{{ field }}.errors = Array(String).new
-      #
+      # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors_accumulation(err_msg.to_s)
           is_error_symptom = true
