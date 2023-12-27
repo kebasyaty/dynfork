@@ -1,4 +1,4 @@
-module Crymon::QPaladins::Groups
+module Crymon::Paladins::Groups
   # Validation of `file` type fields:
   # <br>
   # "ImageField"

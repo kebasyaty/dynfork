@@ -5,8 +5,8 @@ require "./crymon/tools/*"
 #
 require "./crymon/fields/*"
 #
-require "./crymon/model/meta"
-require "./crymon/model/model"
+require "./crymon/meta"
+require "./crymon/model"
 #
 require "./crymon/migration"
 #

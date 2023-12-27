@@ -1,8 +1,8 @@
 require "./groups/*"
 
 # Validation of Model data before saving to the database.
-module Crymon::QPaladins::Check
-  include Crymon::QPaladins::Groups
+module Crymon::Paladins::Check
+  include Crymon::Paladins::Groups
 
   # Output data for the Save method.
   struct OutputData
