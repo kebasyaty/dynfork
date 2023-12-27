@@ -1,4 +1,4 @@
-module Crymon::Check::Groups
+module Crymon::QPaladins::Groups
   # Validation of `number` type fields:
   # <br>
   # "U32Field" | "I64Field"

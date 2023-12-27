@@ -1,8 +1,8 @@
 require "./groups/*"
 
 # Validation of Model data before saving to the database.
-module Crymon::Check
-  include Crymon::Check::Groups
+module Crymon::QPaladins::Check
+  include Crymon::QPaladins::Groups
 
   # Output data for the Save method.
   struct OutputData
@@ -45,14 +45,12 @@ module Crymon::Check
       end
       #
       unless @{{ field }}.is_ignored
-        #group_num : UInt8 = @{{ field }}.group
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          #
           (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}))
         when 2
           # Validation of `slug` type fields:
