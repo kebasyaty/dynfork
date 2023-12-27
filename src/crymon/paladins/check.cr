@@ -72,7 +72,7 @@ module Crymon::Paladins::Check
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}, is_updated))
+          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}), is_updated))
         when 2
           # Validation of `slug` type fields:
           # <br>
