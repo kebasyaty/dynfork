@@ -1,4 +1,4 @@
-module Crymon::Check::Groups
+module Crymon::QPaladins::Groups
   # Validation of `slug` type fields:
   # <br>
   # "SlugField"

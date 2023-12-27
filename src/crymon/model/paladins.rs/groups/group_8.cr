@@ -1,8 +1,8 @@
-module Crymon::Check::Groups
+module Crymon::QPaladins::Groups
   # Validation of `file` type fields:
   # <br>
-  # "ImageField"
-  def group_9(field : Pointer) : Bool
+  # "FileField"
+  def group_8(field : Pointer) : Bool
     # There is no error.
     false
   end

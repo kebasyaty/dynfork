@@ -1,7 +1,7 @@
 require "json"
 require "./addition"
 require "./caching"
-require "./check/check"
+require "./paladins/check"
 
 module Crymon
   # Abstraction for converting Crystal structures into Crymon Models.
@@ -65,7 +65,7 @@ module Crymon
     include JSON::Serializable::Strict
     include Crymon::Caching
     include Crymon::Tools::Date
-    include Crymon::Check
+    include Crymon::QPaladins::Check
 
     getter hash = Crymon::Fields::HashField.new("is_ignored": true)
     getter created_at = Crymon::Fields::DateTimeField
