@@ -19,7 +19,10 @@ module Crymon::Paladins::Check
   end
 
   # Validation of Model data.
-  private def check : OutputData
+  private def check(
+    is_save : Bool = false,
+    is_slug_update : Bool = false
+  ) : OutputData
     # Get model key.
     model_key : String = self.model_key
     # Get metadata of Model from cache.
