@@ -1,4 +1,4 @@
-module Crymon::QPaladins::Groups
+module Crymon::Paladins::Groups
   # Validation of `choice` type fields:
   # <br>
   # "ChoiceTextMultField" | "ChoiceU32MultField"

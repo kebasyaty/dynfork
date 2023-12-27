@@ -1,4 +1,4 @@
-module Crymon::QPaladins::Groups
+module Crymon::Paladins::Groups
   # Validation of `text` type fields:
   # <br>
   # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"

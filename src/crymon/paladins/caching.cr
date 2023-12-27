@@ -1,5 +1,5 @@
 # For caching Model metadata.
-module Crymon::Caching
+module Crymon::Paladins::Caching
   # Add metadata to the global store.
   def caching(model_key : String)
     # Check the model for the presence of variables (fields).

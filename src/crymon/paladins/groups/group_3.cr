@@ -1,4 +1,4 @@
-module Crymon::QPaladins::Groups
+module Crymon::Paladins::Groups
   # Validation of `date` type fields:
   # <br>
   # "DatField" | "DateTimeField"
