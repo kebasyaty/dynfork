@@ -40,12 +40,17 @@ module Crymon::Paladins::Check
     # Current error message.
     err_msg : String?
 
+    # Check the conditions and, if necessary, define a message for the web form.
+    unless is_slug_update
+      @hash.alert = ""
+    end
+
     # Start checking all fields.
     {% for field in @type.instance_vars %}
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
-          @{{ field }}.errors_accumulation(err_msg.to_s)
+          @{{ field }}.errors << err_msg.to_s
           is_error_symptom = true
       end
       #
