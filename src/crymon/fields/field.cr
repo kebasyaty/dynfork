@@ -60,11 +60,6 @@ module Crymon::Fields
     def get_slug_sources : Array(String)
       Array(String).new
     end
-
-    # Accumulation of error messages.
-    def errors_accumulation(err_msg : String)
-      !@errors.empty? ? @errors << "<br>#{err_msg}" : @errors << err_msg
-    end
   end
 
   # Helper structure for FileField.

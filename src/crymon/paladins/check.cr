@@ -19,11 +19,16 @@ module Crymon::Paladins::Check
   end
 
   # Validation of Model data.
-  private def check : OutputData
+  private def check(
+    is_save : Bool = false,
+    is_slug_update : Bool = false
+  ) : OutputData
     # Get model key.
     model_key : String = self.model_key
+    # Get metadata of Model from cache.
+    metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
     # Get model name.
-    model_name : String = Crymon::Globals.cache_metadata[model_key][:model_name]
+    model_name : String = metadata[:model_name]
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
@@ -35,12 +40,28 @@ module Crymon::Paladins::Check
     # Current error message.
     err_msg : String?
 
+    # Check the conditions and, if necessary, define a message for the web form.
+    unless is_slug_update
+      @hash.alert = Array(String).new
+      if is_save
+        if !is_updated && !metadata[:is_saving_docs]
+          @hash.alert << "It is forbidden to perform saves!"
+        end
+        if is_updated && !metadata[:is_updating_docs]
+          @hash.alert << "It is forbidden to perform updates!"
+        end
+        unless @hash.alert.empty?
+          is_error_symptom = true
+        end
+      end
+    end
+
     # Start checking all fields.
     {% for field in @type.instance_vars %}
       @{{ field }}.errors = Array(String).new
-      #
+      # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
-          @{{ field }}.errors_accumulation(err_msg.to_s)
+          @{{ field }}.errors << err_msg.to_s
           is_error_symptom = true
       end
       #
@@ -51,7 +72,7 @@ module Crymon::Paladins::Check
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}))
+          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}), is_updated)
         when 2
           # Validation of `slug` type fields:
           # <br>
