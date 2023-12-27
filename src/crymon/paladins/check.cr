@@ -42,7 +42,15 @@ module Crymon::Paladins::Check
 
     # Check the conditions and, if necessary, define a message for the web form.
     unless is_slug_update
-      @hash.alert = ""
+      @hash.alert = Array(String).new
+      if is_save
+        if !is_updated && !metadata[:is_saving_docs]
+          @hash.alert << "It is forbidden to perform saves!"
+        end
+        if is_updated && !metadata[:is_updating_docs]
+          @hash.alert << "It is forbidden to perform updates!"
+        end
+      end
     end
 
     # Start checking all fields.
