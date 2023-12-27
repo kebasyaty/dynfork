@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Check::OutputData - crymon v0-dev</title>
+  <title>Crymon::QPaladins::Check - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -69,26 +69,6 @@
   
   <li class=" " data-id="crymon/Crymon/Caching" data-name="crymon::caching">
       <a href="../../Crymon/Caching.html">Caching</a>
-      
-    </li>
-  
-  <li class="parent open current" data-id="crymon/Crymon/Check" data-name="crymon::check">
-      <a href="../../Crymon/Check.html">Check</a>
-      
-        <ul>
-  
-  <li class=" " data-id="crymon/Crymon/Check/Groups" data-name="crymon::check::groups">
-      <a href="../../Crymon/Check/Groups.html">Groups</a>
-      
-    </li>
-  
-  <li class=" current" data-id="crymon/Crymon/Check/OutputData" data-name="crymon::check::outputdata">
-      <a href="../../Crymon/Check/OutputData.html">OutputData</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -437,6 +417,36 @@
       
     </li>
   
+  <li class="parent open current" data-id="crymon/Crymon/QPaladins" data-name="crymon::qpaladins">
+      <a href="../../Crymon/QPaladins.html">QPaladins</a>
+      
+        <ul>
+  
+  <li class="parent open current" data-id="crymon/Crymon/QPaladins/Check" data-name="crymon::qpaladins::check">
+      <a href="../../Crymon/QPaladins/Check.html">Check</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/QPaladins/Check/OutputData" data-name="crymon::qpaladins::check::outputdata">
+      <a href="../../Crymon/QPaladins/Check/OutputData.html">OutputData</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/QPaladins/Groups" data-name="crymon::qpaladins::groups">
+      <a href="../../Crymon/QPaladins/Groups.html">Groups</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
       <a href="../../Crymon/Tools.html">Tools</a>
       
@@ -471,12 +481,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Check::<wbr>OutputData
+  <span class="kind">module</span> Crymon::<wbr>QPaladins::<wbr>Check
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Check/OutputData.html">Crymon::Check::OutputData</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -490,7 +498,25 @@
     Overview
   </h2>
 
-  <p>Output data for the Save method.</p>
+  <p>Validation of Model data before saving to the database.</p>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Crymon/QPaladins/Groups.html">Crymon::QPaladins::Groups</a></li>
+    
+  </ul>
 
 
 
@@ -498,9 +524,19 @@
 
 
 
-
-
-
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../Crymon/Model.html">Crymon::Model</a></li>
+    
+  </ul>
 
 
 
@@ -515,7 +551,7 @@
   </h2>
   
     
-      src\crymon\model\check\check.cr
+      src\crymon\model\paladins\check.cr
     
     <br/>
   
@@ -523,23 +559,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28data%3ABSON%2Cis_valid%3ABool%29-class-method" class="signature"><strong>.new</strong>(data : BSON, is_valid : Bool)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -556,12 +575,9 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#data%3ABSON-instance-method" class="signature"><strong>#data</strong> : BSON</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#is_valid%3ABool-instance-method" class="signature"><strong>#is_valid</strong> : Bool</a>
+        
+          <div class="summary"><p>Check data validity.</p></div>
         
       </li>
     
@@ -575,25 +591,69 @@
   
     
 
-
-    
-
-
-    
-
-
+  <h3>Instance methods inherited from module <code><a href="../../Crymon/QPaladins/Groups.html">Crymon::QPaladins::Groups</a></code></h3>
   
-    
-
-
-    
-
-
-    
-
-
   
+    <a href="../../Crymon/QPaladins/Groups.html#group_1%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_1(field : Pointer) : Bool</span>
+    group_1</a>, 
     
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_10%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_10(field : Pointer) : Bool</span>
+    group_10</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_11%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_11(field : Pointer) : Bool</span>
+    group_11</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_12%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_12(field : Pointer) : Bool</span>
+    group_12</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_2%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_2(field : Pointer) : Bool</span>
+    group_2</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_3%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_3(field : Pointer) : Bool</span>
+    group_3</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_4%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_4(field : Pointer) : Bool</span>
+    group_4</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_5%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_5(field : Pointer) : Bool</span>
+    group_5</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_6%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_6(field : Pointer) : Bool</span>
+    group_6</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_7%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_7(field : Pointer) : Bool</span>
+    group_7</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_8%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_8(field : Pointer) : Bool</span>
+    group_8</a>, 
+    
+  
+    <a href="../../Crymon/QPaladins/Groups.html#group_9%28field%3APointer%29%3ABool-instance-method" class="tooltip">
+      <span>group_9(field : Pointer) : Bool</span>
+    group_9</a>
+    
+  
 
 
     
@@ -605,30 +665,6 @@
   
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(data:BSON,is_valid:Bool)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(data : BSON, is_valid : Bool)
-
-        <a class="method-permalink" href="#new%28data%3ABSON%2Cis_valid%3ABool%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
@@ -643,20 +679,6 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="data:BSON-instance-method">
-      <div class="signature">
-        
-        def <strong>data</strong> : BSON
-
-        <a class="method-permalink" href="#data%3ABSON-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="is_valid:Bool-instance-method">
       <div class="signature">
         
@@ -664,6 +686,12 @@
 
         <a class="method-permalink" href="#is_valid%3ABool-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Check data validity.</p>
+<p><span class="flag purple">NOTE</span>  The main use is to check data from web forms.</p>
+        </div>
       
       <br/>
       <div>
