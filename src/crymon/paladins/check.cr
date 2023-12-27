@@ -50,6 +50,9 @@ module Crymon::Paladins::Check
         if is_updated && !metadata[:is_updating_docs]
           @hash.alert << "It is forbidden to perform updates!"
         end
+        unless @hash.alert.empty?
+          is_error_symptom = true
+        end
       end
     end
 
