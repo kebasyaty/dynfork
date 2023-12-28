@@ -29,7 +29,8 @@ module Crymon::Paladins::Check
         msg = "#{msg}\n#{{{ field.name.stringify }}}: #{errors}"
       end
     {% end %}
-    puts msg + "\n\n"
+    (msg + "\n\n") unless msg.empty?
+    puts msg
   end
 
   # Validation of Model data.
