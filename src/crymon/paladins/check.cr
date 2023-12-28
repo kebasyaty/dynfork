@@ -18,6 +18,21 @@ module Crymon::Paladins::Check
     self.check.is_valid
   end
 
+  # Printing errors to the console ( for development ).
+  def print_err
+    msg : String = ""
+    errors : String = ""
+    {% for field in @type.instance_vars %}
+      unless @{{ field }}.errors.empty?
+        (msg = "\nERRORS:") if msg.empty?
+        errors = @{{ field }}.errors.join(" | ")
+        msg = "#{msg}\n#{{{ field.name.stringify }}}: #{errors}"
+      end
+    {% end %}
+    (msg + "\n\n") unless msg.empty?
+    puts msg
+  end
+
   # Validation of Model data.
   private def check(
     is_save : Bool = false,
