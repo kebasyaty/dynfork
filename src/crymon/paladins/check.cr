@@ -33,6 +33,7 @@ module Crymon::Paladins::Check
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
+    is_error_symptom_ptr : Pointer(Bool) = pointerof(is_error_symptom)
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
@@ -46,11 +47,10 @@ module Crymon::Paladins::Check
       if is_save
         if !is_updated && !metadata[:is_saving_docs]
           @hash.alert << "It is forbidden to perform saves!"
+          is_error_symptom = true
         end
         if is_updated && !metadata[:is_updating_docs]
           @hash.alert << "It is forbidden to perform updates!"
-        end
-        unless @hash.alert.empty?
           is_error_symptom = true
         end
       end
@@ -62,7 +62,7 @@ module Crymon::Paladins::Check
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors << err_msg.to_s
-          is_error_symptom = true
+          (is_error_symptom = true) unless is_error_symptom
       end
       #
       unless @{{ field }}.is_ignored
@@ -72,7 +72,7 @@ module Crymon::Paladins::Check
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}), is_updated)
+          self.group_1(pointerof(@{{ field }}), is_error_symptom_ptr, is_updated)
         when 2
           # Validation of `slug` type fields:
           # <br>
