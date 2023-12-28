@@ -25,6 +25,7 @@ describe Crymon::Fields::HashField do
       f.hint.should eq("For enter a document ID")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
+      f.alerts.should eq(Array(String).new)
       f.group.should eq(1_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
