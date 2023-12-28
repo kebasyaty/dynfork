@@ -3,8 +3,10 @@ module Crymon::Paladins::Groups
   # <br>
   # "ChoiceTextMultField" | "ChoiceU32MultField"
   # | "ChoiceI64MultField" | "ChoiceF64MultField"
-  def group_6(field_ptr : Pointer) : Bool
-    # There is no error.
-    false
+  def group_6(
+    field_ptr : Pointer,
+    is_error_symptom_ptr : Pointer(Bool),
+    is_updated : Bool
+  )
   end
 end

@@ -33,6 +33,7 @@ module Crymon::Paladins::Check
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
+    is_error_symptom_ptr : Pointer(Bool) = pointerof(is_error_symptom)
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
@@ -42,15 +43,15 @@ module Crymon::Paladins::Check
 
     # Check the conditions and, if necessary, define a message for the web form.
     unless is_slug_update
-      @hash.alert = Array(String).new
+      # Reset the alerts to exclude duplicates.
+      @hash.alerts = Array(String).new
       if is_save
         if !is_updated && !metadata[:is_saving_docs]
-          @hash.alert << "It is forbidden to perform saves!"
+          @hash.alerts << "It is forbidden to perform saves!"
+          is_error_symptom = true
         end
         if is_updated && !metadata[:is_updating_docs]
-          @hash.alert << "It is forbidden to perform updates!"
-        end
-        unless @hash.alert.empty?
+          @hash.alerts << "It is forbidden to perform updates!"
           is_error_symptom = true
         end
       end
@@ -58,11 +59,12 @@ module Crymon::Paladins::Check
 
     # Start checking all fields.
     {% for field in @type.instance_vars %}
+      # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors << err_msg.to_s
-          is_error_symptom = true
+          (is_error_symptom = true) unless is_error_symptom
       end
       #
       unless @{{ field }}.is_ignored
@@ -72,66 +74,113 @@ module Crymon::Paladins::Check
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          (is_error_symptom = true) if self.group_1(pointerof(@{{ field }}), is_updated)
+          self.group_1(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 2
           # Validation of `slug` type fields:
           # <br>
           # "SlugField"
-          (is_error_symptom = true) if self.group_2(pointerof(@{{ field }}))
+          self.group_2(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 3
           # Validation of `date` type fields:
           # <br>
           # "DatField" | "DateTimeField"
-          (is_error_symptom = true) if self.group_3(pointerof(@{{ field }}))
+          self.group_3(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 4
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextField" | "ChoiceU32Field"
           # | "ChoiceI64Field" | "ChoiceF64Field"
-          (is_error_symptom = true) if self.group_4(pointerof(@{{ field }}))
+          self.group_4(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 5
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextDynField" | "ChoiceU32DynField"
           # | "ChoiceI64DynField" | "ChoiceF64DynField"
-          (is_error_symptom = true) if self.group_5(pointerof(@{{ field }}))
+          self.group_5(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 6
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextMultField" | "ChoiceU32MultField"
           # | "ChoiceI64MultField" | "ChoiceF64MultField"
-          (is_error_symptom = true) if self.group_6(pointerof(@{{ field }}))
+          self.group_6(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 7
           # Validation of `choice` type fields:
           # <br>
           # "ChoiceTextMultDynField" | "ChoiceU32MultDynField"
           # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
-          (is_error_symptom = true) if self.group_7(pointerof(@{{ field }}))
+          self.group_7(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 8
           # Validation of `file` type fields:
           # <br>
           # "FileField"
-          (is_error_symptom = true) if self.group_8(pointerof(@{{ field }}))
+          self.group_8(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 9
           # Validation of `file` type fields:
           # <br>
           # "ImageField"
-          (is_error_symptom = true) if self.group_9(pointerof(@{{ field }}))
+          self.group_9(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 10
           # Validation of `number` type fields:
           # <br>
           # "U32Field" | "I64Field"
-          (is_error_symptom = true) if self.group_10(pointerof(@{{ field }}))
+          self.group_10(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 11
           # Validation of `number` type fields:
           # <br>
           # "F64Field"
-          (is_error_symptom = true) if self.group_11(pointerof(@{{ field }}))
+          self.group_11(
+            pointerof(@{{ field }}),
+            is_error_symptom_ptr,
+            is_updated
+          )
         when 12
           # Validation of `boolean` type fields:
           # <br>
           # "BoolField"
-          (is_error_symptom = true) if self.group_12(pointerof(@{{ field }}))
+          self.group_12(
+            pointerof(@{{ field }}),
+            is_updated
+          )
         else
           raise Crymon::Errors::InvalidGroupNumber
             .new(model_name, {{ field.name.stringify }})
