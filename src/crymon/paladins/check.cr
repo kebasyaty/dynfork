@@ -43,14 +43,15 @@ module Crymon::Paladins::Check
 
     # Check the conditions and, if necessary, define a message for the web form.
     unless is_slug_update
-      @hash.alert = Array(String).new
+      # Reset the alerts to exclude duplicates.
+      @hash.alerts = Array(String).new
       if is_save
         if !is_updated && !metadata[:is_saving_docs]
-          @hash.alert << "It is forbidden to perform saves!"
+          @hash.alerts << "It is forbidden to perform saves!"
           is_error_symptom = true
         end
         if is_updated && !metadata[:is_updating_docs]
-          @hash.alert << "It is forbidden to perform updates!"
+          @hash.alerts << "It is forbidden to perform updates!"
           is_error_symptom = true
         end
       end
@@ -58,6 +59,7 @@ module Crymon::Paladins::Check
 
     # Start checking all fields.
     {% for field in @type.instance_vars %}
+      # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
