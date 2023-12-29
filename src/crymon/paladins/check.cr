@@ -4,14 +4,6 @@ require "./groups/*"
 module Crymon::Paladins::Check
   include Crymon::Paladins::Groups
 
-  # Output data for the Save method.
-  struct OutputData
-    getter data : BSON
-    getter is_valid : Bool
-
-    def initialize(@data : BSON, @is_valid : Bool); end
-  end
-
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
   def is_valid : Bool
@@ -37,7 +29,7 @@ module Crymon::Paladins::Check
   private def check(
     is_save : Bool = false,
     is_slug_update : Bool = false
-  ) : OutputData
+  ) : Crymon::Tools::Check::OutputData
     # Get model key.
     model_key : String = self.model_key
     # Get metadata of Model from cache.
@@ -204,6 +196,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    OutputData.new(db_data_bson, !is_error_symptom)
+    Crymon::Tools::Check::OutputData.new(db_data_bson, !is_error_symptom)
   end
 end
