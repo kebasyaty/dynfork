@@ -21,7 +21,9 @@ module Crymon::Paladins::Check
         msg = "#{msg}\n#{{{ field.name.stringify }}}: #{errors}"
       end
     {% end %}
-    (msg + "\n\n") unless msg.empty?
+    line_break : String = msg.empty? ? "\n" : "\n\n"
+    (msg + "#{line_break}AlERTS:\n#{@hash.alerts.join("\n")}") unless @hash.alerts.empty?
+    (msg + "\n") unless msg.empty?
     puts msg
   end
 
