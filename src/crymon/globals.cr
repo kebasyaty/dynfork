@@ -48,8 +48,8 @@ module Crymon::Globals
                      Crymon::Fields::BoolField
 
   # Field value types.
-  alias ValueTypes = String | UInt32 | Int64 | Float64 | Crymon::Fields::ImageData |
-                     Crymon::Fields::FileData | Array(UInt32) | Array(String) | Array(Int64) |
+  alias ValueTypes = String | UInt32 | Int64 | Float64 | Crymon::Tools::Types::ImageData |
+                     Crymon::Tools::Types::FileData | Array(UInt32) | Array(String) | Array(Int64) |
                      Array(Float64) | Bool | Nil
 
   # Data types to select in dynamic fields.

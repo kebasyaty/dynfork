@@ -1,9 +1,9 @@
 require "../../spec_helper"
 
-describe Crymon::Fields::FileData do
+describe Crymon::Tools::Types::FileData do
   describe ".new" do
     it "=> create instance of FileData", tags: "fields" do
-      f = Crymon::Fields::FileData.new
+      f = Crymon::Tools::Types::FileData.new
       f.path.should eq("")
       f.url.should eq("")
       f.name.should eq("")
