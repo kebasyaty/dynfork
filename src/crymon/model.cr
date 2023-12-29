@@ -95,10 +95,18 @@ module Crymon
       {% end %}
     end
 
+    # Get Model name = Structure name.
+    # <br>
+    # **Examples:** _User | UserProfile | ElectricCar | etc ..._
+    # WARNING: Maximum 25 characters.
+    def model_name : String
+      {{ @type.name.stringify }}.split("::").last
+    end
+
     # Get model key.
     # NOTE: To access data in the cache.
     def model_key : String
-      model_name : String = {{ @type.name.stringify }}.split("::").last
+      model_name : String = self.model_name
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
         raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
       "#{service_name}_#{model_name}"

@@ -34,10 +34,6 @@ module Crymon::Paladins::Check
   ) : Crymon::Tools::Types::OutputData
     # Get model key.
     model_key : String = self.model_key
-    # Get metadata of Model from cache.
-    metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
-    # Get model name.
-    model_name : String = metadata[:model_name]
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
@@ -55,11 +51,11 @@ module Crymon::Paladins::Check
       # Reset the alerts to exclude duplicates.
       @hash.alerts = Array(String).new
       if is_save
-        if !is_updated && !metadata[:is_saving_docs]
+        if !is_updated && !Crymon::Globals.cache_metadata[model_key][:is_saving_docs]
           @hash.alerts << "It is forbidden to perform saves!"
           is_error_symptom = true
         end
-        if is_updated && !metadata[:is_updating_docs]
+        if is_updated && !Crymon::Globals.cache_metadata[model_key][:is_updating_docs]
           @hash.alerts << "It is forbidden to perform updates!"
           is_error_symptom = true
         end
@@ -74,6 +70,7 @@ module Crymon::Paladins::Check
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors << err_msg.to_s
           (is_error_symptom = true) unless is_error_symptom
+          err_msg = nil
       end
       #
       unless @{{ field }}.is_ignored
@@ -192,7 +189,7 @@ module Crymon::Paladins::Check
           )
         else
           raise Crymon::Errors::InvalidGroupNumber
-            .new(model_name, {{ field.name.stringify }})
+            .new(self.model_name, {{ field.name.stringify }})
         end
       end
     {% end %}

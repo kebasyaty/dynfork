@@ -12,7 +12,7 @@ module Crymon::Paladins::Caching
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
-    model_name : String = {{ @type.name.stringify }}.split("::").last
+    model_name : String = self.model_name
     raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
       raise Crymon::Errors::ModelNameRegexFails
