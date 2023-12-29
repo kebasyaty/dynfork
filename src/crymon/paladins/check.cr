@@ -29,7 +29,7 @@ module Crymon::Paladins::Check
   private def check(
     is_save : Bool = false,
     is_slug_update : Bool = false
-  ) : Crymon::Tools::Check::OutputData
+  ) : Crymon::Tools::Types::OutputData
     # Get model key.
     model_key : String = self.model_key
     # Get metadata of Model from cache.
@@ -196,6 +196,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    Crymon::Tools::Check::OutputData.new(db_data_bson, !is_error_symptom)
+    Crymon::Tools::Types::OutputData.new(db_data_bson, !is_error_symptom)
   end
 end
