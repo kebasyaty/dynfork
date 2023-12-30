@@ -1,5 +1,5 @@
 require "json"
-require "./paladins/addition"
+require "./paladins/aa"
 require "./paladins/paladins"
 
 module Crymon
@@ -59,7 +59,7 @@ module Crymon
   # end
   # ```
   #
-  abstract struct Model < Crymon::Addition
+  abstract struct Model < Crymon::AA
     include JSON::Serializable
     include JSON::Serializable::Strict
     include Crymon::Tools::Date
