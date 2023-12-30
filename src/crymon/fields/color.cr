@@ -56,7 +56,7 @@ module Crymon::Fields
       @hint : String = ""
     )
       if ["text", "color"].index(@input_type).nil?
-        raise Crymon::Errors::InvalidInputType.new(@input_type)
+        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
       end
     end
   end

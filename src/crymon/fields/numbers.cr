@@ -45,7 +45,7 @@ module Crymon::Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Crymon::Errors::InvalidInputType.new(@input_type)
+        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
       end
     end
   end
@@ -94,7 +94,7 @@ module Crymon::Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Crymon::Errors::InvalidInputType.new(@input_type)
+        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
       end
     end
   end
@@ -143,7 +143,7 @@ module Crymon::Fields
       @warning : String = ""
     )
       if ["number", "range"].index(@input_type).nil?
-        raise Crymon::Errors::InvalidInputType.new(@input_type)
+        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
       end
     end
   end

@@ -1,5 +1,5 @@
 require "json"
-require "./paladins/addition"
+require "./paladins/aa"
 require "./paladins/paladins"
 
 module Crymon
@@ -59,7 +59,7 @@ module Crymon
   # end
   # ```
   #
-  abstract struct Model < Crymon::Addition
+  abstract struct Model < Crymon::AA
     include JSON::Serializable
     include JSON::Serializable::Strict
     include Crymon::Tools::Date
@@ -108,7 +108,7 @@ module Crymon
     def model_key : String
       model_name : String = self.model_name
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
+        raise Crymon::Errors::Meta::MetaParameterMissing.new(model_name, "service_name")
       "#{service_name}_#{model_name}"
     end
 

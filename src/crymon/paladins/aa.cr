@@ -6,7 +6,7 @@
 # <br>
 # **Hooks** - Methods that are called at different stages when accessing the database.
 module Crymon
-  abstract struct Addition
+  abstract struct AA
     # It is supposed to be use to additional validation of fields.
     # WARNING: The method is called automatically when checking or saving the Model.
     #

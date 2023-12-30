@@ -39,7 +39,7 @@ describe Crymon::Fields::U32Field do
 
     it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
-      ex = expect_raises(Crymon::Errors::InvalidInputType) do
+      ex = expect_raises(Crymon::Errors::Fields::InvalidInputType) do
         Crymon::Fields::U32Field.new(
           input_type: t
         )
@@ -88,7 +88,7 @@ describe Crymon::Fields::I64Field do
 
     it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
-      ex = expect_raises(Crymon::Errors::InvalidInputType) do
+      ex = expect_raises(Crymon::Errors::Fields::InvalidInputType) do
         Crymon::Fields::I64Field.new(
           input_type: t
         )
@@ -138,7 +138,7 @@ describe Crymon::Fields::F64Field do
 
     it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
-      ex = expect_raises(Crymon::Errors::InvalidInputType) do
+      ex = expect_raises(Crymon::Errors::Fields::InvalidInputType) do
         Crymon::Fields::F64Field.new(
           input_type: t
         )

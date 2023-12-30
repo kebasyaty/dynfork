@@ -5,7 +5,7 @@ module Crymon::Paladins::Caching
     # Check the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::ModelFieldsMissing
+        raise Crymon::Errors::Model::ModelFieldsMissing
           .new({{ @type.name.stringify }}.split("::").last)
     {% end %}
     # Get Model name = Structure name.
@@ -13,9 +13,9 @@ module Crymon::Paladins::Caching
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
     model_name : String = self.model_name
-    raise Crymon::Errors::ModelNameExcessChars.new(model_name) if model_name.size > 25
+    raise Crymon::Errors::Model::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless Crymon::Globals.cache_regex[:model_name].matches?(model_name)
-      raise Crymon::Errors::ModelNameRegexFails
+      raise Crymon::Errors::Model::ModelNameRegexFails
         .new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get Service name = Module name.
@@ -23,11 +23,11 @@ module Crymon::Paladins::Caching
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-      raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
-    raise Crymon::Errors::MetaParamExcessChars
+      raise Crymon::Errors::Meta::MetaParameterMissing.new(model_name, "service_name")
+    raise Crymon::Errors::Meta::MetaParamExcessChars
       .new(model_name, "service_name", 25) if service_name.size > 25
     unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
-      raise Crymon::Errors::MetaParamRegexFails
+      raise Crymon::Errors::Meta::MetaParamRegexFails
         .new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get collection name.
@@ -67,7 +67,7 @@ module Crymon::Paladins::Caching
           # Throw an exception if a non-existent field is specified.
           @{{ var }}.get_slug_sources.each do |source_name|
             unless field_name_list.includes?(source_name)
-              raise Crymon::Errors::SlugSourceInvalid
+              raise Crymon::Errors::Fields::SlugSourceInvalid
                 .new(model_name, {{ var.name.stringify }}, source_name)
             end
           end

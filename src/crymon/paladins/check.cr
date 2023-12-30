@@ -188,7 +188,7 @@ module Crymon::Paladins::Check
             is_updated
           )
         else
-          raise Crymon::Errors::InvalidGroupNumber
+          raise Crymon::Errors::Model::InvalidGroupNumber
             .new(self.model_name, {{ field.name.stringify }})
         end
       end
