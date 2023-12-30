@@ -2,7 +2,7 @@ require "bson"
 require "json"
 
 # Global data types.
-module GlobalTypes
+module Crymon::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
     getter data : BSON

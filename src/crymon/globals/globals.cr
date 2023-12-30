@@ -2,7 +2,7 @@ require "./types"
 
 # Global storage for data cache.
 module Crymon::Globals
-  include GlobalTypes
+  include Crymon::Globals::Types
 
   # Global storage for metadata caching.
   class_getter cache_metadata = Hash(String, Crymon::Globals::CacheMetaDataType).new
