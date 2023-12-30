@@ -34,6 +34,11 @@ module Crymon::Paladins::Check
   ) : Crymon::Globals::OutputData
     # Get model key.
     model_key : String = self.model_key
+    # Get the collection for the current model.
+    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client[
+      Crymon::Globals.cache_database_name][
+      Crymon::Globals.cache_metadata[model_key][:collection_name]]
+    collection_ptr : Pointer(Mongo::Collection) = pointerof(collection)
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil?
     # Is there any incorrect data?
