@@ -1,11 +1,11 @@
-# ## Additional abstraction.
-# NOTE: How to use, see examples.
-# <br>
-# <br>
-# **Additional validation** - It is supposed to be use to additional validation of fields.
-# <br>
-# **Hooks** - Methods that are called at different stages when accessing the database.
 module Crymon
+  # ## Additional abstraction.
+  # NOTE: How to use, see examples.
+  # <br>
+  # <br>
+  # **Additional validation** - It is supposed to be use to additional validation of fields.
+  # <br>
+  # **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct AA
     # It is supposed to be use to additional validation of fields.
     # WARNING: The method is called automatically when checking or saving the Model.
