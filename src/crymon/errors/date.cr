@@ -1,6 +1,6 @@
 require "./root"
 
-# ???
+# Errors associated with the date and time.
 module Crymon::Errors::Date
   # Invalid date.
   class InvalidDate < Crymon::Errors::Root::CrymonException

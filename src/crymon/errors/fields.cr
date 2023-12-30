@@ -1,6 +1,6 @@
 require "./root"
 
-# ???
+# Errors associated with the fields.
 module Crymon::Errors::Fields
   # If slug source does not match field of Model.
   class SlugSourceInvalid < Crymon::Errors::Root::CrymonException

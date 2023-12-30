@@ -1,6 +1,6 @@
 require "./root"
 
-# ???
+# Errors associated with the metadata.
 module Crymon::Errors::Meta
   # Missing parameter for Metadata.
   class MetaParameterMissing < Crymon::Errors::Root::CrymonException

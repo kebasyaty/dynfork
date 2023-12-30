@@ -1,6 +1,6 @@
 require "./root"
 
-# ???
+# Errors associated with the Model.
 module Crymon::Errors::Model
   # The Model has no fields.
   class ModelFieldsMissing < Crymon::Errors::Root::CrymonException

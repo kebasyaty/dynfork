@@ -1,6 +1,6 @@
 require "./root"
 
-# ???
+# Errors associated with the caching.
 module Crymon::Errors::Caching
   # The allowed number of characters in global settings has been exceeded.
   class CacheSettingsExcessChars < Crymon::Errors::Root::CrymonException
