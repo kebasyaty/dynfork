@@ -31,7 +31,7 @@ module Crymon::Paladins::Check
   private def check(
     is_save : Bool = false,
     is_slug_update : Bool = false
-  ) : Crymon::Tools::Types::OutputData
+  ) : Crymon::Globals::OutputData
     # Get model key.
     model_key : String = self.model_key
     # Does the document exist in the database?
@@ -195,6 +195,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    Crymon::Tools::Types::OutputData.new(db_data_bson, !is_error_symptom)
+    Crymon::Globals::OutputData.new(db_data_bson, !is_error_symptom)
   end
 end

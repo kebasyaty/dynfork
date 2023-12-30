@@ -1,6 +1,6 @@
 require "./crymon/errors"
 #
-require "./crymon/globals"
+require "./crymon/globals/globals"
 require "./crymon/tools/*"
 #
 require "./crymon/fields/*"
