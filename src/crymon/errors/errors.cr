@@ -13,7 +13,4 @@ module Crymon::Errors
   include Crymon::Errors::Model
   include Crymon::Errors::Date
   include Crymon::Errors::Types
-
-  # Root custom exception.
-  class CrymonException < Exception; end
 end
