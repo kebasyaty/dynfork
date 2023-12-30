@@ -1,9 +1,9 @@
 require "../../spec_helper"
 
-describe Crymon::Tools::Types::ImageData do
+describe Crymon::Globals::ImageData do
   describe ".new" do
     it "=> create an instance of the ImageData", tags: "fields" do
-      f = Crymon::Tools::Types::ImageData.new
+      f = Crymon::Globals::ImageData.new
       f.path.should eq("")
       f.path_xs.should eq("")
       f.path_sm.should eq("")
