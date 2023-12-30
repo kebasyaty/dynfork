@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Globals::Types::ValidationCacheSettings - crymon v0-dev</title>
+  <title>Crymon::Errors::Model::InvalidGroupNumber - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../../";
   </script>
@@ -67,7 +67,7 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
       <a href="../../../Crymon/Errors.html">Errors</a>
       
         <ul>
@@ -157,12 +157,12 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Errors/Model" data-name="crymon::errors::model">
+  <li class="parent open current" data-id="crymon/Crymon/Errors/Model" data-name="crymon::errors::model">
       <a href="../../../Crymon/Errors/Model.html">Model</a>
       
         <ul>
   
-  <li class=" " data-id="crymon/Crymon/Errors/Model/InvalidGroupNumber" data-name="crymon::errors::model::invalidgroupnumber">
+  <li class=" current" data-id="crymon/Crymon/Errors/Model/InvalidGroupNumber" data-name="crymon::errors::model::invalidgroupnumber">
       <a href="../../../Crymon/Errors/Model/InvalidGroupNumber.html">InvalidGroupNumber</a>
       
     </li>
@@ -402,7 +402,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
       <a href="../../../Crymon/Globals.html">Globals</a>
       
         <ul>
@@ -427,7 +427,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Globals/Types" data-name="crymon::globals::types">
+  <li class="parent " data-id="crymon/Crymon/Globals/Types" data-name="crymon::globals::types">
       <a href="../../../Crymon/Globals/Types.html">Types</a>
       
         <ul>
@@ -447,7 +447,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Globals/Types/ValidationCacheSettings" data-name="crymon::globals::types::validationcachesettings">
+  <li class=" " data-id="crymon/Crymon/Globals/Types/ValidationCacheSettings" data-name="crymon::globals::types::validationcachesettings">
       <a href="../../../Crymon/Globals/Types/ValidationCacheSettings.html">ValidationCacheSettings</a>
       
     </li>
@@ -556,12 +556,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Globals::<wbr>Types::<wbr>ValidationCacheSettings
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>Model::<wbr>InvalidGroupNumber
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../Crymon/Globals/Types/ValidationCacheSettings.html">Crymon::Globals::Types::ValidationCacheSettings</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../Crymon/Errors/Model/InvalidGroupNumber.html">Crymon::Errors::Model::InvalidGroupNumber</a></li><li class="superclass"><a href="../../../Crymon/Errors/Root/CrymonException.html">Crymon::Errors::Root::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -575,7 +575,7 @@
     Overview
   </h2>
 
-  <p>Validation global Crymon settings.</p>
+  <p>Invalid group number.</p>
 
 
 
@@ -600,7 +600,7 @@
   </h2>
   
     
-      src\crymon\globals\types.cr
+      src\crymon\errors\model.cr
     
     <br/>
   
@@ -620,7 +620,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        <a href="#new%28model_name%3AString%2Cfield_name%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String, field_name : String)</a>
         
       </li>
     
@@ -628,68 +628,23 @@
 
 
 
-  <h2>
-    <a id="class-method-summary" class="anchor" href="#class-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#valid_app_name%28app_name%3AString%29-class-method" class="signature"><strong>.valid_app_name</strong>(app_name : String)</a>
-        
-          <div class="summary"><p>App name = Project name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#valid_database_name%28database_name%3AString%29-class-method" class="signature"><strong>.valid_database_name</strong>(database_name : String)</a>
-        
-          <div class="summary"><p>Database name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#valid_unique_app_key%28unique_app_key%3AString%29-class-method" class="signature"><strong>.valid_unique_app_key</strong>(unique_app_key : String)</a>
-        
-          <div class="summary"><p>Unique project key.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#validation-class-method" class="signature"><strong>.validation</strong></a>
-        
-      </li>
-    
-  </ul>
 
-
-
-  <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
-        
-      </li>
-    
-  </ul>
 
 
 
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -733,12 +688,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new-class-method">
+    <div class="entry-detail" id="new(model_name:String,field_name:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>
+        def self.<strong>new</strong>(model_name : String, field_name : String)
 
-        <a class="method-permalink" href="#new-class-method">#</a>
+        <a class="method-permalink" href="#new%28model_name%3AString%2Cfield_name%3AString%29-class-method">#</a>
       </div>
       
       <br/>
@@ -750,116 +705,7 @@
 
 
 
-  <h2>
-    <a id="class-method-detail" class="anchor" href="#class-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Class Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="valid_app_name(app_name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>valid_app_name</strong>(app_name : String)
 
-        <a class="method-permalink" href="#valid_app_name%28app_name%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>App name = Project name.</p>
-<p><span class="flag yellow">WARNING</span>  Maximum 44 characters.</p>
-<p><span class="flag yellow">WARNING</span>  Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="valid_database_name(database_name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>valid_database_name</strong>(database_name : String)
-
-        <a class="method-permalink" href="#valid_database_name%28database_name%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Database name.</p>
-<p><span class="flag yellow">WARNING</span>  Maximum 60 characters.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="valid_unique_app_key(unique_app_key:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>valid_unique_app_key</strong>(unique_app_key : String)
-
-        <a class="method-permalink" href="#valid_unique_app_key%28unique_app_key%3AString%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Unique project key.</p>
-<p><span class="flag yellow">WARNING</span>  Match regular expression: /^[a-zA-Z0-9]{16}$/</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="validation-class-method">
-      <div class="signature">
-        
-        def self.<strong>validation</strong>
-
-        <a class="method-permalink" href="#validation-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-
-
-
-  <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Instance Method Detail
-  </h2>
-  
-    <div class="entry-detail" id="initialize-instance-method">
-      <div class="signature">
-        
-        def <strong>initialize</strong>
-
-        <a class="method-permalink" href="#initialize-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
