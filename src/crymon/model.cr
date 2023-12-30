@@ -108,7 +108,7 @@ module Crymon
     def model_key : String
       model_name : String = self.model_name
       service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-        raise Crymon::Errors::MetaParameterMissing.new(model_name, "service_name")
+        raise Crymon::Errors::Meta::MetaParameterMissing.new(model_name, "service_name")
       "#{service_name}_#{model_name}"
     end
 

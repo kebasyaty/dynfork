@@ -39,7 +39,7 @@ describe Crymon::Fields::ColorField do
 
     it "=> invalid input type - input_type=???", tags: "fields" do
       t : String = "???"
-      ex = expect_raises(Crymon::Errors::InvalidInputType) do
+      ex = expect_raises(Crymon::Errors::Fields::InvalidInputType) do
         Crymon::Fields::ColorField.new(
           input_type: t
         )

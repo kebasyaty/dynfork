@@ -3,7 +3,7 @@ require "../../spec_helper"
 describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model", tags: "model" do
-      ex = expect_raises(Crymon::Errors::ModelFieldsMissing) do
+      ex = expect_raises(Crymon::Errors::Model::ModelFieldsMissing) do
         Helper::EmptyModel.new
       end
       ex.message.should eq("Model `EmptyModel` has no fields.")
@@ -86,7 +86,7 @@ describe Crymon::Model do
     end
 
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
-      ex = expect_raises(Crymon::Errors::SlugSourceInvalid) do
+      ex = expect_raises(Crymon::Errors::Fields::SlugSourceInvalid) do
         Helper::SlugSourceInvalidModel.new
       end
       ex.message.should eq(
@@ -96,7 +96,7 @@ describe Crymon::Model do
 
     describe "#caching" do
       it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
-        ex = expect_raises(Crymon::Errors::MetaParameterMissing) do
+        ex = expect_raises(Crymon::Errors::Meta::MetaParameterMissing) do
           Helper::NoParamServiceNameModel.new
         end
         ex.message.should eq(

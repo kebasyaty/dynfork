@@ -18,7 +18,7 @@ module Crymon::Tools::Date
   def date_parse(date : String) : Time
     md = Crymon::Globals.cache_regex[:date_parse].match(date) ||
          Crymon::Globals.cache_regex[:date_parse_reverse].match(date)
-    raise Crymon::Errors::InvalidDate.new if md.nil?
+    raise Crymon::Errors::Date::InvalidDate.new if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]}", "%F")
   end
 
@@ -40,7 +40,7 @@ module Crymon::Tools::Date
   def datetime_parse(datetime : String) : Time
     md = Crymon::Globals.cache_regex[:datetime_parse].match(datetime) ||
          Crymon::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
-    raise Crymon::Errors::InvalidDateTime.new if md.nil?
+    raise Crymon::Errors::Date::InvalidDateTime.new if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]} #{md["t"]}", "%F %H:%M")
   end
 end

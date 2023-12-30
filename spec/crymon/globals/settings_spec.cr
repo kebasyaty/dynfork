@@ -28,7 +28,7 @@ describe Crymon::Globals do
 
   describe "cache_app_name" do
     it "=> number of characters exceeded", tags: "global_settings" do
-      ex = expect_raises(Crymon::Errors::CacheSettingsExcessChars) do
+      ex = expect_raises(Crymon::Errors::Cache::CacheSettingsExcessChars) do
         Crymon::Globals.cache_app_name = "Lorem ipsum dolor sit amet consectetur adipis"
         Crymon::Globals::ValidationCacheSettings.validation
       end
@@ -38,7 +38,7 @@ describe Crymon::Globals do
     end
 
     it "=> not matching regular expression", tags: "global_settings" do
-      ex = expect_raises(Crymon::Errors::CacheSettingsRegexFails) do
+      ex = expect_raises(Crymon::Errors::Cache::CacheSettingsRegexFails) do
         Crymon::Globals.cache_app_name = "Lorem ipsum dolor sit amet consectetur adipi"
         Crymon::Globals::ValidationCacheSettings.validation
       end
@@ -53,7 +53,7 @@ describe Crymon::Globals do
   # To generate a key (This is not an advertisement): https://randompasswordgen.com/
   describe "cache_unique_app_key" do
     it "=> number of characters exceeded", tags: "global_settings" do
-      ex = expect_raises(Crymon::Errors::CacheSettingsExcessChars) do
+      ex = expect_raises(Crymon::Errors::Cache::CacheSettingsExcessChars) do
         Crymon::Globals.cache_unique_app_key = "g80K2R476Y46428cM"
         Crymon::Globals::ValidationCacheSettings.validation
       end
@@ -63,7 +63,7 @@ describe Crymon::Globals do
     end
 
     it "=> not matching regular expression", tags: "global_settings" do
-      ex = expect_raises(Crymon::Errors::CacheSettingsRegexFails) do
+      ex = expect_raises(Crymon::Errors::Cache::CacheSettingsRegexFails) do
         Crymon::Globals.cache_unique_app_key = "!Q2)x7d_P#4G}Bb/"
         Crymon::Globals::ValidationCacheSettings.validation
       end
@@ -77,7 +77,7 @@ describe Crymon::Globals do
 
   describe "cache_database_name" do
     it "=> number of characters exceeded", tags: "global_settings" do
-      ex = expect_raises(Crymon::Errors::CacheSettingsExcessChars) do
+      ex = expect_raises(Crymon::Errors::Cache::CacheSettingsExcessChars) do
         Crymon::Globals.cache_database_name = "LoremIpsumDolorSitAmetConsecteturAdipiscingElitIntegerLacinia"
         Crymon::Globals::ValidationCacheSettings.validation
       end

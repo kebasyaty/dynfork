@@ -1,7 +1,7 @@
 require "./root"
 
 # Errors associated with the caching.
-module Crymon::Errors::Caching
+module Crymon::Errors::Cache
   # The allowed number of characters in global settings has been exceeded.
   class CacheSettingsExcessChars < Crymon::Errors::Root::CrymonException
     def initialize(parameter_name : String, limit_size : UInt32)
