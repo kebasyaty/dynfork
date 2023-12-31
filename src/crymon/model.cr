@@ -114,7 +114,7 @@ module Crymon
 
     # Get ObjectId from hash field.
     def get_object_id : BSON::ObjectId?
-      BSON::ObjectId.new(@hash.value.to_s) unless @hash.value.nil?
+      BSON::ObjectId.new(@hash.value.not_nil!) unless @hash.value.nil?
     end
 
     # Determine the presence of a variable (field) in the model.

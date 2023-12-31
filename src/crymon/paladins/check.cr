@@ -40,7 +40,7 @@ module Crymon::Paladins::Check
       Crymon::Globals.cache_metadata[model_key][:collection_name]]
     collection_ptr : Pointer(Mongo::Collection) = pointerof(collection)
     # Does the document exist in the database?
-    is_updated : Bool = !@hash.value.nil?
+    is_updated : Bool = !@hash.value.nil? && !@hash.value.empty?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
     is_error_symptom_ptr : Pointer(Bool) = pointerof(is_error_symptom)
@@ -73,7 +73,7 @@ module Crymon::Paladins::Check
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
-          @{{ field }}.errors << err_msg.to_s
+          @{{ field }}.errors << err_msg.not_nil!
           (is_error_symptom = true) unless is_error_symptom
           err_msg = nil
       end
