@@ -6,6 +6,21 @@ module Crymon::Paladins::Check
 
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
+  #
+  # Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  #
+  # user = User.new
+  # if user.is_valid
+  #   # your code...
+  # end
+  # ```
+  #
   def is_valid : Bool
     # Get model key.
     model_key : String = self.model_key
@@ -17,6 +32,19 @@ module Crymon::Paladins::Check
   end
 
   # Printing errors to the console ( for development ).
+  #
+  # Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  #
+  # user = User.new
+  # user.print_err unless user.is_valid
+  # ```
+  #
   def print_err
     msg : String = ""
     errors : String = ""
