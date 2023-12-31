@@ -7,7 +7,13 @@ module Crymon::Paladins::Check
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
   def is_valid : Bool
-    self.check.is_valid
+    # Get model key.
+    model_key : String = self.model_key
+    # Get the collection for the current model.
+    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client[
+      Crymon::Globals.cache_database_name][
+      Crymon::Globals.cache_metadata[model_key][:collection_name]]
+    self.check(model_key, pointerof(collection)).is_valid
   end
 
   # Printing errors to the console ( for development ).
@@ -29,16 +35,11 @@ module Crymon::Paladins::Check
 
   # Validation of Model data.
   private def check(
+    model_key : String,
+    collection_ptr : Pointer(Mongo::Collection),
     is_save : Bool = false,
     is_slug_update : Bool = false
   ) : Crymon::Globals::OutputData
-    # Get model key.
-    model_key : String = self.model_key
-    # Get the collection for the current model.
-    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client[
-      Crymon::Globals.cache_database_name][
-      Crymon::Globals.cache_metadata[model_key][:collection_name]]
-    collection_ptr : Pointer(Mongo::Collection) = pointerof(collection)
     # Does the document exist in the database?
     is_updated : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
     # Is there any incorrect data?
