@@ -8,6 +8,8 @@ module Crymon::Globals
   class_getter cache_metadata = Hash(String, Crymon::Globals::CacheMetaDataType).new
   # Mongo client caching.
   class_property cache_mongo_client : Mongo::Client?
+  # Mongo database caching.
+  class_property cache_mongo_database : Mongo::Database?
   # Super collection name caching.
   # <br>
   # <br>

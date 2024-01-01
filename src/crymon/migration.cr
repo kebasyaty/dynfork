@@ -35,18 +35,19 @@ module Crymon::Migration
       # Update global storage state.
       Crymon::Globals.cache_app_name = app_name
       Crymon::Globals.cache_unique_app_key = unique_app_key
-      Crymon::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
       unless database_name.empty?
         Crymon::Globals.cache_database_name = database_name
       end
       Crymon::Globals::ValidationCacheSettings.validation
+      Crymon::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
+      Crymon::Globals.cache_mongo_database = Crymon::Globals
+        .cache_mongo_client.not_nil![Crymon::Globals.cache_database_name]
     end
 
     # Update the state of Models in the super collection.
     private def refresh
       # Get super collection - State of Models and dynamic field data.
-      super_collection = Crymon::Globals.cache_mongo_client.not_nil![
-        Crymon::Globals.cache_database_name][
+      super_collection = Crymon::Globals.cache_mongo_database.not_nil![
         Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor : Mongo::Cursor = super_collection.find
@@ -62,7 +63,7 @@ module Crymon::Migration
     # super collection and delete collections associated with those Models.
     private def napalm
       # Get database of application.
-      database = Crymon::Globals.cache_mongo_client.not_nil![Crymon::Globals.cache_database_name]
+      database : Mongo::Database = Crymon::Globals.cache_mongo_database.not_nil!
       # Get super collection - State of Models and dynamic field data.
       super_collection = database[Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
@@ -94,15 +95,15 @@ module Crymon::Migration
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------
+      #
+      # Get database of application.
+      database : Mongo::Database = Crymon::Globals.cache_mongo_database.not_nil!
       # Enumeration of keys for Model migration.
       @model_key_list.each do |model_key|
         # Get metadata of Model from cache.
         metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
         # If the Model parameter is_add_doc is false, skip the iteration.
         next unless metadata[:is_saving_docs]
-        # Get database of application.
-        database : Mongo::Database = Crymon::Globals.cache_mongo_client.not_nil![
-          Crymon::Globals.cache_database_name]
         # Get super collection - State of Models and dynamic fields data.
         super_collection : Mongo::Collection = database[
           Crymon::Globals.cache_super_collection_name]
@@ -196,6 +197,7 @@ module Crymon::Migration
             end
           end
         end
+        #
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
         model_state.data_dynamic_fields.each do |field_name, data|
@@ -208,6 +210,7 @@ module Crymon::Migration
         update = {"$set": model_state}
         super_collection.update_one(filter, update)
       end
+      #
       # ------------------------------------------------------------------------
       # Delete data for non-existent Models from a
       # super collection and delete collections associated with those Models.
