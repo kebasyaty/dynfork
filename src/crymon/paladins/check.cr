@@ -25,7 +25,7 @@ module Crymon::Paladins::Check
     # Get model key.
     model_key : String = self.model_key
     # Get the collection for the current model.
-    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client[
+    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client.not_nil![
       Crymon::Globals.cache_database_name][
       Crymon::Globals.cache_metadata[model_key][:collection_name]]
     self.check(model_key, pointerof(collection)).is_valid

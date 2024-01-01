@@ -92,7 +92,7 @@ describe Crymon::Migration::Monitor do
       database_name = "test_#{unique_app_key}"
       #
       # Get database.
-      database = Crymon::Globals.cache_mongo_client[database_name]
+      database = Crymon::Globals.cache_mongo_client.not_nil![database_name]
       #
       # Delete database before test.
       # (if the test fails)

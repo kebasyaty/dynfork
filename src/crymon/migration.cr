@@ -45,7 +45,7 @@ module Crymon::Migration
     # Update the state of Models in the super collection.
     private def refresh
       # Get super collection - State of Models and dynamic field data.
-      super_collection = Crymon::Globals.cache_mongo_client[
+      super_collection = Crymon::Globals.cache_mongo_client.not_nil![
         Crymon::Globals.cache_database_name][
         Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
@@ -62,7 +62,7 @@ module Crymon::Migration
     # super collection and delete collections associated with those Models.
     private def napalm
       # Get database of application.
-      database = Crymon::Globals.cache_mongo_client[Crymon::Globals.cache_database_name]
+      database = Crymon::Globals.cache_mongo_client.not_nil![Crymon::Globals.cache_database_name]
       # Get super collection - State of Models and dynamic field data.
       super_collection = database[Crymon::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
@@ -101,7 +101,7 @@ module Crymon::Migration
         # If the Model parameter is_add_doc is false, skip the iteration.
         next unless metadata[:is_saving_docs]
         # Get database of application.
-        database : Mongo::Database = Crymon::Globals.cache_mongo_client[
+        database : Mongo::Database = Crymon::Globals.cache_mongo_client.not_nil![
           Crymon::Globals.cache_database_name]
         # Get super collection - State of Models and dynamic fields data.
         super_collection : Mongo::Collection = database[
