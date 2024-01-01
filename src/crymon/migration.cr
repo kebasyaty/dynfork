@@ -22,14 +22,14 @@ module Crymon::Migration
   end
 
   # Monitoring and update the database state for the application.
-  struct Monitor
-    getter model_key_list : Array(String)
+  struct Monitor(T)
+    getter model_list : T
 
     def initialize(
       app_name : String,
       unique_app_key : String,
       mongo_uri : String,
-      @model_key_list : Array(String),
+      @model_list : T,
       database_name : String = ""
     )
       # Update global storage state.
@@ -99,7 +99,7 @@ module Crymon::Migration
       # Get database of application.
       database : Mongo::Database = Crymon::Globals.cache_mongo_database.not_nil!
       # Enumeration of keys for Model migration.
-      @model_key_list.each do |model_key|
+      @model_list.each do |model|
         # Get metadata of Model from cache.
         metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
         # If the Model parameter is_add_doc is false, skip the iteration.
