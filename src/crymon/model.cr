@@ -70,26 +70,26 @@ module Crymon
       .new("label": "Created at", "is_hide": true)
     getter updated_at = Crymon::Fields::DateTimeField
       .new("label": "Updated at", "is_hide": true)
+    # Metadata caching.
+    class_getter meta : Crymon::Globals::CacheMetaDataType?
 
     def initialize
-      model_key : String = self.model_key
-      self.caching(model_key) if Crymon::Globals.cache_metadata[model_key]?.nil?
-      self.inject(model_key)
+      self.caching if @@meta.nil?
+      self.inject
     end
 
     # Injecting metadata from storage in Model.
-    def inject(model_key : String)
-      metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+    def inject
       var_name : String = ""
       json : String?
       # Add the values of the attributes **id** and **name** from the cache to the Model.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
-        field_attrs = metadata[:field_attrs][var_name]
+        field_attrs = @@meta.not_nil![:field_attrs][var_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
         # Add dynamic field data from the cache to the Model.
-        if json = metadata[:data_dynamic_fields][var_name]?
+        if json = @@meta.not_nil![:data_dynamic_fields][var_name]?
           @{{ var }}.set_choices(json)
         end
       {% end %}
@@ -101,15 +101,6 @@ module Crymon
     # WARNING: Maximum 25 characters.
     def model_name : String
       {{ @type.name.stringify }}.split("::").last
-    end
-
-    # Get model key.
-    # NOTE: To access data in the cache.
-    def model_key : String
-      model_name : String = self.model_name
-      service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-        raise Crymon::Errors::Meta::MetaParameterMissing.new(model_name, "service_name")
-      "#{service_name}_#{model_name}"
     end
 
     # Get ObjectId from hash field.

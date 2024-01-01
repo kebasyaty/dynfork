@@ -22,13 +22,10 @@ module Crymon::Paladins::Check
   # ```
   #
   def is_valid : Bool
-    # Get model key.
-    model_key : String = self.model_key
     # Get the collection for the current model.
-    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client.not_nil![
-      Crymon::Globals.cache_database_name][
-      Crymon::Globals.cache_metadata[model_key][:collection_name]]
-    self.check(model_key, pointerof(collection)).is_valid
+    collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
+      @@meta.not_nil![:collection_name]]
+    self.check(pointerof(collection)).is_valid
   end
 
   # Printing errors to the console ( for development ).
@@ -63,7 +60,6 @@ module Crymon::Paladins::Check
 
   # Validation of Model data.
   private def check(
-    model_key : String,
     collection_ptr : Pointer(Mongo::Collection),
     is_save : Bool = false,
     is_slug_update : Bool = false
@@ -85,11 +81,11 @@ module Crymon::Paladins::Check
       # Reset the alerts to exclude duplicates.
       @hash.alerts = Array(String).new
       if is_save
-        if !is_updated && !Crymon::Globals.cache_metadata[model_key][:is_saving_docs]
+        if !is_updated && !@@meta.not_nil![:is_saving_docs]
           @hash.alerts << "It is forbidden to perform saves!"
           is_error_symptom = true
         end
-        if is_updated && !Crymon::Globals.cache_metadata[model_key][:is_updating_docs]
+        if is_updated && !@@meta.not_nil![:is_updating_docs]
           @hash.alerts << "It is forbidden to perform updates!"
           is_error_symptom = true
         end

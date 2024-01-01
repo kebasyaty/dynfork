@@ -1,7 +1,7 @@
 # For caching Model metadata.
 module Crymon::Paladins::Caching
   # Add metadata to the global store.
-  def caching(model_key : String)
+  def caching
     # Check the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
@@ -127,8 +127,8 @@ module Crymon::Paladins::Caching
       hash
     )
     #
-    # Add metadata to the global store.
-    Crymon::Globals.cache_metadata[model_key] = {
+    # Add metadata to the local store.
+    @@meta = {
       # Model name = Structure name.
       model_name: model_name,
       # Service Name = Application subsection = Module name.

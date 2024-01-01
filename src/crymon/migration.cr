@@ -100,8 +100,10 @@ module Crymon::Migration
       database : Mongo::Database = Crymon::Globals.cache_mongo_database.not_nil!
       # Enumeration of keys for Model migration.
       @model_list.each do |model|
+        # Run matadata caching.
+        model.new
         # Get metadata of Model from cache.
-        metadata : Crymon::Globals::CacheMetaDataType = Crymon::Globals.cache_metadata[model_key]
+        metadata : Crymon::Globals::CacheMetaDataType = model.meta.not_nil!
         # If the Model parameter is_add_doc is false, skip the iteration.
         next unless metadata[:is_saving_docs]
         # Get super collection - State of Models and dynamic fields data.

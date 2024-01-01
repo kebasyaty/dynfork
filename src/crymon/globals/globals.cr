@@ -4,8 +4,6 @@ require "./types"
 module Crymon::Globals
   include Crymon::Globals::Types
 
-  # Metadata caching.
-  class_getter cache_metadata = Hash(String, Crymon::Globals::CacheMetaDataType).new
   # Mongo client caching.
   class_property cache_mongo_client : Mongo::Client?
   # Mongo database caching.
