@@ -18,6 +18,7 @@ describe Crymon::Model do
         }
       ).migrat
       #
+      # HELLISH BURN
       # ------------------------------------------------------------------------
 
       # Testing is_valid method.
