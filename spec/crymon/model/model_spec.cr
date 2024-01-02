@@ -12,8 +12,6 @@ describe Crymon::Model do
     it "=> create instance of filled Model", tags: "model" do
       m = Helper::FilledModel.new
       #
-      m.model_key.should eq("ServiceName_FilledModel")
-      #
       m["first_name"]?.should be_true
       m["age"]?.should be_true
       m["birthday"]?.should be_true
@@ -55,7 +53,7 @@ describe Crymon::Model do
       m.created_at.value.should eq("2023-11-02T12:15")
       m.updated_at.value.should eq("24.12.2023T08:54")
       # Testing metadata.
-      metadata = Crymon::Globals.cache_metadata[m.model_key]
+      metadata = Helper::FilledModel.meta.not_nil!
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
@@ -80,7 +78,7 @@ describe Crymon::Model do
 
     it "=> create instance of AuxiliaryModel", tags: "model" do
       m = Helper::AuxiliaryModel.new
-      metadata = Crymon::Globals.cache_metadata[m.model_key]
+      metadata = Helper::AuxiliaryModel.meta.not_nil!
       metadata["service_name"].should eq("ServiceName")
       metadata["is_use_hash_slug"].should be_true
     end
