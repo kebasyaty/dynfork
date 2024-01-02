@@ -59,6 +59,7 @@ module Crymon
   # end
   # ```
   #
+  @[Crymon::Meta]
   abstract struct Model < Crymon::AA
     include JSON::Serializable
     include JSON::Serializable::Strict
@@ -74,6 +75,7 @@ module Crymon
     class_getter meta : Crymon::Globals::CacheMetaDataType?
 
     def initialize
+      # name = {{ @type.annotation }}
       self.caching if @@meta.nil?
       self.inject
     end
