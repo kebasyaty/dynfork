@@ -81,32 +81,24 @@ describe Crymon::Migration::Monitor do
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
-      # Data for test.
-      # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "jeKZ9lIGL9aLRvlz"
-      database_name = "test_#{unique_app_key}"
-      #
-      # Get database.
-      database = Crymon::Globals.cache_mongo_client.not_nil![database_name]
-      #
-      # Delete database before test.
-      # (if the test fails)
-      Crymon::Tools::Test.delete_test_db(database)
-      #
+      # Generate data for test.
+      test_data = Crymon::Tools::Test.generate_test_data
+
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
-        "unique_app_key": unique_app_key,
-        "database_name": database_name,
+        "unique_app_key": test_data[:unique_app_key],
+        "database_name": test_data[:database_name],
         "mongo_uri": "mongodb://localhost:27017",
         "model_list": {
           Helper::FilledModel,
           Helper::AuxiliaryModel,
         }
       )
-      #
       m.migrat.should be_nil
+
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(database)
+      Crymon::Tools::Test.delete_test_db(
+        Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
 end
