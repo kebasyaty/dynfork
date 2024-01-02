@@ -75,7 +75,6 @@ module Crymon
     class_getter meta : Crymon::Globals::CacheMetaDataType?
 
     def initialize
-      # name = {{ @type.annotation }}
       self.caching if @@meta.nil?
       self.inject
     end
