@@ -49,7 +49,7 @@ module Crymon::Fields
 
     # Get ObjectId from value.
     def get_object_id : BSON::ObjectId?
-      BSON::ObjectId.new(@value.to_s) unless @value.nil?
+      BSON::ObjectId.new(@value.not_nil!) unless @value.nil?
     end
   end
 end

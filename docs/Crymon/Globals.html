@@ -665,35 +665,49 @@
       <li class="entry-summary">
         <a href="#cache_metadata-class-method" class="signature"><strong>.cache_metadata</strong></a>
         
-          <div class="summary"><p>Global storage for metadata caching.</p></div>
+          <div class="summary"><p>Metadata caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#cache_mongo_client%3AMongo%3A%3AClient-class-method" class="signature"><strong>.cache_mongo_client</strong> : Mongo::Client</a>
+        <a href="#cache_mongo_client%3AMongo%3A%3AClient%7CNil-class-method" class="signature"><strong>.cache_mongo_client</strong> : Mongo::Client | Nil</a>
         
-          <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
+          <div class="summary"><p>Mongo client caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%29-class-method" class="signature"><strong>.cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client)</a>
+        <a href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method" class="signature"><strong>.cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client | Nil)</a>
         
-          <div class="summary"><p>Global storage for Mongodb client caching.</p></div>
+          <div class="summary"><p>Mongo client caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cache_mongo_database%3AMongo%3A%3ADatabase%7CNil-class-method" class="signature"><strong>.cache_mongo_database</strong> : Mongo::Database | Nil</a>
+        
+          <div class="summary"><p>Mongo database caching.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cache_mongo_database%3D%28cache_mongo_database%3AMongo%3A%3ADatabase%7CNil%29-class-method" class="signature"><strong>.cache_mongo_database=</strong>(cache_mongo_database : Mongo::Database | Nil)</a>
+        
+          <div class="summary"><p>Mongo database caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cache_regex%3ACacheRegexType-class-method" class="signature"><strong>.cache_regex</strong> : CacheRegexType</a>
         
-          <div class="summary"><p>Global storage for regex caching.</p></div>
+          <div class="summary"><p>Regex caching.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#cache_super_collection_name-class-method" class="signature"><strong>.cache_super_collection_name</strong></a>
         
-          <div class="summary"><p>Global storage for super collection name caching.</p></div>
+          <div class="summary"><p>Super collection name caching.</p></div>
         
       </li>
     
@@ -817,7 +831,7 @@
       
         <div class="doc">
           
-          <p>Global storage for metadata caching.</p>
+          <p>Metadata caching.</p>
         </div>
       
       <br/>
@@ -826,17 +840,17 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="cache_mongo_client:Mongo::Client-class-method">
+    <div class="entry-detail" id="cache_mongo_client:Mongo::Client|Nil-class-method">
       <div class="signature">
         
-        def self.<strong>cache_mongo_client</strong> : Mongo::Client
+        def self.<strong>cache_mongo_client</strong> : Mongo::Client | Nil
 
-        <a class="method-permalink" href="#cache_mongo_client%3AMongo%3A%3AClient-class-method">#</a>
+        <a class="method-permalink" href="#cache_mongo_client%3AMongo%3A%3AClient%7CNil-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Global storage for Mongodb client caching.</p>
+          <p>Mongo client caching.</p>
         </div>
       
       <br/>
@@ -845,17 +859,55 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="cache_mongo_client=(cache_mongo_client:Mongo::Client)-class-method">
+    <div class="entry-detail" id="cache_mongo_client=(cache_mongo_client:Mongo::Client|Nil)-class-method">
       <div class="signature">
         
-        def self.<strong>cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client)
+        def self.<strong>cache_mongo_client=</strong>(cache_mongo_client : Mongo::Client | Nil)
 
-        <a class="method-permalink" href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%29-class-method">#</a>
+        <a class="method-permalink" href="#cache_mongo_client%3D%28cache_mongo_client%3AMongo%3A%3AClient%7CNil%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Global storage for Mongodb client caching.</p>
+          <p>Mongo client caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cache_mongo_database:Mongo::Database|Nil-class-method">
+      <div class="signature">
+        
+        def self.<strong>cache_mongo_database</strong> : Mongo::Database | Nil
+
+        <a class="method-permalink" href="#cache_mongo_database%3AMongo%3A%3ADatabase%7CNil-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Mongo database caching.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cache_mongo_database=(cache_mongo_database:Mongo::Database|Nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>cache_mongo_database=</strong>(cache_mongo_database : Mongo::Database | Nil)
+
+        <a class="method-permalink" href="#cache_mongo_database%3D%28cache_mongo_database%3AMongo%3A%3ADatabase%7CNil%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Mongo database caching.</p>
         </div>
       
       <br/>
@@ -874,7 +926,7 @@
       
         <div class="doc">
           
-          <p>Global storage for regex caching.</p>
+          <p>Regex caching.</p>
         </div>
       
       <br/>
@@ -893,7 +945,7 @@
       
         <div class="doc">
           
-          <p>Global storage for super collection name caching.
+          <p>Super collection name caching.
 <br>
 <br>
 Super collection is used for:</p>

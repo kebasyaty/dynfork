@@ -6,11 +6,42 @@ module Crymon::Paladins::Check
 
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
+  #
+  # Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  #
+  # user = User.new
+  # if user.is_valid
+  #   # your code...
+  # end
+  # ```
+  #
   def is_valid : Bool
-    self.check.is_valid
+    # Get the collection for the current model.
+    collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
+      @@meta.not_nil![:collection_name]]
+    self.check(pointerof(collection)).is_valid
   end
 
   # Printing errors to the console ( for development ).
+  #
+  # Example:
+  # ```
+  # @[Crymon::Meta(service_name: "Accounts")]
+  # struct User < Crymon::Model
+  #   getter username = Crymon::Fields::TextField.new
+  #   getter birthday = Crymon::Fields::DateField.new
+  # end
+  #
+  # user = User.new
+  # user.print_err unless user.is_valid
+  # ```
+  #
   def print_err
     msg : String = ""
     errors : String = ""
@@ -29,18 +60,12 @@ module Crymon::Paladins::Check
 
   # Validation of Model data.
   private def check(
+    collection_ptr : Pointer(Mongo::Collection),
     is_save : Bool = false,
     is_slug_update : Bool = false
   ) : Crymon::Globals::OutputData
-    # Get model key.
-    model_key : String = self.model_key
-    # Get the collection for the current model.
-    collection : Mongo::Collection = Crymon::Globals.cache_mongo_client[
-      Crymon::Globals.cache_database_name][
-      Crymon::Globals.cache_metadata[model_key][:collection_name]]
-    collection_ptr : Pointer(Mongo::Collection) = pointerof(collection)
     # Does the document exist in the database?
-    is_updated : Bool = !@hash.value.nil?
+    is_updated : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
     # Is there any incorrect data?
     is_error_symptom : Bool = false
     is_error_symptom_ptr : Pointer(Bool) = pointerof(is_error_symptom)
@@ -56,11 +81,11 @@ module Crymon::Paladins::Check
       # Reset the alerts to exclude duplicates.
       @hash.alerts = Array(String).new
       if is_save
-        if !is_updated && !Crymon::Globals.cache_metadata[model_key][:is_saving_docs]
+        if !is_updated && !@@meta.not_nil![:is_saving_docs]
           @hash.alerts << "It is forbidden to perform saves!"
           is_error_symptom = true
         end
-        if is_updated && !Crymon::Globals.cache_metadata[model_key][:is_updating_docs]
+        if is_updated && !@@meta.not_nil![:is_updating_docs]
           @hash.alerts << "It is forbidden to perform updates!"
           is_error_symptom = true
         end
@@ -73,7 +98,7 @@ module Crymon::Paladins::Check
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
-          @{{ field }}.errors << err_msg.to_s
+          @{{ field }}.errors << err_msg.not_nil!
           (is_error_symptom = true) unless is_error_symptom
           err_msg = nil
       end

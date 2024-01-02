@@ -4,11 +4,11 @@ require "./types"
 module Crymon::Globals
   include Crymon::Globals::Types
 
-  # Global storage for metadata caching.
-  class_getter cache_metadata = Hash(String, Crymon::Globals::CacheMetaDataType).new
-  # Global storage for Mongodb client caching.
-  class_property cache_mongo_client : Mongo::Client = Mongo::Client.new
-  # Global storage for super collection name caching.
+  # Mongo client caching.
+  class_property cache_mongo_client : Mongo::Client?
+  # Mongo database caching.
+  class_property cache_mongo_database : Mongo::Database?
+  # Super collection name caching.
   # <br>
   # <br>
   # Super collection is used for:
@@ -19,7 +19,7 @@ module Crymon::Globals
   class_property cache_app_name : String = ""
   class_property cache_unique_app_key : String = ""
   class_property cache_database_name : String = ""
-  # Global storage for regex caching.
+  # Regex caching.
   class_getter cache_regex : CacheRegexType = NamedTuple.new(
     model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,

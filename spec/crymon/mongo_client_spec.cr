@@ -5,14 +5,14 @@ describe "Cryomongo" do
   it "=> initialize mongo client", tags: "mongo_client" do
     # Create a Mongo client.
     # uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
-    # client : Mongo::Client = Mongo::Client.new
+    client : Mongo::Client = Mongo::Client.new
 
     # Data for test.
     database_name = "test_pcSenRPaSdaUiIjZ"
     collection_name = "test_collection_name"
 
     # Get database and collection.
-    database = Crymon::Globals.cache_mongo_client[database_name]
+    database = client[database_name]
     collection = database[collection_name]
 
     # Delete database before test.
@@ -58,6 +58,6 @@ describe "Cryomongo" do
 
     # The overwhelming majority of programs should use a single client and should not bother with closing clients.
     # Otherwise, to free the underlying resources a client must be manually closed.
-    # client.close
+    client.close
   end
 end
