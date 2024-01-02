@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Tools::Test - crymon v0</title>
+  <title>Crymon::Tools::Test - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -598,14 +598,31 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\tools\test.cr#L2" target="_blank">
-        src\crymon\tools\test.cr
-      </a>
+      src\crymon\tools\test.cr
     
     <br/>
   
 
 
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="ALPHANUMERIC_CHARS">
+        <strong>ALPHANUMERIC_CHARS</strong> = <code><span class="s">&quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
 
 
 
@@ -625,6 +642,20 @@
         <a href="#delete_test_db%28database%3AMongo%3A%3ADatabase%29-class-method" class="signature"><strong>.delete_test_db</strong>(database : Mongo::Database)</a>
         
           <div class="summary"><p>Delete database (before|after) test.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method" class="signature"><strong>.generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)</a>
+        
+          <div class="summary"><p>Generate data for test.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#generate_unique_app_key%3AString-class-method" class="signature"><strong>.generate_unique_app_key</strong> : String</a>
+        
+          <div class="summary"><p>Generate unique app key.</p></div>
         
       </li>
     
@@ -676,7 +707,51 @@ database <span class="o">=</span> <span class="t">Crymon</span><span class="t">:
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\tools\test.cr#L16" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="generate_test_data:NamedTuple(unique_app_key:String,database_name:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>generate_test_data</strong> : NamedTuple(unique_app_key: String, database_name: String)
+
+        <a class="method-permalink" href="#generate_test_data%3ANamedTuple%28unique_app_key%3AString%2Cdatabase_name%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate data for test.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
+test_data <span class="o">=</span> <span class="t">Helper</span>.generate_test_data
+unique_app_key <span class="o">=</span> test_data[<span class="n">:unique_app_key</span>]
+database_name <span class="o">=</span> test_data[<span class="n">:database_name</span>]</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="generate_unique_app_key:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>generate_unique_app_key</strong> : String
+
+        <a class="method-permalink" href="#generate_unique_app_key%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate unique app key.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Generate data for test.</span>
+unique_app_key <span class="o">=</span> <span class="t">Helper</span>.generate_unique_app_key</code></pre>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>
