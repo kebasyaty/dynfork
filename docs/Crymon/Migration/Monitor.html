@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Migration::Monitor - crymon v0-dev</title>
+  <title>Crymon::Migration::Monitor(T) - crymon v0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -482,7 +482,7 @@
       
     </li>
   
-  <li class=" current" data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor">
+  <li class=" current" data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor(t)">
       <a href="../../Crymon/Migration/Monitor.html">Monitor</a>
       
     </li>
@@ -556,12 +556,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Crymon::<wbr>Migration::<wbr>Monitor
+  <span class="kind">struct</span> Crymon::<wbr>Migration::<wbr>Monitor(T)
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Migration/Monitor.html">Crymon::Migration::Monitor</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Crymon/Migration/Monitor.html">Crymon::Migration::Monitor(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -600,7 +600,9 @@
   </h2>
   
     
-      src\crymon\migration.cr
+      <a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\migration.cr#L25" target="_blank">
+        src\crymon\migration.cr
+      </a>
     
     <br/>
   
@@ -620,7 +622,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_key_list%3AArray%28String%29%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_key_list : Array(String), database_name : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_list%3AT%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_list : T, database_name : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -648,7 +650,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#model_key_list%3AArray%28String%29-instance-method" class="signature"><strong>#model_key_list</strong> : Array(String)</a>
+        <a href="#model_list%3AT-instance-method" class="signature"><strong>#model_list</strong> : T</a>
         
       </li>
     
@@ -702,16 +704,18 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,model_key_list:Array(String),database_name:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,model_list:T,database_name:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_key_list : Array(String), database_name : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_list : T, database_name : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_key_list%3AArray%28String%29%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_list%3AT%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\migration.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -757,19 +761,23 @@ super collection and delete collections associated with those Models.
       <br/>
       <div>
         
+          [<a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\migration.cr#L94" target="_blank">View source</a>]
+        
       </div>
     </div>
   
-    <div class="entry-detail" id="model_key_list:Array(String)-instance-method">
+    <div class="entry-detail" id="model_list:T-instance-method">
       <div class="signature">
         
-        def <strong>model_key_list</strong> : Array(String)
+        def <strong>model_list</strong> : T
 
-        <a class="method-permalink" href="#model_key_list%3AArray%28String%29-instance-method">#</a>
+        <a class="method-permalink" href="#model_list%3AT-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/kebasyaty/crymon/blob/11795a5957d629903696849d192b50a861bc133b/src\crymon\migration.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
