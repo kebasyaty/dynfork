@@ -26,7 +26,7 @@ module Crymon::Fields
     # The lower value for entering a date.
     getter min : String?
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # Additional explanation for the user.
     getter hint : String
     # To optimize field traversal in the `paladins/check()` method.

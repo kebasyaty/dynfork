@@ -29,7 +29,7 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : UInt32
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1

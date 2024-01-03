@@ -13,12 +13,12 @@ describe Crymon::Fields::DateField do
       f.default.should be_nil
       f.get_time_object.should be_nil
       f.placeholder.should eq("")
-      f.is_disabled.should be_false
-      f.is_readonly.should be_false
-      f.is_hide.should be_false
-      f.is_required.should be_false
-      f.is_unique.should be_false
-      f.is_ignored.should be_false
+      f.is_disabled?.should be_false
+      f.is_readonly?.should be_false
+      f.is_hide?.should be_false
+      f.is_required?.should be_false
+      f.is_unique?.should be_false
+      f.is_ignored?.should be_false
       f.max.should be_nil
       f.min.should be_nil
       f.other_attrs.should eq("")

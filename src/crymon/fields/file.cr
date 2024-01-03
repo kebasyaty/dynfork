@@ -28,7 +28,7 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 8

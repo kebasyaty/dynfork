@@ -16,9 +16,9 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : UInt32
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # Hide field from user.
-    property is_hide : Bool
+    property? is_hide : Bool
     # Alerts for the entire web form.
     # WARNING: Assigned automatically.
     property alerts : Array(String) = Array(String).new

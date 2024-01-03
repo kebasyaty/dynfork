@@ -39,7 +39,7 @@ module Crymon::Paladins::Caching
     field_name_and_type_list : Hash(String, String) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
-        unless @{{ var }}.is_ignored
+        unless @{{ var }}.is_ignored?
           fields[{{ var.name.stringify }}] = {{ var.type.stringify }}.split("::").last
         end
       {% end %}
@@ -52,7 +52,7 @@ module Crymon::Paladins::Caching
       # Get default value.
       fields = Hash(String, Crymon::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
-        unless @{{ var }}.is_ignored
+        unless @{{ var }}.is_ignored?
           fields[{{ var.name.stringify }}] = @{{ var }}.default
         end
       {% end %}
@@ -83,7 +83,7 @@ module Crymon::Paladins::Caching
     ignore_fields : Array(String) = (
       fields = Array(String).new
       {% for var in @type.instance_vars %}
-        if @{{ var }}.is_ignored
+        if @{{ var }}.is_ignored?
           fields << {{ var.name.stringify }}
         end
       {% end %}

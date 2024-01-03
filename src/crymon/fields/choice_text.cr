@@ -11,9 +11,9 @@ module Crymon::Fields
     # Value by default.
     getter default : String?
     # Specifies that multiple options can be selected at once.
-    getter is_multiple : Bool = false
+    getter? is_multiple : Bool = false
     # The unique value of a field in a collection.
-    getter is_unique : Bool = false
+    getter? is_unique : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -52,9 +52,9 @@ module Crymon::Fields
     # Value by default.
     getter default : Array(String)?
     # Specifies that multiple options can be selected at once.
-    getter is_multiple : Bool = true
+    getter? is_multiple : Bool = true
     # The unique value of a field in a collection.
-    getter is_unique : Bool = false
+    getter? is_unique : Bool = false
     # Html tag: select multiple.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -92,9 +92,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : String?
     # Specifies that multiple options can be selected at once.
-    getter is_multiple : Bool = false
+    getter? is_multiple : Bool = false
     # The unique value of a field in a collection.
-    getter is_unique : Bool = false
+    getter? is_unique : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -137,9 +137,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : Array(String)?
     # Specifies that multiple options can be selected at once.
-    getter is_multiple : Bool = true
+    getter? is_multiple : Bool = true
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_

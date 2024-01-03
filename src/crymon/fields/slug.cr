@@ -13,7 +13,7 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # Names of the fields whose contents will be used for the slug.
     # <br>
     # The default is ["hash"].
