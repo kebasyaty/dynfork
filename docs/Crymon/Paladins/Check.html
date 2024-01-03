@@ -650,7 +650,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#is_valid%3ABool-instance-method" class="signature"><strong>#is_valid</strong> : Bool</a>
+        <a href="#is_valid%3F%3ABool-instance-method" class="signature"><strong>#is_valid?</strong> : Bool</a>
         
           <div class="summary"><p>Check data validity.</p></div>
         
@@ -761,12 +761,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="is_valid:Bool-instance-method">
+    <div class="entry-detail" id="is_valid?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_valid</strong> : Bool
+        def <strong>is_valid?</strong> : Bool
 
-        <a class="method-permalink" href="#is_valid%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#is_valid%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -781,7 +781,7 @@
 <span class="k">end</span>
 
 user <span class="o">=</span> <span class="t">User</span>.new
-<span class="k">if</span> user.is_valid
+<span class="k">if</span> user.is_valid?
   <span class="c"># your code...</span>
 <span class="k">end</span></code></pre>
         </div>
@@ -811,7 +811,7 @@ user <span class="o">=</span> <span class="t">User</span>.new
 <span class="k">end</span>
 
 user <span class="o">=</span> <span class="t">User</span>.new
-user.print_err <span class="k">unless</span> user.is_valid</code></pre>
+user.print_err <span class="k">unless</span> user.is_valid?</code></pre>
         </div>
       
       <br/>
