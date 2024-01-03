@@ -3,7 +3,7 @@ module Crymon::Paladins::Groups
   # <br>
   # "ChoiceTextField" | "ChoiceU32Field"
   # | "ChoiceI64Field" | "ChoiceF64Field"
-  def group_4(
+  def group_04(
     field_ptr : Pointer,
     is_error_symptom_ptr : Pointer(Bool),
     is_updated : Bool

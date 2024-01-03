@@ -72,7 +72,8 @@ module Crymon::Paladins::Check
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
-    db_data_bson : BSON = BSON.new
+    result_bson : BSON = BSON.new
+    result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
     # Current error message.
     err_msg : String?
 
@@ -104,22 +105,26 @@ module Crymon::Paladins::Check
       end
       #
       unless @{{ field }}.is_ignored?
+        (@{{ field }}.value = @{{ field }}.default) if @{{ field }}.value.nil?
+        #
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:
           # <br>
           # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
           # | "TextField" | "HashField" | "URLField" | "IPField"_
-          self.group_1(
+          self.group_01(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
-            is_updated
+            is_updated,
+            is_save,
+            result_bson_ptr
           )
         when 2
           # Validation of `slug` type fields:
           # <br>
           # "SlugField"
-          self.group_2(
+          self.group_02(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -128,7 +133,7 @@ module Crymon::Paladins::Check
           # Validation of `date` type fields:
           # <br>
           # "DatField" | "DateTimeField"
-          self.group_3(
+          self.group_03(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -138,7 +143,7 @@ module Crymon::Paladins::Check
           # <br>
           # "ChoiceTextField" | "ChoiceU32Field"
           # | "ChoiceI64Field" | "ChoiceF64Field"
-          self.group_4(
+          self.group_04(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -148,7 +153,7 @@ module Crymon::Paladins::Check
           # <br>
           # "ChoiceTextDynField" | "ChoiceU32DynField"
           # | "ChoiceI64DynField" | "ChoiceF64DynField"
-          self.group_5(
+          self.group_05(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -158,7 +163,7 @@ module Crymon::Paladins::Check
           # <br>
           # "ChoiceTextMultField" | "ChoiceU32MultField"
           # | "ChoiceI64MultField" | "ChoiceF64MultField"
-          self.group_6(
+          self.group_06(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -168,7 +173,7 @@ module Crymon::Paladins::Check
           # <br>
           # "ChoiceTextMultDynField" | "ChoiceU32MultDynField"
           # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
-          self.group_7(
+          self.group_07(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -177,7 +182,7 @@ module Crymon::Paladins::Check
           # Validation of `file` type fields:
           # <br>
           # "FileField"
-          self.group_8(
+          self.group_08(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -186,7 +191,7 @@ module Crymon::Paladins::Check
           # Validation of `file` type fields:
           # <br>
           # "ImageField"
-          self.group_9(
+          self.group_09(
             pointerof(@{{ field }}),
             is_error_symptom_ptr,
             is_updated
@@ -225,6 +230,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    Crymon::Globals::OutputData.new(db_data_bson, !is_error_symptom)
+    Crymon::Globals::OutputData.new(result_bson, !is_error_symptom)
   end
 end
