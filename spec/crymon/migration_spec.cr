@@ -96,6 +96,12 @@ describe Crymon::Migration::Monitor do
       )
       m.migrat.should be_nil
 
+      # Checking for data updates for dynamic fields.
+      field_name = "field_name"
+      data = "[]"
+      Helper::FilledModel.meta.not_nil![:data_dynamic_fields][field_name] = data
+      Helper::FilledModel.meta.not_nil![:data_dynamic_fields][field_name].should eq(data)
+
       # Delete database after test.
       Crymon::Tools::Test.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
