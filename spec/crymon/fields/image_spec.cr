@@ -40,13 +40,13 @@ describe Crymon::Fields::ImageField do
       f.target_dir.should eq("images")
       f.accept.should eq("")
       f.thumbnails.should eq(Array({String, UInt32}).new)
-      f.is_quality.should be_true
-      f.is_disabled.should be_false
-      f.is_readonly.should be_false
-      f.is_hide.should be_false
-      f.is_required.should be_false
-      f.is_unique.should be_false
-      f.is_ignored.should be_false
+      f.is_quality?.should be_true
+      f.is_disabled?.should be_false
+      f.is_readonly?.should be_false
+      f.is_hide?.should be_false
+      f.is_required?.should be_false
+      f.is_unique?.should be_false
+      f.is_ignored?.should be_false
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")

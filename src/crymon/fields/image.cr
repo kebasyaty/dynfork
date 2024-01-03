@@ -36,9 +36,9 @@ module Crymon::Fields
     # Thumbnail quality level: - Fast=false or Qualitatively=true.
     # <br>
     # By default: true.
-    getter is_quality : Bool = true
+    getter? is_quality : Bool = true
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9

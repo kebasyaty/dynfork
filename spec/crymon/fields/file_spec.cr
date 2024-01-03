@@ -29,12 +29,12 @@ describe Crymon::Fields::FileField do
       f.media_url.should eq("/media")
       f.target_dir.should eq("files")
       f.accept.should eq("")
-      f.is_disabled.should be_false
-      f.is_readonly.should be_false
-      f.is_hide.should be_false
-      f.is_required.should be_false
-      f.is_unique.should be_false
-      f.is_ignored.should be_false
+      f.is_disabled?.should be_false
+      f.is_readonly?.should be_false
+      f.is_hide?.should be_false
+      f.is_required?.should be_false
+      f.is_unique?.should be_false
+      f.is_ignored?.should be_false
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")

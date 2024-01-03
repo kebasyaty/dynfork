@@ -20,7 +20,7 @@ module Crymon::Fields
     # Increment step for numeric fields.
     getter step : UInt32
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 10
@@ -69,7 +69,7 @@ module Crymon::Fields
     # Increment step for numeric fields.
     getter step : Int64
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 10
@@ -118,7 +118,7 @@ module Crymon::Fields
     # Increment step for numeric fields.
     getter step : Float64
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 11

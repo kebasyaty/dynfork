@@ -8,7 +8,7 @@ module Crymon::Fields
     # Html tag: input type="text".
     getter input_type : String = "text"
     # For Html textarea.
-    getter is_textarea : Bool
+    getter? is_textarea : Bool
     # Sets the value of an element.
     property value : String?
     # Value by default.
@@ -24,7 +24,7 @@ module Crymon::Fields
     # Error message.
     getter regex_err_msg : String
     # The unique value of a field in a collection.
-    getter is_unique : Bool
+    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1

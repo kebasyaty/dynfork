@@ -18,15 +18,15 @@ module Crymon::Fields
     # Field type - Structure Name.
     getter field_type : String = ""
     # Required field.
-    getter is_required : Bool = false
+    getter? is_required : Bool = false
     # Blocks access and modification of the element.
-    property is_disabled : Bool = false
+    property? is_disabled : Bool = false
     # Specifies that the field cannot be modified by the user.
-    property is_readonly : Bool = false
+    property? is_readonly : Bool = false
     # Hide field from user.
-    property is_hide : Bool = false
+    property? is_hide : Bool = false
     # If true, the value of this field is not saved in the database.
-    getter is_ignored : Bool = false
+    getter? is_ignored : Bool = false
     # _Example: %(autofocus tabindex="some number" size="some number")_
     getter other_attrs : String = ""
     # _Example: "class-name-1 class-name-2"_

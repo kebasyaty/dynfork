@@ -12,12 +12,12 @@ describe Crymon::Fields::PasswordField do
       f.value.should be_nil
       f.default.should be_nil
       f.placeholder.should eq("")
-      f.is_disabled.should be_false
-      f.is_readonly.should be_false
-      f.is_hide.should be_false
-      f.is_required.should be_false
-      f.is_unique.should be_false
-      f.is_ignored.should be_false
+      f.is_disabled?.should be_false
+      f.is_readonly?.should be_false
+      f.is_hide?.should be_false
+      f.is_required?.should be_false
+      f.is_unique?.should be_false
+      f.is_ignored?.should be_false
       f.maxlength.should eq(256)
       f.minlength.should eq(8)
       f.regex.should eq("^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$")

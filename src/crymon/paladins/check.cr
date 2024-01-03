@@ -16,12 +16,12 @@ module Crymon::Paladins::Check
   # end
   #
   # user = User.new
-  # if user.is_valid
+  # if user.is_valid?
   #   # your code...
   # end
   # ```
   #
-  def is_valid : Bool
+  def is_valid? : Bool
     # Get the collection for the current model.
     collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
       @@meta.not_nil![:collection_name]]
@@ -39,7 +39,7 @@ module Crymon::Paladins::Check
   # end
   #
   # user = User.new
-  # user.print_err unless user.is_valid
+  # user.print_err unless user.is_valid?
   # ```
   #
   def print_err
@@ -103,7 +103,7 @@ module Crymon::Paladins::Check
           err_msg = nil
       end
       #
-      unless @{{ field }}.is_ignored
+      unless @{{ field }}.is_ignored?
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:

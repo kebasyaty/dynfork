@@ -805,13 +805,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_disabled%3ABool-instance-method" class="signature"><strong>#is_disabled</strong> : Bool</a>
-        
-          <div class="summary"><p>Blocks access and modification of the element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="signature"><strong>#is_disabled=</strong>(is_disabled : Bool)</a>
         
           <div class="summary"><p>Blocks access and modification of the element.</p></div>
@@ -819,9 +812,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_hide%3ABool-instance-method" class="signature"><strong>#is_hide</strong> : Bool</a>
+        <a href="#is_disabled%3F%3ABool-instance-method" class="signature"><strong>#is_disabled?</strong> : Bool</a>
         
-          <div class="summary"><p>Hide field from user.</p></div>
+          <div class="summary"><p>Blocks access and modification of the element.</p></div>
         
       </li>
     
@@ -833,16 +826,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_ignored%3ABool-instance-method" class="signature"><strong>#is_ignored</strong> : Bool</a>
+        <a href="#is_hide%3F%3ABool-instance-method" class="signature"><strong>#is_hide?</strong> : Bool</a>
         
-          <div class="summary"><p>If true, the value of this field is not saved in the database.</p></div>
+          <div class="summary"><p>Hide field from user.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#is_readonly%3ABool-instance-method" class="signature"><strong>#is_readonly</strong> : Bool</a>
+        <a href="#is_ignored%3F%3ABool-instance-method" class="signature"><strong>#is_ignored?</strong> : Bool</a>
         
-          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+          <div class="summary"><p>If true, the value of this field is not saved in the database.</p></div>
         
       </li>
     
@@ -854,7 +847,14 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_required%3ABool-instance-method" class="signature"><strong>#is_required</strong> : Bool</a>
+        <a href="#is_readonly%3F%3ABool-instance-method" class="signature"><strong>#is_readonly?</strong> : Bool</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#is_required%3F%3ABool-instance-method" class="signature"><strong>#is_required?</strong> : Bool</a>
         
           <div class="summary"><p>Required field.</p></div>
         
@@ -1201,25 +1201,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_disabled:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_disabled</strong> : Bool
-
-        <a class="method-permalink" href="#is_disabled%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Blocks access and modification of the element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="is_disabled=(is_disabled:Bool)-instance-method">
       <div class="signature">
         
@@ -1239,17 +1220,17 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_hide:Bool-instance-method">
+    <div class="entry-detail" id="is_disabled?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_hide</strong> : Bool
+        def <strong>is_disabled?</strong> : Bool
 
-        <a class="method-permalink" href="#is_hide%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#is_disabled%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Hide field from user.</p>
+          <p>Blocks access and modification of the element.</p>
         </div>
       
       <br/>
@@ -1277,17 +1258,17 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_ignored:Bool-instance-method">
+    <div class="entry-detail" id="is_hide?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_ignored</strong> : Bool
+        def <strong>is_hide?</strong> : Bool
 
-        <a class="method-permalink" href="#is_ignored%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#is_hide%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>If true, the value of this field is not saved in the database.</p>
+          <p>Hide field from user.</p>
         </div>
       
       <br/>
@@ -1296,17 +1277,17 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_readonly:Bool-instance-method">
+    <div class="entry-detail" id="is_ignored?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_readonly</strong> : Bool
+        def <strong>is_ignored?</strong> : Bool
 
-        <a class="method-permalink" href="#is_readonly%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#is_ignored%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Specifies that the field cannot be modified by the user.</p>
+          <p>If true, the value of this field is not saved in the database.</p>
         </div>
       
       <br/>
@@ -1334,12 +1315,31 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_required:Bool-instance-method">
+    <div class="entry-detail" id="is_readonly?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_required</strong> : Bool
+        def <strong>is_readonly?</strong> : Bool
 
-        <a class="method-permalink" href="#is_required%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#is_readonly%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="is_required?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>is_required?</strong> : Bool
+
+        <a class="method-permalink" href="#is_required%3F%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
