@@ -81,14 +81,22 @@ describe Crymon::Migration::Monitor do
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
-      # Generate data for test.
-      test_data = Crymon::Tools::Test.generate_test_data
+      # Init data for test.
+      unique_app_key = Crymon::Tools::Test.generate_unique_app_key
+      database_name = "test_#{unique_app_key}"
+      mongo_uri = "mongodb://localhost:27017"
 
+      # Delete database before test.
+      # (if the test fails)
+      Crymon::Tools::Test.delete_test_db(
+        Mongo::Client.new(mongo_uri)[database_name])
+
+      # Run migration.
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
-        "unique_app_key": test_data[:unique_app_key],
-        "database_name": test_data[:database_name],
-        "mongo_uri": "mongodb://localhost:27017",
+        "unique_app_key": unique_app_key,
+        "database_name": database_name,
+        "mongo_uri": mongo_uri,
         "model_list": {
           Helper::FilledModel,
           Helper::AuxiliaryModel,
