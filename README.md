@@ -28,9 +28,13 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
   </a>
 </p>
 
+## Documentation
+
+Online browsable documentation is available at [https://kebasyaty.github.io/crymon/](https://kebasyaty.github.io/crymon/ "Documentation").
+
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/crymon/blob/v0/REQUIREMENTS.md "View the list of requirements.")
+[View the list of requirements.](https://github.com/kebasyaty/crymon/blob/v0/REQUIREMENTS.md "Requirements")
 
 ## Installation
 
@@ -62,7 +66,7 @@ TODO: Write development instructions here
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/crymon/blob/v0/CHANGELOG.md "View the change history.")
+[View the change history.](https://github.com/kebasyaty/crymon/blob/v0/CHANGELOG.md "Changelog")
 
 ## Contributing
 
