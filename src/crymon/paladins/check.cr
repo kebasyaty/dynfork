@@ -105,8 +105,6 @@ module Crymon::Paladins::Check
       end
       #
       unless @{{ field }}.is_ignored?
-        (@{{ field }}.value = @{{ field }}.default) if @{{ field }}.value.nil?
-        #
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:
