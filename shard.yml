@@ -16,3 +16,5 @@ documentation: https://kebasyaty.github.io/crymon/
 dependencies:
   cryomongo:
     github: elbywan/cryomongo
+  i18n:
+    github: crystal-i18n/i18n

@@ -1,3 +1,4 @@
 - [cryomongo](https://github.com/elbywan/cryomongo "cryomongo")
 - [bson.cr](https://github.com/elbywan/bson.cr "bson.cr")
 - [durian.cr](https://github.com/636f7374/durian.cr "durian.cr")
+- [crystal-i18n](https://github.com/crystal-i18n/i18n "crystal-i18n")

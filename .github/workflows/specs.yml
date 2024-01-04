@@ -45,4 +45,5 @@ jobs:
           crystal spec --tag json
           crystal spec --tag mongo_client
           crystal spec --tag migration
+          crystal spec --tag i18n
           crystal spec --tag validation

@@ -24,7 +24,7 @@ module Crymon::Paladins::Groups
       if value.nil?
         if field_ptr.value.is_required?
           (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
-          field_ptr.value.errors << "Required field."
+          field_ptr.value.errors << I18n.t(:required_field)
         end
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save
         return
