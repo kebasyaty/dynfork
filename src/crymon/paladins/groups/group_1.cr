@@ -16,18 +16,21 @@ module Crymon::Paladins::Groups
       field_ptr.value.value = nil
       return
     end
-    # Validation, if the field is required and empty, accumulate the error.
-    # ( The default value is used whenever possible )
-    if field_ptr.value.value.nil? && field_ptr.value.default.nil?
-      if field_ptr.value.is_required?
-        (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
-        field_ptr.value.errors << "Required field."
-      end
-      (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save
-      return
-    end
     # Get current value.
-    current_value : String = (field_ptr.value.value || field_ptr.value.default).to_s
+    current_value : String = (
+      value = field_ptr.value.value || field_ptr.value.default
+      # Validation, if the field is required and empty, accumulate the error.
+      # ( The default value is used whenever possible )
+      if value.nil?
+        if field_ptr.value.is_required?
+          (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
+          field_ptr.value.errors << "Required field."
+        end
+        (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save
+        return
+      end
+      value.to_s
+    )
     # Validation the `regex` field attribute.
   end
 end
