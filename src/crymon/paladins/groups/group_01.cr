@@ -23,8 +23,8 @@ module Crymon::Paladins::Groups
       # ( The default value is used whenever possible )
       if value.nil?
         if field_ptr.value.is_required?
-          (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
           field_ptr.value.errors << I18n.t(:required_field)
+          (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
         end
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save
         return
@@ -32,5 +32,16 @@ module Crymon::Paladins::Groups
       value.to_s
     )
     # Validation the `regex` field attribute.
+    if pattern = field_ptr.value.regex
+      unless /#{pattern}/.matches?(current_value)
+        unless field_ptr.value.is_hide && field_ptr.value.input_type
+          field_ptr.value.errors << field_ptr.value.regex_err_msg
+          (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
+        else
+          raise "Panic - Model: `#{field_ptr.value.meta.not_nil![:model_name]}` > " +
+                "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
+        end
+      end
+    end
   end
 end

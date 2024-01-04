@@ -5,7 +5,7 @@ module Crymon::Fields
   # <br>
   # The default value is _#000000_ (black).
   # <br>
-  # By default type="text".
+  # Html input type="text".
   # WARNING: type="color" only seven-character hexadecimal notation.
   # <br>
   # _Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
@@ -17,7 +17,7 @@ module Crymon::Fields
     # <br>
     # By default type="text".
     # WARNING: type="color" only seven-character hexadecimal notation.
-    getter input_type : String
+    getter input_type : String = "text"
     # Sets the value of an element.
     property value : String?
     # The default value is #000000.
@@ -41,7 +41,6 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @default : String? = "#000000",
-      @input_type : String = "text", # text | color
       @placeholder : String = "",
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 0,
@@ -54,10 +53,6 @@ module Crymon::Fields
       @other_attrs : String = "",
       @css_classes : String = "",
       @hint : String = ""
-    )
-      if ["text", "color"].index(@input_type).nil?
-        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
-      end
-    end
+    ); end
   end
 end

@@ -1,9 +1,12 @@
 require "./field"
 
 module Crymon::Fields
-  # A field for entering a date и времени in the format yyyy-mm-ddThh:mm.
+  # A field for entering a date and time.
   # <br>
-  # _Example: 1970-01-01T00:00_
+  # _**Formats:** dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm |
+  # dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm |
+  # yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
+  # yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm_
   struct DateTimeField < Crymon::Fields::Field
     include Crymon::Tools::Date
 
@@ -47,7 +50,13 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "Format: yyyy-mm-ddThh:mm"
+      @hint : String = I18n.t(
+        "formats.interpolation", samples: "dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | " +
+                                          "dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | " +
+                                          "dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm | " +
+                                          "yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | " +
+                                          "yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | " +
+                                          "yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
     ); end
 
     # Get time object from value.

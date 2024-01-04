@@ -20,7 +20,7 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : UInt32
     # Regular expression to validate the `value`.
-    getter regex : String
+    getter regex : String?
     # Error message.
     getter regex_err_msg : String
     # The unique value of a field in a collection.
@@ -39,7 +39,7 @@ module Crymon::Fields
       @placeholder : String = "",
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 0,
-      @regex : String = "",
+      @regex : String? = nil,
       @regex_err_msg : String = "",
       @is_hide : Bool = false,
       @is_unique : Bool = false,
