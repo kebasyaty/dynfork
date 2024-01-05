@@ -4,10 +4,10 @@ ru:
   invalid_color: "Неправильный цветовой код."
   allowed_chars:
     interpolation: "Допустимые символы: %{chars}"
-  min_chars:
-    interpolation: "Минимум %{count} символов."
   max_chars:
     interpolation: "Максимум %{count} символов."
+  min_chars:
+    interpolation: "Минимум %{count} символов."
   invalid_phone: "Неправильный номер телефона."
   invalid_email: "Неправильный адрес электронной почты."
   invalid_url: "Неправильный URL-адрес."
@@ -32,7 +32,7 @@ ru:
   date_less_min: "Введенная дата меньше минимальной."
   date_greater_max: "Введенная дата больше максимальной."
   upload_new_file: "Загрузите новый файл, чтобы удалить предыдущий."
-  number_not_less_min:
-    interpolation: "Число %{curr_num} не должно быть меньше min=%{min_num}."
   number_not_greater_max:
     interpolation: "Число %{curr_num} не должно превышать max=%{max_num}."
+  number_not_less_min:
+    interpolation: "Число %{curr_num} не должно быть меньше min=%{min_num}."

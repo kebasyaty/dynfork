@@ -38,8 +38,42 @@ module Crymon::Paladins::Groups
           field_ptr.value.errors << field_ptr.value.regex_err_msg.to_s
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
-          raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
                 "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
+        end
+      end
+    end
+    # Validation `maxlength`.
+    if maxlength = field_ptr.value.maxlength
+      unless Valid.max? current_value, maxlength
+        err_msg = I18n.t(
+          "number_not_greater_max.interpolation",
+          curr_num: current_value.size,
+          max_num: maxlength
+        )
+        unless field_ptr.value.is_hide?
+          field_ptr.value.errors << err_msg
+          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+        else
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
+                "Field: `#{field_ptr.value.name}` => #{err_msg}"
+        end
+      end
+    end
+    # Validation `minlength`.
+    if minlength = field_ptr.value.minlength
+      unless Valid.min? current_value, minlength
+        err_msg = I18n.t(
+          "number_not_less_min.interpolation",
+          curr_num: current_value.size,
+          min_num: minlength
+        )
+        unless field_ptr.value.is_hide?
+          field_ptr.value.errors << err_msg
+          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+        else
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
+                "Field: `#{field_ptr.value.name}` => #{err_msg}"
         end
       end
     end
