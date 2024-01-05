@@ -25,7 +25,7 @@ module Crymon::Paladins::Check
     # Get the collection for the current model.
     collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
       @@meta.not_nil![:collection_name]]
-    self.check(pointerof(collection)).is_valid
+    self.check(pointerof(collection)).is_valid?
   end
 
   # Printing errors to the console ( for development ).
@@ -61,14 +61,14 @@ module Crymon::Paladins::Check
   # Validation of Model data.
   private def check(
     collection_ptr : Pointer(Mongo::Collection),
-    is_save : Bool = false,
-    is_slug_update : Bool = false
+    is_save? : Bool = false,
+    is_slug_update? : Bool = false
   ) : Crymon::Globals::OutputData
     # Does the document exist in the database?
-    is_updated : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
+    is_updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
     # Is there any incorrect data?
-    is_error_symptom : Bool = false
-    is_error_symptom_ptr : Pointer(Bool) = pointerof(is_error_symptom)
+    is_error_symptom? : Bool = false
+    is_error_symptom_ptr? : Pointer(Bool) = pointerof(is_error_symptom?)
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
@@ -78,17 +78,17 @@ module Crymon::Paladins::Check
     err_msg : String?
 
     # Check the conditions and, if necessary, define a message for the web form.
-    unless is_slug_update
+    unless is_slug_update?
       # Reset the alerts to exclude duplicates.
       @hash.alerts = Array(String).new
-      if is_save
-        if !is_updated && !@@meta.not_nil![:is_saving_docs]
+      if is_save?
+        if !is_updated? && !@@meta.not_nil![:is_saving_docs]
           @hash.alerts << "It is forbidden to perform saves!"
-          is_error_symptom = true
+          is_error_symptom? = true
         end
-        if is_updated && !@@meta.not_nil![:is_updating_docs]
+        if is_updated? && !@@meta.not_nil![:is_updating_docs]
           @hash.alerts << "It is forbidden to perform updates!"
-          is_error_symptom = true
+          is_error_symptom? = true
         end
       end
     end
@@ -100,7 +100,7 @@ module Crymon::Paladins::Check
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors << err_msg.not_nil!
-          (is_error_symptom = true) unless is_error_symptom
+          (is_error_symptom? = true) unless is_error_symptom?
           err_msg = nil
       end
       #
@@ -113,9 +113,9 @@ module Crymon::Paladins::Check
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           self.group_01(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated,
-            is_save,
+            is_error_symptom_ptr?,
+            is_updated?,
+            is_save?,
             result_bson_ptr
           )
         when 2
@@ -124,8 +124,8 @@ module Crymon::Paladins::Check
           # "SlugField"
           self.group_02(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 3
           # Validation of `date` type fields:
@@ -133,8 +133,8 @@ module Crymon::Paladins::Check
           # "DatField" | "DateTimeField"
           self.group_03(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 4
           # Validation of `choice` type fields:
@@ -143,8 +143,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64Field" | "ChoiceF64Field"
           self.group_04(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 5
           # Validation of `choice` type fields:
@@ -153,8 +153,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64DynField" | "ChoiceF64DynField"
           self.group_05(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 6
           # Validation of `choice` type fields:
@@ -163,8 +163,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64MultField" | "ChoiceF64MultField"
           self.group_06(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 7
           # Validation of `choice` type fields:
@@ -173,8 +173,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
           self.group_07(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 8
           # Validation of `file` type fields:
@@ -182,8 +182,8 @@ module Crymon::Paladins::Check
           # "FileField"
           self.group_08(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 9
           # Validation of `file` type fields:
@@ -191,8 +191,8 @@ module Crymon::Paladins::Check
           # "ImageField"
           self.group_09(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 10
           # Validation of `number` type fields:
@@ -200,8 +200,8 @@ module Crymon::Paladins::Check
           # "U32Field" | "I64Field"
           self.group_10(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 11
           # Validation of `number` type fields:
@@ -209,8 +209,8 @@ module Crymon::Paladins::Check
           # "F64Field"
           self.group_11(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr,
-            is_updated
+            is_error_symptom_ptr?,
+            is_updated?
           )
         when 12
           # Validation of `boolean` type fields:
@@ -218,7 +218,7 @@ module Crymon::Paladins::Check
           # "BoolField"
           self.group_12(
             pointerof(@{{ field }}),
-            is_updated
+            is_updated?
           )
         else
           raise Crymon::Errors::Model::InvalidGroupNumber
@@ -228,6 +228,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    Crymon::Globals::OutputData.new(result_bson, !is_error_symptom)
+    Crymon::Globals::OutputData.new(result_bson, !is_error_symptom?)
   end
 end

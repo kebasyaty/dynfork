@@ -6,7 +6,7 @@ module Crymon::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
     getter data : BSON
-    getter is_valid : Bool
+    getter? is_valid : Bool
 
     def initialize(@data : BSON, @is_valid : Bool); end
   end
