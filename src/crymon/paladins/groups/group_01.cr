@@ -34,11 +34,11 @@ module Crymon::Paladins::Groups
     # Validation the `regex` field attribute.
     if pattern = field_ptr.value.regex
       unless /#{pattern}/.matches?(current_value)
-        unless field_ptr.value.is_hide && field_ptr.value.input_type
-          field_ptr.value.errors << field_ptr.value.regex_err_msg
+        unless field_ptr.value.is_hide?
+          field_ptr.value.errors << field_ptr.value.regex_err_msg.to_s
           (is_error_symptom_ptr.value = true) unless is_error_symptom_ptr.value
         else
-          raise "Panic - Model: `#{field_ptr.value.meta.not_nil![:model_name]}` > " +
+          raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
                 "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
         end
       end
