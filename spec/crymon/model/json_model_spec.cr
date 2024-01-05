@@ -95,7 +95,7 @@ describe Helper::FilledModel do
       f.birthday.min.should be_nil
       f.birthday.other_attrs.should eq("")
       f.birthday.css_classes.should eq("")
-      f.birthday.hint.should eq("Format: yyyy-mm-dd")
+      f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
       f.birthday.warning.should eq("")
       f.birthday.errors.should eq(Array(String).new)
       f.birthday.group.should eq(3_u8)
