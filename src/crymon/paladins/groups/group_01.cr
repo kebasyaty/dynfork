@@ -46,7 +46,7 @@ module Crymon::Paladins::Groups
     # Validation `maxlength`.
     if maxlength = field_ptr.value.maxlength
       unless Valid.max? current_value, maxlength
-        err_msg : String = I18n.t(
+        err_msg = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value.size,
           max_num: maxlength
@@ -63,7 +63,7 @@ module Crymon::Paladins::Groups
     # Validation `minlength`.
     if minlength = field_ptr.value.minlength
       unless Valid.min? current_value, minlength
-        err_msg : String = I18n.t(
+        err_msg = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value.size,
           min_num: minlength
