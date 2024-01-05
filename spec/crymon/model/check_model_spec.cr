@@ -3,12 +3,10 @@ require "../../spec_helper"
 describe Crymon::Model do
   describe "#is_valid" do
     it "=> validation instance of Model", tags: "validation" do
-      I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
-      I18n.config.default_locale = :en
-      I18n.init
-
       # Init data for test.
-      unique_app_key = Crymon::Tools::Test.generate_unique_app_key
+      #
+      # To generate a key (This is not an advertisement): https://randompasswordgen.com/
+      unique_app_key = "817c0pG4gw7A4rQ4"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 

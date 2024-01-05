@@ -23,7 +23,7 @@ describe Crymon::Fields::DateTimeField do
       f.min.should be_nil
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
-      f.hint.should eq("Format: yyyy-mm-ddThh:mm")
+      f.hint.should eq("Formats: dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm | yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)

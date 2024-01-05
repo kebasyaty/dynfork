@@ -16,6 +16,8 @@ eo:
   invalid_ipv6: "Nevalida IPv6-adreso."
   format:
     interpolation: "Formato: %{sample}"
+  formats:
+    interpolation: "Formatoj: %{samples}"
   example:
     interpolation: "Ekzemplo: %{sample}"
   examples:

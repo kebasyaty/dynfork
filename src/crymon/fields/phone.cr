@@ -18,9 +18,9 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : UInt32
     # Regular expression to validate the `value`.
-    getter regex : String
+    getter regex : String?
     # Error message.
-    getter regex_err_msg : String
+    getter regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -37,8 +37,8 @@ module Crymon::Fields
       @placeholder : String = "",
       @maxlength : UInt32 = 15,
       @minlength : UInt32 = 8,
-      @regex : String = "^+?[0-9]{8,15}$",
-      @regex_err_msg : String = "Invalid Phone number.",
+      @regex : String? = "^+?[0-9]{8,15}$",
+      @regex_err_msg : String? = I18n.t(:invalid_phone),
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
@@ -47,7 +47,7 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "Format: +xxxxxxxx... or xxxxxxxx...",
+      @hint : String = I18n.t("format.interpolation", sample: "+xxxxxxxx... or xxxxxxxx..."),
       @warning : String = ""
     ); end
   end

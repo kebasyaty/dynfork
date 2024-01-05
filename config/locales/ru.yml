@@ -16,6 +16,8 @@ ru:
   invalid_ipv6: "Неправильный IPv6-адрес."
   format:
     interpolation: "Формат: %{sample}"
+  formats:
+    interpolation: "Форматы: %{samples}"
   example:
     interpolation: "Пример: %{sample}"
   examples:

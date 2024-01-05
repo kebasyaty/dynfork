@@ -43,6 +43,9 @@ describe Crymon::Migration::Monitor do
       Crymon::Globals.cache_database_name.should eq("AppName_0w7n5731X13s1641")
       #
       m.model_list.should eq({Helper::FilledModel, Helper::AuxiliaryModel})
+      # Delete database after test.
+      Crymon::Tools::Test.delete_test_db(
+        Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
     it "=> create instance with database name", tags: "migration" do
@@ -62,9 +65,13 @@ describe Crymon::Migration::Monitor do
       Crymon::Globals.cache_database_name.should eq("DatabaseName360")
       #
       m.model_list.should eq({Helper::FilledModel, Helper::AuxiliaryModel})
+      # Delete database after test.
+      Crymon::Tools::Test.delete_test_db(
+        Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
     it "=> create instance and testing model list", tags: "migration" do
+      # Run migration.
       m = Crymon::Migration::Monitor.new(
         "app_name": "AppName",
         "unique_app_key": "0w7n5731X13s1641",
@@ -76,13 +83,23 @@ describe Crymon::Migration::Monitor do
       )
       #
       m.model_list.should eq({Helper::FilledModel, Helper::AuxiliaryModel})
+      # Delete database after test.
+      Crymon::Tools::Test.delete_test_db(
+        Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
 
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
       # Init data for test.
-      unique_app_key = Crymon::Tools::Test.generate_unique_app_key
+      # unique_app_key = Crymon::Tools::Test.generate_unique_app_key
+      # database_name = "test_#{unique_app_key}"
+      # mongo_uri = "mongodb://localhost:27017"
+
+      # Init data for test.
+      #
+      # To generate a key (This is not an advertisement): https://randompasswordgen.com/
+      unique_app_key = "23x9QdB2zb7nsG6H"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 

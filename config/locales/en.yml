@@ -16,6 +16,8 @@ en:
   invalid_ipv6: "Invalid IPv6 address."
   format:
     interpolation: "Format: %{sample}"
+  formats:
+    interpolation: "Formats: %{samples}"
   example:
     interpolation: "Example: %{sample}"
   examples:

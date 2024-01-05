@@ -1,9 +1,10 @@
 require "./field"
 
 module Crymon::Fields
-  # A field for entering a date in the format yyyy-mm-dd.
+  # A field for entering a date.
   # <br>
-  # _Example: 1970-01-01_
+  # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
+  # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
   struct DateField < Crymon::Fields::Field
     include Crymon::Tools::Date
 
@@ -32,6 +33,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
+    #
+    # WARNING: Stubs
+    getter regex : Nil
+    getter regex_err_msg : Nil
 
     def initialize(
       @label : String = "",
@@ -47,7 +52,10 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "Format: yyyy-mm-dd"
+      @hint : String = I18n.t(
+        "formats.interpolation", samples: "dd-mm-yyyy | dd/mm/yyyy | " +
+                                          "dd.mm.yyyy | yyyy-mm-dd | " +
+                                          "yyyy/mm/dd | yyyy.mm.dd")
     ); end
 
     # Get time object from value.

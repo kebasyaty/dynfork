@@ -5,7 +5,7 @@ module Crymon::Fields
   # <br>
   # The default value is _#000000_ (black).
   # <br>
-  # By default type="text".
+  # Html input type="text".
   # WARNING: type="color" only seven-character hexadecimal notation.
   # <br>
   # _Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
@@ -17,7 +17,7 @@ module Crymon::Fields
     # <br>
     # By default type="text".
     # WARNING: type="color" only seven-character hexadecimal notation.
-    getter input_type : String
+    getter input_type : String = "text"
     # Sets the value of an element.
     property value : String?
     # The default value is #000000.
@@ -37,11 +37,12 @@ module Crymon::Fields
     # WARNING: Stubs
     getter max : Nil
     getter min : Nil
+    getter regex : Nil
+    getter regex_err_msg : Nil
 
     def initialize(
       @label : String = "",
       @default : String? = "#000000",
-      @input_type : String = "text", # text | color
       @placeholder : String = "",
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 0,
@@ -53,11 +54,11 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = ""
-    )
-      if ["text", "color"].index(@input_type).nil?
-        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
-      end
-    end
+      @hint : String = I18n.t(
+        "examples.interpolation", samples: "#fff | #f2f2f2 | #f2f2f200 | " +
+                                           "rgb(255,0,24) | rgba(255,0,24,0.5) | " +
+                                           "rgba(#fff,0.5) | hsl(120,100%,50%) | " +
+                                           "hsla(170,23%,25%,0.2) | 0x00ffff")
+    ); end
   end
 end
