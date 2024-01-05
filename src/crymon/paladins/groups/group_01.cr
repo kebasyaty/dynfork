@@ -38,8 +38,8 @@ module Crymon::Paladins::Groups
           field_ptr.value.errors << field_ptr.value.regex_err_msg.to_s
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
-          raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
+                "Field: `#{field_ptr.value.name}` > Attribute: `regex` => #{field_ptr.value.regex_err_msg}"
         end
       end
     end
@@ -55,7 +55,7 @@ module Crymon::Paladins::Groups
           field_ptr.value.errors << msg
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
-          raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
                 "Field: `#{field_ptr.value.name}` > Attribute: `maxlength` => #{msg}"
         end
       end
@@ -72,7 +72,7 @@ module Crymon::Paladins::Groups
           field_ptr.value.errors << msg
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
-          raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
                 "Field: `#{field_ptr.value.name}` > Attribute: `minlength` => #{msg}"
         end
       end
