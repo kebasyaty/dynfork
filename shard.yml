@@ -18,3 +18,5 @@ dependencies:
     github: elbywan/cryomongo
   i18n:
     github: crystal-i18n/i18n
+  validator:
+    github: nicolab/crystal-validator

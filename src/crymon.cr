@@ -13,6 +13,7 @@ require "./crymon/migration"
 require "cryomongo"
 require "bson"
 require "i18n"
+require "validator"
 
 # ORM-like API MongoDB for Crystal.
 # <br>
