@@ -24,6 +24,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 10
+    #
+    # WARNING: Stubs
+    getter regex : Nil
+    getter regex_err_msg : Nil
 
     def initialize(
       @label : String = "",
@@ -73,6 +77,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 10
+    #
+    # WARNING: Stubs
+    getter regex : Nil
+    getter regex_err_msg : Nil
 
     def initialize(
       @label : String = "",
@@ -122,6 +130,10 @@ module Crymon::Fields
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 11
+    #
+    # WARNING: Stubs
+    getter regex : Nil
+    getter regex_err_msg : Nil
 
     def initialize(
       @label : String = "",

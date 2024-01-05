@@ -18,7 +18,7 @@ module Crymon::Fields
     # Regular expression to validate the value.
     getter regex : String?
     # Error message.
-    getter regex_err_msg : String
+    getter regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -36,7 +36,7 @@ module Crymon::Fields
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 8,
       @regex : String? = "^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$",
-      @regex_err_msg : String = I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) ("),
+      @regex_err_msg : String? = I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) ("),
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,

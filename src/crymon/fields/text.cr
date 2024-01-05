@@ -22,7 +22,7 @@ module Crymon::Fields
     # Regular expression to validate the `value`.
     getter regex : String?
     # Error message.
-    getter regex_err_msg : String
+    getter regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -40,7 +40,7 @@ module Crymon::Fields
       @maxlength : UInt32 = 256,
       @minlength : UInt32 = 0,
       @regex : String? = nil,
-      @regex_err_msg : String = "",
+      @regex_err_msg : String? = nil,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_textarea : Bool = false,
