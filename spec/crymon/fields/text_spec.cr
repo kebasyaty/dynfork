@@ -21,8 +21,8 @@ describe Crymon::Fields::TextField do
       f.is_ignored?.should be_false
       f.maxlength.should eq(256)
       f.minlength.should eq(0)
-      f.regex.should eq("")
-      f.regex_err_msg.should eq("")
+      f.regex.should be_nil
+      f.regex_err_msg.should be_nil
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")

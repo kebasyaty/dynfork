@@ -30,8 +30,8 @@ describe Helper::FilledModel do
       f.first_name.is_unique?.should be_false
       f.first_name.maxlength.should eq(256)
       f.first_name.minlength.should eq(0)
-      f.first_name.regex.should eq("")
-      f.first_name.regex_err_msg.should eq("")
+      f.first_name.regex.should be_nil
+      f.first_name.regex_err_msg.should be_nil
       f.first_name.other_attrs.should eq("")
       f.first_name.css_classes.should eq("")
       f.first_name.hint.should eq("")
