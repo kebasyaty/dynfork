@@ -39,41 +39,41 @@ module Crymon::Paladins::Groups
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
           raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` > Attribute: `regex` => #{field_ptr.value.regex_err_msg}"
+                "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
         end
       end
     end
     # Validation `maxlength`.
     if maxlength = field_ptr.value.maxlength
       unless Valid.max? current_value, maxlength
-        msg = I18n.t(
+        err_msg : String = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value.size,
           max_num: maxlength
         )
         unless field_ptr.value.is_hide?
-          field_ptr.value.errors << msg
+          field_ptr.value.errors << err_msg
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
           raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` > Attribute: `maxlength` => #{msg}"
+                "Field: `#{field_ptr.value.name}` => #{err_msg}"
         end
       end
     end
     # Validation `minlength`.
     if minlength = field_ptr.value.minlength
       unless Valid.min? current_value, minlength
-        msg = I18n.t(
+        err_msg : String = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value.size,
           min_num: minlength
         )
         unless field_ptr.value.is_hide?
-          field_ptr.value.errors << msg
+          field_ptr.value.errors << err_msg
           (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
         else
           raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` > Attribute: `minlength` => #{msg}"
+                "Field: `#{field_ptr.value.name}` => #{err_msg}"
         end
       end
     end
