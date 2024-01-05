@@ -4,10 +4,10 @@ eo:
   invalid_color: "Nevalida Kolorkodo."
   allowed_chars:
     interpolation: "Permesitaj signoj: %{chars}"
-  min_chars:
-    interpolation: "Minimume %{count} signoj."
   max_chars:
     interpolation: "Maksimumo %{count} signoj."
+  min_chars:
+    interpolation: "Minimume %{count} signoj."
   invalid_phone: "Nevalida Telefonnumero."
   invalid_email: "Nevalida Retpoŝtadreso."
   invalid_url: "Nevalida URL."
@@ -32,7 +32,7 @@ eo:
   date_less_min: "La enigita dato estas malpli ol la minimuma."
   date_greater_max: "La enigita dato estas pli granda ol la maksimumo."
   upload_new_file: "Alŝutu novan dosieron por forigi la antaŭan."
-  number_not_less_min:
-    interpolation: "La nombro %{curr_num} ne devas esti malpli ol min=%{min_num}."
   number_not_greater_max:
     interpolation: "La nombro %{curr_num} ne devas esti pli granda ol max=%{max_num}."
+  number_not_less_min:
+    interpolation: "La nombro %{curr_num} ne devas esti malpli ol min=%{min_num}."

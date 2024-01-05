@@ -27,6 +27,8 @@ module Crymon::Fields
     getter min : Nil
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
@@ -70,6 +72,8 @@ module Crymon::Fields
     getter min : Nil
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
@@ -113,6 +117,8 @@ module Crymon::Fields
     getter min : Nil
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
@@ -160,6 +166,8 @@ module Crymon::Fields
     getter min : Nil
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",

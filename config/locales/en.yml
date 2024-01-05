@@ -4,10 +4,10 @@ en:
   invalid_color: "Invalid Color code."
   allowed_chars:
     interpolation: "Allowed chars: %{chars}"
-  min_chars:
-    interpolation: "Minimum %{count} characters."
   max_chars:
     interpolation: "Maximum %{count} characters."
+  min_chars:
+    interpolation: "Minimum %{count} characters."
   invalid_phone: "Invalid Phone number."
   invalid_email: "Invalid Email address."
   invalid_url: "Invalid Url."
@@ -32,7 +32,7 @@ en:
   date_less_min: "The entered date is less than the minimum."
   date_greater_max: "The entered date is greater than the maximum."
   upload_new_file: "Upload a new file to delete the previous one."
-  number_not_less_min:
-    interpolation: "The number %{curr_num} must not be less than min=%{min_num}."
   number_not_greater_max:
     interpolation: "The number %{curr_num} must not be greater than max=%{max_num}."
+  number_not_less_min:
+    interpolation: "The number %{curr_num} must not be less than min=%{min_num}."

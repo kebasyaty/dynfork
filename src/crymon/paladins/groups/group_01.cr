@@ -43,5 +43,35 @@ module Crymon::Paladins::Groups
         end
       end
     end
+    # Validation `maxlength`.
+    unless Valid.max? current_value, field_ptr.value.maxlength
+      msg = I18n.t(
+        "number_not_greater_max.interpolation",
+        curr_num: current_value.size,
+        max_num: field_ptr.value.maxlength
+      )
+      unless field_ptr.value.is_hide?
+        field_ptr.value.errors << msg
+        (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+      else
+        raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+              "Field: `#{field_ptr.value.name}` => #{msg}"
+      end
+    end
+    # Validation `minlength`.
+    unless Valid.min? current_value, field_ptr.value.minlength
+      msg = I18n.t(
+        "number_not_less_min.interpolation",
+        curr_num: current_value.size,
+        min_num: field_ptr.value.minlength
+      )
+      unless field_ptr.value.is_hide?
+        field_ptr.value.errors << msg
+        (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+      else
+        raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+              "Field: `#{field_ptr.value.name}` => #{msg}"
+      end
+    end
   end
 end

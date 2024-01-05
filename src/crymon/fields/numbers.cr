@@ -28,6 +28,8 @@ module Crymon::Fields
     # WARNING: Stubs
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
@@ -81,6 +83,8 @@ module Crymon::Fields
     # WARNING: Stubs
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
@@ -134,6 +138,8 @@ module Crymon::Fields
     # WARNING: Stubs
     getter regex : Nil
     getter regex_err_msg : Nil
+    getter maxlength : Nil
+    getter minlength : Nil
 
     def initialize(
       @label : String = "",
