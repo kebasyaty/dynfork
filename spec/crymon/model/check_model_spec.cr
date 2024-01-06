@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe Crymon::Model do
   describe "#is_valid" do
-    it "=> validation instance of Model", tags: "validation" do
+    it "=> validation instance of Model", tags: "check" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -22,7 +22,7 @@ describe Crymon::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Helper::FilledModel,
+          Helper::AllFieldsDefault,
         }
       ).migrat
       #
@@ -30,7 +30,7 @@ describe Crymon::Model do
       # ------------------------------------------------------------------------
 
       # Testing is_valid method.
-      m = Helper::FilledModel.new
+      m = Helper::AllFieldsDefault.new
       m.is_valid?.should be_true
       m.print_err.should be_nil
 

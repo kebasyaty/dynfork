@@ -58,6 +58,21 @@ module Crymon::Paladins::Check
     puts msg
   end
 
+  # For accumulating errors.
+  def accumulate_error(
+    err_msg : String,
+    field_ptr : Pointer,
+    is_error_symptom_ptr? : Pointer(Bool)
+  )
+    unless field_ptr.value.is_hide?
+      field_ptr.value.errors << err_msg
+      (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+    else
+      raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
+            "Field: `#{field_ptr.value.name}` => #{err_msg}"
+    end
+  end
+
   # Validation of Model data.
   private def check(
     collection_ptr : Pointer(Mongo::Collection),

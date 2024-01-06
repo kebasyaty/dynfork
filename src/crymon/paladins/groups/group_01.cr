@@ -23,8 +23,11 @@ module Crymon::Paladins::Groups
       # ( The default value is used whenever possible )
       if value.nil?
         if field_ptr.value.is_required?
-          field_ptr.value.errors << I18n.t(:required_field)
-          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+          self.accumulate_error(
+            I18n.t(:required_field),
+            field_ptr,
+            is_error_symptom_ptr?
+          )
         end
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save?
         return
@@ -34,13 +37,11 @@ module Crymon::Paladins::Groups
     # Validation the `regex` field attribute.
     if pattern = field_ptr.value.regex
       unless /#{pattern}/.matches?(current_value)
-        unless field_ptr.value.is_hide?
-          field_ptr.value.errors << field_ptr.value.regex_err_msg.to_s
-          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
-        else
-          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` => #{field_ptr.value.regex_err_msg}"
-        end
+        self.accumulate_error(
+          field_ptr.value.regex_err_msg.to_s,
+          field_ptr,
+          is_error_symptom_ptr?
+        )
       end
     end
     # Validation `maxlength`.
@@ -51,13 +52,11 @@ module Crymon::Paladins::Groups
           curr_num: current_value.size,
           max_num: maxlength
         )
-        unless field_ptr.value.is_hide?
-          field_ptr.value.errors << err_msg
-          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
-        else
-          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` => #{err_msg}"
-        end
+        self.accumulate_error(
+          err_msg,
+          field_ptr,
+          is_error_symptom_ptr?
+        )
       end
     end
     # Validation `minlength`.
@@ -68,13 +67,11 @@ module Crymon::Paladins::Groups
           curr_num: current_value.size,
           min_num: minlength
         )
-        unless field_ptr.value.is_hide?
-          field_ptr.value.errors << err_msg
-          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
-        else
-          raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
-                "Field: `#{field_ptr.value.name}` => #{err_msg}"
-        end
+        self.accumulate_error(
+          err_msg,
+          field_ptr,
+          is_error_symptom_ptr?
+        )
       end
     end
   end

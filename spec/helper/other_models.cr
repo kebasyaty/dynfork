@@ -1,6 +1,6 @@
 require "../../src/crymon"
 
-# Auxiliary structures for testing.
+# Structures for testing.
 module Helper
   # Model without variables and methods.
   @[Crymon::Meta(service_name: "ServiceName")]
