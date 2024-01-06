@@ -15,13 +15,13 @@
         "crystal spec --tag global_regex;",
         "crystal spec --tag global_settings;",
         "crystal spec --tag global_super_collection;",
+        "crystal spec --tag i18n;",
         "crystal spec --tag fields;",
         "crystal spec --tag model;",
         "crystal spec --tag json;",
         "crystal spec --tag mongo_client;",
         "crystal spec --tag migration;",
-        "crystal spec --tag i18n;",
-        "crystal spec --tag validation"
+        "crystal spec --tag check"
       ],
       "problemMatcher": []
     }
