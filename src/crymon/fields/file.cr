@@ -27,8 +27,6 @@ module Crymon::Fields
     getter accept : String = ""
     # Displays prompt text.
     getter placeholder : String
-    # The unique value of a field in a collection.
-    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 8
@@ -40,6 +38,7 @@ module Crymon::Fields
     getter regex_err_msg : Nil
     getter maxlength : Nil
     getter minlength : Nil
+    getter? is_unique : Bool = false
 
     def initialize(
       @label : String = "",
@@ -50,7 +49,6 @@ module Crymon::Fields
       @accept : String = "",
       @placeholder : String = "",
       @is_hide : Bool = false,
-      @is_unique : Bool = false,
       @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,

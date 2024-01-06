@@ -22,6 +22,7 @@ module Crymon::Fields
     getter regex_err_msg : Nil
     getter maxlength : Nil
     getter minlength : Nil
+    getter? is_unique : Bool = false
 
     def initialize(
       @label : String = "",

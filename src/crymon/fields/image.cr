@@ -37,8 +37,6 @@ module Crymon::Fields
     # <br>
     # By default: true.
     getter? is_quality : Bool = true
-    # The unique value of a field in a collection.
-    getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9
@@ -50,6 +48,7 @@ module Crymon::Fields
     getter regex_err_msg : Nil
     getter maxlength : Nil
     getter minlength : Nil
+    getter? is_unique : Bool = false
 
     def initialize(
       @label : String = "",
@@ -62,7 +61,6 @@ module Crymon::Fields
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
       @is_quality : Bool = true,
       @is_hide : Bool = false,
-      @is_unique : Bool = false,
       @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
