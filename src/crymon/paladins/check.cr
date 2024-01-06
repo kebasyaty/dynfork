@@ -1,7 +1,7 @@
 require "./check_plus"
 require "./groups/*"
 
-# Additional methods for Model validation.
+# Validation of Model data before saving to the database.
 module Crymon::Paladins::Check
   include Crymon::Paladins::CheckPlus
   include Crymon::Paladins::Groups
@@ -64,7 +64,8 @@ module Crymon::Paladins::Check
             is_error_symptom_ptr?,
             is_updated?,
             is_save?,
-            result_bson_ptr
+            result_bson_ptr,
+            collection_ptr
           )
         when 2
           # Validation of `slug` type fields:

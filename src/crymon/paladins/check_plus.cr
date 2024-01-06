@@ -1,4 +1,4 @@
-# Validation of Model data before saving to the database.
+# Additional methods for Model validation.
 module Crymon::Paladins::CheckPlus
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
