@@ -23,8 +23,11 @@ module Crymon::Paladins::Groups
       # ( The default value is used whenever possible )
       if value.nil?
         if field_ptr.value.is_required?
-          field_ptr.value.errors << I18n.t(:required_field)
-          (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+          self.accumulate_error(
+            I18n.t(:required_field),
+            field_ptr,
+            is_error_symptom_ptr?
+          )
         end
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save?
         return
