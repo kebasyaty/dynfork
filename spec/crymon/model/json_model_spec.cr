@@ -2,14 +2,14 @@ require "../../spec_helper"
 
 describe Helper::FilledModel do
   describe "#to_json" do
-    it "=> create json from structure", tags: "json" do
+    it "=> create json from structure", tags: "model_json" do
       f = Helper::FilledModel.new
       j : String = f.to_json
       j.empty?.should be_false
     end
   end
   describe "#from_json" do
-    it "=> create instance from json", tags: "json" do
+    it "=> create instance from json", tags: "model_json" do
       f = Helper::FilledModel.new
       j : String = f.to_json
       f = Helper::FilledModel.from_json(j)
