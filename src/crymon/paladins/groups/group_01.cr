@@ -76,14 +76,13 @@ module Crymon::Paladins::Groups
       end
     end
     # Validation the `is_unique` field attribute.
-    if field_ptr.value.is_unique
-      unless collection_ptr.find_one({field_ptr.value.name => current_value}).nil?
-        self.accumulate_error(
-          I18n.t(:not_unique),
-          field_ptr,
-          is_error_symptom_ptr?
-        )
-      end
+    if field_ptr.value.is_unique &&
+       !collection_ptr.find_one({field_ptr.value.name => current_value}).nil?
+      self.accumulate_error(
+        I18n.t(:not_unique),
+        field_ptr,
+        is_error_symptom_ptr?
+      )
     end
   end
 end
