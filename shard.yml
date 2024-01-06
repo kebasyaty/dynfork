@@ -20,3 +20,5 @@ dependencies:
     github: crystal-i18n/i18n
   validator:
     github: nicolab/crystal-validator
+  pluto:
+    github: phenopolis/pluto
