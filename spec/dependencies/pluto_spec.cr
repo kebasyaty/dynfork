@@ -8,20 +8,20 @@ describe "Crystal Pluto" do
     end
     image_jpeg.width.should eq(100)
     image_jpeg.height.should eq(100)
-    image_jpeg.size.should eq(0)
+    image_jpeg.size.should eq(10000)
     #
     image_png = File.open("pictures/pluto.png") do |file|
       Pluto::ImageRGBA.from_jpeg(file)
     end
     image_png.width.should eq(100)
     image_png.height.should eq(100)
-    image_png.size.should eq(0)
+    image_png.size.should eq(10000)
     #
     image_webp = File.open("pictures/pluto.webp") do |file|
       Pluto::ImageRGBA.from_jpeg(file)
     end
     image_webp.width.should eq(100)
     image_webp.height.should eq(100)
-    image_webp.size.should eq(0)
+    image_webp.size.should eq(10000)
   end
 end
