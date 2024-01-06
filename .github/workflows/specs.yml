@@ -41,6 +41,7 @@ jobs:
           crystal spec --tag global_settings
           crystal spec --tag global_super_collection
           crystal spec --tag i18n
+          crystal spec --tag pluto
           crystal spec --tag validator
           crystal spec --tag fields
           crystal spec --tag field_json
