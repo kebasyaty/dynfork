@@ -14,6 +14,7 @@ require "cryomongo"
 require "bson"
 require "i18n"
 require "validator"
+require "pluto"
 
 # ORM-like API MongoDB for Crystal.
 # <br>
