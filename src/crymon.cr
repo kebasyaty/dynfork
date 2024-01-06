@@ -15,6 +15,9 @@ require "bson"
 require "i18n"
 require "validator"
 require "pluto"
+require "pluto/format/jpeg"
+require "pluto/format/png"
+require "pluto/format/webp"
 
 # ORM-like API MongoDB for Crystal.
 # <br>
