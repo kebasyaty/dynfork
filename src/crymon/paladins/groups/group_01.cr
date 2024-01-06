@@ -9,7 +9,8 @@ module Crymon::Paladins::Groups
     is_error_symptom_ptr? : Pointer(Bool),
     is_updated? : Bool,
     is_save? : Bool,
-    result_bson_ptr : Pointer(BSON)
+    result_bson_ptr : Pointer(BSON),
+    collection_ptr : Pointer(Mongo::Collection)
   )
     # When updating, we skip field password type.
     if is_updated? && field_ptr.value.field_type == "PasswordField"
@@ -44,7 +45,7 @@ module Crymon::Paladins::Groups
         )
       end
     end
-    # Validation `maxlength`.
+    # Validation the `maxlength` field attribute.
     if maxlength = field_ptr.value.maxlength
       unless Valid.max? current_value, maxlength
         err_msg = I18n.t(
@@ -59,7 +60,7 @@ module Crymon::Paladins::Groups
         )
       end
     end
-    # Validation `minlength`.
+    # Validation the `minlength` field attribute.
     if minlength = field_ptr.value.minlength
       unless Valid.min? current_value, minlength
         err_msg = I18n.t(
@@ -73,6 +74,15 @@ module Crymon::Paladins::Groups
           is_error_symptom_ptr?
         )
       end
+    end
+    # Validation the `is_unique` field attribute.
+    if field_ptr.value.is_unique? &&
+       !collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
+      self.accumulate_error(
+        I18n.t(:not_unique),
+        field_ptr,
+        is_error_symptom_ptr?
+      )
     end
   end
 end

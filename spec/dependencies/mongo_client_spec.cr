@@ -26,7 +26,7 @@ describe "Cryomongo" do
     # Perform crud operations.
     collection.insert_one({one: 1})
     collection.replace_one({one: 1}, {two: 2})
-    bson = collection.find_one({two: 2})
+    bson = collection.find_one({"two" => 2})
     bson.not_nil!.["two"].should eq(2)
     collection.count_documents.should eq(1)
     collection.delete_one({two: 2})
