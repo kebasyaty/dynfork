@@ -25,7 +25,7 @@ jobs:
           sudo apt -y install wget gnupg2 systemctl
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install wget, gnupg2, systemctl ...
+      - name: Install for Pluto
         run: >
           libjpeg-turbo
           libjpeg-turbo-dev
