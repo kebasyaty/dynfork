@@ -19,7 +19,7 @@ describe Crymon::Globals do
   end
 
   describe "Regular Expression" do
-    it "=> for model_name", tags: "global_regex" do
+    it "=> cache_regex - model_name", tags: "global_regex" do
       r : Regex = Crymon::Globals.cache_regex[:model_name]
       # Negative:
       r.matches?("").should be_false
@@ -36,7 +36,7 @@ describe Crymon::Globals do
       r.matches?("MODELNAME360").should be_true
     end
 
-    it "=> for app_name", tags: "global_regex" do
+    it "=> cache_regex - app_name", tags: "global_regex" do
       r : Regex = Crymon::Globals.cache_regex[:app_name]
       # Negative:
       r.matches?("").should be_false
@@ -54,7 +54,7 @@ describe Crymon::Globals do
     end
 
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    it "=> for unique_app_key", tags: "global_regex" do
+    it "=> cache_regex - unique_app_key", tags: "global_regex" do
       r : Regex = Crymon::Globals.cache_regex[:unique_app_key]
       # Negative:
       r.matches?("").should be_false
@@ -69,7 +69,7 @@ describe Crymon::Globals do
       r.matches?("x4N83BGV26b3Npg2").should be_true
     end
 
-    it "=> for service_name", tags: "global_regex" do
+    it "=> cache_regex - service_name", tags: "global_regex" do
       r : Regex = Crymon::Globals.cache_regex[:service_name]
       # Negative:
       r.matches?("").should be_false
@@ -84,6 +84,31 @@ describe Crymon::Globals do
       r.matches?("AutoParts").should be_true
       r.matches?("Autoparts").should be_true
       r.matches?("AutoParts360").should be_true
+    end
+
+    it "=> cache_regex - color_code", tags: "global_regex" do
+      r : Regex = Crymon::Globals.cache_regex[:color_code]
+      # Negative:
+      r.matches?("").should be_false
+      r.matches?("#f2ewq").should be_false
+      # Positive:
+      r.matches?("#fff").should be_true
+      r.matches?("#f2f2f2").should be_true
+      r.matches?("#F2F2F2").should be_true
+      r.matches?("#00000000").should be_true
+      r.matches?("rgb(255,0,24)").should be_true
+      r.matches?("rgb(255, 0, 24)").should be_true
+      r.matches?("rgba(255, 0, 24, .5)").should be_true
+      r.matches?("rgba(#fff, .5)").should be_true
+      r.matches?("rgba(#fff,.5)").should be_true
+      r.matches?("rgba(#FFF, .5)").should be_true
+      r.matches?("rgba(#FFF,.5)").should be_true
+      r.matches?("hsl(120, 100%, 50%)").should be_true
+      r.matches?("hsl(120,100%,50%)").should be_true
+      r.matches?("hsla(170, 23%, 25%, 0.2)").should be_true
+      r.matches?("hsla(170,23%,25%,0.2)").should be_true
+      r.matches?("0x00ffff").should be_true
+      r.matches?("0x00FFFF").should be_true
     end
   end
 end
