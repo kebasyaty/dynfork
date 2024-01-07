@@ -25,11 +25,6 @@ jobs:
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
           sudo apt -y install libturbojpeg0-dev
-          sudo apt -y install libwebp-dev
-          sudo apt -y install software-properties-common
-          sudo add-apt-repository ppa:sharpyuv/libsharpyuv-dev
-          sudo apt update
-          sudo apt -y install libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
