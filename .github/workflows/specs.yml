@@ -18,15 +18,19 @@ jobs:
       options: --user root
 
     steps:
-      - name: Install sudo, wget, gnupg2 and systemctl
-        run: |
-          apt update
-          apt install -y sudo
-          sudo apt install -y wget gnupg2
-          sudo apt -y install systemctl
-          sudo apt -y install libturbojpeg-dev
       - name: Download source
         uses: actions/checkout@v4
+      - name: Install wget, gnupg2, systemctl ...
+        run: >
+          wget
+          gnupg2
+          systemctl
+          libjpeg-turbo
+          libjpeg-turbo-dev
+          libspng
+          libspng-dev
+          libwebp
+          libwebp-dev
       - name: Install dependencies
         run: shards install
       - name: Check formatting
