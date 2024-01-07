@@ -24,11 +24,6 @@ jobs:
           apt install -y sudo
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
-          sudo apt -y install libturbojpeg0-dev
-          sudo apt -y install software-properties-common
-          sudo add-apt-repository ppa:linuxuprising/libpng12
-          sudo apt update
-          sudo apt -y install libpng12-0
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
