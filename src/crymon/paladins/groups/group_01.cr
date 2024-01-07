@@ -119,5 +119,12 @@ module Crymon::Paladins::Groups
         )
       end
     end
+    # Insert result.
+    if is_save?
+      if field_ptr.value.field_type == "PasswordField"
+        current_value = "password_hash"
+      end
+      result_bson_ptr.value[field_ptr.value.name] = current_value
+    end
   end
 end
