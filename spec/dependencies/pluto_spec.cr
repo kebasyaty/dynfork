@@ -14,7 +14,7 @@ describe "Crystal Pluto" do
 
   it "=> image png", tags: "pluto" do
     image_png = File.open("pictures/pluto.png") do |file|
-      Pluto::ImageRGBA.from_jpeg(file)
+      Pluto::ImageRGBA.from_png(file)
     end
     image_png.width.should eq(100)
     image_png.height.should eq(100)
@@ -23,7 +23,7 @@ describe "Crystal Pluto" do
 
   it "=> image webp", tags: "pluto" do
     image_webp = File.open("pictures/pluto.webp") do |file|
-      Pluto::ImageRGBA.from_jpeg(file)
+      Pluto::ImageRGBA.from_webp(file)
     end
     image_webp.width.should eq(100)
     image_webp.height.should eq(100)
