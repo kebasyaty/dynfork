@@ -24,9 +24,9 @@ jobs:
           apt install -y sudo
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
-          sudo apt -y install libjpeg-turbo libjpeg-turbo-dev
-          sudo apt -y install libspng libspng-dev
-          sudo apt -y install libwebp libwebp-dev
+          sudo apt -y install libjpeg-turbo-dev
+          sudo apt -y install libspng-dev
+          sudo apt -y install libwebp-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
