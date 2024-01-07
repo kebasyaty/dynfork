@@ -18,6 +18,8 @@ require "pluto"
 require "pluto/format/jpeg"
 require "pluto/format/png"
 require "pluto/format/webp"
+#
+require "crypto/bcrypt/password"
 
 # ORM-like API MongoDB for Crystal.
 # <br>

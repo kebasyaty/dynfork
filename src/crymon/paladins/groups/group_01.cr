@@ -122,7 +122,7 @@ module Crymon::Paladins::Groups
     # Insert result.
     if is_save?
       if field_ptr.value.field_type == "PasswordField"
-        current_value = "password_hash"
+        current_value = Crypto::Bcrypt::Password.create(current_value).to_s
       end
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
