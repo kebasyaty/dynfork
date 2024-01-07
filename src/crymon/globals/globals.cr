@@ -90,5 +90,6 @@ module Crymon::Globals
     date_parse_reverse: Regex,
     datetime_parse: Regex,
     datetime_parse_reverse: Regex,
+    color_code: Regex,
   )
 end
