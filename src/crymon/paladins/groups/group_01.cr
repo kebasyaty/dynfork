@@ -84,5 +84,40 @@ module Crymon::Paladins::Groups
         is_error_symptom_ptr?
       )
     end
+    # Validation Email, Url, IP, Color.
+    case field_ptr.value.field_type
+    when "EmailField"
+      unless Valid.email? current_value
+        self.accumulate_error(
+          I18n.t(:invalid_email),
+          field_ptr,
+          is_error_symptom_ptr?
+        )
+      end
+    when "URLField"
+      unless Valid.url? current_value
+        self.accumulate_error(
+          I18n.t(:invalid_url),
+          field_ptr,
+          is_error_symptom_ptr?
+        )
+      end
+    when "IPField"
+      unless Valid.ip? current_value
+        self.accumulate_error(
+          I18n.t(:invalid_ip),
+          field_ptr,
+          is_error_symptom_ptr?
+        )
+      end
+    when "ColorField"
+      unless Crymon::Globals.cache_regex[:color_code].matches?(current_value)
+        self.accumulate_error(
+          I18n.t(:invalid_color),
+          field_ptr,
+          is_error_symptom_ptr?
+        )
+      end
+    end
   end
 end
