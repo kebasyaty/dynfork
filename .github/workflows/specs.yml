@@ -24,6 +24,7 @@ jobs:
           apt install -y sudo
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
+          sudo apt -y install libturbojpeg0-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
@@ -41,6 +42,7 @@ jobs:
           crystal spec --tag global_settings
           crystal spec --tag global_super_collection
           crystal spec --tag i18n
+          crystal spec --tag pluto
           crystal spec --tag validator
           crystal spec --tag fields
           crystal spec --tag field_json
