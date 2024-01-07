@@ -23,16 +23,11 @@ jobs:
           apt update
           apt -y install sudo
           sudo apt -y install wget gnupg2 systemctl
+          sudo apt -y install libjpeg-turbo libjpeg-turbo-dev
+          sudo apt -y install libspng libspng-dev
+          sudo apt -y install libwebp libwebp-dev
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install for Pluto
-        run: >
-          libjpeg-turbo
-          libjpeg-turbo-dev
-          libspng
-          libspng-dev
-          libwebp
-          libwebp-dev
       - name: Install dependencies
         run: shards install
       - name: Check formatting
