@@ -2,7 +2,7 @@ require "../spec_helper"
 
 # https://github.com/phenopolis/pluto
 describe "Crystal Pluto" do
-  # sudo apt -y install libturbojpeg0-dev | libjpeg-turbo8-dev
+  # sudo apt -y install libturbojpeg0-dev
   it "=> image jpeg", tags: "pluto" do
     image_jpeg = File.open("pictures/pluto.jpg") do |file|
       Pluto::ImageRGBA.from_jpeg(file)

@@ -24,7 +24,7 @@ jobs:
           apt install -y sudo
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
-          sudo apt -y install libjpeg-turbo8-dev
+          sudo apt -y install libturbojpeg0-dev
           sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng0_0.7.3-3_amd64.deb' &&
           sudo dpkg -i 'libspng0_0.7.3-3_amd64.deb'
           sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
