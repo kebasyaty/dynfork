@@ -28,12 +28,16 @@ describe "Crystal Pluto" do
   end
 
   # sudo apt -y install libwebp-dev
+  # sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv0_1.3.2-0.3_amd64.deb' &&
+  # sudo dpkg -i 'libsharpyuv0_1.3.2-0.3_amd64.deb'
+  # sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.3_amd64.deb' &&
+  # sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.3_amd64.deb'
   it "=> image webp", tags: "pluto" do
     image_webp = File.open("pictures/pluto.webp") do |file|
       Pluto::ImageRGBA.from_webp(file)
     end
     image_webp.width.should eq(100)
     image_webp.height.should eq(100)
-    image_webp.size.should eq(0)
+    image_webp.size.should eq(10000)
   end
 end
