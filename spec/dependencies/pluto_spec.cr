@@ -13,6 +13,8 @@ describe "Crystal Pluto" do
   end
 
   # TEMP_DEB="$(mktemp)" &&
+  # wget --no-check-certificate -O "$TEMP_DEB" 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng0_0.7.3-3_amd64.deb' &&
+  # sudo dpkg -i "$TEMP_DEB" &&
   # wget --no-check-certificate -O "$TEMP_DEB" 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
   # sudo dpkg -i "$TEMP_DEB" &&
   # rm -f "$TEMP_DEB"
@@ -22,6 +24,6 @@ describe "Crystal Pluto" do
     end
     image_png.width.should eq(100)
     image_png.height.should eq(100)
-    image_png.size.should eq(0)
+    image_png.size.should eq(10000)
   end
 end
