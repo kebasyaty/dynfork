@@ -29,6 +29,7 @@ jobs:
           sudo dpkg -i 'libspng0_0.7.3-3_amd64.deb'
           sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
           sudo dpkg -i 'libspng-dev_0.7.3-3_amd64.deb'
+          sudo apt -y install libwebp-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies

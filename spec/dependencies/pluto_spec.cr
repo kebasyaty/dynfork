@@ -26,4 +26,13 @@ describe "Crystal Pluto" do
     image_png.height.should eq(100)
     image_png.size.should eq(10000)
   end
+
+  it "=> image webp", tags: "pluto" do
+    image_webp = File.open("pictures/pluto.webp") do |file|
+      Pluto::ImageRGBA.from_webp(file)
+    end
+    image_webp.width.should eq(100)
+    image_webp.height.should eq(100)
+    image_webp.size.should eq(0)
+  end
 end
