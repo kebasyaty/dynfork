@@ -24,6 +24,11 @@ jobs:
           apt install -y sudo
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
+          sudo apt -y install libturbojpeg0-dev
+          TEMP_DEB="$(mktemp)"
+          wget --no-check-certificate -O "$TEMP_DEB" 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb'
+          sudo dpkg -i "$TEMP_DEB"
+          rm -f "$TEMP_DEB"
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies
