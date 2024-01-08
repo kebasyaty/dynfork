@@ -27,6 +27,7 @@ describe "Crystal Pluto" do
     image_png.size.should eq(10000)
   end
 
+  # sudo apt -y install libwebp-dev
   it "=> image webp", tags: "pluto" do
     image_webp = File.open("pictures/pluto.webp") do |file|
       Pluto::ImageRGBA.from_webp(file)
