@@ -12,9 +12,9 @@ describe "Crystal Pluto" do
     image_jpeg.size.should eq(10000)
   end
 
-  # TEMP_DEB="$(mktemp)"
-  # wget --no-check-certificate -O "$TEMP_DEB" 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb'
-  # sudo dpkg -i "$TEMP_DEB"
+  # TEMP_DEB="$(mktemp)" &&
+  # wget --no-check-certificate -O "$TEMP_DEB" 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
+  # sudo dpkg -i "$TEMP_DEB" &&
   # rm -f "$TEMP_DEB"
   it "=> image png", tags: "pluto" do
     image_png = File.open("pictures/pluto.png") do |file|
