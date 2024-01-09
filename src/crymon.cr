@@ -40,7 +40,8 @@ end
 module Validator
   # Custom validator for checking color code.
   def self.color?(value) : Bool
-    return true if Crymon::Globals.cache_regex[:color_code].matches?(value)
+    return true if value.is_a?(String) &&
+                   Crymon::Globals.cache_regex[:color_code].matches?(value)
     false
   end
 end
