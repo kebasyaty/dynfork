@@ -47,4 +47,50 @@ module Helper
     getter name = Crymon::Fields::TextField.new
     getter age = Crymon::Fields::U32Field.new
   end
+
+  # For preliminary testing of additional abstractions.
+  @[Crymon::Meta(service_name: "Accounts")]
+  struct AAModel < Crymon::Model
+    getter username = Crymon::Fields::TextField.new
+    getter password = Crymon::Fields::PasswordField.new
+    getter confirm_password = Crymon::Fields::PasswordField.new(
+      "is_ignored": true
+    )
+
+    private def add_validation : Hash(String, String)
+      error_map = Hash(String, String).new
+      # Get clean data.
+      password = @password.value
+      confirm_password = @confirm_password.value
+      # Fields validation.
+      if password != confirm_password
+        error_map["confirm_password"] = "Password confirmation does not match."
+      end
+      error_map
+    end
+
+    private def pre_create
+      pust "!!!=Pre Create=!!!"
+    end
+
+    private def post_create
+      pust "!!!=Post Create=!!!"
+    end
+
+    private def pre_update
+      pust "!!!=Pre Update=!!!"
+    end
+
+    private def post_update
+      pust "!!!=Post Update=!!!"
+    end
+
+    private def pre_delete
+      pust "!!!=Pre Delete=!!!"
+    end
+
+    private def post_delete
+      pust "!!!=Post Delete=!!!"
+    end
+  end
 end
