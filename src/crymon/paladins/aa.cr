@@ -34,7 +34,7 @@ module Crymon
     # end
     # ```
     #
-    private def add_validation : Hash(String, String)
+    def add_validation : Hash(String, String)
       # _**Format:** <"field_name", "Error message">_
       error_map = Hash(String, String).new
       error_map

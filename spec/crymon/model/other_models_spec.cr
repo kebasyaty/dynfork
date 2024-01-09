@@ -83,6 +83,12 @@ describe Crymon::Model do
       metadata["is_use_hash_slug"].should be_true
     end
 
+    it "=> create instance of AAModel", tags: "model" do
+      m = Helper::AAModel.new
+      metadata = Helper::AAModel.meta.not_nil!
+      metadata["service_name"].should eq("Accounts")
+    end
+
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
       ex = expect_raises(Crymon::Errors::Fields::SlugSourceInvalid) do
         Helper::SlugSourceInvalidModel.new
