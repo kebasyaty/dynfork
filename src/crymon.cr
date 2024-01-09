@@ -1,3 +1,4 @@
+# Crymon:
 require "./crymon/errors/*"
 #
 require "./crymon/globals/globals"
@@ -10,6 +11,7 @@ require "./crymon/model"
 #
 require "./crymon/migration"
 #
+# Third party libraries:
 require "cryomongo"
 require "bson"
 require "i18n"
@@ -19,6 +21,7 @@ require "pluto/format/jpeg"
 require "pluto/format/png"
 require "pluto/format/webp"
 #
+# Standard:
 require "crypto/bcrypt/password"
 
 # ORM-like API MongoDB for Crystal.

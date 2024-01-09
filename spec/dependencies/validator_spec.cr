@@ -22,6 +22,10 @@ describe "Crystal Validator" do
     Valid.color?("").should be_false
     Valid.color?("#f2ewq").should be_false
     Valid.color?(10).should be_false
+    Valid.color?(10.1).should be_false
+    Valid.color?(nil).should be_false
+    Valid.color?(Array(String)).should be_false
+    Valid.color?(Hash(String, String)).should be_false
     # Positive:
     Valid.color?("#fff").should be_true
     Valid.color?("#f2f2f2").should be_true
