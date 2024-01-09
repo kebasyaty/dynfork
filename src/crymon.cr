@@ -36,3 +36,11 @@ require "crypto/bcrypt/password"
 module Crymon
   VERSION = "0.1.0"
 end
+
+module Validator
+  # Custom validator for checking color code.
+  def self.color?(value) : Bool
+    return true if Crymon::Globals.cache_regex[:color_code].matches?(value)
+    false
+  end
+end

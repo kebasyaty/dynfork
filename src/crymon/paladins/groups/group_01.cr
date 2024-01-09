@@ -111,7 +111,7 @@ module Crymon::Paladins::Groups
         )
       end
     when "ColorField"
-      unless Crymon::Globals.cache_regex[:color_code].matches?(current_value)
+      unless Valid.color? current_value
         self.accumulate_error(
           I18n.t(:invalid_color),
           field_ptr,
