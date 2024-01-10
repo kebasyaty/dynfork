@@ -15,7 +15,7 @@ module Helper
     getter first_name = Crymon::Fields::TextField.new(
       "default": "Cat"
     )
-    getter age = Crymon::Fields::I32Field.new(
+    getter age = Crymon::Fields::I64Field.new(
       "min": 0,
       "default": 0,
       "is_ignored": true
@@ -46,7 +46,7 @@ module Helper
   @[Crymon::Meta]
   struct NoParamServiceNameModel < Crymon::Model
     getter name = Crymon::Fields::TextField.new
-    getter age = Crymon::Fields::I32Field.new(
+    getter age = Crymon::Fields::I64Field.new(
       "min": 0
     )
   end
