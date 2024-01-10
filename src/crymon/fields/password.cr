@@ -23,10 +23,13 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
     #
-    # WARNING: Stubs
+    # WARNING: Stub
     getter default : Nil
+    # WARNING: Stub
     getter max : Nil
+    # WARNING: Stub
     getter min : Nil
+    # WARNING: Stub
     getter? is_unique : Bool = false
 
     def initialize(

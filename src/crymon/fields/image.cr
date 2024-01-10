@@ -41,13 +41,19 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9
     #
-    # WARNING: Stubs
+    # WARNING: Stub
     getter max : Nil
+    # WARNING: Stub
     getter min : Nil
+    # WARNING: Stub
     getter regex : Nil
+    # WARNING: Stub
     getter regex_err_msg : Nil
+    # WARNING: Stub
     getter maxlength : Nil
+    # WARNING: Stub
     getter minlength : Nil
+    # WARNING: Stub
     getter? is_unique : Bool = false
 
     def initialize(

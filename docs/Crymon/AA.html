@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::AA - crymon v0</title>
+  <title>Crymon::AA - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -292,26 +292,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32DynField" data-name="crymon::fields::choiceu32dynfield">
-      <a href="../Crymon/Fields/ChoiceU32DynField.html">ChoiceU32DynField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32Field" data-name="crymon::fields::choiceu32field">
-      <a href="../Crymon/Fields/ChoiceU32Field.html">ChoiceU32Field</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultDynField" data-name="crymon::fields::choiceu32multdynfield">
-      <a href="../Crymon/Fields/ChoiceU32MultDynField.html">ChoiceU32MultDynField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultField" data-name="crymon::fields::choiceu32multfield">
-      <a href="../Crymon/Fields/ChoiceU32MultField.html">ChoiceU32MultField</a>
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Fields/ColorField" data-name="crymon::fields::colorfield">
       <a href="../Crymon/Fields/ColorField.html">ColorField</a>
       
@@ -384,11 +364,6 @@
   
   <li class=" " data-id="crymon/Crymon/Fields/TextField" data-name="crymon::fields::textfield">
       <a href="../Crymon/Fields/TextField.html">TextField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/U32Field" data-name="crymon::fields::u32field">
-      <a href="../Crymon/Fields/U32Field.html">U32Field</a>
       
     </li>
   
@@ -552,6 +527,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Validator" data-name="validator">
+      <a href="../Validator.html">Validator</a>
+      
+    </li>
+  
 </ul>
 
   </div>
@@ -625,9 +605,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\paladins\aa.cr#L9" target="_blank">
-        src\crymon\paladins\aa.cr
-      </a>
+      src\crymon\paladins\aa.cr
     
     <br/>
   
@@ -668,7 +646,56 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#add_validation%3AHash%28String%2CString%29-instance-method" class="signature"><strong>#add_validation</strong> : Hash(String, String)</a>
+        
+          <div class="summary"><p>It is supposed to be use to additional validation of fields.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#initialize-instance-method" class="signature"><strong>#initialize</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post_create-instance-method" class="signature"><strong>#post_create</strong></a>
+        
+          <div class="summary"><p>Called after a new document has been created in the database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post_delete-instance-method" class="signature"><strong>#post_delete</strong></a>
+        
+          <div class="summary"><p>Called after an existing document in the database has been deleted.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#post_update-instance-method" class="signature"><strong>#post_update</strong></a>
+        
+          <div class="summary"><p>Called after an existing document in the database is updated.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pre_create-instance-method" class="signature"><strong>#pre_create</strong></a>
+        
+          <div class="summary"><p>Called before a new document is created in the database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pre_delete-instance-method" class="signature"><strong>#pre_delete</strong></a>
+        
+          <div class="summary"><p>Called before deleting an existing document in the database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pre_update-instance-method" class="signature"><strong>#pre_update</strong></a>
+        
+          <div class="summary"><p>Called before updating an existing document in the database.</p></div>
         
       </li>
     
@@ -733,8 +760,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\paladins\aa.cr#L9" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -752,6 +777,47 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="add_validation:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>add_validation</strong> : Hash(String, String)
+
+        <a class="method-permalink" href="#add_validation%3AHash%28String%2CString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>It is supposed to be use to additional validation of fields.</p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically when checking or saving the Model.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new
+  getter confirm_password <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
+    <span class="s">&quot;is_ignored&quot;</span>: <span class="n">true</span>
+  )
+
+  <span class="k">private</span> <span class="k">def</span> <span class="m">add_validation</span> : <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>)
+    error_map <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>).new
+    <span class="c"># Get clean data.</span>
+    password <span class="o">=</span> @password.value
+    confirm_password <span class="o">=</span> @confirm_password.value
+    <span class="c"># Fields validation.</span>
+    <span class="k">if</span> password <span class="o">!=</span> confirm_password
+      error_map[<span class="s">&quot;confirm_password&quot;</span>] <span class="o">=</span> <span class="s">&quot;Password confirmation does not match.&quot;</span>
+    <span class="k">end</span>
+    error_map
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="initialize-instance-method">
       <div class="signature">
         
@@ -763,7 +829,131 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\paladins\aa.cr#L9" target="_blank">View source</a>]
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post_create-instance-method">
+      <div class="signature">
+        
+        def <strong>post_create</strong>
+
+        <a class="method-permalink" href="#post_create-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called after a new document has been created in the database.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post_delete-instance-method">
+      <div class="signature">
+        
+        def <strong>post_delete</strong>
+
+        <a class="method-permalink" href="#post_delete-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called after an existing document in the database has been deleted.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="post_update-instance-method">
+      <div class="signature">
+        
+        def <strong>post_update</strong>
+
+        <a class="method-permalink" href="#post_update-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called after an existing document in the database is updated.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pre_create-instance-method">
+      <div class="signature">
+        
+        def <strong>pre_create</strong>
+
+        <a class="method-permalink" href="#pre_create-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called before a new document is created in the database.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pre_delete-instance-method">
+      <div class="signature">
+        
+        def <strong>pre_delete</strong>
+
+        <a class="method-permalink" href="#pre_delete-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called before deleting an existing document in the database.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pre_update-instance-method">
+      <div class="signature">
+        
+        def <strong>pre_update</strong>
+
+        <a class="method-permalink" href="#pre_update-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Called before updating an existing document in the database.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+        </div>
+      
+      <br/>
+      <div>
         
       </div>
     </div>

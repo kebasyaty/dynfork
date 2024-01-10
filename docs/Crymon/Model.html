@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Model - crymon v0</title>
+  <title>Crymon::Model - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0
+        v0-dev
       </span>
     </div>
   </div>
@@ -292,26 +292,6 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32DynField" data-name="crymon::fields::choiceu32dynfield">
-      <a href="../Crymon/Fields/ChoiceU32DynField.html">ChoiceU32DynField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32Field" data-name="crymon::fields::choiceu32field">
-      <a href="../Crymon/Fields/ChoiceU32Field.html">ChoiceU32Field</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultDynField" data-name="crymon::fields::choiceu32multdynfield">
-      <a href="../Crymon/Fields/ChoiceU32MultDynField.html">ChoiceU32MultDynField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/ChoiceU32MultField" data-name="crymon::fields::choiceu32multfield">
-      <a href="../Crymon/Fields/ChoiceU32MultField.html">ChoiceU32MultField</a>
-      
-    </li>
-  
   <li class=" " data-id="crymon/Crymon/Fields/ColorField" data-name="crymon::fields::colorfield">
       <a href="../Crymon/Fields/ColorField.html">ColorField</a>
       
@@ -384,11 +364,6 @@
   
   <li class=" " data-id="crymon/Crymon/Fields/TextField" data-name="crymon::fields::textfield">
       <a href="../Crymon/Fields/TextField.html">TextField</a>
-      
-    </li>
-  
-  <li class=" " data-id="crymon/Crymon/Fields/U32Field" data-name="crymon::fields::u32field">
-      <a href="../Crymon/Fields/U32Field.html">U32Field</a>
       
     </li>
   
@@ -552,6 +527,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Validator" data-name="validator">
+      <a href="../Validator.html">Validator</a>
+      
+    </li>
+  
 </ul>
 
   </div>
@@ -673,9 +653,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L63" target="_blank">
-        src\crymon\model.cr
-      </a>
+      src\crymon\model.cr
     
     <br/>
   
@@ -983,9 +961,44 @@
   <h3>Instance methods inherited from struct <code><a href="../Crymon/AA.html">Crymon::AA</a></code></h3>
   
   
+    <a href="../Crymon/AA.html#add_validation%3AHash%28String%2CString%29-instance-method" class="tooltip">
+      <span>add_validation : Hash(String, String)</span>
+    add_validation</a>, 
+    
+  
     <a href="../Crymon/AA.html#initialize-instance-method" class="tooltip">
       <span>initialize</span>
-    initialize</a>
+    initialize</a>, 
+    
+  
+    <a href="../Crymon/AA.html#post_create-instance-method" class="tooltip">
+      <span>post_create</span>
+    post_create</a>, 
+    
+  
+    <a href="../Crymon/AA.html#post_delete-instance-method" class="tooltip">
+      <span>post_delete</span>
+    post_delete</a>, 
+    
+  
+    <a href="../Crymon/AA.html#post_update-instance-method" class="tooltip">
+      <span>post_update</span>
+    post_update</a>, 
+    
+  
+    <a href="../Crymon/AA.html#pre_create-instance-method" class="tooltip">
+      <span>pre_create</span>
+    pre_create</a>, 
+    
+  
+    <a href="../Crymon/AA.html#pre_delete-instance-method" class="tooltip">
+      <span>pre_delete</span>
+    pre_delete</a>, 
+    
+  
+    <a href="../Crymon/AA.html#pre_update-instance-method" class="tooltip">
+      <span>pre_update</span>
+    pre_update</a>
     
   
 
@@ -1059,8 +1072,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L64" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1074,8 +1085,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1108,8 +1117,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L75" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1141,8 +1148,6 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L113" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1156,8 +1161,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1177,8 +1180,6 @@
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L108" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1208,8 +1209,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L69" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1228,8 +1227,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L83" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1253,8 +1250,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L103" target="_blank">View source</a>]
-        
       </div>
     </div>
   
@@ -1268,8 +1263,6 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
       
       <br/>
       <div>
-        
-          [<a href="https://github.com/kebasyaty/crymon/blob/386379de08c9a77b11bc9115ca8a3ee1f826d34e/src\crymon\model.cr#L72" target="_blank">View source</a>]
         
       </div>
     </div>

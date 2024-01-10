@@ -26,11 +26,15 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
     #
-    # WARNING: Stubs
+    # WARNING: Stub
     getter default : Nil
+    # WARNING: Stub
     getter max : Nil
+    # WARNING: Stub
     getter min : Nil
+    # WARNING: Stub
     getter regex : Nil
+    # WARNING: Stub
     getter regex_err_msg : Nil
 
     def initialize(

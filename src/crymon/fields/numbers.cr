@@ -1,61 +1,6 @@
 require "./field"
 
 module Crymon::Fields
-  # Field for entering unsigned 32-bit integers.
-  struct U32Field < Crymon::Fields::Field
-    # Field type - Structure Name.
-    getter field_type : String = "U32Field"
-    # Html tag: input type="number|range".
-    getter input_type : String = "number"
-    # Sets the value of an element.
-    property value : UInt32?
-    # Value by default.
-    getter default : UInt32?
-    # Displays prompt text.
-    getter placeholder : String
-    # The maximum number of characters allowed in the text.
-    getter max : UInt32
-    # The minimum number of characters allowed in the text.
-    getter min : UInt32
-    # Increment step for numeric fields.
-    getter step : UInt32
-    # The unique value of a field in a collection.
-    getter? is_unique : Bool
-    # To optimize field traversal in the `paladins/check()` method.
-    # WARNING: It is recommended not to change.
-    getter group : UInt8 = 10
-    #
-    # WARNING: Stubs
-    getter regex : Nil
-    getter regex_err_msg : Nil
-    getter maxlength : Nil
-    getter minlength : Nil
-
-    def initialize(
-      @label : String = "",
-      @default : UInt32? = nil,
-      @input_type : String = "number", # number | range
-      @placeholder : String = "",
-      @max : UInt32 = UInt32::MAX,
-      @min : UInt32 = 0,
-      @step : UInt32 = 1,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
-      @hint : String = "",
-      @warning : String = ""
-    )
-      if ["number", "range"].index(@input_type).nil?
-        raise Crymon::Errors::Fields::InvalidInputType.new(@input_type)
-      end
-    end
-  end
-
   # Field for entering integer 64-bit numbers.
   struct I64Field < Crymon::Fields::Field
     # Field type - Structure Name.
@@ -92,7 +37,7 @@ module Crymon::Fields
       @input_type : String = "number", # number | range
       @placeholder : String = "",
       @max : Int64 = Int64::MAX,
-      @min : Int64 = 0,
+      @min : Int64 = Int64::MIN,
       @step : Int64 = 1,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
@@ -147,7 +92,7 @@ module Crymon::Fields
       @input_type : String = "number", # number | range
       @placeholder : String = "",
       @max : Float64 = Float64::MAX,
-      @min : Float64 = 0.0,
+      @min : Float64 = Float64::MIN,
       @step : Float64 = 1.0,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
