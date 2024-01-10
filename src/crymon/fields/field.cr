@@ -1,4 +1,3 @@
-require "bson"
 require "json"
 
 module Crymon::Fields

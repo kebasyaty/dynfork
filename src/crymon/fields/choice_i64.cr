@@ -116,7 +116,7 @@ module Crymon::Fields
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))
+    property choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
@@ -146,8 +146,7 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "",
-      @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
+      @hint : String = ""
     ); end
 
     # To work around the error - undefined method 'choices='.
@@ -171,7 +170,7 @@ module Crymon::Fields
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))
+    property choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 7
@@ -201,8 +200,7 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "",
-      @choices : Array(Tuple(Int64, String)) = Array(Tuple(Int64, String)).new
+      @hint : String = ""
     ); end
 
     # To work around the error - undefined method 'choices='.
