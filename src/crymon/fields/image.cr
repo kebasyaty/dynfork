@@ -14,13 +14,13 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
-    property media_root : String = "../../assets/media"
+    property media_root : String
     # URL address for the media directory.
-    getter media_url : String = "/media"
+    getter media_url : String
     # Directory for files inside media directory (inner path).
     # <br>
     # _Example: "files/resume"_
-    getter target_dir : String = "images"
+    getter target_dir : String
     # HTML attribute: accept.
     # <br>
     # Describing which file types to allow.
@@ -60,7 +60,7 @@ module Crymon::Fields
       @label : String = "",
       @default : Crymon::Globals::ImageData? = nil,
       @placeholder : String = "",
-      @media_root : String = "../../assets/media",
+      @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "images",
       @accept : String = "",

@@ -16,6 +16,7 @@ module Crymon::Fields
     # URL address for the media directory.
     getter media_url : String
     # Directory for files inside media directory (inner path).
+    # <br>
     # *Example: "files/resume"*
     getter target_dir : String
     # HTML attribute: accept
@@ -49,7 +50,7 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @default : Crymon::Globals::FileData? = nil,
-      @media_root : String = "../assets/media",
+      @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "files",
       @accept : String = "",

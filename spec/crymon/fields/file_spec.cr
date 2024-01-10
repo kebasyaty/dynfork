@@ -25,7 +25,7 @@ describe Crymon::Fields::FileField do
       f.value.should be_nil
       f.default.should be_nil
       f.placeholder.should eq("")
-      f.media_root.should eq("../assets/media")
+      f.media_root.should eq("assets/media")
       f.media_url.should eq("/media")
       f.target_dir.should eq("files")
       f.accept.should eq("")
