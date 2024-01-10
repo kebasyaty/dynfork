@@ -149,7 +149,7 @@ module Crymon::Fields
       @hint : String = ""
     ); end
 
-    # To work around the error - undefined method 'choices='.
+    # To insert data from global storage.
     def set_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
@@ -203,7 +203,7 @@ module Crymon::Fields
       @hint : String = ""
     ); end
 
-    # To work around the error - undefined method 'choices='.
+    # To insert data from global storage.
     def set_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
