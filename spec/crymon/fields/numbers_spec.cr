@@ -18,7 +18,7 @@ describe Crymon::Fields::I64Field do
       f.is_required?.should be_false
       f.is_unique?.should be_false
       f.max.should eq(Int64::MAX)
-      f.min.should eq(0_i64)
+      f.min.should eq(Int64::MIN)
       f.step.should eq(1_i64)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
@@ -68,7 +68,7 @@ describe Crymon::Fields::F64Field do
       f.is_unique?.should be_false
       f.is_ignored?.should be_false
       f.max.should eq(Float64::MAX)
-      f.min.should eq(0_f64)
+      f.min.should eq(Float64::MIN)
       f.step.should eq(1_f64)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
