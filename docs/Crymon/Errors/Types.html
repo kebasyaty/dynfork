@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="crymon">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="crymon">
+  <title>Crymon::Errors::Types - crymon v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          crymon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="crymon/Crymon" data-name="crymon">
+      <a href="../../Crymon.html">Crymon</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/AA" data-name="crymon::aa">
+      <a href="../../Crymon/AA.html">AA</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="crymon/Crymon/Errors" data-name="crymon::errors">
+      <a href="../../Crymon/Errors.html">Errors</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Cache" data-name="crymon::errors::cache">
+      <a href="../../Crymon/Errors/Cache.html">Cache</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Cache/CacheSettingsExcessChars" data-name="crymon::errors::cache::cachesettingsexcesschars">
+      <a href="../../Crymon/Errors/Cache/CacheSettingsExcessChars.html">CacheSettingsExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Cache/CacheSettingsRegexFails" data-name="crymon::errors::cache::cachesettingsregexfails">
+      <a href="../../Crymon/Errors/Cache/CacheSettingsRegexFails.html">CacheSettingsRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Date" data-name="crymon::errors::date">
+      <a href="../../Crymon/Errors/Date.html">Date</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Date/InvalidDate" data-name="crymon::errors::date::invaliddate">
+      <a href="../../Crymon/Errors/Date/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Date/InvalidDateTime" data-name="crymon::errors::date::invaliddatetime">
+      <a href="../../Crymon/Errors/Date/InvalidDateTime.html">InvalidDateTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Fields" data-name="crymon::errors::fields">
+      <a href="../../Crymon/Errors/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Fields/InvalidInputType" data-name="crymon::errors::fields::invalidinputtype">
+      <a href="../../Crymon/Errors/Fields/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Fields/SlugSourceInvalid" data-name="crymon::errors::fields::slugsourceinvalid">
+      <a href="../../Crymon/Errors/Fields/SlugSourceInvalid.html">SlugSourceInvalid</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Meta" data-name="crymon::errors::meta">
+      <a href="../../Crymon/Errors/Meta.html">Meta</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Meta/MetaParameterMissing" data-name="crymon::errors::meta::metaparametermissing">
+      <a href="../../Crymon/Errors/Meta/MetaParameterMissing.html">MetaParameterMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Meta/MetaParamExcessChars" data-name="crymon::errors::meta::metaparamexcesschars">
+      <a href="../../Crymon/Errors/Meta/MetaParamExcessChars.html">MetaParamExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Meta/MetaParamRegexFails" data-name="crymon::errors::meta::metaparamregexfails">
+      <a href="../../Crymon/Errors/Meta/MetaParamRegexFails.html">MetaParamRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Model" data-name="crymon::errors::model">
+      <a href="../../Crymon/Errors/Model.html">Model</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Model/InvalidGroupNumber" data-name="crymon::errors::model::invalidgroupnumber">
+      <a href="../../Crymon/Errors/Model/InvalidGroupNumber.html">InvalidGroupNumber</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Model/ModelFieldsMissing" data-name="crymon::errors::model::modelfieldsmissing">
+      <a href="../../Crymon/Errors/Model/ModelFieldsMissing.html">ModelFieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Model/ModelNameExcessChars" data-name="crymon::errors::model::modelnameexcesschars">
+      <a href="../../Crymon/Errors/Model/ModelNameExcessChars.html">ModelNameExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Model/ModelNameRegexFails" data-name="crymon::errors::model::modelnameregexfails">
+      <a href="../../Crymon/Errors/Model/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Errors/Root" data-name="crymon::errors::root">
+      <a href="../../Crymon/Errors/Root.html">Root</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Root/CrymonException" data-name="crymon::errors::root::crymonexception">
+      <a href="../../Crymon/Errors/Root/CrymonException.html">CrymonException</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="crymon/Crymon/Errors/Types" data-name="crymon::errors::types">
+      <a href="../../Crymon/Errors/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Errors/Types/InvalidType" data-name="crymon::errors::types::invalidtype">
+      <a href="../../Crymon/Errors/Types/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Fields" data-name="crymon::fields">
+      <a href="../../Crymon/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/BoolField" data-name="crymon::fields::boolfield">
+      <a href="../../Crymon/Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64DynField" data-name="crymon::fields::choicef64dynfield">
+      <a href="../../Crymon/Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64Field" data-name="crymon::fields::choicef64field">
+      <a href="../../Crymon/Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64MultDynField" data-name="crymon::fields::choicef64multdynfield">
+      <a href="../../Crymon/Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceF64MultField" data-name="crymon::fields::choicef64multfield">
+      <a href="../../Crymon/Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64DynField" data-name="crymon::fields::choicei64dynfield">
+      <a href="../../Crymon/Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64Field" data-name="crymon::fields::choicei64field">
+      <a href="../../Crymon/Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64MultDynField" data-name="crymon::fields::choicei64multdynfield">
+      <a href="../../Crymon/Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceI64MultField" data-name="crymon::fields::choicei64multfield">
+      <a href="../../Crymon/Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextDynField" data-name="crymon::fields::choicetextdynfield">
+      <a href="../../Crymon/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextField" data-name="crymon::fields::choicetextfield">
+      <a href="../../Crymon/Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextMultDynField" data-name="crymon::fields::choicetextmultdynfield">
+      <a href="../../Crymon/Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ChoiceTextMultField" data-name="crymon::fields::choicetextmultfield">
+      <a href="../../Crymon/Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ColorField" data-name="crymon::fields::colorfield">
+      <a href="../../Crymon/Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/DateField" data-name="crymon::fields::datefield">
+      <a href="../../Crymon/Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/DateTimeField" data-name="crymon::fields::datetimefield">
+      <a href="../../Crymon/Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/EmailField" data-name="crymon::fields::emailfield">
+      <a href="../../Crymon/Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/F64Field" data-name="crymon::fields::f64field">
+      <a href="../../Crymon/Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/Field" data-name="crymon::fields::field">
+      <a href="../../Crymon/Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/FileField" data-name="crymon::fields::filefield">
+      <a href="../../Crymon/Fields/FileField.html">FileField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/HashField" data-name="crymon::fields::hashfield">
+      <a href="../../Crymon/Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/I64Field" data-name="crymon::fields::i64field">
+      <a href="../../Crymon/Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/ImageField" data-name="crymon::fields::imagefield">
+      <a href="../../Crymon/Fields/ImageField.html">ImageField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/IPField" data-name="crymon::fields::ipfield">
+      <a href="../../Crymon/Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/PasswordField" data-name="crymon::fields::passwordfield">
+      <a href="../../Crymon/Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/PhoneField" data-name="crymon::fields::phonefield">
+      <a href="../../Crymon/Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/SlugField" data-name="crymon::fields::slugfield">
+      <a href="../../Crymon/Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/TextField" data-name="crymon::fields::textfield">
+      <a href="../../Crymon/Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Fields/URLField" data-name="crymon::fields::urlfield">
+      <a href="../../Crymon/Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Globals" data-name="crymon::globals">
+      <a href="../../Crymon/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/CacheMetaDataType" data-name="crymon::globals::cachemetadatatype">
+      <a href="../../Crymon/Globals/CacheMetaDataType.html">CacheMetaDataType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/CacheRegexType" data-name="crymon::globals::cacheregextype">
+      <a href="../../Crymon/Globals/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/DataDynamicTypes" data-name="crymon::globals::datadynamictypes">
+      <a href="../../Crymon/Globals/DataDynamicTypes.html">DataDynamicTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/FieldTypes" data-name="crymon::globals::fieldtypes">
+      <a href="../../Crymon/Globals/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Globals/Types" data-name="crymon::globals::types">
+      <a href="../../Crymon/Globals/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/Types/FileData" data-name="crymon::globals::types::filedata">
+      <a href="../../Crymon/Globals/Types/FileData.html">FileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/Types/ImageData" data-name="crymon::globals::types::imagedata">
+      <a href="../../Crymon/Globals/Types/ImageData.html">ImageData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/Types/OutputData" data-name="crymon::globals::types::outputdata">
+      <a href="../../Crymon/Globals/Types/OutputData.html">OutputData</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/Types/ValidationCacheSettings" data-name="crymon::globals::types::validationcachesettings">
+      <a href="../../Crymon/Globals/Types/ValidationCacheSettings.html">ValidationCacheSettings</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Globals/ValueTypes" data-name="crymon::globals::valuetypes">
+      <a href="../../Crymon/Globals/ValueTypes.html">ValueTypes</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Meta" data-name="crymon::meta">
+      <a href="../../Crymon/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Migration" data-name="crymon::migration">
+      <a href="../../Crymon/Migration.html">Migration</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Migration/ModelState" data-name="crymon::migration::modelstate">
+      <a href="../../Crymon/Migration/ModelState.html">ModelState</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Migration/Monitor" data-name="crymon::migration::monitor(t)">
+      <a href="../../Crymon/Migration/Monitor.html">Monitor</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Model" data-name="crymon::model">
+      <a href="../../Crymon/Model.html">Model</a>
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Paladins" data-name="crymon::paladins">
+      <a href="../../Crymon/Paladins.html">Paladins</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Paladins/Caching" data-name="crymon::paladins::caching">
+      <a href="../../Crymon/Paladins/Caching.html">Caching</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Paladins/Check" data-name="crymon::paladins::check">
+      <a href="../../Crymon/Paladins/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Paladins/CheckPlus" data-name="crymon::paladins::checkplus">
+      <a href="../../Crymon/Paladins/CheckPlus.html">CheckPlus</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Paladins/Groups" data-name="crymon::paladins::groups">
+      <a href="../../Crymon/Paladins/Groups.html">Groups</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="crymon/Crymon/Tools" data-name="crymon::tools">
+      <a href="../../Crymon/Tools.html">Tools</a>
+      
+        <ul>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Date" data-name="crymon::tools::date">
+      <a href="../../Crymon/Tools/Date.html">Date</a>
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Crymon/Tools/Test" data-name="crymon::tools::test">
+      <a href="../../Crymon/Tools/Test.html">Test</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="crymon/Validator" data-name="validator">
+      <a href="../../Validator.html">Validator</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Crymon::<wbr>Errors::<wbr>Types
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Errors associated with the data types.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/crymon/blob/7e1d53ae9a84c69a517ddd880b96a06ab2d52049/src\crymon\errors\types.cr#L4" target="_blank">
+        src\crymon\errors\types.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
