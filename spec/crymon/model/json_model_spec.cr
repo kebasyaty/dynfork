@@ -53,7 +53,7 @@ describe Helper::FilledModel do
       f.age.input_type.should eq("number") # number | range
       f.age.name.should eq("age")
       f.age.value.should be_nil
-      f.age.default.should eq(0_u32)
+      f.age.default.should eq(0_i64)
       f.age.placeholder.should eq("")
       f.age.is_disabled?.should be_false
       f.age.is_readonly?.should be_false
@@ -61,7 +61,7 @@ describe Helper::FilledModel do
       f.age.is_required?.should be_false
       f.age.is_unique?.should be_false
       f.age.max.should eq(Int64::MAX)
-      f.age.min.should eq(Int64::MIN)
+      f.age.min.should eq(0_i64)
       f.age.step.should eq(1_i64)
       f.age.other_attrs.should eq("")
       f.age.css_classes.should eq("")
