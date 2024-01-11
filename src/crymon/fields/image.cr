@@ -55,6 +55,8 @@ module Crymon::Fields
     getter minlength : Nil
     # WARNING: Stub
     getter? is_unique : Bool = false
+    # WARNING: Stub
+    property choices : Nil
 
     def initialize(
       @label : String = "",
