@@ -31,6 +31,8 @@ module Crymon::Fields
     getter max : Nil
     # WARNING: Stub
     getter min : Nil
+    # WARNING: Stub
+    property choices : Nil
 
     def initialize(
       @label : String = "",

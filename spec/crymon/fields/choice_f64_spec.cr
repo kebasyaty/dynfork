@@ -77,7 +77,7 @@ describe Crymon::Fields::ChoiceF64DynField do
       f.is_readonly?.should be_false
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
-      f.choices.should eq(Array(Tuple(Float64, String)).new)
+      f.choices.should be_nil
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")
@@ -107,7 +107,7 @@ describe Crymon::Fields::ChoiceF64MultDynField do
       f.is_readonly?.should be_false
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
-      f.choices.should eq(Array(Tuple(Float64, String)).new)
+      f.choices.should be_nil
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
       f.hint.should eq("")

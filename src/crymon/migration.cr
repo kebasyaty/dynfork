@@ -202,8 +202,8 @@ module Crymon::Migration
         #
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
-        model_state.data_dynamic_fields.each do |field_name, data|
-          model.meta.not_nil![:data_dynamic_fields][field_name] = data
+        model_state.data_dynamic_fields.each do |field_name, choices_json|
+          model.meta.not_nil![:data_dynamic_fields][field_name] = choices_json
         end
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]

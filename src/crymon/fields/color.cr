@@ -42,6 +42,8 @@ module Crymon::Fields
     getter regex : Nil
     # WARNING: Stub
     getter regex_err_msg : Nil
+    # WARNING: Stub
+    property choices : Nil
 
     def initialize(
       @label : String = "",
