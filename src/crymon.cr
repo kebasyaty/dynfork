@@ -1,16 +1,11 @@
 # Crymon:
 require "./crymon/errors/*"
-#
 require "./crymon/globals/globals"
 require "./crymon/tools/*"
-#
 require "./crymon/fields/*"
-#
 require "./crymon/meta"
 require "./crymon/model"
-#
 require "./crymon/migration"
-#
 # Third party libraries:
 require "cryomongo"
 require "bson"
@@ -20,7 +15,6 @@ require "pluto"
 require "pluto/format/jpeg"
 require "pluto/format/png"
 require "pluto/format/webp"
-#
 # Standard:
 require "crypto/bcrypt/password"
 
