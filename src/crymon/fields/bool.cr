@@ -30,7 +30,7 @@ module Crymon::Fields
     # WARNING: Stub
     getter? is_unique : Bool = false
     # WARNING: Stub
-    property choices : Nil
+    getter choices : Nil
 
     def initialize(
       @label : String = "",

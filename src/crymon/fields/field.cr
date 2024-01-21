@@ -50,11 +50,9 @@ module Crymon::Fields
       false
     end
 
-    # To work around the error - undefined method 'choices='.
     # WARNING: Stub
-    def set_choices(json : String); end
+    def json_to_choices(json : String); end
 
-    # To work around the error - undefined method 'slug_sources='.
     # WARNING: Stub
     def get_slug_sources : Array(String)
       Array(String).new

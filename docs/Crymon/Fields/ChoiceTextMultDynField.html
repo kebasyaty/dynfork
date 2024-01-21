@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
@@ -587,7 +587,7 @@
   </h2>
   
     
-      src\crymon\fields\choice_text.cr
+      crymon/fields/choice_text.cr
     
     <br/>
   
@@ -624,6 +624,8 @@
 
 
 
+
+
   <h2>
     <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
@@ -635,16 +637,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method" class="signature"><strong>#choices</strong> : Array(Tuple(String, String)) | Nil</a>
-        
-          <div class="summary"><p>Html tag: select.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#choices%3D%28choices%3AArray%28Tuple%28String%2CString%29%29%7CNil%29-instance-method" class="signature"><strong>#choices=</strong>(choices : Array(Tuple(String, String)) | Nil)</a>
-        
-          <div class="summary"><p>Html tag: select.</p></div>
+        <a href="#choices%3AArray%28%7BString%2CString%7D%29%3F-instance-method" class="signature"><strong>#choices</strong> : Array({String, String})?</a>
         
       </li>
     
@@ -680,6 +673,13 @@
         <a href="#is_unique%3F%3ABool-instance-method" class="signature"><strong>#is_unique?</strong> : Bool</a>
         
           <div class="summary"><p>The unique value of a field in a collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#json_to_choices%28json%3AString%29-instance-method" class="signature"><strong>#json_to_choices</strong>(json : String)</a>
+        
+          <div class="summary"><p>To insert data from global storage.</p></div>
         
       </li>
     
@@ -726,13 +726,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#set_choices%28json%3AString%29-instance-method" class="signature"><strong>#set_choices</strong>(json : String)</a>
-        
-          <div class="summary"><p>To insert data from global storage.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#value%3AArray%28String%29%7CNil-instance-method" class="signature"><strong>#value</strong> : Array(String) | Nil</a>
         
           <div class="summary"><p>Sets the value of an element.</p></div>
@@ -747,8 +740,6 @@
       </li>
     
   </ul>
-
-
 
 
 
@@ -849,6 +840,11 @@
     is_required?</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#json_to_choices%28json%3AString%29-instance-method" class="tooltip">
+      <span>json_to_choices(json : String)</span>
+    json_to_choices</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#label%3AString-instance-method" class="tooltip">
       <span>label : String</span>
     label</a>, 
@@ -867,11 +863,6 @@
     <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
       <span>other_attrs : String</span>
     other_attrs</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#set_choices%28json%3AString%29-instance-method" class="tooltip">
-      <span>set_choices(json : String)</span>
-    set_choices</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
@@ -901,13 +892,6 @@
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
@@ -915,13 +899,6 @@
     
 
 
-    
-
-
-    
-
-
-  
     
 
 
@@ -941,7 +918,39 @@
     
 
 
+    
+
+
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
     
 
 
@@ -1004,6 +1013,8 @@
 
 
 
+
+
   <h2>
     <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
@@ -1013,41 +1024,13 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="choices:Array(Tuple(String,String))|Nil-instance-method">
+    <div class="entry-detail" id="choices:Array({String,String})?-instance-method">
       <div class="signature">
         
-        def <strong>choices</strong> : Array(Tuple(String, String)) | Nil
+        def <strong>choices</strong> : Array({String, String})?
 
-        <a class="method-permalink" href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#choices%3AArray%28%7BString%2CString%7D%29%3F-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Html tag: select.
-<br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="choices=(choices:Array(Tuple(String,String))|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>choices=</strong>(choices : Array(Tuple(String, String)) | Nil)
-
-        <a class="method-permalink" href="#choices%3D%28choices%3AArray%28Tuple%28String%2CString%29%29%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Html tag: select.
-<br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
-        </div>
       
       <br/>
       <div>
@@ -1143,6 +1126,25 @@
         <div class="doc">
           
           <p>The unique value of a field in a collection.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="json_to_choices(json:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>json_to_choices</strong>(json : String)
+
+        <a class="method-permalink" href="#json_to_choices%28json%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>To insert data from global storage.</p>
         </div>
       
       <br/>
@@ -1265,25 +1267,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="set_choices(json:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>set_choices</strong>(json : String)
-
-        <a class="method-permalink" href="#set_choices%28json%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To insert data from global storage.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="value:Array(String)|Nil-instance-method">
       <div class="signature">
         
@@ -1322,8 +1305,6 @@
       </div>
     </div>
   
-
-
 
 
 </div>

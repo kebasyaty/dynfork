@@ -37,7 +37,7 @@ module Crymon::Fields
     # WARNING: Stub
     getter regex_err_msg : Nil
     # WARNING: Stub
-    property choices : Nil
+    getter choices : Nil
 
     def initialize(
       @label : String = "Hash ID",
