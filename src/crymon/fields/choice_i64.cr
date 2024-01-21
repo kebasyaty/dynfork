@@ -17,7 +17,7 @@ module Crymon::Fields
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))?
+    getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 4
@@ -67,7 +67,7 @@ module Crymon::Fields
     # Html tag: select multiple.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))?
+    getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 6
@@ -116,7 +116,7 @@ module Crymon::Fields
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))?
+    @choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
@@ -150,8 +150,12 @@ module Crymon::Fields
     ); end
 
     # To insert data from global storage.
-    def set_choices(json : String)
+    def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    def choices
+      @choices
     end
   end
 
@@ -170,7 +174,7 @@ module Crymon::Fields
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
-    property choices : Array(Tuple(Int64, String))?
+    @choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 7
@@ -204,8 +208,12 @@ module Crymon::Fields
     ); end
 
     # To insert data from global storage.
-    def set_choices(json : String)
+    def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    def choices
+      @choices
     end
   end
 end

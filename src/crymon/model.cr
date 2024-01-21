@@ -91,7 +91,7 @@ module Crymon
         @{{ var }}.name = field_attrs[:name]
         # Add dynamic field data from the cache to the Model.
         if json = @@meta.not_nil![:data_dynamic_fields][var_name]?
-          @{{ var }}.set_choices(json)
+          @{{ var }}.json_to_choices(json)
         end
       {% end %}
     end

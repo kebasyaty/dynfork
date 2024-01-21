@@ -39,7 +39,7 @@ module Crymon::Fields
     # WARNING: Stub
     getter minlength : Nil
     # WARNING: Stub
-    property choices : Nil
+    getter choices : Nil
 
     def initialize(
       @label : String = "",
