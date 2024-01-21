@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
@@ -603,7 +603,7 @@
   </h2>
   
     
-      src\crymon\globals\types.cr
+      crymon/globals/types.cr
     
     <br/>
   
@@ -661,6 +661,8 @@
       </li>
     
   </ul>
+
+
 
 
 
@@ -755,8 +757,6 @@
 
 
 
-
-
 <div class="methods-inherited">
   
     
@@ -768,13 +768,6 @@
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
@@ -782,13 +775,6 @@
     
 
 
-    
-
-
-    
-
-
-  
     
 
 
@@ -808,7 +794,39 @@
     
 
 
+    
+
+
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
     
 
 
@@ -842,15 +860,14 @@
         <div class="doc">
           
           <p>Allocate an instance and copies data from a BSON struct.</p>
-<pre><code class="language-crystal">class User
-  include BSON::Serializable
-  property name : String
-end
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">User</span>
+  <span class="k">include</span> <span class="t">BSON</span><span class="t">::</span><span class="t">Serializable</span>
+  property name : <span class="t">String</span>
+<span class="k">end</span>
 
-data = BSON.new
-data[&quot;name&quot;] = &quot;John&quot;
-User.new(data)
-```</code></pre>
+data <span class="o">=</span> <span class="t">BSON</span>.new
+data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span class="s">&quot;John&quot;</span>
+<span class="t">User</span>.new(data)</code></pre>
         </div>
       
       <br/>
@@ -918,6 +935,8 @@ User.new(data)
       </div>
     </div>
   
+
+
 
 
 
@@ -1097,9 +1116,8 @@ By default is_delete=false.</p>
         <div class="doc">
           
           <p>Converts to a BSON representation.</p>
-<pre><code class="language-crystal">user = User.new name: &quot;John&quot;
-bson = user.to_bson
-```</code></pre>
+<pre><code class="language-crystal">user <span class="o">=</span> <span class="t">User</span>.new name: <span class="s">&quot;John&quot;</span>
+bson <span class="o">=</span> user.to_bson</code></pre>
         </div>
       
       <br/>
@@ -1146,8 +1164,6 @@ bson = user.to_bson
       </div>
     </div>
   
-
-
 
 
 </div>

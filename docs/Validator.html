@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="v0-dev">
 <meta name="crystal_docs.project_name" content="crymon">
 
@@ -620,33 +620,32 @@ puts <span class="t">Valid</span>.my_validator?(<span class="s">&quot;value to v
 puts is <span class="n">:my_validator?</span>, <span class="s">&quot;value to validate&quot;</span>, <span class="s">&quot;hello&quot;</span>, <span class="n">42</span> <span class="c"># =&gt; true</span></code></pre>
 <p><code>Check</code> is a simple and lightweight wrapper, let your imagination run wild to add your logic around it.</p>
 <p>Using the custom validator with the validation rules:</p>
-<pre><code class="language-crystal">require &quot;validator/check&quot;
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;validator/check&quot;</span>
 
-class Article
-  # Mixin
-  Check.checkable
+<span class="k">class</span> <span class="t">Article</span>
+  <span class="c"># Mixin</span>
+  <span class="t">Check</span>.checkable
 
-  property title : String
-  property content : String
+  property title : <span class="t">String</span>
+  property content : <span class="t">String</span>
 
-  Check.rules(
+  <span class="t">Check</span>.rules(
     content: {
-      # Now the custom validator is available
+      <span class="c"># Now the custom validator is available</span>
       check: {
-        my_validator: {&quot;My validator error message&quot;},
-        between:      {&quot;The article content must be between 10 and 20 000 characters&quot;, 10, 20_000},
-        # ...
+        my_validator: {<span class="s">&quot;My validator error message&quot;</span>},
+        between:      {<span class="s">&quot;The article content must be between 10 and 20 000 characters&quot;</span>, <span class="n">10</span>, <span class="n">20_000</span>},
+        <span class="c"># ...</span>
       },
     },
   )
-end
+<span class="k">end</span>
 
-# Triggered with all data
-v, article = Article.check(input_data)
+<span class="c"># Triggered with all data</span>
+v, article <span class="o">=</span> <span class="t">Article</span>.check(input_data)
 
-# Triggered with one value
-v, content = Article.check_content(input_data[&quot;content&quot;]?)
-```</code></pre>
+<span class="c"># Triggered with one value</span>
+v, content <span class="o">=</span> <span class="t">Article</span>.check_content(input_data[<span class="s">&quot;content&quot;</span>]?)</code></pre>
 
 
 
@@ -671,47 +670,47 @@ v, content = Article.check_content(input_data[&quot;content&quot;]?)
   </h2>
   
     
-      lib\validator\src\validator.cr
+      lib/validator/src/validator.cr
     
     <br/>
   
     
-      lib\validator\src\validators\alpha_num.cr
+      lib/validator/src/validators/alpha_num.cr
     
     <br/>
   
     
-      lib\validator\src\validators\case_sensitive.cr
+      lib/validator/src/validators/case_sensitive.cr
     
     <br/>
   
     
-      lib\validator\src\validators\comparisons.cr
+      lib/validator/src/validators/comparisons.cr
     
     <br/>
   
     
-      lib\validator\src\validators\format.cr
+      lib/validator/src/validators/format.cr
     
     <br/>
   
     
-      lib\validator\src\validators\geo.cr
+      lib/validator/src/validators/geo.cr
     
     <br/>
   
     
-      lib\validator\src\validators\presence.cr
+      lib/validator/src/validators/presence.cr
     
     <br/>
   
     
-      lib\validator\src\validators\uri.cr
+      lib/validator/src/validators/uri.cr
     
     <br/>
   
     
-      src\crymon.cr
+      crymon.cr
     
     <br/>
   
