@@ -36,3 +36,4 @@ eo:
     interpolation: "La nombro %{curr_num} ne devas esti pli granda ol max=%{max_num}."
   number_not_less_min:
     interpolation: "La nombro %{curr_num} ne devas esti malpli ol min=%{min_num}."
+  old_pass_not_match: "La malnova pasvorto ne kongruas."

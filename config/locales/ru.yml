@@ -36,3 +36,4 @@ ru:
     interpolation: "Число %{curr_num} не должно превышать max=%{max_num}."
   number_not_less_min:
     interpolation: "Число %{curr_num} не должно быть меньше min=%{min_num}."
+  old_pass_not_match: "Старый пароль не совпадает."
