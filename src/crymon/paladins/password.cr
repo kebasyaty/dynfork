@@ -1,4 +1,5 @@
 module Crymon::Paladins::Password
+  # Password verification.
   def verify_password(password : String, field_name : String = "password") : Bool
     if doc_id = self.get_object_id
       # Get collection for current model.
