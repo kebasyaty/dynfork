@@ -9,9 +9,13 @@ module Crymon::Paladins::Password
       collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
         @@meta.not_nil![:collection_name]]
       # Get password hash.
-      password_hash : String = Crypto::Bcrypt::Password.create(password).to_s
-      #
-      return !collection.find_one({"_id" => doc_id, field_name => password_hash}).nil?
+      if doc = collection.find_one({"_id" => doc_id})
+        return Crypto::Bcrypt::Password.new(doc[field_name]).verify
+      end
+      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
+            "Field: `#{field_name}` | Method: `verify_password` => " +
+            "There is no document in the database with hash `#{@hash.value}`."
+      raise Crymon::Errors::Panic.new msg
     end
     msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
           "Field: `#{field_name}` | Method: `verify_password` => " +
