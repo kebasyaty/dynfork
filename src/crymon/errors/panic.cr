@@ -1,8 +1,8 @@
 require "./root"
 
-# Global exception types for situations that should not occur.
+# Exception types.
 module Crymon::Errors
-  # A global exception type for situations that should not occur.
+  # A type of global exception that should not be raised in production.
   class Panic < Crymon::Errors::Root::CrymonException
     def initialize(message : String)
       super
