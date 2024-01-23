@@ -22,10 +22,7 @@ module Crymon::Paladins::Caching
     ]
     {% for param in @type.annotation(Crymon::Meta).named_args %}
       unless meta_parans.includes?({{ param.stringify }})
-        msg = "Model: `#{model_name}` > " +
-              "Meta parameter: `{{ param.stringify }}` => " +
-              "Invalid model parameter name."
-        raise Crymon::Errors::InvalidParamName.new(model_name, {{ param.stringify }})
+        raise Crymon::Errors::Meta::InvalidParamName.new(model_name, {{ param.stringify }})
       end
     {% end %}
     # Check the model for the presence of variables (fields).
