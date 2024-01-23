@@ -23,11 +23,11 @@ module Crymon::Paladins::Caching
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(Crymon::Meta)[:service_name] }} ||
-      raise Crymon::Errors::Meta::MetaParameterMissing.new(model_name, "service_name")
-    raise Crymon::Errors::Meta::MetaParamExcessChars
+      raise Crymon::Errors::Meta::ParameterMissing.new(model_name, "service_name")
+    raise Crymon::Errors::Meta::ParamExcessChars
       .new(model_name, "service_name", 25) if service_name.size > 25
     unless Crymon::Globals.cache_regex[:service_name].matches?(service_name)
-      raise Crymon::Errors::Meta::MetaParamRegexFails
+      raise Crymon::Errors::Meta::ParamRegexFails
         .new(model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get collection name.

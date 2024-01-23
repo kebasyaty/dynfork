@@ -89,11 +89,11 @@ module Crymon::Globals::Types
     # WARNING: Maximum 44 characters.
     # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
     def self.valid_app_name(app_name : String)
-      raise Crymon::Errors::Cache::CacheSettingsExcessChars.new(
+      raise Crymon::Errors::Cache::SettingsExcessChars.new(
         "cache_app_name", 44
       ) if app_name.size > 44
       unless Crymon::Globals.cache_regex[:app_name].matches?(app_name)
-        raise Crymon::Errors::Cache::CacheSettingsRegexFails.new(
+        raise Crymon::Errors::Cache::SettingsRegexFails.new(
           "cache_app_name",
           "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/"
         )
@@ -103,11 +103,11 @@ module Crymon::Globals::Types
     # Unique project key.
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
     def self.valid_unique_app_key(unique_app_key : String)
-      raise Crymon::Errors::Cache::CacheSettingsExcessChars.new(
+      raise Crymon::Errors::Cache::SettingsExcessChars.new(
         "cache_unique_app_key", 16
       ) if unique_app_key.size > 16
       unless Crymon::Globals.cache_regex[:unique_app_key].matches?(unique_app_key)
-        raise Crymon::Errors::Cache::CacheSettingsRegexFails.new(
+        raise Crymon::Errors::Cache::SettingsRegexFails.new(
           "cache_unique_app_key",
           "/^[a-zA-Z0-9]{16}$/"
         )
@@ -117,7 +117,7 @@ module Crymon::Globals::Types
     # Database name.
     # WARNING: Maximum 60 characters.
     def self.valid_database_name(database_name : String)
-      raise Crymon::Errors::Cache::CacheSettingsExcessChars.new(
+      raise Crymon::Errors::Cache::SettingsExcessChars.new(
         "cache_database_name", 60
       ) if database_name.size > 60
     end

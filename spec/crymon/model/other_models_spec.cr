@@ -100,7 +100,7 @@ describe Crymon::Model do
 
     describe "#caching" do
       it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
-        ex = expect_raises(Crymon::Errors::Meta::MetaParameterMissing) do
+        ex = expect_raises(Crymon::Errors::Meta::ParameterMissing) do
           Helper::NoParamServiceNameModel.new
         end
         ex.message.should eq(
