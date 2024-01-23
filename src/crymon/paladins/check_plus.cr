@@ -64,8 +64,9 @@ module Crymon::Paladins::CheckPlus
       field_ptr.value.errors << err_msg
       (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
     else
-      raise "Panic (hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
+      msg = "(hidden field) - Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `#{field_ptr.value.name}` => #{err_msg}"
+      raise Crymon::Errors::Panic.new msg
     end
   end
 end
