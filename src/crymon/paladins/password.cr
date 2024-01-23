@@ -14,7 +14,7 @@ module Crymon::Paladins::Password
       end
       msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `#{field_name}` | Method: `verify_password` => " +
-            "There is no document in the database with hash `#{@hash.value}`."
+            "There is no document with ID `#{@hash.value}` in the database."
       raise Crymon::Errors::Panic.new msg
     end
     msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
