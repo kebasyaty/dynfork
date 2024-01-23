@@ -1,5 +1,5 @@
 module Crymon::Paladins::Password
-  # Password verification.
+  # For password verification.
   def verify_password(
     password : String,
     field_name : String = "password"
