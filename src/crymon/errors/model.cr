@@ -18,15 +18,27 @@ module Crymon::Errors::Model
 
   # The Model name fails regular expression validation.
   class ModelNameRegexFails < Crymon::Errors::CrymonException
-    def initialize(model_name : String, regex_str : String)
-      super("Model: `#{model_name}` => The model name fails the regular expression test #{regex_str}")
+    def initialize(
+      model_name : String,
+      regex_str : String
+    )
+      super(
+        "Model: `#{model_name}` => " +
+        "The model name fails the regular expression test #{regex_str}"
+      )
     end
   end
 
   # Invalid group number.
   class InvalidGroupNumber < Crymon::Errors::CrymonException
-    def initialize(model_name : String, field_name : String)
-      super("Model: `#{model_name}` > Field: `#{field_name}` > Attribute: `group` => Invalid group number.")
+    def initialize(
+      model_name : String,
+      field_name : String
+    )
+      super(
+        "Model: `#{model_name}` > Field: `#{field_name}` > Attribute: `group` => " +
+        "Invalid group number."
+      )
     end
   end
 end

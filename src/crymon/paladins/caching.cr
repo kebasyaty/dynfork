@@ -2,12 +2,6 @@
 module Crymon::Paladins::Caching
   # Add metadata to the global store.
   def caching
-    # Check the model for the presence of variables (fields).
-    {% if @type.instance_vars.size < 4 %}
-        # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::Model::FieldsMissing
-          .new({{ @type.name.stringify }}.split("::").last)
-    {% end %}
     # Get Model name = Structure name.
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
@@ -18,6 +12,25 @@ module Crymon::Paladins::Caching
       raise Crymon::Errors::Model::ModelNameRegexFails
         .new(model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
+    # Checking valid names for Model parameters.
+    meta_parans = [
+      "service_name",
+      "db_query_docs_limit",
+      "is_saving_docs",
+      "is_updating_docs",
+      "is_deleting_docs",
+    ]
+    {% for param in @type.annotation(Crymon::Meta).named_args %}
+      unless meta_parans.includes?({{ param.stringify }})
+        raise Crymon::Errors::Meta::InvalidParamName.new(model_name, {{ param.stringify }})
+      end
+    {% end %}
+    # Check the model for the presence of variables (fields).
+    {% if @type.instance_vars.size < 4 %}
+        # If there are no fields in the model, a FieldsMissing exception is raise.
+        raise Crymon::Errors::Model::FieldsMissing
+          .new({{ @type.name.stringify }}.split("::").last)
+    {% end %}
     # Get Service name = Module name.
     # <br>
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
