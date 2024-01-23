@@ -3,7 +3,7 @@ require "../../spec_helper"
 describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model", tags: "model" do
-      ex = expect_raises(Crymon::Errors::Model::ModelFieldsMissing) do
+      ex = expect_raises(Crymon::Errors::Model::FieldsMissing) do
         Helper::EmptyModel.new
       end
       ex.message.should eq("Model `EmptyModel` has no fields.")

@@ -3,7 +3,7 @@ require "./root"
 # Errors associated with the Model.
 module Crymon::Errors::Model
   # The Model has no fields.
-  class ModelFieldsMissing < Crymon::Errors::Root::CrymonException
+  class FieldsMissing < Crymon::Errors::Root::CrymonException
     def initialize(model_name : String)
       super("Model `#{model_name}` has no fields.")
     end

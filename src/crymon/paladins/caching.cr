@@ -5,7 +5,7 @@ module Crymon::Paladins::Caching
     # Check the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
-        raise Crymon::Errors::Model::ModelFieldsMissing
+        raise Crymon::Errors::Model::FieldsMissing
           .new({{ @type.name.stringify }}.split("::").last)
     {% end %}
     # Get Model name = Structure name.
