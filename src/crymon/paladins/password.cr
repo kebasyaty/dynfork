@@ -1,5 +1,5 @@
 module Crymon::Paladins::Password
-  # Password verification.
+  # For password verification.
   def verify_password(
     password : String,
     field_name : String = "password"
@@ -9,13 +9,18 @@ module Crymon::Paladins::Password
       collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
         @@meta.not_nil![:collection_name]]
       # Get password hash.
-      password_hash : String = Crypto::Bcrypt::Password.create(password).to_s
-      #
-      return !collection.find_one({"_id" => doc_id, field_name => password_hash}).nil?
+      if doc = collection.find_one({"_id" => doc_id})
+        return Crypto::Bcrypt::Password.new(doc[field_name]).verify
+      end
+      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
+            "Field: `#{field_name}` | Method: `verify_password` => " +
+            "There is no document with ID `#{@hash.value}` in the database."
+      raise Crymon::Errors::Panic.new msg
     end
-    raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+    msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
           "Field: `#{field_name}` | Method: `verify_password` => " +
           "Cannot get document ID - Hash field is empty."
+    raise Crymon::Errors::Panic.new msg
   end
 
   # For replace or recover password.
