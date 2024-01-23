@@ -13,9 +13,10 @@ module Crymon::Paladins::Password
       #
       return !collection.find_one({"_id" => doc_id, field_name => password_hash}).nil?
     end
-    raise "Panic - Model: `#{@@meta.not_nil![:model_name]}` > " +
+    msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
           "Field: `#{field_name}` | Method: `verify_password` => " +
           "Cannot get document ID - Hash field is empty."
+    raise Crymon::Errors::Panic.new msg
   end
 
   # For replace or recover password.
