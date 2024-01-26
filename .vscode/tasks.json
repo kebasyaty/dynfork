@@ -18,6 +18,7 @@
         "crystal spec --tag i18n;",
         "crystal spec --tag pluto;",
         "crystal spec --tag validator;",
+        "crystal spec --tag webslug;",
         "crystal spec --tag fields;",
         "crystal spec --tag field_json;",
         "crystal spec --tag model;",

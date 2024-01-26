@@ -4,3 +4,4 @@
 - [crystal-i18n](https://github.com/crystal-i18n/i18n "crystal-i18n")
 - [crystal-validator](https://github.com/Nicolab/crystal-validator "crystal-validator")
 - [pluto](https://github.com/phenopolis/pluto "pluto")
+- [webslug](https://github.com/crab-cr/webslug "webslug")
