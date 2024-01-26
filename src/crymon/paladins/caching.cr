@@ -15,6 +15,7 @@ module Crymon::Paladins::Caching
     # Checking valid names for Model parameters.
     meta_parans = [
       "service_name",
+      "fixture_name",
       "db_query_docs_limit",
       "is_saving_docs",
       "is_updating_docs",

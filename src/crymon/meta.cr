@@ -15,6 +15,11 @@ module Crymon
   #     <td align="left">**Examples:** Accounts | Smartphones | Washing machines | etc ... </td>
   #   </tr>
   #   <tr>
+  #     <td align="left">fixture_name</td>
+  #     <td align="left">no</td>
+  #     <td align="left">**Examples:** SiteSettings | AppSettings | etc ... </td>
+  #   </tr>
+  #   <tr>
   #     <td align="left">db_query_docs_limit</td>
   #     <td align="left">1000</td>
   #     <td align="left">limiting query results.</td>
