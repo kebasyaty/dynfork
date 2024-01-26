@@ -22,3 +22,5 @@ dependencies:
     github: nicolab/crystal-validator
   pluto:
     github: phenopolis/pluto
+  webslug:
+    github: iomcr/webslug

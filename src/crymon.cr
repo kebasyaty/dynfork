@@ -15,6 +15,7 @@ require "pluto"
 require "pluto/format/jpeg"
 require "pluto/format/png"
 require "pluto/format/webp"
+require "webslug"
 # Standard:
 require "crypto/bcrypt/password"
 
