@@ -93,10 +93,14 @@ module Crymon::Paladins::Caching
               raise Crymon::Errors::Fields::SlugSourceInvalid
                 .new(model_name, {{ var.name.stringify }}, source_name)
             end
-            unless field_type_list.includes?(@{{ var }}.field_type)
-              raise Crymon::Errors::Fields::SlugSourceTypeInvalid
-                .new(model_name, {{ var.name.stringify }}, source_name)
-            end
+            {% for var2 in @type.instance_vars %}
+              if {{ var2.name.stringify }} == source_name
+                unless field_type_list.includes?(@{{ var2 }}.field_type)
+                  raise Crymon::Errors::Fields::SlugSourceTypeInvalid
+                    .new(model_name, {{ var.name.stringify }}, source_name)
+                end
+              end
+            {% end %}
           end
           # Check the presence of a hash field.
           (is_use_hash = true) if @{{ var }}.slug_sources.includes?("hash")
