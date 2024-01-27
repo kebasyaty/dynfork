@@ -2,7 +2,11 @@ require "./field"
 
 module Crymon::Fields
   # Automatically creates a label from letters, numbers, and hyphens.
+  # <br>
   # Convenient to use for Url addresses.
+  # <br>
+  # WARNING: Allowed field types: _HashField_, _TextField_, _EmailField_,
+  # _DateField_, _DateTimeField_, _I64Field_, _F64Field_.
   struct SlugField < Crymon::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "SlugField"

@@ -13,5 +13,7 @@ describe "WebSlug" do
     Iom::WebSlug.slug("demo@example.org").should eq "demo-example-org"
     Iom::WebSlug.slug("12.3").should eq "12-3"
     Iom::WebSlug.slug("123").should eq "123"
+    Iom::WebSlug.slug("24.12.2023T08:54").should eq "24-12-2023t08-54"
+    Iom::WebSlug.slug("2023/11/02").should eq "2023-11-02"
   end
 end
