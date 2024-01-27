@@ -10,7 +10,7 @@ a simplified alternative (Types of selective fields with dynamic addition of ele
 <br>
 The project is focused on web development.
 
-[![Specs](https://github.com/kebasyaty/crymon/workflows/Specs/badge.svg)](https://github.com/kebasyaty/crymon/actions)
+[![CI](https://github.com/kebasyaty/crymon/workflows/CI/badge.svg)](https://github.com/kebasyaty/crymon/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/crymon/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
 [![Github all releases](https://img.shields.io/github/downloads/kebasyaty/crymon/total.svg)](https://GitHub.com/kebasyaty/crymon/releases/)
