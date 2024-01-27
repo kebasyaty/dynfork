@@ -69,4 +69,21 @@ describe "Crystal Validator" do
     Valid.color?("0x00ffff").should be_true
     Valid.color?("0x00FFFF").should be_true
   end
+
+  it "=> testing json", tags: "validator" do
+    # Negative:
+    Valid.json?("{x:5,'y':6}").should be_false
+    # Positive:
+    Valid.json?("{\"x\":[10,null,null,null]}").should be_true
+  end
+
+  it "=> testing mongo_id", tags: "validator" do
+    # Negative:
+    Valid.mongo_id?("507f191e810c19729de860e").should be_false
+    Valid.mongo_id?("507f191e810c19729de860ea1").should be_false
+    Valid.mongo_id?("507f191e810c19729de860eg").should be_false
+    Valid.mongo_id?("507f191e810c19729de860e?").should be_false
+    # Positive:
+    Valid.mongo_id?("507f191e810c19729de860ea").should be_true
+  end
 end
