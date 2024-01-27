@@ -16,6 +16,21 @@ module Crymon::Errors::Fields
     end
   end
 
+  # Invalid field type for slug source.
+  class SlugSourceTypeInvalid < Crymon::Errors::CrymonException
+    def initialize(
+      model_name : String,
+      slug_field : String,
+      source_field : String
+    )
+      super(
+        "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
+        "Source Field: `#{source_field}` => " +
+        "Invalid field type for slug source."
+      )
+    end
+  end
+
   # Invalid input type.
   class InvalidInputType < Crymon::Errors::CrymonException
     def initialize(input_type : String)

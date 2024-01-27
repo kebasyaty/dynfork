@@ -132,6 +132,11 @@
       
     </li>
   
+  <li class=" " data-id="crymon/Crymon/Errors/Fields/SlugSourceTypeInvalid" data-name="crymon::errors::fields::slugsourcetypeinvalid">
+      <a href="../../Crymon/Errors/Fields/SlugSourceTypeInvalid.html">SlugSourceTypeInvalid</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -566,7 +571,11 @@
   </h2>
 
   <p>Automatically creates a label from letters, numbers, and hyphens.
-Convenient to use for Url addresses.</p>
+<br>
+Convenient to use for Url addresses.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  Allowed field types: <em>HashField</em>, <em>TextField</em>, <em>EmailField</em>,
+<em>DateField</em>, <em>DateTimeField</em>, <em>I64Field</em>, <em>F64Field</em>.</p>
 
 
 
@@ -618,7 +627,7 @@ Convenient to use for Url addresses.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dtrue%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dtrue%2Cis_ignored%3ABool%3Dfalse%2Cslug_sources%3AArray%28String%29%3D%5B%22hash%22%5D%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">true</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">true</span>, is_ignored : Bool = <span class="n">false</span>, slug_sources : Array(String) = [<span class="s">&quot;hash&quot;</span>], other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cis_hide%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dtrue%2Cis_ignored%3ABool%3Dfalse%2Cslug_sources%3AArray%28String%29%3D%5B%22hash%22%5D%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">true</span>, is_ignored : Bool = <span class="n">false</span>, slug_sources : Array(String) = [<span class="s">&quot;hash&quot;</span>], other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -658,13 +667,6 @@ Convenient to use for Url addresses.</p>
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#get_slug_sources%3AArray%28String%29-instance-method" class="signature"><strong>#get_slug_sources</strong> : Array(String)</a>
-        
-          <div class="summary"><p>To work around the error - undefined method 'slug_sources='.</p></div>
         
       </li>
     
@@ -741,7 +743,7 @@ Convenient to use for Url addresses.</p>
       <li class="entry-summary">
         <a href="#slug_sources%3AArray%28String%29-instance-method" class="signature"><strong>#slug_sources</strong> : Array(String)</a>
         
-          <div class="summary"><p>Names of the fields whose contents will be used for the slug.</p></div>
+          <div class="summary"><p>Getter for 'slug_sources'.</p></div>
         
       </li>
     
@@ -793,11 +795,6 @@ Convenient to use for Url addresses.</p>
     <a href="../../Crymon/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
       <span>field_type : String</span>
     field_type</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#get_slug_sources%3AArray%28String%29-instance-method" class="tooltip">
-      <span>get_slug_sources : Array(String)</span>
-    get_slug_sources</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
@@ -883,6 +880,11 @@ Convenient to use for Url addresses.</p>
     <a href="../../Crymon/Fields/Field.html#other_attrs%3AString-instance-method" class="tooltip">
       <span>other_attrs : String</span>
     other_attrs</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
+      <span>slug_sources : Array(String)</span>
+    slug_sources</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
@@ -1004,7 +1006,11 @@ Convenient to use for Url addresses.</p>
         <div class="doc">
           
           <p>Automatically creates a label from letters, numbers, and hyphens.
-Convenient to use for Url addresses.</p>
+<br>
+Convenient to use for Url addresses.
+<br></p>
+<p><span class="flag yellow">WARNING</span>  Allowed field types: <em>HashField</em>, <em>TextField</em>, <em>EmailField</em>,
+<em>DateField</em>, <em>DateTimeField</em>, <em>I64Field</em>, <em>F64Field</em>.</p>
         </div>
       
       <br/>
@@ -1013,12 +1019,12 @@ Convenient to use for Url addresses.</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,placeholder:String=&quot;&quot;,is_hide:Bool=false,is_unique:Bool=true,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=true,is_ignored:Bool=false,slug_sources:Array(String)=[&quot;hash&quot;],other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,placeholder:String=&quot;&quot;,is_hide:Bool=false,is_disabled:Bool=false,is_readonly:Bool=true,is_ignored:Bool=false,slug_sources:Array(String)=[&quot;hash&quot;],other_attrs:String=&quot;&quot;,css_classes:String=&quot;&quot;,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">true</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">true</span>, is_ignored : Bool = <span class="n">false</span>, slug_sources : Array(String) = [<span class="s">&quot;hash&quot;</span>], other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, is_hide : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">true</span>, is_ignored : Bool = <span class="n">false</span>, slug_sources : Array(String) = [<span class="s">&quot;hash&quot;</span>], other_attrs : String = <span class="s">&quot;&quot;</span>, css_classes : String = <span class="s">&quot;&quot;</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dtrue%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dtrue%2Cis_ignored%3ABool%3Dfalse%2Cslug_sources%3AArray%28String%29%3D%5B%22hash%22%5D%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cplaceholder%3AString%3D%22%22%2Cis_hide%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dtrue%2Cis_ignored%3ABool%3Dfalse%2Cslug_sources%3AArray%28String%29%3D%5B%22hash%22%5D%2Cother_attrs%3AString%3D%22%22%2Ccss_classes%3AString%3D%22%22%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1092,25 +1098,6 @@ Convenient to use for Url addresses.</p>
         <div class="doc">
           
           <p>Field type - Structure Name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="get_slug_sources:Array(String)-instance-method">
-      <div class="signature">
-        
-        def <strong>get_slug_sources</strong> : Array(String)
-
-        <a class="method-permalink" href="#get_slug_sources%3AArray%28String%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To work around the error - undefined method 'slug_sources='.</p>
         </div>
       
       <br/>
@@ -1320,11 +1307,7 @@ Convenient to use for Url addresses.</p>
       
         <div class="doc">
           
-          <p>Names of the fields whose contents will be used for the slug.
-<br>
-The default is [&quot;hash&quot;].
-<br>
-<em>Examples: [&quot;title&quot;] | [&quot;hash&quot;, &quot;username&quot;] | [&quot;email&quot;, &quot;first_name&quot;, &quot;last_name&quot;]</em></p>
+          <p>Getter for 'slug_sources'.</p>
         </div>
       
       <br/>
