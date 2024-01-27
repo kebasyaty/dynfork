@@ -10,5 +10,6 @@ describe "WebSlug" do
     Iom::WebSlug.slug("unicode ♥ is ☢").should eq "unicode-love-is-radioactive"
     Iom::WebSlug.slug("http://www.example.com").should eq "www-example-com"
     Iom::WebSlug.slug("Schlotsky's").should eq "schlotskys"
+    Iom::WebSlug.slug("demo@example.org").should eq "demo-example-org"
   end
 end
