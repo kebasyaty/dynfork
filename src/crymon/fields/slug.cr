@@ -19,7 +19,7 @@ module Crymon::Fields
     # The default is ["hash"].
     # <br>
     # _Examples: ["title"] | ["hash", "username"] | ["email", "first_name", "last_name"]_
-    getter slug_sources : Array(String)
+    @slug_sources : Array(String)
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 2
@@ -46,7 +46,6 @@ module Crymon::Fields
       @placeholder : String = "",
       @is_hide : Bool = false,
       @is_unique : Bool = true,
-      @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = true,
       @is_ignored : Bool = false,
@@ -57,8 +56,8 @@ module Crymon::Fields
       @warning : String = ""
     ); end
 
-    # To work around the error - undefined method 'slug_sources='.
-    def get_slug_sources : Array(String)
+    # Getter for 'slug_sources'.
+    def slug_sources : Array(String)
       @slug_sources
     end
   end
