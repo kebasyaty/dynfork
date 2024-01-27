@@ -11,5 +11,7 @@ describe "WebSlug" do
     Iom::WebSlug.slug("http://www.example.com").should eq "www-example-com"
     Iom::WebSlug.slug("Schlotsky's").should eq "schlotskys"
     Iom::WebSlug.slug("demo@example.org").should eq "demo-example-org"
+    Iom::WebSlug.slug("12.3").should eq "12-3"
+    Iom::WebSlug.slug("123").should eq "123"
   end
 end
