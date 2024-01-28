@@ -66,7 +66,8 @@ module Crymon
     include Crymon::Tools::Date
     include Crymon::Paladins
 
-    getter hash = Crymon::Fields::HashField.new("is_ignored": true)
+    getter hash = Crymon::Fields::HashField
+      .new("is_hide": true, "is_unique": true, "is_ignored": true)
     getter created_at = Crymon::Fields::DateTimeField
       .new("label": "Created at", "is_hide": true)
     getter updated_at = Crymon::Fields::DateTimeField
