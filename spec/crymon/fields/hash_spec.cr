@@ -16,7 +16,7 @@ describe Crymon::Fields::HashField do
       f.is_readonly?.should be_false
       f.is_hide?.should be_false
       f.is_required?.should be_false
-      f.is_unique?.should be_true
+      f.is_unique?.should be_false
       f.is_ignored?.should be_false
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
