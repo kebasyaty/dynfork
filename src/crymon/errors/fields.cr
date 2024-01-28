@@ -82,9 +82,7 @@ module Crymon::Errors::Fields
       field_name : String,
       msg_err : String
     )
-      super(
-        "Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}"
-      )
+      super("Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}")
     end
   end
 
