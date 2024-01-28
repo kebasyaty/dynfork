@@ -75,6 +75,7 @@ module Crymon::Paladins::Caching
     # Does a field of type SlugField use a hash field as its source?
     is_use_hash_slug : Bool = (
       is_use_hash : Bool = false
+      one_unique_field : Bool = false
       field_name_list : Array(String) = field_name_and_type_list.keys << "hash"
       field_type_list : Array(String) = [
         "HashField",
@@ -87,23 +88,36 @@ module Crymon::Paladins::Caching
       ]
       {% for var in @type.instance_vars %}
         if @{{ var }}.field_type == "SlugField"
-          # Throw an exception if a non-existent field is specified.
           @{{ var }}.slug_sources.each do |source_name|
+            # Raise an exception if a non-existent field is specified.
             unless field_name_list.includes?(source_name)
-              raise Crymon::Errors::Fields::SlugSourceInvalid
+              raise Crymon::Errors::Fields::SlugSourceNameInvalid
                 .new(model_name, {{ var.name.stringify }}, source_name)
             end
             {% for var2 in @type.instance_vars %}
               if {{ var2.name.stringify }} == source_name
+                # Raise an exception if source field is not allowed type.
                 unless field_type_list.includes?(@{{ var2 }}.field_type)
                   raise Crymon::Errors::Fields::SlugSourceTypeInvalid
                     .new(model_name, {{ var.name.stringify }}, source_name)
                 end
+                # Raise an exception if sources are not required fields.
+                if source_name != "hash" && !@{{ var2 }}.is_required?
+                  raise Crymon::Errors::Fields::SlugSourceNotRequired
+                    .new(model_name, {{ var.name.stringify }}, source_name)
+                end
+                # Is there a unique field?
+                (one_unique_field = true) if @{{ var2 }}.is_unique?
               end
             {% end %}
           end
+          # Raise  an exception if unique fields are missing.
+          unless one_unique_field
+            raise Crymon::Errors::Fields::SlugSourceNotUnique
+              .new(model_name, {{ var.name.stringify }})
+          end
           # Check the presence of a hash field.
-          (is_use_hash = true) if @{{ var }}.slug_sources.includes?("hash")
+          is_use_hash = @{{ var }}.slug_sources.includes?("hash")
         end
       {% end %}
       is_use_hash

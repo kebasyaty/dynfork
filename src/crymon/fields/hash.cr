@@ -40,19 +40,19 @@ module Crymon::Fields
     getter choices : Nil
 
     def initialize(
-      @label : String = "Hash ID",
-      @placeholder : String = "Enter the Document ID for MongoDB",
+      @label : String = "Document ID",
+      @placeholder : String = "Enter document ID",
       @maxlength : Int32? = 24,
       @minlength : Int32? = 24,
-      @is_hide : Bool = true,
-      @is_unique : Bool = true,
+      @is_hide : Bool = false,
+      @is_unique : Bool = false,
       @is_required : Bool = false,
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "For enter a document ID"
+      @hint : String = "For enter a document ID."
     ); end
 
     # Get ObjectId from value.

@@ -69,4 +69,9 @@ module Crymon::Paladins::CheckPlus
       raise Crymon::Errors::Panic.new msg
     end
   end
+
+  # For fill in all fields of the slug type.
+  def create_slugs
+    # ...
+  end
 end

@@ -65,7 +65,7 @@ module Crymon::Fields
       @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "images",
-      @accept : String = "",
+      @accept : String = "image/png, image/jpeg, image/webp",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
       @is_quality : Bool = true,
       @is_hide : Bool = false,
@@ -75,7 +75,7 @@ module Crymon::Fields
       @is_ignored : Bool = false,
       @other_attrs : String = "",
       @css_classes : String = "",
-      @hint : String = "",
+      @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
       @warning : String = ""
     ); end
   end

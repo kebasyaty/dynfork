@@ -68,14 +68,8 @@ module Crymon::Paladins::Check
             collection_ptr
           )
         when 2
-          # Validation of `slug` type fields:
-          # <br>
-          # "SlugField"
-          self.group_02(
-            pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
-          )
+          # Ignore validation of `slug` type fields.
+          # These fields are checked in the `caching` and `create_slugs` methods.
         when 3
           # Validation of `date` type fields:
           # <br>

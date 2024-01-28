@@ -38,7 +38,7 @@ describe Crymon::Fields::ImageField do
       f.media_root.should eq("assets/media")
       f.media_url.should eq("/media")
       f.target_dir.should eq("images")
-      f.accept.should eq("")
+      f.accept.should eq("image/png, image/jpeg, image/webp")
       f.thumbnails.should eq(Array({String, UInt32}).new)
       f.is_quality?.should be_true
       f.is_disabled?.should be_false
@@ -49,7 +49,7 @@ describe Crymon::Fields::ImageField do
       f.is_ignored?.should be_false
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
-      f.hint.should eq("")
+      f.hint.should eq("Only jpg/jpeg, png and webp files are allowed.")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(9_u8)

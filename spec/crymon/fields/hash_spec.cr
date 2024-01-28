@@ -5,24 +5,24 @@ describe Crymon::Fields::HashField do
     it "=> create instance of Hash field", tags: "fields" do
       f = Crymon::Fields::HashField.new
       f.id.should eq("")
-      f.label.should eq("Hash ID")
+      f.label.should eq("Document ID")
       f.field_type.should eq("HashField")
       f.input_type.should eq("text")
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_nil
-      f.placeholder.should eq("Enter the Document ID for MongoDB")
+      f.placeholder.should eq("Enter document ID")
       f.is_disabled?.should be_false
       f.is_readonly?.should be_false
-      f.is_hide?.should be_true
+      f.is_hide?.should be_false
       f.is_required?.should be_false
-      f.is_unique?.should be_true
+      f.is_unique?.should be_false
       f.is_ignored?.should be_false
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
       f.other_attrs.should eq("")
       f.css_classes.should eq("")
-      f.hint.should eq("For enter a document ID")
+      f.hint.should eq("For enter a document ID.")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.alerts.should eq(Array(String).new)
