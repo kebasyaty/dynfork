@@ -87,13 +87,14 @@ module Crymon::Paladins::Caching
       ]
       {% for var in @type.instance_vars %}
         if @{{ var }}.field_type == "SlugField"
-          # Throw an exception if a non-existent field is specified.
           @{{ var }}.slug_sources.each do |source_name|
+            # Raise an exception if a non-existent field is specified.
             unless field_name_list.includes?(source_name)
               raise Crymon::Errors::Fields::SlugSourceInvalid
                 .new(model_name, {{ var.name.stringify }}, source_name)
             end
             {% for var2 in @type.instance_vars %}
+              # Raise an exception if source field is not allowed type.
               if {{ var2.name.stringify }} == source_name
                 unless field_type_list.includes?(@{{ var2 }}.field_type)
                   raise Crymon::Errors::Fields::SlugSourceTypeInvalid
