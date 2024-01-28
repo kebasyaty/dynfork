@@ -102,12 +102,12 @@ module Crymon::Paladins::Caching
                     .new(model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Raise an exception if sources are not required fields.
-                if source_name != "hash" && !@{{ var2 }}.is_required
+                if source_name != "hash" && !@{{ var2 }}.is_required?
                   raise Crymon::Errors::Fields::SlugSourceNotRequired
                     .new(model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Is there a unique field?
-                (one_unique_field = true) if @{{ var2 }}.is_unique
+                (one_unique_field = true) if @{{ var2 }}.is_unique?
               end
             {% end %}
           end
