@@ -37,3 +37,5 @@ eo:
   number_not_less_min:
     interpolation: "La nombro %{curr_num} ne devas esti malpli ol min=%{min_num}."
   old_pass_not_match: "La malnova pasvorto ne kongruas."
+  allowed_files:
+    interpolation: "Nur %{types} dosieroj estas permesitaj."
