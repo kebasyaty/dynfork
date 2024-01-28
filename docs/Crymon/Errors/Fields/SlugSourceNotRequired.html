@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../../js/doc.js"></script>
 
   <meta name="repository-name" content="crymon">
-  <title>Crymon::Errors::Model::FieldsMissing - crymon v0-dev</title>
+  <title>Crymon::Errors::Fields::SlugSourceNotRequired - crymon v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../../";
   </script>
@@ -117,7 +117,7 @@
       
     </li>
   
-  <li class="parent " data-id="crymon/Crymon/Errors/Fields" data-name="crymon::errors::fields">
+  <li class="parent open current" data-id="crymon/Crymon/Errors/Fields" data-name="crymon::errors::fields">
       <a href="../../../Crymon/Errors/Fields.html">Fields</a>
       
         <ul>
@@ -132,7 +132,7 @@
       
     </li>
   
-  <li class=" " data-id="crymon/Crymon/Errors/Fields/SlugSourceNotRequired" data-name="crymon::errors::fields::slugsourcenotrequired">
+  <li class=" current" data-id="crymon/Crymon/Errors/Fields/SlugSourceNotRequired" data-name="crymon::errors::fields::slugsourcenotrequired">
       <a href="../../../Crymon/Errors/Fields/SlugSourceNotRequired.html">SlugSourceNotRequired</a>
       
     </li>
@@ -182,12 +182,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="crymon/Crymon/Errors/Model" data-name="crymon::errors::model">
+  <li class="parent " data-id="crymon/Crymon/Errors/Model" data-name="crymon::errors::model">
       <a href="../../../Crymon/Errors/Model.html">Model</a>
       
         <ul>
   
-  <li class=" current" data-id="crymon/Crymon/Errors/Model/FieldsMissing" data-name="crymon::errors::model::fieldsmissing">
+  <li class=" " data-id="crymon/Crymon/Errors/Model/FieldsMissing" data-name="crymon::errors::model::fieldsmissing">
       <a href="../../../Crymon/Errors/Model/FieldsMissing.html">FieldsMissing</a>
       
     </li>
@@ -561,12 +561,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>Model::<wbr>FieldsMissing
+  <span class="kind">class</span> Crymon::<wbr>Errors::<wbr>Fields::<wbr>SlugSourceNotRequired
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../Crymon/Errors/Model/FieldsMissing.html">Crymon::Errors::Model::FieldsMissing</a></li><li class="superclass"><a href="../../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../Crymon/Errors/Fields/SlugSourceNotRequired.html">Crymon::Errors::Fields::SlugSourceNotRequired</a></li><li class="superclass"><a href="../../../Crymon/Errors/CrymonException.html">Crymon::Errors::CrymonException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -580,7 +580,7 @@
     Overview
   </h2>
 
-  <p>The Model has no fields.</p>
+  <p>For slug sources, all fields except the <code>hash</code> field must be required.</p>
 
 
 
@@ -605,7 +605,7 @@
   </h2>
   
     
-      crymon/errors/model.cr
+      crymon/errors/fields.cr
     
     <br/>
   
@@ -625,7 +625,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28model_name%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String)</a>
+        <a href="#new%28model_name%3AString%2Cslug_field%3AString%2Csource_field%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String, slug_field : String, source_field : String)</a>
         
       </li>
     
@@ -705,12 +705,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(model_name:String)-class-method">
+    <div class="entry-detail" id="new(model_name:String,slug_field:String,source_field:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(model_name : String)
+        def self.<strong>new</strong>(model_name : String, slug_field : String, source_field : String)
 
-        <a class="method-permalink" href="#new%28model_name%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28model_name%3AString%2Cslug_field%3AString%2Csource_field%3AString%29-class-method">#</a>
       </div>
       
       <br/>
