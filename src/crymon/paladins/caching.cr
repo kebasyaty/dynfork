@@ -166,7 +166,7 @@ module Crymon::Paladins::Caching
           # The max date must be greater than the min date.
           if !max_time.nil? && !min_time.nil? && (max_time <=> min_time) != 1
             raise Crymon::Errors::Fields::NotCorrectMinDate
-              .new({model_name}, {{ var.name.stringify }})
+              .new(model_name, {{ var.name.stringify }})
           end
           # Check the default date against the min and max parameters.
           unless default_time.nil?
@@ -174,7 +174,7 @@ module Crymon::Paladins::Caching
             if !max_time.nil? && (default_time <=> max_time) == 1
               raise Crymon::Errors::Fields::NotCorrectDefaultDate
                 .new(
-                  {model_name}, 
+                  model_name, 
                   {{ var.name.stringify }}, 
                   "The default date should not exceed the max date."
                 )
@@ -183,7 +183,7 @@ module Crymon::Paladins::Caching
             if !min_time.nil? && (default_time <=> min_time) == -1
               raise Crymon::Errors::Fields::NotCorrectDefaultDate
                 .new(
-                  {model_name}, 
+                  model_name, 
                   {{ var.name.stringify }}, 
                   "The default date must not be less than the min date."
                 )
