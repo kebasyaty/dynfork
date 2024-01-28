@@ -14,7 +14,7 @@ describe Crymon::Fields::HashField do
       f.placeholder.should eq("Enter document ID")
       f.is_disabled?.should be_false
       f.is_readonly?.should be_false
-      f.is_hide?.should be_true
+      f.is_hide?.should be_false
       f.is_required?.should be_false
       f.is_unique?.should be_true
       f.is_ignored?.should be_false
