@@ -75,6 +75,19 @@ module Crymon::Errors::Fields
     end
   end
 
+  # If the default date does not match the minimum or maximum value.
+  class NotCorrectDefaultDate < Crymon::Errors::CrymonException
+    def initialize(
+      model_name : String,
+      field_name : String,
+      msg_err : String
+    )
+      super(
+        "Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}"
+      )
+    end
+  end
+
   # Invalid input type.
   class InvalidInputType < Crymon::Errors::CrymonException
     def initialize(input_type : String)
