@@ -25,8 +25,10 @@ module Crymon::Errors::Fields
     )
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
-        "Source Field: `#{source_field}` => " +
-        "Invalid field type for slug source."
+        "Param: `slug_sources` > Source Field: `#{source_field}` => " +
+        "Invalid field type for slug source." +
+        "Allowed field types: HashField, TextField, EmailField, " +
+        "DateField, DateTimeField, I64Field, F64Field."
       )
     end
   end
