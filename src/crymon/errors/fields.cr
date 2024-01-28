@@ -62,6 +62,19 @@ module Crymon::Errors::Fields
     end
   end
 
+  # If the max date is not greater than the min date.
+  class NotCorrectMinDate < Crymon::Errors::CrymonException
+    def initialize(
+      model_name : String,
+      field_name : String
+    )
+      super(
+        "Model: `#{model_name}` > Field: `#{field_name}` > " +
+        "The max date must be greater than the min date."
+      )
+    end
+  end
+
   # Invalid input type.
   class InvalidInputType < Crymon::Errors::CrymonException
     def initialize(input_type : String)

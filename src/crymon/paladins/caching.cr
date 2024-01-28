@@ -148,7 +148,7 @@ module Crymon::Paladins::Caching
     )
     # Caching Time objects for date and time fields.
     time_object_list : Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)) = (
-      hash = Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)).new
+      result = Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)).new
       default_time : Time?
       max_time : Time?
       min_time : Time?
@@ -163,11 +163,17 @@ module Crymon::Paladins::Caching
             max_time = !@{{ var }}.max.nil? ? self.datetime_parse(@{{ var }}.max.to_s) : nil
             min_time = !@{{ var }}.min.nil? ? self.datetime_parse(@{{ var }}.min.to_s) : nil
           end
-          hash[{{ var.name.stringify }}] = {default: default_time, max: max_time, min: min_time}
+          # The max date must be greater than the min date.
+          if !max_time.nil? && !min_time.nil? && (max_time <=> min_time != 1)
+            raise Crymon::Errors::Fields::NotCorrectMinDate
+              .new({model_name}, {{ var.name.stringify }})
+          end
+          #
+          result[{{ var.name.stringify }}] = {default: default_time, max: max_time, min: min_time}
           default_time = max_time = min_time = nil
         end
       {% end %}
-      hash
+      result
     )
     #
     # Add metadata to the local store.
