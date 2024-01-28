@@ -90,11 +90,12 @@ describe Crymon::Model do
     end
 
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
-      ex = expect_raises(Crymon::Errors::Fields::SlugSourceInvalid) do
+      ex = expect_raises(Crymon::Errors::Fields::SlugSourceNameInvalid) do
         Helper::SlugSourceInvalidModel.new
       end
       ex.message.should eq(
-        "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => Incorrect source `first_name`."
+        "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
+        "The `first_name` field missing in Model."
       )
     end
 
