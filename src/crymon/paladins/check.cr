@@ -126,45 +126,39 @@ module Crymon::Paladins::Check
             is_updated?
           )
         when 8
-          # Validation of `file` type fields:
-          # <br>
-          # "FileField"
+          # Validation of fields of type FileField.
           self.group_08(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
             is_updated?
           )
         when 9
-          # Validation of `file` type fields:
-          # <br>
-          # "ImageField"
+          # Validation of fields of type ImageField.
           self.group_09(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
             is_updated?
           )
         when 10
-          # Validation of `number` type fields:
-          # <br>
-          # "U32Field" | "I64Field"
+          # Validation of fields of type I64Field.
           self.group_10(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
-            is_updated?
+            is_save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 11
-          # Validation of `number` type fields:
-          # <br>
-          # "F64Field"
+          # Validation of fields of type F64Field.
           self.group_11(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
-            is_updated?
+            is_save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 12
-          # Validation of `boolean` type fields:
-          # <br>
-          # "BoolField"
+          # Validation of fields of type BoolField.
           self.group_12(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
