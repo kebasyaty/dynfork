@@ -167,6 +167,7 @@ module Crymon::Paladins::Check
           # "BoolField"
           self.group_12(
             pointerof(@{{ field }}),
+            is_error_symptom_ptr?,
             is_updated?
           )
         else

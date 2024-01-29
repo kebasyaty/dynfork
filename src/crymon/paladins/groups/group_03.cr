@@ -4,7 +4,7 @@ module Crymon::Paladins::Groups
   # "DatField" | "DateTimeField"
   def group_03(
     field_ptr : Pointer,
-    is_error_symptom_ptr : Pointer(Bool),
+    is_error_symptom_ptr? : Pointer(Bool),
     is_save? : Bool,
     result_bson_ptr : Pointer(BSON),
     collection_ptr : Pointer(Mongo::Collection)

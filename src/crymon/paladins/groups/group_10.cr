@@ -4,8 +4,8 @@ module Crymon::Paladins::Groups
   # "U32Field" | "I64Field"
   def group_10(
     field_ptr : Pointer,
-    is_error_symptom_ptr : Pointer(Bool),
-    is_updated : Bool
+    is_error_symptom_ptr? : Pointer(Bool),
+    is_updated? : Bool
   )
   end
 end
