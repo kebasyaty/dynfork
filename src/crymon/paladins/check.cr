@@ -7,10 +7,9 @@ module Crymon::Paladins::Check
   include Crymon::Paladins::Groups
 
   # Validation of Model data.
-  private def check(
+  def check(
     collection_ptr : Pointer(Mongo::Collection),
-    is_save? : Bool = false,
-    is_slug_update? : Bool = false
+    is_save? : Bool = false
   ) : Crymon::Globals::OutputData
     # Does the document exist in the database?
     is_updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
@@ -84,7 +83,8 @@ module Crymon::Paladins::Check
           self.group_03(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
-            is_updated?
+            is_save?,
+            result_bson_ptr
           )
         when 4
           # Validation of `choice` type fields:

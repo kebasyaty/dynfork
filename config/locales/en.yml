@@ -14,6 +14,8 @@ en:
   invalid_ip: "Invalid IP address."
   invalid_ipv4: "Invalid IPv4 address."
   invalid_ipv6: "Invalid IPv6 address."
+  invalid_date: "Invalid date."
+  invalid_datetime: "Invalid date and time."
   format:
     interpolation: "Format: %{sample}"
   formats:
@@ -39,3 +41,7 @@ en:
   old_pass_not_match: "The old password does not match."
   allowed_files:
     interpolation: "Only %{types} files are allowed."
+  data_not_greater_max:
+    interpolation: "The date %{curr_date} must not be greater than max=%{max_date}."
+  data_not_less_min:
+    interpolation: "The date %{curr_date} must not be less than min=%{min_date}."

@@ -14,6 +14,8 @@ ru:
   invalid_ip: "Неправильный IP-адрес"
   invalid_ipv4: "Неправильный IPv4-адрес."
   invalid_ipv6: "Неправильный IPv6-адрес."
+  invalid_date: "Некорректная дата."
+  invalid_datetime: "Некорректная дата и время."
   format:
     interpolation: "Формат: %{sample}"
   formats:
@@ -39,3 +41,7 @@ ru:
   old_pass_not_match: "Старый пароль не совпадает."
   allowed_files:
     interpolation: "Разрешены только файлы %{types}."
+  data_not_greater_max:
+    interpolation: "Дата %{curr_date} не должна быть больше max=%{max_date}."
+  data_not_less_min:
+    interpolation: "Дата %{curr_date} не должна быть меньше min=%{min_date}."
