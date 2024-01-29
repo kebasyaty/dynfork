@@ -14,6 +14,12 @@ module Crymon::Paladins::Check
   ) : Crymon::Globals::OutputData
     # Does the document exist in the database?
     is_updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
+    # Validation the hash field value.
+    if is_updated? && !BSON::ObjectId.validate(@hash.value.not_nil!)
+      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
+            "Field: `hash` => The hash field value is not valid."
+      raise Crymon::Errors::Panic.new msg
+    end
     # Is there any incorrect data?
     is_error_symptom? : Bool = false
     is_error_symptom_ptr? : Pointer(Bool) = pointerof(is_error_symptom?)
@@ -69,6 +75,7 @@ module Crymon::Paladins::Check
           )
         when 2
           # Ignore validation of `slug` type fields.
+          # <br>
           # These fields are checked in the `caching` and `create_slugs` methods.
         when 3
           # Validation of `date` type fields:

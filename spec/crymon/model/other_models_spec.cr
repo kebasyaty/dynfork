@@ -38,11 +38,11 @@ describe Crymon::Model do
       m.birthday.value = "23.12.2023"
       m.birthday.get_time_object.should eq(Crymon::Tools::Date.date_parse("23.12.2023"))
       m.hash.value.should be_nil
-      m.get_object_id.should be_nil
-      m.hash.get_object_id.should be_nil
+      m.object_id.should be_nil
+      m.hash.object_id.should be_nil
       m.hash.value = "507f191e810c19729de860ea"
-      m.get_object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
-      m.hash.get_object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
+      m.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
+      m.hash.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
       m.created_at.value = "2023-11-02T12:15"
       m.updated_at.value = "24.12.2023T08:54"
       m.updated_at.get_time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
@@ -53,7 +53,7 @@ describe Crymon::Model do
       m.created_at.value.should eq("2023-11-02T12:15")
       m.updated_at.value.should eq("24.12.2023T08:54")
       # Testing metadata.
-      metadata = Helper::FilledModel.meta.not_nil!
+      metadata = Helper::FilledModel.meta
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
@@ -78,14 +78,14 @@ describe Crymon::Model do
 
     it "=> create instance of AuxiliaryModel", tags: "model" do
       m = Helper::AuxiliaryModel.new
-      metadata = Helper::AuxiliaryModel.meta.not_nil!
+      metadata = Helper::AuxiliaryModel.meta
       metadata["service_name"].should eq("ServiceName")
       metadata["is_use_hash_slug"].should be_true
     end
 
     it "=> create instance of AAModel", tags: "model" do
       m = Helper::AAModel.new
-      metadata = Helper::AAModel.meta.not_nil!
+      metadata = Helper::AAModel.meta
       metadata["service_name"].should eq("Accounts")
     end
 

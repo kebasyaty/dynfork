@@ -727,9 +727,16 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#meta%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method" class="signature"><strong>.meta</strong> : Crymon::Globals::CacheMetaDataType | Nil</a>
+        <a href="#meta%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType-class-method" class="signature"><strong>.meta</strong> : Crymon::Globals::CacheMetaDataType</a>
         
-          <div class="summary"><p>Metadata caching.</p></div>
+          <div class="summary"><p>Metadata cache.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#meta%3F%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method" class="signature"><strong>.meta?</strong> : Crymon::Globals::CacheMetaDataType | Nil</a>
+        
+          <div class="summary"><p>Metadata cache.</p></div>
         
       </li>
     
@@ -762,13 +769,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#get_object_id%3ABSON%3A%3AObjectId%7CNil-instance-method" class="signature"><strong>#get_object_id</strong> : BSON::ObjectId | Nil</a>
-        
-          <div class="summary"><p>Get ObjectId from hash field.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#hash%3ACrymon%3A%3AFields%3A%3AHashField-instance-method" class="signature"><strong>#hash</strong> : Crymon::Fields::HashField</a>
         
           <div class="summary"><p>Generates an <code>UInt64</code> hash value for this object.</p></div>
@@ -786,6 +786,13 @@
         <a href="#model_name%3AString-instance-method" class="signature"><strong>#model_name</strong> : String</a>
         
           <div class="summary"><p>Get Model name = Structure name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#object_id%3ABSON%3A%3AObjectId%7CNil-instance-method" class="signature"><strong>#object_id</strong> : BSON::ObjectId | Nil</a>
+        
+          <div class="summary"><p>Get ObjectId from hash field.</p></div>
         
       </li>
     
@@ -1194,17 +1201,36 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="meta:Crymon::Globals::CacheMetaDataType|Nil-class-method">
+    <div class="entry-detail" id="meta:Crymon::Globals::CacheMetaDataType-class-method">
       <div class="signature">
         
-        def self.<strong>meta</strong> : <a href="../Crymon/Globals/CacheMetaDataType.html">Crymon::Globals::CacheMetaDataType</a> | Nil
+        def self.<strong>meta</strong> : <a href="../Crymon/Globals/CacheMetaDataType.html">Crymon::Globals::CacheMetaDataType</a>
 
-        <a class="method-permalink" href="#meta%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method">#</a>
+        <a class="method-permalink" href="#meta%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Metadata caching.</p>
+          <p>Metadata cache.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="meta?:Crymon::Globals::CacheMetaDataType|Nil-class-method">
+      <div class="signature">
+        
+        def self.<strong>meta?</strong> : <a href="../Crymon/Globals/CacheMetaDataType.html">Crymon::Globals::CacheMetaDataType</a> | Nil
+
+        <a class="method-permalink" href="#meta%3F%3ACrymon%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Metadata cache.</p>
         </div>
       
       <br/>
@@ -1253,25 +1279,6 @@
 
         <a class="method-permalink" href="#created_at%3ACrymon%3A%3AFields%3A%3ADateTimeField-instance-method">#</a>
       </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="get_object_id:BSON::ObjectId|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>get_object_id</strong> : BSON::ObjectId | Nil
-
-        <a class="method-permalink" href="#get_object_id%3ABSON%3A%3AObjectId%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Get ObjectId from hash field.</p>
-        </div>
       
       <br/>
       <div>
@@ -1340,6 +1347,25 @@ though usually the macro <code>def_hash</code> can be used to generate this meth
 <br>
 <strong>Examples:</strong> <em>User | UserProfile | ElectricCar | etc ...</em></p>
 <p><span class="flag yellow">WARNING</span>  Maximum 25 characters.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="object_id:BSON::ObjectId|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>object_id</strong> : BSON::ObjectId | Nil
+
+        <a class="method-permalink" href="#object_id%3ABSON%3A%3AObjectId%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get ObjectId from hash field.</p>
         </div>
       
       <br/>

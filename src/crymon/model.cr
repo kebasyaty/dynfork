@@ -72,8 +72,8 @@ module Crymon
       .new("label": "Created at", "is_hide": true)
     getter updated_at = Crymon::Fields::DateTimeField
       .new("label": "Updated at", "is_hide": true)
-    # Metadata caching.
-    class_getter meta : Crymon::Globals::CacheMetaDataType?
+    # Metadata cache.
+    class_getter! meta : Crymon::Globals::CacheMetaDataType
 
     def initialize
       self.caching if @@meta.nil?
@@ -106,7 +106,7 @@ module Crymon
     end
 
     # Get ObjectId from hash field.
-    def get_object_id : BSON::ObjectId?
+    def object_id : BSON::ObjectId?
       BSON::ObjectId.new(@hash.value.not_nil!) unless @hash.value.nil?
     end
 
