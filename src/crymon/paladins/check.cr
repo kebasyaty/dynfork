@@ -84,7 +84,8 @@ module Crymon::Paladins::Check
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
             is_save?,
-            result_bson_ptr
+            result_bson_ptr,
+            collection_ptr
           )
         when 4
           # Validation of `choice` type fields:

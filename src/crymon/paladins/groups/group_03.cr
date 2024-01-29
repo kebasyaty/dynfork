@@ -6,7 +6,8 @@ module Crymon::Paladins::Groups
     field_ptr : Pointer,
     is_error_symptom_ptr : Pointer(Bool),
     is_save? : Bool,
-    result_bson_ptr : Pointer(BSON)
+    result_bson_ptr : Pointer(BSON),
+    collection_ptr : Pointer(Mongo::Collection)
   )
     # Get from cache Time objects - Max, min and default.
     time_objects = @@meta.not_nil![field_ptr.value.name]
@@ -27,28 +28,32 @@ module Crymon::Paladins::Groups
         return
       end
       #
-      err_msg : String? = nil
-      case field_ptr.value.field_type
-      when "DateField"
-        begin
-          value = self.date_parse(value.to_s)
-        rescue ex
-          err_msg = ex.message
+      if value = field_ptr.value.value
+        err_msg : String? = nil
+        case field_ptr.value.field_type
+        when "DateField"
+          begin
+            value = self.date_parse(field_ptr.value.value)
+          rescue ex
+            err_msg = ex.message
+          end
+        when "DateTimeField"
+          begin
+            value = self.datetime_parse(field_ptr.value.value)
+          rescue ex
+            err_msg = ex.message
+          end
         end
-      when "DateTimeField"
-        begin
-          value = self.datetime_parse(value.to_s)
-        rescue ex
-          err_msg = ex.message
+        unless err_msg.nil?
+          self.accumulate_error(
+            err_msg.not_nil!,
+            field_ptr,
+            is_error_symptom_ptr?
+          )
+          return
         end
-      end
-      unless err_msg.nil?
-        self.accumulate_error(
-          err_msg.not_nil!,
-          field_ptr,
-          is_error_symptom_ptr?
-        )
-        return
+      else
+        value = time_objects[:default]
       end
       value
     )
@@ -82,5 +87,16 @@ module Crymon::Paladins::Groups
         )
       end
     end
+    # Validation the `is_unique` field attribute.
+    if field_ptr.value.is_unique? &&
+       !collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
+      self.accumulate_error(
+        I18n.t(:not_unique),
+        field_ptr,
+        is_error_symptom_ptr?
+      )
+    end
+    # Insert result.
+    (result_bson_ptr.value[field_ptr.value.name] = current_value) if is_save?
   end
 end
