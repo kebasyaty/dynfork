@@ -73,7 +73,7 @@ module Crymon
     getter updated_at = Crymon::Fields::DateTimeField
       .new("label": "Updated at", "is_hide": true)
     # Metadata cache.
-    class_getter meta : Crymon::Globals::CacheMetaDataType?
+    class_getter! meta : Crymon::Globals::CacheMetaDataType
 
     def initialize
       self.caching if @@meta.nil?
