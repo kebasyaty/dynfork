@@ -23,11 +23,11 @@ module Crymon::Paladins::Groups
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save?
         return
       end
-      value
+      value.not_nil!.to_i64
     )
     # Validation the `max` field attribute.
-    if max = field_ptr.value.max
-      unless Valid.max? current_value, max
+    if max = field_ptr.value.max.not_nil!.to_i64
+      if current_value > max
         err_msg = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value,
@@ -41,8 +41,8 @@ module Crymon::Paladins::Groups
       end
     end
     # Validation the `min` field attribute.
-    if min = field_ptr.value.min
-      unless Valid.min? current_value, min
+    if min = field_ptr.value.min.not_nil!.to_i64
+      if current_value < min
         err_msg = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value,
