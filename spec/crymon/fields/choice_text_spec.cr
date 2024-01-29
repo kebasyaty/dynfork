@@ -18,8 +18,6 @@ describe Crymon::Fields::ChoiceTextField do
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
@@ -48,8 +46,6 @@ describe Crymon::Fields::ChoiceTextMultField do
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
@@ -78,8 +74,6 @@ describe Crymon::Fields::ChoiceTextDynField do
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
       f.choices.should be_nil
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
@@ -108,8 +102,6 @@ describe Crymon::Fields::ChoiceTextMultDynField do
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
       f.choices.should be_nil
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

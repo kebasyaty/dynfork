@@ -23,8 +23,6 @@ describe Crymon::Fields::TextField do
       f.minlength.should eq(0)
       f.regex.should be_nil
       f.regex_err_msg.should be_nil
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

@@ -15,8 +15,6 @@ describe Crymon::Fields::BoolField do
       f.is_readonly?.should be_false
       f.is_hide?.should be_false
       f.is_ignored?.should be_false
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

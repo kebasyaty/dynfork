@@ -20,8 +20,6 @@ describe Crymon::Fields::HashField do
       f.is_ignored?.should be_false
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("For enter a document ID.")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
