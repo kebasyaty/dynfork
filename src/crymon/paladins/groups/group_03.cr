@@ -10,7 +10,7 @@ module Crymon::Paladins::Groups
     collection_ptr : Pointer(Mongo::Collection)
   )
     # Get from cache Time objects - Max, min and default.
-    time_objects = @@meta.not_nil![field_ptr.value.name]
+    time_objects : NamedTuple(default: Time?, max: Time?, min: Time?) = @@meta.not_nil![:time_object_list][field_ptr.value.name]
     # Get current value.
     current_value : Time = (
       value = field_ptr.value.value || field_ptr.value.default
@@ -33,13 +33,13 @@ module Crymon::Paladins::Groups
         case field_ptr.value.field_type
         when "DateField"
           begin
-            value = self.date_parse(field_ptr.value.value)
+            value = self.date_parse(field_ptr.value.value.as(String))
           rescue ex
             err_msg = ex.message
           end
         when "DateTimeField"
           begin
-            value = self.datetime_parse(field_ptr.value.value)
+            value = self.datetime_parse(field_ptr.value.value.as(String))
           rescue ex
             err_msg = ex.message
           end
@@ -55,7 +55,7 @@ module Crymon::Paladins::Groups
       else
         value = time_objects[:default]
       end
-      value
+      value.as(Time)
     )
     # Validation the `max` field attribute.
     if max = time_objects[:max]
