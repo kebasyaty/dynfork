@@ -106,7 +106,7 @@ module Crymon
     end
 
     # Get ObjectId from hash field.
-    def get_object_id : BSON::ObjectId?
+    def object_id : BSON::ObjectId?
       BSON::ObjectId.new(@hash.value.not_nil!) unless @hash.value.nil?
     end
 
