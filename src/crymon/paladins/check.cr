@@ -69,6 +69,7 @@ module Crymon::Paladins::Check
           )
         when 2
           # Ignore validation of `slug` type fields.
+          # <br>
           # These fields are checked in the `caching` and `create_slugs` methods.
         when 3
           # Validation of `date` type fields:
