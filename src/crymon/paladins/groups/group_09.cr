@@ -1,7 +1,5 @@
 module Crymon::Paladins::Groups
-  # Validation of `file` type fields:
-  # <br>
-  # "ImageField"
+  # Validation of fields of type ImageField.
   def group_09(
     field_ptr : Pointer,
     is_error_symptom_ptr? : Pointer(Bool),
