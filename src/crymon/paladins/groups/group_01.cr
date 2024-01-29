@@ -22,7 +22,7 @@ module Crymon::Paladins::Groups
       value = field_ptr.value.value || field_ptr.value.default
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
-      if value.nil?
+      if value.nil? || value.to_s.empty?
         if field_ptr.value.is_required?
           self.accumulate_error(
             I18n.t(:required_field),

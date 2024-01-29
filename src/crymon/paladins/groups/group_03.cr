@@ -16,7 +16,7 @@ module Crymon::Paladins::Groups
       value = field_ptr.value.value || field_ptr.value.default
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
-      if value.nil?
+      if value.nil? || value.to_s.empty?
         if field_ptr.value.is_required?
           self.accumulate_error(
             I18n.t(:required_field),
@@ -33,13 +33,13 @@ module Crymon::Paladins::Groups
         case field_ptr.value.field_type
         when "DateField"
           begin
-            value = self.date_parse(field_ptr.value.value.as(String))
+            value = self.date_parse(field_ptr.value.value.to_s)
           rescue ex
             err_msg = ex.message
           end
         when "DateTimeField"
           begin
-            value = self.datetime_parse(field_ptr.value.value.as(String))
+            value = self.datetime_parse(field_ptr.value.value.to_s)
           rescue ex
             err_msg = ex.message
           end
