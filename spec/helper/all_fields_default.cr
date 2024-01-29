@@ -16,5 +16,6 @@ module Helper
     getter date = Crymon::Fields::DateField.new
     getter datetime = Crymon::Fields::DateTimeField.new
     getter i64 = Crymon::Fields::I64Field.new
+    getter f64 = Crymon::Fields::F64Field.new
   end
 end
