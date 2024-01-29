@@ -31,18 +31,16 @@ module Crymon::Paladins::Check
     err_msg : String?
 
     # Check the conditions and, if necessary, define a message for the web form.
-    unless is_slug_update?
-      # Reset the alerts to exclude duplicates.
+    # Reset the alerts to exclude duplicates.
+    if is_save?
       @hash.alerts = Array(String).new
-      if is_save?
-        if !is_updated? && !@@meta.not_nil![:is_saving_docs]
-          @hash.alerts << "It is forbidden to perform saves!"
-          is_error_symptom? = true
-        end
-        if is_updated? && !@@meta.not_nil![:is_updating_docs]
-          @hash.alerts << "It is forbidden to perform updates!"
-          is_error_symptom? = true
-        end
+      if !is_updated? && !@@meta.not_nil![:is_saving_docs]
+        @hash.alerts << "It is forbidden to perform saves!"
+        is_error_symptom? = true
+      end
+      if is_updated? && !@@meta.not_nil![:is_updating_docs]
+        @hash.alerts << "It is forbidden to perform updates!"
+        is_error_symptom? = true
       end
     end
 
