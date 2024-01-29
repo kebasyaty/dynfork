@@ -50,8 +50,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = "For enter a document ID."
     ); end
 

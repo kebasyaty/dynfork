@@ -57,8 +57,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = I18n.t(
         "examples.interpolation", samples: "#fff | #f2f2f2 | #f2f2f200 | " +
                                            "rgb(255,0,24) | rgba(255,0,24,0.5) | " +

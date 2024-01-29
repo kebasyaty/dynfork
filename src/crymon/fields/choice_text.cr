@@ -44,8 +44,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
@@ -94,8 +92,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
@@ -144,8 +140,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = ""
     ); end
 
@@ -198,8 +192,6 @@ module Crymon::Fields
       @is_disabled : Bool = false,
       @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = ""
     ); end
 
