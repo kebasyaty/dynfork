@@ -161,8 +161,8 @@ module Crymon::Paladins::Check
           # Validation of fields of type BoolField.
           self.group_12(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            is_save?,
+            result_bson_ptr
           )
         else
           raise Crymon::Errors::Model::InvalidGroupNumber

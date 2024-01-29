@@ -31,17 +31,17 @@ module Crymon::Fields
     getter? is_unique : Bool = false
     # WARNING: Stub
     getter choices : Nil
+    # WARNING: Stub
+    getter? is_required : Bool = false
+    # WARNING: Stub
+    getter? is_readonly : Bool = false
 
     def initialize(
       @label : String = "",
       @default : Bool? = false,
       @is_hide : Bool = false,
-      @is_required : Bool = false,
       @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
       @is_ignored : Bool = false,
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = ""
     ); end
   end

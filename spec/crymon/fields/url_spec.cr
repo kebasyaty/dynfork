@@ -20,8 +20,6 @@ describe Crymon::Fields::URLField do
       f.is_ignored?.should be_false
       f.maxlength.should eq(2048)
       f.minlength.should eq(0)
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

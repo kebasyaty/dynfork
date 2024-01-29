@@ -53,8 +53,6 @@ module Crymon::Fields
       @is_readonly : Bool = true,
       @is_ignored : Bool = false,
       @slug_sources : Array(String) = ["hash"],
-      @other_attrs : String = "",
-      @css_classes : String = "",
       @hint : String = "",
       @warning : String = ""
     ); end

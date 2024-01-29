@@ -23,7 +23,7 @@ module Crymon::Paladins::Groups
         (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save?
         return
       end
-      value.not_nil!.to_i64
+      value.to_s.to_i64
     )
     # Validation the `max` field attribute.
     if max = field_ptr.value.max.not_nil!.to_i64

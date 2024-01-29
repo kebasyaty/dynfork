@@ -22,8 +22,6 @@ describe Crymon::Fields::PhoneField do
       f.minlength.should eq(8)
       f.regex.should eq("^+?[0-9]{8,15}$")
       f.regex_err_msg.should eq("Invalid Phone number.")
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("Format: +xxxxxxxx... or xxxxxxxx...")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

@@ -22,8 +22,6 @@ describe Crymon::Fields::PasswordField do
       f.minlength.should eq(8)
       f.regex.should eq("^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$")
       f.regex_err_msg.should eq("Allowed chars: a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) (")
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

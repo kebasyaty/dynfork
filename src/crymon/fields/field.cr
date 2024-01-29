@@ -26,10 +26,6 @@ module Crymon::Fields
     property? is_hide : Bool = false
     # If true, the value of this field is not saved in the database.
     getter? is_ignored : Bool = false
-    # _Example: %(autofocus tabindex="some number" size="some number")_
-    getter other_attrs : String = ""
-    # _Example: "class-name-1 class-name-2"_
-    getter css_classes : String = ""
     # Additional explanation for the user.
     getter hint : String = ""
     # Warning information.

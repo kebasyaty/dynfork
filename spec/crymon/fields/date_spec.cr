@@ -21,8 +21,6 @@ describe Crymon::Fields::DateField do
       f.is_ignored?.should be_false
       f.max.should be_nil
       f.min.should be_nil
-      f.other_attrs.should eq("")
-      f.css_classes.should eq("")
       f.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

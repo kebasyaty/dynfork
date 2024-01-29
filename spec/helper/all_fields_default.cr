@@ -17,5 +17,6 @@ module Helper
     getter datetime = Crymon::Fields::DateTimeField.new
     getter i64 = Crymon::Fields::I64Field.new
     getter f64 = Crymon::Fields::F64Field.new
+    getter bool = Crymon::Fields::BoolField.new
   end
 end
