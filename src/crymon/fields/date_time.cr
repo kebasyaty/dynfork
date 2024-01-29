@@ -71,7 +71,7 @@ module Crymon::Fields
     ); end
 
     # Get time object from value.
-    def get_time_object : Time?
+    def time_object : Time?
       self.datetime_parse(@value.as(String)) unless @value.nil?
     end
   end

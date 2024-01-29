@@ -36,7 +36,7 @@ describe Crymon::Model do
       m.first_name.value = "Gene"
       m.age.value = 32
       m.birthday.value = "23.12.2023"
-      m.birthday.get_time_object.should eq(Crymon::Tools::Date.date_parse("23.12.2023"))
+      m.birthday.time_object.should eq(Crymon::Tools::Date.date_parse("23.12.2023"))
       m.hash.value.should be_nil
       m.object_id.should be_nil
       m.hash.object_id.should be_nil
@@ -45,7 +45,7 @@ describe Crymon::Model do
       m.hash.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
       m.created_at.value = "2023-11-02T12:15"
       m.updated_at.value = "24.12.2023T08:54"
-      m.updated_at.get_time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
+      m.updated_at.time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
       #
       m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)

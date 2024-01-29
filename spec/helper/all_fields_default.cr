@@ -13,5 +13,7 @@ module Helper
     getter hash = Crymon::Fields::HashField.new
     getter email = Crymon::Fields::EmailField.new
     getter color = Crymon::Fields::ColorField.new
+    getter date = Crymon::Fields::DateField.new
+    getter datetime = Crymon::Fields::DateTimeField.new
   end
 end

@@ -7,10 +7,9 @@ module Crymon::Paladins::Check
   include Crymon::Paladins::Groups
 
   # Validation of Model data.
-  private def check(
+  def check(
     collection_ptr : Pointer(Mongo::Collection),
-    is_save? : Bool = false,
-    is_slug_update? : Bool = false
+    is_save? : Bool = false
   ) : Crymon::Globals::OutputData
     # Does the document exist in the database?
     is_updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
@@ -32,18 +31,16 @@ module Crymon::Paladins::Check
     err_msg : String?
 
     # Check the conditions and, if necessary, define a message for the web form.
-    unless is_slug_update?
-      # Reset the alerts to exclude duplicates.
+    # Reset the alerts to exclude duplicates.
+    if is_save?
       @hash.alerts = Array(String).new
-      if is_save?
-        if !is_updated? && !@@meta.not_nil![:is_saving_docs]
-          @hash.alerts << "It is forbidden to perform saves!"
-          is_error_symptom? = true
-        end
-        if is_updated? && !@@meta.not_nil![:is_updating_docs]
-          @hash.alerts << "It is forbidden to perform updates!"
-          is_error_symptom? = true
-        end
+      if !is_updated? && !@@meta.not_nil![:is_saving_docs]
+        @hash.alerts << "It is forbidden to perform saves!"
+        is_error_symptom? = true
+      end
+      if is_updated? && !@@meta.not_nil![:is_updating_docs]
+        @hash.alerts << "It is forbidden to perform updates!"
+        is_error_symptom? = true
       end
     end
 
@@ -84,7 +81,9 @@ module Crymon::Paladins::Check
           self.group_03(
             pointerof(@{{ field }}),
             is_error_symptom_ptr?,
-            is_updated?
+            is_save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 4
           # Validation of `choice` type fields:
@@ -168,6 +167,7 @@ module Crymon::Paladins::Check
           # "BoolField"
           self.group_12(
             pointerof(@{{ field }}),
+            is_error_symptom_ptr?,
             is_updated?
           )
         else

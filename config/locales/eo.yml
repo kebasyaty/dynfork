@@ -14,6 +14,8 @@ eo:
   invalid_ip: "Nevalida IP-adreso."
   invalid_ipv4: "Nevalida IPv4-adreso."
   invalid_ipv6: "Nevalida IPv6-adreso."
+  invalid_date: "Nevalida dato."
+  invalid_datetime: "Nevalida dato kaj horo."
   format:
     interpolation: "Formato: %{sample}"
   formats:
@@ -39,3 +41,7 @@ eo:
   old_pass_not_match: "La malnova pasvorto ne kongruas."
   allowed_files:
     interpolation: "Nur %{types} dosieroj estas permesitaj."
+  data_not_greater_max:
+    interpolation: "La dato %{curr_date} ne devas esti pli granda ol max=%{max_date}."
+  data_not_less_min:
+    interpolation: "La dato %{curr_date} ne devas esti malpli ol min=%{min_date}."
