@@ -15,5 +15,6 @@ module Helper
     getter color = Crymon::Fields::ColorField.new
     getter date = Crymon::Fields::DateField.new
     getter datetime = Crymon::Fields::DateTimeField.new
+    getter i64 = Crymon::Fields::I64Field.new
   end
 end
