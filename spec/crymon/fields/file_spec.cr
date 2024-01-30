@@ -8,7 +8,7 @@ describe Crymon::Globals::FileData do
       f.url.should eq("")
       f.name.should eq("")
       f.size.should eq(0_f64)
-      f.is_delete.should be_false
+      f.is_delete?.should be_false
     end
   end
 end

@@ -132,8 +132,6 @@ module Crymon::Migration
         )
         # If this is a new Model, move on to the next iteration.
         next if is_next
-        # Get a list of ignored Model fields from the cache.
-        ignore_fields : Array(String) = metadata[:ignore_fields]
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
@@ -157,19 +155,19 @@ module Crymon::Migration
           # Fetch a Cursor pointing to the collection of current Model.
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
-          cursor.each { |document|
+          cursor.each { |doc|
             # Create a new document for the updated state.
-            freshed_document = BSON.new({"_id": document["_id"]})
+            freshed_document = BSON.new({"_id": doc["_id"]})
             # Create a new document without the deleted fields.
             old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)
-                freshed_document[field_name] = document[field_name]
+                freshed_document[field_name] = doc[field_name]
               end
             end
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              document[field_name] = (
+              doc[field_name] = (
                 if metadata[:field_name_and_type_list][field_name].includes?("Date")
                   metadata[:time_object_list][field_name][:default]
                 else

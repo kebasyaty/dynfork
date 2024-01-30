@@ -27,7 +27,7 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: is_delete=true.
     # <br>
     # By default is_delete=false.
-    property is_delete : Bool
+    property? is_delete : Bool
 
     def initialize(
       @path : String = "",
@@ -63,7 +63,7 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: is_delete=true.
     # <br>
     # By default is_delete=false.
-    property is_delete : Bool
+    property? is_delete : Bool
 
     def initialize(
       @path : String = "",

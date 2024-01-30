@@ -14,6 +14,12 @@
       "problemMatcher": []
     },
     {
+      "label": "Ameba: gen-config",
+      "type": "shell",
+      "command": "bin/ameba --gen-config",
+      "problemMatcher": []
+    },
+    {
       "label": "Crystal: spec tags",
       "type": "shell",
       "command": [

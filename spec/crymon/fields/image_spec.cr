@@ -18,7 +18,7 @@ describe Crymon::Globals::ImageData do
       f.size.should eq(0_f64)
       f.width.should eq(0_f64)
       f.height.should eq(0_f64)
-      f.is_delete.should be_false
+      f.is_delete?.should be_false
     end
   end
 end
