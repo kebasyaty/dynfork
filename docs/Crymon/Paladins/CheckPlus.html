@@ -667,16 +667,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_valid%3F%3ABool-instance-method" class="signature"><strong>#is_valid?</strong> : Bool</a>
+        <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
         
-          <div class="summary"><p>Check data validity.</p></div>
+          <div class="summary"><p>Printing errors to the console ( for development ).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
+        <a href="#valid%3F%3ABool-instance-method" class="signature"><strong>#valid?</strong> : Bool</a>
         
-          <div class="summary"><p>Printing errors to the console ( for development ).</p></div>
+          <div class="summary"><p>Check data validity.</p></div>
         
       </li>
     
@@ -742,37 +742,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_valid?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_valid?</strong> : Bool
-
-        <a class="method-permalink" href="#is_valid%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Check data validity.</p>
-<p><span class="flag purple">NOTE</span>  The main use is to check data from web forms.</p>
-<p>Example:</p>
-<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
-<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
-  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
-  getter birthday <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
-<span class="k">end</span>
-
-user <span class="o">=</span> <span class="t">User</span>.new
-<span class="k">if</span> user.is_valid?
-  <span class="c"># your code...</span>
-<span class="k">end</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="print_err-instance-method">
       <div class="signature">
         
@@ -793,6 +762,37 @@ user <span class="o">=</span> <span class="t">User</span>.new
 
 user <span class="o">=</span> <span class="t">User</span>.new
 user.print_err <span class="k">unless</span> user.is_valid?</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="valid?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>valid?</strong> : Bool
+
+        <a class="method-permalink" href="#valid%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check data validity.</p>
+<p><span class="flag purple">NOTE</span>  The main use is to check data from web forms.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">Crymon</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">Crymon</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+user <span class="o">=</span> <span class="t">User</span>.new
+<span class="k">if</span> user.is_valid?
+  <span class="c"># your code...</span>
+<span class="k">end</span></code></pre>
         </div>
       
       <br/>

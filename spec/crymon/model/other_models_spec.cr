@@ -77,14 +77,14 @@ describe Crymon::Model do
     end
 
     it "=> create instance of AuxiliaryModel", tags: "model" do
-      m = Helper::AuxiliaryModel.new
+      Helper::AuxiliaryModel.new
       metadata = Helper::AuxiliaryModel.meta
       metadata["service_name"].should eq("ServiceName")
       metadata["is_use_hash_slug"].should be_true
     end
 
     it "=> create instance of AAModel", tags: "model" do
-      m = Helper::AAModel.new
+      Helper::AAModel.new
       metadata = Helper::AAModel.meta
       metadata["service_name"].should eq("Accounts")
     end

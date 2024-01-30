@@ -31,7 +31,7 @@ describe Crymon::Model do
 
       # Testing is_valid method.
       m = Helper::AllFieldsDefault.new
-      m.is_valid?.should be_true
+      m.valid?.should be_true
       m.print_err.should be_nil
 
       # ------------------------------------------------------------------------

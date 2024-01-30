@@ -17,7 +17,7 @@ module Crymon::Paladins::CheckPlus
   # end
   # ```
   #
-  def is_valid? : Bool
+  def valid? : Bool
     # Get the collection for the current model.
     collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
       @@meta.not_nil![:collection_name]]
