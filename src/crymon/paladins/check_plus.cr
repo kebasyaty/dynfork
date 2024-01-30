@@ -60,7 +60,7 @@ module Crymon::Paladins::CheckPlus
     field_ptr : Pointer,
     is_error_symptom_ptr? : Pointer(Bool)
   )
-    unless field_ptr.value.is_hide?
+    if !field_ptr.value.is_hide?
       field_ptr.value.errors << err_msg
       (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
     else

@@ -113,7 +113,7 @@ module Crymon::Migration
         model_state, is_next = (
           filter = {"collection_name": metadata[:collection_name]}
           document = super_collection.find_one(filter)
-          unless document.nil?
+          if !document.nil?
             # Get existing ModelState for the current Model.
             m_state = Crymon::Migration::ModelState.from_bson(document)
             m_state.is_model_exists = true
