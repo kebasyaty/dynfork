@@ -8,6 +8,12 @@
       "problemMatcher": []
     },
     {
+      "label": "Ameba: run",
+      "type": "shell",
+      "command": "bin/ameba",
+      "problemMatcher": []
+    },
+    {
       "label": "Crystal: spec tags",
       "type": "shell",
       "command": [
