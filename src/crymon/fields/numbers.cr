@@ -14,11 +14,11 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter max : Int64
+    getter max : Int64?
     # The minimum number of characters allowed in the text.
-    getter min : Int64
+    getter min : Int64?
     # Increment step for numeric fields.
-    getter step : Int64
+    getter step : Int64?
     # The unique value of a field in a collection.
     getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -41,9 +41,9 @@ module Crymon::Fields
       @default : Int64? = nil,
       @input_type : String = "number", # number | range
       @placeholder : String = "",
-      @max : Int64 = Int64::MAX,
-      @min : Int64 = Int64::MIN,
-      @step : Int64 = 1,
+      @max : Int64? = Int64::MAX,
+      @min : Int64? = Int64::MIN,
+      @step : Int64? = 1,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
@@ -72,11 +72,11 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter max : Float64
+    getter max : Float64?
     # The minimum number of characters allowed in the text.
-    getter min : Float64
+    getter min : Float64?
     # Increment step for numeric fields.
-    getter step : Float64
+    getter step : Float64?
     # The unique value of a field in a collection.
     getter? is_unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -99,9 +99,9 @@ module Crymon::Fields
       @default : Float64? = nil,
       @input_type : String = "number", # number | range
       @placeholder : String = "",
-      @max : Float64 = Float64::MAX,
-      @min : Float64 = Float64::MIN,
-      @step : Float64 = 1.0,
+      @max : Float64? = Float64::MAX,
+      @min : Float64? = Float64::MIN,
+      @step : Float64? = 1.0,
       @is_hide : Bool = false,
       @is_unique : Bool = false,
       @is_required : Bool = false,
