@@ -1,7 +1,7 @@
-require "../../src/crymon"
+require "../../../src/crymon"
 
 # Structures for testing.
-module Helper
+module Data::Structures
   # Model without variables and methods.
   @[Crymon::Meta(service_name: "ServiceName")]
   struct EmptyModel < Crymon::Model; end

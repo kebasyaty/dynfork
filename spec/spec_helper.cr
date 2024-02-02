@@ -1,5 +1,5 @@
 require "spec"
-require "./helper/*"
+require "./data/structures/*"
 require "../src/crymon"
 
 I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
