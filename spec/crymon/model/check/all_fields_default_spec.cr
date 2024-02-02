@@ -22,7 +22,7 @@ describe Crymon::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Helper::AllFieldsDefault,
+          Data::Structures::AllFieldsDefault,
         }
       ).migrat
       #
@@ -30,7 +30,7 @@ describe Crymon::Model do
       # ------------------------------------------------------------------------
 
       # Testing is_valid method.
-      m = Helper::AllFieldsDefault.new
+      m = Data::Structures::AllFieldsDefault.new
       m.valid?.should be_true
       m.print_err.should be_nil
 
