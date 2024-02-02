@@ -33,8 +33,8 @@ describe Crymon::Migration::Monitor do
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
         "model_list": {
-          Data::Structures::FilledModel,
-          Data::Structures::AuxiliaryModel,
+          Spec::Data::FilledModel,
+          Spec::Data::AuxiliaryModel,
         }
       )
       #
@@ -42,9 +42,9 @@ describe Crymon::Migration::Monitor do
       Crymon::Globals.cache_unique_app_key.should eq("0w7n5731X13s1641")
       Crymon::Globals.cache_database_name.should eq("AppName_0w7n5731X13s1641")
       #
-      m.model_list.should eq({Data::Structures::FilledModel, Data::Structures::AuxiliaryModel})
+      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
@@ -55,8 +55,8 @@ describe Crymon::Migration::Monitor do
         "database_name": "DatabaseName360",
         "mongo_uri": "mongodb://localhost:27017",
         "model_list": {
-          Data::Structures::FilledModel,
-          Data::Structures::AuxiliaryModel,
+          Spec::Data::FilledModel,
+          Spec::Data::AuxiliaryModel,
         }
       )
       #
@@ -64,9 +64,9 @@ describe Crymon::Migration::Monitor do
       Crymon::Globals.cache_unique_app_key.should eq("0585I0S5huR5r08q")
       Crymon::Globals.cache_database_name.should eq("DatabaseName360")
       #
-      m.model_list.should eq({Data::Structures::FilledModel, Data::Structures::AuxiliaryModel})
+      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
@@ -77,14 +77,14 @@ describe Crymon::Migration::Monitor do
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
         "model_list": {
-          Data::Structures::FilledModel,
-          Data::Structures::AuxiliaryModel,
+          Spec::Data::FilledModel,
+          Spec::Data::AuxiliaryModel,
         }
       )
       #
-      m.model_list.should eq({Data::Structures::FilledModel, Data::Structures::AuxiliaryModel})
+      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
@@ -92,7 +92,7 @@ describe Crymon::Migration::Monitor do
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
       # Init data for test.
-      # unique_app_key = Crymon::Tools::Test.generate_unique_app_key
+      # unique_app_key = Spec::Support::Tools.generate_unique_app_key
       # database_name = "test_#{unique_app_key}"
       # mongo_uri = "mongodb://localhost:27017"
 
@@ -105,7 +105,7 @@ describe Crymon::Migration::Monitor do
 
       # Delete database before test.
       # (if the test fails)
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Mongo::Client.new(mongo_uri)[database_name])
 
       # Run migration.
@@ -115,8 +115,8 @@ describe Crymon::Migration::Monitor do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Data::Structures::FilledModel,
-          Data::Structures::AuxiliaryModel,
+          Spec::Data::FilledModel,
+          Spec::Data::AuxiliaryModel,
         }
       )
       m.migrat.should be_nil
@@ -124,11 +124,11 @@ describe Crymon::Migration::Monitor do
       # Checking for data updates for dynamic fields.
       field_name = "field_name"
       data = "[]"
-      Data::Structures::FilledModel.meta.not_nil![:data_dynamic_fields][field_name] = data
-      Data::Structures::FilledModel.meta.not_nil![:data_dynamic_fields][field_name].should eq(data)
+      Spec::Data::FilledModel.meta.not_nil![:data_dynamic_fields][field_name] = data
+      Spec::Data::FilledModel.meta.not_nil![:data_dynamic_fields][field_name].should eq(data)
 
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end

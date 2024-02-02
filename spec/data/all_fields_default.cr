@@ -1,7 +1,7 @@
-require "../../../src/crymon"
+require "../../src/crymon"
 
 # Structure for testing.
-module Data::Structures
+module Spec::Data
   # A model with all parameters and fields by default.
   @[Crymon::Meta(service_name: "ServiceName")]
   struct AllFieldsDefault < Crymon::Model

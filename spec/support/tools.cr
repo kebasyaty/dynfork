@@ -1,5 +1,5 @@
 # Auxiliary methods for testing.
-module Crymon::Tools::Test
+module Spec::Support::Tools
   ALPHANUMERIC_CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
   # Generate data for test.

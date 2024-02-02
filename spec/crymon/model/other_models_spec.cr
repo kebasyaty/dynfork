@@ -4,13 +4,13 @@ describe Crymon::Model do
   describe ".new" do
     it "=> create instance of empty Model", tags: "model" do
       ex = expect_raises(Crymon::Errors::Model::FieldsMissing) do
-        Data::Structures::EmptyModel.new
+        Spec::Data::EmptyModel.new
       end
       ex.message.should eq("Model `EmptyModel` has no fields.")
     end
 
     it "=> create instance of filled Model", tags: "model" do
-      m = Data::Structures::FilledModel.new
+      m = Spec::Data::FilledModel.new
       #
       m["first_name"]?.should be_true
       m["age"]?.should be_true
@@ -43,17 +43,17 @@ describe Crymon::Model do
       m.hash.value = "507f191e810c19729de860ea"
       m.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
       m.hash.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
-      m.created_at.value = "2023-11-02T12:15"
-      m.updated_at.value = "24.12.2023T08:54"
-      m.updated_at.time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
+      m.created_at.value = "2023-11-02T12:15:00"
+      m.updated_at.value = "24.12.2023T08:54:00"
+      m.updated_at.time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54:00"))
       #
       m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)
       m.hash.value.should eq("507f191e810c19729de860ea")
-      m.created_at.value.should eq("2023-11-02T12:15")
-      m.updated_at.value.should eq("24.12.2023T08:54")
+      m.created_at.value.should eq("2023-11-02T12:15:00")
+      m.updated_at.value.should eq("24.12.2023T08:54:00")
       # Testing metadata.
-      metadata = Data::Structures::FilledModel.meta
+      metadata = Spec::Data::FilledModel.meta
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
@@ -77,21 +77,21 @@ describe Crymon::Model do
     end
 
     it "=> create instance of AuxiliaryModel", tags: "model" do
-      Data::Structures::AuxiliaryModel.new
-      metadata = Data::Structures::AuxiliaryModel.meta
+      Spec::Data::AuxiliaryModel.new
+      metadata = Spec::Data::AuxiliaryModel.meta
       metadata["service_name"].should eq("ServiceName")
       metadata["is_use_hash_slug"].should be_true
     end
 
     it "=> create instance of AAModel", tags: "model" do
-      Data::Structures::AAModel.new
-      metadata = Data::Structures::AAModel.meta
+      Spec::Data::AAModel.new
+      metadata = Spec::Data::AAModel.meta
       metadata["service_name"].should eq("Accounts")
     end
 
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
       ex = expect_raises(Crymon::Errors::Fields::SlugSourceNameInvalid) do
-        Data::Structures::SlugSourceInvalidModel.new
+        Spec::Data::SlugSourceInvalidModel.new
       end
       ex.message.should eq(
         "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
@@ -102,7 +102,7 @@ describe Crymon::Model do
     describe "#caching" do
       it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
         ex = expect_raises(Crymon::Errors::Meta::ParameterMissing) do
-          Data::Structures::NoParamServiceNameModel.new
+          Spec::Data::NoParamServiceNameModel.new
         end
         ex.message.should eq(
           "Model: `NoParamServiceNameModel` => Missing `service_name` parameter for Meta."
