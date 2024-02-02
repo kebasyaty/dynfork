@@ -45,13 +45,13 @@ describe Crymon::Model do
       m.hash.object_id.should eq(BSON::ObjectId.new("507f191e810c19729de860ea"))
       m.created_at.value = "2023-11-02T12:15"
       m.updated_at.value = "24.12.2023T08:54"
-      m.updated_at.time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54"))
+      m.updated_at.time_object.should eq(Crymon::Tools::Date.datetime_parse("24.12.2023T08:54:00"))
       #
       m.first_name.value.should eq("Gene")
       m.age.value.should eq(32_u32)
       m.hash.value.should eq("507f191e810c19729de860ea")
-      m.created_at.value.should eq("2023-11-02T12:15")
-      m.updated_at.value.should eq("24.12.2023T08:54")
+      m.created_at.value.should eq("2023-11-02T12:15:00")
+      m.updated_at.value.should eq("24.12.2023T08:54:00")
       # Testing metadata.
       metadata = Spec::Data::FilledModel.meta
       metadata["model_name"].should eq("FilledModel")
