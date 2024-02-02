@@ -12,7 +12,7 @@ describe Crymon::Model do
 
       # Delete database before test.
       # (if the test fails)
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Mongo::Client.new(mongo_uri)[database_name])
 
       # Run migration.
@@ -22,7 +22,7 @@ describe Crymon::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Data::Structures::AllFieldsDefault,
+          Spec::Data::AllFieldsDefault,
         }
       ).migrat
       #
@@ -30,14 +30,14 @@ describe Crymon::Model do
       # ------------------------------------------------------------------------
 
       # Testing is_valid method.
-      m = Data::Structures::AllFieldsDefault.new
+      m = Spec::Data::AllFieldsDefault.new
       m.valid?.should be_true
       m.print_err.should be_nil
 
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
-      Crymon::Tools::Test.delete_test_db(
+      Spec::Support::Tools.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end

@@ -1,18 +1,18 @@
 require "../../spec_helper"
 
-describe Data::Structures::FilledModel do
+describe Spec::Data::FilledModel do
   describe "#to_json" do
     it "=> create json from structure", tags: "model_json" do
-      f = Data::Structures::FilledModel.new
+      f = Spec::Data::FilledModel.new
       j : String = f.to_json
       j.empty?.should be_false
     end
   end
   describe "#from_json" do
     it "=> create instance from json", tags: "model_json" do
-      f = Data::Structures::FilledModel.new
+      f = Spec::Data::FilledModel.new
       j : String = f.to_json
-      f = Data::Structures::FilledModel.from_json(j)
+      f = Spec::Data::FilledModel.from_json(j)
       # TextField
       f.first_name.id.should eq("FilledModel--first-name")
       f.first_name.label.should eq("")
