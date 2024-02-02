@@ -24,10 +24,10 @@ module Crymon::Tools::Date
 
   # Converting string DateTime to object Time.
   # <br>
-  # _**Formats:** dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm |
-  # dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm |
-  # yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
-  # yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm_
+  # _**Formats:** dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
+  # dd-mm-yyyyThh:mm:ss | dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss |
+  # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
+  # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_
   # <br>
   # WARNING: Unsupported date formats:
   # <br>USA - M/D/YYYY
@@ -41,6 +41,6 @@ module Crymon::Tools::Date
     md = Crymon::Globals.cache_regex[:datetime_parse].match(datetime) ||
          Crymon::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
     raise Crymon::Errors::Date::InvalidDateTime.new if md.nil?
-    Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]} #{md["t"]}", "%F %H:%M")
+    Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]} #{md["t"]}", "%F %H:%M:%S")
   end
 end
