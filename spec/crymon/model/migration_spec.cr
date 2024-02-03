@@ -44,7 +44,7 @@ describe Crymon::Migration::Monitor do
       #
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
@@ -66,7 +66,7 @@ describe Crymon::Migration::Monitor do
       #
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
 
@@ -84,7 +84,7 @@ describe Crymon::Migration::Monitor do
       #
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
@@ -92,7 +92,7 @@ describe Crymon::Migration::Monitor do
   describe "#migrat" do
     it "=> run migration process", tags: "migration" do
       # Init data for test.
-      # unique_app_key = Spec::Support::Tools.generate_unique_app_key
+      # unique_app_key = Spec::Support.generate_unique_app_key
       # database_name = "test_#{unique_app_key}"
       # mongo_uri = "mongodb://localhost:27017"
 
@@ -105,7 +105,7 @@ describe Crymon::Migration::Monitor do
 
       # Delete database before test.
       # (if the test fails)
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Mongo::Client.new(mongo_uri)[database_name])
 
       # Run migration.
@@ -128,7 +128,7 @@ describe Crymon::Migration::Monitor do
       Spec::Data::FilledModel.meta.not_nil![:data_dynamic_fields][field_name].should eq(data)
 
       # Delete database after test.
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
