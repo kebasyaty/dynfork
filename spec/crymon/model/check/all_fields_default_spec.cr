@@ -12,7 +12,7 @@ describe Crymon::Model do
 
       # Delete database before test.
       # (if the test fails)
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Mongo::Client.new(mongo_uri)[database_name])
 
       # Run migration.
@@ -37,7 +37,7 @@ describe Crymon::Model do
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
-      Spec::Support::Tools.delete_test_db(
+      Spec::Support.delete_test_db(
         Crymon::Globals.cache_mongo_database.not_nil!)
     end
   end
