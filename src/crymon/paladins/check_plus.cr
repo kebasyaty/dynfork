@@ -44,7 +44,7 @@ module Crymon::Paladins::CheckPlus
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
         (msg = "\n## ERRORS:") if msg.empty?
-        errors = @{{ field }}.errors.copy.map { |err| "\t#{err}" }.join("\n")
+        errors = (@{{ field }}.errors.clone.map { |err| "\t#{err}" }).join("\n")
         msg = "#{msg}\n# #{{{ field.name.stringify }}}: #{errors}"
       end
     {% end %}
