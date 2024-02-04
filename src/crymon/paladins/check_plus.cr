@@ -12,7 +12,7 @@ module Crymon::Paladins::CheckPlus
   # end
   #
   # user = User.new
-  # if user.is_valid?
+  # if user.valid?
   #   # your code...
   # end
   # ```
@@ -35,7 +35,7 @@ module Crymon::Paladins::CheckPlus
   # end
   #
   # user = User.new
-  # user.print_err unless user.is_valid?
+  # user.print_err unless user.valid?
   # ```
   #
   def print_err
