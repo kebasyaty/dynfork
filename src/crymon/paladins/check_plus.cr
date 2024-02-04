@@ -43,13 +43,13 @@ module Crymon::Paladins::CheckPlus
     errors : String = ""
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
-        (msg = "\nERRORS:") if msg.empty?
-        errors = @{{ field }}.errors.join(" | ")
-        msg = "#{msg}\n#{{{ field.name.stringify }}}: #{errors}"
+        (msg = "\n## ERRORS:") if msg.empty?
+        errors = @{{ field }}.errors.copy.map { |err| "\t#{err}" }.join("\n")
+        msg = "#{msg}\n# #{{{ field.name.stringify }}}: #{errors}"
       end
     {% end %}
     line_break : String = msg.empty? ? "\n" : "\n\n"
-    (msg + "#{line_break}AlERTS:\n#{@hash.alerts.join("\n")}") unless @hash.alerts.empty?
+    (msg + "#{line_break}## AlERTS:\n#{@hash.alerts.join("\n")}") unless @hash.alerts.empty?
     (msg + "\n") unless msg.empty?
     puts msg
   end
