@@ -45,7 +45,7 @@ module Crymon::Fields
     # WARNING: Stub
     getter minlength : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # WARNING: Stub
     getter choices : Nil
 
@@ -57,11 +57,11 @@ module Crymon::Fields
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",
-      @is_hide : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
     ); end

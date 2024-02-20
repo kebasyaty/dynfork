@@ -69,10 +69,10 @@ describe Crymon::Model do
          "updated_at" => nil,
          "first_name" => "Cat"}
       )
-      metadata["is_saving_docs"].should be_true
-      metadata["is_updating_docs"].should be_true
-      metadata["is_deleting_docs"].should be_true
-      metadata["is_use_hash_slug"].should be_false
+      metadata["saving_docs?"].should be_true
+      metadata["updating_docs?"].should be_true
+      metadata["deleting_docs?"].should be_true
+      metadata["use_hash_slug?"].should be_false
       metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
     end
 
@@ -80,7 +80,7 @@ describe Crymon::Model do
       Spec::Data::AuxiliaryModel.new
       metadata = Spec::Data::AuxiliaryModel.meta
       metadata["service_name"].should eq("ServiceName")
-      metadata["is_use_hash_slug"].should be_true
+      metadata["use_hash_slug?"].should be_true
     end
 
     it "=> create instance of AAModel", tags: "model" do

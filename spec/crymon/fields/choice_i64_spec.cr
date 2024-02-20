@@ -10,13 +10,13 @@ describe Crymon::Fields::ChoiceI64Field do
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_nil
-      f.is_multiple?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_ignored?.should be_false
+      f.multiple?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.hint.should eq("")
       f.warning.should eq("")
@@ -38,13 +38,13 @@ describe Crymon::Fields::ChoiceI64MultField do
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_nil
-      f.is_multiple?.should be_true
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_ignored?.should be_false
+      f.multiple?.should be_true
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(Int64, String)).new)
       f.hint.should eq("")
       f.warning.should eq("")
@@ -66,13 +66,13 @@ describe Crymon::Fields::ChoiceI64DynField do
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_nil
-      f.is_multiple?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_ignored?.should be_false
+      f.multiple?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.ignored?.should be_false
       f.choices.should be_nil
       f.hint.should eq("")
       f.warning.should eq("")
@@ -94,13 +94,13 @@ describe Crymon::Fields::ChoiceI64MultDynField do
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_nil
-      f.is_multiple?.should be_true
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_ignored?.should be_false
+      f.multiple?.should be_true
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.ignored?.should be_false
       f.choices.should be_nil
       f.hint.should eq("")
       f.warning.should eq("")

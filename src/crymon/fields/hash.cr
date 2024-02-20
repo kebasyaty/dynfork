@@ -16,9 +16,9 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : Int32?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Hide field from user.
-    property? is_hide : Bool
+    property? hide : Bool
     # Alerts for the entire web form.
     # WARNING: Assigned automatically.
     property alerts : Array(String) = Array(String).new
@@ -44,12 +44,12 @@ module Crymon::Fields
       @placeholder : String = "Enter document ID",
       @maxlength : Int32? = 24,
       @minlength : Int32? = 24,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "For enter a document ID."
     ); end
 

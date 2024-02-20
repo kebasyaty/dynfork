@@ -17,9 +17,9 @@ module Crymon::Paladins::Caching
       "service_name",
       "fixture_name",
       "db_query_docs_limit",
-      "is_saving_docs",
-      "is_updating_docs",
-      "is_deleting_docs",
+      "saving_docs?",
+      "updating_docs?",
+      "deleting_docs?",
     ]
     {% for param in @type.annotation(Crymon::Meta).named_args %}
       unless meta_parans.includes?({{ param.stringify }})
@@ -53,7 +53,7 @@ module Crymon::Paladins::Caching
     field_name_and_type_list : Hash(String, String) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
-        unless @{{ var }}.is_ignored?
+        unless @{{ var }}.ignored?
           fields[{{ var.name.stringify }}] = {{ var.type.stringify }}.split("::").last
         end
       {% end %}
@@ -66,16 +66,16 @@ module Crymon::Paladins::Caching
       # Get default value.
       fields = Hash(String, Crymon::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
-        unless @{{ var }}.is_ignored?
+        unless @{{ var }}.ignored?
           fields[{{ var.name.stringify }}] = @{{ var }}.default
         end
       {% end %}
       fields
     )
     # Does a field of type SlugField use a hash field as its source?
-    is_use_hash_slug : Bool = (
-      is_use_hash : Bool = false
-      one_unique_field : Bool = false
+    use_hash_slug? : Bool = (
+      use_hash? : Bool = false
+      one_unique_field? : Bool = false
       field_name_list : Array(String) = field_name_and_type_list.keys << "hash"
       field_type_list : Array(String) = [
         "HashField",
@@ -102,31 +102,31 @@ module Crymon::Paladins::Caching
                     .new(model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Raise an exception if sources are not required fields.
-                if source_name != "hash" && !@{{ var2 }}.is_required?
+                if source_name != "hash" && !@{{ var2 }}.required?
                   raise Crymon::Errors::Fields::SlugSourceNotRequired
                     .new(model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Is there a unique field?
-                (one_unique_field = true) if @{{ var2 }}.is_unique?
+                (one_unique_field? = true) if @{{ var2 }}.unique?
               end
             {% end %}
           end
           # Raise  an exception if unique fields are missing.
-          unless one_unique_field
+          unless one_unique_field?
             raise Crymon::Errors::Fields::SlugSourceNotUnique
               .new(model_name, {{ var.name.stringify }})
           end
           # Check the presence of a hash field.
-          is_use_hash = @{{ var }}.slug_sources.includes?("hash")
+          use_hash? = @{{ var }}.slug_sources.includes?("hash")
         end
       {% end %}
-      is_use_hash
+      use_hash?
     )
     # Get list of field names that will not be saved to the database.
     ignore_fields : Array(String) = (
       fields = Array(String).new
       {% for var in @type.instance_vars %}
-        if @{{ var }}.is_ignored?
+        if @{{ var }}.ignored?
           fields << {{ var.name.stringify }}
         end
       {% end %}
@@ -219,13 +219,13 @@ module Crymon::Paladins::Caching
       default_value_list: default_value_list,
       # Create documents in the database. By default = true.
       # NOTE: false - Alternatively, use it to validate data from web forms.
-      is_saving_docs: {{ @type.annotation(Crymon::Meta)[:is_saving_docs] }} || true,
+      saving_docs?: {{ @type.annotation(Crymon::Meta)[:saving_docs?] }} || true,
       # Update documents in the database.
-      is_updating_docs: {{ @type.annotation(Crymon::Meta)[:is_updating_docs] }} || true,
+      updating_docs?: {{ @type.annotation(Crymon::Meta)[:updating_docs?] }} || true,
       # Delete documents from the database.
-      is_deleting_docs: {{ @type.annotation(Crymon::Meta)[:is_deleting_docs] }} || true,
+      deleting_docs?: {{ @type.annotation(Crymon::Meta)[:deleting_docs?] }} || true,
       # Does a field of type SlugField use a hash field as its source?
-      is_use_hash_slug: is_use_hash_slug,
+      use_hash_slug?: use_hash_slug?,
       # List of field names that will not be saved to the database.
       ignore_fields: ignore_fields,
       # Attributes value for fields of Model: id, name.

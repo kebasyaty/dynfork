@@ -20,7 +20,7 @@ module Crymon::Fields
     # Increment step for numeric fields.
     getter step : Int64?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 10
@@ -44,12 +44,12 @@ module Crymon::Fields
       @max : Int64? = Int64::MAX,
       @min : Int64? = Int64::MIN,
       @step : Int64? = 1,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
     )
@@ -78,7 +78,7 @@ module Crymon::Fields
     # Increment step for numeric fields.
     getter step : Float64?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 11
@@ -102,12 +102,12 @@ module Crymon::Fields
       @max : Float64? = Float64::MAX,
       @min : Float64? = Float64::MIN,
       @step : Float64? = 1.0,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
     )

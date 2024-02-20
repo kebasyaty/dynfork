@@ -6,14 +6,14 @@ module Crymon::Paladins::Groups
   #
   def group_01(
     field_ptr : Pointer,
-    is_error_symptom_ptr? : Pointer(Bool),
-    is_updated? : Bool,
-    is_save? : Bool,
+    error_symptom_ptr? : Pointer(Bool),
+    updated? : Bool,
+    save? : Bool,
     result_bson_ptr : Pointer(BSON),
     collection_ptr : Pointer(Mongo::Collection)
   )
     # When updating, we skip field password type.
-    if is_updated? && field_ptr.value.field_type == "PasswordField"
+    if updated? && field_ptr.value.field_type == "PasswordField"
       field_ptr.value.value = nil
       return
     end
@@ -23,14 +23,14 @@ module Crymon::Paladins::Groups
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?
-        if field_ptr.value.is_required?
+        if field_ptr.value.required?
           self.accumulate_error(
             I18n.t(:required_field),
             field_ptr,
-            is_error_symptom_ptr?
+            error_symptom_ptr?
           )
         end
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if is_save?
+        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
       value.to_s
@@ -41,7 +41,7 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           field_ptr.value.regex_err_msg.to_s,
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     end
@@ -56,7 +56,7 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           err_msg,
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     end
@@ -71,17 +71,17 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           err_msg,
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     end
-    # Validation the `is_unique` field attribute.
-    if field_ptr.value.is_unique? &&
+    # Validation the `unique` field attribute.
+    if field_ptr.value.unique? &&
        !collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
       self.accumulate_error(
         I18n.t(:not_unique),
         field_ptr,
-        is_error_symptom_ptr?
+        error_symptom_ptr?
       )
     end
     # Validation Email, Url, IP, Color.
@@ -91,7 +91,7 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           I18n.t(:invalid_email),
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     when "URLField"
@@ -99,7 +99,7 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           I18n.t(:invalid_url),
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     when "IPField"
@@ -107,7 +107,7 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           I18n.t(:invalid_ip),
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     when "ColorField"
@@ -115,12 +115,12 @@ module Crymon::Paladins::Groups
         self.accumulate_error(
           I18n.t(:invalid_color),
           field_ptr,
-          is_error_symptom_ptr?
+          error_symptom_ptr?
         )
       end
     end
     # Insert result.
-    if is_save?
+    if save?
       if field_ptr.value.field_type == "PasswordField"
         current_value = Crypto::Bcrypt::Password.create(current_value).to_s
       end

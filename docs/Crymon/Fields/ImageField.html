@@ -637,7 +637,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3ACrymon%3A%3AGlobals%3A%3AImageData%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22image/png%2Cimage/jpeg%2Cimage/webp%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cis_quality%3ABool%3Dtrue%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22allowed_files.interpolation%22%2Ctypes%3A%22jpg/jpeg%2Cpngandwebp%22%29%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Crymon::Globals::ImageData | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;image/png, image/jpeg, image/webp&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, is_quality : Bool = <span class="n">true</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;allowed_files.interpolation&quot;</span>, types: <span class="s">&quot;jpg/jpeg, png and webp&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3ACrymon%3A%3AGlobals%3A%3AImageData%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22image/png%2Cimage/jpeg%2Cimage/webp%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cquality%3ABool%3Dtrue%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22allowed_files.interpolation%22%2Ctypes%3A%22jpg/jpeg%2Cpngandwebp%22%29%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Crymon::Globals::ImageData | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;image/png, image/jpeg, image/webp&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, quality : Bool = <span class="n">true</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;allowed_files.interpolation&quot;</span>, types: <span class="s">&quot;jpg/jpeg, png and webp&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -702,20 +702,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_quality%3F%3ABool-instance-method" class="signature"><strong>#is_quality?</strong> : Bool</a>
-        
-          <div class="summary"><p>Thumbnail quality level: - Fast=false or Qualitatively=true.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_unique%3F%3ABool-instance-method" class="signature"><strong>#is_unique?</strong> : Bool</a>
-        
-          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#max%3ANil-instance-method" class="signature"><strong>#max</strong> : Nil</a>
         
           <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
@@ -772,6 +758,13 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#quality%3F%3ABool-instance-method" class="signature"><strong>#quality?</strong> : Bool</a>
+        
+          <div class="summary"><p>Thumbnail quality level: - Fast=false or Qualitatively=true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#regex%3ANil-instance-method" class="signature"><strong>#regex</strong> : Nil</a>
         
           <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
@@ -796,6 +789,13 @@
         <a href="#thumbnails%3AArray%28Tuple%28String%2CUInt32%29%29-instance-method" class="signature"><strong>#thumbnails</strong> : Array(Tuple(String, UInt32))</a>
         
           <div class="summary"><p>From one to four inclusive.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unique%3F%3ABool-instance-method" class="signature"><strong>#unique?</strong> : Bool</a>
+        
+          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
         
       </li>
     
@@ -829,6 +829,16 @@
     []?</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
+      <span>disabled=(disabled : Bool)</span>
+    disabled=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
+      <span>disabled? : Bool</span>
+    disabled?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
       <span>errors : Array(String)</span>
     errors</a>, 
@@ -849,6 +859,16 @@
     group</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
+      <span>hide=(hide : Bool)</span>
+    hide=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
+      <span>hide? : Bool</span>
+    hide?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
       <span>hint : String</span>
     hint</a>, 
@@ -864,44 +884,9 @@
     id=</a>, 
     
   
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3F%3ABool-instance-method" class="tooltip">
-      <span>is_disabled? : Bool</span>
-    is_disabled?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3F%3ABool-instance-method" class="tooltip">
-      <span>is_hide? : Bool</span>
-    is_hide?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_ignored%3F%3ABool-instance-method" class="tooltip">
-      <span>is_ignored? : Bool</span>
-    is_ignored?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3F%3ABool-instance-method" class="tooltip">
-      <span>is_readonly? : Bool</span>
-    is_readonly?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3F%3ABool-instance-method" class="tooltip">
-      <span>is_required? : Bool</span>
-    is_required?</a>, 
+    <a href="../../Crymon/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
+      <span>ignored? : Bool</span>
+    ignored?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#json_to_choices%28json%3AString%29-instance-method" class="tooltip">
@@ -922,6 +907,21 @@
     <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
       <span>name=(name : String)</span>
     name=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3D%28readonly%3ABool%29-instance-method" class="tooltip">
+      <span>readonly=(readonly : Bool)</span>
+    readonly=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3F%3ABool-instance-method" class="tooltip">
+      <span>readonly? : Bool</span>
+    readonly?</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#required%3F%3ABool-instance-method" class="tooltip">
+      <span>required? : Bool</span>
+    required?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
@@ -1056,12 +1056,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Crymon::Globals::ImageData|Nil=nil,placeholder:String=&quot;&quot;,media_root:String=&quot;assets/media&quot;,media_url:String=&quot;/media&quot;,target_dir:String=&quot;images&quot;,accept:String=&quot;image/png,image/jpeg,image/webp&quot;,thumbnails:Array(Tuple(String,UInt32))=Array(::Tuple(String,UInt32)).new,is_quality:Bool=true,is_hide:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,is_ignored:Bool=false,hint:String=I18n.t(&quot;allowed_files.interpolation&quot;,types:&quot;jpg/jpeg,pngandwebp&quot;),warning:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Crymon::Globals::ImageData|Nil=nil,placeholder:String=&quot;&quot;,media_root:String=&quot;assets/media&quot;,media_url:String=&quot;/media&quot;,target_dir:String=&quot;images&quot;,accept:String=&quot;image/png,image/jpeg,image/webp&quot;,thumbnails:Array(Tuple(String,UInt32))=Array(::Tuple(String,UInt32)).new,quality:Bool=true,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=I18n.t(&quot;allowed_files.interpolation&quot;,types:&quot;jpg/jpeg,pngandwebp&quot;),warning:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : <a href="../../Crymon/Globals/Types/ImageData.html">Crymon::Globals::ImageData</a> | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;image/png, image/jpeg, image/webp&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, is_quality : Bool = <span class="n">true</span>, is_hide : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;allowed_files.interpolation&quot;</span>, types: <span class="s">&quot;jpg/jpeg, png and webp&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : <a href="../../Crymon/Globals/Types/ImageData.html">Crymon::Globals::ImageData</a> | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, media_root : String = <span class="s">&quot;assets/media&quot;</span>, media_url : String = <span class="s">&quot;/media&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, accept : String = <span class="s">&quot;image/png, image/jpeg, image/webp&quot;</span>, thumbnails : Array(Tuple(String, UInt32)) = <span class="t">Array</span>(<span class="t">::</span><span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">UInt32</span>)).new, quality : Bool = <span class="n">true</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;allowed_files.interpolation&quot;</span>, types: <span class="s">&quot;jpg/jpeg, png and webp&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3ACrymon%3A%3AGlobals%3A%3AImageData%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22image/png%2Cimage/jpeg%2Cimage/webp%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cis_quality%3ABool%3Dtrue%2Cis_hide%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22allowed_files.interpolation%22%2Ctypes%3A%22jpg/jpeg%2Cpngandwebp%22%29%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3ACrymon%3A%3AGlobals%3A%3AImageData%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmedia_root%3AString%3D%22assets/media%22%2Cmedia_url%3AString%3D%22/media%22%2Ctarget_dir%3AString%3D%22images%22%2Caccept%3AString%3D%22image/png%2Cimage/jpeg%2Cimage/webp%22%2Cthumbnails%3AArray%28Tuple%28String%2CUInt32%29%29%3DArray%28%3A%3ATuple%28String%2CUInt32%29%29.new%2Cquality%3ABool%3Dtrue%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22allowed_files.interpolation%22%2Ctypes%3A%22jpg/jpeg%2Cpngandwebp%22%29%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1198,46 +1198,6 @@ Describing which file types to allow.
         <div class="doc">
           
           <p>Html tag: input type=&quot;url&quot;.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_quality?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_quality?</strong> : Bool
-
-        <a class="method-permalink" href="#is_quality%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Thumbnail quality level: - Fast=false or Qualitatively=true.
-<br>
-By default: true.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_unique?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique?</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p><span class="flag yellow">WARNING</span>  Stub</p>
         </div>
       
       <br/>
@@ -1398,6 +1358,27 @@ By default: true.</p>
       </div>
     </div>
   
+    <div class="entry-detail" id="quality?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>quality?</strong> : Bool
+
+        <a class="method-permalink" href="#quality%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Thumbnail quality level: - Fast=false or Qualitatively=true.
+<br>
+By default: true.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="regex:Nil-instance-method">
       <div class="signature">
         
@@ -1471,6 +1452,25 @@ By default: true.</p>
 <br>
 <em>Example: [{&quot;xs&quot;, 150},{&quot;sm&quot;, 300},{&quot;md&quot;, 600},{&quot;lg&quot;, 1200}]</em></p>
 <p><span class="flag purple">NOTE</span>  An Intel i7-4770 processor or better is recommended.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unique?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>unique?</strong> : Bool
+
+        <a class="method-permalink" href="#unique%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag yellow">WARNING</span>  Stub</p>
         </div>
       
       <br/>

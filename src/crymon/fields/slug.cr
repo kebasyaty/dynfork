@@ -17,7 +17,7 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The unique value of a field in a collection.
-    getter? is_unique : Bool = true
+    getter? unique : Bool = true
     # Names of the fields whose contents will be used for the slug.
     # <br>
     # The default is ["hash"].
@@ -48,10 +48,10 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @placeholder : String = "",
-      @is_hide : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = true,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = true,
+      @ignored : Bool = false,
       @slug_sources : Array(String) = ["hash"],
       @hint : String = "",
       @warning : String = ""

@@ -654,7 +654,7 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))</a>
         
       </li>
     
@@ -719,13 +719,6 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
       </li>
     
       <li class="entry-summary">
-        <a href="#is_unique%3F%3ABool-instance-method" class="signature"><strong>#is_unique?</strong> : Bool</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#max%3AString%7CNil-instance-method" class="signature"><strong>#max</strong> : String | Nil</a>
         
           <div class="summary"><p>The top value for entering a date.</p></div>
@@ -778,6 +771,13 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
         <a href="#time_object%3ATime%7CNil-instance-method" class="signature"><strong>#time_object</strong> : Time | Nil</a>
         
           <div class="summary"><p>Get time object from value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unique%3F%3ABool-instance-method" class="signature"><strong>#unique?</strong> : Bool</a>
+        
+          <div class="summary"><p>The unique value of a field in a collection.</p></div>
         
       </li>
     
@@ -838,6 +838,16 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
     []?</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
+      <span>disabled=(disabled : Bool)</span>
+    disabled=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
+      <span>disabled? : Bool</span>
+    disabled?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
       <span>errors : Array(String)</span>
     errors</a>, 
@@ -858,6 +868,16 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
     group</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
+      <span>hide=(hide : Bool)</span>
+    hide=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
+      <span>hide? : Bool</span>
+    hide?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
       <span>hint : String</span>
     hint</a>, 
@@ -873,44 +893,9 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
     id=</a>, 
     
   
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3F%3ABool-instance-method" class="tooltip">
-      <span>is_disabled? : Bool</span>
-    is_disabled?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3F%3ABool-instance-method" class="tooltip">
-      <span>is_hide? : Bool</span>
-    is_hide?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_ignored%3F%3ABool-instance-method" class="tooltip">
-      <span>is_ignored? : Bool</span>
-    is_ignored?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3F%3ABool-instance-method" class="tooltip">
-      <span>is_readonly? : Bool</span>
-    is_readonly?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3F%3ABool-instance-method" class="tooltip">
-      <span>is_required? : Bool</span>
-    is_required?</a>, 
+    <a href="../../Crymon/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
+      <span>ignored? : Bool</span>
+    ignored?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#json_to_choices%28json%3AString%29-instance-method" class="tooltip">
@@ -931,6 +916,21 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
     <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
       <span>name=(name : String)</span>
     name=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3D%28readonly%3ABool%29-instance-method" class="tooltip">
+      <span>readonly=(readonly : Bool)</span>
+    readonly=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3F%3ABool-instance-method" class="tooltip">
+      <span>readonly? : Bool</span>
+    readonly?</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#required%3F%3ABool-instance-method" class="tooltip">
+      <span>required? : Bool</span>
+    required?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
@@ -1068,12 +1068,12 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,max:String|Nil=nil,min:String|Nil=nil,is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,is_ignored:Bool=false,hint:String=I18n.t(&quot;formats.interpolation&quot;,samples:(&quot;dd-mm-yyyy|dd/mm/yyyy|&quot;+&quot;dd.mm.yyyy|yyyy-mm-dd|&quot;)+&quot;yyyy/mm/dd|yyyy.mm.dd&quot;))-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,max:String|Nil=nil,min:String|Nil=nil,hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=I18n.t(&quot;formats.interpolation&quot;,samples:(&quot;dd-mm-yyyy|dd/mm/yyyy|&quot;+&quot;dd.mm.yyyy|yyyy-mm-dd|&quot;)+&quot;yyyy/mm/dd|yyyy.mm.dd&quot;))-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1207,25 +1207,6 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
         <div class="doc">
           
           <p>Html tag: input type=&quot;date&quot;.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_unique?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique?</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>
@@ -1378,6 +1359,25 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
         <div class="doc">
           
           <p>Get time object from value.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unique?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>unique?</strong> : Bool
+
+        <a class="method-permalink" href="#unique%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>

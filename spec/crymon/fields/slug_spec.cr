@@ -12,12 +12,12 @@ describe Crymon::Fields::SlugField do
       f.value.should be_nil
       f.default.should be_nil
       f.placeholder.should eq("")
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_true
-      f.is_hide?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_true
-      f.is_ignored?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_true
+      f.hide?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_true
+      f.ignored?.should be_false
       f.slug_sources.should eq(["hash"])
       f.hint.should eq("")
       f.warning.should eq("")

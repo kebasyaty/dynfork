@@ -28,20 +28,20 @@ module Crymon::Fields
     # WARNING: Stub
     getter minlength : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # WARNING: Stub
     getter choices : Nil
     # WARNING: Stub
-    getter? is_required : Bool = false
+    getter? required : Bool = false
     # WARNING: Stub
-    getter? is_readonly : Bool = false
+    getter? readonly : Bool = false
 
     def initialize(
       @label : String = "",
       @default : Bool? = false,
-      @is_hide : Bool = false,
-      @is_disabled : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @disabled : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
   end

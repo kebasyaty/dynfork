@@ -18,7 +18,7 @@ describe Crymon::Globals::ImageData do
       f.size.should eq(0_f64)
       f.width.should eq(0_f64)
       f.height.should eq(0_f64)
-      f.is_delete?.should be_false
+      f.delete?.should be_false
     end
   end
 end
@@ -40,13 +40,13 @@ describe Crymon::Fields::ImageField do
       f.target_dir.should eq("images")
       f.accept.should eq("image/png, image/jpeg, image/webp")
       f.thumbnails.should eq(Array({String, UInt32}).new)
-      f.is_quality?.should be_true
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_ignored?.should be_false
+      f.quality?.should be_true
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.ignored?.should be_false
       f.hint.should eq("Only jpg/jpeg, png and webp files are allowed.")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

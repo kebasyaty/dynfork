@@ -12,11 +12,11 @@ describe Crymon::Fields::I64Field do
       f.value.should be_nil
       f.default.should be_nil
       f.placeholder.should eq("")
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
       f.max.should eq(Int64::MAX)
       f.min.should eq(Int64::MIN)
       f.step.should eq(1_i64)
@@ -59,12 +59,12 @@ describe Crymon::Fields::F64Field do
       f.value.should be_nil
       f.default.should be_nil
       f.placeholder.should eq("")
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_ignored?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.ignored?.should be_false
       f.max.should eq(Float64::MAX)
       f.min.should eq(Float64::MIN)
       f.step.should eq(1_f64)

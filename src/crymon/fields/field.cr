@@ -17,15 +17,15 @@ module Crymon::Fields
     # Field type - Structure Name.
     getter field_type : String = ""
     # Required field.
-    getter? is_required : Bool = false
+    getter? required : Bool = false
     # Blocks access and modification of the element.
-    property? is_disabled : Bool = false
+    property? disabled : Bool = false
     # Specifies that the field cannot be modified by the user.
-    property? is_readonly : Bool = false
+    property? readonly : Bool = false
     # Hide field from user.
-    property? is_hide : Bool = false
+    property? hide : Bool = false
     # If true, the value of this field is not saved in the database.
-    getter? is_ignored : Bool = false
+    getter? ignored : Bool = false
     # Additional explanation for the user.
     getter hint : String = ""
     # Warning information.

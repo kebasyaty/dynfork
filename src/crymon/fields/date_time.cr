@@ -29,7 +29,7 @@ module Crymon::Fields
     # The lower value for entering a date and time.
     getter min : String?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Additional explanation for the user.
     getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
@@ -53,12 +53,12 @@ module Crymon::Fields
       @placeholder : String = "",
       @max : String? = nil,
       @min : String? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | " +
                                           "dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | " +

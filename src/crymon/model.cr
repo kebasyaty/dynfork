@@ -18,7 +18,7 @@ module Crymon
   # ```
   # @[Crymon::Meta(
   #   service_name: "Accounts",
-  #   is_deleting_docs: false
+  #   deleting_docs: false
   # )]
   # struct User < Crymon::Model
   #   getter username = Crymon::Fields::TextField.new(
@@ -27,14 +27,14 @@ module Crymon
   #     "minlength": 1,
   #     "regex": "^[a-zA-Z0-9_@.+]$",
   #     "regex_err_msg": "Allowed chars: a-z A-Z 0-9 _ @ . +",
-  #     "is_required": true,
-  #     "is_unique": true
+  #     "required": true,
+  #     "unique": true
   #   )
   #   getter email = Crymon::Fields::EmailField.new(
   #     "label": "E-mail",
   #     "maxlength": 320,
-  #     "is_required": true,
-  #     "is_unique": true
+  #     "required": true,
+  #     "unique": true
   #   )
   #   getter birthday = Crymon::Fields::DateField.new(
   #     "label": "Birthday",
@@ -50,9 +50,9 @@ module Crymon
   #   # This field is for verification purposes only.
   #   getter confirm_password = Crymon::Fields::PasswordField.new(
   #     "label": "Confirm password",
-  #     "is_ignored": true
+  #     "ignored": true
   #   )
-  #   getter is_active: Crymon::Fields::BoolField.new(
+  #   getter active: Crymon::Fields::BoolField.new(
   #     "label": "is active?",
   #     "default": true
   #   )
@@ -67,11 +67,11 @@ module Crymon
     include Crymon::Paladins
 
     getter hash = Crymon::Fields::HashField
-      .new("is_hide": true, "is_unique": true, "is_ignored": true)
+      .new("hide": true, "unique": true, "ignored": true)
     getter created_at = Crymon::Fields::DateTimeField
-      .new("label": "Created at", "is_hide": true)
+      .new("label": "Created at", "hide": true)
     getter updated_at = Crymon::Fields::DateTimeField
-      .new("label": "Updated at", "is_hide": true)
+      .new("label": "Updated at", "hide": true)
     # Metadata cache.
     class_getter! meta : Crymon::Globals::CacheMetaDataType
 

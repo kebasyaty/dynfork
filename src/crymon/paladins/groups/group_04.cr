@@ -5,8 +5,8 @@ module Crymon::Paladins::Groups
   # | "ChoiceI64Field" | "ChoiceF64Field"
   def group_04(
     field_ptr : Pointer,
-    is_error_symptom_ptr? : Pointer(Bool),
-    is_updated? : Bool
+    error_symptom_ptr? : Pointer(Bool),
+    updated? : Bool
   )
   end
 end

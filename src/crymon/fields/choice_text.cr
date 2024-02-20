@@ -11,9 +11,9 @@ module Crymon::Fields
     # Value by default.
     getter default : String?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = false
+    getter? multiple : Bool = false
     # The unique value of a field in a collection.
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -38,12 +38,12 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @default : String? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
@@ -59,9 +59,9 @@ module Crymon::Fields
     # Value by default.
     getter default : Array(String)?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = true
+    getter? multiple : Bool = true
     # The unique value of a field in a collection.
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # Html tag: select multiple.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -86,12 +86,12 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @default : Array(String)? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
@@ -106,9 +106,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : String?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = false
+    getter? multiple : Bool = false
     # The unique value of a field in a collection.
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -134,12 +134,12 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
 
@@ -158,9 +158,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : Array(String)?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = true
+    getter? multiple : Bool = true
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
@@ -186,12 +186,12 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
 

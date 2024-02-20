@@ -644,7 +644,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_model_exists%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), is_model_exists : Bool = <span class="n">false</span>)</a>
+        <a href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cmodel_exists%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), model_exists : Bool = <span class="n">false</span>)</a>
         
       </li>
     
@@ -672,7 +672,7 @@
       <li class="entry-summary">
         <a href="#from_bson%28bson%3ABSON%29-class-method" class="signature"><strong>.from_bson</strong>(bson : BSON)</a>
         
-          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_model_exists%3ABool%3Dfalse%29-class-method">.new</a></code>.</p></div>
+          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cmodel_exists%3ABool%3Dfalse%29-class-method">.new</a></code>.</p></div>
         
       </li>
     
@@ -718,12 +718,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_model_exists%3D%28is_model_exists%3ABool%29-instance-method" class="signature"><strong>#is_model_exists=</strong>(is_model_exists : Bool)</a>
+        <a href="#model_exists%3D%28model_exists%3ABool%29-instance-method" class="signature"><strong>#model_exists=</strong>(model_exists : Bool)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#is_model_exists%3F%3ABool-instance-method" class="signature"><strong>#is_model_exists?</strong> : Bool</a>
+        <a href="#model_exists%3F%3ABool-instance-method" class="signature"><strong>#model_exists?</strong> : Bool</a>
         
       </li>
     
@@ -804,12 +804,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(collection_name:String,field_name_and_type_list:Hash(String,String),is_model_exists:Bool=false)-class-method">
+    <div class="entry-detail" id="new(collection_name:String,field_name_and_type_list:Hash(String,String),model_exists:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), is_model_exists : Bool = <span class="n">false</span>)
+        def self.<strong>new</strong>(collection_name : String, field_name_and_type_list : Hash(String, String), model_exists : Bool = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_model_exists%3ABool%3Dfalse%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cmodel_exists%3ABool%3Dfalse%29-class-method">#</a>
       </div>
       
       <br/>
@@ -867,7 +867,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cis_model_exists%3ABool%3Dfalse%29-class-method">.new</a></code>.</p>
+          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../Crymon/Migration/ModelState.html#new%28collection_name%3AString%2Cfield_name_and_type_list%3AHash%28String%2CString%29%2Cmodel_exists%3ABool%3Dfalse%29-class-method">.new</a></code>.</p>
         </div>
       
       <br/>
@@ -960,12 +960,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="is_model_exists=(is_model_exists:Bool)-instance-method">
+    <div class="entry-detail" id="model_exists=(model_exists:Bool)-instance-method">
       <div class="signature">
         
-        def <strong>is_model_exists=</strong>(is_model_exists : Bool)
+        def <strong>model_exists=</strong>(model_exists : Bool)
 
-        <a class="method-permalink" href="#is_model_exists%3D%28is_model_exists%3ABool%29-instance-method">#</a>
+        <a class="method-permalink" href="#model_exists%3D%28model_exists%3ABool%29-instance-method">#</a>
       </div>
       
       <br/>
@@ -974,12 +974,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="is_model_exists?:Bool-instance-method">
+    <div class="entry-detail" id="model_exists?:Bool-instance-method">
       <div class="signature">
         
-        def <strong>is_model_exists?</strong> : Bool
+        def <strong>model_exists?</strong> : Bool
 
-        <a class="method-permalink" href="#is_model_exists%3F%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#model_exists%3F%3ABool-instance-method">#</a>
       </div>
       
       <br/>

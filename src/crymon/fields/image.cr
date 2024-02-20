@@ -36,7 +36,7 @@ module Crymon::Fields
     # Thumbnail quality level: - Fast=false or Qualitatively=true.
     # <br>
     # By default: true.
-    getter? is_quality : Bool = true
+    getter? quality : Bool = true
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9
@@ -54,7 +54,7 @@ module Crymon::Fields
     # WARNING: Stub
     getter minlength : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    getter? unique : Bool = false
     # WARNING: Stub
     getter choices : Nil
 
@@ -67,12 +67,12 @@ module Crymon::Fields
       @target_dir : String = "images",
       @accept : String = "image/png, image/jpeg, image/webp",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
-      @is_quality : Bool = true,
-      @is_hide : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @quality : Bool = true,
+      @hide : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
       @warning : String = ""
     ); end

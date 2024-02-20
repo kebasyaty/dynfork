@@ -10,12 +10,12 @@ module Crymon::Migration
     getter collection_name : String
     property field_name_and_type_list : Hash(String, String)
     property data_dynamic_fields : Hash(String, String)
-    property? is_model_exists : Bool
+    property? model_exists : Bool
 
     def initialize(
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
-      @is_model_exists : Bool = false
+      @model_exists : Bool = false
     )
       @data_dynamic_fields = Hash(String, String).new
     end
@@ -54,7 +54,7 @@ module Crymon::Migration
       # Reset Models state information.
       cursor.each { |document|
         filter = {"collection_name": document["collection_name"]}
-        update = {"$set": {"is_model_exists": false}}
+        update = {"$set": {"model_exists": false}}
         super_collection.update_one(filter, update)
       }
     end
@@ -70,7 +70,7 @@ module Crymon::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
-        unless document["is_model_exists"]
+        unless document["model_exists"]
           # Get the name of the collection associated with the Model.
           model_collection_name : String = document["collection_name"].as(String)
           # Delete data for non-existent Model.
@@ -104,34 +104,36 @@ module Crymon::Migration
         model.new
         # Get metadata of Model from cache.
         metadata : Crymon::Globals::CacheMetaDataType = model.meta.not_nil!
-        # If the Model parameter is_add_doc is false, skip the iteration.
-        next unless metadata[:is_saving_docs]
+        # If the Model parameter add_doc is false, skip the iteration.
+        next unless metadata[:saving_docs?]
         # Get super collection - State of Models and dynamic fields data.
         super_collection : Mongo::Collection = database[
           Crymon::Globals.cache_super_collection_name]
         # Get ModelState for current Model.
-        model_state, is_next = (
+        next? : Bool = false
+        model_state = (
           filter = {"collection_name": metadata[:collection_name]}
           document = super_collection.find_one(filter)
           if !document.nil?
             # Get existing ModelState for the current Model.
             m_state = Crymon::Migration::ModelState.from_bson(document)
-            m_state.is_model_exists = true
-            {m_state, false}
+            m_state.model_exists = true
+            m_state
           else
             # Create a new ModelState for current Model.
             m_state = Crymon::Migration::ModelState.new(
               "collection_name": metadata[:collection_name],
               "field_name_and_type_list": metadata[:field_name_and_type_list],
-              "is_model_exists": true,
+              "model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
             database.command(Mongo::Commands::Create, name: m_state.collection_name)
-            {m_state, true}
+            next? = true
+            m_state
           end
         )
         # If this is a new Model, move on to the next iteration.
-        next if is_next
+        next if next?
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
