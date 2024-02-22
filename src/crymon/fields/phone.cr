@@ -27,16 +27,12 @@ module Crymon::Fields
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
     #
-    # WARNING: Stub
     # :nodoc:
     getter max : Nil
-    # WARNING: Stub
     # :nodoc:
     getter min : Nil
-    # WARNING: Stub
     # :nodoc:
     getter choices : Nil
-    # WARNING: Stub
     # :nodoc:
     getter maxsize : Nil
 
