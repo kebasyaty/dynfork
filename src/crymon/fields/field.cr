@@ -46,10 +46,8 @@ module Crymon::Fields
       false
     end
 
-    # WARNING: Stub
     def json_to_choices(json : String); end
 
-    # WARNING: Stub
     def slug_sources : Array(String)
       Array(String).new
     end
