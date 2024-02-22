@@ -38,6 +38,8 @@ module Crymon::Fields
     getter regex_err_msg : Nil
     # WARNING: Stub
     getter choices : Nil
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "Document ID",

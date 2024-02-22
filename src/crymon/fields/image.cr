@@ -37,6 +37,8 @@ module Crymon::Fields
     # <br>
     # By default: true.
     getter? quality : Bool = true
+    # The maximum allowed image size in megabytes.
+    getter maxsize : Float32?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9
@@ -68,6 +70,7 @@ module Crymon::Fields
       @accept : String = "image/png, image/jpeg, image/webp",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
       @quality : Bool = true,
+      @maxsize : Float32? = 2.0,
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,

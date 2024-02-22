@@ -28,6 +28,8 @@ module Crymon::Fields
     getter accept : String = ""
     # Displays prompt text.
     getter placeholder : String
+    # The maximum allowed file size in megabytes.
+    getter maxsize : Float32?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 8
@@ -57,6 +59,7 @@ module Crymon::Fields
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",
+      @maxsize : Float32? = 0.5,
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,

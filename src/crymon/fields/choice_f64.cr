@@ -34,6 +34,8 @@ module Crymon::Fields
     getter maxlength : Nil
     # WARNING: Stub
     getter minlength : Nil
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -82,6 +84,8 @@ module Crymon::Fields
     getter maxlength : Nil
     # WARNING: Stub
     getter minlength : Nil
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -131,6 +135,8 @@ module Crymon::Fields
     getter maxlength : Nil
     # WARNING: Stub
     getter minlength : Nil
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -183,6 +189,8 @@ module Crymon::Fields
     getter maxlength : Nil
     # WARNING: Stub
     getter minlength : Nil
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",

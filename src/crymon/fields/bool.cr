@@ -35,6 +35,8 @@ module Crymon::Fields
     getter? required : Bool = false
     # WARNING: Stub
     getter? readonly : Bool = false
+    # WARNING: Stub
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
