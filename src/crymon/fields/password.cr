@@ -24,15 +24,23 @@ module Crymon::Fields
     getter group : UInt8 = 1
     #
     # WARNING: Stub
+    # :nodoc:
     getter default : Nil
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    # :nodoc:
+    getter? unique : Bool = false
     # WARNING: Stub
+    # :nodoc:
     getter choices : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -41,11 +49,11 @@ module Crymon::Fields
       @minlength : Int32 = 8,
       @regex : String? = "^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$",
       @regex_err_msg : String? = I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) ("),
-      @is_hide : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
     ); end

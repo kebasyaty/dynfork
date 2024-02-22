@@ -11,10 +11,10 @@ describe Crymon::Fields::BoolField do
       f.name.should eq("")
       f.value.should be_nil
       f.default.should be_false
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_ignored?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.hide?.should be_false
+      f.ignored?.should be_false
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

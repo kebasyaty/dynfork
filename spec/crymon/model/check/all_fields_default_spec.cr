@@ -1,7 +1,7 @@
 require "../../../spec_helper"
 
 describe Crymon::Model do
-  describe "#is_valid" do
+  describe "#valid" do
     it "=> validation instance of Model", tags: "check" do
       # Init data for test.
       #
@@ -29,7 +29,7 @@ describe Crymon::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
 
-      # Testing is_valid method.
+      # Testing valid method.
       m = Spec::Data::AllFieldsDefault.new
       m.valid?.should be_true
       m.print_err.should be_nil

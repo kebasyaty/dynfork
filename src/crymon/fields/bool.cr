@@ -16,32 +16,45 @@ module Crymon::Fields
     getter group : UInt8 = 12
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    # :nodoc:
+    getter? unique : Bool = false
     # WARNING: Stub
+    # :nodoc:
     getter choices : Nil
     # WARNING: Stub
-    getter? is_required : Bool = false
+    # :nodoc:
+    getter? required : Bool = false
     # WARNING: Stub
-    getter? is_readonly : Bool = false
+    # :nodoc:
+    getter? readonly : Bool = false
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
       @default : Bool? = false,
-      @is_hide : Bool = false,
-      @is_disabled : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @disabled : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
   end

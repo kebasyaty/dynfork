@@ -637,7 +637,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AInt32%3D15%2Cminlength%3AInt32%3D8%2Cregex%3AString%7CNil%3D%22%5E%2B%3F%5B0-9%5D%7B8%2C15%7D%24%22%2Cregex_err_msg%3AString%7CNil%3DI18n.t%28%3Ainvalid_phone%29%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22format.interpolation%22%2Csample%3A%22%2Bxxxxxxxx...orxxxxxxxx...%22%29%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : Int32 = <span class="n">15</span>, minlength : Int32 = <span class="n">8</span>, regex : String | Nil = <span class="s">&quot;^+?[0-9]{8,15}$&quot;</span>, regex_err_msg : String | Nil = <span class="t">I18n</span>.t(<span class="n">:invalid_phone</span>), is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;format.interpolation&quot;</span>, sample: <span class="s">&quot;+xxxxxxxx... or xxxxxxxx...&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AInt32%3D15%2Cminlength%3AInt32%3D8%2Cregex%3AString%7CNil%3D%22%5E%2B%3F%5B0-9%5D%7B8%2C15%7D%24%22%2Cregex_err_msg%3AString%7CNil%3DI18n.t%28%3Ainvalid_phone%29%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22format.interpolation%22%2Csample%3A%22%2Bxxxxxxxx...orxxxxxxxx...%22%29%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : Int32 = <span class="n">15</span>, minlength : Int32 = <span class="n">8</span>, regex : String | Nil = <span class="s">&quot;^+?[0-9]{8,15}$&quot;</span>, regex_err_msg : String | Nil = <span class="t">I18n</span>.t(<span class="n">:invalid_phone</span>), hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;format.interpolation&quot;</span>, sample: <span class="s">&quot;+xxxxxxxx... or xxxxxxxx...&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -662,7 +662,7 @@
       <li class="entry-summary">
         <a href="#choices%3ANil-instance-method" class="signature"><strong>#choices</strong> : Nil</a>
         
-          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
+          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub :nodoc:</p></div>
         
       </li>
     
@@ -695,16 +695,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#is_unique%3F%3ABool-instance-method" class="signature"><strong>#is_unique?</strong> : Bool</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#max%3ANil-instance-method" class="signature"><strong>#max</strong> : Nil</a>
         
-          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
+          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub :nodoc:</p></div>
         
       </li>
     
@@ -716,9 +709,16 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#maxsize%3ANil-instance-method" class="signature"><strong>#maxsize</strong> : Nil</a>
+        
+          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub :nodoc:</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#min%3ANil-instance-method" class="signature"><strong>#min</strong> : Nil</a>
         
-          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub</p></div>
+          <div class="summary"><p><span class="flag yellow">WARNING</span>  Stub :nodoc:</p></div>
         
       </li>
     
@@ -747,6 +747,13 @@
         <a href="#regex_err_msg%3AString%7CNil-instance-method" class="signature"><strong>#regex_err_msg</strong> : String | Nil</a>
         
           <div class="summary"><p>Error message.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unique%3F%3ABool-instance-method" class="signature"><strong>#unique?</strong> : Bool</a>
+        
+          <div class="summary"><p>The unique value of a field in a collection.</p></div>
         
       </li>
     
@@ -780,6 +787,16 @@
     []?</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
+      <span>disabled=(disabled : Bool)</span>
+    disabled=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
+      <span>disabled? : Bool</span>
+    disabled?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
       <span>errors : Array(String)</span>
     errors</a>, 
@@ -800,6 +817,16 @@
     group</a>, 
     
   
+    <a href="../../Crymon/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
+      <span>hide=(hide : Bool)</span>
+    hide=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
+      <span>hide? : Bool</span>
+    hide?</a>, 
+    
+  
     <a href="../../Crymon/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
       <span>hint : String</span>
     hint</a>, 
@@ -815,44 +842,9 @@
     id=</a>, 
     
   
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3D%28is_disabled%3ABool%29-instance-method" class="tooltip">
-      <span>is_disabled=(is_disabled : Bool)</span>
-    is_disabled=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_disabled%3F%3ABool-instance-method" class="tooltip">
-      <span>is_disabled? : Bool</span>
-    is_disabled?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3D%28is_hide%3ABool%29-instance-method" class="tooltip">
-      <span>is_hide=(is_hide : Bool)</span>
-    is_hide=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_hide%3F%3ABool-instance-method" class="tooltip">
-      <span>is_hide? : Bool</span>
-    is_hide?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_ignored%3F%3ABool-instance-method" class="tooltip">
-      <span>is_ignored? : Bool</span>
-    is_ignored?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3D%28is_readonly%3ABool%29-instance-method" class="tooltip">
-      <span>is_readonly=(is_readonly : Bool)</span>
-    is_readonly=</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_readonly%3F%3ABool-instance-method" class="tooltip">
-      <span>is_readonly? : Bool</span>
-    is_readonly?</a>, 
-    
-  
-    <a href="../../Crymon/Fields/Field.html#is_required%3F%3ABool-instance-method" class="tooltip">
-      <span>is_required? : Bool</span>
-    is_required?</a>, 
+    <a href="../../Crymon/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
+      <span>ignored? : Bool</span>
+    ignored?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#json_to_choices%28json%3AString%29-instance-method" class="tooltip">
@@ -873,6 +865,21 @@
     <a href="../../Crymon/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
       <span>name=(name : String)</span>
     name=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3D%28readonly%3ABool%29-instance-method" class="tooltip">
+      <span>readonly=(readonly : Bool)</span>
+    readonly=</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#readonly%3F%3ABool-instance-method" class="tooltip">
+      <span>readonly? : Bool</span>
+    readonly?</a>, 
+    
+  
+    <a href="../../Crymon/Fields/Field.html#required%3F%3ABool-instance-method" class="tooltip">
+      <span>required? : Bool</span>
+    required?</a>, 
     
   
     <a href="../../Crymon/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
@@ -1007,12 +1014,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,maxlength:Int32=15,minlength:Int32=8,regex:String|Nil=&quot;^+?[0-9]{8,15}$&quot;,regex_err_msg:String|Nil=I18n.t(:invalid_phone),is_hide:Bool=false,is_unique:Bool=false,is_required:Bool=false,is_disabled:Bool=false,is_readonly:Bool=false,is_ignored:Bool=false,hint:String=I18n.t(&quot;format.interpolation&quot;,sample:&quot;+xxxxxxxx...orxxxxxxxx...&quot;),warning:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,maxlength:Int32=15,minlength:Int32=8,regex:String|Nil=&quot;^+?[0-9]{8,15}$&quot;,regex_err_msg:String|Nil=I18n.t(:invalid_phone),hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=I18n.t(&quot;format.interpolation&quot;,sample:&quot;+xxxxxxxx...orxxxxxxxx...&quot;),warning:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : Int32 = <span class="n">15</span>, minlength : Int32 = <span class="n">8</span>, regex : String | Nil = <span class="s">&quot;^+?[0-9]{8,15}$&quot;</span>, regex_err_msg : String | Nil = <span class="t">I18n</span>.t(<span class="n">:invalid_phone</span>), is_hide : Bool = <span class="n">false</span>, is_unique : Bool = <span class="n">false</span>, is_required : Bool = <span class="n">false</span>, is_disabled : Bool = <span class="n">false</span>, is_readonly : Bool = <span class="n">false</span>, is_ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;format.interpolation&quot;</span>, sample: <span class="s">&quot;+xxxxxxxx... or xxxxxxxx...&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, maxlength : Int32 = <span class="n">15</span>, minlength : Int32 = <span class="n">8</span>, regex : String | Nil = <span class="s">&quot;^+?[0-9]{8,15}$&quot;</span>, regex_err_msg : String | Nil = <span class="t">I18n</span>.t(<span class="n">:invalid_phone</span>), hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;format.interpolation&quot;</span>, sample: <span class="s">&quot;+xxxxxxxx... or xxxxxxxx...&quot;</span>), warning : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AInt32%3D15%2Cminlength%3AInt32%3D8%2Cregex%3AString%7CNil%3D%22%5E%2B%3F%5B0-9%5D%7B8%2C15%7D%24%22%2Cregex_err_msg%3AString%7CNil%3DI18n.t%28%3Ainvalid_phone%29%2Cis_hide%3ABool%3Dfalse%2Cis_unique%3ABool%3Dfalse%2Cis_required%3ABool%3Dfalse%2Cis_disabled%3ABool%3Dfalse%2Cis_readonly%3ABool%3Dfalse%2Cis_ignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22format.interpolation%22%2Csample%3A%22%2Bxxxxxxxx...orxxxxxxxx...%22%29%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmaxlength%3AInt32%3D15%2Cminlength%3AInt32%3D8%2Cregex%3AString%7CNil%3D%22%5E%2B%3F%5B0-9%5D%7B8%2C15%7D%24%22%2Cregex_err_msg%3AString%7CNil%3DI18n.t%28%3Ainvalid_phone%29%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22format.interpolation%22%2Csample%3A%22%2Bxxxxxxxx...orxxxxxxxx...%22%29%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1047,7 +1054,8 @@
       
         <div class="doc">
           
-          <p><span class="flag yellow">WARNING</span>  Stub</p>
+          <p><span class="flag yellow">WARNING</span>  Stub
+:nodoc:</p>
         </div>
       
       <br/>
@@ -1133,25 +1141,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="is_unique?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_unique?</strong> : Bool
-
-        <a class="method-permalink" href="#is_unique%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="max:Nil-instance-method">
       <div class="signature">
         
@@ -1162,7 +1151,8 @@
       
         <div class="doc">
           
-          <p><span class="flag yellow">WARNING</span>  Stub</p>
+          <p><span class="flag yellow">WARNING</span>  Stub
+:nodoc:</p>
         </div>
       
       <br/>
@@ -1190,6 +1180,26 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="maxsize:Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>maxsize</strong> : Nil
+
+        <a class="method-permalink" href="#maxsize%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag yellow">WARNING</span>  Stub
+:nodoc:</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="min:Nil-instance-method">
       <div class="signature">
         
@@ -1200,7 +1210,8 @@
       
         <div class="doc">
           
-          <p><span class="flag yellow">WARNING</span>  Stub</p>
+          <p><span class="flag yellow">WARNING</span>  Stub
+:nodoc:</p>
         </div>
       
       <br/>
@@ -1277,6 +1288,25 @@
         <div class="doc">
           
           <p>Error message.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unique?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>unique?</strong> : Bool
+
+        <a class="method-permalink" href="#unique%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>

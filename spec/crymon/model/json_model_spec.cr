@@ -22,12 +22,12 @@ describe Spec::Data::FilledModel do
       f.first_name.value.should be_nil
       f.first_name.default.should eq("Cat")
       f.first_name.placeholder.should eq("")
-      f.first_name.is_textarea?.should be_false
-      f.first_name.is_disabled?.should be_false
-      f.first_name.is_readonly?.should be_false
-      f.first_name.is_hide?.should be_false
-      f.first_name.is_required?.should be_false
-      f.first_name.is_unique?.should be_false
+      f.first_name.textarea?.should be_false
+      f.first_name.disabled?.should be_false
+      f.first_name.readonly?.should be_false
+      f.first_name.hide?.should be_false
+      f.first_name.required?.should be_false
+      f.first_name.unique?.should be_false
       f.first_name.maxlength.should eq(256)
       f.first_name.minlength.should eq(0)
       f.first_name.regex.should be_nil
@@ -53,11 +53,11 @@ describe Spec::Data::FilledModel do
       f.age.value.should be_nil
       f.age.default.should eq(0_i64)
       f.age.placeholder.should eq("")
-      f.age.is_disabled?.should be_false
-      f.age.is_readonly?.should be_false
-      f.age.is_hide?.should be_false
-      f.age.is_required?.should be_false
-      f.age.is_unique?.should be_false
+      f.age.disabled?.should be_false
+      f.age.readonly?.should be_false
+      f.age.hide?.should be_false
+      f.age.required?.should be_false
+      f.age.unique?.should be_false
       f.age.max.should eq(Int64::MAX)
       f.age.min.should eq(0_i64)
       f.age.step.should eq(1_i64)
@@ -82,11 +82,11 @@ describe Spec::Data::FilledModel do
       f.birthday.value.should be_nil
       f.birthday.default.should eq("23.12.2023")
       f.birthday.placeholder.should eq("")
-      f.birthday.is_disabled?.should be_false
-      f.birthday.is_readonly?.should be_false
-      f.birthday.is_hide?.should be_false
-      f.birthday.is_required?.should be_false
-      f.birthday.is_unique?.should be_false
+      f.birthday.disabled?.should be_false
+      f.birthday.readonly?.should be_false
+      f.birthday.hide?.should be_false
+      f.birthday.required?.should be_false
+      f.birthday.unique?.should be_false
       f.birthday.max.should be_nil
       f.birthday.min.should be_nil
       f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")

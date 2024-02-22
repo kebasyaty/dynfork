@@ -8,7 +8,7 @@ describe Crymon::Globals::FileData do
       f.url.should eq("")
       f.name.should eq("")
       f.size.should eq(0_f64)
-      f.is_delete?.should be_false
+      f.delete?.should be_false
     end
   end
 end
@@ -29,12 +29,13 @@ describe Crymon::Fields::FileField do
       f.media_url.should eq("/media")
       f.target_dir.should eq("files")
       f.accept.should eq("")
-      f.is_disabled?.should be_false
-      f.is_readonly?.should be_false
-      f.is_hide?.should be_false
-      f.is_required?.should be_false
-      f.is_unique?.should be_false
-      f.is_ignored?.should be_false
+      f.disabled?.should be_false
+      f.readonly?.should be_false
+      f.maxsize.should eq(0.5_f32)
+      f.hide?.should be_false
+      f.required?.should be_false
+      f.unique?.should be_false
+      f.ignored?.should be_false
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

@@ -36,26 +36,36 @@ module Crymon::Fields
     # Thumbnail quality level: - Fast=false or Qualitatively=true.
     # <br>
     # By default: true.
-    getter? is_quality : Bool = true
+    getter? quality : Bool = true
+    # The maximum allowed image size in megabytes.
+    getter maxsize : Float32?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 9
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
-    getter? is_unique : Bool = false
+    # :nodoc:
+    getter? unique : Bool = false
     # WARNING: Stub
+    # :nodoc:
     getter choices : Nil
 
     def initialize(
@@ -67,12 +77,13 @@ module Crymon::Fields
       @target_dir : String = "images",
       @accept : String = "image/png, image/jpeg, image/webp",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
-      @is_quality : Bool = true,
-      @is_hide : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @quality : Bool = true,
+      @maxsize : Float32? = 2.0,
+      @hide : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
       @warning : String = ""
     ); end

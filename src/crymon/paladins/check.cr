@@ -9,19 +9,19 @@ module Crymon::Paladins::Check
   # Validation of Model data.
   def check(
     collection_ptr : Pointer(Mongo::Collection),
-    is_save? : Bool = false
+    save? : Bool = false
   ) : Crymon::Globals::OutputData
     # Does the document exist in the database?
-    is_updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
+    updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
     # Validation the hash field value.
-    if is_updated? && !BSON::ObjectId.validate(@hash.value.not_nil!)
+    if updated? && !BSON::ObjectId.validate(@hash.value.not_nil!)
       msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `hash` => The hash field value is not valid."
       raise Crymon::Errors::Panic.new msg
     end
     # Is there any incorrect data?
-    is_error_symptom? : Bool = false
-    is_error_symptom_ptr? : Pointer(Bool) = pointerof(is_error_symptom?)
+    error_symptom? : Bool = false
+    error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
     # Data to save or update to the database.
@@ -32,15 +32,15 @@ module Crymon::Paladins::Check
 
     # Check the conditions and, if necessary, define a message for the web form.
     # Reset the alerts to exclude duplicates.
-    if is_save?
+    if save?
       @hash.alerts = Array(String).new
-      if !is_updated? && !@@meta.not_nil![:is_saving_docs]
+      if !updated? && !@@meta.not_nil![:saving_docs?]
         @hash.alerts << "It is forbidden to perform saves!"
-        is_error_symptom? = true
+        error_symptom? = true
       end
-      if is_updated? && !@@meta.not_nil![:is_updating_docs]
+      if updated? && !@@meta.not_nil![:updating_docs?]
         @hash.alerts << "It is forbidden to perform updates!"
-        is_error_symptom? = true
+        error_symptom? = true
       end
     end
 
@@ -51,11 +51,11 @@ module Crymon::Paladins::Check
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
           @{{ field }}.errors << err_msg.not_nil!
-          (is_error_symptom? = true) unless is_error_symptom?
+          (error_symptom? = true) unless error_symptom?
           err_msg = nil
       end
       #
-      unless @{{ field }}.is_ignored?
+      unless @{{ field }}.ignored?
         case @{{ field }}.group
         when 1
           # Validation of `text` type fields:
@@ -64,9 +64,9 @@ module Crymon::Paladins::Check
           # | "TextField" | "HashField" | "URLField" | "IPField"_
           self.group_01(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?,
-            is_save?,
+            error_symptom_ptr?,
+            updated?,
+            save?,
             result_bson_ptr,
             collection_ptr
           )
@@ -80,8 +80,8 @@ module Crymon::Paladins::Check
           # "DatField" | "DateTimeField"
           self.group_03(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_save?,
+            error_symptom_ptr?,
+            save?,
             result_bson_ptr,
             collection_ptr
           )
@@ -92,8 +92,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64Field" | "ChoiceF64Field"
           self.group_04(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 5
           # Validation of `choice` type fields:
@@ -102,8 +102,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64DynField" | "ChoiceF64DynField"
           self.group_05(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 6
           # Validation of `choice` type fields:
@@ -112,8 +112,8 @@ module Crymon::Paladins::Check
           # | "ChoiceI64MultField" | "ChoiceF64MultField"
           self.group_06(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 7
           # Validation of `choice` type fields:
@@ -122,29 +122,29 @@ module Crymon::Paladins::Check
           # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
           self.group_07(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 8
           # Validation of fields of type FileField.
           self.group_08(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 9
           # Validation of fields of type ImageField.
           self.group_09(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_updated?
+            error_symptom_ptr?,
+            updated?
           )
         when 10
           # Validation of fields of type I64Field.
           self.group_10(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_save?,
+            error_symptom_ptr?,
+            save?,
             result_bson_ptr,
             collection_ptr
           )
@@ -152,8 +152,8 @@ module Crymon::Paladins::Check
           # Validation of fields of type F64Field.
           self.group_11(
             pointerof(@{{ field }}),
-            is_error_symptom_ptr?,
-            is_save?,
+            error_symptom_ptr?,
+            save?,
             result_bson_ptr,
             collection_ptr
           )
@@ -161,7 +161,7 @@ module Crymon::Paladins::Check
           # Validation of fields of type BoolField.
           self.group_12(
             pointerof(@{{ field }}),
-            is_save?,
+            save?,
             result_bson_ptr
           )
         else
@@ -172,6 +172,6 @@ module Crymon::Paladins::Check
     {% end %}
     #
     # --------------------------------------------------------------------------
-    Crymon::Globals::OutputData.new(result_bson, !is_error_symptom?)
+    Crymon::Globals::OutputData.new(result_bson, !error_symptom?)
   end
 end

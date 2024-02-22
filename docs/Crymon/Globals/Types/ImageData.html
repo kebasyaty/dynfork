@@ -660,7 +660,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)</a>
+        <a href="#new%28path%3AString%3D%22%22%2Cdelete%3ABool%3Dfalse%29-class-method" class="signature"><strong>.new</strong>(path : String = <span class="s">&quot;&quot;</span>, delete : Bool = <span class="n">false</span>)</a>
         
       </li>
     
@@ -702,6 +702,20 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
+        <a href="#delete%3D%28delete%3ABool%29-instance-method" class="signature"><strong>#delete=</strong>(delete : Bool)</a>
+        
+          <div class="summary"><p>If the file needs to be deleted: delete=true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete%3F%3ABool-instance-method" class="signature"><strong>#delete?</strong> : Bool</a>
+        
+          <div class="summary"><p>If the file needs to be deleted: delete=true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#height%3AFloat64-instance-method" class="signature"><strong>#height</strong> : Float64</a>
         
           <div class="summary"><p>File height in pixels.</p></div>
@@ -712,20 +726,6 @@
         <a href="#height%3D%28height%3AFloat64%29-instance-method" class="signature"><strong>#height=</strong>(height : Float64)</a>
         
           <div class="summary"><p>File height in pixels.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_delete%3D%28is_delete%3ABool%29-instance-method" class="signature"><strong>#is_delete=</strong>(is_delete : Bool)</a>
-        
-          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#is_delete%3F%3ABool-instance-method" class="signature"><strong>#is_delete?</strong> : Bool</a>
-        
-          <div class="summary"><p>If the file needs to be deleted: is_delete=true.</p></div>
         
       </li>
     
@@ -1023,12 +1023,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="new(path:String=&quot;&quot;,is_delete:Bool=false)-class-method">
+    <div class="entry-detail" id="new(path:String=&quot;&quot;,delete:Bool=false)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(path : String = <span class="s">&quot;&quot;</span>, is_delete : Bool = <span class="n">false</span>)
+        def self.<strong>new</strong>(path : String = <span class="s">&quot;&quot;</span>, delete : Bool = <span class="n">false</span>)
 
-        <a class="method-permalink" href="#new%28path%3AString%3D%22%22%2Cis_delete%3ABool%3Dfalse%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28path%3AString%3D%22%22%2Cdelete%3ABool%3Dfalse%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1082,6 +1082,48 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="delete=(delete:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>delete=</strong>(delete : Bool)
+
+        <a class="method-permalink" href="#delete%3D%28delete%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>If the file needs to be deleted: delete=true.
+<br>
+By default delete=false.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>delete?</strong> : Bool
+
+        <a class="method-permalink" href="#delete%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>If the file needs to be deleted: delete=true.
+<br>
+By default delete=false.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="height:Float64-instance-method">
       <div class="signature">
         
@@ -1112,48 +1154,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
         <div class="doc">
           
           <p>File height in pixels.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_delete=(is_delete:Bool)-instance-method">
-      <div class="signature">
-        
-        def <strong>is_delete=</strong>(is_delete : Bool)
-
-        <a class="method-permalink" href="#is_delete%3D%28is_delete%3ABool%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: is_delete=true.
-<br>
-By default is_delete=false.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="is_delete?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>is_delete?</strong> : Bool
-
-        <a class="method-permalink" href="#is_delete%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: is_delete=true.
-<br>
-By default is_delete=false.</p>
         </div>
       
       <br/>

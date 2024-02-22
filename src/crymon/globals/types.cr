@@ -6,9 +6,9 @@ module Crymon::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
     getter data : BSON
-    getter? is_valid : Bool
+    getter? valid : Bool
 
-    def initialize(@data : BSON, @is_valid : Bool); end
+    def initialize(@data : BSON, @valid : Bool); end
   end
 
   # Data type for FileField.
@@ -24,14 +24,14 @@ module Crymon::Globals::Types
     property name : String = ""
     # File size in bytes.
     property size : Float64 = 0
-    # If the file needs to be deleted: is_delete=true.
+    # If the file needs to be deleted: delete=true.
     # <br>
-    # By default is_delete=false.
-    property? is_delete : Bool
+    # By default delete=false.
+    property? delete : Bool
 
     def initialize(
       @path : String = "",
-      @is_delete : Bool = false
+      @delete : Bool = false
     ); end
   end
 
@@ -60,14 +60,14 @@ module Crymon::Globals::Types
     property width : Float64 = 0
     # File height in pixels.
     property height : Float64 = 0
-    # If the file needs to be deleted: is_delete=true.
+    # If the file needs to be deleted: delete=true.
     # <br>
-    # By default is_delete=false.
-    property? is_delete : Bool
+    # By default delete=false.
+    property? delete : Bool
 
     def initialize(
       @path : String = "",
-      @is_delete : Bool = false
+      @delete : Bool = false
     ); end
   end
 

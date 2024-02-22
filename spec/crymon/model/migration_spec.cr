@@ -2,25 +2,25 @@ require "../../spec_helper"
 
 describe Crymon::Migration::ModelState do
   describe ".new" do
-    it "=> create instance without is_model_exists", tags: "migration" do
+    it "=> create instance without model_exists", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"}
       )
       ms.collection_name.should eq("ServiceName_ModelName")
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
-      ms.is_model_exists?.should be_false
+      ms.model_exists?.should be_false
     end
 
-    it "=> create instance with is_model_exists", tags: "migration" do
+    it "=> create instance with model_exists", tags: "migration" do
       ms = Crymon::Migration::ModelState.new(
         "collection_name": "ServiceName_ModelName",
         "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"},
-        "is_model_exists": true
+        "model_exists": true
       )
       ms.collection_name.should eq("ServiceName_ModelName")
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
-      ms.is_model_exists?.should be_true
+      ms.model_exists?.should be_true
     end
   end
 end

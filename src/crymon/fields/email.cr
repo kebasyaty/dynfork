@@ -18,21 +18,29 @@ module Crymon::Fields
     # The minimum number of characters allowed in the text.
     getter minlength : Int32?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter choices : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -40,12 +48,12 @@ module Crymon::Fields
       @placeholder : String = "",
       @maxlength : Int32? = 320,
       @minlength : Int32? = 0,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
   end

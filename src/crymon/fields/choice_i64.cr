@@ -11,9 +11,9 @@ module Crymon::Fields
     # Value by default.
     getter default : Int64?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = false
+    getter? multiple : Bool = false
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
@@ -23,27 +23,36 @@ module Crymon::Fields
     getter group : UInt8 = 4
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
@@ -59,9 +68,9 @@ module Crymon::Fields
     # Value by default.
     getter default : Array(String)?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = true
+    getter? multiple : Bool = true
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Html tag: select multiple.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
@@ -71,27 +80,36 @@ module Crymon::Fields
     getter group : UInt8 = 6
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
       @default : Array(Int64)? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
@@ -106,9 +124,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : Int64?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = false
+    getter? multiple : Bool = false
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
@@ -118,28 +136,38 @@ module Crymon::Fields
     getter group : UInt8 = 5
     #
     # WARNING: Stub
+    # :nodoc:
     getter default : Nil
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
 
@@ -158,9 +186,9 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : Array(Int64)?
     # Specifies that multiple options can be selected at once.
-    getter? is_multiple : Bool = true
+    getter? multiple : Bool = true
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
@@ -170,28 +198,38 @@ module Crymon::Fields
     getter group : UInt8 = 7
     #
     # WARNING: Stub
+    # :nodoc:
     getter default : Nil
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = ""
     ); end
 

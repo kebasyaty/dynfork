@@ -18,11 +18,11 @@ module Spec::Data
     getter age = Crymon::Fields::I64Field.new(
       "min": 0,
       "default": 0,
-      "is_ignored": true
+      "ignored": true
     )
     getter birthday = Crymon::Fields::DateField.new(
       "default": "23.12.2023",
-      "is_ignored": true
+      "ignored": true
     )
   end
 
@@ -57,7 +57,7 @@ module Spec::Data
     getter username = Crymon::Fields::TextField.new
     getter password = Crymon::Fields::PasswordField.new
     getter confirm_password = Crymon::Fields::PasswordField.new(
-      "is_ignored": true
+      "ignored": true
     )
 
     private def add_validation : Hash(String, String)

@@ -21,7 +21,7 @@ module Crymon::Paladins::CheckPlus
     # Get the collection for the current model.
     collection : Mongo::Collection = Crymon::Globals.cache_mongo_database.not_nil![
       @@meta.not_nil![:collection_name]]
-    self.check(pointerof(collection)).is_valid?
+    self.check(pointerof(collection)).valid?
   end
 
   # Printing errors to the console ( for development ).
@@ -58,11 +58,11 @@ module Crymon::Paladins::CheckPlus
   def accumulate_error(
     err_msg : String,
     field_ptr : Pointer,
-    is_error_symptom_ptr? : Pointer(Bool)
+    error_symptom_ptr? : Pointer(Bool)
   )
-    if !field_ptr.value.is_hide?
+    if !field_ptr.value.hide?
       field_ptr.value.errors << err_msg
-      (is_error_symptom_ptr?.value = true) unless is_error_symptom_ptr?.value
+      (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
     else
       msg = ">hidden field< - Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `#{field_ptr.value.name}` => #{err_msg}"

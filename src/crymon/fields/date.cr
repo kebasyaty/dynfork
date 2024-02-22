@@ -27,7 +27,7 @@ module Crymon::Fields
     # The lower value for entering a date.
     getter min : String?
     # The unique value of a field in a collection.
-    getter? is_unique : Bool
+    getter? unique : Bool
     # Additional explanation for the user.
     getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
@@ -35,15 +35,23 @@ module Crymon::Fields
     getter group : UInt8 = 3
     #
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter choices : Nil
+    # WARNING: Stub
+    # :nodoc:
+    getter maxsize : Nil
 
     def initialize(
       @label : String = "",
@@ -51,12 +59,12 @@ module Crymon::Fields
       @placeholder : String = "",
       @max : String? = nil,
       @min : String? = nil,
-      @is_hide : Bool = false,
-      @is_unique : Bool = false,
-      @is_required : Bool = false,
-      @is_disabled : Bool = false,
-      @is_readonly : Bool = false,
-      @is_ignored : Bool = false,
+      @hide : Bool = false,
+      @unique : Bool = false,
+      @required : Bool = false,
+      @disabled : Bool = false,
+      @readonly : Bool = false,
+      @ignored : Bool = false,
       @hint : String = I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy | dd/mm/yyyy | " +
                                           "dd.mm.yyyy | yyyy-mm-dd | " +
