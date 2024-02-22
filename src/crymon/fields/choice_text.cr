@@ -23,18 +23,25 @@ module Crymon::Fields
     getter group : UInt8 = 4
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxsize : Nil
 
     def initialize(
@@ -73,18 +80,25 @@ module Crymon::Fields
     getter group : UInt8 = 6
     #
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxsize : Nil
 
     def initialize(
@@ -122,20 +136,28 @@ module Crymon::Fields
     getter group : UInt8 = 5
     #
     # WARNING: Stub
+    # :nodoc:
     getter default : Nil
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxsize : Nil
 
     def initialize(
@@ -176,20 +198,28 @@ module Crymon::Fields
     getter group : UInt8 = 7
     #
     # WARNING: Stub
+    # :nodoc:
     getter default : Nil
     # WARNING: Stub
+    # :nodoc:
     getter max : Nil
     # WARNING: Stub
+    # :nodoc:
     getter min : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex : Nil
     # WARNING: Stub
+    # :nodoc:
     getter regex_err_msg : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter minlength : Nil
     # WARNING: Stub
+    # :nodoc:
     getter maxsize : Nil
 
     def initialize(
