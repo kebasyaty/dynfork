@@ -638,7 +638,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%7CNil%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) | Nil = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%7CNil%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) | Nil = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)</a>
         
       </li>
     
@@ -689,16 +689,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#multiple%3F%3ABool-instance-method" class="signature"><strong>#multiple?</strong> : Bool</a>
+        <a href="#has_value%3F%3ABool-instance-method" class="signature"><strong>#has_value?</strong> : Bool</a>
         
-          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
+          <div class="summary"><p>Does the field value match the possible options in choices.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#unique%3F%3ABool-instance-method" class="signature"><strong>#unique?</strong> : Bool</a>
+        <a href="#multiple%3F%3ABool-instance-method" class="signature"><strong>#multiple?</strong> : Bool</a>
         
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
+          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
         
       </li>
     
@@ -960,12 +960,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;,choices:Array(Tuple(String,String))|Nil=Array(Tuple(String,String)).new)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;,choices:Array(Tuple(String,String))|Nil=Array(Tuple(String,String)).new)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) | Nil = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, choices : Array(Tuple(String, String)) | Nil = <span class="t">Array</span>(<span class="t">Tuple</span>(<span class="t">String</span>, <span class="t">String</span>)).new)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%7CNil%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cchoices%3AArray%28Tuple%28String%2CString%29%29%7CNil%3DArray%28Tuple%28String%2CString%29%29.new%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1069,6 +1069,25 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="has_value?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>has_value?</strong> : Bool
+
+        <a class="method-permalink" href="#has_value%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Does the field value match the possible options in choices.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="multiple?:Bool-instance-method">
       <div class="signature">
         
@@ -1080,25 +1099,6 @@
         <div class="doc">
           
           <p>Specifies that multiple options can be selected at once.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="unique?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>unique?</strong> : Bool
-
-        <a class="method-permalink" href="#unique%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>
