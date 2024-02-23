@@ -45,3 +45,4 @@ ru:
     interpolation: "Дата %{curr_date} не должна быть больше max=%{max_date}."
   data_not_less_min:
     interpolation: "Дата %{curr_date} не должна быть меньше min=%{min_date}."
+  value_does_not_match: "Ваш выбор не соответствует предложенным вариантам."

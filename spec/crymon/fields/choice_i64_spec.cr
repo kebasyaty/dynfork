@@ -21,7 +21,7 @@ describe Crymon::Fields::ChoiceI64Field do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(4_u8)
+      f.group.should eq(3_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end
@@ -49,7 +49,7 @@ describe Crymon::Fields::ChoiceI64MultField do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(6_u8)
+      f.group.should eq(3_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end
@@ -77,7 +77,7 @@ describe Crymon::Fields::ChoiceI64DynField do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(5_u8)
+      f.group.should eq(3_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end
@@ -105,7 +105,7 @@ describe Crymon::Fields::ChoiceI64MultDynField do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(7_u8)
+      f.group.should eq(3_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end

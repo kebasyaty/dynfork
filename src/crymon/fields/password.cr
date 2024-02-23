@@ -36,6 +36,9 @@ module Crymon::Fields
     # :nodoc:
     getter maxsize : Nil
 
+    # :nodoc:
+    def has_value?; end
+
     def initialize(
       @label : String = "",
       @placeholder : String = "",

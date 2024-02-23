@@ -12,15 +12,13 @@ module Crymon::Fields
     getter default : Int64?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
-    # The unique value of a field in a collection.
-    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
     getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 4
+    getter group : UInt8 = 3
     #
     # :nodoc:
     getter max : Nil
@@ -36,12 +34,13 @@ module Crymon::Fields
     getter minlength : Nil
     # :nodoc:
     getter maxsize : Nil
+    # :nodoc:
+    getter? unique : Bool = false
 
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
       @hide : Bool = false,
-      @unique : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,
@@ -49,6 +48,16 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
+
+    # Does the field value match the possible options in choices.
+    def has_value? : Bool
+      value : Int64? = @value || @default
+      if !value.nil? && !@choices.nil?
+        value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
+        return false unless value_list.includes?(value.not_nil!)
+      end
+      true
+    end
   end
 
   # Type of selective field with static of elements.
@@ -59,18 +68,16 @@ module Crymon::Fields
     # Sets the value of an element.
     property value : Array(Int64)?
     # Value by default.
-    getter default : Array(String)?
+    getter default : Array(Int64)?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
-    # The unique value of a field in a collection.
-    getter? unique : Bool
     # Html tag: select multiple.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
     getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 6
+    getter group : UInt8 = 3
     #
     # :nodoc:
     getter max : Nil
@@ -86,12 +93,13 @@ module Crymon::Fields
     getter minlength : Nil
     # :nodoc:
     getter maxsize : Nil
+    # :nodoc:
+    getter? unique : Bool = false
 
     def initialize(
       @label : String = "",
       @default : Array(Int64)? = nil,
       @hide : Bool = false,
-      @unique : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,
@@ -99,6 +107,18 @@ module Crymon::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
+
+    # Does the field value match the possible options in choices.
+    def has_value? : Bool
+      value : Array(Int64)? = @value || @default
+      if !value.nil? && !@choices.nil?
+        value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
+        value.not_nil!.each do |elem|
+          return false unless value_list.includes?(elem)
+        end
+      end
+      true
+    end
   end
 
   # Type of selective field with dynamic addition of elements.
@@ -111,15 +131,13 @@ module Crymon::Fields
     property value : Int64?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
-    # The unique value of a field in a collection.
-    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
     getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 5
+    getter group : UInt8 = 3
     #
     # :nodoc:
     getter default : Nil
@@ -137,11 +155,12 @@ module Crymon::Fields
     getter minlength : Nil
     # :nodoc:
     getter maxsize : Nil
+    # :nodoc:
+    getter? unique : Bool = false
 
     def initialize(
       @label : String = "",
       @hide : Bool = false,
-      @unique : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,
@@ -152,6 +171,16 @@ module Crymon::Fields
     # To insert data from global storage.
     def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    # Does the field value match the possible options in choices.
+    def has_value? : Bool
+      value : Int64? = @value || @default
+      if !value.nil? && !@choices.nil?
+        value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
+        return false unless value_list.includes?(value.not_nil!)
+      end
+      true
     end
   end
 
@@ -165,15 +194,13 @@ module Crymon::Fields
     property value : Array(Int64)?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
-    # The unique value of a field in a collection.
-    getter? unique : Bool
     # Html tag: select.
     # <br>
     # _Example: [{5, "Title"}, {10, "Title 2"}]_
     getter choices : Array(Tuple(Int64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 7
+    getter group : UInt8 = 3
     #
     # :nodoc:
     getter default : Nil
@@ -191,11 +218,12 @@ module Crymon::Fields
     getter minlength : Nil
     # :nodoc:
     getter maxsize : Nil
+    # :nodoc:
+    getter? unique : Bool = false
 
     def initialize(
       @label : String = "",
       @hide : Bool = false,
-      @unique : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,
@@ -206,6 +234,18 @@ module Crymon::Fields
     # To insert data from global storage.
     def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    # Does the field value match the possible options in choices.
+    def has_value? : Bool
+      value : Array(Int64)? = @value || @default
+      if !value.nil? && !@choices.nil?
+        value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
+        value.not_nil!.each do |elem|
+          return false unless value_list.includes?(elem)
+        end
+      end
+      true
     end
   end
 end

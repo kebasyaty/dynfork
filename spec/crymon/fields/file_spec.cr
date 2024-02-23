@@ -39,7 +39,7 @@ describe Crymon::Fields::FileField do
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(8_u8)
+      f.group.should eq(4_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end

@@ -5,7 +5,7 @@ module Crymon::Paladins::Groups
   # | "TextField" | "HashField" | "URLField" | "IPField"_
   #
   def group_01(
-    field_ptr : Pointer,
+    field_ptr : Pointer(Crymon::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     updated? : Bool,
     save? : Bool,

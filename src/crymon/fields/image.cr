@@ -41,7 +41,7 @@ module Crymon::Fields
     getter maxsize : Float32?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 9
+    getter group : UInt8 = 5
     #
     # :nodoc:
     getter max : Nil
@@ -59,6 +59,9 @@ module Crymon::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter choices : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",

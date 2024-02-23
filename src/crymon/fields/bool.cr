@@ -13,7 +13,7 @@ module Crymon::Fields
     getter default : Bool?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 12
+    getter group : UInt8 = 8
     #
     # :nodoc:
     getter max : Nil
@@ -37,6 +37,9 @@ module Crymon::Fields
     getter? readonly : Bool = false
     # :nodoc:
     getter maxsize : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",

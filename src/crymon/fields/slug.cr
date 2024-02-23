@@ -26,7 +26,7 @@ module Crymon::Fields
     @slug_sources : Array(String)
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 2
+    getter group : UInt8 = 9
     #
     # :nodoc:
     getter default : Nil
@@ -46,6 +46,9 @@ module Crymon::Fields
     getter choices : Nil
     # :nodoc:
     getter maxsize : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",
