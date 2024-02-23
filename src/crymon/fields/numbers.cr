@@ -23,7 +23,7 @@ module Crymon::Fields
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 10
+    getter group : UInt8 = 6
     #
     # :nodoc:
     getter regex : Nil
@@ -37,6 +37,9 @@ module Crymon::Fields
     getter choices : Nil
     # :nodoc:
     getter maxsize : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",
@@ -83,7 +86,7 @@ module Crymon::Fields
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 11
+    getter group : UInt8 = 7
     #
     # :nodoc:
     getter regex : Nil
@@ -97,6 +100,9 @@ module Crymon::Fields
     getter choices : Nil
     # :nodoc:
     getter maxsize : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",

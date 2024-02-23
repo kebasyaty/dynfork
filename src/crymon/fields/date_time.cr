@@ -34,7 +34,7 @@ module Crymon::Fields
     getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    getter group : UInt8 = 3
+    getter group : UInt8 = 2
     #
     # :nodoc:
     getter regex : Nil
@@ -48,6 +48,9 @@ module Crymon::Fields
     getter choices : Nil
     # :nodoc:
     getter maxsize : Nil
+
+    # :nodoc:
+    def has_value?; end
 
     def initialize(
       @label : String = "",

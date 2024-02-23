@@ -71,13 +71,25 @@ module Crymon::Paladins::Check
             collection_ptr
           )
         when 2
-          # Ignore validation of `slug` type fields.
-          # <br>
-          # These fields are checked in the `caching` and `create_slugs` methods.
-        when 3
           # Validation of `date` type fields:
           # <br>
-          # "DatField" | "DateTimeField"
+          # _"DateField" | "DateTimeField"_
+          self.group_02(
+            pointerof(@{{ field }}),
+            error_symptom_ptr?,
+            save?,
+            result_bson_ptr,
+            collection_ptr
+          )
+        when 3
+          # Validation of `choice` type fields:
+          # <br>
+          # _"ChoiceTextField" | "ChoiceI64Field"
+          # | "ChoiceF64Field" | "ChoiceTextMultField"
+          # | "ChoiceI64MultField" | "ChoiceF64MultField"
+          # | "ChoiceTextMultField" | "ChoiceI64MultField"
+          # | "ChoiceF64MultField" | "ChoiceTextMultDynField"
+          # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"_
           self.group_03(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -86,84 +98,52 @@ module Crymon::Paladins::Check
             collection_ptr
           )
         when 4
-          # Validation of `choice` type fields:
-          # <br>
-          # "ChoiceTextField" | "ChoiceU32Field"
-          # | "ChoiceI64Field" | "ChoiceF64Field"
+          # Validation of fields of type FileField.
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?
+            save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 5
-          # Validation of `choice` type fields:
-          # <br>
-          # "ChoiceTextDynField" | "ChoiceU32DynField"
-          # | "ChoiceI64DynField" | "ChoiceF64DynField"
+          # Validation of fields of type ImageField.
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?
+            save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 6
-          # Validation of `choice` type fields:
-          # <br>
-          # "ChoiceTextMultField" | "ChoiceU32MultField"
-          # | "ChoiceI64MultField" | "ChoiceF64MultField"
+          # Validation of fields of type I64Field.
           self.group_06(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?
+            save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 7
-          # Validation of `choice` type fields:
-          # <br>
-          # "ChoiceTextMultDynField" | "ChoiceU32MultDynField"
-          # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"
+          # Validation of fields of type F64Field.
           self.group_07(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?
+            save?,
+            result_bson_ptr,
+            collection_ptr
           )
         when 8
-          # Validation of fields of type FileField.
-          self.group_08(
-            pointerof(@{{ field }}),
-            error_symptom_ptr?,
-            updated?
-          )
-        when 9
-          # Validation of fields of type ImageField.
-          self.group_09(
-            pointerof(@{{ field }}),
-            error_symptom_ptr?,
-            updated?
-          )
-        when 10
-          # Validation of fields of type I64Field.
-          self.group_10(
-            pointerof(@{{ field }}),
-            error_symptom_ptr?,
-            save?,
-            result_bson_ptr,
-            collection_ptr
-          )
-        when 11
-          # Validation of fields of type F64Field.
-          self.group_11(
-            pointerof(@{{ field }}),
-            error_symptom_ptr?,
-            save?,
-            result_bson_ptr,
-            collection_ptr
-          )
-        when 12
           # Validation of fields of type BoolField.
-          self.group_12(
+          self.group_08(
             pointerof(@{{ field }}),
             save?,
             result_bson_ptr
           )
+        when 9
+          # Ignore validation of `slug` type fields.
+          # <br>
+          # These fields are checked in the `caching` and `create_slugs` methods.
         else
           raise Crymon::Errors::Model::InvalidGroupNumber
             .new(self.model_name, {{ field.name.stringify }})

@@ -24,7 +24,7 @@ describe Crymon::Fields::DateTimeField do
       f.hint.should eq("Formats: dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm | yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
-      f.group.should eq(3_u8)
+      f.group.should eq(2_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
     end

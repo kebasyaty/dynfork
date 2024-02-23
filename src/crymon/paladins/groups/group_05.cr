@@ -1,12 +1,11 @@
 module Crymon::Paladins::Groups
-  # Validation of `choice` type fields:
-  # <br>
-  # "ChoiceTextDynField" | "ChoiceU32DynField"
-  # | "ChoiceI64DynField" | "ChoiceF64DynField"
+  # Validation of fields of type ImageField.
   def group_05(
-    field_ptr : Pointer,
+    field_ptr : Pointer(Crymon::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
-    updated? : Bool
+    save? : Bool,
+    result_bson_ptr : Pointer(BSON),
+    collection_ptr : Pointer(Mongo::Collection)
   )
   end
 end

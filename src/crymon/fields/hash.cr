@@ -41,6 +41,9 @@ module Crymon::Fields
     # :nodoc:
     getter maxsize : Nil
 
+    # :nodoc:
+    def has_value?; end
+
     def initialize(
       @label : String = "Document ID",
       @placeholder : String = "Enter document ID",
