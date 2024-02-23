@@ -44,7 +44,7 @@ describe Spec::Data::FilledModel do
       f["updated_at"]?.should be_true
       f["???"]?.should be_false
       #
-      # U32Field
+      # I64Field
       f.age.id.should eq("FilledModel--age")
       f.age.label.should eq("")
       f.age.field_type.should eq("I64Field")
@@ -64,7 +64,7 @@ describe Spec::Data::FilledModel do
       f.age.hint.should eq("")
       f.age.warning.should eq("")
       f.age.errors.should eq(Array(String).new)
-      f.age.group.should eq(10_u8)
+      f.age.group.should eq(6_u8)
       f["first_name"]?.should be_true
       f["age"]?.should be_true
       f["birthday"]?.should be_true
@@ -92,7 +92,7 @@ describe Spec::Data::FilledModel do
       f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
       f.birthday.warning.should eq("")
       f.birthday.errors.should eq(Array(String).new)
-      f.birthday.group.should eq(3_u8)
+      f.birthday.group.should eq(2_u8)
       f["first_name"]?.should be_true
       f["age"]?.should be_true
       f["birthday"]?.should be_true
