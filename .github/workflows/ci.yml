@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Install sudo, wget, gnupg2 and systemctl
         run: |
-          apt update
+          apt-get update && apt-get install -y --no-install-recommends apt-utils
           apt -y install sudo
           sudo apt -y upgrade
           sudo apt -y install wget gnupg2
