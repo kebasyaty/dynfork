@@ -9,7 +9,7 @@ module Crymon::Paladins::Groups
   )
     # Get current value.
     current_value : Float64 = (
-      value = field_ptr.value.value || field_ptr.value.default
+      value : Crymon::Globals::ValueTypes = field_ptr.value.value || field_ptr.value.default
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?

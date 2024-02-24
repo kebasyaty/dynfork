@@ -51,8 +51,7 @@ module Crymon::Fields
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
-      value : Int64? = @value || @default
-      if !value.nil? && !@choices.nil?
+      if value = @value || @default
         value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
         return false unless value_list.includes?(value.not_nil!)
       end
@@ -110,8 +109,7 @@ module Crymon::Fields
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
-      value : Array(Int64)? = @value || @default
-      if !value.nil? && !@choices.nil?
+      if value = @value || @default
         value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
         value.not_nil!.each do |elem|
           return false unless value_list.includes?(elem)
@@ -175,8 +173,7 @@ module Crymon::Fields
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
-      value : Int64? = @value || @default
-      if !value.nil? && !@choices.nil?
+      if value = @value || @default
         value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
         return false unless value_list.includes?(value.not_nil!)
       end
@@ -238,8 +235,7 @@ module Crymon::Fields
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
-      value : Array(Int64)? = @value || @default
-      if !value.nil? && !@choices.nil?
+      if value = @value || @default
         value_list : Array(Int64) = @choices.not_nil!.map { |item| item[0] }
         value.not_nil!.each do |elem|
           return false unless value_list.includes?(elem)

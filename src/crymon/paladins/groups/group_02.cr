@@ -10,10 +10,13 @@ module Crymon::Paladins::Groups
     collection_ptr : Pointer(Mongo::Collection)
   )
     # Get from cache Time objects - Max, min and default.
-    time_objects : NamedTuple(default: Time?, max: Time?, min: Time?) = @@meta.not_nil![:time_object_list][field_ptr.value.name]
+    time_objects : NamedTuple(
+      default: Time?,
+      max: Time?,
+      min: Time?) = @@meta.not_nil![:time_object_list][field_ptr.value.name]
     # Get current value.
     current_value : Time = (
-      value = field_ptr.value.value || field_ptr.value.default
+      value : Crymon::Globals::ValueTypes | Time = field_ptr.value.value || field_ptr.value.default
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?
