@@ -20,9 +20,8 @@ jobs:
     steps:
       - name: Install sudo, wget, gnupg2 and systemctl
         run: |
-          apt update
+          apt -y upgrade
           apt -y install sudo
-          sudo apt -y upgrade
           sudo apt install -y wget gnupg2
           sudo apt -y install systemctl
           sudo apt -y install libturbojpeg0-dev
