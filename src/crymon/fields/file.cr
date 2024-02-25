@@ -9,15 +9,17 @@ module Crymon::Fields
     getter input_type : String = "file"
     # Sets the value of an element.
     property value : Crymon::Globals::FileData?
-    # Value by default.
-    getter default : Crymon::Globals::FileData?
+    # Default file path.
+    # <br>
+    # _Example: "assets/media/default/nodoc.docx"_
+    getter default : String?
     # Root directory for storing media files.
     getter media_root : String
     # URL address for the media directory.
     getter media_url : String
     # Directory for files inside media directory (inner path).
     # <br>
-    # *Example: "files/resume"*
+    # _Example: "files/resume"_
     getter target_dir : String
     # HTML attribute: accept
     # <br>
@@ -29,7 +31,7 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum allowed file size in megabytes.
-    getter maxsize : Float32?
+    getter maxsize : Float32
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 4
@@ -56,13 +58,13 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      @default : Crymon::Globals::FileData? = nil,
+      @default : String? = nil,
       @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",
-      @maxsize : Float32? = 0.5,
+      @maxsize : Float32 = 0.5,
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
