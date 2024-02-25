@@ -39,7 +39,7 @@ module Crymon::Fields
     # :nodoc:
     getter choices : Nil
     # :nodoc:
-    getter maxsize : Nil
+    getter maxsize : Float32 = 0
 
     # :nodoc:
     def has_value?; end
