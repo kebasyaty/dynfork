@@ -16,8 +16,8 @@ module Crymon::Globals::Types
     include BSON::Serializable
     include JSON::Serializable
     include JSON::Serializable::Strict
-    # Path to  file.
-    property path : String
+    # Path to file.
+    @path : String = ""
     # URL to the file.
     property url : String = ""
     # File name.
@@ -27,12 +27,20 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
-    property? delete : Bool
+    property? delete : Bool = false
 
-    def initialize(
-      @path : String = "",
-      @delete : Bool = false
-    ); end
+    def initialize; end
+
+    def path=(path : String)
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
+      @path = path
+    end
+
+    def path
+      @path
+    end
   end
 
   # Data type for ImageField.
@@ -40,8 +48,8 @@ module Crymon::Globals::Types
     include BSON::Serializable
     include JSON::Serializable
     include JSON::Serializable::Strict
-    # Path to  file.
-    property path : String
+    # Path to file.
+    @path : String = ""
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
@@ -63,12 +71,20 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
-    property? delete : Bool
+    property? delete : Bool = false
 
-    def initialize(
-      @path : String = "",
-      @delete : Bool = false
-    ); end
+    def initialize; end
+
+    def path=(path : String)
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
+      @path = path
+    end
+
+    def path
+      @path
+    end
   end
 
   # Validation global Crymon settings.

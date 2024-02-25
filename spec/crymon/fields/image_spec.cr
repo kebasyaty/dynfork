@@ -38,7 +38,7 @@ describe Crymon::Fields::ImageField do
       f.media_root.should eq("assets/media")
       f.media_url.should eq("/media")
       f.target_dir.should eq("images")
-      f.accept.should eq("image/png, image/jpeg, image/webp")
+      f.accept.should eq("image/png,image/jpeg,image/webp")
       f.thumbnails.should eq(Array({String, UInt32}).new)
       f.quality?.should be_true
       f.maxsize.should eq(2.0_f32)

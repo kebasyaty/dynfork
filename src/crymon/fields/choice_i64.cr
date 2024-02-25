@@ -33,7 +33,7 @@ module Crymon::Fields
     # :nodoc:
     getter minlength : Nil
     # :nodoc:
-    getter maxsize : Nil
+    getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
 
@@ -91,7 +91,7 @@ module Crymon::Fields
     # :nodoc:
     getter minlength : Nil
     # :nodoc:
-    getter maxsize : Nil
+    getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
 
@@ -152,7 +152,7 @@ module Crymon::Fields
     # :nodoc:
     getter minlength : Nil
     # :nodoc:
-    getter maxsize : Nil
+    getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
 
@@ -214,7 +214,7 @@ module Crymon::Fields
     # :nodoc:
     getter minlength : Nil
     # :nodoc:
-    getter maxsize : Nil
+    getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
 

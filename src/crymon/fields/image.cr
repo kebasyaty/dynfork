@@ -9,8 +9,10 @@ module Crymon::Fields
     getter input_type : String = "file"
     # Sets the value of an element.
     property value : Crymon::Globals::ImageData?
-    # Value by default.
-    getter default : Crymon::Globals::ImageData?
+    # Default file path.
+    # <br>
+    # _Example: "assets/media/default/noavatar.jpg"_
+    getter default : String?
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
@@ -25,9 +27,9 @@ module Crymon::Fields
     # <br>
     # Describing which file types to allow.
     # <br>
-    # _Example: "image/jpeg,image/png,image/gif"_
+    # _Example: "image/png,image/jpeg,image/webp"_
     # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
-    getter accept : String = ""
+    getter accept : String = "image/png,image/jpeg,image/webp"
     # From one to four inclusive.
     # <br>
     # _Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]_
@@ -38,7 +40,7 @@ module Crymon::Fields
     # By default: true.
     getter? quality : Bool = true
     # The maximum allowed image size in megabytes.
-    getter maxsize : Float32?
+    getter maxsize : Float32
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
@@ -65,15 +67,14 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      @default : Crymon::Globals::ImageData? = nil,
+      @default : String? = nil,
       @placeholder : String = "",
       @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "images",
-      @accept : String = "image/png, image/jpeg, image/webp",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
       @quality : Bool = true,
-      @maxsize : Float32? = 2.0,
+      @maxsize : Float32 = 2.0,
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
