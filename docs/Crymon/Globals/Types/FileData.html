@@ -656,14 +656,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28bson%3ABSON%29-class-method" class="signature"><strong>.new</strong>(bson : BSON)</a>
-        
-          <div class="summary"><p>Allocate an instance and copies data from a BSON struct.</p></div>
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        <a href="#new%28bson%3ABSON%29-class-method" class="signature"><strong>.new</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p>Allocate an instance and copies data from a BSON struct.</p></div>
         
       </li>
     
@@ -712,14 +712,10 @@
       <li class="entry-summary">
         <a href="#delete%3D%28delete%3ABool%29-instance-method" class="signature"><strong>#delete=</strong>(delete : Bool)</a>
         
-          <div class="summary"><p>If the file needs to be deleted: delete=true.</p></div>
-        
       </li>
     
       <li class="entry-summary">
         <a href="#delete%3F%3ABool-instance-method" class="signature"><strong>#delete?</strong> : Bool</a>
-        
-          <div class="summary"><p>If the file needs to be deleted: delete=true.</p></div>
         
       </li>
     
@@ -865,6 +861,20 @@
     Constructor Detail
   </h2>
   
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="new(bson:BSON)-class-method">
       <div class="signature">
         
@@ -885,20 +895,6 @@ data <span class="o">=</span> <span class="t">BSON</span>.new
 data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span class="s">&quot;John&quot;</span>
 <span class="t">User</span>.new(data)</code></pre>
         </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(pull : JSON::PullParser)
-
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
       
       <br/>
       <div>
@@ -973,13 +969,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
         <a class="method-permalink" href="#delete%3D%28delete%3ABool%29-instance-method">#</a>
       </div>
       
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: delete=true.
-<br>
-By default delete=false.</p>
-        </div>
-      
       <br/>
       <div>
         
@@ -993,13 +982,6 @@ By default delete=false.</p>
 
         <a class="method-permalink" href="#delete%3F%3ABool-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>If the file needs to be deleted: delete=true.
-<br>
-By default delete=false.</p>
-        </div>
       
       <br/>
       <div>

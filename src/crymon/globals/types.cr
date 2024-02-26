@@ -1,5 +1,5 @@
-require "bson"
 require "json"
+require "bson"
 
 # Global data types.
 module Crymon::Globals::Types
@@ -13,8 +13,9 @@ module Crymon::Globals::Types
 
   # Data type for FileField.
   struct FileData
-    include BSON::Serializable
     include JSON::Serializable
+    include BSON::Serializable
+
     # Path to file.
     @path : String = ""
     # URL to the file.
@@ -26,6 +27,8 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
 
     def initialize; end
@@ -44,8 +47,9 @@ module Crymon::Globals::Types
 
   # Data type for ImageField.
   struct ImageData
-    include BSON::Serializable
     include JSON::Serializable
+    include BSON::Serializable
+
     # Path to file.
     @path : String = ""
     property path_xs : String = ""
@@ -69,6 +73,8 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
 
     def initialize; end
