@@ -1,5 +1,5 @@
-require "bson"
 require "json"
+require "bson"
 
 # Global data types.
 module Crymon::Globals::Types
@@ -13,8 +13,9 @@ module Crymon::Globals::Types
 
   # Data type for FileField.
   struct FileData
-    include BSON::Serializable
     include JSON::Serializable
+    include BSON::Serializable
+
     # Path to file.
     @path : String = ""
     # URL to the file.
@@ -46,8 +47,9 @@ module Crymon::Globals::Types
 
   # Data type for ImageField.
   struct ImageData
-    include BSON::Serializable
     include JSON::Serializable
+    include BSON::Serializable
+
     # Path to file.
     @path : String = ""
     property path_xs : String = ""
