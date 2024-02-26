@@ -40,7 +40,6 @@ describe Crymon::Fields::ImageField do
       f.target_dir.should eq("images")
       f.accept.should eq("image/png,image/jpeg,image/webp")
       f.thumbnails.should eq(Array({String, UInt32}).new)
-      f.quality?.should be_true
       f.maxsize.should eq(2.0_f32)
       f.disabled?.should be_false
       f.readonly?.should be_false

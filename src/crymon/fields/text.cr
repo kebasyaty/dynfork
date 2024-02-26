@@ -16,9 +16,9 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : Int32?
+    getter maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : Int32?
+    getter minlength : UInt32?
     # Regular expression to validate the `value`.
     getter regex : String?
     # Error message.
@@ -45,8 +45,8 @@ module Crymon::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
-      @maxlength : Int32? = 256,
-      @minlength : Int32? = 0,
+      @maxlength : UInt32? = 256,
+      @minlength : UInt32? = 0,
       @regex : String? = nil,
       @regex_err_msg : String? = nil,
       @hide : Bool = false,

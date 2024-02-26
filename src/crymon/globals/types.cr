@@ -15,7 +15,6 @@ module Crymon::Globals::Types
   struct FileData
     include BSON::Serializable
     include JSON::Serializable
-    include JSON::Serializable::Strict
     # Path to file.
     @path : String = ""
     # URL to the file.
@@ -47,7 +46,6 @@ module Crymon::Globals::Types
   struct ImageData
     include BSON::Serializable
     include JSON::Serializable
-    include JSON::Serializable::Strict
     # Path to file.
     @path : String = ""
     property path_xs : String = ""
