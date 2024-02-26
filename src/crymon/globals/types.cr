@@ -26,6 +26,8 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
 
     def initialize; end
@@ -69,6 +71,8 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
 
     def initialize; end
