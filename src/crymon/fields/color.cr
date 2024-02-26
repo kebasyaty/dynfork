@@ -25,9 +25,9 @@ module Crymon::Fields
     # Displays prompt text.
     property placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : Int32?
+    getter maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : Int32?
+    getter minlength : UInt32?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -54,8 +54,8 @@ module Crymon::Fields
       @label : String = "",
       @default : String? = "#000000",
       @placeholder : String = "",
-      @maxlength : Int32? = 256,
-      @minlength : Int32? = 0,
+      @maxlength : UInt32? = 256,
+      @minlength : UInt32? = 0,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,

@@ -33,12 +33,7 @@ module Crymon::Fields
     # From one to four inclusive.
     # <br>
     # _Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]_
-    # NOTE: An Intel i7-4770 processor or better is recommended.
     getter thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new
-    # Thumbnail quality level: - Fast=false or Qualitatively=true.
-    # <br>
-    # By default: true.
-    getter? quality : Bool = true
     # The maximum allowed image size in megabytes.
     getter maxsize : Float32
     # To optimize field traversal in the `paladins/check()` method.
@@ -73,7 +68,6 @@ module Crymon::Fields
       @media_url : String = "/media",
       @target_dir : String = "images",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
-      @quality : Bool = true,
       @maxsize : Float32 = 2.0,
       @hide : Bool = false,
       @required : Bool = false,

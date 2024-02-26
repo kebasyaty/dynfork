@@ -12,9 +12,9 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : Int32?
+    getter maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : Int32?
+    getter minlength : UInt32?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # Hide field from user.
@@ -47,8 +47,8 @@ module Crymon::Fields
     def initialize(
       @label : String = "Document ID",
       @placeholder : String = "Enter document ID",
-      @maxlength : Int32? = 24,
-      @minlength : Int32? = 24,
+      @maxlength : UInt32? = 24,
+      @minlength : UInt32? = 24,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,

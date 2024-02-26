@@ -12,9 +12,9 @@ module Crymon::Fields
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : Int32
+    getter maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : Int32
+    getter minlength : UInt32?
     # Regular expression to validate the value.
     getter regex : String?
     # Error message.
@@ -42,8 +42,8 @@ module Crymon::Fields
     def initialize(
       @label : String = "",
       @placeholder : String = "",
-      @maxlength : Int32 = 256,
-      @minlength : Int32 = 8,
+      @maxlength : UInt32? = 256,
+      @minlength : UInt32? = 8,
       @regex : String? = "^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$",
       @regex_err_msg : String? = I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) ("),
       @hide : Bool = false,
