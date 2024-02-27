@@ -1,5 +1,6 @@
 require "json"
 require "bson"
+require "base64"
 
 # Global data types.
 module Crymon::Globals::Types
@@ -30,6 +31,10 @@ module Crymon::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # For temporary storage of a file.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    @tempfile : File?
 
     def initialize; end
 
@@ -42,6 +47,18 @@ module Crymon::Globals::Types
 
     def path
       @path
+    end
+
+    def base64_to_tempfile(base64 : String)
+      @tempfile = File.tempfile do |file|
+        file.print Base64.decode_string(base64)
+      end
+    end
+
+    def path_to_tempfile(path : String)
+      @tempfile = File.tempfile do |file|
+        file.print File.read(path)
+      end
     end
   end
 
@@ -76,6 +93,10 @@ module Crymon::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # For temporary storage of an image.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    @tempfile : File?
 
     def initialize; end
 
@@ -88,6 +109,18 @@ module Crymon::Globals::Types
 
     def path
       @path
+    end
+
+    def base64_to_tempfile(base64 : String)
+      @tempfile = File.tempfile do |file|
+        file.print Base64.decode_string(base64)
+      end
+    end
+
+    def path_to_tempfile(path : String)
+      @tempfile = File.tempfile do |file|
+        file.print File.read(path)
+      end
     end
   end
 
