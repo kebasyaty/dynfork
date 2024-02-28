@@ -18,7 +18,7 @@ module Crymon::Globals::Types
     include BSON::Serializable
 
     # Path to file.
-    @path : String = ""
+    property path : String = ""
     # URL to the file.
     property url : String = ""
     # File name.
@@ -28,9 +28,14 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
-    @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # File extension.
+    # <br>
+    # _Examples: pdf|doc|docx_
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    property extension : String?
     # For temporary storage of a file.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
@@ -38,25 +43,20 @@ module Crymon::Globals::Types
 
     def initialize; end
 
-    def path=(path : String)
-      unless File.file?(path)
-        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
-      end
-      @path = path
-    end
-
-    def path
-      @path
-    end
-
-    def base64_to_tempfile(base64 : String)
-      @tempfile = File.tempfile do |file|
+    # filename: _Example: foo.pdf_
+    def base64_to_tempfile(base64 : String, filename : String)
+      @extension = Path[filename].extension
+      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
     end
 
     def path_to_tempfile(path : String)
-      @tempfile = File.tempfile do |file|
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
+      @extension = Path[path].extension
+      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print File.read(path)
       end
     end
@@ -68,7 +68,7 @@ module Crymon::Globals::Types
     include BSON::Serializable
 
     # Path to file.
-    @path : String = ""
+    property path : String = ""
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
@@ -90,9 +90,14 @@ module Crymon::Globals::Types
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
-    @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # File extension.
+    # <br>
+    # _Examples: png|jpeg|jpg|webp_
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    property extension : String?
     # For temporary storage of an image.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
@@ -100,25 +105,20 @@ module Crymon::Globals::Types
 
     def initialize; end
 
-    def path=(path : String)
-      unless File.file?(path)
-        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
-      end
-      @path = path
-    end
-
-    def path
-      @path
-    end
-
-    def base64_to_tempfile(base64 : String)
-      @tempfile = File.tempfile do |file|
+    # filename: _Example: foo.png_
+    def base64_to_tempfile(base64 : String, filename : String)
+      @extension = Path[filename].extension
+      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
     end
 
     def path_to_tempfile(path : String)
-      @tempfile = File.tempfile do |file|
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
+      @extension = Path[path].extension
+      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print File.read(path)
       end
     end
