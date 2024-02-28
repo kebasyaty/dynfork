@@ -66,6 +66,11 @@ module Crymon::Paladins::Caching
       # Get default value.
       fields = Hash(String, Crymon::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
+        if @{{ var }}.default && @{{ var }}.input_type = "file"
+          unless File.file?(@{{ var }}.default.not_nil!)
+            raise Crymon::Errors::Panic.new("The file `#{default}` does not exist.")
+          end
+        end
         unless @{{ var }}.ignored?
           fields[{{ var.name.stringify }}] = @{{ var }}.default
         end

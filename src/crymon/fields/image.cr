@@ -62,7 +62,7 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      default : String? = nil,
+      @default : String? = nil,
       @placeholder : String = "",
       @media_root : String = "assets/media",
       @media_url : String = "/media",
@@ -76,11 +76,6 @@ module Crymon::Fields
       @ignored : Bool = false,
       @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
       @warning : String = ""
-    )
-      unless File.file?(default)
-        raise Crymon::Errors::Panic.new("The file `#{default}` does not exist.")
-      end
-      @default = default
-    end
+    ); end
   end
 end
