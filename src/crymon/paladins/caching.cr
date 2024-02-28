@@ -67,11 +67,13 @@ module Crymon::Paladins::Caching
       fields = Hash(String, Crymon::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
         if @{{ var }}.default && @{{ var }}.input_type == "file"
-          unless File.file?(@{{ var }}.default.not_nil!)
-            raise Crymon::Errors::Panic.new(
-              "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
-              "Param: `default` => The file `#{@{{ var }}.default}` does not exist."
-            )
+          if path = @{{ var }}.default
+            unless File.file?(path.to_s)
+              raise Crymon::Errors::Panic.new(
+                "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                "Param: `default` => The file `#{path}` does not exist."
+              )
+            end
           end
         end
         unless @{{ var }}.ignored?
