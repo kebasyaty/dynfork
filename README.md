@@ -17,7 +17,7 @@ The project is focused on web development.
 [![GitHub license](https://badgen.net/github/license/kebasyaty/dynfork)](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE)
 <br>
 <br>
-_Compatible with MongoDB 3.6+. Tested against: 7.0, 6.0._
+_Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
