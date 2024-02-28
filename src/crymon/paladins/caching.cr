@@ -70,7 +70,7 @@ module Crymon::Paladins::Caching
           unless File.file?(@{{ var }}.default.not_nil!)
             raise Crymon::Errors::Panic.new(
               "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
-              "Param: `default` => The file `#{default}` does not exist."
+              "Param: `default` => The file `#{@{{ var }}.default}` does not exist."
             )
           end
         end

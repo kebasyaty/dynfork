@@ -36,6 +36,8 @@ module Crymon::Fields
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
+    # :nodoc:
+    getter input_type : Nil
 
     def initialize(
       @label : String = "",
@@ -94,6 +96,8 @@ module Crymon::Fields
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
+    # :nodoc:
+    getter input_type : Nil
 
     def initialize(
       @label : String = "",
@@ -138,7 +142,7 @@ module Crymon::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Nil
+    getter default : Float64?
     # :nodoc:
     getter max : Nil
     # :nodoc:
@@ -155,6 +159,8 @@ module Crymon::Fields
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
+    # :nodoc:
+    getter input_type : Nil
 
     def initialize(
       @label : String = "",
@@ -200,7 +206,7 @@ module Crymon::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Nil
+    getter default : Array(Float64)?
     # :nodoc:
     getter max : Nil
     # :nodoc:
@@ -217,6 +223,8 @@ module Crymon::Fields
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
+    # :nodoc:
+    getter input_type : Nil
 
     def initialize(
       @label : String = "",
