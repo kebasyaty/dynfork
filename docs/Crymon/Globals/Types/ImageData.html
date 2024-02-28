@@ -710,7 +710,9 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#base64_to_tempfile%28base64%3AString%29-instance-method" class="signature"><strong>#base64_to_tempfile</strong>(base64 : String)</a>
+        <a href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method" class="signature"><strong>#base64_to_tempfile</strong>(base64 : String, filename : String)</a>
+        
+          <div class="summary"><p>filename: <em>Example: foo.png</em></p></div>
         
       </li>
     
@@ -721,6 +723,16 @@
     
       <li class="entry-summary">
         <a href="#delete%3F%3ABool-instance-method" class="signature"><strong>#delete?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#extension%3AString%7CNil-instance-method" class="signature"><strong>#extension</strong> : String | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#extension%3D%28extension%3AString%7CNil%29-instance-method" class="signature"><strong>#extension=</strong>(extension : String | Nil)</a>
         
       </li>
     
@@ -755,10 +767,14 @@
       <li class="entry-summary">
         <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
         
+          <div class="summary"><p>Path to file.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#path%3D%28path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(path : String)</a>
+        
+          <div class="summary"><p>Path to file.</p></div>
         
       </li>
     
@@ -1079,13 +1095,18 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="base64_to_tempfile(base64:String)-instance-method">
+    <div class="entry-detail" id="base64_to_tempfile(base64:String,filename:String)-instance-method">
       <div class="signature">
         
-        def <strong>base64_to_tempfile</strong>(base64 : String)
+        def <strong>base64_to_tempfile</strong>(base64 : String, filename : String)
 
-        <a class="method-permalink" href="#base64_to_tempfile%28base64%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>filename: <em>Example: foo.png</em></p>
+        </div>
       
       <br/>
       <div>
@@ -1113,6 +1134,34 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
         def <strong>delete?</strong> : Bool
 
         <a class="method-permalink" href="#delete%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="extension:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>extension</strong> : String | Nil
+
+        <a class="method-permalink" href="#extension%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="extension=(extension:String|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>extension=</strong>(extension : String | Nil)
+
+        <a class="method-permalink" href="#extension%3D%28extension%3AString%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
@@ -1205,6 +1254,11 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
         <a class="method-permalink" href="#path%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Path to file.</p>
+        </div>
+      
       <br/>
       <div>
         
@@ -1218,6 +1272,11 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
 
         <a class="method-permalink" href="#path%3D%28path%3AString%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Path to file.</p>
+        </div>
       
       <br/>
       <div>
