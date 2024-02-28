@@ -142,7 +142,7 @@ module Crymon::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Float64?
+    getter default : Nil
     # :nodoc:
     getter max : Nil
     # :nodoc:
@@ -206,7 +206,7 @@ module Crymon::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Array(Float64)?
+    getter default : Nil
     # :nodoc:
     getter max : Nil
     # :nodoc:
