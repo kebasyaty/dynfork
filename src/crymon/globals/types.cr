@@ -46,7 +46,7 @@ module Crymon::Globals::Types
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
-      @tempfile = File.tempfile do |file|
+      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
     end
@@ -108,7 +108,7 @@ module Crymon::Globals::Types
     # filename: _Example: foo.png_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
-      @tempfile = File.tempfile do |file|
+      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
     end
