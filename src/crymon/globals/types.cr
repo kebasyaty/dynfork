@@ -33,6 +33,8 @@ module Crymon::Globals::Types
     # File extension.
     # <br>
     # _Examples: pdf|doc|docx_
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property extension : String?
     # For temporary storage of a file.
     @[JSON::Field(ignore: true)]
@@ -41,7 +43,9 @@ module Crymon::Globals::Types
 
     def initialize; end
 
-    def base64_to_tempfile(base64 : String)
+    # filename: _Example: foo.pdf_
+    def base64_to_tempfile(base64 : String, filename : String)
+      @extension = Path[filename].extension
       @tempfile = File.tempfile do |file|
         file.print Base64.decode_string(base64)
       end
@@ -51,7 +55,7 @@ module Crymon::Globals::Types
       unless File.file?(path)
         raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
       end
-      @extension = path.split('.').last
+      @extension = Path[path].extension
       @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print File.read(path)
       end
@@ -91,6 +95,8 @@ module Crymon::Globals::Types
     # File extension.
     # <br>
     # _Examples: png|jpeg|jpg|webp_
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
     property extension : String?
     # For temporary storage of an image.
     @[JSON::Field(ignore: true)]
@@ -99,7 +105,9 @@ module Crymon::Globals::Types
 
     def initialize; end
 
-    def base64_to_tempfile(base64 : String)
+    # filename: _Example: foo.png_
+    def base64_to_tempfile(base64 : String, filename : String)
+      @extension = Path[filename].extension
       @tempfile = File.tempfile do |file|
         file.print Base64.decode_string(base64)
       end
@@ -109,7 +117,7 @@ module Crymon::Globals::Types
       unless File.file?(path)
         raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
       end
-      @extension = path.split('.').last
+      @extension = Path[path].extension
       @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print File.read(path)
       end
