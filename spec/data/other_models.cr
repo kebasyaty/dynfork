@@ -1,62 +1,62 @@
-require "../../src/crymon"
+require "../../src/dynfork"
 
 # Structures for testing.
 module Spec::Data
   # Model without variables and methods.
-  @[Crymon::Meta(service_name: "ServiceName")]
-  struct EmptyModel < Crymon::Model; end
+  @[DynFork::Meta(service_name: "ServiceName")]
+  struct EmptyModel < DynFork::Model; end
 
   # Model with variables and methods.
-  @[Crymon::Meta(
+  @[DynFork::Meta(
     service_name: "ServiceName",
     db_query_docs_limit: 2000_u32
   )]
-  struct FilledModel < Crymon::Model
-    getter first_name = Crymon::Fields::TextField.new(
+  struct FilledModel < DynFork::Model
+    getter first_name = DynFork::Fields::TextField.new(
       "default": "Cat"
     )
-    getter age = Crymon::Fields::I64Field.new(
+    getter age = DynFork::Fields::I64Field.new(
       "min": 0,
       "default": 0,
       "ignored": true
     )
-    getter birthday = Crymon::Fields::DateField.new(
+    getter birthday = DynFork::Fields::DateField.new(
       "default": "23.12.2023",
       "ignored": true
     )
   end
 
   # Auxiliary Model for tests.
-  @[Crymon::Meta(service_name: "ServiceName")]
-  struct AuxiliaryModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
-    getter slug = Crymon::Fields::SlugField.new
+  @[DynFork::Meta(service_name: "ServiceName")]
+  struct AuxiliaryModel < DynFork::Model
+    getter name = DynFork::Fields::TextField.new
+    getter slug = DynFork::Fields::SlugField.new
   end
 
   # Model with an incorrect slug source.
-  @[Crymon::Meta(service_name: "ServiceName")]
-  struct SlugSourceInvalidModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
-    getter slug = Crymon::Fields::SlugField.new(
+  @[DynFork::Meta(service_name: "ServiceName")]
+  struct SlugSourceInvalidModel < DynFork::Model
+    getter name = DynFork::Fields::TextField.new
+    getter slug = DynFork::Fields::SlugField.new(
       "slug_sources": ["first_name", "hash"]
     )
   end
 
   # Model without the required 'service_name' parameter for metadata.
-  @[Crymon::Meta]
-  struct NoParamServiceNameModel < Crymon::Model
-    getter name = Crymon::Fields::TextField.new
-    getter age = Crymon::Fields::I64Field.new(
+  @[DynFork::Meta]
+  struct NoParamServiceNameModel < DynFork::Model
+    getter name = DynFork::Fields::TextField.new
+    getter age = DynFork::Fields::I64Field.new(
       "min": 0
     )
   end
 
   # For preliminary testing of additional abstractions.
-  @[Crymon::Meta(service_name: "Accounts")]
-  struct AAModel < Crymon::Model
-    getter username = Crymon::Fields::TextField.new
-    getter password = Crymon::Fields::PasswordField.new
-    getter confirm_password = Crymon::Fields::PasswordField.new(
+  @[DynFork::Meta(service_name: "Accounts")]
+  struct AAModel < DynFork::Model
+    getter username = DynFork::Fields::TextField.new
+    getter password = DynFork::Fields::PasswordField.new
+    getter confirm_password = DynFork::Fields::PasswordField.new(
       "ignored": true
     )
 
