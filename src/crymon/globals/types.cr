@@ -51,7 +51,8 @@ module Crymon::Globals::Types
       unless File.file?(path)
         raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
       end
-      @tempfile = File.tempfile do |file|
+      @extension = path.split('.').last
+      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print File.read(path)
       end
     end
@@ -105,7 +106,11 @@ module Crymon::Globals::Types
     end
 
     def path_to_tempfile(path : String)
-      @tempfile = File.tempfile do |file|
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
+      @extension = path.split('.').last
+      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print File.read(path)
       end
     end
