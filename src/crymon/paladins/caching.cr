@@ -68,7 +68,10 @@ module Crymon::Paladins::Caching
       {% for var in @type.instance_vars %}
         if @{{ var }}.default && @{{ var }}.input_type = "file"
           unless File.file?(@{{ var }}.default.not_nil!)
-            raise Crymon::Errors::Panic.new("The file `#{default}` does not exist.")
+            raise Crymon::Errors::Panic.new(
+              "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+              "Param: `default` => The file `#{default}` does not exist."
+            )
           end
         end
         unless @{{ var }}.ignored?
