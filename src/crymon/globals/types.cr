@@ -18,7 +18,7 @@ module Crymon::Globals::Types
     include BSON::Serializable
 
     # Path to file.
-    @path : String = ""
+    property path : String = ""
     # URL to the file.
     property url : String = ""
     # File name.
@@ -30,23 +30,16 @@ module Crymon::Globals::Types
     # By default delete=false.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # File extension.
+    # <br>
+    # _Examples: pdf|doc|docx_
+    property extension : String?
     # For temporary storage of a file.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     @tempfile : File?
 
     def initialize; end
-
-    def path=(path : String)
-      unless File.file?(path)
-        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
-      end
-      @path = path
-    end
-
-    def path
-      @path
-    end
 
     def base64_to_tempfile(base64 : String)
       @tempfile = File.tempfile do |file|
@@ -55,6 +48,9 @@ module Crymon::Globals::Types
     end
 
     def path_to_tempfile(path : String)
+      unless File.file?(path)
+        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
+      end
       @tempfile = File.tempfile do |file|
         file.print File.read(path)
       end
@@ -67,7 +63,7 @@ module Crymon::Globals::Types
     include BSON::Serializable
 
     # Path to file.
-    @path : String = ""
+    property path : String = ""
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
@@ -91,23 +87,16 @@ module Crymon::Globals::Types
     # By default delete=false.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
+    # File extension.
+    # <br>
+    # _Examples: png|jpeg|jpg|webp_
+    property extension : String?
     # For temporary storage of an image.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     @tempfile : File?
 
     def initialize; end
-
-    def path=(path : String)
-      unless File.file?(path)
-        raise Crymon::Errors::Panic.new("The file `#{path}` does not exist.")
-      end
-      @path = path
-    end
-
-    def path
-      @path
-    end
 
     def base64_to_tempfile(base64 : String)
       @tempfile = File.tempfile do |file|

@@ -58,7 +58,7 @@ module Crymon::Fields
 
     def initialize(
       @label : String = "",
-      @default : String? = nil,
+      default : String? = nil,
       @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "files",
@@ -72,6 +72,11 @@ module Crymon::Fields
       @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      unless File.file?(default)
+        raise Crymon::Errors::Panic.new("The file `#{default}` does not exist.")
+      end
+      @default = default
+    end
   end
 end
