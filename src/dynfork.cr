@@ -44,7 +44,6 @@ end
 module Validator
   # Custom validator for checking color code.
   def self.color?(value : String) : Bool
-    return true if DynFork::Globals.cache_regex[:color_code].matches?(value)
-    false
+    DynFork::Globals.cache_regex[:color_code].matches?(value)
   end
 end
