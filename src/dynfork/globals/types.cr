@@ -88,15 +88,15 @@ module DynFork::Globals::Types
     property url_sm : String = ""
     property url_md : String = ""
     property url_lg : String = ""
-    # Image name.
+    # Image name (for original image).
     property name : String = ""
-    # Image width in pixels.
+    # Image width in pixels (for original image).
     property width : Int32 = 0
-    # Image height in pixels.
+    # Image height in pixels (for original image).
     property height : Int32 = 0
-    # Image size in bytes.
+    # Image size in bytes (for original image).
     getter size : Int64 = 0
-    # If the file needs to be deleted: delete=true.
+    # If the files needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
     @[BSON::Field(ignore: true)]
