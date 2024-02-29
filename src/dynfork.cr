@@ -1,6 +1,5 @@
 # Standard:
 require "json"
-require "bson"
 require "base64"
 require "crypto/bcrypt/password"
 require "uuid"

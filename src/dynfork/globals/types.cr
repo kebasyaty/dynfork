@@ -1,7 +1,3 @@
-require "json"
-require "bson"
-require "base64"
-
 # Global data types.
 module DynFork::Globals::Types
   # Output data type for the `Model.check()` method.
