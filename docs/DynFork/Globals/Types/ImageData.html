@@ -727,54 +727,54 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#delete_tempfile-instance-method" class="signature"><strong>#delete_tempfile</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#extension%3AString%7CNil-instance-method" class="signature"><strong>#extension</strong> : String | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#extension%3D%28extension%3AString%7CNil%29-instance-method" class="signature"><strong>#extension=</strong>(extension : String | Nil)</a>
+        <a href="#height%3AInt32-instance-method" class="signature"><strong>#height</strong> : Int32</a>
+        
+          <div class="summary"><p>Image height in pixels (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#height%3AFloat64-instance-method" class="signature"><strong>#height</strong> : Float64</a>
+        <a href="#height%3D%28height%3AInt32%29-instance-method" class="signature"><strong>#height=</strong>(height : Int32)</a>
         
-          <div class="summary"><p>File height in pixels.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#height%3D%28height%3AFloat64%29-instance-method" class="signature"><strong>#height=</strong>(height : Float64)</a>
-        
-          <div class="summary"><p>File height in pixels.</p></div>
+          <div class="summary"><p>Image height in pixels (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
         
-          <div class="summary"><p>File name.</p></div>
+          <div class="summary"><p>Image name (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
         
-          <div class="summary"><p>File name.</p></div>
+          <div class="summary"><p>Image name (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
         
-          <div class="summary"><p>Path to file.</p></div>
+          <div class="summary"><p>Path to image.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#path%3D%28path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(path : String)</a>
         
-          <div class="summary"><p>Path to file.</p></div>
+          <div class="summary"><p>Path to image.</p></div>
         
       </li>
     
@@ -824,16 +824,14 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#size%3AFloat64-instance-method" class="signature"><strong>#size</strong> : Float64</a>
+        <a href="#size%3AInt64-instance-method" class="signature"><strong>#size</strong> : Int64</a>
         
-          <div class="summary"><p>File size in bytes.</p></div>
+          <div class="summary"><p>Image size in bytes (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#size%3D%28size%3AFloat64%29-instance-method" class="signature"><strong>#size=</strong>(size : Float64)</a>
-        
-          <div class="summary"><p>File size in bytes.</p></div>
+        <a href="#tempfile%3AFile%7CNil-instance-method" class="signature"><strong>#tempfile</strong> : File | Nil</a>
         
       </li>
     
@@ -847,14 +845,14 @@
       <li class="entry-summary">
         <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
         
-          <div class="summary"><p>URL to the file.</p></div>
+          <div class="summary"><p>URL to the image.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#url%3D%28url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(url : String)</a>
         
-          <div class="summary"><p>URL to the file.</p></div>
+          <div class="summary"><p>URL to the image.</p></div>
         
       </li>
     
@@ -899,16 +897,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#width%3AFloat64-instance-method" class="signature"><strong>#width</strong> : Float64</a>
+        <a href="#width%3AInt32-instance-method" class="signature"><strong>#width</strong> : Int32</a>
         
-          <div class="summary"><p>File width in pixels.</p></div>
+          <div class="summary"><p>Image width in pixels (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#width%3D%28width%3AFloat64%29-instance-method" class="signature"><strong>#width=</strong>(width : Float64)</a>
+        <a href="#width%3D%28width%3AInt32%29-instance-method" class="signature"><strong>#width=</strong>(width : Int32)</a>
         
-          <div class="summary"><p>File width in pixels.</p></div>
+          <div class="summary"><p>Image width in pixels (for original image).</p></div>
         
       </li>
     
@@ -1142,6 +1140,20 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
+    <div class="entry-detail" id="delete_tempfile-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_tempfile</strong>
+
+        <a class="method-permalink" href="#delete_tempfile-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="extension:String|Nil-instance-method">
       <div class="signature">
         
@@ -1156,31 +1168,17 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="extension=(extension:String|Nil)-instance-method">
+    <div class="entry-detail" id="height:Int32-instance-method">
       <div class="signature">
         
-        def <strong>extension=</strong>(extension : String | Nil)
+        def <strong>height</strong> : Int32
 
-        <a class="method-permalink" href="#extension%3D%28extension%3AString%7CNil%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="height:Float64-instance-method">
-      <div class="signature">
-        
-        def <strong>height</strong> : Float64
-
-        <a class="method-permalink" href="#height%3AFloat64-instance-method">#</a>
+        <a class="method-permalink" href="#height%3AInt32-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>File height in pixels.</p>
+          <p>Image height in pixels (for original image).</p>
         </div>
       
       <br/>
@@ -1189,17 +1187,17 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="height=(height:Float64)-instance-method">
+    <div class="entry-detail" id="height=(height:Int32)-instance-method">
       <div class="signature">
         
-        def <strong>height=</strong>(height : Float64)
+        def <strong>height=</strong>(height : Int32)
 
-        <a class="method-permalink" href="#height%3D%28height%3AFloat64%29-instance-method">#</a>
+        <a class="method-permalink" href="#height%3D%28height%3AInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>File height in pixels.</p>
+          <p>Image height in pixels (for original image).</p>
         </div>
       
       <br/>
@@ -1218,7 +1216,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>File name.</p>
+          <p>Image name (for original image).</p>
         </div>
       
       <br/>
@@ -1237,7 +1235,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>File name.</p>
+          <p>Image name (for original image).</p>
         </div>
       
       <br/>
@@ -1256,7 +1254,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>Path to file.</p>
+          <p>Path to image.</p>
         </div>
       
       <br/>
@@ -1275,7 +1273,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>Path to file.</p>
+          <p>Path to image.</p>
         </div>
       
       <br/>
@@ -1410,17 +1408,17 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="size:Float64-instance-method">
+    <div class="entry-detail" id="size:Int64-instance-method">
       <div class="signature">
         
-        def <strong>size</strong> : Float64
+        def <strong>size</strong> : Int64
 
-        <a class="method-permalink" href="#size%3AFloat64-instance-method">#</a>
+        <a class="method-permalink" href="#size%3AInt64-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>File size in bytes.</p>
+          <p>Image size in bytes (for original image).</p>
         </div>
       
       <br/>
@@ -1429,18 +1427,13 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="size=(size:Float64)-instance-method">
+    <div class="entry-detail" id="tempfile:File|Nil-instance-method">
       <div class="signature">
         
-        def <strong>size=</strong>(size : Float64)
+        def <strong>tempfile</strong> : File | Nil
 
-        <a class="method-permalink" href="#size%3D%28size%3AFloat64%29-instance-method">#</a>
+        <a class="method-permalink" href="#tempfile%3AFile%7CNil-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>File size in bytes.</p>
-        </div>
       
       <br/>
       <div>
@@ -1479,7 +1472,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the file.</p>
+          <p>URL to the image.</p>
         </div>
       
       <br/>
@@ -1498,7 +1491,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the file.</p>
+          <p>URL to the image.</p>
         </div>
       
       <br/>
@@ -1619,17 +1612,17 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       </div>
     </div>
   
-    <div class="entry-detail" id="width:Float64-instance-method">
+    <div class="entry-detail" id="width:Int32-instance-method">
       <div class="signature">
         
-        def <strong>width</strong> : Float64
+        def <strong>width</strong> : Int32
 
-        <a class="method-permalink" href="#width%3AFloat64-instance-method">#</a>
+        <a class="method-permalink" href="#width%3AInt32-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>File width in pixels.</p>
+          <p>Image width in pixels (for original image).</p>
         </div>
       
       <br/>
@@ -1638,17 +1631,17 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       </div>
     </div>
   
-    <div class="entry-detail" id="width=(width:Float64)-instance-method">
+    <div class="entry-detail" id="width=(width:Int32)-instance-method">
       <div class="signature">
         
-        def <strong>width=</strong>(width : Float64)
+        def <strong>width=</strong>(width : Int32)
 
-        <a class="method-permalink" href="#width%3D%28width%3AFloat64%29-instance-method">#</a>
+        <a class="method-permalink" href="#width%3D%28width%3AInt32%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>File width in pixels.</p>
+          <p>Image width in pixels (for original image).</p>
         </div>
       
       <br/>
