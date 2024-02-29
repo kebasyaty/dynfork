@@ -46,7 +46,11 @@ module DynFork::Globals::Types
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
-      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
+      @tempfile = File.tempfile(
+        prefix: "#{UUID.v4}_",
+        suffix: ".#{@extension}",
+        dir: "tmp"
+      ) do |file|
         file.print Base64.decode_string(base64)
       end
       @size = File.size(@tempfile.path)
@@ -57,7 +61,11 @@ module DynFork::Globals::Types
         raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
       end
       @extension = Path[path].extension
-      @tempfile = File.tempfile("file", ".#{@extension}") do |file|
+      @tempfile = File.tempfile(
+        prefix: "#{UUID.v4}_",
+        suffix: ".#{@extension}",
+        dir: "tmp"
+      ) do |file|
         file.print File.read(path)
       end
       @size = File.size(@tempfile.path)
@@ -117,7 +125,11 @@ module DynFork::Globals::Types
     # filename: _Example: foo.png_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
-      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
+      @tempfile = File.tempfile(
+        prefix: "#{UUID.v4}_",
+        suffix: ".#{@extension}",
+        dir: "tmp"
+      ) do |file|
         file.print Base64.decode_string(base64)
       end
       @size = File.size(@tempfile.path)
@@ -128,7 +140,11 @@ module DynFork::Globals::Types
         raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
       end
       @extension = Path[path].extension
-      @tempfile = File.tempfile("img", ".#{@extension}") do |file|
+      @tempfile = File.tempfile(
+        prefix: "#{UUID.v4}_",
+        suffix: ".#{@extension}",
+        dir: "tmp"
+      ) do |file|
         file.print File.read(path)
       end
       @size = File.size(@tempfile.path)
