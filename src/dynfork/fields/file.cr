@@ -30,8 +30,9 @@ module DynFork::Fields
     getter accept : String = ""
     # Displays prompt text.
     getter placeholder : String
-    # The maximum allowed file size in megabytes.
-    getter maxsize : Float32
+    # The maximum allowed file size in bytes.
+    # NOTE: 1 MB = 1048576 Bytes (in binary).
+    getter maxsize : Int64
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 4
@@ -64,7 +65,7 @@ module DynFork::Fields
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",
-      @maxsize : Float32 = 0.5,
+      @maxsize : Int64 = 524288, # 0.5 MB
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,

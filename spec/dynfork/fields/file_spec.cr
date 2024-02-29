@@ -31,7 +31,7 @@ describe DynFork::Fields::FileField do
       f.accept.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false
-      f.maxsize.should eq(0.5_f32)
+      f.maxsize.should eq(524288_i64)
       f.hide?.should be_false
       f.required?.should be_false
       f.unique?.should be_false

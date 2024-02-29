@@ -18,6 +18,7 @@ require "pluto/format/webp"
 require "webslug"
 # Standard:
 require "crypto/bcrypt/password"
+require "uuid"
 
 # ORM-like API MongoDB for Crystal.
 # <br>
@@ -39,6 +40,10 @@ require "crypto/bcrypt/password"
 #
 module DynFork
   VERSION = "0.1.0"
+end
+
+unless Dir.exists?("tmp")
+  Dir.mkdir_p(path: "tmp", mode: 0o777)
 end
 
 module Validator

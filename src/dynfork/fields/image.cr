@@ -34,8 +34,9 @@ module DynFork::Fields
     # <br>
     # _Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]_
     getter thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new
-    # The maximum allowed image size in megabytes.
-    getter maxsize : Float32
+    # The maximum allowed image size in bytes.
+    # NOTE: 1 MB = 1048576 Bytes (in binary).
+    getter maxsize : Int64
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 5
@@ -68,7 +69,7 @@ module DynFork::Fields
       @media_url : String = "/media",
       @target_dir : String = "images",
       @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
-      @maxsize : Float32 = 2.0,
+      @maxsize : Int64 = 2097152, # 2 MB
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
