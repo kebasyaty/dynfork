@@ -24,7 +24,7 @@ module DynFork::Globals::Types
     # File name.
     property name : String = ""
     # File size in bytes.
-    property size : Float64 = 0
+    getter size : Int64 = 0
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
@@ -35,11 +35,11 @@ module DynFork::Globals::Types
     # _Examples: pdf|doc|docx_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    property extension : String?
+    getter extension : String?
     # For temporary storage of a file.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    @tempfile : File?
+    getter tempfile : File?
 
     def initialize; end
 
@@ -49,6 +49,7 @@ module DynFork::Globals::Types
       @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
+      @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
@@ -59,6 +60,14 @@ module DynFork::Globals::Types
       @tempfile = File.tempfile("file", ".#{@extension}") do |file|
         file.print File.read(path)
       end
+      @size = File.size(@tempfile.path)
+    end
+
+    def delete_tempfile
+      unless @tempfile.nil?
+        @tempfile.delete
+        @tempfile = Nil
+      end
     end
   end
 
@@ -67,26 +76,26 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include BSON::Serializable
 
-    # Path to file.
+    # Path to image.
     property path : String = ""
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
     property path_lg : String = ""
-    # URL to the file.
+    # URL to the image.
     property url : String = ""
     property url_xs : String = ""
     property url_sm : String = ""
     property url_md : String = ""
     property url_lg : String = ""
-    # File name.
+    # Image name.
     property name : String = ""
-    # File size in bytes.
-    property size : Float64 = 0
-    # File width in pixels.
-    property width : Float64 = 0
-    # File height in pixels.
-    property height : Float64 = 0
+    # Image width in pixels.
+    property width : Int32 = 0
+    # Image height in pixels.
+    property height : Int32 = 0
+    # Image size in bytes.
+    getter size : Int64 = 0
     # If the file needs to be deleted: delete=true.
     # <br>
     # By default delete=false.
@@ -97,11 +106,11 @@ module DynFork::Globals::Types
     # _Examples: png|jpeg|jpg|webp_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    property extension : String?
+    getter extension : String?
     # For temporary storage of an image.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    @tempfile : File?
+    getter tempfile : File?
 
     def initialize; end
 
@@ -111,6 +120,7 @@ module DynFork::Globals::Types
       @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print Base64.decode_string(base64)
       end
+      @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
@@ -120,6 +130,14 @@ module DynFork::Globals::Types
       @extension = Path[path].extension
       @tempfile = File.tempfile("img", ".#{@extension}") do |file|
         file.print File.read(path)
+      end
+      @size = File.size(@tempfile.path)
+    end
+
+    def delete_tempfile
+      unless @tempfile.nil?
+        @tempfile.delete
+        @tempfile = Nil
       end
     end
   end
