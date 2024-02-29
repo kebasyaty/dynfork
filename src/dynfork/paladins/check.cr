@@ -102,6 +102,7 @@ module DynFork::Paladins::Check
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
+            updated?,
             save?,
             result_bson_ptr,
             collection_ptr
@@ -111,6 +112,7 @@ module DynFork::Paladins::Check
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
+            updated?,
             save?,
             result_bson_ptr,
             collection_ptr

@@ -1,7 +1,3 @@
-require "json"
-require "bson"
-require "base64"
-
 # Global data types.
 module DynFork::Globals::Types
   # Output data type for the `Model.check()` method.
@@ -46,8 +42,10 @@ module DynFork::Globals::Types
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
+      prefix : String = UUID.v4.to_s
+      @name = "#{prefix}.#{@extension}"
       @tempfile = File.tempfile(
-        prefix: "#{UUID.v4}_",
+        prefix: "#{prefix}_",
         suffix: ".#{@extension}",
         dir: "tmp"
       ) do |file|
@@ -61,8 +59,10 @@ module DynFork::Globals::Types
         raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
       end
       @extension = Path[path].extension
+      prefix : String = UUID.v4.to_s
+      @name = "#{prefix}.#{@extension}"
       @tempfile = File.tempfile(
-        prefix: "#{UUID.v4}_",
+        prefix: "#{prefix}_",
         suffix: ".#{@extension}",
         dir: "tmp"
       ) do |file|
@@ -119,14 +119,22 @@ module DynFork::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter tempfile : File?
+    # The name of the target directory for
+    # the original image and its thumbnails.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    getter target_dir : String?
 
     def initialize; end
 
     # filename: _Example: foo.png_
     def base64_to_tempfile(base64 : String, filename : String)
       @extension = Path[filename].extension
+      @name = "original.#{@extension}"
+      prefix : String = UUID.v4.to_s
+      @target_dir = prefix
       @tempfile = File.tempfile(
-        prefix: "#{UUID.v4}_",
+        prefix: "#{prefix}_",
         suffix: ".#{@extension}",
         dir: "tmp"
       ) do |file|
@@ -140,8 +148,10 @@ module DynFork::Globals::Types
         raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
       end
       @extension = Path[path].extension
+      prefix : String = UUID.v4.to_s
+      @target_dir = prefix
       @tempfile = File.tempfile(
-        prefix: "#{UUID.v4}_",
+        prefix: "#{prefix}_",
         suffix: ".#{@extension}",
         dir: "tmp"
       ) do |file|

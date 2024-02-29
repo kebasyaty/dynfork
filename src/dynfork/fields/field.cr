@@ -1,5 +1,3 @@
-require "json"
-
 module DynFork::Fields
   # An abstract structure with common fields for all field types.
   @[JSON::Serializable::Options(emit_nulls: true)]
