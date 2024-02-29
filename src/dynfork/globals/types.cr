@@ -123,7 +123,8 @@ module DynFork::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter tempfile : File?
-    # ???
+    # The name of the target directory for
+    # the original image and its thumbnails.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter target_dir : String?
