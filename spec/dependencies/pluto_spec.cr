@@ -8,7 +8,7 @@ describe "Crystal Pluto" do
     end
     image_jpeg.width.should eq(100)
     image_jpeg.height.should eq(100)
-    image_jpeg.size.should eq(10000)
+    image_jpeg.size.should eq(10000) # width x height
   end
 
   it "=> image png", tags: "pluto" do
@@ -17,7 +17,7 @@ describe "Crystal Pluto" do
     end
     image_png.width.should eq(100)
     image_png.height.should eq(100)
-    image_png.size.should eq(10000)
+    image_png.size.should eq(10000) # width x height
   end
 
   it "=> image webp", tags: "pluto" do
@@ -26,6 +26,6 @@ describe "Crystal Pluto" do
     end
     image_webp.width.should eq(100)
     image_webp.height.should eq(100)
-    image_webp.size.should eq(10000)
+    image_webp.size.should eq(10000) # width x height
   end
 end
