@@ -43,7 +43,7 @@ module DynFork::Globals::Types
     def base64_to_tempfile(base64 : String, filename : String)
       extension = Path[filename].extension
       if extension.empty?
-        raise DynFork::Errors::Panic.new("Extension of file does not exist.")
+        raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
       end
       @extension = extension
       prefix : String = UUID.v4.to_s
@@ -61,7 +61,7 @@ module DynFork::Globals::Types
     def path_to_tempfile(path : String)
       extension = Path[path].extension
       if extension.empty?
-        raise DynFork::Errors::Panic.new("Extension of image does not exist.")
+        raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
       end
       @extension = extension
       content : String = File.read(path)
@@ -137,7 +137,7 @@ module DynFork::Globals::Types
     def base64_to_tempfile(base64 : String, filename : String)
       extension = Path[filename].extension
       if extension.empty?
-        raise DynFork::Errors::Panic.new("Extension of image does not exist.")
+        raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
       end
       @extension = extension
       @name = "original.#{extension}"
@@ -156,7 +156,7 @@ module DynFork::Globals::Types
     def path_to_tempfile(path : String)
       extension = Path[path].extension
       if extension.empty?
-        raise DynFork::Errors::Panic.new("Extension of image does not exist.")
+        raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
       end
       @extension = extension
       content : String = File.read(path)
