@@ -2,7 +2,7 @@
 
 # DynFork
 
-ORM-like API MongoDB for Crystal.
+ORM-like API MongoDB for Crystal language.
 <br>
 For simulate relationship Many-to-One and Many-to-Many,
 <br>
