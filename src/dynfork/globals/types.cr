@@ -41,9 +41,23 @@ module DynFork::Globals::Types
 
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
-      @extension = Path[filename].extension
+      extension = Path[filename].extension
+      if extension.empty?
+        raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
+      end
+      @extension = extension
+      #
+      base64.each_char_with_index do |char, index|
+        break if index == 60
+        if char == ','
+          base64 = base64.delete_at(0, index + 1)
+          break
+        end
+      end
+      #
       prefix : String = UUID.v4.to_s
-      @name = "#{prefix}.#{@extension}"
+      @name = "#{prefix}.#{extension}"
+      #
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
@@ -51,23 +65,29 @@ module DynFork::Globals::Types
       ) do |file|
         file.print Base64.decode_string(base64)
       end
+      #
       @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
-      unless File.file?(path)
-        raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
+      extension = Path[path].extension
+      if extension.empty?
+        raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
       end
-      @extension = Path[path].extension
+      @extension = extension
+      #
+      content : String = File.read(path)
       prefix : String = UUID.v4.to_s
-      @name = "#{prefix}.#{@extension}"
+      @name = "#{prefix}.#{extension}"
+      #
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
         dir: "tmp"
       ) do |file|
-        file.print File.read(path)
+        file.print content
       end
+      #
       @size = File.size(@tempfile.path)
     end
 
@@ -129,10 +149,24 @@ module DynFork::Globals::Types
 
     # filename: _Example: foo.png_
     def base64_to_tempfile(base64 : String, filename : String)
-      @extension = Path[filename].extension
-      @name = "original.#{@extension}"
+      extension = Path[filename].extension
+      if extension.empty?
+        raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
+      end
+      @extension = extension
+      #
+      base64.each_char_with_index do |char, index|
+        break if index == 60
+        if char == ','
+          base64 = base64.delete_at(0, index + 1)
+          break
+        end
+      end
+      #
+      @name = "original.#{extension}"
       prefix : String = UUID.v4.to_s
       @target_dir = prefix
+      #
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
@@ -140,23 +174,29 @@ module DynFork::Globals::Types
       ) do |file|
         file.print Base64.decode_string(base64)
       end
+      #
       @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
-      unless File.file?(path)
-        raise DynFork::Errors::Panic.new("The file `#{path}` does not exist.")
+      extension = Path[path].extension
+      if extension.empty?
+        raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
       end
-      @extension = Path[path].extension
+      @extension = extension
+      #
+      content : String = File.read(path)
       prefix : String = UUID.v4.to_s
       @target_dir = prefix
+      #
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{@extension}",
+        suffix: ".#{extension}",
         dir: "tmp"
       ) do |file|
-        file.print File.read(path)
+        file.print content
       end
+      #
       @size = File.size(@tempfile.path)
     end
 
