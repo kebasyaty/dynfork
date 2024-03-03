@@ -41,23 +41,24 @@ module DynFork::Globals::Types
 
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
+      # Get file extension.
       extension = Path[filename].extension
       if extension.empty?
         raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
       end
       @extension = extension
-      #
+      # Prepare Base64 content.
       base64.each_char_with_index do |char, index|
-        break if index == 60
         if char == ','
           base64 = base64.delete_at(0, index + 1)
           break
         end
+        break if index == 40
       end
-      #
+      # Create a prefix for the file name.
       prefix : String = UUID.v4.to_s
       @name = "#{prefix}.#{extension}"
-      #
+      # Create a temporary file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
@@ -65,21 +66,23 @@ module DynFork::Globals::Types
       ) do |file|
         file.print Base64.decode_string(base64)
       end
-      #
+      # Get file size.
       @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
+      # Get file extension.
       extension = Path[path].extension
       if extension.empty?
         raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
       end
       @extension = extension
-      #
+      # Get the contents of the file.
       content : String = File.read(path)
+      # Create a prefix for the file name.
       prefix : String = UUID.v4.to_s
       @name = "#{prefix}.#{extension}"
-      #
+      # Create a temporary file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
@@ -87,7 +90,7 @@ module DynFork::Globals::Types
       ) do |file|
         file.print content
       end
-      #
+      # Get file size.
       @size = File.size(@tempfile.path)
     end
 
@@ -149,24 +152,26 @@ module DynFork::Globals::Types
 
     # filename: _Example: foo.png_
     def base64_to_tempfile(base64 : String, filename : String)
+      # Get file extension.
       extension = Path[filename].extension
       if extension.empty?
         raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
       end
       @extension = extension
-      #
+      # Prepare Base64 content.
       base64.each_char_with_index do |char, index|
-        break if index == 60
         if char == ','
           base64 = base64.delete_at(0, index + 1)
           break
         end
+        break if index == 40
       end
-      #
+      # Create a name for the original image file.
       @name = "original.#{extension}"
+      # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
       @target_dir = prefix
-      #
+      # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{@extension}",
@@ -174,21 +179,25 @@ module DynFork::Globals::Types
       ) do |file|
         file.print Base64.decode_string(base64)
       end
-      #
+      # Get the image file size.
       @size = File.size(@tempfile.path)
     end
 
     def path_to_tempfile(path : String)
+      # Get file extension.
       extension = Path[path].extension
       if extension.empty?
         raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
       end
       @extension = extension
-      #
+      # Get the contents of an image file.
       content : String = File.read(path)
+      # Create a name for the original image file.
+      @name = "original.#{extension}"
+      # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
       @target_dir = prefix
-      #
+      # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
         suffix: ".#{extension}",
@@ -196,7 +205,7 @@ module DynFork::Globals::Types
       ) do |file|
         file.print content
       end
-      #
+      # Get the image file size.
       @size = File.size(@tempfile.path)
     end
 
