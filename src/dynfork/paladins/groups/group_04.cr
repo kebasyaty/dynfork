@@ -56,6 +56,7 @@ module DynFork::Paladins::Groups
       return
     end
 
+    # Return if there is no need to save.
     return if !save?
 
     # Get the paths value and save the file.
