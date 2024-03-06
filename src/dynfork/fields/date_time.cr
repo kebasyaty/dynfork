@@ -48,6 +48,12 @@ module DynFork::Fields
     getter choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
+    # :nodoc:
+    getter media_root : String = ""
+    # :nodoc:
+    getter media_url : String = ""
+    # :nodoc:
+    getter target_dir : String = ""
 
     # :nodoc:
     def has_value?; end

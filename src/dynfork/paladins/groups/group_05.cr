@@ -5,8 +5,7 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     updated? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
-    collection_ptr : Pointer(Mongo::Collection)
+    result_bson_ptr : Pointer(BSON)
   )
   end
 end

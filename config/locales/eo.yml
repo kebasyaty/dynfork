@@ -46,3 +46,4 @@ eo:
   data_not_less_min:
     interpolation: "La dato %{curr_date} ne devas esti malpli ol min=%{min_date}."
   value_does_not_match: "Via elekto ne kongruas kun la ofertitaj opcioj."
+  size_exceeds_max: "Dosiera grandeco superas la maksimuman valoron."
