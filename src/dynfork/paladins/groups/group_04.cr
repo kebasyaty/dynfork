@@ -65,6 +65,12 @@ module DynFork::Paladins::Groups
       name = field_ptr.value.value.name
       field_ptr.value.value.path = "#{media_root}/#{target_dir}/#{name}"
       field_ptr.value.value.url = "#{media_url}/#{target_dir}/#{name}"
+      File.write(
+        filename: field_ptr.value.value.path,
+        content: File.read(tempfile.path),
+        perm: File::Permissions.new(0o644)
+      )
+      field_ptr.value.value.delete_tempfile
     end
   end
 end
