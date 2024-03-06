@@ -56,6 +56,8 @@ module DynFork::Paladins::Groups
       return
     end
 
+    return if !save?
+
     # Get the paths value and save the file.
     if tempfile = field_ptr.value.value.tempfile
       media_root = field_ptr.value.media_root
