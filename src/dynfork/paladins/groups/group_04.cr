@@ -64,6 +64,7 @@ module DynFork::Paladins::Groups
       name = field_ptr.value.value.name
       field_ptr.value.value.path = "#{media_root}/#{target_dir}/#{name}"
       field_ptr.value.value.url = "#{media_url}/#{target_dir}/#{name}"
+      Dir.mkdir_p(path: "#{media_root}/#{target_dir}", mode: 0o777)
       File.write(
         filename: field_ptr.value.value.path,
         content: File.read(tempfile.path),
