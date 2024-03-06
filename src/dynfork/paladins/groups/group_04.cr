@@ -5,8 +5,7 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     updated? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
-    collection_ptr : Pointer(Mongo::Collection)
+    result_bson_ptr : Pointer(BSON)
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
@@ -71,6 +70,11 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       field_ptr.value.value.delete_tempfile
+    end
+
+    # Insert result.
+    if save?
+      result_bson_ptr.value[field_ptr.value.name] = field_ptr.value.value
     end
   end
 end

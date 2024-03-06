@@ -104,8 +104,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             updated?,
             save?,
-            result_bson_ptr,
-            collection_ptr
+            result_bson_ptr
           )
         when 5
           # Validation of fields of type ImageField.
@@ -114,8 +113,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             updated?,
             save?,
-            result_bson_ptr,
-            collection_ptr
+            result_bson_ptr
           )
         when 6
           # Validation of fields of type I64Field.
