@@ -47,7 +47,17 @@ module DynFork::Paladins::Groups
       return
     end
 
-    # ???
+    # Accumulate an error if the file size exceeds the maximum value.
+    if field_ptr.value.value.size > field_ptr.value.maxsize
+      self.accumulate_error(
+        I18n.t(:required_field),
+        field_ptr,
+        error_symptom_ptr?
+      )
+      return
+    end
+
+    # Get the paths value and save the file.
     if tempfile = field_ptr.value.value.tempfile
       media_root = field_ptr.value.media_root
       media_url = field_ptr.value.media_url
