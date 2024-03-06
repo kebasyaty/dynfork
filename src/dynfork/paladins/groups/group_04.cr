@@ -76,9 +76,6 @@ module DynFork::Paladins::Groups
       field_ptr.value.value.not_nil!.delete_tempfile
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = field_ptr.value.value.not_nil!
-    else
-      # Insert result.
-      result_bson_ptr.value[field_ptr.value.name] = nil
     end
   end
 end
