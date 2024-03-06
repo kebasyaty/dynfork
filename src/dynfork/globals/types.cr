@@ -96,7 +96,7 @@ module DynFork::Globals::Types
 
     def delete_tempfile
       unless @tempfile.nil?
-        @tempfile.delete
+        @tempfile.not_nil!.delete
         @tempfile = Nil
       end
     end
@@ -211,7 +211,7 @@ module DynFork::Globals::Types
 
     def delete_tempfile
       unless @tempfile.nil?
-        @tempfile.delete
+        @tempfile.not_nil!.delete
         @tempfile = Nil
       end
     end

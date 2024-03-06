@@ -77,8 +77,7 @@ module DynFork::Paladins::Groups
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      # current_value.delete_tempfile
-      field_ptr.value.value.delete_tempfile
+      field_ptr.value.value.as(DynFork::Globals::FileData).delete_tempfile
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
