@@ -38,6 +38,12 @@ module DynFork::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter input_type : Nil
+    # :nodoc:
+    getter media_root : String = ""
+    # :nodoc:
+    getter media_url : String + ""
+    # :nodoc:
+    getter target_dir : String = ""
 
     def initialize(
       @label : String = "",
@@ -98,6 +104,12 @@ module DynFork::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter input_type : Nil
+    # :nodoc:
+    getter media_root : String = ""
+    # :nodoc:
+    getter media_url : String + ""
+    # :nodoc:
+    getter target_dir : String = ""
 
     def initialize(
       @label : String = "",
@@ -161,6 +173,12 @@ module DynFork::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter input_type : Nil
+    # :nodoc:
+    getter media_root : String = ""
+    # :nodoc:
+    getter media_url : String + ""
+    # :nodoc:
+    getter target_dir : String = ""
 
     def initialize(
       @label : String = "",
@@ -225,6 +243,12 @@ module DynFork::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter input_type : Nil
+    # :nodoc:
+    getter media_root : String = ""
+    # :nodoc:
+    getter media_url : String + ""
+    # :nodoc:
+    getter target_dir : String = ""
 
     def initialize(
       @label : String = "",

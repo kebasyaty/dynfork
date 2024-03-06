@@ -34,6 +34,7 @@ module DynFork::Paladins::Groups
 
     # Get current value.
     current_value : DynFork::Globals::FileData = field_ptr.value.value.not_nil!
+      .as(DynFork::Globals::FileData)
 
     # If the file needs to be delete.
     if current_value.delete? && current_value.tempfile.nil?
@@ -76,7 +77,8 @@ module DynFork::Paladins::Groups
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      current_value.delete_tempfile
+      # current_value.delete_tempfile
+      field_ptr.value.value.delete_tempfile
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
