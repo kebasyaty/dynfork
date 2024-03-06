@@ -67,7 +67,7 @@ module DynFork::Globals::Types
         file.print Base64.decode_string(base64)
       end
       # Get file size.
-      @size = File.size(@tempfile.path)
+      @size = File.size(@tempfile.not_nil!.path)
     end
 
     def path_to_tempfile(path : String)
@@ -91,13 +91,13 @@ module DynFork::Globals::Types
         file.print content
       end
       # Get file size.
-      @size = File.size(@tempfile.path)
+      @size = File.size(@tempfile.not_nil!.path)
     end
 
     def delete_tempfile
       unless @tempfile.nil?
         @tempfile.not_nil!.delete
-        @tempfile = Nil
+        @tempfile = nil
       end
     end
   end
@@ -180,7 +180,7 @@ module DynFork::Globals::Types
         file.print Base64.decode_string(base64)
       end
       # Get the image file size.
-      @size = File.size(@tempfile.path)
+      @size = File.size(@tempfile.not_nil!.path)
     end
 
     def path_to_tempfile(path : String)
@@ -206,13 +206,13 @@ module DynFork::Globals::Types
         file.print content
       end
       # Get the image file size.
-      @size = File.size(@tempfile.path)
+      @size = File.size(@tempfile.not_nil!.path)
     end
 
     def delete_tempfile
       unless @tempfile.nil?
         @tempfile.not_nil!.delete
-        @tempfile = Nil
+        @tempfile = nil
       end
     end
   end

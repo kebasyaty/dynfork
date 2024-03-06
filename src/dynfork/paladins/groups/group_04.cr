@@ -21,20 +21,24 @@ module DynFork::Paladins::Groups
       return
     end
 
+    # Get current value.
+    current_value : DynFork::Globals::FileData?
+
+    if !field_ptr.value.value.nil?
+      json : String = field_ptr.value.value.not_nil!.to_json
+      current_value = DynFork::Globals::FileData.from_json(json)
+    end
+
     # If necessary, use the default value.
-    if !updated? && field_ptr.value.value.nil?
+    if !updated? && current_value.nil?
       if default = field_ptr.value.default
-        field_ptr.value.value = DynFork::Globals::FileData.new
-          .path_to_tempfile(default)
+        current_value = DynFork::Globals::FileData.new
+        current_value.path_to_tempfile(default.to_s)
       end
     end
 
-    # Return if the value is missing.
-    return if field_ptr.value.value.nil?
-
-    # Get current value.
-    current_value : DynFork::Globals::FileData = field_ptr.value.value.not_nil!
-      .as(DynFork::Globals::FileData)
+    # Return if the current value is missing.
+    return if current_value.nil?
 
     # If the file needs to be delete.
     if current_value.delete? && current_value.tempfile.nil?
@@ -77,7 +81,8 @@ module DynFork::Paladins::Groups
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      field_ptr.value.value.as(DynFork::Globals::FileData).delete_tempfile
+      field_ptr.value.value = nil
+      current_value.delete_tempfile
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
