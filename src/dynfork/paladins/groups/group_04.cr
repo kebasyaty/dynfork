@@ -46,5 +46,15 @@ module DynFork::Paladins::Groups
       end
       return
     end
+
+    # ???
+    if tempfile = field_ptr.value.value.tempfile
+      media_root = field_ptr.value.media_root
+      media_url = field_ptr.value.media_url
+      target_dir = field_ptr.value.target_dir
+      name = field_ptr.value.value.name
+      field_ptr.value.value.path = "#{media_root}/#{target_dir}/#{name}"
+      field_ptr.value.value.url = "#{media_url}/#{target_dir}/#{name}"
+    end
   end
 end
