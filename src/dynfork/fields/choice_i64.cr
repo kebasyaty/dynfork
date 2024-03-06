@@ -41,7 +41,7 @@ module DynFork::Fields
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
-    getter media_url : String + ""
+    getter media_url : String = ""
     # :nodoc:
     getter target_dir : String = ""
 
@@ -107,7 +107,7 @@ module DynFork::Fields
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
-    getter media_url : String + ""
+    getter media_url : String = ""
     # :nodoc:
     getter target_dir : String = ""
 
@@ -176,7 +176,7 @@ module DynFork::Fields
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
-    getter media_url : String + ""
+    getter media_url : String = ""
     # :nodoc:
     getter target_dir : String = ""
 
@@ -246,7 +246,7 @@ module DynFork::Fields
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
-    getter media_url : String + ""
+    getter media_url : String = ""
     # :nodoc:
     getter target_dir : String = ""
 
