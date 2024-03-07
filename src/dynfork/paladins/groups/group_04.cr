@@ -75,14 +75,19 @@ module DynFork::Paladins::Groups
       name = current_value.name
       current_value.path = "#{media_root}/#{target_dir}/#{name}"
       current_value.url = "#{media_url}/#{target_dir}/#{name}"
-      Dir.mkdir_p(path: "#{media_root}/#{target_dir}", mode: 0o777)
+      # Create the target directory if it does not exist.
+      unless Dir.exists?("#{media_root}/#{target_dir}")
+        Dir.mkdir_p(path: "#{media_root}/#{target_dir}", mode: 0o777)
+      end
+      # Save file.
       File.write(
         filename: current_value.path,
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      field_ptr.value.value = nil
-      current_value.delete_tempfile
+      # field_ptr.value.value = nil
+      # current_value.delete_tempfile
+      #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end

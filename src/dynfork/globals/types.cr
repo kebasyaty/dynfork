@@ -146,7 +146,7 @@ module DynFork::Globals::Types
     # the original image and its thumbnails.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter target_dir : String?
+    getter images_dir : String?
 
     def initialize; end
 
@@ -170,7 +170,7 @@ module DynFork::Globals::Types
       @name = "original.#{extension}"
       # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
-      @target_dir = prefix
+      @images_dir = prefix
       # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
@@ -196,7 +196,7 @@ module DynFork::Globals::Types
       @name = "original.#{extension}"
       # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
-      @target_dir = prefix
+      @images_dir = prefix
       # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
