@@ -69,16 +69,18 @@ module DynFork::Paladins::Groups
 
     # Get the paths value and save the file.
     if tempfile = current_value.tempfile
-      media_root = field_ptr.value.media_root
-      media_url = field_ptr.value.media_url
-      target_dir = field_ptr.value.target_dir
-      name = current_value.name
+      media_root : Syting = field_ptr.value.media_root
+      media_url : Syting = field_ptr.value.media_url
+      target_dir : Syting = field_ptr.value.target_dir
+      name : Syting = current_value.name
       # Add paths to file.
       current_value.path = "#{media_root}/#{target_dir}/#{name}"
       current_value.url = "#{media_url}/#{target_dir}/#{name}"
+      # Get the path to the directory for the files.
+      images_dir_path : Syting = "#{media_root}/#{target_dir}"
       # Create the target directory if it does not exist.
-      unless Dir.exists?("#{media_root}/#{target_dir}")
-        Dir.mkdir_p(path: "#{media_root}/#{target_dir}", mode: 0o777)
+      unless Dir.exists?(images_dir_path)
+        Dir.mkdir_p(path: images_dir_path, mode: 0o777)
       end
       # Save file.
       File.write(
