@@ -91,6 +91,19 @@ module DynFork::Paladins::Groups
       )
       # Create and save thumbnails.
       thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
+      thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
+      thumbnails..each do |(size_name, max_size)|
+        case size_name
+        when "xs"
+          # ...
+        when "sm"
+          # ...
+        when "md"
+          # ...
+        when "lg"
+          # ...
+        end
+      end
       #
       # field_ptr.value.value = nil
       # current_value.delete_tempfile
