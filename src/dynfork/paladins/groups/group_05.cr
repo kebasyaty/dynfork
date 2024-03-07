@@ -74,7 +74,7 @@ module DynFork::Paladins::Groups
       target_dir = field_ptr.value.target_dir
       images_dir = current_value.images_dir
       name = current_value.name
-      # ???
+      # Add paths to original image.
       current_value.path = "#{media_root}/#{target_dir}/#{images_dir}/#{name}"
       current_value.url = "#{media_url}/#{target_dir}/#{images_dir}/#{name}"
       # Create the target directory if it does not exist.

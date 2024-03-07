@@ -73,6 +73,7 @@ module DynFork::Paladins::Groups
       media_url = field_ptr.value.media_url
       target_dir = field_ptr.value.target_dir
       name = current_value.name
+      # Add paths to file.
       current_value.path = "#{media_root}/#{target_dir}/#{name}"
       current_value.url = "#{media_url}/#{target_dir}/#{name}"
       # Create the target directory if it does not exist.
