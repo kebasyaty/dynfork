@@ -46,6 +46,8 @@ module DynFork::Fields
     getter media_url : String = ""
     # :nodoc:
     getter target_dir : String = ""
+    # :nodoc:
+    getter thumbnails : Nil
 
     # :nodoc:
     def has_value?; end

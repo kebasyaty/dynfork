@@ -89,6 +89,9 @@ module DynFork::Paladins::Groups
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
+      # Create and save thumbnails.
+      thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
+      #
       # field_ptr.value.value = nil
       # current_value.delete_tempfile
       #
