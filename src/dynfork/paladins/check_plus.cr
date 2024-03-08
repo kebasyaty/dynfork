@@ -86,7 +86,7 @@ module DynFork::Paladins::CheckPlus
     {width: width, height: height}
   end
 
-  # ???
+  # Convert image to IO::Memory.
   def image_to_io_memory(
     image_ptr : Pointer(Pluto::ImageRGBA),
     extension : String
