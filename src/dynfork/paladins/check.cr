@@ -161,7 +161,7 @@ module DynFork::Paladins::Check
         File.delete(path)
       end
       cleaning_map[:images].each do |path|
-        Dir.rm_rf(path)
+        FileUtils.rm_rf(path)
       end
     end
     #
