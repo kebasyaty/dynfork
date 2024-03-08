@@ -92,7 +92,7 @@ module DynFork::Paladins::Groups
       # Create and save thumbnails.
       if thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
-        extension = current_value.extension
+        extension : String = current_value.extension
         # Get image file.
         image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
           File.open(tempfile.path) do |file|
@@ -121,13 +121,17 @@ module DynFork::Paladins::Groups
         thumbnails..each do |(size_name, max_size)|
           case size_name
           when "lg"
-            # ...
+            current_value.path_lg = "#{media_root}/#{target_dir}/#{images_dir}/lg.#{extension}"
+            current_value.url_lg = "#{media_url}/#{target_dir}/#{images_dir}/lg.#{extension}"
           when "md"
-            # ...
+            current_value.path_md = "#{media_root}/#{target_dir}/#{images_dir}/md.#{extension}"
+            current_value.url_md = "#{media_url}/#{target_dir}/#{images_dir}/md.#{extension}"
           when "sm"
-            # ...
+            current_value.path_sm = "#{media_root}/#{target_dir}/#{images_dir}/sm.#{extension}"
+            current_value.url_sm = "#{media_url}/#{target_dir}/#{images_dir}/sm.#{extension}"
           when "xs"
-            # ...
+            current_value.path_xs = "#{media_root}/#{target_dir}/#{images_dir}/xs.#{extension}"
+            current_value.url_xs = "#{media_url}/#{target_dir}/#{images_dir}/xs.#{extension}"
           end
         end
       end
