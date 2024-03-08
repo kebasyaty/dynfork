@@ -91,15 +91,15 @@ module DynFork::Paladins::CheckPlus
     image_ptr : Pointer(Pluto::ImageRGBA),
     extension : String
   ) : IO::Memory
-    new_size = self.calculate_thumbnail_size(image.value.width, image.value.height)
-    image.value.bilinear_resize!(new_size[:width], new_size[:height])
+    new_size = self.calculate_thumbnail_size(image_ptr.value.width, image_ptr.value.height)
+    image_ptr.value.bilinear_resize!(new_size[:width], new_size[:height])
     io = IO::Memory.new
     if ["jpg", "jpeg"].includes?(extension)
-      image.value.to_jpeg(io)
+      image_ptr.value.to_jpeg(io)
     elsif extension == "png"
-      image.value.to_png(io)
+      image_ptr.value.to_png(io)
     elsif extension == "webp"
-      image.value.to_webp(io)
+      image_ptr.value.to_webp(io)
     end
     io
   end
