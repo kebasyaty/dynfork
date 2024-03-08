@@ -90,18 +90,41 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       # Create and save thumbnails.
-      thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
-      thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
-      thumbnails..each do |(size_name, max_size)|
-        case size_name
-        when "lg"
-          # ...
-        when "md"
-          # ...
-        when "sm"
-          # ...
-        when "xs"
-          # ...
+      if thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
+        thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
+        extension = current_value.extension
+        # Get image file.
+        image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
+          File.open(tempfile.path) do |file|
+            Pluto::ImageRGBA.from_jpeg(file)
+          end
+        elsif extension == "png"
+          File.open(tempfile.path) do |file|
+            Pluto::ImageRGBA.from_png(file)
+          end
+        elsif extension == "webp"
+          File.open(tempfile.path) do |file|
+            Pluto::ImageRGBA.from_webp(file)
+          end
+        else
+          self.accumulate_error(
+            I18n.t(:size_exceeds_max),
+            field_ptr,
+            error_symptom_ptr?
+          )
+          return
+        end
+        thumbnails..each do |(size_name, max_size)|
+          case size_name
+          when "lg"
+            # ...
+          when "md"
+            # ...
+          when "sm"
+            # ...
+          when "xs"
+            # ...
+          end
         end
       end
       #
