@@ -123,7 +123,22 @@ module DynFork::Paladins::Groups
           when "lg"
             current_value.path_lg = "#{media_root}/#{target_dir}/#{images_dir}/lg.#{extension}"
             current_value.url_lg = "#{media_url}/#{target_dir}/#{images_dir}/lg.#{extension}"
-            image.bilinear_resize!(width : Int32, height : Int32)
+            new_size = self.calculate_thumbnail_size(image.width, image.height)
+            image.bilinear_resize!(new_size[:width], new_size[:height])
+            io = IO::Memory.new
+            if ["jpg", "jpeg"].includes?(extension)
+              image.to_jpeg(io)
+            elsif extension == "png"
+              image.to_png(io)
+            elsif extension == "webp"
+              image.to_webp(io)
+            end
+            io.rewind
+            File.write(
+              filename: current_value.path_lg,
+              content: io,
+              perm: File::Permissions.new(0o644)
+            )
           when "md"
             current_value.path_md = "#{media_root}/#{target_dir}/#{images_dir}/md.#{extension}"
             current_value.url_md = "#{media_url}/#{target_dir}/#{images_dir}/md.#{extension}"
