@@ -47,3 +47,5 @@ en:
     interpolation: "The date %{curr_date} must not be less than min=%{min_date}."
   value_does_not_match: "Your choice does not match the options offered."
   size_exceeds_max: "File size exceeds the maximum value."
+  invalid_file_type:
+    interpolation: "%{type} - nvalid file type."

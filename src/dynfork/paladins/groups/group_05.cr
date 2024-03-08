@@ -107,8 +107,12 @@ module DynFork::Paladins::Groups
             Pluto::ImageRGBA.from_webp(file)
           end
         else
+          err_msg : String = I18n.t(
+            "invalid_file_type.interpolation",
+            type: extension.upcase
+          )
           self.accumulate_error(
-            I18n.t(:size_exceeds_max),
+            err_msg,
             field_ptr,
             error_symptom_ptr?
           )

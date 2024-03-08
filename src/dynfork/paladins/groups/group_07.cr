@@ -28,7 +28,7 @@ module DynFork::Paladins::Groups
     # Validation the `max` field attribute.
     if max = field_ptr.value.max.not_nil!.to_f64
       if current_value > max
-        err_msg = I18n.t(
+        err_msg : String = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value,
           max_num: max
@@ -43,7 +43,7 @@ module DynFork::Paladins::Groups
     # Validation the `min` field attribute.
     if min = field_ptr.value.min.not_nil!.to_f64
       if current_value < min
-        err_msg = I18n.t(
+        err_msg : String = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value,
           min_num: min
