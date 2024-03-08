@@ -5,7 +5,8 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     updated? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON)
+    result_bson_ptr : Pointer(BSON),
+    cleaning_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
@@ -79,6 +80,7 @@ module DynFork::Paladins::Groups
       current_value.url = "#{media_url}/#{target_dir}/#{images_dir}/#{name}"
       # Get the directory path for the image.
       images_dir_path : String = "#{media_root}/#{target_dir}/#{images_dir}"
+      cleaning_map_ptr.value[:images] << images_dir_path
       # Create the target directory if it does not exist.
       unless Dir.exists?(images_dir_path)
         Dir.mkdir_p(path: images_dir_path, mode: 0o777)
