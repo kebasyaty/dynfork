@@ -119,7 +119,7 @@ module DynFork::Paladins::Groups
           return
         end
         image_ptr : Pointer(Pluto::ImageRGBA) = pointerof(image)
-        # ???
+        #
         thumbnails.each do |(size_name, max_size)|
           case size_name
           when "lg"
