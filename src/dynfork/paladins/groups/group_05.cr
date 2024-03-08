@@ -94,13 +94,13 @@ module DynFork::Paladins::Groups
       thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
       thumbnails..each do |(size_name, max_size)|
         case size_name
-        when "xs"
-          # ...
-        when "sm"
+        when "lg"
           # ...
         when "md"
           # ...
-        when "lg"
+        when "sm"
+          # ...
+        when "xs"
           # ...
         end
       end
