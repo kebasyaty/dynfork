@@ -86,6 +86,24 @@ module DynFork::Paladins::CheckPlus
     {width: width, height: height}
   end
 
+  # ???
+  def image_to_io_memory(
+    image_ptr : Pointer(Pluto::ImageRGBA),
+    extension : String
+  ) : IO::Memory
+    new_size = self.calculate_thumbnail_size(image.value.width, image.value.height)
+    image.value.bilinear_resize!(new_size[:width], new_size[:height])
+    io = IO::Memory.new
+    if ["jpg", "jpeg"].includes?(extension)
+      image.value.to_jpeg(io)
+    elsif extension == "png"
+      image.value.to_png(io)
+    elsif extension == "webp"
+      image.value.to_webp(io)
+    end
+    io
+  end
+
   # For fill in all fields of the slug type.
   def create_slugs
     # ...

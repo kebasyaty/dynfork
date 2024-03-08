@@ -123,16 +123,7 @@ module DynFork::Paladins::Groups
           when "lg"
             current_value.path_lg = "#{media_root}/#{target_dir}/#{images_dir}/lg.#{extension}"
             current_value.url_lg = "#{media_url}/#{target_dir}/#{images_dir}/lg.#{extension}"
-            new_size = self.calculate_thumbnail_size(image.width, image.height)
-            image.bilinear_resize!(new_size[:width], new_size[:height])
-            io = IO::Memory.new
-            if ["jpg", "jpeg"].includes?(extension)
-              image.to_jpeg(io)
-            elsif extension == "png"
-              image.to_png(io)
-            elsif extension == "webp"
-              image.to_webp(io)
-            end
+            io = self.image_to_io_memory(pointerof(image), extension)
             io.rewind
             File.write(
               filename: current_value.path_lg,
@@ -142,16 +133,7 @@ module DynFork::Paladins::Groups
           when "md"
             current_value.path_md = "#{media_root}/#{target_dir}/#{images_dir}/md.#{extension}"
             current_value.url_md = "#{media_url}/#{target_dir}/#{images_dir}/md.#{extension}"
-            new_size = self.calculate_thumbnail_size(image.width, image.height)
-            image.bilinear_resize!(new_size[:width], new_size[:height])
-            io = IO::Memory.new
-            if ["jpg", "jpeg"].includes?(extension)
-              image.to_jpeg(io)
-            elsif extension == "png"
-              image.to_png(io)
-            elsif extension == "webp"
-              image.to_webp(io)
-            end
+            io = self.image_to_io_memory(pointerof(image), extension)
             io.rewind
             File.write(
               filename: current_value.path_md,
@@ -161,16 +143,7 @@ module DynFork::Paladins::Groups
           when "sm"
             current_value.path_sm = "#{media_root}/#{target_dir}/#{images_dir}/sm.#{extension}"
             current_value.url_sm = "#{media_url}/#{target_dir}/#{images_dir}/sm.#{extension}"
-            new_size = self.calculate_thumbnail_size(image.width, image.height)
-            image.bilinear_resize!(new_size[:width], new_size[:height])
-            io = IO::Memory.new
-            if ["jpg", "jpeg"].includes?(extension)
-              image.to_jpeg(io)
-            elsif extension == "png"
-              image.to_png(io)
-            elsif extension == "webp"
-              image.to_webp(io)
-            end
+            io = self.image_to_io_memory(pointerof(image), extension)
             io.rewind
             File.write(
               filename: current_value.path_sm,
@@ -180,16 +153,7 @@ module DynFork::Paladins::Groups
           when "xs"
             current_value.path_xs = "#{media_root}/#{target_dir}/#{images_dir}/xs.#{extension}"
             current_value.url_xs = "#{media_url}/#{target_dir}/#{images_dir}/xs.#{extension}"
-            new_size = self.calculate_thumbnail_size(image.width, image.height)
-            image.bilinear_resize!(new_size[:width], new_size[:height])
-            io = IO::Memory.new
-            if ["jpg", "jpeg"].includes?(extension)
-              image.to_jpeg(io)
-            elsif extension == "png"
-              image.to_png(io)
-            elsif extension == "webp"
-              image.to_webp(io)
-            end
+            io = self.image_to_io_memory(pointerof(image), extension)
             io.rewind
             File.write(
               filename: current_value.path_xs,
