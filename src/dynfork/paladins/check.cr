@@ -157,11 +157,11 @@ module DynFork::Paladins::Check
     {% end %}
     # ???
     if error_symptom?
-      cleaning_map[:files].each do |elem|
-        puts elem
+      cleaning_map[:files].each do |path|
+        File.delete(path)
       end
-      cleaning_map[:images].each do |elem|
-        puts elem
+      cleaning_map[:images].each do |path|
+        Dir.rm_rf(path)
       end
     end
     #
