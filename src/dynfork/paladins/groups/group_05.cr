@@ -90,7 +90,7 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       # Create and save thumbnails.
-      if thumbnails = field_ptr.value.value.thumbnails
+      if thumbnails = field_ptr.value.thumbnails
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
