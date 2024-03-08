@@ -119,6 +119,7 @@ module DynFork::Paladins::Groups
           return
         end
         image_ptr : Pointer(Pluto::ImageRGBA) = pointerof(image)
+        #
         current_value.width = image.width
         current_value.height = image.height
         #
