@@ -155,7 +155,7 @@ module DynFork::Paladins::Check
         end
       end
     {% end %}
-    # ???
+    # If there is an error, delete new files.
     if error_symptom?
       cleaning_map[:files].each do |path|
         File.delete(path)
