@@ -48,7 +48,7 @@ module DynFork::Paladins::Groups
     # Validation the `maxlength` field attribute.
     if maxlength = field_ptr.value.maxlength
       if current_value.size > maxlength
-        err_msg : String = I18n.t(
+        err_msg = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value.size,
           max_num: maxlength
@@ -63,7 +63,7 @@ module DynFork::Paladins::Groups
     # Validation the `minlength` field attribute.
     if minlength = field_ptr.value.minlength
       if current_value.size < minlength
-        err_msg : String = I18n.t(
+        err_msg = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value.size,
           min_num: minlength

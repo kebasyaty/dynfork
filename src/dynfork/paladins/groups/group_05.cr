@@ -72,7 +72,7 @@ module DynFork::Paladins::Groups
       media_root : String = field_ptr.value.media_root
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
-      images_dir : String = current_value.images_dir
+      images_dir : String = current_value.images_dir.not_nil!
       name : String = current_value.name
       # Add paths to original image.
       current_value.path = "#{media_root}/#{target_dir}/#{images_dir}/#{name}"
@@ -90,7 +90,7 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       # Create and save thumbnails.
-      if thumbnails : Array({String, UInt32}) = field_ptr.value.value.thumbnails
+      if thumbnails = field_ptr.value.value.thumbnails
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
@@ -107,7 +107,7 @@ module DynFork::Paladins::Groups
             Pluto::ImageRGBA.from_webp(file)
           end
         else
-          err_msg : String = I18n.t(
+          err_msg = I18n.t(
             "invalid_file_type.interpolation",
             type: extension.upcase
           )

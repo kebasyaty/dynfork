@@ -41,7 +41,7 @@ describe DynFork::Globals do
         t.delete?.should be_false
         t.extension.should be_nil
         t.tempfile.should be_nil
-        t.target_dir.should be_nil
+        t.images_dir.should be_nil
       end
     end
   end
