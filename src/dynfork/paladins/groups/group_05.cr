@@ -92,7 +92,7 @@ module DynFork::Paladins::Groups
       # Create and save thumbnails.
       if thumbnails = field_ptr.value.thumbnails
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
-        extension : String = current_value.extension
+        extension : String = current_value.extension.not_nil!
         # Get image file.
         image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
           File.open(tempfile.path) do |file|
