@@ -32,8 +32,8 @@ module DynFork::Fields
     getter accept : String = "image/png,image/jpeg,image/webp"
     # From one to four inclusive.
     # <br>
-    # _Example: [{"xs", 150},{"sm", 300},{"md", 600},{"lg", 1200}]_
-    getter thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new
+    # _Example: [{"xs", 150}, {"sm", 300}, {"md", 600}, {"lg", 1200}]_
+    getter thumbnails : Array({String, Int32})?
     # The maximum allowed image size in bytes.
     # NOTE: 1 MB = 1048576 Bytes (in binary).
     getter maxsize : Int64
@@ -68,7 +68,7 @@ module DynFork::Fields
       @media_root : String = "assets/media",
       @media_url : String = "/media",
       @target_dir : String = "images",
-      @thumbnails : Array({String, UInt32}) = Array({String, UInt32}).new,
+      @thumbnails : Array({String, Int32})? = nil,
       @maxsize : Int64 = 2097152, # 2 MB
       @hide : Bool = false,
       @required : Bool = false,

@@ -5,7 +5,8 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     updated? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON)
+    result_bson_ptr : Pointer(BSON),
+    cleaning_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
@@ -69,20 +70,29 @@ module DynFork::Paladins::Groups
 
     # Get the paths value and save the file.
     if tempfile = current_value.tempfile
-      media_root = field_ptr.value.media_root
-      media_url = field_ptr.value.media_url
-      target_dir = field_ptr.value.target_dir
-      name = current_value.name
+      media_root : String = field_ptr.value.media_root
+      media_url : String = field_ptr.value.media_url
+      target_dir : String = field_ptr.value.target_dir
+      name : String = current_value.name
+      # Add paths to file.
       current_value.path = "#{media_root}/#{target_dir}/#{name}"
       current_value.url = "#{media_url}/#{target_dir}/#{name}"
-      Dir.mkdir_p(path: "#{media_root}/#{target_dir}", mode: 0o777)
+      cleaning_map_ptr.value[:files] << current_value.path
+      # Get the path to the directory for the files.
+      images_dir_path : String = "#{media_root}/#{target_dir}"
+      # Create the target directory if it does not exist.
+      unless Dir.exists?(images_dir_path)
+        Dir.mkdir_p(path: images_dir_path, mode: 0o777)
+      end
+      # Save file.
       File.write(
         filename: current_value.path,
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      field_ptr.value.value = nil
-      current_value.delete_tempfile
+      # field_ptr.value.value = nil
+      # current_value.delete_tempfile
+      #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end

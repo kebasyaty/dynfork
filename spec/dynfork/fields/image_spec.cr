@@ -39,7 +39,7 @@ describe DynFork::Fields::ImageField do
       f.media_url.should eq("/media")
       f.target_dir.should eq("images")
       f.accept.should eq("image/png,image/jpeg,image/webp")
-      f.thumbnails.should eq(Array({String, UInt32}).new)
+      f.thumbnails.should be_nil
       f.maxsize.should eq(2097152_i64)
       f.disabled?.should be_false
       f.readonly?.should be_false

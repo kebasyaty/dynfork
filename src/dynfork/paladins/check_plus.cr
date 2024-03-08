@@ -70,6 +70,41 @@ module DynFork::Paladins::CheckPlus
     end
   end
 
+  # Calculate the maximum size for a thumbnail.
+  def calculate_thumbnail_size(
+    width : Int32,
+    height : Int32,
+    max_size : Int32
+  ) : NamedTuple(width: Int32, height: Int32)
+    if width > height
+      if width > max_size
+        return {width: max_size, height: (height * (max_size // width))}
+      end
+    elsif height > max_size
+      return {width: (width * (max_size // height)), height: max_size}
+    end
+    {width: width, height: height}
+  end
+
+  # Convert image to IO::Memory.
+  def image_to_io_memory(
+    image_ptr : Pointer(Pluto::ImageRGBA),
+    extension : String,
+    max_size : Int32
+  ) : IO::Memory
+    new_size = self.calculate_thumbnail_size(image_ptr.value.width, image_ptr.value.height, max_size)
+    image_ptr.value.bilinear_resize!(new_size[:width], new_size[:height])
+    io = IO::Memory.new
+    if ["jpg", "jpeg"].includes?(extension)
+      image_ptr.value.to_jpeg(io)
+    elsif extension == "png"
+      image_ptr.value.to_png(io)
+    elsif extension == "webp"
+      image_ptr.value.to_lossless_webp(io)
+    end
+    io
+  end
+
   # For fill in all fields of the slug type.
   def create_slugs
     # ...

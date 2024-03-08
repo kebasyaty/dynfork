@@ -47,3 +47,5 @@ ru:
     interpolation: "Дата %{curr_date} не должна быть меньше min=%{min_date}."
   value_does_not_match: "Ваш выбор не соответствует предложенным вариантам."
   size_exceeds_max: "Размер файла превышает максимальное значение."
+  invalid_file_type:
+    interpolation: "%{type} - Неверный тип файла."

@@ -33,6 +33,7 @@ module Spec::Data
     getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
 
     getter file = DynFork::Fields::FileField.new
+    getter image = DynFork::Fields::ImageField.new
 
     getter f64 = DynFork::Fields::F64Field.new
 

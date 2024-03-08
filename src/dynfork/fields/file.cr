@@ -53,6 +53,8 @@ module DynFork::Fields
     getter? unique : Bool = false
     # :nodoc:
     getter choices : Nil
+    # :nodoc:
+    getter thumbnails : Nil
 
     # :nodoc:
     def has_value?; end

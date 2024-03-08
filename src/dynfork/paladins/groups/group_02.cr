@@ -32,7 +32,7 @@ module DynFork::Paladins::Groups
       end
       #
       if value = field_ptr.value.value
-        err_msg : String? = nil
+        err_msg = nil
         case field_ptr.value.field_type
         when "DateField"
           begin
