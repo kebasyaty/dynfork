@@ -19,14 +19,17 @@ module DynFork::Paladins::Check
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
     end
+    # Data to save or update to the database.
+    result_bson : BSON = BSON.new
+    result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
+    # Addresses of files to be deleted (if error_symptom? = true).
+    cleaning_map = {files: Array(String), images: Array(String)}
+    cleaning_map_ptr : Pointer(Hash(String, String)) = pointerof(cleaning_map)
     # Is there any incorrect data?
     error_symptom? : Bool = false
     error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
     # Errors from additional validation of fields.
     error_map : Hash(String, String) = self.add_validation
-    # Data to save or update to the database.
-    result_bson : BSON = BSON.new
-    result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
     # Current error message.
     err_msg : String?
 
