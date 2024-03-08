@@ -100,7 +100,7 @@ module DynFork::Paladins::CheckPlus
     elsif extension == "png"
       image_ptr.value.to_png(io)
     elsif extension == "webp"
-      image_ptr.value.to_webp(io)
+      image_ptr.value.to_lossless_webp(io)
     end
     io
   end
