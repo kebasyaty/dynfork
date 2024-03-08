@@ -70,6 +70,22 @@ module DynFork::Paladins::CheckPlus
     end
   end
 
+  # Calculate the maximum size for a thumbnail.
+  def calculate_thumbnail_size(
+    width : Int32,
+    height : Int32,
+    max_size : Int32
+  ) : NamedTuple(width: Int32, height: Int32)
+    if width > height
+      if width > max_size
+        return {width: max_size, height: (height * (max_size // width))}
+      end
+    elsif height > max_size
+      return {width: (width * (max_size // height)), height: max_size}
+    end
+    {width: width, height: height}
+  end
+
   # For fill in all fields of the slug type.
   def create_slugs
     # ...

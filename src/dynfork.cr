@@ -3,6 +3,7 @@ require "json"
 require "base64"
 require "crypto/bcrypt/password"
 require "uuid"
+require "big/big_decimal"
 # Third party libraries:
 require "cryomongo"
 require "bson"

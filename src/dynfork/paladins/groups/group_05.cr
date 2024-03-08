@@ -123,6 +123,7 @@ module DynFork::Paladins::Groups
           when "lg"
             current_value.path_lg = "#{media_root}/#{target_dir}/#{images_dir}/lg.#{extension}"
             current_value.url_lg = "#{media_url}/#{target_dir}/#{images_dir}/lg.#{extension}"
+            image.bilinear_resize!(width : Int32, height : Int32)
           when "md"
             current_value.path_md = "#{media_root}/#{target_dir}/#{images_dir}/md.#{extension}"
             current_value.url_md = "#{media_url}/#{target_dir}/#{images_dir}/md.#{extension}"
