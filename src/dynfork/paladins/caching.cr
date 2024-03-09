@@ -43,6 +43,26 @@ module DynFork::Paladins::Caching
               "Param: `target_dir` => An empty string is not allowed."
             )
           end
+          if @{{ var }}.field_type == "ImageField"
+            if thumbnails = @{{ var }}.thumbnails
+              thumbnails.each do |(size_name, max_size)|
+                if !size_name_list.includes?(size_name)
+                  raise DynFork::Errors::Panic.new(
+                    "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Param: `thumbnails` => '#{size_name}' - " +
+                    "Invalid thumbnail size name. Examples: xs|sm|md|lg"
+                  )
+                end
+                if max_size < 0
+                  raise DynFork::Errors::Panic.new(
+                    "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Param: `thumbnails` => '#{max_size}' - " +
+                    "A negative value for the maximum thumbnail size is not allowed."
+                  )
+                end
+              end
+            end
+          end
         end
       {% end %}
     )
