@@ -26,12 +26,46 @@ module DynFork::Paladins::Caching
         raise DynFork::Errors::Meta::InvalidParamName.new(model_name, {{ param.stringify }})
       end
     {% end %}
-    # Check the model for the presence of variables (fields).
+    # Checking the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
         # If there are no fields in the model, a FieldsMissing exception is raise.
         raise DynFork::Errors::Model::FieldsMissing
           .new({{ @type.name.stringify }}.split("::").last)
     {% end %}
+    # Checking attributes for file fields.
+    (
+      size_name_list : Array(String) = ["xs", "sm", "md", "lg"]
+      {% for var in @type.instance_vars %}
+        if @{{ var }}.input_type == "file"
+          if @{{ var }}.target_dir.empty?
+            raise DynFork::Errors::Panic.new(
+              "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+              "Param: `target_dir` => An empty string is not allowed."
+            )
+          end
+          if @{{ var }}.field_type == "ImageField"
+            if thumbnails = @{{ var }}.thumbnails
+              thumbnails.each do |(size_name, max_size)|
+                if !size_name_list.includes?(size_name)
+                  raise DynFork::Errors::Panic.new(
+                    "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Param: `thumbnails` => '#{size_name}' - " +
+                    "Invalid thumbnail size name. Examples: xs|sm|md|lg"
+                  )
+                end
+                if max_size < 1
+                  raise DynFork::Errors::Panic.new(
+                    "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Param: `thumbnails` => '#{max_size}' - " +
+                    "The thumbnail size cannot be smaller than one pixel."
+                  )
+                end
+              end
+            end
+          end
+        end
+      {% end %}
+    )
     # Get Service name = Module name.
     # <br>
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
