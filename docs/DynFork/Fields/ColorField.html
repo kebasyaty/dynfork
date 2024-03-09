@@ -685,6 +685,13 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
       </li>
     
       <li class="entry-summary">
+        <a href="#default%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#default?</strong> : String | Nil | Nil</a>
+        
+          <div class="summary"><p>The default value is #000000.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
@@ -699,7 +706,14 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        <a href="#input_type%3AString%7CNil-instance-method" class="signature"><strong>#input_type</strong> : String | Nil</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;color&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#input_type?</strong> : String | Nil | Nil</a>
         
           <div class="summary"><p>Html tag: input type=&quot;color&quot;.</p></div>
         
@@ -713,7 +727,21 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
       </li>
     
       <li class="entry-summary">
+        <a href="#maxlength%3F%3AUInt32%7CNil%7CNil-instance-method" class="signature"><strong>#maxlength?</strong> : UInt32 | Nil | Nil</a>
+        
+          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#minlength%3AUInt32%7CNil-instance-method" class="signature"><strong>#minlength</strong> : UInt32 | Nil</a>
+        
+          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#minlength%3F%3AUInt32%7CNil%7CNil-instance-method" class="signature"><strong>#minlength?</strong> : UInt32 | Nil | Nil</a>
         
           <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
         
@@ -749,6 +777,13 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
     
       <li class="entry-summary">
         <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#value?</strong> : String | Nil | Nil</a>
         
           <div class="summary"><p>Sets the value of an element.</p></div>
         
@@ -1054,6 +1089,25 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
       </div>
     </div>
   
+    <div class="entry-detail" id="default?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#default%3F%3AString%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The default value is #000000.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="field_type:String-instance-method">
       <div class="signature">
         
@@ -1093,12 +1147,34 @@ rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em></p>
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type:String-instance-method">
+    <div class="entry-detail" id="input_type:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>input_type</strong> : String
+        def <strong>input_type</strong> : String | Nil
 
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#input_type%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Html tag: input type=&quot;color&quot;.
+<br>
+By default type=&quot;text&quot;.</p>
+<p><span class="flag yellow">WARNING</span>  type=&quot;color&quot; only seven-character hexadecimal notation.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#input_type%3F%3AString%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1134,12 +1210,50 @@ By default type=&quot;text&quot;.</p>
       </div>
     </div>
   
+    <div class="entry-detail" id="maxlength?:UInt32|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>maxlength?</strong> : UInt32 | Nil | Nil
+
+        <a class="method-permalink" href="#maxlength%3F%3AUInt32%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The maximum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="minlength:UInt32|Nil-instance-method">
       <div class="signature">
         
         def <strong>minlength</strong> : UInt32 | Nil
 
         <a class="method-permalink" href="#minlength%3AUInt32%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The minimum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="minlength?:UInt32|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>minlength?</strong> : UInt32 | Nil | Nil
+
+        <a class="method-permalink" href="#minlength%3F%3AUInt32%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1235,6 +1349,25 @@ By default type=&quot;text&quot;.</p>
         def <strong>value=</strong>(value : String | Nil)
 
         <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#value%3F%3AString%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">

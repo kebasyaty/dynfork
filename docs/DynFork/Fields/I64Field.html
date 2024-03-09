@@ -647,7 +647,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AInt64%7CNil%3Dnil%2Cinput_type%3AString%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AInt64%7CNil%3DInt64%3A%3AMAX%2Cmin%3AInt64%7CNil%3DInt64%3A%3AMIN%2Cstep%3AInt64%7CNil%3D1%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Int64 | Nil = <span class="n">nil</span>, input_type : String = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MAX</span>, min : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MIN</span>, step : Int64 | Nil = <span class="n">1</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AInt64%7CNil%3Dnil%2Cinput_type%3AString%7CNil%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AInt64%7CNil%3DInt64%3A%3AMAX%2Cmin%3AInt64%7CNil%3DInt64%3A%3AMIN%2Cstep%3AInt64%7CNil%3D1%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Int64 | Nil = <span class="n">nil</span>, input_type : String | Nil = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MAX</span>, min : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MIN</span>, step : Int64 | Nil = <span class="n">1</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -677,6 +677,13 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#default%3F%3AInt64%7CNil%7CNil-instance-method" class="signature"><strong>#default?</strong> : Int64 | Nil | Nil</a>
+        
+          <div class="summary"><p>Value by default.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
@@ -691,7 +698,14 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#input_type%3AString-instance-method" class="signature"><strong>#input_type</strong> : String</a>
+        <a href="#input_type%3AString%7CNil-instance-method" class="signature"><strong>#input_type</strong> : String | Nil</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;number|range&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#input_type?</strong> : String | Nil | Nil</a>
         
           <div class="summary"><p>Html tag: input type=&quot;number|range&quot;.</p></div>
         
@@ -705,7 +719,21 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#max%3F%3AInt64%7CNil%7CNil-instance-method" class="signature"><strong>#max?</strong> : Int64 | Nil | Nil</a>
+        
+          <div class="summary"><p>The maximum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#min%3AInt64%7CNil-instance-method" class="signature"><strong>#min</strong> : Int64 | Nil</a>
+        
+          <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3F%3AInt64%7CNil%7CNil-instance-method" class="signature"><strong>#min?</strong> : Int64 | Nil | Nil</a>
         
           <div class="summary"><p>The minimum number of characters allowed in the text.</p></div>
         
@@ -720,6 +748,13 @@
     
       <li class="entry-summary">
         <a href="#step%3AInt64%7CNil-instance-method" class="signature"><strong>#step</strong> : Int64 | Nil</a>
+        
+          <div class="summary"><p>Increment step for numeric fields.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#step%3F%3AInt64%7CNil%7CNil-instance-method" class="signature"><strong>#step?</strong> : Int64 | Nil | Nil</a>
         
           <div class="summary"><p>Increment step for numeric fields.</p></div>
         
@@ -741,6 +776,13 @@
     
       <li class="entry-summary">
         <a href="#value%3D%28value%3AInt64%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : Int64 | Nil)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3F%3AInt64%7CNil%7CNil-instance-method" class="signature"><strong>#value?</strong> : Int64 | Nil | Nil</a>
         
           <div class="summary"><p>Sets the value of an element.</p></div>
         
@@ -989,12 +1031,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Int64|Nil=nil,input_type:String=&quot;number&quot;,placeholder:String=&quot;&quot;,max:Int64|Nil=Int64::MAX,min:Int64|Nil=Int64::MIN,step:Int64|Nil=1,hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:Int64|Nil=nil,input_type:String|Nil=&quot;number&quot;,placeholder:String=&quot;&quot;,max:Int64|Nil=Int64::MAX,min:Int64|Nil=Int64::MIN,step:Int64|Nil=1,hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;,warning:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Int64 | Nil = <span class="n">nil</span>, input_type : String = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MAX</span>, min : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MIN</span>, step : Int64 | Nil = <span class="n">1</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : Int64 | Nil = <span class="n">nil</span>, input_type : String | Nil = <span class="s">&quot;number&quot;</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MAX</span>, min : Int64 | Nil = <span class="t">Int64</span><span class="t">::</span><span class="t">MIN</span>, step : Int64 | Nil = <span class="n">1</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AInt64%7CNil%3Dnil%2Cinput_type%3AString%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AInt64%7CNil%3DInt64%3A%3AMAX%2Cmin%3AInt64%7CNil%3DInt64%3A%3AMIN%2Cstep%3AInt64%7CNil%3D1%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AInt64%7CNil%3Dnil%2Cinput_type%3AString%7CNil%3D%22number%22%2Cplaceholder%3AString%3D%22%22%2Cmax%3AInt64%7CNil%3DInt64%3A%3AMAX%2Cmin%3AInt64%7CNil%3DInt64%3A%3AMIN%2Cstep%3AInt64%7CNil%3D1%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1025,6 +1067,25 @@
         def <strong>default</strong> : Int64 | Nil
 
         <a class="method-permalink" href="#default%3AInt64%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Value by default.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default?:Int64|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default?</strong> : Int64 | Nil | Nil
+
+        <a class="method-permalink" href="#default%3F%3AInt64%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1077,12 +1138,31 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="input_type:String-instance-method">
+    <div class="entry-detail" id="input_type:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>input_type</strong> : String
+        def <strong>input_type</strong> : String | Nil
 
-        <a class="method-permalink" href="#input_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#input_type%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Html tag: input type=&quot;number|range&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#input_type%3F%3AString%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1115,12 +1195,50 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="max?:Int64|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>max?</strong> : Int64 | Nil | Nil
+
+        <a class="method-permalink" href="#max%3F%3AInt64%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The maximum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="min:Int64|Nil-instance-method">
       <div class="signature">
         
         def <strong>min</strong> : Int64 | Nil
 
         <a class="method-permalink" href="#min%3AInt64%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The minimum number of characters allowed in the text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min?:Int64|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>min?</strong> : Int64 | Nil | Nil
+
+        <a class="method-permalink" href="#min%3F%3AInt64%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1159,6 +1277,25 @@
         def <strong>step</strong> : Int64 | Nil
 
         <a class="method-permalink" href="#step%3AInt64%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Increment step for numeric fields.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="step?:Int64|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>step?</strong> : Int64 | Nil | Nil
+
+        <a class="method-permalink" href="#step%3F%3AInt64%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1216,6 +1353,25 @@
         def <strong>value=</strong>(value : Int64 | Nil)
 
         <a class="method-permalink" href="#value%3D%28value%3AInt64%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value?:Int64|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value?</strong> : Int64 | Nil | Nil
+
+        <a class="method-permalink" href="#value%3F%3AInt64%7CNil%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
