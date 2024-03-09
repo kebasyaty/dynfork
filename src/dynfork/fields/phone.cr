@@ -6,21 +6,21 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "PhoneField"
     # Html tag: input type="url".
-    getter input_type : String = "tel"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : String?
+    property! value : String?
     # Value by default.
-    getter default : String?
+    getter! default : String?
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : UInt32?
+    getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : UInt32?
+    getter! minlength : UInt32?
     # Regular expression to validate the `value`.
-    getter regex : String?
+    getter! regex : String?
     # Error message.
-    getter regex_err_msg : String?
+    getter! regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -28,11 +28,11 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -42,7 +42,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -63,6 +63,8 @@ module DynFork::Fields
       @ignored : Bool = false,
       @hint : String = I18n.t("format.interpolation", sample: "+xxxxxxxx... or xxxxxxxx..."),
       @warning : String = ""
-    ); end
+    )
+      @input_type = "tel"
+    end
   end
 end

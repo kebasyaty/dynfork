@@ -10,7 +10,7 @@ module DynFork::Paladins::Groups
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
-    if !updated? && field_ptr.value.value.nil? && field_ptr.value.default.nil?
+    if !updated? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),
@@ -25,14 +25,14 @@ module DynFork::Paladins::Groups
     # Get current value.
     current_value : DynFork::Globals::FileData?
 
-    if !field_ptr.value.value.nil?
-      json : String = field_ptr.value.value.not_nil!.to_json
+    if value = field_ptr.value.value?
+      json : String = value.to_json
       current_value = DynFork::Globals::FileData.from_json(json)
     end
 
     # If necessary, use the default value.
     if !updated? && current_value.nil?
-      if default = field_ptr.value.default
+      if default = field_ptr.value.default?
         current_value = DynFork::Globals::FileData.new
         current_value.path_to_tempfile(default.to_s)
       end
@@ -42,7 +42,7 @@ module DynFork::Paladins::Groups
     return if current_value.nil?
 
     # If the file needs to be delete.
-    if current_value.delete? && current_value.tempfile.nil?
+    if current_value.delete? && current_value.tempfile?.nil?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),

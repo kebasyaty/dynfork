@@ -6,13 +6,13 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "FileField"
     # Html tag: input type="url".
-    getter input_type : String = "file"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : DynFork::Globals::FileData?
+    property! value : DynFork::Globals::FileData?
     # Default file path.
     # <br>
     # _Example: "assets/media/default/nodoc.docx"_
-    getter default : String?
+    getter! default : String?
     # Root directory for storing media files.
     getter media_root : String = "assets/media"
     # URL address for the media directory.
@@ -38,23 +38,23 @@ module DynFork::Fields
     getter group : UInt8 = 4
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -73,6 +73,8 @@ module DynFork::Fields
       @ignored : Bool = false,
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      @input_type = "file"
+    end
   end
 end

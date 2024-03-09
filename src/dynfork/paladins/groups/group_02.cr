@@ -16,7 +16,7 @@ module DynFork::Paladins::Groups
       min: Time?) = @@meta.not_nil![:time_object_list][field_ptr.value.name]
     # Get current value.
     current_value : Time = (
-      value : DynFork::Globals::ValueTypes | Time = field_ptr.value.value || field_ptr.value.default
+      value : DynFork::Globals::ValueTypes | Time = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?
@@ -31,18 +31,18 @@ module DynFork::Paladins::Groups
         return
       end
       #
-      if value = field_ptr.value.value
+      if value = field_ptr.value.value?
         err_msg = nil
         case field_ptr.value.field_type
         when "DateField"
           begin
-            value = self.date_parse(field_ptr.value.value.to_s)
+            value = self.date_parse(value.to_s)
           rescue ex
             err_msg = ex.message
           end
         when "DateTimeField"
           begin
-            value = self.datetime_parse(field_ptr.value.value.to_s)
+            value = self.datetime_parse(value.to_s)
           rescue ex
             err_msg = ex.message
           end
@@ -65,8 +65,8 @@ module DynFork::Paladins::Groups
       if (current_value <=> max) == 1
         err_msg = I18n.t(
           "date_not_greater_max.interpolation",
-          curr_date: field_ptr.value.value || field_ptr.value.default,
-          max_date: field_ptr.value.max
+          curr_date: field_ptr.value.value? || field_ptr.value.default?,
+          max_date: field_ptr.value.max?
         )
         self.accumulate_error(
           err_msg,
@@ -80,8 +80,8 @@ module DynFork::Paladins::Groups
       if (current_value <=> min) == 1
         err_msg = I18n.t(
           "data_not_less_min.interpolation",
-          curr_date: field_ptr.value.value || field_ptr.value.default,
-          min_date: field_ptr.value.min
+          curr_date: field_ptr.value.value? || field_ptr.value.default?,
+          min_date: field_ptr.value.min?
         )
         self.accumulate_error(
           err_msg,

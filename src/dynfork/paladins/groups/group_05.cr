@@ -10,7 +10,7 @@ module DynFork::Paladins::Groups
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
-    if !updated? && field_ptr.value.value.nil? && field_ptr.value.default.nil?
+    if !updated? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),
@@ -25,8 +25,8 @@ module DynFork::Paladins::Groups
     # Get current value.
     current_value : DynFork::Globals::ImageData?
 
-    if !field_ptr.value.value.nil?
-      json : String = field_ptr.value.value.not_nil!.to_json
+    if value = field_ptr.value.value?
+      json : String = value.to_json
       current_value = DynFork::Globals::ImageData.from_json(json)
     end
 
@@ -42,7 +42,7 @@ module DynFork::Paladins::Groups
     return if current_value.nil?
 
     # If the file needs to be delete.
-    if current_value.delete? && current_value.tempfile.nil?
+    if current_value.delete? && current_value.tempfile?.nil?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),
@@ -73,7 +73,7 @@ module DynFork::Paladins::Groups
       media_root : String = field_ptr.value.media_root
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
-      images_dir : String = current_value.images_dir.not_nil!
+      images_dir : String = current_value.images_dir
       name : String = current_value.name
       # Add paths to original image.
       current_value.path = "#{media_root}/#{target_dir}/#{images_dir}/#{name}"
@@ -92,9 +92,9 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       # Create and save thumbnails.
-      if thumbnails = field_ptr.value.thumbnails
+      if thumbnails = field_ptr.value.thumbnails?
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
-        extension : String = current_value.extension.not_nil!
+        extension : String = current_value.extension
         # Get image file.
         image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
           File.open(tempfile.path) do |file|

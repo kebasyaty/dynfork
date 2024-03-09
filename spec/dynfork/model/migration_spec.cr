@@ -45,7 +45,7 @@ describe DynFork::Migration::Monitor do
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database.not_nil!)
+        DynFork::Globals.cache_mongo_database)
     end
 
     it "=> create instance with database name", tags: "migration" do
@@ -67,7 +67,7 @@ describe DynFork::Migration::Monitor do
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database.not_nil!)
+        DynFork::Globals.cache_mongo_database)
     end
 
     it "=> create instance and testing model list", tags: "migration" do
@@ -85,7 +85,7 @@ describe DynFork::Migration::Monitor do
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database.not_nil!)
+        DynFork::Globals.cache_mongo_database)
     end
   end
 
@@ -124,12 +124,12 @@ describe DynFork::Migration::Monitor do
       # Checking for data updates for dynamic fields.
       field_name = "field_name"
       data = "[]"
-      Spec::Data::FilledModel.meta.not_nil![:data_dynamic_fields][field_name] = data
-      Spec::Data::FilledModel.meta.not_nil![:data_dynamic_fields][field_name].should eq(data)
+      Spec::Data::FilledModel.meta[:data_dynamic_fields][field_name] = data
+      Spec::Data::FilledModel.meta[:data_dynamic_fields][field_name].should eq(data)
 
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database.not_nil!)
+        DynFork::Globals.cache_mongo_database)
     end
   end
 end

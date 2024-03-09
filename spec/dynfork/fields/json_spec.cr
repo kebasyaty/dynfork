@@ -18,8 +18,8 @@ describe DynFork::Fields::TextField do
       f.field_type.should eq("TextField")
       f.input_type.should eq("text")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.textarea?.should be_false
       f.disabled?.should be_false

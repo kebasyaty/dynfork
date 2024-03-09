@@ -9,7 +9,7 @@ module DynFork::Paladins::Groups
   )
     # Get current value.
     current_value : Int64 = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value || field_ptr.value.default
+      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?
@@ -26,8 +26,8 @@ module DynFork::Paladins::Groups
       value.to_s.to_i64
     )
     # Validation the `max` field attribute.
-    if max = field_ptr.value.max.not_nil!.to_i64
-      if current_value > max
+    if max = field_ptr.value.max?
+      if current_value > max.to_i64
         err_msg = I18n.t(
           "number_not_greater_max.interpolation",
           curr_num: current_value,
@@ -41,8 +41,8 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `min` field attribute.
-    if min = field_ptr.value.min.not_nil!.to_i64
-      if current_value < min
+    if min = field_ptr.value.min?
+      if current_value < min.to_i64
         err_msg = I18n.t(
           "number_not_less_min.interpolation",
           curr_num: current_value,

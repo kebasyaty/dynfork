@@ -1,18 +1,5 @@
 require "../../spec_helper"
 
-describe DynFork::Globals::FileData do
-  describe ".new" do
-    it "=> create instance of FileData", tags: "fields" do
-      f = DynFork::Globals::FileData.new
-      f.path.should eq("")
-      f.url.should eq("")
-      f.name.should eq("")
-      f.size.should eq(0_f64)
-      f.delete?.should be_false
-    end
-  end
-end
-
 describe DynFork::Fields::FileField do
   describe ".new" do
     it "=> create instance of  File field", tags: "fields" do
@@ -22,8 +9,8 @@ describe DynFork::Fields::FileField do
       f.field_type.should eq("FileField")
       f.input_type.should eq("file")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.media_root.should eq("assets/media")
       f.media_url.should eq("/media")

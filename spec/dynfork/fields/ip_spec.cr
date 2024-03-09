@@ -9,8 +9,8 @@ describe DynFork::Fields::IPField do
       f.field_type.should eq("IPField")
       f.input_type.should eq("text")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false

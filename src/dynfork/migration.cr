@@ -41,13 +41,13 @@ module DynFork::Migration
       DynFork::Globals::ValidationCacheSettings.validation
       DynFork::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
       DynFork::Globals.cache_mongo_database = DynFork::Globals
-        .cache_mongo_client.not_nil![DynFork::Globals.cache_database_name]
+        .cache_mongo_client[DynFork::Globals.cache_database_name]
     end
 
     # Update the state of Models in the super collection.
     private def refresh
       # Get super collection - State of Models and dynamic field data.
-      super_collection = DynFork::Globals.cache_mongo_database.not_nil![
+      super_collection = DynFork::Globals.cache_mongo_database[
         DynFork::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor : Mongo::Cursor = super_collection.find
@@ -63,7 +63,7 @@ module DynFork::Migration
     # super collection and delete collections associated with those Models.
     private def napalm
       # Get database of application.
-      database : Mongo::Database = DynFork::Globals.cache_mongo_database.not_nil!
+      database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Get super collection - State of Models and dynamic field data.
       super_collection = database[DynFork::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
@@ -97,13 +97,13 @@ module DynFork::Migration
       # ------------------------------------------------------------------------
       #
       # Get database of application.
-      database : Mongo::Database = DynFork::Globals.cache_mongo_database.not_nil!
+      database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
       @model_list.each do |model|
         # Run matadata caching.
         model.new
         # Get metadata of Model from cache.
-        metadata : DynFork::Globals::CacheMetaDataType = model.meta.not_nil!
+        metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # If the Model parameter add_doc is false, skip the iteration.
         next unless metadata[:saving_docs?]
         # Get super collection - State of Models and dynamic fields data.
@@ -203,7 +203,7 @@ module DynFork::Migration
         # ----------------------------------------------------------------------
         # Get dynamic field data and add it to the current Model metadata.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
-          model.meta.not_nil![:data_dynamic_fields][field_name] = choices_json
+          model.meta[:data_dynamic_fields][field_name] = choices_json
         end
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]

@@ -6,31 +6,31 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "BoolField"
     # Field type - Html, input type.
-    getter input_type : String = "checkbox"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : Bool?
+    property! value : Bool?
     # Value by default.
-    getter default : Bool?
+    getter! default : Bool?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 8
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter? required : Bool = false
     # :nodoc:
@@ -44,7 +44,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -56,6 +56,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @ignored : Bool = false,
       @hint : String = ""
-    ); end
+    )
+      @input_type = "checkbox"
+    end
   end
 end

@@ -7,37 +7,37 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64Field"
     # Sets the value of an element.
-    property value : Float64?
+    property! value : Float64?
     # Value by default.
-    getter default : Float64?
+    getter! default : Float64?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
-    getter choices : Array(Tuple(Float64, String))?
+    getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter input_type : Nil
+    getter! input_type : Nil
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
@@ -45,7 +45,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     def initialize(
       @label : String = "",
@@ -62,8 +62,8 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
-        value_list : Array(Float64) = @choices.not_nil!.map { |item| item[0] }
-        return false unless value_list.includes?(value.not_nil!)
+        value_list : Array(Float64) = self.choices.map { |item| item[0] }
+        return false unless value_list.includes?(value)
       end
       true
     end
@@ -75,37 +75,37 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultField"
     # Sets the value of an element.
-    property value : Array(Float64)?
+    property! value : Array(Float64)?
     # Value by default.
-    getter default : Array(Float64)?
+    getter! default : Array(Float64)?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
     # Html tag: select multiple.
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
-    getter choices : Array(Tuple(Float64, String))?
+    getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter input_type : Nil
+    getter! input_type : Nil
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
@@ -113,7 +113,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     def initialize(
       @label : String = "",
@@ -130,8 +130,8 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
-        value_list : Array(Float64) = @choices.not_nil!.map { |item| item[0] }
-        value.not_nil!.each do |elem|
+        value_list : Array(Float64) = self.choices.map { |item| item[0] }
+        value.each do |elem|
           return false unless value_list.includes?(elem)
         end
       end
@@ -146,37 +146,37 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64DynField"
     # Sets the value of an element.
-    property value : Float64?
+    property! value : Float64?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
     # Html tag: select.
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
-    getter choices : Array(Tuple(Float64, String))?
+    getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Nil
+    getter! default : Nil
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter input_type : Nil
+    getter! input_type : Nil
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
@@ -184,7 +184,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     def initialize(
       @label : String = "",
@@ -204,8 +204,8 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
-        value_list : Array(Float64) = @choices.not_nil!.map { |item| item[0] }
-        return false unless value_list.includes?(value.not_nil!)
+        value_list : Array(Float64) = self.choices.map { |item| item[0] }
+        return false unless value_list.includes?(value)
       end
       true
     end
@@ -218,37 +218,37 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultDynField"
     # Sets the value of an element.
-    property value : Array(Float64)?
+    property! value : Array(Float64)?
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
     # Html tag: select.
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
-    getter choices : Array(Tuple(Float64, String))?
+    getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
-    getter default : Nil
+    getter! default : Nil
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter input_type : Nil
+    getter! input_type : Nil
     # :nodoc:
     getter media_root : String = ""
     # :nodoc:
@@ -256,7 +256,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     def initialize(
       @label : String = "",
@@ -276,8 +276,8 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
-        value_list : Array(Float64) = @choices.not_nil!.map { |item| item[0] }
-        value.not_nil!.each do |elem|
+        value_list : Array(Float64) = self.choices.map { |item| item[0] }
+        value.each do |elem|
           return false unless value_list.includes?(elem)
         end
       end

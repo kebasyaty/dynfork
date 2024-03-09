@@ -11,9 +11,9 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "SlugField"
     # Html tag: input type="url".
-    getter input_type : String = "text"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : String?
+    property! value : String?
     # Displays prompt text.
     getter placeholder : String
     # The unique value of a field in a collection.
@@ -29,21 +29,21 @@ module DynFork::Fields
     getter group : UInt8 = 9
     #
     # :nodoc:
-    getter default : Nil
+    getter! default : Nil
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -53,7 +53,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -68,7 +68,9 @@ module DynFork::Fields
       @slug_sources : Array(String) = ["hash"],
       @hint : String = "",
       @warning : String = ""
-    ); end
+    )
+      @input_type = "text"
+    end
 
     # Getter for 'slug_sources'.
     def slug_sources : Array(String)

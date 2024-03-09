@@ -6,19 +6,19 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "I64Field"
     # Html tag: input type="number|range".
-    getter input_type : String = "number"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : Int64?
+    property! value : Int64?
     # Value by default.
-    getter default : Int64?
+    getter! default : Int64?
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter max : Int64?
+    getter! max : Int64?
     # The minimum number of characters allowed in the text.
-    getter min : Int64?
+    getter! min : Int64?
     # Increment step for numeric fields.
-    getter step : Int64?
+    getter! step : Int64?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -26,15 +26,15 @@ module DynFork::Fields
     getter group : UInt8 = 6
     #
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -44,7 +44,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -52,7 +52,7 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
-      @input_type : String = "number", # number | range
+      @input_type : String? = "number", # number | range
       @placeholder : String = "",
       @max : Int64? = Int64::MAX,
       @min : Int64? = Int64::MIN,
@@ -66,8 +66,8 @@ module DynFork::Fields
       @hint : String = "",
       @warning : String = ""
     )
-      if ["number", "range"].index(@input_type).nil?
-        raise DynFork::Errors::Fields::InvalidInputType.new(@input_type)
+      unless ["number", "range"].includes?(self.input_type)
+        raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)
       end
     end
   end
@@ -77,19 +77,19 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "F64Field"
     # Html tag: input type="number|range".
-    getter input_type : String
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : Float64?
+    property! value : Float64?
     # Value by default.
-    getter default : Float64?
+    getter! default : Float64?
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter max : Float64?
+    getter! max : Float64?
     # The minimum number of characters allowed in the text.
-    getter min : Float64?
+    getter! min : Float64?
     # Increment step for numeric fields.
-    getter step : Float64?
+    getter! step : Float64?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -97,15 +97,15 @@ module DynFork::Fields
     getter group : UInt8 = 7
     #
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -115,7 +115,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -123,7 +123,7 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @default : Float64? = nil,
-      @input_type : String = "number", # number | range
+      @input_type : String? = "number", # number | range
       @placeholder : String = "",
       @max : Float64? = Float64::MAX,
       @min : Float64? = Float64::MIN,
@@ -137,8 +137,8 @@ module DynFork::Fields
       @hint : String = "",
       @warning : String = ""
     )
-      if ["number", "range"].index(@input_type).nil?
-        raise DynFork::Errors::Fields::InvalidInputType.new(@input_type)
+      unless ["number", "range"].includes?(self.input_type)
+        raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)
       end
     end
   end

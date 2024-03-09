@@ -12,9 +12,9 @@ module DynFork::Paladins::Check
     save? : Bool = false
   ) : DynFork::Globals::OutputData
     # Does the document exist in the database?
-    updated? : Bool = !@hash.value.nil? && !@hash.value.not_nil!.empty?
+    updated? : Bool = !@hash.value?.nil? && !@hash.value.empty?
     # Validation the hash field value.
-    if updated? && !BSON::ObjectId.validate(@hash.value.not_nil!)
+    if updated? && !BSON::ObjectId.validate(@hash.value)
       msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
@@ -53,7 +53,7 @@ module DynFork::Paladins::Check
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
       if err_msg = error_map[{{ field.name.stringify }}]?
-          @{{ field }}.errors << err_msg.not_nil!
+          @{{ field }}.errors << err_msg
           (error_symptom? = true) unless error_symptom?
           err_msg = nil
       end
