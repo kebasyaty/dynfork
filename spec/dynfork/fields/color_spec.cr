@@ -9,8 +9,8 @@ describe DynFork::Fields::ColorField do
       f.field_type.should eq("ColorField")
       f.input_type.should eq("text")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should eq("#000000")
+      f.value?.should be_nil
+      f.default?.should eq("#000000")
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false

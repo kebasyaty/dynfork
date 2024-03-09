@@ -26,16 +26,10 @@ module DynFork::Globals::Types
     # By default delete=false.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
-    # File extension.
-    # <br>
-    # _Examples: pdf|doc|docx_
-    @[JSON::Field(ignore: true)]
-    @[BSON::Field(ignore: true)]
-    getter extension : String?
     # For temporary storage of a file.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter tempfile : File?
+    getter! tempfile : File?
 
     def initialize; end
 
@@ -46,7 +40,6 @@ module DynFork::Globals::Types
       if extension.empty?
         raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
       end
-      @extension = extension
       # Prepare Base64 content.
       base64.each_char_with_index do |char, index|
         if char == ','
@@ -67,7 +60,7 @@ module DynFork::Globals::Types
         file.print Base64.decode_string(base64)
       end
       # Get file size.
-      @size = File.size(@tempfile.not_nil!.path)
+      @size = File.size(self.tempfile.path)
     end
 
     def path_to_tempfile(path : String)
@@ -76,7 +69,6 @@ module DynFork::Globals::Types
       if extension.empty?
         raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
       end
-      @extension = extension
       # Get the contents of the file.
       content : String = File.read(path)
       # Create a prefix for the file name.
@@ -85,18 +77,18 @@ module DynFork::Globals::Types
       # Create a temporary file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{@extension}",
+        suffix: ".#{extension}",
         dir: "tmp"
       ) do |file|
         file.print content
       end
       # Get file size.
-      @size = File.size(@tempfile.not_nil!.path)
+      @size = File.size(self.tempfile.path)
     end
 
     def delete_tempfile
       unless @tempfile.nil?
-        @tempfile.not_nil!.delete
+        self.tempfile.delete
         @tempfile = nil
       end
     end
@@ -137,16 +129,16 @@ module DynFork::Globals::Types
     # _Examples: png|jpeg|jpg|webp_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter extension : String?
+    getter! extension : String?
     # For temporary storage of an image.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter tempfile : File?
+    getter! tempfile : File?
     # The name of the target directory for
     # the original image and its thumbnails.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter images_dir : String?
+    getter! images_dir : String?
 
     def initialize; end
 
@@ -180,7 +172,7 @@ module DynFork::Globals::Types
         file.print Base64.decode_string(base64)
       end
       # Get the image file size.
-      @size = File.size(@tempfile.not_nil!.path)
+      @size = File.size(self.tempfile.path)
     end
 
     def path_to_tempfile(path : String)
@@ -206,12 +198,12 @@ module DynFork::Globals::Types
         file.print content
       end
       # Get the image file size.
-      @size = File.size(@tempfile.not_nil!.path)
+      @size = File.size(self.tempfile.path)
     end
 
     def delete_tempfile
       unless @tempfile.nil?
-        @tempfile.not_nil!.delete
+        self.tempfile.delete
         @tempfile = nil
       end
     end

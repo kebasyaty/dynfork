@@ -38,7 +38,7 @@ describe DynFork::Model do
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database.not_nil!)
+        DynFork::Globals.cache_mongo_database)
     end
   end
 end

@@ -6,13 +6,13 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "ImageField"
     # Html tag: input type="url".
-    getter input_type : String = "file"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : DynFork::Globals::ImageData?
+    property! value : DynFork::Globals::ImageData?
     # Default file path.
     # <br>
     # _Example: "assets/media/default/noavatar.jpg"_
-    getter default : String?
+    getter! default : String?
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
@@ -33,7 +33,7 @@ module DynFork::Fields
     # From one to four inclusive.
     # <br>
     # _Example: [{"xs", 150}, {"sm", 300}, {"md", 600}, {"lg", 1200}]_
-    getter thumbnails : Array({String, Int32})?
+    getter! thumbnails : Array({String, Int32})?
     # The maximum allowed image size in bytes.
     # NOTE: 1 MB = 1048576 Bytes (in binary).
     getter maxsize : Int64
@@ -42,21 +42,21 @@ module DynFork::Fields
     getter group : UInt8 = 5
     #
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
     getter? unique : Bool = false
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
 
     # :nodoc:
     def has_value?; end
@@ -75,6 +75,8 @@ module DynFork::Fields
       @ignored : Bool = false,
       @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
       @warning : String = ""
-    ); end
+    )
+      @input_type = "file"
+    end
   end
 end

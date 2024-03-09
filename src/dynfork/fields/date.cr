@@ -11,21 +11,21 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "DateField"
     # Html tag: input type="date".
-    getter input_type : String = "date"
+    getter! input_type : String?
     # Sets the value of an element.
     # <br>
     # _Example: 1970-01-01_
-    property value : String?
+    property! value : String?
     # Value by default.
     # <br>
     # _Example: 1970-01-01_
-    getter default : String?
+    getter! default : String?
     # Displays prompt text.
     getter placeholder : String
     # The top value for entering a date.
-    getter max : String?
+    getter! max : String?
     # The lower value for entering a date.
-    getter min : String?
+    getter! min : String?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # Additional explanation for the user.
@@ -35,15 +35,15 @@ module DynFork::Fields
     getter group : UInt8 = 2
     #
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -53,7 +53,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -74,10 +74,12 @@ module DynFork::Fields
         "formats.interpolation", samples: "dd-mm-yyyy | dd/mm/yyyy | " +
                                           "dd.mm.yyyy | yyyy-mm-dd | " +
                                           "yyyy/mm/dd | yyyy.mm.dd")
-    ); end
+    )
+      @input_type = "date"
+    end
 
     # Get time object from value.
-    def time_object : Time?
+    def time_object? : Time?
       self.date_parse(@value.as(String)) unless @value.nil?
     end
   end

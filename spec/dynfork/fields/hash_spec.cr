@@ -9,8 +9,8 @@ describe DynFork::Fields::HashField do
       f.field_type.should eq("HashField")
       f.input_type.should eq("text")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("Enter document ID")
       f.disabled?.should be_false
       f.readonly?.should be_false
@@ -27,7 +27,7 @@ describe DynFork::Fields::HashField do
       f.group.should eq(1_u8)
       f["default"]?.should be_true
       f["no_var"]?.should be_false
-      f.object_id.should be_nil
+      f.object_id?.should be_nil
     end
   end
 end

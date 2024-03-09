@@ -19,7 +19,7 @@ module DynFork::Paladins::Groups
     end
     # Get current value.
     current_value : String = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value || field_ptr.value.default
+      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?
@@ -36,7 +36,7 @@ module DynFork::Paladins::Groups
       value.to_s
     )
     # Validation the `regex` field attribute.
-    if pattern = field_ptr.value.regex
+    if pattern = field_ptr.value.regex?
       unless /#{pattern}/.matches?(current_value)
         self.accumulate_error(
           field_ptr.value.regex_err_msg.to_s,
@@ -46,7 +46,7 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `maxlength` field attribute.
-    if maxlength = field_ptr.value.maxlength
+    if maxlength = field_ptr.value.maxlength?
       if current_value.size > maxlength
         err_msg = I18n.t(
           "number_not_greater_max.interpolation",
@@ -61,7 +61,7 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `minlength` field attribute.
-    if minlength = field_ptr.value.minlength
+    if minlength = field_ptr.value.minlength?
       if current_value.size < minlength
         err_msg = I18n.t(
           "number_not_less_min.interpolation",

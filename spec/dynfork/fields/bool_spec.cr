@@ -9,7 +9,7 @@ describe DynFork::Fields::BoolField do
       f.field_type.should eq("BoolField")
       f.input_type.should eq("checkbox")
       f.name.should eq("")
-      f.value.should be_nil
+      f.value?.should be_nil
       f.default.should be_false
       f.disabled?.should be_false
       f.readonly?.should be_false

@@ -6,15 +6,15 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "HashField"
     # Html tag: input type="url".
-    getter input_type : String = "text"
+    getter! input_type : String?
     # Sets the value of an element.
-    property value : String?
+    property! value : String?
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
-    getter maxlength : UInt32?
+    getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter minlength : UInt32?
+    getter! minlength : UInt32?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # Hide field from user.
@@ -27,17 +27,17 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
-    getter default : Nil
+    getter! default : Nil
     # :nodoc:
-    getter max : Nil
+    getter! max : Nil
     # :nodoc:
-    getter min : Nil
+    getter! min : Nil
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -47,7 +47,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -64,11 +64,15 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = "For enter a document ID."
-    ); end
+    )
+      @input_type = "text"
+    end
 
     # Get ObjectId from value.
-    def object_id : BSON::ObjectId?
-      BSON::ObjectId.new(@value.not_nil!) unless @value.nil?
+    def object_id? : BSON::ObjectId?
+      if value = self.value?
+        BSON::ObjectId.new(value)
+      end
     end
   end
 end

@@ -105,8 +105,10 @@ module DynFork
     end
 
     # Get ObjectId from hash field.
-    def object_id : BSON::ObjectId?
-      BSON::ObjectId.new(@hash.value.not_nil!) unless @hash.value.nil?
+    def object_id? : BSON::ObjectId?
+      if value = @hash.value?
+        BSON::ObjectId.new(value)
+      end
     end
 
     # Determine the presence of a variable (field) in the model.

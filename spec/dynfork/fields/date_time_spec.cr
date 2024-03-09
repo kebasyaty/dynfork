@@ -9,9 +9,9 @@ describe DynFork::Fields::DateTimeField do
       f.field_type.should eq("DateTimeField")
       f.input_type.should eq("datetime")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
-      f.time_object.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
+      f.time_object?.should be_nil
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false
@@ -19,8 +19,8 @@ describe DynFork::Fields::DateTimeField do
       f.required?.should be_false
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.max.should be_nil
-      f.min.should be_nil
+      f.max?.should be_nil
+      f.min?.should be_nil
       f.hint.should eq("Formats: dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm | yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

@@ -19,7 +19,7 @@ module DynFork::Paladins::CheckPlus
   #
   def valid? : Bool
     # Get the collection for the current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database.not_nil![
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     self.check(pointerof(collection)).valid?
   end

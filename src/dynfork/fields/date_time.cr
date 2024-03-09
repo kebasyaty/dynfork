@@ -13,21 +13,21 @@ module DynFork::Fields
     # Field type - Structure Name.
     getter field_type : String = "DateTimeField"
     # Html tag: input type="date".
-    getter input_type : String = "datetime"
+    getter! input_type : String?
     # Sets the value of an element.
     # <br>
     # _Example: 1970-01-01T00:00_
-    property value : String?
+    property! value : String?
     # Value by default.
     # <br>
     # _Example: 1970-01-01T00:00_
-    getter default : String?
+    getter! default : String?
     # Displays prompt text.
     getter placeholder : String
     # The top value for entering a date and time.
-    getter max : String?
+    getter! max : String?
     # The lower value for entering a date and time.
-    getter min : String?
+    getter! min : String?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # Additional explanation for the user.
@@ -37,15 +37,15 @@ module DynFork::Fields
     getter group : UInt8 = 2
     #
     # :nodoc:
-    getter regex : Nil
+    getter! regex : Nil
     # :nodoc:
-    getter regex_err_msg : Nil
+    getter! regex_err_msg : Nil
     # :nodoc:
-    getter maxlength : Nil
+    getter! maxlength : Nil
     # :nodoc:
-    getter minlength : Nil
+    getter! minlength : Nil
     # :nodoc:
-    getter choices : Nil
+    getter! choices : Nil
     # :nodoc:
     getter maxsize : Float32 = 0
     # :nodoc:
@@ -55,7 +55,7 @@ module DynFork::Fields
     # :nodoc:
     getter target_dir : String = ""
     # :nodoc:
-    getter thumbnails : Nil
+    getter! thumbnails : Nil
 
     # :nodoc:
     def has_value?; end
@@ -79,10 +79,12 @@ module DynFork::Fields
                                           "yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | " +
                                           "yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | " +
                                           "yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
-    ); end
+    )
+      @input_type = "datetime"
+    end
 
     # Get time object from value.
-    def time_object : Time?
+    def time_object? : Time?
       self.datetime_parse(@value.as(String)) unless @value.nil?
     end
   end

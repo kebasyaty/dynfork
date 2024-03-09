@@ -9,8 +9,8 @@ describe DynFork::Fields::I64Field do
       f.field_type.should eq("I64Field")
       f.input_type.should eq("number") # number | range
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false
@@ -56,8 +56,8 @@ describe DynFork::Fields::F64Field do
       f.field_type.should eq("F64Field")
       f.input_type.should eq("number") # number | range
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false

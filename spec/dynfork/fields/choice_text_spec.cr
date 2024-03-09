@@ -8,8 +8,8 @@ describe DynFork::Fields::ChoiceTextField do
       f.label.should eq("")
       f.field_type.should eq("ChoiceTextField")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.multiple?.should be_false
       f.required?.should be_false
       f.unique?.should be_false
@@ -36,8 +36,8 @@ describe DynFork::Fields::ChoiceTextMultField do
       f.label.should eq("")
       f.field_type.should eq("ChoiceTextMultField")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.multiple?.should be_true
       f.required?.should be_false
       f.unique?.should be_false
@@ -64,8 +64,8 @@ describe DynFork::Fields::ChoiceTextDynField do
       f.label.should eq("")
       f.field_type.should eq("ChoiceTextDynField")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.multiple?.should be_false
       f.required?.should be_false
       f.unique?.should be_false
@@ -73,7 +73,7 @@ describe DynFork::Fields::ChoiceTextDynField do
       f.readonly?.should be_false
       f.hide?.should be_false
       f.ignored?.should be_false
-      f.choices.should be_nil
+      f.choices?.should be_nil
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
@@ -92,8 +92,8 @@ describe DynFork::Fields::ChoiceTextMultDynField do
       f.label.should eq("")
       f.field_type.should eq("ChoiceTextMultDynField")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.multiple?.should be_true
       f.required?.should be_false
       f.unique?.should be_false
@@ -101,7 +101,7 @@ describe DynFork::Fields::ChoiceTextMultDynField do
       f.readonly?.should be_false
       f.hide?.should be_false
       f.ignored?.should be_false
-      f.choices.should be_nil
+      f.choices?.should be_nil
       f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)

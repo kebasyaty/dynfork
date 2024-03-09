@@ -36,7 +36,7 @@ module DynFork::Paladins::Caching
     (
       size_name_list : Array(String) = ["xs", "sm", "md", "lg"]
       {% for var in @type.instance_vars %}
-        if @{{ var }}.input_type == "file"
+        if @{{ var }}.input_type? == "file"
           if @{{ var }}.target_dir.empty?
             raise DynFork::Errors::Panic.new(
               "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
@@ -44,7 +44,7 @@ module DynFork::Paladins::Caching
             )
           end
           if @{{ var }}.field_type == "ImageField"
-            if thumbnails = @{{ var }}.thumbnails
+            if thumbnails = @{{ var }}.thumbnails?
               thumbnails.each do |(size_name, max_size)|
                 if !size_name_list.includes?(size_name)
                   raise DynFork::Errors::Panic.new(
@@ -100,8 +100,8 @@ module DynFork::Paladins::Caching
       # Get default value.
       fields = Hash(String, DynFork::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
-        if @{{ var }}.default && @{{ var }}.input_type == "file"
-          if path = @{{ var }}.default
+        if @{{ var }}.input_type? == "file"
+          if path = @{{ var }}.default?
             unless File.file?(path.to_s)
               raise DynFork::Errors::Panic.new(
                 "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
@@ -111,7 +111,7 @@ module DynFork::Paladins::Caching
           end
         end
         unless @{{ var }}.ignored?
-          fields[{{ var.name.stringify }}] = @{{ var }}.default
+          fields[{{ var.name.stringify }}] = @{{ var }}.default?
         end
       {% end %}
       fields
@@ -199,13 +199,13 @@ module DynFork::Paladins::Caching
       {% for var in @type.instance_vars %}
         if @{{ var }}.field_type.includes?("Date")
           if @{{ var }}.field_type == "DateField"
-            default_time = !@{{ var }}.default.nil? ? self.date_parse(@{{ var }}.default.to_s) : nil
-            max_time = !@{{ var }}.max.nil? ? self.date_parse(@{{ var }}.max.to_s) : nil
-            min_time = !@{{ var }}.min.nil? ? self.date_parse(@{{ var }}.min.to_s) : nil
+            default_time = !@{{ var }}.default?.nil? ? self.date_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max?.nil? ? self.date_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min?.nil? ? self.date_parse(@{{ var }}.min.to_s) : nil
           elsif @{{ var }}.field_type == "DateTimeField"
-            default_time = !@{{ var }}.default.nil? ? self.datetime_parse(@{{ var }}.default.to_s) : nil
-            max_time = !@{{ var }}.max.nil? ? self.datetime_parse(@{{ var }}.max.to_s) : nil
-            min_time = !@{{ var }}.min.nil? ? self.datetime_parse(@{{ var }}.min.to_s) : nil
+            default_time = !@{{ var }}.default?.nil? ? self.datetime_parse(@{{ var }}.default.to_s) : nil
+            max_time = !@{{ var }}.max?.nil? ? self.datetime_parse(@{{ var }}.max.to_s) : nil
+            min_time = !@{{ var }}.min?.nil? ? self.datetime_parse(@{{ var }}.min.to_s) : nil
           end
           # The max date must be greater than the min date.
           if !max_time.nil? && !min_time.nil? && (max_time <=> min_time) != 1

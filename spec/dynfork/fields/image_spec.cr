@@ -1,28 +1,5 @@
 require "../../spec_helper"
 
-describe DynFork::Globals::ImageData do
-  describe ".new" do
-    it "=> create an instance of the ImageData", tags: "fields" do
-      f = DynFork::Globals::ImageData.new
-      f.path.should eq("")
-      f.path_xs.should eq("")
-      f.path_sm.should eq("")
-      f.path_md.should eq("")
-      f.path_lg.should eq("")
-      f.url.should eq("")
-      f.url_xs.should eq("")
-      f.url_sm.should eq("")
-      f.url_md.should eq("")
-      f.url_lg.should eq("")
-      f.name.should eq("")
-      f.size.should eq(0_f64)
-      f.width.should eq(0_f64)
-      f.height.should eq(0_f64)
-      f.delete?.should be_false
-    end
-  end
-end
-
 describe DynFork::Fields::ImageField do
   describe ".new" do
     it "=> create instance of Image field", tags: "fields" do
@@ -32,14 +9,14 @@ describe DynFork::Fields::ImageField do
       f.field_type.should eq("ImageField")
       f.input_type.should eq("file")
       f.name.should eq("")
-      f.value.should be_nil
-      f.default.should be_nil
+      f.value?.should be_nil
+      f.default?.should be_nil
       f.placeholder.should eq("")
       f.media_root.should eq("assets/media")
       f.media_url.should eq("/media")
       f.target_dir.should eq("images")
       f.accept.should eq("image/png,image/jpeg,image/webp")
-      f.thumbnails.should be_nil
+      f.thumbnails?.should be_nil
       f.maxsize.should eq(2097152_i64)
       f.disabled?.should be_false
       f.readonly?.should be_false

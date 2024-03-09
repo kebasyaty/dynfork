@@ -19,7 +19,7 @@ describe Spec::Data::FilledModel do
       f.first_name.field_type.should eq("TextField")
       f.first_name.input_type.should eq("text")
       f.first_name.name.should eq("first_name")
-      f.first_name.value.should be_nil
+      f.first_name.value?.should be_nil
       f.first_name.default.should eq("Cat")
       f.first_name.placeholder.should eq("")
       f.first_name.textarea?.should be_false
@@ -30,8 +30,8 @@ describe Spec::Data::FilledModel do
       f.first_name.unique?.should be_false
       f.first_name.maxlength.should eq(256)
       f.first_name.minlength.should eq(0)
-      f.first_name.regex.should be_nil
-      f.first_name.regex_err_msg.should be_nil
+      f.first_name.regex?.should be_nil
+      f.first_name.regex_err_msg?.should be_nil
       f.first_name.hint.should eq("")
       f.first_name.warning.should eq("")
       f.first_name.errors.should eq(Array(String).new)
@@ -50,7 +50,7 @@ describe Spec::Data::FilledModel do
       f.age.field_type.should eq("I64Field")
       f.age.input_type.should eq("number") # number | range
       f.age.name.should eq("age")
-      f.age.value.should be_nil
+      f.age.value?.should be_nil
       f.age.default.should eq(0_i64)
       f.age.placeholder.should eq("")
       f.age.disabled?.should be_false
@@ -79,7 +79,7 @@ describe Spec::Data::FilledModel do
       f.birthday.field_type.should eq("DateField")
       f.birthday.input_type.should eq("date")
       f.birthday.name.should eq("birthday")
-      f.birthday.value.should be_nil
+      f.birthday.value?.should be_nil
       f.birthday.default.should eq("23.12.2023")
       f.birthday.placeholder.should eq("")
       f.birthday.disabled?.should be_false
@@ -87,8 +87,8 @@ describe Spec::Data::FilledModel do
       f.birthday.hide?.should be_false
       f.birthday.required?.should be_false
       f.birthday.unique?.should be_false
-      f.birthday.max.should be_nil
-      f.birthday.min.should be_nil
+      f.birthday.max?.should be_nil
+      f.birthday.min?.should be_nil
       f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
       f.birthday.warning.should eq("")
       f.birthday.errors.should eq(Array(String).new)
