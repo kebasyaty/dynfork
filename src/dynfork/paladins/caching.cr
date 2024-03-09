@@ -53,11 +53,11 @@ module DynFork::Paladins::Caching
                     "Invalid thumbnail size name. Examples: xs|sm|md|lg"
                   )
                 end
-                if max_size < 0
+                if max_size < 1
                   raise DynFork::Errors::Panic.new(
                     "Model : `#{model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
                     "Param: `thumbnails` => '#{max_size}' - " +
-                    "A negative value for the maximum thumbnail size is not allowed."
+                    "The thumbnail size cannot be smaller than one pixel."
                   )
                 end
               end
