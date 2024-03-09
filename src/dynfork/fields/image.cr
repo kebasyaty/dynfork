@@ -16,12 +16,12 @@ module DynFork::Fields
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
-    property media_root : String
+    property media_root : String = "assets/media"
     # URL address for the media directory.
-    getter media_url : String
-    # Directory for files inside media directory (inner path).
+    getter media_url : String = "/media"
+    # Directory for files inside media directory.
     # <br>
-    # _Example: "files/resume"_
+    # _Examples: files|resume|reports_
     getter target_dir : String
     # HTML attribute: accept.
     # <br>
@@ -65,8 +65,6 @@ module DynFork::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
-      @media_root : String = "assets/media",
-      @media_url : String = "/media",
       @target_dir : String = "images",
       @thumbnails : Array({String, Int32})? = nil,
       @maxsize : Int64 = 2097152, # 2 MB
