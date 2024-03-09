@@ -14,12 +14,12 @@ module DynFork::Fields
     # _Example: "assets/media/default/nodoc.docx"_
     getter default : String?
     # Root directory for storing media files.
-    getter media_root : String
+    getter media_root : String = "assets/media"
     # URL address for the media directory.
-    getter media_url : String
-    # Directory for files inside media directory (inner path).
+    getter media_url : String = "/media"
+    # Directory for files inside media directory.
     # <br>
-    # _Example: "files/resume"_
+    # _Examples: files|resume|reports_
     getter target_dir : String
     # HTML attribute: accept
     # <br>
@@ -62,8 +62,6 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @default : String? = nil,
-      @media_root : String = "assets/media",
-      @media_url : String = "/media",
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",

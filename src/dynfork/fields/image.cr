@@ -19,9 +19,9 @@ module DynFork::Fields
     property media_root : String = "assets/media"
     # URL address for the media directory.
     getter media_url : String = "/media"
-    # Directory for files inside media directory.
+    # Directory for images inside media directory.
     # <br>
-    # _Examples: files|resume|reports_
+    # _Examples: avatars|photos|images_
     getter target_dir : String
     # HTML attribute: accept.
     # <br>
