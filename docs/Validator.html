@@ -767,7 +767,7 @@ v, content <span class="o">=</span> <span class="t">Article</span>.check_content
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#color%3F%28value%3AString%29%3ABool-class-method" class="signature"><strong>.color?</strong>(value : String) : Bool</a>
+        <a href="#color_code%3F%28value%3AString%29%3ABool-class-method" class="signature"><strong>.color_code?</strong>(value : String) : Bool</a>
         
           <div class="summary"><p>Custom validator for checking color code.</p></div>
         
@@ -797,17 +797,20 @@ v, content <span class="o">=</span> <span class="t">Article</span>.check_content
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="color?(value:String):Bool-class-method">
+    <div class="entry-detail" id="color_code?(value:String):Bool-class-method">
       <div class="signature">
         
-        def self.<strong>color?</strong>(value : String) : Bool
+        def self.<strong>color_code?</strong>(value : String) : Bool
 
-        <a class="method-permalink" href="#color%3F%28value%3AString%29%3ABool-class-method">#</a>
+        <a class="method-permalink" href="#color_code%3F%28value%3AString%29%3ABool-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Custom validator for checking color code.</p>
+          <p>Custom validator for checking color code.
+<br>
+<em>Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff</em>#</p>
         </div>
       
       <br/>
