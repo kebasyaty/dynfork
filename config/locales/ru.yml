@@ -1,7 +1,7 @@
 # Russian
 #
 ru:
-  invalid_color: "Неправильный цветовой код."
+  invalid_color_code: "Неправильный цветовой код."
   allowed_chars:
     interpolation: "Допустимые символы: %{chars}"
   max_chars:

@@ -1,7 +1,7 @@
 # English
 #
 en:
-  invalid_color: "Invalid Color code."
+  invalid_color_code: "Invalid Color code."
   allowed_chars:
     interpolation: "Allowed chars: %{chars}"
   max_chars:

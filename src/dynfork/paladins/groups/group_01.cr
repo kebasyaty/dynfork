@@ -111,9 +111,9 @@ module DynFork::Paladins::Groups
         )
       end
     when "ColorField"
-      unless Valid.color? current_value
+      unless Valid.color_code? current_value
         self.accumulate_error(
-          I18n.t(:invalid_color),
+          I18n.t(:invalid_color_code),
           field_ptr,
           error_symptom_ptr?
         )

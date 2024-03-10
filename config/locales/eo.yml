@@ -1,7 +1,7 @@
 # Esperanto
 #
 eo:
-  invalid_color: "Nevalida Kolorkodo."
+  invalid_color_code: "Nevalida Kolorkodo."
   allowed_chars:
     interpolation: "Permesitaj signoj: %{chars}"
   max_chars:
