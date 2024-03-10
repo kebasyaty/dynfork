@@ -31,7 +31,7 @@ module DynFork::Paladins::Groups
         return
       end
       #
-      if value = field_ptr.value.value?
+      if !(value = field_ptr.value.value?).nil?
         err_msg = nil
         case field_ptr.value.field_type
         when "DateField"
@@ -49,7 +49,7 @@ module DynFork::Paladins::Groups
         end
         unless err_msg.nil?
           self.accumulate_error(
-            err_msg.not_nil!,
+            err_msg,
             field_ptr,
             error_symptom_ptr?
           )
@@ -61,8 +61,8 @@ module DynFork::Paladins::Groups
       value.as(Time)
     )
     # Validation the `max` field attribute.
-    if max = time_objects[:max]
-      if (current_value <=> max) == 1
+    unless (max : Time? = time_objects[:max]).nil?
+      if (current_value <=> max.not_nil!) == 1
         err_msg = I18n.t(
           "date_not_greater_max.interpolation",
           curr_date: field_ptr.value.value? || field_ptr.value.default?,
@@ -76,8 +76,8 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `min` field attribute.
-    if min = time_objects[:min]
-      if (current_value <=> min) == 1
+    unless (min : Time? = time_objects[:min]).nil?
+      if (current_value <=> min.not_nil!) == 1
         err_msg = I18n.t(
           "data_not_less_min.interpolation",
           curr_date: field_ptr.value.value? || field_ptr.value.default?,

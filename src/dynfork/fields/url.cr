@@ -52,7 +52,6 @@ module DynFork::Fields
       @default : String? = nil,
       @placeholder : String = "",
       @maxlength : UInt32? = 2048,
-      @minlength : UInt32? = 0,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
@@ -63,6 +62,7 @@ module DynFork::Fields
       @warning : String = ""
     )
       @input_type = "url"
+      @minlength = 0
     end
   end
 end

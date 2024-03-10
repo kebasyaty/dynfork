@@ -35,6 +35,7 @@ module Spec::Data
     getter file = DynFork::Fields::FileField.new
     getter image = DynFork::Fields::ImageField.new
 
+    getter i64 = DynFork::Fields::I64Field.new
     getter f64 = DynFork::Fields::F64Field.new
 
     getter bool = DynFork::Fields::BoolField.new

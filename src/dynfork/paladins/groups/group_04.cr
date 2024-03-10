@@ -25,7 +25,7 @@ module DynFork::Paladins::Groups
     # Get current value.
     current_value : DynFork::Globals::FileData?
 
-    if value = field_ptr.value.value?
+    unless (value = field_ptr.value.value?).nil?
       json : String = value.to_json
       current_value = DynFork::Globals::FileData.from_json(json)
     end
@@ -69,20 +69,20 @@ module DynFork::Paladins::Groups
     return if !save?
 
     # Get the paths value and save the file.
-    if tempfile = current_value.tempfile
+    unless (tempfile = current_value.tempfile?).nil?
       media_root : String = field_ptr.value.media_root
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
       name : String = current_value.name
       # Add paths to file.
-      current_value.path = "#{media_root}/#{target_dir}/#{name}"
-      current_value.url = "#{media_url}/#{target_dir}/#{name}"
+      date : String = Time.utc.to_s("%Y-%m-%d")
+      current_value.path = "#{media_root}/#{target_dir}/#{date}/#{name}"
+      current_value.url = "#{media_url}/#{target_dir}/#{date}/#{name}"
       cleaning_map_ptr.value[:files] << current_value.path
-      # Get the path to the directory for the files.
-      images_dir_path : String = "#{media_root}/#{target_dir}"
       # Create the target directory if it does not exist.
-      unless Dir.exists?(images_dir_path)
-        Dir.mkdir_p(path: images_dir_path, mode: 0o777)
+      date_dir_path : String = "#{media_root}/#{target_dir}/#{date}"
+      unless Dir.exists?(date_dir_path)
+        Dir.mkdir_p(path: date_dir_path, mode: 0o777)
       end
       # Save file.
       File.write(
