@@ -52,7 +52,6 @@ module DynFork::Fields
       @default : String? = nil,
       @placeholder : String = "",
       @maxlength : UInt32? = 256,
-      @minlength : UInt32? = 0,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
@@ -62,6 +61,7 @@ module DynFork::Fields
       @hint : String = ""
     )
       @input_type = "text"
+      @minlength = 0
     end
   end
 end

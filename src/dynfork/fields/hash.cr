@@ -55,8 +55,6 @@ module DynFork::Fields
     def initialize(
       @label : String = "Document ID",
       @placeholder : String = "Enter document ID",
-      @maxlength : UInt32? = 24,
-      @minlength : UInt32? = 24,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
@@ -66,6 +64,8 @@ module DynFork::Fields
       @hint : String = "For enter a document ID."
     )
       @input_type = "text"
+      @maxlength = 24
+      @minlength = 24
     end
 
     # Get ObjectId from value.

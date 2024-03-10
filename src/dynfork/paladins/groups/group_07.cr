@@ -26,7 +26,7 @@ module DynFork::Paladins::Groups
       value.to_s.to_f64
     )
     # Validation the `max` field attribute.
-    if max = field_ptr.value.max?
+    unless (max = field_ptr.value.max?).nil?
       if current_value > max.to_f64
         err_msg = I18n.t(
           "number_not_greater_max.interpolation",
@@ -41,7 +41,7 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `min` field attribute.
-    if min = field_ptr.value.min?
+    unless (min = field_ptr.value.min?).nil?
       if current_value < min.to_f64
         err_msg = I18n.t(
           "number_not_less_min.interpolation",

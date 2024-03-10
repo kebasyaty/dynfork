@@ -25,7 +25,7 @@ module DynFork::Paladins::Groups
     # Get current value.
     current_value : DynFork::Globals::ImageData?
 
-    if value = field_ptr.value.value?
+    unless (value = field_ptr.value.value?).nil?
       json : String = value.to_json
       current_value = DynFork::Globals::ImageData.from_json(json)
     end
@@ -69,7 +69,7 @@ module DynFork::Paladins::Groups
     return if !save?
 
     # Get the paths value and save the file.
-    if tempfile = current_value.tempfile
+    unless (tempfile = current_value.tempfile?).nil?
       media_root : String = field_ptr.value.media_root
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
@@ -86,27 +86,29 @@ module DynFork::Paladins::Groups
       unless Dir.exists?(images_dir_path)
         Dir.mkdir_p(path: images_dir_path, mode: 0o777)
       end
+      #
+      tempfile_path : String = tempfile.path
       # Save original image.
       File.write(
         filename: current_value.path,
-        content: File.read(tempfile.path),
+        content: File.read(tempfile_path),
         perm: File::Permissions.new(0o644)
       )
       # Create and save thumbnails.
-      if thumbnails = field_ptr.value.thumbnails?
+      unless (thumbnails = field_ptr.value.thumbnails?).nil?
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
         image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
-          File.open(tempfile.path) do |file|
+          File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_jpeg(file)
           end
         elsif extension == "png"
-          File.open(tempfile.path) do |file|
+          File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_png(file)
           end
         elsif extension == "webp"
-          File.open(tempfile.path) do |file|
+          File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_webp(file)
           end
         else

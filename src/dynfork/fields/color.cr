@@ -63,7 +63,6 @@ module DynFork::Fields
       @default : String? = "#000000",
       @placeholder : String = "",
       @maxlength : UInt32? = 256,
-      @minlength : UInt32? = 0,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
@@ -77,6 +76,7 @@ module DynFork::Fields
                                            "hsla(170,23%,25%,0.2) | 0x00ffff")
     )
       @input_type = "text"
+      @minlength = 0
     end
   end
 end
