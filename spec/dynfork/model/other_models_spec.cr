@@ -88,6 +88,9 @@ describe DynFork::Model do
       Spec::Data::AAModel.new
       metadata = Spec::Data::AAModel.meta
       metadata["service_name"].should eq("Accounts")
+      metadata["saving_docs?"].should be_true
+      metadata["updating_docs?"].should be_true
+      metadata["deleting_docs?"].should be_true
     end
 
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
