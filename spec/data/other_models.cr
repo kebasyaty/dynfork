@@ -9,7 +9,6 @@ module Spec::Data
   # Model with variables and methods.
   @[DynFork::Meta(
     service_name: "ServiceName",
-    fixture_name: "",
     db_query_docs_limit: 2000_u32,
     saving_docs?: false,
     updating_docs?: false,

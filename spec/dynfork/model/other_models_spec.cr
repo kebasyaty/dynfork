@@ -56,7 +56,7 @@ describe DynFork::Model do
       metadata = Spec::Data::FilledModel.meta
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
-      metadata["fixture_name"].should eq("")
+      metadata["fixture_name"].should be_nil
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(6_i32)

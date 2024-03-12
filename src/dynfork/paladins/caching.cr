@@ -280,6 +280,8 @@ module DynFork::Paladins::Caching
       data_dynamic_fields: Hash(String, String).new,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
+      # The name of the fixture in the 'config/fixtures' directory (without extension).
+      fixture_name: {{ @type.annotation(DynFork::Meta)[:fixture_name] }},
     }
   end
 end
