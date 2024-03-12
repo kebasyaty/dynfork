@@ -263,11 +263,23 @@ module DynFork::Paladins::Caching
       default_value_list: default_value_list,
       # Create documents in the database. By default = true.
       # NOTE: false - Alternatively, use it to validate data from web forms.
-      saving_docs?: {{ @type.annotation(DynFork::Meta)[:saving_docs?] }} || true,
+      saving_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:saving_docs?] }}).nil?
+        val
+      else
+        true
+      end,
       # Update documents in the database.
-      updating_docs?: {{ @type.annotation(DynFork::Meta)[:updating_docs?] }} || true,
+      updating_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:updating_docs?] }}).nil?
+        val
+      else
+        true
+      end,
       # Delete documents from the database.
-      deleting_docs?: {{ @type.annotation(DynFork::Meta)[:deleting_docs?] }} || true,
+      deleting_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:deleting_docs?] }}).nil?
+        val
+      else
+        true
+      end,
       # Does a field of type SlugField use a hash field as its source?
       use_hash_slug?: use_hash_slug?,
       # List of field names that will not be saved to the database.
