@@ -56,6 +56,7 @@ describe DynFork::Model do
       metadata = Spec::Data::FilledModel.meta
       metadata["model_name"].should eq("FilledModel")
       metadata["service_name"].should eq("ServiceName")
+      metadata["fixture_name"].should eq("")
       metadata["collection_name"].should eq("ServiceName_FilledModel")
       metadata["db_query_docs_limit"].should eq(2000_u32)
       metadata["field_count"].should eq(6_i32)
@@ -69,9 +70,9 @@ describe DynFork::Model do
          "updated_at" => nil,
          "first_name" => "Cat"}
       )
-      metadata["saving_docs?"].should be_true
-      metadata["updating_docs?"].should be_true
-      metadata["deleting_docs?"].should be_true
+      metadata["saving_docs?"].should be_false
+      metadata["updating_docs?"].should be_false
+      metadata["deleting_docs?"].should be_false
       metadata["use_hash_slug?"].should be_false
       metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
     end

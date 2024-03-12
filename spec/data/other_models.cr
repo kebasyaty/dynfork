@@ -9,7 +9,11 @@ module Spec::Data
   # Model with variables and methods.
   @[DynFork::Meta(
     service_name: "ServiceName",
-    db_query_docs_limit: 2000_u32
+    fixture_name: "",
+    db_query_docs_limit: 2000_u32,
+    saving_docs?: false,
+    updating_docs?: false,
+    deleting_docs?: false,
   )]
   struct FilledModel < DynFork::Model
     getter first_name = DynFork::Fields::TextField.new(
