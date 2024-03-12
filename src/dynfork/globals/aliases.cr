@@ -41,6 +41,7 @@ module DynFork::Globals::Aliases
     field_attrs: Hash(String, NamedTuple(id: String, name: String)),
     data_dynamic_fields: Hash(String, String),
     time_object_list: Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)),
+    fixture_name: String?,
   )
 
   # A type for caching regular expressions.
