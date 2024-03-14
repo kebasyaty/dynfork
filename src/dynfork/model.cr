@@ -83,15 +83,15 @@ module DynFork
     def inject
       var_name : String = ""
       json : String?
-      # Add the values of the attributes **id** and **name** from the cache to the Model.
+      #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.
       {% for var in @type.instance_vars %}
         var_name = {{ var.name.stringify }}
         field_attrs = @@meta.not_nil![:field_attrs][var_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
-        # Add dynamic field data from the cache to the Model.
+        # Add data for dynamic fields from the local `@@meta` cache.
         if json = @@meta.not_nil![:data_dynamic_fields][var_name]?
-          @{{ var }}.json_to_choices(json)
+          @{{ var }}.choices_from_json(json)
         end
       {% end %}
     end
