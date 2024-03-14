@@ -2,7 +2,7 @@ require "../../../spec_helper"
 
 describe DynFork::Model do
   describe "#valid?" do
-    it "=> validation of instance of `FullDefault` model", tags: "valid?" do
+    it "=> validation of instance of `FullDefault` model", tags: "valid" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/

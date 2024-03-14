@@ -61,4 +61,4 @@ jobs:
           crystal spec --tag mongo_client
           crystal spec --tag migration
           crystal spec --tag check
-          crystal spec --tag valid?
+          crystal spec --tag valid
