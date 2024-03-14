@@ -38,7 +38,7 @@
         "crystal spec --tag model_json;",
         "crystal spec --tag mongo_client;",
         "crystal spec --tag migration;",
-        "crystal spec --tag check",
+        "crystal spec --tag check;",
         "crystal spec --tag valid"
       ],
       "problemMatcher": []
