@@ -36,7 +36,7 @@ describe DynFork::Model do
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
       output_data.valid?.should be_true
       data : BSON = output_data.data
-      data.should eq(BSON.new)
+      data.empty?.should be_true
       #
       # Param `value`
       m.url.value.should be_nil
