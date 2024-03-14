@@ -82,7 +82,7 @@ describe DynFork::Model do
       m.ip.default?.should be_nil
       m.hash.default?.should be_nil
       m.email.default?.should be_nil
-      m.color.default?.should be_nil
+      m.color.default?.should eq("#000000")
       #
       m.date.default?.should be_nil
       m.datetime.default?.should be_nil
