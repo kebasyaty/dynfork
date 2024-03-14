@@ -196,7 +196,7 @@ module DynFork::Fields
       @hint : String = ""
     ); end
 
-    # To insert data from global storage.
+    # Add data for dynamic fields from the local `@@meta` cache.
     def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
@@ -268,8 +268,8 @@ module DynFork::Fields
       @hint : String = ""
     ); end
 
-    # To insert data from global storage.
-    def json_to_choices(json : String)
+    # Add data for dynamic fields from the local `@@meta` cache.
+    def choices_from_json(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
 

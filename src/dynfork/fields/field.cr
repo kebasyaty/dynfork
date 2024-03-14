@@ -44,7 +44,7 @@ module DynFork::Fields
       false
     end
 
-    def json_to_choices(json : String); end
+    def choices_from_json(json : String); end
 
     def slug_sources : Array(String)
       Array(String).new
