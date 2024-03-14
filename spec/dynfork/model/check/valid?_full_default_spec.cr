@@ -1,8 +1,8 @@
 require "../../../spec_helper"
 
 describe DynFork::Model do
-  describe "#valid" do
-    it "=> validation instance of Model", tags: "check" do
+  describe "#valid?" do
+    it "=> validation of instance of `FullDefault` model", tags: "valid?" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -22,18 +22,15 @@ describe DynFork::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Spec::Data::AllFieldsDefault,
+          Spec::Data::FullDefault,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-
-      # Testing valid method.
-      m = Spec::Data::AllFieldsDefault.new
+      m = Spec::Data::FullDefault.new
       m.valid?.should be_true
       m.print_err.should be_nil
-
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

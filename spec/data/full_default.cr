@@ -4,8 +4,8 @@ require "../../src/dynfork"
 module Spec::Data
   # A model with all parameters and fields by default.
   @[DynFork::Meta(service_name: "ServiceName")]
-  struct AllFieldsDefault < DynFork::Model
-    getter urlt = DynFork::Fields::URLField.new
+  struct FullDefault < DynFork::Model
+    getter url = DynFork::Fields::URLField.new
     getter text = DynFork::Fields::TextField.new
     getter phone = DynFork::Fields::PhoneField.new
     getter password = DynFork::Fields::PasswordField.new
