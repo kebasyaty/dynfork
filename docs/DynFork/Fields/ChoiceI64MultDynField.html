@@ -686,6 +686,13 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#choices_from_json%28json%3AString%29-instance-method" class="signature"><strong>#choices_from_json</strong>(json : String)</a>
+        
+          <div class="summary"><p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
@@ -703,13 +710,6 @@
         <a href="#has_value%3F%3ABool-instance-method" class="signature"><strong>#has_value?</strong> : Bool</a>
         
           <div class="summary"><p>Does the field value match the possible options in choices.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#json_to_choices%28json%3AString%29-instance-method" class="signature"><strong>#json_to_choices</strong>(json : String)</a>
-        
-          <div class="summary"><p>To insert data from global storage.</p></div>
         
       </li>
     
@@ -755,6 +755,11 @@
     <a href="../../DynFork/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
       <span>[]?(variable) : Bool</span>
     []?</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#choices_from_json%28json%3AString%29-instance-method" class="tooltip">
+      <span>choices_from_json(json : String)</span>
+    choices_from_json</a>, 
     
   
     <a href="../../DynFork/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
@@ -815,11 +820,6 @@
     <a href="../../DynFork/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
       <span>ignored? : Bool</span>
     ignored?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#json_to_choices%28json%3AString%29-instance-method" class="tooltip">
-      <span>json_to_choices(json : String)</span>
-    json_to_choices</a>, 
     
   
     <a href="../../DynFork/Fields/Field.html#label%3AString-instance-method" class="tooltip">
@@ -1058,6 +1058,25 @@
       </div>
     </div>
   
+    <div class="entry-detail" id="choices_from_json(json:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>choices_from_json</strong>(json : String)
+
+        <a class="method-permalink" href="#choices_from_json%28json%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="field_type:String-instance-method">
       <div class="signature">
         
@@ -1108,25 +1127,6 @@
         <div class="doc">
           
           <p>Does the field value match the possible options in choices.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="json_to_choices(json:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>json_to_choices</strong>(json : String)
-
-        <a class="method-permalink" href="#json_to_choices%28json%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To insert data from global storage.</p>
         </div>
       
       <br/>
