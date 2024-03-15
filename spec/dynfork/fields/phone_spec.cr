@@ -18,9 +18,9 @@ describe DynFork::Fields::PhoneField do
       f.required?.should be_false
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.maxlength.should eq(15)
-      f.minlength.should eq(8)
-      f.regex.should eq("^+?[0-9]{8,15}$")
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
+      f.regex.should eq("^[+]?[0-9]{8,15}$")
       f.regex_err_msg.should eq("Invalid Phone number.")
       f.hint.should eq("Format: +xxxxxxxx... or xxxxxxxx...")
       f.warning.should eq("")

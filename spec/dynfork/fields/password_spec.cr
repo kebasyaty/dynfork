@@ -15,11 +15,11 @@ describe DynFork::Fields::PasswordField do
       f.disabled?.should be_false
       f.readonly?.should be_false
       f.hide?.should be_false
-      f.required?.should be_false
+      f.required?.should be_true
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.maxlength.should eq(256)
-      f.minlength.should eq(8)
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
       f.regex.should eq("^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$")
       f.regex_err_msg.should eq("Allowed chars: a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) (")
       f.hint.should eq("")

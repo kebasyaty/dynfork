@@ -17,7 +17,7 @@ module DynFork
   # ```
   # @[DynFork::Meta(
   #   service_name: "Accounts",
-  #   deleting_docs: false
+  #   deleting_docs?: false
   # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new(
@@ -72,7 +72,7 @@ module DynFork
     getter updated_at = DynFork::Fields::DateTimeField
       .new("label": "Updated at", "hide": true)
     # Metadata cache.
-    class_getter! meta : DynFork::Globals::CacheMetaDataType
+    class_getter! meta : DynFork::Globals::CacheMetaDataType?
 
     def initialize
       self.caching if @@meta.nil?
