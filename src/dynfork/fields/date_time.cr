@@ -3,10 +3,10 @@ require "./field"
 module DynFork::Fields
   # A field for entering a date and time.
   # <br>
-  # _**Formats:** dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | dd.mm.yyyy hh:mm |
-  # dd-mm-yyyyThh:mm | dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm |
-  # yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | yyyy.mm.dd hh:mm |
-  # yyyy-mm-ddThh:mm | yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm_
+  # _**Formats:** dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
+  # dd-mm-yyyyThh:mm:ss | dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss |
+  # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
+  # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_
   struct DateTimeField < DynFork::Fields::Field
     include DynFork::Tools::Date
 
@@ -16,11 +16,11 @@ module DynFork::Fields
     getter! input_type : String?
     # Sets the value of an element.
     # <br>
-    # _Example: 1970-01-01T00:00_
+    # _Example: 1970-01-01T00:00:00_
     property! value : String?
     # Value by default.
     # <br>
-    # _Example: 1970-01-01T00:00_
+    # _Example: 1970-01-01T00:00:00_
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
@@ -73,12 +73,12 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = I18n.t(
-        "formats.interpolation", samples: "dd-mm-yyyy hh:mm | dd/mm/yyyy hh:mm | " +
-                                          "dd.mm.yyyy hh:mm | dd-mm-yyyyThh:mm | " +
-                                          "dd/mm/yyyyThh:mm | dd.mm.yyyyThh:mm | " +
-                                          "yyyy-mm-dd hh:mm | yyyy/mm/dd hh:mm | " +
-                                          "yyyy.mm.dd hh:mm | yyyy-mm-ddThh:mm | " +
-                                          "yyyy/mm/ddThh:mm | yyyy.mm.ddThh:mm")
+        "formats.interpolation", samples: "dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | " +
+                                          "dd.mm.yyyy hh:mm:ss | dd-mm-yyyyThh:mm:ss | " +
+                                          "dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss | " +
+                                          "yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | " +
+                                          "yyyy.mm.dd hh:mm:ss | yyyy-mm-ddThh:mm:ss | " +
+                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")
     )
       @input_type = "datetime"
     end
