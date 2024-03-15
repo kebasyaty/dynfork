@@ -605,7 +605,7 @@
 <p>Extended example:</p>
 <pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(
   service_name: <span class="s">&quot;Accounts&quot;</span>,
-  deleting_docs: <span class="n">false</span>
+  deleting_docs?: <span class="n">false</span>
 )]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(
@@ -732,14 +732,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#meta%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType-class-method" class="signature"><strong>.meta</strong> : DynFork::Globals::CacheMetaDataType</a>
+        <a href="#meta%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method" class="signature"><strong>.meta</strong> : DynFork::Globals::CacheMetaDataType | Nil</a>
         
           <div class="summary"><p>Metadata cache.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#meta%3F%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method" class="signature"><strong>.meta?</strong> : DynFork::Globals::CacheMetaDataType | Nil</a>
+        <a href="#meta%3F%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil%7CNil-class-method" class="signature"><strong>.meta?</strong> : DynFork::Globals::CacheMetaDataType | Nil | Nil</a>
         
           <div class="summary"><p>Metadata cache.</p></div>
         
@@ -956,9 +956,9 @@
     image_to_io_memory</a>, 
     
   
-    <a href="../DynFork/Paladins/CheckPlus.html#print_err-instance-method" class="tooltip">
-      <span>print_err</span>
-    print_err</a>, 
+    <a href="../DynFork/Paladins/CheckPlus.html#print_err%3F-instance-method" class="tooltip">
+      <span>print_err?</span>
+    print_err?</a>, 
     
   
     <a href="../DynFork/Paladins/CheckPlus.html#valid%3F%3ABool-instance-method" class="tooltip">
@@ -1210,12 +1210,12 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="meta:DynFork::Globals::CacheMetaDataType-class-method">
+    <div class="entry-detail" id="meta:DynFork::Globals::CacheMetaDataType|Nil-class-method">
       <div class="signature">
         
-        def self.<strong>meta</strong> : <a href="../DynFork/Globals/Aliases/CacheMetaDataType.html">DynFork::Globals::CacheMetaDataType</a>
+        def self.<strong>meta</strong> : <a href="../DynFork/Globals/Aliases/CacheMetaDataType.html">DynFork::Globals::CacheMetaDataType</a> | Nil
 
-        <a class="method-permalink" href="#meta%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType-class-method">#</a>
+        <a class="method-permalink" href="#meta%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -1229,12 +1229,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="meta?:DynFork::Globals::CacheMetaDataType|Nil-class-method">
+    <div class="entry-detail" id="meta?:DynFork::Globals::CacheMetaDataType|Nil|Nil-class-method">
       <div class="signature">
         
-        def self.<strong>meta?</strong> : <a href="../DynFork/Globals/Aliases/CacheMetaDataType.html">DynFork::Globals::CacheMetaDataType</a> | Nil
+        def self.<strong>meta?</strong> : <a href="../DynFork/Globals/Aliases/CacheMetaDataType.html">DynFork::Globals::CacheMetaDataType</a> | Nil | Nil
 
-        <a class="method-permalink" href="#meta%3F%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method">#</a>
+        <a class="method-permalink" href="#meta%3F%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil%7CNil-class-method">#</a>
       </div>
       
         <div class="doc">
