@@ -18,7 +18,7 @@ describe DynFork::Fields::PasswordField do
       f.required?.should be_true
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.maxlength.should eq(16_u32)
+      f.maxlength.should be_nil
       f.minlength.should be_nil
       f.regex.should eq("^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$")
       f.regex_err_msg.should eq("Allowed chars: a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) (")
