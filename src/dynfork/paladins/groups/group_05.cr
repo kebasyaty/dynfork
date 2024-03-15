@@ -99,15 +99,15 @@ module DynFork::Paladins::Groups
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
-        image : Pluto::ImageRGBA = if ["jpg", "jpeg"].includes?(extension)
+        image : Pluto::ImageRGBA = if [".jpg", ".jpeg"].includes?(extension)
           File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_jpeg(file)
           end
-        elsif extension == "png"
+        elsif extension == ".png"
           File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_png(file)
           end
-        elsif extension == "webp"
+        elsif extension == ".webp"
           File.open(tempfile_path) do |file|
             Pluto::ImageRGBA.from_webp(file)
           end
