@@ -77,7 +77,7 @@ describe DynFork::Model do
       # Param `default`
       m.url.default?.should eq("https://translate.google.com/")
       m.text.default?.should eq("Some text")
-      m.phone.default?.should eq("+1 800 444 4444")
+      m.phone.default?.should eq("+18004444444")
       m.password.default?.should be_nil
       m.ip.default?.should eq("126.255.255.255")
       m.hash.default?.should be_nil
@@ -85,7 +85,7 @@ describe DynFork::Model do
       m.color.default?.should eq("#ff0000")
       #
       m.date.default?.should eq("1970-01-01")
-      m.datetime.default?.should eq("1970-01-01T00:00")
+      m.datetime.default?.should eq("1970-01-01T00:00:00")
       #
       m.choice_text.default?.should eq("value")
       m.choice_text_mult.default?.should eq(["value"])
