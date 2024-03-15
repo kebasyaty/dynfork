@@ -32,7 +32,7 @@ describe DynFork::Model do
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        Spec::Data::FullDefault.meta[:collection_name]]
+        Spec::Data::DefaultNoNil.meta[:collection_name]]
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
       output_data.valid?.should be_true
       data : BSON = output_data.data
