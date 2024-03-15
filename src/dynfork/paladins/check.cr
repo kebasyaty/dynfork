@@ -52,7 +52,7 @@ module DynFork::Paladins::Check
       # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
-      if err_msg = error_map[{{ field.name.stringify }}]?
+      unless (err_msg = error_map[{{ field.name.stringify }}]?).nil?
           @{{ field }}.errors << err_msg
           (error_symptom? = true) unless error_symptom?
           err_msg = nil

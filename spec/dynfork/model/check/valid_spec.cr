@@ -23,12 +23,17 @@ describe DynFork::Model do
         "mongo_uri": mongo_uri,
         "model_list": {
           Spec::Data::FullDefault,
+          Spec::Data::DefaultNoNil,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
+      m.valid?.should be_true
+      m.print_err?.should be_nil
+      #
+      m = Spec::Data::DefaultNoNil.new
       m.valid?.should be_true
       m.print_err?.should be_nil
       # ------------------------------------------------------------------------
