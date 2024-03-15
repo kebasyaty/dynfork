@@ -76,5 +76,14 @@ module DynFork::Fields
     )
       @input_type = "file"
     end
+
+    # filename: _Example: foo.pdf_
+    def base64_to_tempfile(base64 : String, filename : String)
+      @value = (DynFork::Globals::FileData.new).base64_to_tempfile(base64, filename)
+    end
+
+    def path_to_tempfile(path : String)
+      @value = (DynFork::Globals::FileData.new).path_to_tempfile(path)
+    end
   end
 end

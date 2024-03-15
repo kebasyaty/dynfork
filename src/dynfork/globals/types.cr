@@ -61,6 +61,7 @@ module DynFork::Globals::Types
       end
       # Get file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def path_to_tempfile(path : String)
@@ -84,6 +85,7 @@ module DynFork::Globals::Types
       end
       # Get file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def delete_tempfile
@@ -173,6 +175,7 @@ module DynFork::Globals::Types
       end
       # Get the image file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def path_to_tempfile(path : String)
@@ -199,6 +202,7 @@ module DynFork::Globals::Types
       end
       # Get the image file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def delete_tempfile
