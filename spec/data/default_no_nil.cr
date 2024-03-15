@@ -15,7 +15,7 @@ module Spec::Data
     getter color = DynFork::Fields::ColorField.new(default: "#ff0000")
 
     getter date = DynFork::Fields::DateField.new(default: "1970-01-01")
-    getter datetime = DynFork::Fields::DateTimeField.new(default: "1970-01-01T00:00")
+    getter datetime = DynFork::Fields::DateTimeField.new(default: "1970-01-01T00:00:00")
 
     getter choice_text = DynFork::Fields::ChoiceTextField.new(
       default: "value",
