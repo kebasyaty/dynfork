@@ -8,7 +8,7 @@ module Spec::Data
     getter url = DynFork::Fields::URLField.new
     getter text = DynFork::Fields::TextField.new
     getter phone = DynFork::Fields::PhoneField.new
-    getter password = DynFork::Fields::PasswordField.new
+    getter password = DynFork::Fields::PasswordField.new(required: false)
     getter ip = DynFork::Fields::IPField.new
     getter hash = DynFork::Fields::HashField.new
     getter email = DynFork::Fields::EmailField.new

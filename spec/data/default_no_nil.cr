@@ -8,7 +8,7 @@ module Spec::Data
     getter url = DynFork::Fields::URLField.new(default: "https://translate.google.com/")
     getter text = DynFork::Fields::TextField.new(default: "Some text")
     getter phone = DynFork::Fields::PhoneField.new(default: "+1 800 444 4444")
-    getter password = DynFork::Fields::PasswordField.new
+    getter password = DynFork::Fields::PasswordField.new(required: false)
     getter ip = DynFork::Fields::IPField.new(default: "126.255.255.255")
     getter hash = DynFork::Fields::HashField.new
     getter email = DynFork::Fields::EmailField.new(default: "john.smith@example.com")
