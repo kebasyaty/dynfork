@@ -44,7 +44,7 @@ module DynFork::Paladins::CheckPlus
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
         (msg = "\n# ERRORS:") if msg.empty?
-        errors = (@{{ field }}.errors.clone.map { |err| "\t#{err}" }).join("\n")
+        errors = (@{{ field }}.errors.clone.map { |err| "#{err}\t" }).join("\n")
         msg = "#{msg}\n#{{{ field.name.stringify }}}:\t#{errors}"
       end
     {% end %}
