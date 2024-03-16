@@ -52,9 +52,9 @@ module DynFork::Paladins::CheckPlus
         print "\n"
       end
     {% end %}
-    line_break = err? ? "\n\n" : "\n"
-    print line_break
     unless @hash.alerts.empty?
+      line_break = err? ? "\n\n" : "\n"
+      print line_break
       # title
       puts "# AlERTS:".colorize.fore(:yellow).mode(:bold)
       # messages
