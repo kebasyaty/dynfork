@@ -16,16 +16,16 @@ module Spec::Data
   )]
   struct FilledModel < DynFork::Model
     getter first_name = DynFork::Fields::TextField.new(
-      "default": "Cat"
+      default: "Cat"
     )
     getter age = DynFork::Fields::I64Field.new(
-      "min": 0,
-      "default": 0,
-      "ignored": true
+      min: 0,
+      default: 0,
+      ignored: true
     )
     getter birthday = DynFork::Fields::DateField.new(
-      "default": "23.12.2023",
-      "ignored": true
+      default: "23.12.2023",
+      ignored: true
     )
   end
 
@@ -41,7 +41,7 @@ module Spec::Data
   struct SlugSourceInvalidModel < DynFork::Model
     getter name = DynFork::Fields::TextField.new
     getter slug = DynFork::Fields::SlugField.new(
-      "slug_sources": ["first_name", "hash"]
+      slug_sources: ["first_name", "hash"]
     )
   end
 
@@ -49,9 +49,7 @@ module Spec::Data
   @[DynFork::Meta]
   struct NoParamServiceNameModel < DynFork::Model
     getter name = DynFork::Fields::TextField.new
-    getter age = DynFork::Fields::I64Field.new(
-      "min": 0
-    )
+    getter age = DynFork::Fields::I64Field.new(min: 0)
   end
 
   # For preliminary testing of additional abstractions.
@@ -60,7 +58,7 @@ module Spec::Data
     getter username = DynFork::Fields::TextField.new
     getter password = DynFork::Fields::PasswordField.new
     getter confirm_password = DynFork::Fields::PasswordField.new(
-      "ignored": true
+      ignored: true
     )
 
     private def add_validation : Hash(String, String)
