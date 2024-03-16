@@ -50,17 +50,18 @@ module DynFork::Globals::Types
       end
       # Create a prefix for the file name.
       prefix : String = UUID.v4.to_s
-      @name = "#{prefix}.#{extension}"
+      @name = "#{prefix}#{extension}"
       # Create a temporary file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{@extension}",
+        suffix: "#{@extension}",
         dir: "tmp"
       ) do |file|
         file.print Base64.decode_string(base64)
       end
       # Get file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def path_to_tempfile(path : String)
@@ -73,17 +74,18 @@ module DynFork::Globals::Types
       content : String = File.read(path)
       # Create a prefix for the file name.
       prefix : String = UUID.v4.to_s
-      @name = "#{prefix}.#{extension}"
+      @name = "#{prefix}#{extension}"
       # Create a temporary file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{extension}",
+        suffix: "#{extension}",
         dir: "tmp"
       ) do |file|
         file.print content
       end
       # Get file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def delete_tempfile
@@ -126,7 +128,7 @@ module DynFork::Globals::Types
     property? delete : Bool = false
     # File extension.
     # <br>
-    # _Examples: png|jpeg|jpg|webp_
+    # _Examples: .png|.jpeg|.jpg|.webp_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter! extension : String?
@@ -159,20 +161,21 @@ module DynFork::Globals::Types
         break if index == 40
       end
       # Create a name for the original image file.
-      @name = "original.#{extension}"
+      @name = "original#{extension}"
       # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
       @images_dir = prefix
       # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{@extension}",
+        suffix: "#{@extension}",
         dir: "tmp"
       ) do |file|
         file.print Base64.decode_string(base64)
       end
       # Get the image file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def path_to_tempfile(path : String)
@@ -185,20 +188,21 @@ module DynFork::Globals::Types
       # Get the contents of an image file.
       content : String = File.read(path)
       # Create a name for the original image file.
-      @name = "original.#{extension}"
+      @name = "original#{extension}"
       # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
       @images_dir = prefix
       # Create a temporary image file.
       @tempfile = File.tempfile(
         prefix: "#{prefix}_",
-        suffix: ".#{extension}",
+        suffix: "#{extension}",
         dir: "tmp"
       ) do |file|
         file.print content
       end
       # Get the image file size.
       @size = File.size(self.tempfile.path)
+      self
     end
 
     def delete_tempfile

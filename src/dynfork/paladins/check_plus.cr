@@ -35,10 +35,10 @@ module DynFork::Paladins::CheckPlus
   # end
   #
   # user = User.new
-  # user.print_err? unless user.valid?
+  # user.print_err unless user.valid?
   # ```
   #
-  def print_err?
+  def print_err
     msg : String = ""
     errors : String = ""
     {% for field in @type.instance_vars %}
@@ -95,11 +95,11 @@ module DynFork::Paladins::CheckPlus
     new_size = self.calculate_thumbnail_size(image_ptr.value.width, image_ptr.value.height, max_size)
     image_ptr.value.bilinear_resize!(new_size[:width], new_size[:height])
     io = IO::Memory.new
-    if ["jpg", "jpeg"].includes?(extension)
+    if [".jpg", ".jpeg"].includes?(extension)
       image_ptr.value.to_jpeg(io)
-    elsif extension == "png"
+    elsif extension == ".png"
       image_ptr.value.to_png(io)
-    elsif extension == "webp"
+    elsif extension == ".webp"
       image_ptr.value.to_lossless_webp(io)
     end
     io
