@@ -77,15 +77,18 @@ module DynFork::Fields
       @input_type = "file"
     end
 
+    # Convert base64 to tempfile for FileData.
     # filename: _Example: foo.pdf_
     def base64_to_tempfile(base64 : String, filename : String)
       @value = (DynFork::Globals::FileData.new).base64_to_tempfile(base64, filename)
     end
 
+    # Convert path to tempfile for FileData.
     def path_to_tempfile(path : String)
       @value = (DynFork::Globals::FileData.new).path_to_tempfile(path)
     end
 
+    # Delete temporary file in FileData.
     def delete_tempfile
       self.value.delete_tempfile unless @value.nil?
     end
