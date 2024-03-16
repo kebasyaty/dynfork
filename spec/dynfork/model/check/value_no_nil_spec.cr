@@ -2,7 +2,7 @@ require "../../../spec_helper"
 
 describe DynFork::Model do
   describe "#check" do
-    it "=> validation of instance of `FullDefault (value_no_nil)` model", tags: "check" do
+    it "=> validation of instance of `ValueNoNil` model", tags: "check" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -22,13 +22,13 @@ describe DynFork::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Spec::Data::FullDefault,
+          Spec::Data::ValueNoNil,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      m = Spec::Data::FullDefault.new
+      m = Spec::Data::ValueNoNil.new
       #
       # Init `value`
       m.url.value = "https://translate.google.com/"
@@ -67,8 +67,9 @@ describe DynFork::Model do
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        Spec::Data::FullDefault.meta[:collection_name]]
+        Spec::Data::ValueNoNil.meta[:collection_name]]
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
+      m.print_err
       output_data.valid?.should be_true
       data : BSON = output_data.data
       data.empty?.should be_true
@@ -105,7 +106,7 @@ describe DynFork::Model do
       m.image.value?.should be_a(DynFork::Globals::ImageData)
       #
       m.i64.value?.should eq(10_i64)
-      m.f64.value?.should eq([10.2])
+      m.f64.value?.should eq(10.2)
       #
       m.bool.value?.should be_true
       #
