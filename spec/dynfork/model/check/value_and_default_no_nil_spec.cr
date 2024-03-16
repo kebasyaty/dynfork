@@ -6,7 +6,7 @@ describe DynFork::Model do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "E2ep4e3UPkWs84GO"
+      unique_app_key = "31623nJu4ALc8006"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 
