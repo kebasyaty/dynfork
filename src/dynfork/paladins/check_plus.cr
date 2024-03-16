@@ -35,10 +35,10 @@ module DynFork::Paladins::CheckPlus
   # end
   #
   # user = User.new
-  # user.print_err? unless user.valid?
+  # user.print_err unless user.valid?
   # ```
   #
-  def print_err?
+  def print_err
     msg : String = ""
     errors : String = ""
     {% for field in @type.instance_vars %}

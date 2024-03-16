@@ -31,11 +31,11 @@ describe DynFork::Model do
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
       m.valid?.should be_true
-      m.print_err?.should be_nil
+      m.print_err.should be_nil
       #
       m = Spec::Data::DefaultNoNil.new
       m.valid?.should be_true
-      m.print_err?.should be_nil
+      m.print_err.should be_nil
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
