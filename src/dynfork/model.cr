@@ -21,39 +21,39 @@ module DynFork
   # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new(
-  #     "label": "Username",
-  #     "maxlength": 150,
-  #     "minlength": 1,
-  #     "regex": "^[a-zA-Z0-9_@.+]$",
-  #     "regex_err_msg": "Allowed chars: a-z A-Z 0-9 _ @ . +",
-  #     "required": true,
-  #     "unique": true
+  #     label: "Username",
+  #     maxlength: 150,
+  #     minlength: 1,
+  #     regex: "^[a-zA-Z0-9_@.+]$",
+  #     regex_err_msg: "Allowed chars: a-z A-Z 0-9 _ @ . +",
+  #     required: true,
+  #     unique: true
   #   )
   #   getter email = DynFork::Fields::EmailField.new(
-  #     "label": "E-mail",
-  #     "maxlength": 320,
-  #     "required": true,
-  #     "unique": true
+  #     label: "E-mail",
+  #     maxlength: 320,
+  #     required: true,
+  #     unique: true
   #   )
   #   getter birthday = DynFork::Fields::DateField.new(
-  #     "label": "Birthday",
+  #     label: "Birthday",
   #   )
   #   getter slug = DynFork::Fields::SlugField.new(
-  #     "label": "Slug",
-  #     "slug_sources": ["hash", "username"]
+  #     label: "Slug",
+  #     slug_sources: ["hash", "username"]
   #   )
   #   getter password = DynFork::Fields::PasswordField.new(
-  #     "label": "Password",
+  #     label: "Password",
   #   )
   #   # Do not save the value of this field to the database.
   #   # This field is for verification purposes only.
   #   getter confirm_password = DynFork::Fields::PasswordField.new(
-  #     "label": "Confirm password",
-  #     "ignored": true
+  #     label: "Confirm password",
+  #     ignored: true
   #   )
   #   getter active: DynFork::Fields::BoolField.new(
-  #     "label": "is active?",
-  #     "default": true
+  #     label: "is active?",
+  #     default: true
   #   )
   # end
   # ```
@@ -66,11 +66,11 @@ module DynFork
     include DynFork::Paladins
 
     getter hash = DynFork::Fields::HashField
-      .new("hide": true, "unique": true, "ignored": true)
+      .new(hide: true, unique: true, ignored: true)
     getter created_at = DynFork::Fields::DateTimeField
-      .new("label": "Created at", "hide": true)
+      .new(label: "Created at", hide: true)
     getter updated_at = DynFork::Fields::DateTimeField
-      .new("label": "Updated at", "hide": true)
+      .new(label: "Updated at", hide: true)
     # Metadata cache.
     class_getter! meta : DynFork::Globals::CacheMetaDataType?
 

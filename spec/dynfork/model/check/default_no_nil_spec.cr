@@ -33,6 +33,7 @@ describe DynFork::Model do
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
         Spec::Data::DefaultNoNil.meta[:collection_name]]
+      #
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
       valid = output_data.valid?
       m.print_err unless valid

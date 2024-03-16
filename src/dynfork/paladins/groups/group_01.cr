@@ -2,7 +2,7 @@ module DynFork::Paladins::Groups
   # Validation of `text` type fields:
   # <br>
   # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
-  # | "TextField" | "HashField" | "URLField" | "IPField"_
+  # | "TextField" | "HashField" | "URLField" | "IPField"
   #
   def group_01(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

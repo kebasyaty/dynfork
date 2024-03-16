@@ -2,11 +2,11 @@ require "../../../spec_helper"
 
 describe DynFork::Model do
   describe "#check" do
-    it "=> validation of instance of `FullDefault` model", tags: "check" do
+    it "=> validation of instance of `FullDefaultAndRequired` model", tags: "check_required" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "I96wl3g9f59vyW5e"
+      unique_app_key = "05Q81l90S1w5SQ9f"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 
@@ -22,22 +22,21 @@ describe DynFork::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Spec::Data::FullDefault,
+          Spec::Data::FullDefaultAndRequired,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      m = Spec::Data::FullDefault.new
+      m = Spec::Data::FullDefaultAndRequired.new
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        Spec::Data::FullDefault.meta[:collection_name]]
+        Spec::Data::FullDefaultAndRequired.meta[:collection_name]]
       #
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
-      valid = output_data.valid?
-      m.print_err unless valid
-      valid.should be_true
+      (print "(!!!-normally-!!!)".colorize.fore(:green).mode(:bold)
+      m.print_err) unless output_data.valid?
       data : BSON = output_data.data
       data.empty?.should be_true
       #

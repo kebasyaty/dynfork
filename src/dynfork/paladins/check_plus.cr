@@ -39,19 +39,27 @@ module DynFork::Paladins::CheckPlus
   # ```
   #
   def print_err
-    msg : String = ""
-    errors : String = ""
+    err? : Bool = false
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
-        (msg = "\n## ERRORS:") if msg.empty?
-        errors = (@{{ field }}.errors.clone.map { |err| "\t#{err}" }).join("\n")
-        msg = "#{msg}\n# #{{{ field.name.stringify }}}: #{errors}"
+        # title
+        (puts "\n# ERRORS:".colorize.fore(:red).mode(:bold); err? = true) unless err?
+        # field name
+        print "#{{{field.name.stringify}}}:\t".colorize.fore(:green).mode(:bold)
+        # error messages
+        print @{{ field }}.errors.join("\t").colorize.fore(:red)
+        # line break
+        print "\n"
       end
     {% end %}
-    line_break : String = msg.empty? ? "\n" : "\n\n"
-    (msg + "#{line_break}## AlERTS:\n#{@hash.alerts.join("\n")}") unless @hash.alerts.empty?
-    (msg + "\n") unless msg.empty?
-    puts msg
+    unless @hash.alerts.empty?
+      # title
+      puts "# AlERTS:".colorize.fore(:yellow).mode(:bold)
+      # messages
+      puts @hash.alerts.join("\n").colorize.fore(:yellow)
+      # line break
+      print "\n\n"
+    end
   end
 
   # For accumulating errors.
