@@ -85,5 +85,9 @@ module DynFork::Fields
     def path_to_tempfile(path : String)
       @value = (DynFork::Globals::FileData.new).path_to_tempfile(path)
     end
+
+    def delete_tempfile
+      self.value.delete_tempfile unless @value.nil?
+    end
   end
 end

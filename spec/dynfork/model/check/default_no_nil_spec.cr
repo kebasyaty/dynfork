@@ -109,6 +109,10 @@ describe DynFork::Model do
       m.f64.default?.should eq(10.2)
       #
       m.bool.default?.should be_true
+      #
+      #
+      m.file.delete_tempfile
+      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

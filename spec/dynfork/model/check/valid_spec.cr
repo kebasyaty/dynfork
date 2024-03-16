@@ -24,18 +24,32 @@ describe DynFork::Model do
         "model_list": {
           Spec::Data::FullDefault,
           Spec::Data::DefaultNoNil,
+          Spec::Data::ValueNoNil,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
-      m.valid?.should be_true
-      m.print_err.should be_nil
+      valid = m.valid?
+      m.print_err if valid
+      valid.should be_true
+      m.file.delete_tempfile
+      m.image.delete_tempfile
       #
       m = Spec::Data::DefaultNoNil.new
-      m.valid?.should be_true
-      m.print_err.should be_nil
+      valid = m.valid?
+      m.print_err if valid
+      valid.should be_true
+      m.file.delete_tempfile
+      m.image.delete_tempfile
+      #
+      m = Spec::Data::ValueNoNil.new
+      valid = m.valid?
+      m.print_err if valid
+      valid.should be_true
+      m.file.delete_tempfile
+      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
