@@ -69,8 +69,9 @@ describe DynFork::Model do
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
         Spec::Data::ValueNoNil.meta[:collection_name]]
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
-      m.print_err
-      output_data.valid?.should be_true
+      valid = output_data.valid?
+      m.print_err unless valid
+      valid.should be_true
       data : BSON = output_data.data
       data.empty?.should be_true
       #
