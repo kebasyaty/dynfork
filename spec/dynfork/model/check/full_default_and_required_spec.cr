@@ -76,40 +76,40 @@ describe DynFork::Model do
       m.bool.value?.should be_nil
       #
       # Param `default`
-      m.url.default?.should eq("https://translate.google.com/")
-      m.text.default?.should eq("Some text")
-      m.phone.default?.should eq("+18004444444")
+      m.url.default?.should be_nil
+      m.text.default?.should be_nil
+      m.phone.default?.should be_nil
       m.password.default?.should be_nil
-      m.ip.default?.should eq("126.255.255.255")
+      m.ip.default?.should be_nil
       m.hash.default?.should be_nil
-      m.email.default?.should eq("john.smith@example.com")
-      m.color.default?.should eq("#ff0000")
+      m.email.default?.should be_nil
+      m.color.default?.should eq("#000000")
       #
-      m.date.default?.should eq("1970-01-01")
-      m.datetime.default?.should eq("1970-01-01T00:00:00")
+      m.date.default?.should be_nil
+      m.datetime.default?.should be_nil
       #
-      m.choice_text.default?.should eq("value")
-      m.choice_text_mult.default?.should eq(["value"])
+      m.choice_text.default?.should be_nil
+      m.choice_text_mult.default?.should be_nil
       m.choice_text_dyn.default?.should be_nil
       m.choice_text_mult_dyn.default?.should be_nil
       #
-      m.choice_i64.default?.should eq(5_i64)
-      m.choice_i64_mult.default?.should eq([5_i64])
+      m.choice_i64.default?.should be_nil
+      m.choice_i64_mult.default?.should be_nil
       m.choice_i64_dyn.default?.should be_nil
       m.choice_i64_mult_dyn.default?.should be_nil
       #
-      m.choice_f64.default?.should eq(5.0)
-      m.choice_f64_mult.default?.should eq([5.0])
+      m.choice_f64.default?.should be_nil
+      m.choice_f64_mult.default?.should be_nil
       m.choice_f64_dyn.default?.should be_nil
       m.choice_f64_mult_dyn.default?.should be_nil
       #
-      m.file.default?.should eq("assets/media/default/no_doc.odt")
-      m.image.default?.should eq("assets/media/default/no_photo.jpeg")
+      m.file.default?.should be_nil
+      m.image.default?.should be_nil
       #
-      m.i64.default?.should eq(10_i64)
-      m.f64.default?.should eq(10.2)
+      m.i64.default?.should be_nil
+      m.f64.default?.should be_nil
       #
-      m.bool.default?.should be_true
+      m.bool.default?.should be_false
       #
       #
       m.file.delete_tempfile
