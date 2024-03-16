@@ -66,11 +66,11 @@ module DynFork
     include DynFork::Paladins
 
     getter hash = DynFork::Fields::HashField
-      .new("hide": true, "ignored": true)
+      .new(hide: true, unique: true, ignored: true)
     getter created_at = DynFork::Fields::DateTimeField
-      .new("label": "Created at", "hide": true)
+      .new(label: "Created at", hide: true)
     getter updated_at = DynFork::Fields::DateTimeField
-      .new("label": "Updated at", "hide": true)
+      .new(label: "Updated at", hide: true)
     # Metadata cache.
     class_getter! meta : DynFork::Globals::CacheMetaDataType?
 
