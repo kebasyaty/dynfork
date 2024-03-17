@@ -115,7 +115,12 @@ module DynFork::Paladins::CheckPlus
   end
 
   # For fill in all fields of the slug type.
-  def create_slugs(data : BSON)
+  def create_slugs(document : BSON)
+    # ...
+  end
+
+  # Refrash field values ​​after creating or updating a document.
+  def refrash_field
     # ...
   end
 end

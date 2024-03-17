@@ -28,18 +28,36 @@ module DynFork::Paladins::Save
     return unless output_data.valid?
     # Create or update a document in the database.
     if output_data.update?
-      # Create doc.
-      collection.insert_one(output_data.data)
-    else
       # Update doc.
       if id : BSON::ObjectId? = @hash.object_id?
         filter = {"_id": id}
         update = {"$set": output_data.data}
-        collection.update_one(filter, update)
+        if doc : BSON? = collection.find_one_and_update(
+             filter: filter,
+             update: update,
+             new: true
+           )
+          self.create_slugs(doc)
+          self.refrash_field
+        end
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{self.model_name}` > Field: `hash` > " +
           "Param: `value` => Hash is missing."
+        )
+      end
+    else
+      # Create doc.
+      id = BSON::ObjectId.new
+      output_data.data["_id"] = id
+      collection.insert_one(output_data.data)
+      if doc : BSON? = collection.find_one({_id: id})
+        @hash.value = id.to_s
+        self.create_slugs(doc)
+        self.refrash_field
+      else
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{self.model_name}` => The document was not created."
         )
       end
     end
