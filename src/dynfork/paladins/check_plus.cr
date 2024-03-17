@@ -115,7 +115,7 @@ module DynFork::Paladins::CheckPlus
   end
 
   # For fill in all fields of the slug type.
-  def create_slugs
+  def create_slugs(data : BSON)
     # ...
   end
 end
