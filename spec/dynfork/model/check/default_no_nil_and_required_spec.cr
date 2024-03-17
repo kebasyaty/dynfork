@@ -6,7 +6,7 @@ describe DynFork::Model do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "7D553S9wrj05784z"
+      unique_app_key = "20U8SGwv83I35clj"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 
@@ -29,6 +29,8 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::DefaultNoNilAndRequired.new
+      m.password.value = "20U8SGwv83I35clj"
+      m.hash2.value = "507c7f79bcf86cd7994f6c0e"
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -45,9 +47,9 @@ describe DynFork::Model do
       m.url.value?.should be_nil
       m.text.value?.should be_nil
       m.phone.value?.should be_nil
-      m.password.value?.should be_nil
+      m.password.value?.should eq("20U8SGwv83I35clj")
       m.ip.value?.should be_nil
-      m.hash.value?.should be_nil
+      m.hash2.value?.should eq("507c7f79bcf86cd7994f6c0e")
       m.email.value?.should be_nil
       m.color.value?.should be_nil
       #
@@ -83,7 +85,7 @@ describe DynFork::Model do
       m.phone.default?.should eq("+18004444444")
       m.password.default?.should be_nil
       m.ip.default?.should eq("126.255.255.255")
-      m.hash.default?.should be_nil
+      m.hash2.default?.should be_nil
       m.email.default?.should eq("john.smith@example.com")
       m.color.default?.should eq("#ff0000")
       #
