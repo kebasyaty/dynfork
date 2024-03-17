@@ -36,6 +36,7 @@ describe DynFork::Model do
       m.phone.value = "+18004444444"
       m.password.value = "E2ep4e3UPkWs84GO"
       m.ip.value = "126.255.255.255"
+      m.hash2.value = "507c7f79bcf86cd7994f6c0e"
       m.email.value = "john.smith@example.com"
       m.color.value = "#ff0000"
       #
@@ -82,7 +83,7 @@ describe DynFork::Model do
       m.phone.value?.should eq("+18004444444")
       m.password.value?.should eq("E2ep4e3UPkWs84GO")
       m.ip.value?.should eq("126.255.255.255")
-      m.hash.value?.should be_nil
+      m.hash2.value?.should eq("507c7f79bcf86cd7994f6c0e")
       m.email.value?.should eq("john.smith@example.com")
       m.color.value?.should eq("#ff0000")
       #
@@ -118,7 +119,7 @@ describe DynFork::Model do
       m.phone.default?.should be_nil
       m.password.default?.should be_nil
       m.ip.default?.should be_nil
-      m.hash.default?.should be_nil
+      m.hash2.default?.should be_nil
       m.email.default?.should be_nil
       m.color.default?.should eq("#000000")
       #
