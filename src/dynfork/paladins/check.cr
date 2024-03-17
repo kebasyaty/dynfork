@@ -1,7 +1,9 @@
 require "./check_plus"
 require "./groups/*"
 
-# Validation of Model data before saving to the database.
+# 1.Validation of Model data before saving to the database.
+# <br>
+# 2.Web form validation. It is recommended to use the _saving_docs?=true_ model parameter.
 module DynFork::Paladins::Check
   include DynFork::Paladins::CheckPlus
   include DynFork::Paladins::Groups
