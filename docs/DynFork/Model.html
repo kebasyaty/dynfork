@@ -609,39 +609,39 @@
 )]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Username&quot;</span>,
-    <span class="s">&quot;maxlength&quot;</span>: <span class="n">150</span>,
-    <span class="s">&quot;minlength&quot;</span>: <span class="n">1</span>,
-    <span class="s">&quot;regex&quot;</span>: <span class="s">&quot;^[a-zA-Z0-9_@.+]$&quot;</span>,
-    <span class="s">&quot;regex_err_msg&quot;</span>: <span class="s">&quot;Allowed chars: a-z A-Z 0-9 _ @ . +&quot;</span>,
-    <span class="s">&quot;required&quot;</span>: <span class="n">true</span>,
-    <span class="s">&quot;unique&quot;</span>: <span class="n">true</span>
+    label: <span class="s">&quot;Username&quot;</span>,
+    maxlength: <span class="n">150</span>,
+    minlength: <span class="n">1</span>,
+    regex: <span class="s">&quot;^[a-zA-Z0-9_@.+]$&quot;</span>,
+    regex_err_msg: <span class="s">&quot;Allowed chars: a-z A-Z 0-9 _ @ . +&quot;</span>,
+    required: <span class="n">true</span>,
+    unique: <span class="n">true</span>
   )
   getter email <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;E-mail&quot;</span>,
-    <span class="s">&quot;maxlength&quot;</span>: <span class="n">320</span>,
-    <span class="s">&quot;required&quot;</span>: <span class="n">true</span>,
-    <span class="s">&quot;unique&quot;</span>: <span class="n">true</span>
+    label: <span class="s">&quot;E-mail&quot;</span>,
+    maxlength: <span class="n">320</span>,
+    required: <span class="n">true</span>,
+    unique: <span class="n">true</span>
   )
   getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Birthday&quot;</span>,
+    label: <span class="s">&quot;Birthday&quot;</span>,
   )
   getter slug <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">SlugField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Slug&quot;</span>,
-    <span class="s">&quot;slug_sources&quot;</span>: [<span class="s">&quot;hash&quot;</span>, <span class="s">&quot;username&quot;</span>]
+    label: <span class="s">&quot;Slug&quot;</span>,
+    slug_sources: [<span class="s">&quot;hash&quot;</span>, <span class="s">&quot;username&quot;</span>]
   )
   getter password <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Password&quot;</span>,
+    label: <span class="s">&quot;Password&quot;</span>,
   )
   <span class="c"># Do not save the value of this field to the database.</span>
   <span class="c"># This field is for verification purposes only.</span>
   getter confirm_password <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">PasswordField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;Confirm password&quot;</span>,
-    <span class="s">&quot;ignored&quot;</span>: <span class="n">true</span>
+    label: <span class="s">&quot;Confirm password&quot;</span>,
+    ignored: <span class="n">true</span>
   )
   getter active: <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">BoolField</span>.new(
-    <span class="s">&quot;label&quot;</span>: <span class="s">&quot;is active?&quot;</span>,
-    <span class="s">&quot;default&quot;</span>: <span class="n">true</span>
+    label: <span class="s">&quot;is active?&quot;</span>,
+    default: <span class="n">true</span>
   )
 <span class="k">end</span></code></pre>
 
