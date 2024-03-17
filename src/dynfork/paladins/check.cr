@@ -35,20 +35,6 @@ module DynFork::Paladins::Check
     # Current error message.
     err_msg : String?
 
-    # Check the conditions and, if necessary, define a message for the web form.
-    # Reset the alerts to exclude duplicates.
-    if save?
-      @hash.alerts = Array(String).new
-      if !updated? && !@@meta.not_nil![:saving_docs?]
-        @hash.alerts << "It is forbidden to perform saves!"
-        error_symptom? = true
-      end
-      if updated? && !@@meta.not_nil![:updating_docs?]
-        @hash.alerts << "It is forbidden to perform updates!"
-        error_symptom? = true
-      end
-    end
-
     # Start checking all fields.
     {% for field in @type.instance_vars %}
       # Reset a field errors to exclude duplicates.
