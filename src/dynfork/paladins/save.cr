@@ -32,8 +32,8 @@ module DynFork::Paladins::Save
       collection.insert_one(output_data.data)
     else
       # Update doc.
-      if hash : BSON::ObjectId? = @hash.object_id?
-        filter = {"_id": hash}
+      if id : BSON::ObjectId? = @hash.object_id?
+        filter = {"_id": id}
         update = {"$set": output_data.data}
         collection.update_one(filter, update)
       else
