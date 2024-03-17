@@ -4,7 +4,6 @@ require "base64"
 require "crypto/bcrypt/password"
 require "uuid"
 require "file_utils"
-require "colorize"
 # Third party libraries:
 require "cryomongo"
 require "bson"

@@ -42,10 +42,11 @@ module DynFork::Paladins::CheckPlus
     err? : Bool = false
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
-        # title
+        # title - # ERRORS
         (puts "\n# ERRORS:".colorize.fore(:red).mode(:bold); err? = true) unless err?
         # field name
-        print "#{{{field.name.stringify}}}:\t".colorize.fore(:green).mode(:bold)
+        print "## #{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
+        print " => ".colorize.fore(:cyan).mode(:bold)
         # error messages
         print @{{ field }}.errors.join("\t").colorize.fore(:red)
         # line break
@@ -56,7 +57,7 @@ module DynFork::Paladins::CheckPlus
       # title
       puts "# AlERTS:".colorize.fore(:yellow).mode(:bold)
       # messages
-      puts @hash.alerts.join("\n").colorize.fore(:yellow)
+      puts (@hash.alerts.map { |item| "## #{item}" }).join("\n").colorize.fore(:yellow)
       # line break
       print "\n\n"
     end

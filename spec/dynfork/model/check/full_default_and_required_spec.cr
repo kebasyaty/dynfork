@@ -35,7 +35,7 @@ describe DynFork::Model do
         Spec::Data::FullDefaultAndRequired.meta[:collection_name]]
       #
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
-      (print "(!!!-normally-!!!)".colorize.fore(:green).mode(:bold)
+      (print "(!!!-normally-!!!)".colorize.fore(:cyan).mode(:bold)
       m.print_err) unless output_data.valid?
       data : BSON = output_data.data
       data.empty?.should be_true
