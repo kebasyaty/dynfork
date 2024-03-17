@@ -120,7 +120,7 @@ module DynFork::Paladins::CheckPlus
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_field
+  def refrash_fields
     # ...
   end
 end

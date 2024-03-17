@@ -38,7 +38,7 @@ module DynFork::Paladins::Save
              new: true
            )
           self.create_slugs(doc)
-          self.refrash_field
+          self.refrash_fields
         end
       else
         raise DynFork::Errors::Panic.new(
@@ -54,7 +54,7 @@ module DynFork::Paladins::Save
       if doc : BSON? = collection.find_one({_id: id})
         @hash.value = id.to_s
         self.create_slugs(doc)
-        self.refrash_field
+        self.refrash_fields
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{self.model_name}` => The document was not created."
