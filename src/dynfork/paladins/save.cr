@@ -24,5 +24,24 @@ module DynFork::Paladins::Save
       @hash.alerts << I18n.t(:forbidden_updates)
       output_data.valid = false
     end
+    # Leave the method if the check fails.
+    return unless output_data.valid?
+    # Create or update a document in the database.
+    if output_data.update?
+      # Create doc.
+      collection.insert_one(output_data.data)
+    else
+      # Update doc.
+      if hash : BSON::ObjectId? = @hash.object_id?
+        filter = {"_id": hash}
+        update = {"$set": output_data.data}
+        collection.update_one(filter, update)
+      else
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{self.model_name}` > Field: `hash` > " +
+          "Param: `value` => Hash is missing."
+        )
+      end
+    end
   end
 end
