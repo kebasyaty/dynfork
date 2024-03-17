@@ -7,13 +7,13 @@ module DynFork::Paladins::Groups
   def group_01(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
-    updated? : Bool,
+    update? : Bool,
     save? : Bool,
     result_bson_ptr : Pointer(BSON),
     collection_ptr : Pointer(Mongo::Collection)
   )
     # When updating, we skip field password type.
-    if updated? && field_ptr.value.field_type == "PasswordField"
+    if update? && field_ptr.value.field_type == "PasswordField"
       field_ptr.value.value = nil
       return
     end

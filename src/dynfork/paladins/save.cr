@@ -16,11 +16,11 @@ module DynFork::Paladins::Save
     # <br>
     # Reset the alerts to exclude duplicates.
     @hash.alerts = Array(String).new
-    if !output_data.updated? && !@@meta.not_nil![:saving_docs?]
+    if !output_data.update? && !@@meta.not_nil![:saving_docs?]
       @hash.alerts << "It is forbidden to perform saves!"
       output_data.valid = false
     end
-    if output_data.updated? && !@@meta.not_nil![:updating_docs?]
+    if output_data.update? && !@@meta.not_nil![:updating_docs?]
       @hash.alerts << "It is forbidden to perform updates!"
       output_data.valid = false
     end

@@ -14,9 +14,9 @@ module DynFork::Paladins::Check
     save? : Bool = false
   ) : DynFork::Globals::OutputData
     # Does the document exist in the database?
-    updated? : Bool = !@hash.value?.nil? && !@hash.value.empty?
+    update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
     # Validation the hash field value.
-    if updated? && !BSON::ObjectId.validate(@hash.value)
+    if update? && !BSON::ObjectId.validate(@hash.value)
       msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
@@ -56,7 +56,7 @@ module DynFork::Paladins::Check
           self.group_01(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             collection_ptr
@@ -93,7 +93,7 @@ module DynFork::Paladins::Check
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             cleaning_map_ptr
@@ -103,7 +103,7 @@ module DynFork::Paladins::Check
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             cleaning_map_ptr
@@ -154,6 +154,10 @@ module DynFork::Paladins::Check
     end
     #
     # --------------------------------------------------------------------------
-    DynFork::Globals::OutputData.new(result_bson, !error_symptom?)
+    DynFork::Globals::OutputData.new(
+      data: result_bson,
+      valid: !error_symptom?,
+      update: update?
+    )
   end
 end

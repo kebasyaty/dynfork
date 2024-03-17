@@ -4,9 +4,9 @@ module DynFork::Globals::Types
   struct OutputData
     getter data : BSON
     getter? valid : Bool
-    getter? updated : Bool
+    getter? update : Bool
 
-    def initialize(@data : BSON, @valid : Bool, @updated : Bool); end
+    def initialize(@data : BSON, @valid : Bool, @update : Bool); end
   end
 
   # Data type for FileField.
