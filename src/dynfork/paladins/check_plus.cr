@@ -142,6 +142,11 @@ module DynFork::Paladins::CheckPlus
         # | ChoiceI64MultDynField | ChoiceF64MultDynField
       when 4
         # FileField
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value.to_i64
+        else
+          nil
+        end
       when 5
         # ImageField
       when 6
@@ -150,28 +155,28 @@ module DynFork::Paladins::CheckPlus
           value.to_i64
         else
           nil
-        end 
+        end
       when 7
         # F64Field
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
           value.to_f64
         else
           nil
-        end 
+        end
       when 8
         # BoolField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
           value
         else
           false
-        end 
+        end
       when 9
         # SlugField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
           value.to_s
         else
           nil
-        end  
+        end
       else
         raise DynFork::Errors::Model::InvalidGroupNumber
           .new(self.model_name, {{ field.name.stringify }})
