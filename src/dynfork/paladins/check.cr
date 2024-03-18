@@ -143,7 +143,7 @@ module DynFork::Paladins::Check
         when 9
           # Create string for SlugField.
           if save?
-            self.group_08(
+            self.group_09(
               pointerof(@{{ field }}),
               result_bson_ptr
             )
