@@ -104,8 +104,8 @@ module DynFork::Fields
       self.date_parse(@value.as(String)) unless @value.nil?
     end
 
-    def refrash_val_str(val : String)
-      @value = val
+    def refrash_val_date(val : String)
+      @value = val.to_s("%F")
     end
   end
 end

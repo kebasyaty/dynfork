@@ -132,14 +132,14 @@ module DynFork::Paladins::CheckPlus
         end
       when 2
         # DateField | DateTimeField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
+        if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type.includes?("Time")
-            value.as(Time).to_s("%FT%H:%M:%S")
+            @{{ field }}.refrash_val_datetime(value.as(Time))
           else
-            value.as(Time).to_s("%F")
+            @{{ field }}.refrash_val_date(value.as(Time))
           end
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 3
         # ChoiceTextField | ChoiceI64Field
