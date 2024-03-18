@@ -25,7 +25,7 @@ module DynFork::Paladins::Save
       output_data.valid = false
     end
     # Leave the method if the check fails.
-    (return output_data) unless output_data.valid?
+    return output_data unless output_data.valid?
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
@@ -59,5 +59,7 @@ module DynFork::Paladins::Save
         )
       end
     end
+    #
+    nil
   end
 end
