@@ -51,7 +51,7 @@ module DynFork::Paladins::Save
       data : BSON = output_data.data
       data["_id"] = id
       collection.insert_one(data)
-      if doc : BSON? = collection.find_one({_id: id})
+      if doc = collection.find_one({_id: id})
         self.refrash_fields(doc)
       else
         raise DynFork::Errors::Panic.new(
