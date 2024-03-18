@@ -58,6 +58,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_str(val : String); end
 
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
@@ -141,6 +144,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
 
     def initialize(
       @label : String = "",

@@ -56,6 +56,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_bool(val : Bool); end
 
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
@@ -68,6 +71,10 @@ module DynFork::Fields
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
+    def refrash_val_str(val : String)
+      @value = val
+    end
+
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
@@ -79,10 +86,6 @@ module DynFork::Fields
         return false unless value_list.includes?(value)
       end
       true
-    end
-
-    def refrash_val_str(val : String)
-      @value = val
     end
   end
 
@@ -141,6 +144,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_bool(val : Bool); end
 
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
     def initialize(
       @label : String = "",
       @default : Array(String)? = nil,
@@ -152,6 +158,10 @@ module DynFork::Fields
       @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
+
+    def refrash_val_arr_str(val : Array(String))
+      @value = val
+    end
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
@@ -224,6 +234,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
 
     def initialize(
       @label : String = "",
@@ -314,6 +327,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_bool(val : Bool); end
 
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
     def initialize(
       @label : String = "",
       @hide : Bool = false,
@@ -327,6 +343,10 @@ module DynFork::Fields
     # Add data for dynamic fields from the local `@@meta` cache.
     def choices_from_json(json : String)
       @choices = Array(Tuple(String, String)).from_json(json)
+    end
+
+    def refrash_val_arr_str(val : Array(String))
+      @value = val
     end
 
     # Does the field value match the possible options in choices.
