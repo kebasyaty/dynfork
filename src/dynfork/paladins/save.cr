@@ -48,7 +48,8 @@ module DynFork::Paladins::Save
     else
       # Create doc.
       id : BSON::ObjectId? = @hash.object_id?
-      collection.insert_one(output_data.data)
+      data : BSON = (output_data.data)["_id"] = id
+      collection.insert_one(data)
       if doc : BSON? = collection.find_one({_id: id})
         self.refrash_fields(doc)
       else
