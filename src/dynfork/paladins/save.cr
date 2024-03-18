@@ -3,7 +3,7 @@ module DynFork::Paladins::Save
   # Creating and updating documents in the database.
   # <br>
   # This method pre-uses the _check_ method.
-  def save
+  def save : DynFork::Globals::OutputData?
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -25,7 +25,7 @@ module DynFork::Paladins::Save
       output_data.valid = false
     end
     # Leave the method if the check fails.
-    return unless output_data.valid?
+    return output_data unless output_data.valid?
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
