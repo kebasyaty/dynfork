@@ -85,5 +85,9 @@ module DynFork::Fields
     def slug_sources : Array(String)
       @slug_sources
     end
+
+    def refrash_val_str(val : String)
+      @value = val
+    end
   end
 end

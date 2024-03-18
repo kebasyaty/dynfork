@@ -55,6 +55,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_f64(val : Float64); end
 
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
     def initialize(
       @label : String = "",
       @default : Bool? = false,

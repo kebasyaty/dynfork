@@ -87,5 +87,9 @@ module DynFork::Fields
       @input_type = "text"
       @minlength = 0
     end
+
+    def refrash_val_str(val : String)
+      @value = val
+    end
   end
 end

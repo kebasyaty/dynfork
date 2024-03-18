@@ -80,6 +80,10 @@ module DynFork::Fields
       end
       true
     end
+
+    def refrash_val_str(val : String)
+      @value = val
+    end
   end
 
   # Type of selective field with static of elements.
@@ -234,6 +238,10 @@ module DynFork::Fields
     # Add data for dynamic fields from the local `@@meta` cache.
     def choices_from_json(json : String)
       @choices = Array(Tuple(String, String)).from_json(json)
+    end
+
+    def refrash_val_str(val : String)
+      @value = val
     end
 
     # Does the field value match the possible options in choices.

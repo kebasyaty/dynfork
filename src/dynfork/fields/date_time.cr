@@ -96,5 +96,9 @@ module DynFork::Fields
     def time_object? : Time?
       self.datetime_parse(@value.as(String)) unless @value.nil?
     end
+
+    def refrash_val_str(val : String)
+      @value = val
+    end
   end
 end

@@ -83,5 +83,9 @@ module DynFork::Fields
         BSON::ObjectId.new(value)
       end
     end
+
+    def refrash_val_str(val : String)
+      @value = val
+    end
   end
 end
