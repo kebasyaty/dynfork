@@ -150,42 +150,42 @@ module DynFork::Paladins::CheckPlus
         # | ChoiceI64MultDynField | ChoiceF64MultDynField
       when 4
         # FileField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           DynFork::Globals::FileData.from_bson(value)
         else
           nil
         end
       when 5
         # ImageField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           DynFork::Globals::ImageData.from_bson(value)
         else
           nil
-        end 
+        end
       when 6
         # I64Field
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           value.to_i64
         else
           nil
         end
       when 7
         # F64Field
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           value.to_f64
         else
           nil
         end
       when 8
         # BoolField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           value
         else
           false
         end
       when 9
         # SlugField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           value.to_s
         else
           nil
