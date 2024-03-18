@@ -143,12 +143,17 @@ module DynFork::Paladins::CheckPlus
       when 4
         # FileField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
-          value.to_i64
+          DynFork::Globals::FileData.from_bson(value)
         else
           nil
         end
       when 5
         # ImageField
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          DynFork::Globals::ImageData.from_bson(value)
+        else
+          nil
+        end 
       when 6
         # I64Field
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
