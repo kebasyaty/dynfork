@@ -2,6 +2,9 @@
 module DynFork::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
+    include JSON::Serializable
+    include BSON::Serializable
+
     getter data : BSON
     property? valid : Bool
     getter? update : Bool

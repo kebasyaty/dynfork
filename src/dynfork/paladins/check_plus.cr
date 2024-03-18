@@ -123,7 +123,7 @@ module DynFork::Paladins::CheckPlus
         # | TextField | HashField | URLField | IPField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type != "PasswordField"
-            value.to_s
+            value.as(String)
           else
             nil
           end
@@ -134,9 +134,9 @@ module DynFork::Paladins::CheckPlus
         # DateField | DateTimeField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type.includes?("Time")
-            value.to_s("%FT%H:%M:%S")
+            value.as(Time).to_s("%FT%H:%M:%S")
           else
-            value.to_s("%F")
+            value.as(Time).to_s("%F")
           end
         else
           nil
@@ -151,14 +151,14 @@ module DynFork::Paladins::CheckPlus
       when 4
         # FileField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          DynFork::Globals::FileData.from_bson(value)
+          DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
         else
           nil
         end
       when 5
         # ImageField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          DynFork::Globals::ImageData.from_bson(value)
+          DynFork::Globals::ImageData.from_json(value.as(BSON).to_json)
         else
           nil
         end
