@@ -110,5 +110,9 @@ module DynFork::Fields
     def delete_tempfile
       self.value.delete_tempfile unless @value.nil?
     end
+
+    def refrash_val_file_data(val : DynFork::Globals::FileData)
+      @value = val
+    end
   end
 end

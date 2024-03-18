@@ -64,6 +64,12 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_arr_f64(val : Array(Float64)); end
 
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::FileData); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

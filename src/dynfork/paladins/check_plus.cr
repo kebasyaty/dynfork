@@ -121,14 +121,14 @@ module DynFork::Paladins::CheckPlus
       when 1
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
+        if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type != "PasswordField"
-            value.as(String)
+            @{{ field }}.refrash_val_str(value.as(String))
           else
-            nil
+            @{{ field }}.value =  nil
           end
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 2
         # DateField | DateTimeField
@@ -185,10 +185,10 @@ module DynFork::Paladins::CheckPlus
         end
       when 9
         # SlugField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          value.as(String)
+        if !(value = doc[@{{ field }}.name]).nil?
+          @{{ field }}.refrash_val_str(value.as(String))
         else
-          nil
+          @{{ field }}.value =  nil
         end
       else
         raise DynFork::Errors::Model::InvalidGroupNumber
