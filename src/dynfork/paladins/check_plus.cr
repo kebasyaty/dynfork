@@ -178,7 +178,7 @@ module DynFork::Paladins::CheckPlus
         end
       when 8
         # BoolField
-        !(value = doc[@{{ field }}.name]).nil?
+        if !(value = doc[@{{ field }}.name]).nil?
           @{{ field }}.refrash_val_bool(value.as(Bool))
         else
           @{{ field }}.refrash_val_bool(false)
