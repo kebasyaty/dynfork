@@ -45,7 +45,7 @@ describe DynFork::Model do
       m.ip.value?.should be_nil
       m.hash2.value?.should be_nil
       m.email.value?.should be_nil
-      m.color.value?.should be_nil
+      m.color.value?.should eq("#000000")
       #
       m.date.value?.should be_nil
       m.datetime.value?.should be_nil
