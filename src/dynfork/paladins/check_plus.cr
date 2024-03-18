@@ -116,6 +116,8 @@ module DynFork::Paladins::CheckPlus
 
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc_ptr : Pointer(BSON))
-    # ...
+    {% for field in @type.instance_vars %}
+      # ...
+    {% end %}
   end
 end
