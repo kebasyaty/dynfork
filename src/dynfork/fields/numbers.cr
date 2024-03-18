@@ -49,6 +49,12 @@ module DynFork::Fields
     # :nodoc:
     def has_value?; end
 
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
@@ -69,6 +75,10 @@ module DynFork::Fields
       unless ["number", "range"].includes?(self.input_type)
         raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)
       end
+    end
+
+    def refrash_val_i64(val : Int64)
+      @value = val
     end
   end
 
@@ -120,6 +130,12 @@ module DynFork::Fields
     # :nodoc:
     def has_value?; end
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
     def initialize(
       @label : String = "",
       @default : Float64? = nil,
@@ -140,6 +156,10 @@ module DynFork::Fields
       unless ["number", "range"].includes?(self.input_type)
         raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)
       end
+    end
+
+    def refrash_val_f64(val : Float64)
+      @value = val
     end
   end
 end

@@ -48,7 +48,13 @@ module DynFork::Fields
     def has_value?; end
 
     # :nodoc:
-    def has_value?; end
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
 
     def initialize(
       @label : String = "",

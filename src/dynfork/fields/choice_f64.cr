@@ -47,6 +47,15 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
     def initialize(
       @label : String = "",
       @default : Float64? = nil,
@@ -114,6 +123,15 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
 
     def initialize(
       @label : String = "",
@@ -186,6 +204,15 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
     def initialize(
       @label : String = "",
       @hide : Bool = false,
@@ -257,6 +284,15 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
 
     def initialize(
       @label : String = "",

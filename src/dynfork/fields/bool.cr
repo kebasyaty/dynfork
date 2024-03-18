@@ -49,6 +49,12 @@ module DynFork::Fields
     # :nodoc:
     def has_value?; end
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
     def initialize(
       @label : String = "",
       @default : Bool? = false,
@@ -58,6 +64,10 @@ module DynFork::Fields
       @hint : String = ""
     )
       @input_type = "checkbox"
+    end
+
+    def refrash_val_bool(val : Bool)
+      @value = val
     end
   end
 end

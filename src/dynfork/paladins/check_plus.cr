@@ -151,42 +151,42 @@ module DynFork::Paladins::CheckPlus
       when 4
         # FileField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
+          #DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
         else
           nil
         end
       when 5
         # ImageField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          DynFork::Globals::ImageData.from_json(value.as(BSON).to_json)
+          #DynFork::Globals::ImageData.from_json(value.as(BSON).to_json)
         else
           nil
         end
       when 6
         # I64Field
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          value.to_i64
+        if !(value = doc[@{{ field }}.name]).nil?
+          @{{ field }}.refrash_val_i64(value.as(Int64))
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 7
         # F64Field
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          value.to_f64
+        if !(value = doc[@{{ field }}.name]).nil?
+          @{{ field }}.refrash_val_f64(value.as(Float64))
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 8
         # BoolField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          value
+        !(value = doc[@{{ field }}.name]).nil?
+          @{{ field }}.refrash_val_bool(value.as(Bool))
         else
-          false
+          @{{ field }}.refrash_val_bool(false)
         end
       when 9
         # SlugField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          value.to_s
+          value.as(String)
         else
           nil
         end
