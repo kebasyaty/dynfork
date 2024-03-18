@@ -8,7 +8,7 @@ module DynFork::Paladins::Save
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     # Check and get output data.
-    output_data : DynFork::Globals::OutputData = m.check(
+    output_data : DynFork::Globals::OutputData = self.check(
       collection_ptr: pointerof(collection),
       save?: true
     )

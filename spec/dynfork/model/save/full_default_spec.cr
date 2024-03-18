@@ -29,12 +29,12 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
-      m.save
+      output_data : DynFork::Globals::OutputData = m.save
       valid = output_data.valid?
       m.print_err unless valid
       valid.should be_true
       data : BSON = output_data.data
-      data.empty?.should be_true
+      data.empty?.should be_false
       #
       # Param `value`
       m.url.value?.should be_nil
