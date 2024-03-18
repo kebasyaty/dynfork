@@ -79,6 +79,12 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_arr_f64(val : Array(Float64)); end
 
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

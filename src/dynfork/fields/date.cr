@@ -79,6 +79,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_img_data(val : DynFork::Globals::FileData); end
 
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
