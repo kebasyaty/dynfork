@@ -122,12 +122,12 @@ module DynFork::Paladins::CheckPlus
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
         if !(value = doc[@{{ field }}.name]).nil?
-          if @{{ field }}.field_type != "PasswordField"
-            if @{{ field }}.field_type != "HashField"
+          if @{{ field }}.name != "hash"
+            if @{{ field }}.field_type != "PasswordField"
               @{{ field }}.refrash_val_str(value.as(String))
+            else
+              @{{ field }}.value =  nil
             end
-          else
-            @{{ field }}.value =  nil
           end
         else
           @{{ field }}.value =  nil
