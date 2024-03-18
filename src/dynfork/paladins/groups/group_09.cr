@@ -7,8 +7,8 @@ module DynFork::Paladins::Groups
     slug : String = ""
     {% for field in @type.instance_vars %}
       if @{{ field }}.slug_sources.includes?({{ field.name.stringify }})
-        if Value = @{{ field }}.value || @{{ field }}.default
-          slug += Value
+        if value = @{{ field }}.value || @{{ field }}.default
+          slug += value.to_s
         end
       end
     {% end %}
