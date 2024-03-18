@@ -71,7 +71,7 @@ describe DynFork::Model do
       m.i64.value?.should be_nil
       m.f64.value?.should be_nil
       #
-      m.bool.value?.should be_nil
+      m.bool.value?.should be_false
       #
       # Param `default`
       m.url.default?.should be_nil
