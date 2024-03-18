@@ -3,7 +3,7 @@ module DynFork::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
     getter data : BSON
-    getter? valid : Bool
+    property? valid : Bool
     getter? update : Bool
 
     def initialize(@data : BSON, @valid : Bool, @update : Bool); end
