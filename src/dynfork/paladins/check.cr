@@ -141,9 +141,13 @@ module DynFork::Paladins::Check
             result_bson_ptr
           )
         when 9
-          # Ignore validation of `slug` type fields.
-          # <br>
-          # These fields are checked in the `caching` and `create_slugs` methods.
+          # Create string for SlugField.
+          if save?
+            self.group_08(
+              pointerof(@{{ field }}),
+              result_bson_ptr
+            )
+          end
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
             .new(self.model_name, {{ field.name.stringify }})
