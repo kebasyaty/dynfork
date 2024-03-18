@@ -153,6 +153,8 @@ module DynFork::Paladins::Check
 
     # Actions in case of error.
     if error_symptom?
+      # Reset the hash for a new document.
+      (@hash.value = nil) if save? && !update?
       # Delete new files.
       cleaning_map[:files].each do |path|
         File.delete(path)
