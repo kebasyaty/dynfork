@@ -29,9 +29,11 @@ module DynFork::Paladins::Save
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
+      data : BSON = output_data.data
+      data["updated_at"] = Time.utc.to_s("%FT%H:%M:%S")
       if id : BSON::ObjectId? = @hash.object_id?
         filter = {"_id": id}
-        update = {"$set": output_data.data}
+        update = {"$set": data}
         if doc : BSON? = collection.find_one_and_update(
              filter: filter,
              update: update,
@@ -48,8 +50,11 @@ module DynFork::Paladins::Save
     else
       # Create doc.
       id = @hash.object_id?
-      data : BSON = output_data.data
+      data = output_data.data
       data["_id"] = id
+      datetime : Time = Time.utc.to_s("%FT%H:%M:%S")
+      data["created_at"] = datetime
+      data["updated_at"] = datetime
       collection.insert_one(data)
       if doc = collection.find_one({_id: id})
         self.refrash_fields(doc)
