@@ -121,10 +121,10 @@ module DynFork::Paladins::CheckPlus
       when 1
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
-        if !(value = doc[@{{ field }}.name]).nil? 
-          @{{ field }}.value = value.to_s
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value.to_s
         else
-          @{{ field }}.value = nil
+          nil
         end
       when 2
         # DateField | DateTimeField
@@ -150,33 +150,33 @@ module DynFork::Paladins::CheckPlus
         # ImageField
       when 6
         # I64Field
-        if !(value = doc[@{{ field }}.name]).nil? 
-          @{{ field }}.value = value.to_i64
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value.to_i64
         else
-          @{{ field }}.value = nil
+          nil
         end 
       when 7
         # F64Field
-        if !(value = doc[@{{ field }}.name]).nil? 
-          @{{ field }}.value = value.to_f64
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value.to_f64
         else
-          @{{ field }}.value = nil
+          nil
         end 
       when 8
         # BoolField
-        if !(value = doc[@{{ field }}.name]).nil? 
-          @{{ field }}.value = value
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value
         else
-          @{{ field }}.value = false
+          false
         end 
       when 9
         # SlugField
-        if !(value = doc[@{{ field }}.name]).nil? 
-            @{{ field }}.value = value.to_s
-          else
-            @{{ field }}.value = nil
-          end  
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
+          value.to_s
         else
+          nil
+        end  
+      else
         raise DynFork::Errors::Model::InvalidGroupNumber
           .new(self.model_name, {{ field.name.stringify }})
       end
