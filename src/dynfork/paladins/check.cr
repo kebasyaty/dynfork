@@ -21,6 +21,7 @@ module DynFork::Paladins::Check
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
     end
+    (@hash.value = (BSON::ObjectId.new).to_s) if save? && !update?
     # Data to save or update to the database.
     result_bson : BSON = BSON.new
     result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
