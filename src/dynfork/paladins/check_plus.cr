@@ -115,9 +115,43 @@ module DynFork::Paladins::CheckPlus
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_fields(doc_ptr : Pointer(BSON))
+  def refrash_fields(doc : BSON)
     {% for field in @type.instance_vars %}
-      # ...
+      case @{{ field }}.group
+      when 1
+        # Validation of `text` type fields:
+        # <br>
+        # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
+        # | "TextField" | "HashField" | "URLField" | "IPField"_
+      when 2
+        # Validation of `date` type fields:
+        # <br>
+        # _"DateField" | "DateTimeField"_
+      when 3
+        # Validation of `choice` type fields:
+        # <br>
+        # _"ChoiceTextField" | "ChoiceI64Field"
+        # | "ChoiceF64Field" | "ChoiceTextMultField"
+        # | "ChoiceI64MultField" | "ChoiceF64MultField"
+        # | "ChoiceTextMultField" | "ChoiceI64MultField"
+        # | "ChoiceF64MultField" | "ChoiceTextMultDynField"
+        # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"_
+      when 4
+        # Validation of fields of type FileField.
+      when 5
+        # Validation of fields of type ImageField.
+      when 6
+        # Validation of fields of type I64Field.
+      when 7
+        # Validation of fields of type F64Field.
+      when 8
+        # Validation of fields of type BoolField.
+      when 9
+        # Create string for SlugField.
+      else
+        raise DynFork::Errors::Model::InvalidGroupNumber
+          .new(self.model_name, {{ field.name.stringify }})
+      end
     {% end %}
   end
 end

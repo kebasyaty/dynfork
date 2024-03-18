@@ -37,7 +37,7 @@ module DynFork::Paladins::Save
              update: update,
              new: true
            )
-          self.refrash_fields(pointerof(doc))
+          self.refrash_fields(doc)
         end
       else
         raise DynFork::Errors::Panic.new(
@@ -51,7 +51,7 @@ module DynFork::Paladins::Save
       data : BSON = (output_data.data)["_id"] = id
       collection.insert_one(data)
       if doc : BSON? = collection.find_one({_id: id})
-        self.refrash_fields(pointerof(doc))
+        self.refrash_fields(doc)
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{self.model_name}` => The document was not created."
