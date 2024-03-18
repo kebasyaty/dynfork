@@ -121,7 +121,11 @@ module DynFork::Paladins::CheckPlus
       when 1
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
-        @{{ field }}.value = doc[@{{ field }}.name]
+        @{{ field }}.value = if @{{ field }}.field_type != "PasswordField"
+          doc[@{{ field }}.name]
+        else
+          nil
+        end
       when 2
         # DateField | DateTimeField
         @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
