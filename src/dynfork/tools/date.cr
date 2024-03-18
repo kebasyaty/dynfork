@@ -41,6 +41,6 @@ module DynFork::Tools::Date
     md = DynFork::Globals.cache_regex[:datetime_parse].match(datetime) ||
          DynFork::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
     raise DynFork::Errors::Date::InvalidDateTime.new if md.nil?
-    Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]} #{md["t"]}", "%F %H:%M:%S")
+    Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]}T#{md["t"]}", "%FT%H:%M:%S")
   end
 end
