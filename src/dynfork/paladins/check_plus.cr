@@ -123,7 +123,9 @@ module DynFork::Paladins::CheckPlus
         # | TextField | HashField | URLField | IPField
         if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type != "PasswordField"
-            @{{ field }}.refrash_val_str(value.as(String))
+            if @{{ field }}.field_type != "HashField"
+              @{{ field }}.refrash_val_str(value.as(String))
+            end
           else
             @{{ field }}.value =  nil
           end
