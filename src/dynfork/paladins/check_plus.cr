@@ -121,21 +121,17 @@ module DynFork::Paladins::CheckPlus
       when 1
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil? 
-          value.to_s
-        else
-          nil
-        end
+        @{{ field }}.value = doc[@{{ field }}.name]
       when 2
         # DateField | DateTimeField
-        if !(value = doc[@{{ field }}.name]).nil?
+        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
           if @{{ field }}.field_type.includes?("Time")
-            @{{ field }}.value = value.to_s("%FT%H:%M:%S")
+            value.to_s("%FT%H:%M:%S")
           else
-            @{{ field }}.value = value.to_s("%F")
+            value.to_s("%F")
           end
         else
-          @{{ field }}.value = nil
+          nil
         end
       when 3
         # ChoiceTextField | ChoiceI64Field
