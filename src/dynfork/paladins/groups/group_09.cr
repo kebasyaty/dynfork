@@ -4,15 +4,15 @@ module DynFork::Paladins::Groups
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     result_bson_ptr : Pointer(BSON)
   )
-    slug : String = ""
+    raw_str : String = ""
     {% for field in @type.instance_vars %}
       if @{{ field }}.slug_sources.includes?({{ field.name.stringify }})
         if value = @{{ field }}.value || @{{ field }}.default
-          slug += value.to_s
+          raw_str += value.to_s
         end
       end
     {% end %}
     # Insert result.
-    result_bson_ptr.value[field_ptr.value.name] = slug
+    result_bson_ptr.value[field_ptr.value.name] = Iom::WebSlug.slug(raw_str)
   end
 end
