@@ -150,17 +150,17 @@ module DynFork::Paladins::CheckPlus
         # | ChoiceI64MultDynField | ChoiceF64MultDynField
       when 4
         # FileField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
-          #DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
+        if !(value = doc[@{{ field }}.name]).nil?
+          #DynFork::Globals::FileData.from_json(value.as(BSON).to_json) 
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 5
         # ImageField
-        @{{ field }}.value = if !(value = doc[@{{ field }}.name]).nil?
+        if !(value = doc[@{{ field }}.name]).nil?
           #DynFork::Globals::ImageData.from_json(value.as(BSON).to_json)
         else
-          nil
+          @{{ field }}.value =  nil
         end
       when 6
         # I64Field
