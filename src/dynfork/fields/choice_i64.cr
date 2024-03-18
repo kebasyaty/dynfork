@@ -48,9 +48,6 @@ module DynFork::Fields
     getter! thumbnails : Nil
 
     # :nodoc:
-    def refrash_val_i64(val : Int64); end
-
-    # :nodoc:
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
@@ -58,6 +55,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
 
     # :nodoc:
     def refrash_val_arr_str(val : Array(String)); end
@@ -73,6 +73,10 @@ module DynFork::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
+
+    def refrash_val_i64(val : Int64)
+      @value = val
+    end
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
@@ -157,6 +161,10 @@ module DynFork::Fields
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
 
+    def refrash_val_arr_i64(val : Array(Int64))
+      @value = val
+    end
+
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
@@ -217,9 +225,6 @@ module DynFork::Fields
     getter! thumbnails : Nil
 
     # :nodoc:
-    def refrash_val_i64(val : Int64); end
-
-    # :nodoc:
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
@@ -230,6 +235,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
 
     def initialize(
       @label : String = "",
@@ -244,6 +252,10 @@ module DynFork::Fields
     # Add data for dynamic fields from the local `@@meta` cache.
     def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    def refrash_val_i64(val : Int64)
+      @value = val
     end
 
     # Does the field value match the possible options in choices.
@@ -327,6 +339,10 @@ module DynFork::Fields
       @ignored : Bool = false,
       @hint : String = ""
     ); end
+
+    def refrash_val_arr_i64(val : Array(Int64))
+      @value = val
+    end
 
     # Add data for dynamic fields from the local `@@meta` cache.
     def choices_from_json(json : String)
