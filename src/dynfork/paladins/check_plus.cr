@@ -121,7 +121,11 @@ module DynFork::Paladins::CheckPlus
       when 1
         # ColorField | EmailField | PasswordField | PhoneField
         # | TextField | HashField | URLField | IPField
-        @{{ field }}.value = doc[@{{ field }}.name]
+        if !(value = doc[@{{ field }}.name]).nil? 
+          @{{ field }}.value = value.to_s
+        else
+          @{{ field }}.value = nil
+        end
       when 2
         # DateField | DateTimeField
         if !(value = doc[@{{ field }}.name]).nil?
@@ -130,6 +134,8 @@ module DynFork::Paladins::CheckPlus
           else
             @{{ field }}.value = value.to_s("%F")
           end
+        else
+          @{{ field }}.value = nil
         end
       when 3
         # ChoiceTextField | ChoiceI64Field
@@ -144,13 +150,33 @@ module DynFork::Paladins::CheckPlus
         # ImageField
       when 6
         # I64Field
+        if !(value = doc[@{{ field }}.name]).nil? 
+          @{{ field }}.value = value.to_i64
+        else
+          @{{ field }}.value = nil
+        end 
       when 7
         # F64Field
+        if !(value = doc[@{{ field }}.name]).nil? 
+          @{{ field }}.value = value.to_f64
+        else
+          @{{ field }}.value = nil
+        end 
       when 8
         # BoolField
+        if !(value = doc[@{{ field }}.name]).nil? 
+          @{{ field }}.value = value
+        else
+          @{{ field }}.value = false
+        end 
       when 9
         # SlugField
-      else
+        if !(value = doc[@{{ field }}.name]).nil? 
+            @{{ field }}.value = value.to_s
+          else
+            @{{ field }}.value = nil
+          end  
+        else
         raise DynFork::Errors::Model::InvalidGroupNumber
           .new(self.model_name, {{ field.name.stringify }})
       end
