@@ -124,10 +124,12 @@ module DynFork::Paladins::CheckPlus
         @{{ field }}.value = doc[@{{ field }}.name]
       when 2
         # DateField | DateTimeField
-        if @{{ field }}.field_type.includes?("Time")
-          @{{ field }}.value = doc[@{{ field }}.name].to_s("%FT%H:%M:%S")
-        else
-          @{{ field }}.value = doc[@{{ field }}.name].to_s("%F")
+        if !(value = doc[@{{ field }}.name]).nil?
+          if @{{ field }}.field_type.includes?("Time")
+            @{{ field }}.value = value.to_s("%FT%H:%M:%S")
+          else
+            @{{ field }}.value = value.to_s("%F")
+          end
         end
       when 3
         # ChoiceTextField | ChoiceI64Field
