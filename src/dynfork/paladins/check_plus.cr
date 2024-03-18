@@ -119,35 +119,29 @@ module DynFork::Paladins::CheckPlus
     {% for field in @type.instance_vars %}
       case @{{ field }}.group
       when 1
-        # Validation of `text` type fields:
-        # <br>
-        # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
-        # | "TextField" | "HashField" | "URLField" | "IPField"_
+        # ColorField | EmailField | PasswordField | PhoneField
+        # | TextField | HashField | URLField | IPField
       when 2
-        # Validation of `date` type fields:
-        # <br>
-        # _"DateField" | "DateTimeField"_
+        # DateField | DateTimeField
       when 3
-        # Validation of `choice` type fields:
-        # <br>
-        # _"ChoiceTextField" | "ChoiceI64Field"
-        # | "ChoiceF64Field" | "ChoiceTextMultField"
-        # | "ChoiceI64MultField" | "ChoiceF64MultField"
-        # | "ChoiceTextMultField" | "ChoiceI64MultField"
-        # | "ChoiceF64MultField" | "ChoiceTextMultDynField"
-        # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"_
+        # ChoiceTextField | ChoiceI64Field
+        # | ChoiceF64Field | ChoiceTextMultField
+        # | ChoiceI64MultField | ChoiceF64MultField
+        # | ChoiceTextMultField | ChoiceI64MultField
+        # | ChoiceF64MultField | ChoiceTextMultDynField
+        # | ChoiceI64MultDynField | ChoiceF64MultDynField
       when 4
-        # Validation of fields of type FileField.
+        # FileField
       when 5
-        # Validation of fields of type ImageField.
+        # ImageField
       when 6
-        # Validation of fields of type I64Field.
+        # I64Field
       when 7
-        # Validation of fields of type F64Field.
+        # F64Field
       when 8
-        # Validation of fields of type BoolField.
+        # BoolField
       when 9
-        # Create string for SlugField.
+        # SlugField
       else
         raise DynFork::Errors::Model::InvalidGroupNumber
           .new(self.model_name, {{ field.name.stringify }})
