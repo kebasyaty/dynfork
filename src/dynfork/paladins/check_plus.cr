@@ -151,7 +151,7 @@ module DynFork::Paladins::CheckPlus
       when 4
         # FileField
         if !(value = doc[@{{ field }}.name]).nil?
-          #DynFork::Globals::FileData.from_json(value.as(BSON).to_json) 
+          #DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
         else
           @{{ field }}.value =  nil
         end
