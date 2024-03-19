@@ -62,11 +62,13 @@ module DynFork::Paladins::Groups
         field_ptr,
         error_symptom_ptr?
       )
+      field_ptr.value.value = nil
+      current_value.delete_tempfile
       return
     end
 
     # Return if there is no need to save.
-    return if !save?
+    return unless save?
 
     # Get the paths value and save the file.
     unless (tempfile = current_value.tempfile?).nil?
@@ -90,8 +92,9 @@ module DynFork::Paladins::Groups
         content: File.read(tempfile.path),
         perm: File::Permissions.new(0o644)
       )
-      # field_ptr.value.value = nil
-      # current_value.delete_tempfile
+      #
+      field_ptr.value.value = nil
+      current_value.delete_tempfile
       #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
