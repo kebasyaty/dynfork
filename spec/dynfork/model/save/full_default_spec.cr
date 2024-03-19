@@ -37,6 +37,12 @@ describe DynFork::Model do
         data.empty?.should be_false
       end
       #
+      # Get the collection for the current model.
+      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+        Spec::Data::FullDefault.meta[:collection_name]]
+      #
+      collection.count_documents.should eq(1)
+      #
       # Param `value`
       m.url.value?.should be_nil
       m.text.value?.should be_nil
