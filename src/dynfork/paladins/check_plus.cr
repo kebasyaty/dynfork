@@ -158,7 +158,7 @@ module DynFork::Paladins::CheckPlus
               end
             elsif field_type.includes?("F64")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_str(Array(Float64).from_bson(value.as(BSON)))
+                @{{ field }}.refrash_val_arr_f64(Array(Float64).from_bson(value.as(BSON)))
               else
                 @{{ field }}.refrash_val_f64(value.as(Float64))
               end
