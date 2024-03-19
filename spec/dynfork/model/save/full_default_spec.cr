@@ -29,9 +29,9 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
-      unless m.save?
-        m.print_err
-      end
+      flag : Bool = m.save?
+      m.print_err unless flag
+      flag.should be_true
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
