@@ -116,105 +116,83 @@ module DynFork::Paladins::CheckPlus
 
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc : BSON)
+    field_type : String = ""
     {% for field in @type.instance_vars %}
       unless @{{ field }}.ignored?
-        case @{{ field }}.group
-        when 1
-          # ColorField | EmailField | PasswordField | PhoneField
-          # | TextField | HashField | URLField | IPField
-          if !(value = doc[@{{ field }}.name]).nil?
-            if @{{ field }}.field_type != "PasswordField"
+        field_type = @{{ field }}.field_type
+        if !(value = doc[@{{ field }}.name]).nil?
+          case @{{ field }}.group
+          when 1
+            # ColorField | EmailField | PasswordField | PhoneField
+            # | TextField | HashField | URLField | IPField
+            if field_type != "PasswordField"
               @{{ field }}.refrash_val_str(value.as(String))
             else
               @{{ field }}.value =  nil
             end
-          else
-            @{{ field }}.value =  nil
-          end
-        when 2
-          # DateField | DateTimeField
-          if !(value = doc[@{{ field }}.name]).nil?
-            if @{{ field }}.field_type.includes?("Time")
+          when 2
+            # DateField | DateTimeField
+            if field_type.includes?("Time")
               @{{ field }}.refrash_val_datetime(value.as(Time))
             else
               @{{ field }}.refrash_val_date(value.as(Time))
             end
-          else
-            @{{ field }}.value =  nil
-          end
-        when 3
-          # ChoiceTextField | ChoiceI64Field
-          # | ChoiceF64Field | ChoiceTextMultField
-          # | ChoiceI64MultField | ChoiceF64MultField
-          # | ChoiceTextMultField | ChoiceI64MultField
-          # | ChoiceF64MultField | ChoiceTextMultDynField
-          # | ChoiceI64MultDynField | ChoiceF64MultDynField
-          if @{{ field }}.field_type.includes?("Text")
-            if @{{ field }}.field_type.includes?("Mult")
-              # ...
-            else
-              # ...
+          when 3
+            # ChoiceTextField | ChoiceI64Field
+            # | ChoiceF64Field | ChoiceTextMultField
+            # | ChoiceI64MultField | ChoiceF64MultField
+            # | ChoiceTextMultField | ChoiceI64MultField
+            # | ChoiceF64MultField | ChoiceTextMultDynField
+            # | ChoiceI64MultDynField | ChoiceF64MultDynField
+            if field_type.includes?("Text")
+              if @{{ field }}.field_type.includes?("Mult")
+                @{{ field }}.refrash_val_arr_str()
+              else
+                # ...
+              end
+            elsif field_type.includes?("I64")
+              if @{{ field }}.field_type.includes?("Mult")
+                # ...
+              else
+                # ...
+              end
+            elsif field_type.includes?("F64")
+              if @{{ field }}.field_type.includes?("Mult")
+                # ...
+              else
+                # ...
+              end
             end
-          elsif @{{ field }}.field_type.includes?("I64")
-            if @{{ field }}.field_type.includes?("Mult")
-              # ...
-            else
-              # ...
-            end
-          elsif @{{ field }}.field_type.includes?("F64")
-            if @{{ field }}.field_type.includes?("Mult")
-              # ...
-            else
-              # ...
-            end
-          end
-        when 4
-          # FileField
-          if !(value = doc[@{{ field }}.name]).nil?
+          when 4
+            # FileField
             @{{ field }}.refrash_val_file_data(
               DynFork::Globals::FileData.from_bson(value.as(BSON)))
-          else
-            @{{ field }}.value =  nil
-          end
-        when 5
-          # ImageField
-          if !(value = doc[@{{ field }}.name]).nil?
+          when 5
+            # ImageField
             @{{ field }}.refrash_val_img_data(
               DynFork::Globals::ImageData.from_bson(value.as(BSON)))
-          else
-            @{{ field }}.value =  nil
-          end
-        when 6
-          # I64Field
-          if !(value = doc[@{{ field }}.name]).nil?
+          when 6
+            # I64Field
             @{{ field }}.refrash_val_i64(value.as(Int64))
-          else
-            @{{ field }}.value =  nil
-          end
-        when 7
-          # F64Field
-          if !(value = doc[@{{ field }}.name]).nil?
+          when 7
+            # F64Field
             @{{ field }}.refrash_val_f64(value.as(Float64))
-          else
-            @{{ field }}.value =  nil
-          end
-        when 8
-          # BoolField
-          if !(value = doc[@{{ field }}.name]).nil?
+          when 8
+            # BoolField
             @{{ field }}.refrash_val_bool(value.as(Bool))
+          when 9
+            # SlugField
+            @{{ field }}.refrash_val_str(value.as(String))
+          else
+            raise DynFork::Errors::Model::InvalidGroupNumber
+              .new(self.model_name, {{ field.name.stringify }})
+          end
+        else
+          if field_type != "BoolField"
+            @{{ field }}.value =  nil
           else
             @{{ field }}.refrash_val_bool(false)
           end
-        when 9
-          # SlugField
-          if !(value = doc[@{{ field }}.name]).nil?
-            @{{ field }}.refrash_val_str(value.as(String))
-          else
-            @{{ field }}.value =  nil
-          end
-        else
-          raise DynFork::Errors::Model::InvalidGroupNumber
-            .new(self.model_name, {{ field.name.stringify }})
         end
       end
     {% end %}
