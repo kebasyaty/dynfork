@@ -71,6 +71,9 @@ module DynFork::Fields
     def refrash_val_arr_str(val : Array(String)); end
 
     # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
+
+    # :nodoc:
     def refrash_val_arr_f64(val : Array(Float64)); end
 
     # :nodoc:
