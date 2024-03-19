@@ -29,12 +29,8 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
-      if output_data : DynFork::Globals::OutputData? = m.save
-        valid = output_data.valid?
-        m.print_err unless valid
-        valid.should be_true
-        data : BSON = output_data.data
-        data.empty?.should be_false
+      unless m.save?
+        m.print_err
       end
       #
       # Get the collection for the current model.

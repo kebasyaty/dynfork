@@ -3,7 +3,7 @@ module DynFork::Paladins::Save
   # Creating and updating documents in the database.
   # <br>
   # This method pre-uses the _check_ method.
-  def save : DynFork::Globals::OutputData?
+  def save? : Bool
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -25,12 +25,12 @@ module DynFork::Paladins::Save
       output_data.valid = false
     end
     # Leave the method if the check fails.
-    return output_data unless output_data.valid?
+    return false unless output_data.valid?
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
       data : BSON = output_data.data
-      data["updated_at"] = Time.utc.to_s("%FT%H:%M:%S")
+      data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
         filter = {"_id": id}
         update = {"$set": data}
@@ -52,7 +52,7 @@ module DynFork::Paladins::Save
       id = @hash.object_id?
       data = output_data.data
       data["_id"] = id
-      datetime : String = Time.utc.to_s("%FT%H:%M:%S")
+      datetime = Time.utc
       data["created_at"] = datetime
       data["updated_at"] = datetime
       collection.insert_one(data)
@@ -65,6 +65,6 @@ module DynFork::Paladins::Save
       end
     end
     #
-    nil
+    true
   end
 end
