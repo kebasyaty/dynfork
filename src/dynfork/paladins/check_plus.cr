@@ -152,14 +152,16 @@ module DynFork::Paladins::CheckPlus
         when 4
           # FileField
           if !(value = doc[@{{ field }}.name]).nil?
-            #DynFork::Globals::FileData.from_json(value.as(BSON).to_json)
+            @{{ field }}.refrash_val_file_data(
+              DynFork::Globals::FileData.from_bson(value.as(BSON)))
           else
             @{{ field }}.value =  nil
           end
         when 5
           # ImageField
           if !(value = doc[@{{ field }}.name]).nil?
-            #DynFork::Globals::ImageData.from_json(value.as(BSON).to_json)
+            @{{ field }}.refrash_val_img_data(
+              DynFork::Globals::ImageData.from_bson(value.as(BSON)))
           else
             @{{ field }}.value =  nil
           end
