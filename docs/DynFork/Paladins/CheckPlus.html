@@ -537,6 +537,11 @@
       
     </li>
   
+  <li class=" " data-id="dynfork/DynFork/Paladins/Save" data-name="dynfork::paladins::save">
+      <a href="../../DynFork/Paladins/Save.html">Save</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -672,13 +677,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#create_slugs-instance-method" class="signature"><strong>#create_slugs</strong></a>
-        
-          <div class="summary"><p>For fill in all fields of the slug type.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#image_to_io_memory%28image_ptr%3APointer%28Pluto%3A%3AImageRGBA%29%2Cextension%3AString%2Cmax_size%3AInt32%29%3AIO%3A%3AMemory-instance-method" class="signature"><strong>#image_to_io_memory</strong>(image_ptr : Pointer(Pluto::ImageRGBA), extension : String, max_size : Int32) : IO::Memory</a>
         
           <div class="summary"><p>Convert image to IO::Memory.</p></div>
@@ -689,6 +687,13 @@
         <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
         
           <div class="summary"><p>Printing errors to the console ( for development ).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#refrash_fields%28doc%3ABSON%29-instance-method" class="signature"><strong>#refrash_fields</strong>(doc : BSON)</a>
+        
+          <div class="summary"><p>Refrash field values ​​after creating or updating a document.</p></div>
         
       </li>
     
@@ -761,25 +766,6 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="create_slugs-instance-method">
-      <div class="signature">
-        
-        def <strong>create_slugs</strong>
-
-        <a class="method-permalink" href="#create_slugs-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>For fill in all fields of the slug type.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="image_to_io_memory(image_ptr:Pointer(Pluto::ImageRGBA),extension:String,max_size:Int32):IO::Memory-instance-method">
       <div class="signature">
         
@@ -819,6 +805,25 @@
 
 user <span class="o">=</span> <span class="t">User</span>.new
 user.print_err <span class="k">unless</span> user.valid?</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="refrash_fields(doc:BSON)-instance-method">
+      <div class="signature">
+        
+        def <strong>refrash_fields</strong>(doc : BSON)
+
+        <a class="method-permalink" href="#refrash_fields%28doc%3ABSON%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Refrash field values ​​after creating or updating a document.</p>
         </div>
       
       <br/>

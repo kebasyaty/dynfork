@@ -537,6 +537,11 @@
       
     </li>
   
+  <li class=" " data-id="dynfork/DynFork/Paladins/Save" data-name="dynfork::paladins::save">
+      <a href="../../../DynFork/Paladins/Save.html">Save</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -601,6 +606,22 @@
 
 
 
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">BSON::Serializable</li>
+    
+      <li class="other-type">JSON::Serializable</li>
+    
+  </ul>
+
 
 
 
@@ -640,13 +661,44 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28data%3ABSON%2Cvalid%3ABool%29-class-method" class="signature"><strong>.new</strong>(data : BSON, valid : Bool)</a>
+        <a href="#new%28data%3ABSON%2Cvalid%3ABool%2Cupdate%3ABool%29-class-method" class="signature"><strong>.new</strong>(data : BSON, valid : Bool, update : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28bson%3ABSON%29-class-method" class="signature"><strong>.new</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p>Allocate an instance and copies data from a BSON struct.</p></div>
         
       </li>
     
   </ul>
 
 
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from_bson%28bson%3ABSON%29-class-method" class="signature"><strong>.from_bson</strong>(bson : BSON)</a>
+        
+          <div class="summary"><p><span class="flag purple">NOTE</span>  See <code>self<a href="../../../DynFork/Globals/Types/OutputData.html#new%28data%3ABSON%2Cvalid%3ABool%2Cupdate%3ABool%29-class-method">.new</a></code>.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -664,6 +716,23 @@
     
       <li class="entry-summary">
         <a href="#data%3ABSON-instance-method" class="signature"><strong>#data</strong> : BSON</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_bson%28bson%3DBSON.new%29-instance-method" class="signature"><strong>#to_bson</strong>(bson = <span class="t">BSON</span>.new)</a>
+        
+          <div class="summary"><p>Converts to a BSON representation.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update%3F%3ABool-instance-method" class="signature"><strong>#update?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#valid%3D%28valid%3ABool%29-instance-method" class="signature"><strong>#valid=</strong>(valid : Bool)</a>
         
       </li>
     
@@ -717,6 +786,32 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
@@ -729,13 +824,54 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(data:BSON,valid:Bool)-class-method">
+    <div class="entry-detail" id="new(data:BSON,valid:Bool,update:Bool)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(data : BSON, valid : Bool)
+        def self.<strong>new</strong>(data : BSON, valid : Bool, update : Bool)
 
-        <a class="method-permalink" href="#new%28data%3ABSON%2Cvalid%3ABool%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28data%3ABSON%2Cvalid%3ABool%2Cupdate%3ABool%29-class-method">#</a>
       </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#new%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allocate an instance and copies data from a BSON struct.</p>
+<pre><code class="language-crystal"><span class="k">class</span> <span class="t">User</span>
+  <span class="k">include</span> <span class="t">BSON</span><span class="t">::</span><span class="t">Serializable</span>
+  property name : <span class="t">String</span>
+<span class="k">end</span>
+
+data <span class="o">=</span> <span class="t">BSON</span>.new
+data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span class="s">&quot;John&quot;</span>
+<span class="t">User</span>.new(data)</code></pre>
+        </div>
       
       <br/>
       <div>
@@ -745,6 +881,35 @@
   
 
 
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="from_bson(bson:BSON)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_bson</strong>(bson : BSON)
+
+        <a class="method-permalink" href="#from_bson%28bson%3ABSON%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag purple">NOTE</span>  See <code>self<a href="../../../DynFork/Globals/Types/OutputData.html#new%28data%3ABSON%2Cvalid%3ABool%2Cupdate%3ABool%29-class-method">.new</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
@@ -765,6 +930,55 @@
         def <strong>data</strong> : BSON
 
         <a class="method-permalink" href="#data%3ABSON-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_bson(bson=BSON.new)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_bson</strong>(bson = <span class="t">BSON</span>.new)
+
+        <a class="method-permalink" href="#to_bson%28bson%3DBSON.new%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Converts to a BSON representation.</p>
+<pre><code class="language-crystal">user <span class="o">=</span> <span class="t">User</span>.new name: <span class="s">&quot;John&quot;</span>
+bson <span class="o">=</span> user.to_bson</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>update?</strong> : Bool
+
+        <a class="method-permalink" href="#update%3F%3ABool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="valid=(valid:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>valid=</strong>(valid : Bool)
+
+        <a class="method-permalink" href="#valid%3D%28valid%3ABool%29-instance-method">#</a>
       </div>
       
       <br/>
