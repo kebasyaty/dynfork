@@ -3,6 +3,23 @@ module DynFork::Paladins::Save
   # Creating and updating documents in the database.
   # <br>
   # This method pre-uses the _check_ method.
+  #
+  # Simple example:
+  # ```
+  # @[DynFork::Meta(service_name: "Accounts")]
+  # struct User < DynFork::Model
+  #   getter username = DynFork::Fields::TextField.new
+  #   getter birthday = DynFork::Fields::DateField.new
+  # end
+  #
+  # user = User.new
+  # user.username.value = "username"
+  # user.birthday.value = "1970-01-01"
+  #
+  # user.print_err unless user.save?
+  # # print_err - convenient during development
+  # ```
+  #
   def save? : Bool
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
