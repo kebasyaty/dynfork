@@ -148,19 +148,19 @@ module DynFork::Paladins::CheckPlus
               if @{{ field }}.field_type.includes?("Mult")
                 @{{ field }}.refrash_val_arr_str()
               else
-                # ...
+                @{{ field }}.refrash_val_str(value.as(String))
               end
             elsif field_type.includes?("I64")
               if @{{ field }}.field_type.includes?("Mult")
                 # ...
               else
-                # ...
+                @{{ field }}.refrash_val_i64(value.as(Int64))
               end
             elsif field_type.includes?("F64")
               if @{{ field }}.field_type.includes?("Mult")
                 # ...
               else
-                # ...
+                @{{ field }}.refrash_val_f64(value.as(Float64))
               end
             end
           when 4
