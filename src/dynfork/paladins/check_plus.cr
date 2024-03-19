@@ -149,6 +149,25 @@ module DynFork::Paladins::CheckPlus
           # | ChoiceTextMultField | ChoiceI64MultField
           # | ChoiceF64MultField | ChoiceTextMultDynField
           # | ChoiceI64MultDynField | ChoiceF64MultDynField
+          if @{{ field }}.field_type.includes?("Text")
+            if @{{ field }}.field_type.includes?("Mult")
+              # ...
+            else
+              # ...
+            end
+          elsif @{{ field }}.field_type.includes?("I64")
+            if @{{ field }}.field_type.includes?("Mult")
+              # ...
+            else
+              # ...
+            end
+          elsif @{{ field }}.field_type.includes?("F64")
+            if @{{ field }}.field_type.includes?("Mult")
+              # ...
+            else
+              # ...
+            end
+          end
         when 4
           # FileField
           if !(value = doc[@{{ field }}.name]).nil?
