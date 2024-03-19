@@ -83,6 +83,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_date(val : Time); end
 
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

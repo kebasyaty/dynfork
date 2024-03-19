@@ -77,7 +77,7 @@ module DynFork::Fields
     def refrash_val_file_data(val : DynFork::Globals::FileData); end
 
     # :nodoc:
-    def refrash_val_img_data(val : DynFork::Globals::FileData); end
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
 
     # :nodoc:
     def refrash_val_datetime(val : Time); end
