@@ -145,19 +145,19 @@ module DynFork::Paladins::CheckPlus
             # | ChoiceF64MultField | ChoiceTextMultDynField
             # | ChoiceI64MultDynField | ChoiceF64MultDynField
             if field_type.includes?("Text")
-              if @{{ field }}.field_type.includes?("Mult")
+              if field_type.includes?("Mult")
                 @{{ field }}.refrash_val_arr_str(Array(String).from_bson(value.as(BSON)))
               else
                 @{{ field }}.refrash_val_str(value.as(String))
               end
             elsif field_type.includes?("I64")
-              if @{{ field }}.field_type.includes?("Mult")
+              if field_type.includes?("Mult")
                 @{{ field }}.refrash_val_arr_i64(Array(Int64).from_bson(value.as(BSON)))
               else
                 @{{ field }}.refrash_val_i64(value.as(Int64))
               end
             elsif field_type.includes?("F64")
-              if @{{ field }}.field_type.includes?("Mult")
+              if field_type.includes?("Mult")
                 @{{ field }}.refrash_val_arr_str(Array(Float64).from_bson(value.as(BSON)))
               else
                 @{{ field }}.refrash_val_f64(value.as(Float64))
