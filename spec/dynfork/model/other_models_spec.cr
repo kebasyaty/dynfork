@@ -73,7 +73,6 @@ describe DynFork::Model do
       metadata["saving_docs?"].should be_false
       metadata["updating_docs?"].should be_false
       metadata["deleting_docs?"].should be_false
-      metadata["use_hash_slug?"].should be_false
       metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
     end
 
@@ -81,7 +80,6 @@ describe DynFork::Model do
       Spec::Data::AuxiliaryModel.new
       metadata = Spec::Data::AuxiliaryModel.meta
       metadata["service_name"].should eq("ServiceName")
-      metadata["use_hash_slug?"].should be_true
     end
 
     it "=> create instance of AAModel", tags: "model" do

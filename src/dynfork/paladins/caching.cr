@@ -116,9 +116,8 @@ module DynFork::Paladins::Caching
       {% end %}
       fields
     )
-    # Does a field of type SlugField use a hash field as its source?
-    use_hash_slug? : Bool = (
-      use_hash? : Bool = false
+    # SlugField - Checking the slug_sources parameter.
+    (
       one_unique_field? : Bool = false
       field_name_list : Array(String) = field_name_and_type_list.keys << "hash"
       field_type_list : Array(String) = [
@@ -160,11 +159,8 @@ module DynFork::Paladins::Caching
             raise DynFork::Errors::Fields::SlugSourceNotUnique
               .new(model_name, {{ var.name.stringify }})
           end
-          # Check the presence of a hash field.
-          use_hash? = @{{ var }}.slug_sources.includes?("hash")
         end
       {% end %}
-      use_hash?
     )
     # Get list of field names that will not be saved to the database.
     ignore_fields : Array(String) = (
@@ -280,8 +276,6 @@ module DynFork::Paladins::Caching
       else
         true
       end,
-      # Does a field of type SlugField use a hash field as its source?
-      use_hash_slug?: use_hash_slug?,
       # List of field names that will not be saved to the database.
       ignore_fields: ignore_fields,
       # Attributes value for fields of Model: id, name.

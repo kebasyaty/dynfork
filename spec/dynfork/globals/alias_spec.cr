@@ -48,7 +48,6 @@ describe DynFork::Globals do
           saving_docs?: Bool,
           updating_docs?: Bool,
           deleting_docs?: Bool,
-          use_hash_slug?: Bool,
           ignore_fields: Array(String),
           field_attrs: Hash(String, NamedTuple(id: String, name: String)),
           data_dynamic_fields: Hash(String, String),
