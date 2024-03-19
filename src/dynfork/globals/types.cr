@@ -2,10 +2,14 @@
 module DynFork::Globals::Types
   # Output data type for the `Model.check()` method.
   struct OutputData
-    getter data : BSON
-    getter? valid : Bool
+    include JSON::Serializable
+    include BSON::Serializable
 
-    def initialize(@data : BSON, @valid : Bool); end
+    getter data : BSON
+    property? valid : Bool
+    getter? update : Bool
+
+    def initialize(@data : BSON, @valid : Bool, @update : Bool); end
   end
 
   # Data type for FileField.

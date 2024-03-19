@@ -47,6 +47,36 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @default : Int64? = nil,
@@ -58,6 +88,10 @@ module DynFork::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
+
+    def refrash_val_i64(val : Int64)
+      @value = val
+    end
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
@@ -115,6 +149,36 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @default : Array(Int64)? = nil,
@@ -126,6 +190,10 @@ module DynFork::Fields
       @hint : String = "",
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
+
+    def refrash_val_arr_i64(val : Array(Int64))
+      @value = val
+    end
 
     # Does the field value match the possible options in choices.
     def has_value? : Bool
@@ -186,6 +254,36 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @hide : Bool = false,
@@ -199,6 +297,10 @@ module DynFork::Fields
     # Add data for dynamic fields from the local `@@meta` cache.
     def json_to_choices(json : String)
       @choices = Array(Tuple(Int64, String)).from_json(json)
+    end
+
+    def refrash_val_i64(val : Int64)
+      @value = val
     end
 
     # Does the field value match the possible options in choices.
@@ -258,6 +360,36 @@ module DynFork::Fields
     # :nodoc:
     getter! thumbnails : Nil
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @hide : Bool = false,
@@ -267,6 +399,10 @@ module DynFork::Fields
       @ignored : Bool = false,
       @hint : String = ""
     ); end
+
+    def refrash_val_arr_i64(val : Array(Int64))
+      @value = val
+    end
 
     # Add data for dynamic fields from the local `@@meta` cache.
     def choices_from_json(json : String)

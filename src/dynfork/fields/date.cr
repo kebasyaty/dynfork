@@ -58,6 +58,36 @@ module DynFork::Fields
     # :nodoc:
     def has_value?; end
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_str(val : String); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
@@ -81,6 +111,10 @@ module DynFork::Fields
     # Get time object from value.
     def time_object? : Time?
       self.date_parse(@value.as(String)) unless @value.nil?
+    end
+
+    def refrash_val_date(val : Time)
+      @value = val.to_s("%F")
     end
   end
 end

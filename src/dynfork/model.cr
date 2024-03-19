@@ -68,9 +68,9 @@ module DynFork
     getter hash = DynFork::Fields::HashField
       .new(hide: true, unique: true, ignored: true)
     getter created_at = DynFork::Fields::DateTimeField
-      .new(label: "Created at", hide: true)
+      .new(label: "Created at", hide: true, readonly: true)
     getter updated_at = DynFork::Fields::DateTimeField
-      .new(label: "Updated at", hide: true)
+      .new(label: "Updated at", hide: true, readonly: true)
     # Metadata cache.
     class_getter! meta : DynFork::Globals::CacheMetaDataType?
 

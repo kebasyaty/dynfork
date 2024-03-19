@@ -3,14 +3,14 @@ module DynFork::Paladins::Groups
   def group_05(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
-    updated? : Bool,
+    update? : Bool,
     save? : Bool,
     result_bson_ptr : Pointer(BSON),
     cleaning_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
-    if !updated? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
+    if !update? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),
@@ -31,7 +31,7 @@ module DynFork::Paladins::Groups
     end
 
     # If necessary, use the default value.
-    if !updated? && current_value.nil?
+    if !update? && current_value.nil?
       if default = field_ptr.value.default
         current_value = DynFork::Globals::ImageData.new
         current_value.path_to_tempfile(default.to_s)
@@ -62,11 +62,13 @@ module DynFork::Paladins::Groups
         field_ptr,
         error_symptom_ptr?
       )
+      field_ptr.value.value = nil
+      current_value.delete_tempfile
       return
     end
 
     # Return if there is no need to save.
-    return if !save?
+    return unless save?
 
     # Get the paths value and save the file.
     unless (tempfile = current_value.tempfile?).nil?
@@ -174,8 +176,8 @@ module DynFork::Paladins::Groups
         end
       end
       #
-      # field_ptr.value.value = nil
-      # current_value.delete_tempfile
+      field_ptr.value.value = nil
+      current_value.delete_tempfile
       #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value

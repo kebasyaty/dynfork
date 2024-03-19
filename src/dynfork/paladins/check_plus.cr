@@ -114,8 +114,87 @@ module DynFork::Paladins::CheckPlus
     io
   end
 
-  # For fill in all fields of the slug type.
-  def create_slugs
-    # ...
+  # Refrash field values ​​after creating or updating a document.
+  def refrash_fields(doc : BSON)
+    field_type : String = ""
+    {% for field in @type.instance_vars %}
+      unless @{{ field }}.ignored?
+        field_type = @{{ field }}.field_type
+        if !(value = doc[@{{ field }}.name]).nil?
+          case @{{ field }}.group
+          when 1
+            # ColorField | EmailField | PasswordField | PhoneField
+            # | TextField | HashField | URLField | IPField
+            if field_type != "PasswordField"
+              @{{ field }}.refrash_val_str(value.as(String))
+            else
+              @{{ field }}.value =  nil
+            end
+          when 2
+            # DateField | DateTimeField
+            if field_type.includes?("Time")
+              @{{ field }}.refrash_val_datetime(value.as(Time))
+            else
+              @{{ field }}.refrash_val_date(value.as(Time))
+            end
+          when 3
+            # ChoiceTextField | ChoiceI64Field
+            # | ChoiceF64Field | ChoiceTextMultField
+            # | ChoiceI64MultField | ChoiceF64MultField
+            # | ChoiceTextMultField | ChoiceI64MultField
+            # | ChoiceF64MultField | ChoiceTextMultDynField
+            # | ChoiceI64MultDynField | ChoiceF64MultDynField
+            if field_type.includes?("Text")
+              if field_type.includes?("Mult")
+                @{{ field }}.refrash_val_arr_str(Array(String).from_bson(value.as(BSON)))
+              else
+                @{{ field }}.refrash_val_str(value.as(String))
+              end
+            elsif field_type.includes?("I64")
+              if field_type.includes?("Mult")
+                @{{ field }}.refrash_val_arr_i64(Array(Int64).from_bson(value.as(BSON)))
+              else
+                @{{ field }}.refrash_val_i64(value.as(Int64))
+              end
+            elsif field_type.includes?("F64")
+              if field_type.includes?("Mult")
+                @{{ field }}.refrash_val_arr_f64(Array(Float64).from_bson(value.as(BSON)))
+              else
+                @{{ field }}.refrash_val_f64(value.as(Float64))
+              end
+            end
+          when 4
+            # FileField
+            @{{ field }}.refrash_val_file_data(
+              DynFork::Globals::FileData.from_bson(value.as(BSON)))
+          when 5
+            # ImageField
+            @{{ field }}.refrash_val_img_data(
+              DynFork::Globals::ImageData.from_bson(value.as(BSON)))
+          when 6
+            # I64Field
+            @{{ field }}.refrash_val_i64(value.as(Int64))
+          when 7
+            # F64Field
+            @{{ field }}.refrash_val_f64(value.as(Float64))
+          when 8
+            # BoolField
+            @{{ field }}.refrash_val_bool(value.as(Bool))
+          when 9
+            # SlugField
+            @{{ field }}.refrash_val_str(value.as(String))
+          else
+            raise DynFork::Errors::Model::InvalidGroupNumber
+              .new(self.model_name, {{ field.name.stringify }})
+          end
+        else
+          if field_type != "BoolField"
+            @{{ field }}.value =  nil
+          else
+            @{{ field }}.refrash_val_bool(false)
+          end
+        end
+      end
+    {% end %}
   end
 end

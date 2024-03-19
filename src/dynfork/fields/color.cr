@@ -58,6 +58,36 @@ module DynFork::Fields
     # :nodoc:
     def has_value?; end
 
+    # :nodoc:
+    def refrash_val_i64(val : Int64); end
+
+    # :nodoc:
+    def refrash_val_f64(val : Float64); end
+
+    # :nodoc:
+    def refrash_val_bool(val : Bool); end
+
+    # :nodoc:
+    def refrash_val_arr_str(val : Array(String)); end
+
+    # :nodoc:
+    def refrash_val_arr_i64(val : Array(Int64)); end
+
+    # :nodoc:
+    def refrash_val_arr_f64(val : Array(Float64)); end
+
+    # :nodoc:
+    def refrash_val_file_data(val : DynFork::Globals::FileData); end
+
+    # :nodoc:
+    def refrash_val_img_data(val : DynFork::Globals::ImageData); end
+
+    # :nodoc:
+    def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def refrash_val_date(val : Time); end
+
     def initialize(
       @label : String = "",
       @default : String? = "#000000",
@@ -77,6 +107,10 @@ module DynFork::Fields
     )
       @input_type = "text"
       @minlength = 0
+    end
+
+    def refrash_val_str(val : String)
+      @value = val
     end
   end
 end

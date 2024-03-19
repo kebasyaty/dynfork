@@ -1,7 +1,9 @@
 require "./check_plus"
 require "./groups/*"
 
-# Validation of Model data before saving to the database.
+# 1.Validation of Model data before saving to the database.
+# <br>
+# 2.Web form validation. It is recommended to use the _saving_docs?=true_ model parameter.
 module DynFork::Paladins::Check
   include DynFork::Paladins::CheckPlus
   include DynFork::Paladins::Groups
@@ -12,19 +14,26 @@ module DynFork::Paladins::Check
     save? : Bool = false
   ) : DynFork::Globals::OutputData
     # Does the document exist in the database?
-    updated? : Bool = !@hash.value?.nil? && !@hash.value.empty?
+    update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
     # Validation the hash field value.
-    if updated? && !BSON::ObjectId.validate(@hash.value)
+    if update? && !BSON::ObjectId.validate(@hash.value)
       msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
     end
+    (@hash.value = (BSON::ObjectId.new).to_s) if save? && !update?
     # Data to save or update to the database.
     result_bson : BSON = BSON.new
     result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
     # Addresses of files to be deleted (if error_symptom? = true).
-    cleaning_map : NamedTuple(files: Array(String), images: Array(String)) = {files: Array(String).new, images: Array(String).new}
-    cleaning_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String))) = pointerof(cleaning_map)
+    cleaning_map : NamedTuple(
+      files: Array(String),
+      images: Array(String),
+    ) = {files: Array(String).new, images: Array(String).new}
+    cleaning_map_ptr : Pointer(NamedTuple(
+      files: Array(String),
+      images: Array(String),
+    )) = pointerof(cleaning_map)
     # Is there any incorrect data?
     error_symptom? : Bool = false
     error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
@@ -32,20 +41,6 @@ module DynFork::Paladins::Check
     error_map : Hash(String, String) = self.add_validation
     # Current error message.
     err_msg : String?
-
-    # Check the conditions and, if necessary, define a message for the web form.
-    # Reset the alerts to exclude duplicates.
-    if save?
-      @hash.alerts = Array(String).new
-      if !updated? && !@@meta.not_nil![:saving_docs?]
-        @hash.alerts << "It is forbidden to perform saves!"
-        error_symptom? = true
-      end
-      if updated? && !@@meta.not_nil![:updating_docs?]
-        @hash.alerts << "It is forbidden to perform updates!"
-        error_symptom? = true
-      end
-    end
 
     # Start checking all fields.
     {% for field in @type.instance_vars %}
@@ -68,7 +63,7 @@ module DynFork::Paladins::Check
           self.group_01(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             collection_ptr
@@ -105,7 +100,7 @@ module DynFork::Paladins::Check
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             cleaning_map_ptr
@@ -115,7 +110,7 @@ module DynFork::Paladins::Check
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
-            updated?,
+            update?,
             save?,
             result_bson_ptr,
             cleaning_map_ptr
@@ -146,26 +141,39 @@ module DynFork::Paladins::Check
             result_bson_ptr
           )
         when 9
-          # Ignore validation of `slug` type fields.
-          # <br>
-          # These fields are checked in the `caching` and `create_slugs` methods.
+          # Create string for SlugField.
+          if save?
+            self.group_09(
+              pointerof(@{{ field }}),
+              result_bson_ptr
+            )
+          end
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
             .new(self.model_name, {{ field.name.stringify }})
         end
       end
     {% end %}
-    # If there is an error, delete new files.
+
+    # Actions in case of error.
     if error_symptom?
+      # Reset the hash for a new document.
+      (@hash.value = nil) if save? && !update?
+      # Delete new files.
       cleaning_map[:files].each do |path|
         File.delete(path)
       end
+      # Delete new images.
       cleaning_map[:images].each do |path|
         FileUtils.rm_rf(path)
       end
     end
     #
     # --------------------------------------------------------------------------
-    DynFork::Globals::OutputData.new(result_bson, !error_symptom?)
+    DynFork::Globals::OutputData.new(
+      data: result_bson,
+      valid: !error_symptom?,
+      update: update?
+    )
   end
 end
