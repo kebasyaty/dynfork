@@ -50,15 +50,17 @@ module DynFork::Paladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if current_value.size > field_ptr.value.maxsize
-      self.accumulate_error(
-        I18n.t(:size_exceeds_max),
-        field_ptr,
-        error_symptom_ptr?
-      )
-      # Add path in cleanup map.
-      cleanup_map_ptr.value[:images] << current_value.images_dir
-      return
+    unless current_value.path.empty?
+      if current_value.size > field_ptr.value.maxsize
+        self.accumulate_error(
+          I18n.t(:size_exceeds_max),
+          field_ptr,
+          error_symptom_ptr?
+        )
+        # Add path in cleanup map.
+        cleanup_map_ptr.value[:images] << current_value.images_dir_path
+        return
+      end
     end
 
     # Return if there is no need to save.
@@ -66,17 +68,8 @@ module DynFork::Paladins::Groups
 
     # Create and save thumbnails.
     unless current_value.path.empty?
-      media_url : String = field_ptr.value.media_url
-      target_dir : String = field_ptr.value.target_dir
-      images_dir : String = current_value.images_dir
-      name : String = current_value.name
-      # Add paths to original image.
-      date : String = Time.utc.to_s("%Y-%m-%d")
-      current_value.path = "#{media_root}/#{target_dir}/#{date}/#{images_dir}/#{name}"
-      current_value.url = "#{media_url}/#{target_dir}/#{date}/#{images_dir}/#{name}"
-      # Get the directory path for the image.
-      images_dir_path : String = "#{media_root}/#{target_dir}/#{date}/#{images_dir}"
-      cleanup_map_ptr.value[:images] << images_dir_path
+      images_dir_path : String = current_value.images_dir_path
+      images_dir_url : String = current_value.images_dir_url
       # Create the target directory if it does not exist.
       unless Dir.exists?(images_dir_path)
         Dir.mkdir_p(path: images_dir_path, mode: 0o777)
@@ -169,7 +162,7 @@ module DynFork::Paladins::Groups
         end
       end
       # Add path in cleanup map (for error_symptom=true).
-      cleanup_map_ptr.value[:images] << current_value.images_dir
+      cleanup_map_ptr.value[:images] << images_dir_path
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
