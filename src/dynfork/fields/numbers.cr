@@ -207,6 +207,9 @@ module DynFork::Fields
     def extract_file_data : DynFork::Globals::FileData?; end
 
     # :nodoc:
+    def extract_img_data : DynFork::Globals::ImageData?; end
+
+    # :nodoc:
     def base64_to_file(
       base64 : String? = nil,
       filename : String? = nil,
