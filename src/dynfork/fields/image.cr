@@ -112,20 +112,26 @@ module DynFork::Fields
       @input_type = "file"
     end
 
-    # Convert base64 to tempfile for ImageData.
-    # filename: _Example: foo.png_
-    def base64_to_tempfile(base64 : String, filename : String)
-      @value = (DynFork::Globals::ImageData.new).base64_to_tempfile(base64, filename)
+    # Convert base64 to a image and save in the target directory.
+    # filename: _Example: foo.pdf_
+    def base64_to_file(
+      base64 : String? = nil,
+      filename : String? = nil,
+      delete : Bool = false
+    )
+      @value = DynFork::Globals::ImageData.new
+      @value.delete = delete
+      #
     end
 
-    # Convert path to tempfile for ImageData.
-    def path_to_tempfile(path : String)
-      @value = (DynFork::Globals::ImageData.new).path_to_tempfile(path)
-    end
-
-    # Delete temporary file in ImageData.
-    def delete_tempfile
-      self.value.delete_tempfile unless @value.nil?
+    # Convert path to a image and save in the target directory.
+    def path_to_file(
+      path : String? = nil,
+      delete : Bool = false
+    )
+      @value = DynFork::Globals::ImageData.new
+      @value.delete = delete
+      #
     end
 
     def refrash_val_img_data(val : DynFork::Globals::ImageData)

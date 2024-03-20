@@ -39,14 +39,16 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include BSON::Serializable
 
-    # Path to image.
+    # Path to image (for original image).
     property path : String = ""
+    # For thumbnails.
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
     property path_lg : String = ""
-    # URL to the image.
+    # URL to the image (for original image).
     property url : String = ""
+    # For thumbnails.
     property url_xs : String = ""
     property url_sm : String = ""
     property url_md : String = ""
@@ -59,9 +61,9 @@ module DynFork::Globals::Types
     property height : Int32 = 0
     # Image size in bytes (for original image).
     getter size : Int64 = 0
-    # If the files needs to be deleted: delete=true.
+    # If the files needs to be deleted: _delete=true_.
     # <br>
-    # By default delete=false.
+    # By default: _delete=false_.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
     # File extension.
@@ -70,10 +72,6 @@ module DynFork::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter! extension : String?
-    # For temporary storage of an image.
-    @[JSON::Field(ignore: true)]
-    @[BSON::Field(ignore: true)]
-    getter! tempfile : File?
     # The name of the target directory for
     # the original image and its thumbnails.
     @[JSON::Field(ignore: true)]
