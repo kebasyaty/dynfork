@@ -61,7 +61,7 @@ module DynFork::Globals::Types
     property height : Int32 = 0
     # Image size in bytes (for original image).
     getter size : Int64 = 0
-    # If the files needs to be deleted: _delete=true_.
+    # If the images needs to be deleted: _delete=true_.
     # <br>
     # By default: _delete=false_.
     @[BSON::Field(ignore: true)]

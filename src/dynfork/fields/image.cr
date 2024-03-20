@@ -177,7 +177,40 @@ module DynFork::Fields
       @value.delete = delete
       #
       if path = path
-        # ...
+        # Get file extension.
+        extension = Path[path].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
+        end
+        # Create target directory name.
+        images_dir : String = UUID.v4.to_s
+        # Create target image name.
+        target_name = "original#{extension}"
+        # Create current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target image.
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        # Create the target directory if it does not exist.
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
+        end
+        # Save image in target directory.
+        File.write(
+          filename: target_path,
+          content: File.read(path),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target image.
+        @value.path = target_path
+        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        # Add original image name.
+        @value.name = filename.not_nil!
+        # Add image extension.
+        @value.extension = extension
+        # Add target directory name for images.
+        @value.images_dir = images_dir
+        # Add image size.
+        @value.size = File.size(@value.path)
       end
     end
 
