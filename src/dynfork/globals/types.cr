@@ -24,7 +24,7 @@ module DynFork::Globals::Types
     # Original file name.
     property name : String = ""
     # File size in bytes.
-    getter size : Int64 = 0
+    property size : Int64 = 0
     # If the file needs to be deleted: _delete=true_.
     # <br>
     # By default: _delete=false_.
@@ -60,7 +60,7 @@ module DynFork::Globals::Types
     # Image height in pixels (for original image).
     property height : Int32 = 0
     # Image size in bytes (for original image).
-    getter size : Int64 = 0
+    property size : Int64 = 0
     # If the images needs to be deleted: _delete=true_.
     # <br>
     # By default: _delete=false_.

@@ -165,8 +165,8 @@ module DynFork::Fields
       path : String? = nil,
       delete : Bool = false
     )
-      @value = DynFork::Globals::FileData.new
-      @value.delete = delete
+      value = DynFork::Globals::FileData.new
+      value.delete = delete
       #
       if path = path
         # Get file extension.
@@ -191,12 +191,14 @@ module DynFork::Fields
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
-        @value.path = target_path
-        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        value.path = target_path
+        value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add original file name.
-        @value.name = File.basename(path)
+        value.name = File.basename(path)
         # Add file size.
-        @value.size = File.size(target_path)
+        value.size = File.size(target_path)
+        #
+        @value = value
       end
     end
 
