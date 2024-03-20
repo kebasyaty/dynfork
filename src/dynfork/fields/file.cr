@@ -135,7 +135,7 @@ module DynFork::Fields
           break if index == 40
         end
         # Create target file name.
-        target_name = "#{UUID.v4.to_s}#{extension}"
+        target_name = "#{UUID.v4}#{extension}"
         # Create the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
@@ -175,7 +175,7 @@ module DynFork::Fields
           raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
         end
         # Create a target file name.
-        target_name = "#{UUID.v4.to_s}#{extension}"
+        target_name = "#{UUID.v4}#{extension}"
         # Get the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
