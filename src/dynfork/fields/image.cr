@@ -224,7 +224,7 @@ module DynFork::Fields
         # Add image size.
         value.size = File.size(path)
         #
-        @value = Value
+        @value = value
       end
     end
 
