@@ -118,6 +118,9 @@ module DynFork::Paladins::CheckPlus
   def refrash_fields(doc : Hash)
     field_type : String = ""
     {% for field in @type.instance_vars %}
+      if @{{ field }}.name == "hash"
+        @{{ field }}.refrash_val_str(doc["_id"].as(BSON::ObjectId).to_s)
+      end
       unless @{{ field }}.ignored?
         field_type = @{{ field }}.field_type
         if !(value = doc[@{{ field }}.name]).nil?
