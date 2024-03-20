@@ -125,7 +125,7 @@ module DynFork::Fields
             raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
           end
           # Add original file name.
-          @name = filename
+          @value.name = filename
         end
         # Prepare Base64 content.
         base64.each_char_with_index do |char, index|
@@ -151,7 +151,7 @@ module DynFork::Fields
         @value.path = path
         @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{name}"
         # Add file size.
-        @size = File.size(self.tempfile.path)
+        @value.size = File.size(@value.path)
       end
     end
 
