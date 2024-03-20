@@ -65,28 +65,8 @@ module DynFork::Paladins::Groups
     return unless save?
 
     # Get the paths value and save the file.
-    unless (tempfile = current_value.tempfile?).nil?
-      media_root : String = field_ptr.value.media_root
-      media_url : String = field_ptr.value.media_url
-      target_dir : String = field_ptr.value.target_dir
-      name : String = current_value.name
-      # Add paths to file.
-      date : String = Time.utc.to_s("%Y-%m-%d")
-      current_value.path = "#{media_root}/#{target_dir}/#{date}/#{name}"
-      current_value.url = "#{media_url}/#{target_dir}/#{date}/#{name}"
+    unless current_value.path.empty?
       cleaning_map_ptr.value[:files] << current_value.path
-      # Create the target directory if it does not exist.
-      date_dir_path : String = "#{media_root}/#{target_dir}/#{date}"
-      unless Dir.exists?(date_dir_path)
-        Dir.mkdir_p(path: date_dir_path, mode: 0o777)
-      end
-      # Save file.
-      File.write(
-        filename: current_value.path,
-        content: File.read(tempfile.path),
-        perm: File::Permissions.new(0o644)
-      )
-      #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
