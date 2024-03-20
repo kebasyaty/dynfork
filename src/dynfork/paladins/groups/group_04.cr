@@ -56,7 +56,6 @@ module DynFork::Paladins::Groups
         field_ptr,
         error_symptom_ptr?
       )
-      field_ptr.value.value = nil
       # Add path in cleanup map.
       cleanup_map_ptr.value[:files] << current_value.path
       return
@@ -67,7 +66,7 @@ module DynFork::Paladins::Groups
 
     # Get the paths value and save the file.
     unless current_value.path.empty?
-      # Add path in cleanup map.
+      # Add path in cleanup map (for error_symptom=true).
       cleanup_map_ptr.value[:files] << current_value.path
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
