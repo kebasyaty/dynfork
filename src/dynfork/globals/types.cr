@@ -80,41 +80,6 @@ module DynFork::Globals::Types
 
     def initialize; end
 
-    # filename: _Example: foo.png_
-    def base64_to_tempfile(base64 : String, filename : String)
-      # Get file extension.
-      extension = Path[filename].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
-      end
-      @extension = extension
-      # Prepare Base64 content.
-      base64.each_char_with_index do |char, index|
-        if char == ','
-          base64 = base64.delete_at(0, index + 1)
-          break
-        end
-        break if index == 40
-      end
-      # Create a name for the original image file.
-      @name = "original#{extension}"
-      # Create a prefix for the image file name and target directory.
-      prefix : String = UUID.v4.to_s
-      # Get target directory name.
-      @images_dir = prefix
-      # Create a temporary image file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{@extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print Base64.decode_string(base64)
-      end
-      # Get the image file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
     def path_to_tempfile(path : String)
       # Get file extension.
       extension = Path[path].extension

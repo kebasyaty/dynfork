@@ -119,13 +119,9 @@ module DynFork::Fields
       #
       if base64 = base64
         # Get file extension.
-        if filename = filename
-          extension = Path[filename].extension
-          if extension.empty?
-            raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
-          end
-          # Add original file name.
-          @value.name = filename
+        extension = Path[filename].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
         end
         # Prepare Base64 content.
         base64.each_char_with_index do |char, index|
@@ -154,6 +150,8 @@ module DynFork::Fields
         # Add paths to target file.
         @value.path = target_path
         @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        # Add original file name.
+        @value.name = filename.not_nil!
         # Add file size.
         @value.size = File.size(@value.path)
       end
@@ -173,8 +171,6 @@ module DynFork::Fields
         if extension.empty?
           raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
         end
-        # Add original file name.
-        @value.name = File.basename(path)
         # Create a target file name.
         target_name = "#{UUID.v4.to_s}#{extension}"
         # Get the current date for the directory name.
@@ -194,6 +190,8 @@ module DynFork::Fields
         # Add paths to target file.
         @value.path = target_path
         @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        # Add original file name.
+        @value.name = File.basename(path)
         # Add file size.
         @value.size = File.size(target_path)
       end

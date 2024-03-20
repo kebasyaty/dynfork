@@ -124,14 +124,9 @@ module DynFork::Fields
       #
       if base64 = base64
         # Get image extension.
-        if filename = filename
-          extension = Path[filename].extension
-          if extension.empty?
-            raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
-          end
-          @value.extension = extension
-          # Add original image name.
-          @value.name = filename
+        extension : String = Path[filename].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
         end
         # Prepare Base64 content.
         base64.each_char_with_index do |char, index|
@@ -162,6 +157,10 @@ module DynFork::Fields
         # Add paths to target image.
         @value.path = target_path
         @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        # Add original image name.
+        @value.name = filename.not_nil!
+        #
+        @value.extension = extension
         # Add target directory name for images.
         @value.images_dir = images_dir
         # Add image size.
@@ -177,6 +176,9 @@ module DynFork::Fields
       @value = DynFork::Globals::ImageData.new
       @value.delete = delete
       #
+      if path = path
+        # ...
+      end
     end
 
     def refrash_val_img_data(val : DynFork::Globals::ImageData)
