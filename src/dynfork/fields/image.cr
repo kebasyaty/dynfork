@@ -159,7 +159,7 @@ module DynFork::Fields
         @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
         # Add original image name.
         @value.name = filename.not_nil!
-        #
+        # Add image extension.
         @value.extension = extension
         # Add target directory name for images.
         @value.images_dir = images_dir

@@ -66,7 +66,7 @@ module DynFork::Globals::Types
     # By default: _delete=false_.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
-    # File extension.
+    # Image extension.
     # <br>
     # _Examples: .png|.jpeg|.jpg|.webp_
     @[JSON::Field(ignore: true)]
