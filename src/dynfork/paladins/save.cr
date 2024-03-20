@@ -69,7 +69,7 @@ module DynFork::Paladins::Save
       id = @hash.object_id?
       data = output_data.data
       data["_id"] = id
-      datetime = Time.utc
+      datetime : Time = Time.utc
       data["created_at"] = datetime
       data["updated_at"] = datetime
       collection.insert_one(data)

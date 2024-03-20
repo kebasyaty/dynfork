@@ -38,6 +38,9 @@ describe DynFork::Model do
         Spec::Data::FullDefault.meta[:collection_name]]
       #
       collection.count_documents.should eq(1)
+      id = m.hash.object_id?
+      bson = collection.find_one({_id: id})
+      pp bson.not_nil!.to_h
       #
       # Param `value`
       m.hash.value.empty?.should be_false
@@ -122,6 +125,8 @@ describe DynFork::Model do
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end
