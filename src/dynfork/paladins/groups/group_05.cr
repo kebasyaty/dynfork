@@ -70,19 +70,7 @@ module DynFork::Paladins::Groups
     unless current_value.path.empty?
       images_dir_path : String = current_value.images_dir_path
       images_dir_url : String = current_value.images_dir_url
-      # Create the target directory if it does not exist.
-      unless Dir.exists?(images_dir_path)
-        Dir.mkdir_p(path: images_dir_path, mode: 0o777)
-      end
-      #
-      tempfile_path : String = tempfile.path
-      # Save original image.
-      File.write(
-        filename: current_value.path,
-        content: File.read(tempfile_path),
-        perm: File::Permissions.new(0o644)
-      )
-      # Create and save thumbnails.
+      # Create thumbnails.
       unless (thumbnails = field_ptr.value.thumbnails?).nil?
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
@@ -119,8 +107,8 @@ module DynFork::Paladins::Groups
         thumbnails.each do |(size_name, max_size)|
           case size_name
           when "lg"
-            current_value.path_lg = "#{media_root}/#{target_dir}/#{date}/#{images_dir}/lg.#{extension}"
-            current_value.url_lg = "#{media_url}/#{target_dir}/#{date}/#{images_dir}/lg.#{extension}"
+            current_value.path_lg = "#{images_dir_path}/lg.#{extension}"
+            current_value.url_lg = "#{images_dir_url}/lg.#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -129,8 +117,8 @@ module DynFork::Paladins::Groups
               perm: File::Permissions.new(0o644)
             )
           when "md"
-            current_value.path_md = "#{media_root}/#{target_dir}/#{date}/#{images_dir}/md.#{extension}"
-            current_value.url_md = "#{media_url}/#{target_dir}/#{date}/#{images_dir}/md.#{extension}"
+            current_value.path_md = "#{images_dir_path}/md.#{extension}"
+            current_value.url_md = "#{images_dir_url}/md.#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -139,8 +127,8 @@ module DynFork::Paladins::Groups
               perm: File::Permissions.new(0o644)
             )
           when "sm"
-            current_value.path_sm = "#{media_root}/#{target_dir}/#{date}/#{images_dir}/sm.#{extension}"
-            current_value.url_sm = "#{media_url}/#{target_dir}/#{date}/#{images_dir}/sm.#{extension}"
+            current_value.path_sm = "#{images_dir_path}/sm.#{extension}"
+            current_value.url_sm = "#{images_dir_url}/sm.#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -149,8 +137,8 @@ module DynFork::Paladins::Groups
               perm: File::Permissions.new(0o644)
             )
           when "xs"
-            current_value.path_xs = "#{media_root}/#{target_dir}/#{date}/#{images_dir}/xs.#{extension}"
-            current_value.url_xs = "#{media_url}/#{target_dir}/#{date}/#{images_dir}/xs.#{extension}"
+            current_value.path_xs = "#{images_dir_path}/xs.#{extension}"
+            current_value.url_xs = "#{images_dir_url}/xs.#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
