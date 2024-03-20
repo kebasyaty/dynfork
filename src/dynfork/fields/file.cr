@@ -136,24 +136,24 @@ module DynFork::Fields
           break if index == 40
         end
         # Create a target file name.
-        name = "#{UUID.v4.to_s}#{extension}"
+        target_name = "#{UUID.v4.to_s}#{extension}"
         # Get the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
-        path : String = "#{@media_root}/#{@target_dir}/#{date}/#{name}"
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{target_name}"
         # Create the target directory if it does not exist.
-        unless Dir.exists?(path)
-          Dir.mkdir_p(path: path, mode: 0o777)
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
         end
         # Save file in target directory.
         File.write(
-          filename: path,
+          filename: target_path,
           content: Base64.decode_string(base64),
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
-        @value.path = path
-        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{name}"
+        @value.path = target_path
+        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add file size.
         @value.size = File.size(@value.path)
       end
@@ -174,7 +174,28 @@ module DynFork::Fields
           raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
         end
         # Add original file name.
-        @value.name = filename
+        @value.name = File.basename(path)
+        # Create a target file name.
+        target_name = "#{UUID.v4.to_s}#{extension}"
+        # Get the current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target file.
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{target_name}"
+        # Create the target directory if it does not exist.
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
+        end
+        # Save file in target directory.
+        File.write(
+          filename: target_path,
+          content: File.read(path),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target file.
+        @value.path = target_path
+        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        # Add file size.
+        @value.size = File.size(target_path)
       end
     end
 
