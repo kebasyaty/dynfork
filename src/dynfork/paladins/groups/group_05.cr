@@ -70,21 +70,23 @@ module DynFork::Paladins::Groups
     unless current_value.path.empty?
       images_dir_path : String = current_value.images_dir_path
       images_dir_url : String = current_value.images_dir_url
+      path : String = current_value.path
+      perm : File::Permissions = File::Permissions.new(0o644)
       # Create thumbnails.
       unless (thumbnails = field_ptr.value.thumbnails?).nil?
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
         image : Pluto::ImageRGBA = if [".jpg", ".jpeg"].includes?(extension)
-          File.open(tempfile_path) do |file|
+          File.open(path) do |file|
             Pluto::ImageRGBA.from_jpeg(file)
           end
         elsif extension == ".png"
-          File.open(tempfile_path) do |file|
+          File.open(path) do |file|
             Pluto::ImageRGBA.from_png(file)
           end
         elsif extension == ".webp"
-          File.open(tempfile_path) do |file|
+          File.open(path) do |file|
             Pluto::ImageRGBA.from_webp(file)
           end
         else
@@ -114,7 +116,7 @@ module DynFork::Paladins::Groups
             File.write(
               filename: current_value.path_lg,
               content: io,
-              perm: File::Permissions.new(0o644)
+              perm: perm
             )
           when "md"
             current_value.path_md = "#{images_dir_path}/md.#{extension}"
@@ -124,7 +126,7 @@ module DynFork::Paladins::Groups
             File.write(
               filename: current_value.path_md,
               content: io,
-              perm: File::Permissions.new(0o644)
+              perm: perm
             )
           when "sm"
             current_value.path_sm = "#{images_dir_path}/sm.#{extension}"
@@ -134,7 +136,7 @@ module DynFork::Paladins::Groups
             File.write(
               filename: current_value.path_sm,
               content: io,
-              perm: File::Permissions.new(0o644)
+              perm: perm
             )
           when "xs"
             current_value.path_xs = "#{images_dir_path}/xs.#{extension}"
@@ -144,7 +146,7 @@ module DynFork::Paladins::Groups
             File.write(
               filename: current_value.path_xs,
               content: io,
-              perm: File::Permissions.new(0o644)
+              perm: perm
             )
           end
         end
