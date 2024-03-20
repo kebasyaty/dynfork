@@ -217,5 +217,9 @@ module DynFork::Fields
     def refrash_val_img_data(val : DynFork::Globals::ImageData)
       @value = val
     end
+
+    def extract_img_data : DynFork::Globals::ImageData?
+      @value
+    end
   end
 end

@@ -91,6 +91,9 @@ module DynFork::Fields
     # :nodoc:
     def extract_file_data : DynFork::Globals::FileData?; end
 
+    # :nodoc:
+    def extract_img_data : DynFork::Globals::ImageData?; end
+
     def initialize(
       @label : String = "",
       @default : String? = "#000000",
