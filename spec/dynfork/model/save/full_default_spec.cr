@@ -43,8 +43,8 @@ describe DynFork::Model do
       m.hash.value.empty?.should be_false
       m.created_at.value.empty?.should be_false
       m.updated_at.value.empty?.should be_false
-      DynFork::Globals.datetime_parse_reverse.matches?(m.created_at.value).should be_true
-      DynFork::Globals.datetime_parse_reverse.matches?(m.updated_at.value).should be_true
+      DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.created_at.value).should be_true
+      DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.updated_at.value).should be_true
       #
       m.url.value?.should be_nil
       m.text.value?.should be_nil
