@@ -57,7 +57,8 @@ module DynFork::Paladins::Groups
         error_symptom_ptr?
       )
       field_ptr.value.value = nil
-      current_value.delete_tempfile
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:files] << current_value.path
       return
     end
 

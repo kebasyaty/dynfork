@@ -23,18 +23,12 @@ module DynFork::Paladins::Groups
     end
 
     # Get current value.
-    current_value : DynFork::Globals::ImageData?
-
-    unless (value = field_ptr.value.value?).nil?
-      json : String = value.to_json
-      current_value = DynFork::Globals::ImageData.from_json(json)
-    end
+    current_value : DynFork::Globals::ImageData? = field_ptr.value.extract_img_data
 
     # If necessary, use the default value.
     if !update? && current_value.nil?
       if default = field_ptr.value.default
-        current_value = DynFork::Globals::ImageData.new
-        current_value.path_to_tempfile(default.to_s)
+        field_ptr.value.path_to_file(default.to_s)
       end
     end
 
@@ -42,7 +36,7 @@ module DynFork::Paladins::Groups
     return if current_value.nil?
 
     # If the file needs to be delete.
-    if current_value.delete? && current_value.tempfile?.nil?
+    if current_value.delete? && current_value.path.empty?
       if field_ptr.value.required?
         self.accumulate_error(
           I18n.t(:required_field),
@@ -63,7 +57,8 @@ module DynFork::Paladins::Groups
         error_symptom_ptr?
       )
       field_ptr.value.value = nil
-      current_value.delete_tempfile
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:files] << current_value.path
       return
     end
 
