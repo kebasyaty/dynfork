@@ -119,10 +119,10 @@ module DynFork::Fields
       filename : String? = nil,
       delete : Bool = false
     )
-      @value = DynFork::Globals::ImageData.new
-      @value.delete = delete
+      value = DynFork::Globals::ImageData.new
+      value.delete = delete
       #
-      if base64 = base64
+      unless base64.nil?
         # Get image extension.
         extension : String = Path[filename].extension
         if extension.empty?
@@ -159,19 +159,20 @@ module DynFork::Fields
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target image.
-        @value.path = target_path
-        @value.url = "#{images_dir_url}/#{target_img_name}"
+        value.path = target_path
+        value.url = "#{images_dir_url}/#{target_img_name}"
         # Add original image name.
-        @value.name = File.basename(path)
+        value.name = File.basename(path)
         # Add image extension.
-        @value.extension = extension
+        value.extension = extension
         # Add path to target directory with images.
-        @value.images_dir_path = images_dir_path
+        value.images_dir_path = images_dir_path
         # Add url path to target directory with images.
-        @value.images_dir_url = images_dir_url
+        value.images_dir_url = images_dir_url
         # Add image size.
-        @value.size = File.size(path)
+        value.size = File.size(path)
       end
+      @value = value
     end
 
     # Convert path to a image and save in the target directory.

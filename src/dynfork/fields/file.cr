@@ -117,10 +117,10 @@ module DynFork::Fields
       filename : String? = nil,
       delete : Bool = false
     )
-      @value = DynFork::Globals::FileData.new
-      @value.delete = delete
+      value = DynFork::Globals::FileData.new
+      value.delete = delete
       #
-      if base64 = base64
+      unless base64.nil?
         # Get file extension.
         extension = Path[filename].extension
         if extension.empty?
@@ -151,13 +151,14 @@ module DynFork::Fields
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
-        @value.path = target_path
-        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        value.path = target_path
+        value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add original file name.
-        @value.name = filename.not_nil!
+        value.name = filename.not_nil!
         # Add file size.
-        @value.size = File.size(@value.path)
+        value.size = File.size(@value.path)
       end
+      @value = value
     end
 
     # Convert path to a file and save in the target directory.
