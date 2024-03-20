@@ -168,7 +168,7 @@ module DynFork::Fields
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
-      if path = path
+      unless path.nil?
         # Get file extension.
         extension = Path[path].extension
         if extension.empty?
@@ -197,9 +197,8 @@ module DynFork::Fields
         value.name = File.basename(path)
         # Add file size.
         value.size = File.size(target_path)
-        #
-        @value = value
       end
+      @value = value
     end
 
     def refrash_val_file_data(val : DynFork::Globals::FileData)

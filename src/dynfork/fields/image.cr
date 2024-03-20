@@ -182,7 +182,7 @@ module DynFork::Fields
       value = DynFork::Globals::ImageData.new
       value.delete = delete
       #
-      if path = path
+      unless path.nil?
         # Get file extension.
         extension = Path[path].extension
         if extension.empty?
@@ -223,9 +223,8 @@ module DynFork::Fields
         value.images_dir_url = images_dir_url
         # Add image size.
         value.size = File.size(path)
-        #
-        @value = value
       end
+      @value = value
     end
 
     def refrash_val_img_data(val : DynFork::Globals::ImageData)
