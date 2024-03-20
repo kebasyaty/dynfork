@@ -136,14 +136,18 @@ module DynFork::Fields
           end
           break if index == 40
         end
-        # Create target directory name.
-        images_dir_path : String = UUID.v4.to_s
-        # Create target image name.
-        target_name = "original#{extension}"
+        #
+        uuid : String = UUID.v4.to_s
         # Create current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target directory with images.
+        images_dir_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{uuid}"
+        # Create url path to target directory with images.
+        images_dir_url : String = "#{@media_url}/#{@target_dir}/#{date}/#{uuid}"
+        # Create target image name.
+        target_img_name = "original#{extension}"
         # Create path to target image.
-        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        target_path : String = "#{images_dir_path}/#{target_img_name}"
         # Create the target directory if it does not exist.
         unless Dir.exists?(target_path)
           Dir.mkdir_p(path: target_path, mode: 0o777)
@@ -156,15 +160,17 @@ module DynFork::Fields
         )
         # Add paths to target image.
         @value.path = target_path
-        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        @value.url = "#{images_dir_url}/#{target_img_name}"
         # Add original image name.
-        @value.name = filename.not_nil!
+        @value.name = File.basename(path)
         # Add image extension.
         @value.extension = extension
-        # Add target directory name for images.
+        # Add path to target directory with images.
         @value.images_dir_path = images_dir_path
+        # Add url path to target directory with images.
+        @value.images_dir_url = images_dir_url
         # Add image size.
-        @value.size = File.size(@value.path)
+        @value.size = File.size(path)
       end
     end
 
@@ -182,10 +188,10 @@ module DynFork::Fields
         if extension.empty?
           raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
         end
-        # Create current date for the directory name.
-        date : String = Time.utc.to_s("%Y-%m-%d")
         #
         uuid : String = UUID.v4.to_s
+        # Create current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target directory with images.
         images_dir_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{uuid}"
         # Create url path to target directory with images.
