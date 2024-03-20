@@ -72,11 +72,14 @@ module DynFork::Globals::Types
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
     getter! extension : String?
-    # The name of the target directory for
-    # the original image and its thumbnails.
+    # Path to target directory with images.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! images_dir : String?
+    getter! images_dir_path : String?
+    # URL path to target directory with images.
+    @[JSON::Field(ignore: true)]
+    @[BSON::Field(ignore: true)]
+    getter! images_dir_url : String?
 
     def initialize; end
   end

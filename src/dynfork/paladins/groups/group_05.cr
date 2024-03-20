@@ -66,7 +66,6 @@ module DynFork::Paladins::Groups
 
     # Get the paths value and save the file.
     unless (tempfile = current_value.tempfile?).nil?
-      media_root : String = field_ptr.value.media_root
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
       images_dir : String = current_value.images_dir
