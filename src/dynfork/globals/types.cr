@@ -71,15 +71,15 @@ module DynFork::Globals::Types
     # _Examples: .png|.jpeg|.jpg|.webp_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! extension : String?
+    property! extension : String?
     # Path to target directory with images.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! images_dir_path : String?
+    property! images_dir_path : String?
     # URL path to target directory with images.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! images_dir_url : String?
+    property! images_dir_url : String?
 
     def initialize; end
   end
