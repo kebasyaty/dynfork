@@ -64,7 +64,7 @@ module DynFork::Paladins::Groups
     # Return if there is no need to save.
     return unless save?
 
-    # Get the paths value and save the file.
+    #
     unless current_value.path.empty?
       # Add path in cleanup map (for error_symptom=true).
       cleanup_map_ptr.value[:files] << current_value.path

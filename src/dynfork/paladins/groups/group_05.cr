@@ -64,8 +64,8 @@ module DynFork::Paladins::Groups
     # Return if there is no need to save.
     return unless save?
 
-    # Get the paths value and save the file.
-    unless (tempfile = current_value.tempfile?).nil?
+    # Create and save thumbnails.
+    unless current_value.path.empty?
       media_url : String = field_ptr.value.media_url
       target_dir : String = field_ptr.value.target_dir
       images_dir : String = current_value.images_dir
