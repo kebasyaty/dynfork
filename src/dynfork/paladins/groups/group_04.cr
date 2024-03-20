@@ -50,15 +50,17 @@ module DynFork::Paladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if current_value.size > field_ptr.value.maxsize
-      self.accumulate_error(
-        I18n.t(:size_exceeds_max),
-        field_ptr,
-        error_symptom_ptr?
-      )
-      # Add path in cleanup map.
-      cleanup_map_ptr.value[:files] << current_value.path
-      return
+    unless current_value.path.empty?
+      if current_value.size > field_ptr.value.maxsize
+        self.accumulate_error(
+          I18n.t(:size_exceeds_max),
+          field_ptr,
+          error_symptom_ptr?
+        )
+        # Add path in cleanup map.
+        cleanup_map_ptr.value[:files] << current_value.path
+        return
+      end
     end
 
     # Return if there is no need to save.
