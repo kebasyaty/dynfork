@@ -79,40 +79,6 @@ module DynFork::Globals::Types
     getter! images_dir : String?
 
     def initialize; end
-
-    def path_to_tempfile(path : String)
-      # Get file extension.
-      extension = Path[path].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
-      end
-      @extension = extension
-      # Get the contents of an image file.
-      content : String = File.read(path)
-      # Create a name for the original image file.
-      @name = "original#{extension}"
-      # Create a prefix for the image file name and target directory.
-      prefix : String = UUID.v4.to_s
-      @images_dir = prefix
-      # Create a temporary image file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print content
-      end
-      # Get the image file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
-    def delete_tempfile
-      unless @tempfile.nil?
-        self.tempfile.delete
-        @tempfile = nil
-      end
-    end
   end
 
   # Validation global DynFork settings.
