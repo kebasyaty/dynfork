@@ -56,7 +56,7 @@ module DynFork::Paladins::Save
              update: update,
              new: true
            )
-          self.refrash_fields(pointerof(doc))
+          self.refrash_fields(doc.not_nil!.to_h)
         end
       else
         raise DynFork::Errors::Panic.new(
@@ -74,7 +74,7 @@ module DynFork::Paladins::Save
       data["updated_at"] = datetime
       collection.insert_one(data)
       if doc = collection.find_one({_id: id})
-        self.refrash_fields(pointerof(doc))
+        self.refrash_fields(doc.not_nil!.to_h)
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{self.model_name}` => The document was not created."
