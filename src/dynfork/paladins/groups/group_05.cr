@@ -46,6 +46,8 @@ module DynFork::Paladins::Groups
       else
         (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
       end
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:images] << current_value.images_dir
       return
     end
 
@@ -56,9 +58,8 @@ module DynFork::Paladins::Groups
         field_ptr,
         error_symptom_ptr?
       )
-      field_ptr.value.value = nil
       # Add path in cleanup map.
-      cleanup_map_ptr.value[:files] << current_value.path
+      cleanup_map_ptr.value[:images] << current_value.images_dir
       return
     end
 
