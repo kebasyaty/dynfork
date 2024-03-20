@@ -139,11 +139,12 @@ module DynFork::Fields
         # Create the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
-        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{target_name}"
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}"
         # Create target directory if it does not exist.
         unless Dir.exists?(target_path)
           Dir.mkdir_p(path: target_path, mode: 0o777)
         end
+        target_path += "/#{target_name}"
         # Save file in target directory.
         File.write(
           filename: target_path,
@@ -180,11 +181,12 @@ module DynFork::Fields
         # Get the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
-        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{target_name}"
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}"
         # Create the target directory if it does not exist.
         unless Dir.exists?(target_path)
           Dir.mkdir_p(path: target_path, mode: 0o777)
         end
+        target_path += "/#{target_name}"
         # Save file in target directory.
         File.write(
           filename: target_path,

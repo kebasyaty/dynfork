@@ -149,8 +149,8 @@ module DynFork::Fields
         # Create path to target image.
         target_path : String = "#{images_dir_path}/#{target_img_name}"
         # Create the target directory if it does not exist.
-        unless Dir.exists?(target_path)
-          Dir.mkdir_p(path: target_path, mode: 0o777)
+        unless Dir.exists?(images_dir_path)
+          Dir.mkdir_p(path: images_dir_path, mode: 0o777)
         end
         # Save image in target directory.
         File.write(
@@ -202,8 +202,8 @@ module DynFork::Fields
         # Create path to target image.
         target_path : String = "#{images_dir_path}/#{target_img_name}"
         # Create the target directory if it does not exist.
-        unless Dir.exists?(target_path)
-          Dir.mkdir_p(path: target_path, mode: 0o777)
+        unless Dir.exists?(images_dir_path)
+          Dir.mkdir_p(path: images_dir_path, mode: 0o777)
         end
         # Save image in target directory.
         File.write(
