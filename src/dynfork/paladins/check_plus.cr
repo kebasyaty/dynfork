@@ -117,13 +117,18 @@ module DynFork::Paladins::CheckPlus
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc : Hash)
     field_type : String = ""
+    name : String = ""
+    #
     {% for field in @type.instance_vars %}
-      if @{{ field }}.name == "hash"
+      name = @{{ field }}.name
+      #
+      if name == "hash"
         @{{ field }}.refrash_val_str(doc["_id"].as(BSON::ObjectId).to_s)
       end
+      #
       unless @{{ field }}.ignored?
         field_type = @{{ field }}.field_type
-        if !(value = doc[@{{ field }}.name]).nil?
+        if !(value = doc[name]).nil?
           case @{{ field }}.group
           when 1
             # ColorField | EmailField | PasswordField | PhoneField
