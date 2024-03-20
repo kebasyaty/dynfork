@@ -44,11 +44,6 @@ module DynFork
   VERSION = "0.1.0"
 end
 
-# Directory for storing temporary files.
-unless Dir.exists?("tmp")
-  Dir.mkdir_p(path: "tmp", mode: 0o777)
-end
-
 module Validator
   # Custom validator for checking color code.
   # <br>

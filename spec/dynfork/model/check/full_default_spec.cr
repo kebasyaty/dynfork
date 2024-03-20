@@ -113,14 +113,13 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_false
       #
-      #
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end

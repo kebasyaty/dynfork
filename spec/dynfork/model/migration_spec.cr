@@ -46,6 +46,8 @@ describe DynFork::Migration::Monitor do
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
 
     it "=> create instance with database name", tags: "migration" do
@@ -68,6 +70,8 @@ describe DynFork::Migration::Monitor do
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
 
     it "=> create instance and testing model list", tags: "migration" do
@@ -86,6 +90,8 @@ describe DynFork::Migration::Monitor do
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 
@@ -107,6 +113,8 @@ describe DynFork::Migration::Monitor do
       # (if the test fails)
       Spec::Support.delete_test_db(
         Mongo::Client.new(mongo_uri)[database_name])
+      #
+      DynFork::Globals.cache_mongo_client.close
 
       # Run migration.
       m = DynFork::Migration::Monitor.new(
@@ -130,6 +138,8 @@ describe DynFork::Migration::Monitor do
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end

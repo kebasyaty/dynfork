@@ -19,85 +19,19 @@ module DynFork::Globals::Types
 
     # Path to file.
     property path : String = ""
-    # URL to the file.
+    # URL to file.
     property url : String = ""
-    # File name.
+    # Original file name.
     property name : String = ""
     # File size in bytes.
-    getter size : Int64 = 0
-    # If the file needs to be deleted: delete=true.
+    property size : Int64 = 0
+    # If the file needs to be deleted: _delete=true_.
     # <br>
-    # By default delete=false.
+    # By default: _delete=false_.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
-    # For temporary storage of a file.
-    @[JSON::Field(ignore: true)]
-    @[BSON::Field(ignore: true)]
-    getter! tempfile : File?
 
     def initialize; end
-
-    # filename: _Example: foo.pdf_
-    def base64_to_tempfile(base64 : String, filename : String)
-      # Get file extension.
-      extension = Path[filename].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
-      end
-      # Prepare Base64 content.
-      base64.each_char_with_index do |char, index|
-        if char == ','
-          base64 = base64.delete_at(0, index + 1)
-          break
-        end
-        break if index == 40
-      end
-      # Create a prefix for the file name.
-      prefix : String = UUID.v4.to_s
-      @name = "#{prefix}#{extension}"
-      # Create a temporary file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{@extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print Base64.decode_string(base64)
-      end
-      # Get file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
-    def path_to_tempfile(path : String)
-      # Get file extension.
-      extension = Path[path].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
-      end
-      # Get the contents of the file.
-      content : String = File.read(path)
-      # Create a prefix for the file name.
-      prefix : String = UUID.v4.to_s
-      @name = "#{prefix}#{extension}"
-      # Create a temporary file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print content
-      end
-      # Get file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
-    def delete_tempfile
-      unless @tempfile.nil?
-        self.tempfile.delete
-        @tempfile = nil
-      end
-    end
   end
 
   # Data type for ImageField.
@@ -105,14 +39,16 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include BSON::Serializable
 
-    # Path to image.
+    # Path to image (for original image).
     property path : String = ""
+    # For thumbnails.
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
     property path_lg : String = ""
-    # URL to the image.
+    # URL to the image (for original image).
     property url : String = ""
+    # For thumbnails.
     property url_xs : String = ""
     property url_sm : String = ""
     property url_md : String = ""
@@ -124,97 +60,28 @@ module DynFork::Globals::Types
     # Image height in pixels (for original image).
     property height : Int32 = 0
     # Image size in bytes (for original image).
-    getter size : Int64 = 0
-    # If the files needs to be deleted: delete=true.
+    property size : Int64 = 0
+    # If the images needs to be deleted: _delete=true_.
     # <br>
-    # By default delete=false.
+    # By default: _delete=false_.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
-    # File extension.
+    # Image extension.
     # <br>
     # _Examples: .png|.jpeg|.jpg|.webp_
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! extension : String?
-    # For temporary storage of an image.
+    property! extension : String?
+    # Path to target directory with images.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! tempfile : File?
-    # The name of the target directory for
-    # the original image and its thumbnails.
+    property! images_dir_path : String?
+    # URL path to target directory with images.
     @[JSON::Field(ignore: true)]
     @[BSON::Field(ignore: true)]
-    getter! images_dir : String?
+    property! images_dir_url : String?
 
     def initialize; end
-
-    # filename: _Example: foo.png_
-    def base64_to_tempfile(base64 : String, filename : String)
-      # Get file extension.
-      extension = Path[filename].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The image `#{filename}` has no extension.")
-      end
-      @extension = extension
-      # Prepare Base64 content.
-      base64.each_char_with_index do |char, index|
-        if char == ','
-          base64 = base64.delete_at(0, index + 1)
-          break
-        end
-        break if index == 40
-      end
-      # Create a name for the original image file.
-      @name = "original#{extension}"
-      # Create a prefix for the image file name and target directory.
-      prefix : String = UUID.v4.to_s
-      @images_dir = prefix
-      # Create a temporary image file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{@extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print Base64.decode_string(base64)
-      end
-      # Get the image file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
-    def path_to_tempfile(path : String)
-      # Get file extension.
-      extension = Path[path].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The image `#{path}` has no extension.")
-      end
-      @extension = extension
-      # Get the contents of an image file.
-      content : String = File.read(path)
-      # Create a name for the original image file.
-      @name = "original#{extension}"
-      # Create a prefix for the image file name and target directory.
-      prefix : String = UUID.v4.to_s
-      @images_dir = prefix
-      # Create a temporary image file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print content
-      end
-      # Get the image file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
-
-    def delete_tempfile
-      unless @tempfile.nil?
-        self.tempfile.delete
-        @tempfile = nil
-      end
-    end
   end
 
   # Validation global DynFork settings.

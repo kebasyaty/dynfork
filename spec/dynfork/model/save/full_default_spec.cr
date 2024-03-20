@@ -40,6 +40,12 @@ describe DynFork::Model do
       collection.count_documents.should eq(1)
       #
       # Param `value`
+      m.hash.value.empty?.should be_false
+      m.created_at.value.empty?.should be_false
+      m.updated_at.value.empty?.should be_false
+      DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.created_at.value).should be_true
+      DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.updated_at.value).should be_true
+      #
       m.url.value?.should be_nil
       m.text.value?.should be_nil
       m.phone.value?.should be_nil
@@ -111,14 +117,13 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_false
       #
-      #
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end

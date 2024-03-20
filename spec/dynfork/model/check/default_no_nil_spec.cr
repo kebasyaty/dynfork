@@ -69,8 +69,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.value?.should be_nil
-      m.image.value?.should be_nil
+      m.file.value?.should be_a(DynFork::Globals::FileData)
+      m.image.value?.should be_a(DynFork::Globals::ImageData)
       #
       m.i64.value?.should be_nil
       m.f64.value?.should be_nil
@@ -113,14 +113,13 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_true
       #
-      #
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end

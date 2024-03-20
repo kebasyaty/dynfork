@@ -715,13 +715,6 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method" class="signature"><strong>#base64_to_tempfile</strong>(base64 : String, filename : String)</a>
-        
-          <div class="summary"><p>filename: <em>Example: foo.png</em></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#delete%3D%28delete%3ABool%29-instance-method" class="signature"><strong>#delete=</strong>(delete : Bool)</a>
         
       </li>
@@ -732,12 +725,12 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#delete_tempfile-instance-method" class="signature"><strong>#delete_tempfile</strong></a>
+        <a href="#extension%3AString%7CNil-instance-method" class="signature"><strong>#extension</strong> : String | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#extension%3AString%7CNil-instance-method" class="signature"><strong>#extension</strong> : String | Nil</a>
+        <a href="#extension%3D%28extension%3AString%7CNil%29-instance-method" class="signature"><strong>#extension=</strong>(extension : String | Nil)</a>
         
       </li>
     
@@ -761,12 +754,32 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#images_dir%3AString%7CNil-instance-method" class="signature"><strong>#images_dir</strong> : String | Nil</a>
+        <a href="#images_dir_path%3AString%7CNil-instance-method" class="signature"><strong>#images_dir_path</strong> : String | Nil</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#images_dir%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#images_dir?</strong> : String | Nil | Nil</a>
+        <a href="#images_dir_path%3D%28images_dir_path%3AString%7CNil%29-instance-method" class="signature"><strong>#images_dir_path=</strong>(images_dir_path : String | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#images_dir_path%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#images_dir_path?</strong> : String | Nil | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#images_dir_url%3AString%7CNil-instance-method" class="signature"><strong>#images_dir_url</strong> : String | Nil</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#images_dir_url%3D%28images_dir_url%3AString%7CNil%29-instance-method" class="signature"><strong>#images_dir_url=</strong>(images_dir_url : String | Nil)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#images_dir_url%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#images_dir_url?</strong> : String | Nil | Nil</a>
         
       </li>
     
@@ -787,14 +800,14 @@
       <li class="entry-summary">
         <a href="#path%3AString-instance-method" class="signature"><strong>#path</strong> : String</a>
         
-          <div class="summary"><p>Path to image.</p></div>
+          <div class="summary"><p>Path to image (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#path%3D%28path%3AString%29-instance-method" class="signature"><strong>#path=</strong>(path : String)</a>
         
-          <div class="summary"><p>Path to image.</p></div>
+          <div class="summary"><p>Path to image (for original image).</p></div>
         
       </li>
     
@@ -829,17 +842,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#path_to_tempfile%28path%3AString%29-instance-method" class="signature"><strong>#path_to_tempfile</strong>(path : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#path_xs%3AString-instance-method" class="signature"><strong>#path_xs</strong> : String</a>
+        
+          <div class="summary"><p>For thumbnails.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#path_xs%3D%28path_xs%3AString%29-instance-method" class="signature"><strong>#path_xs=</strong>(path_xs : String)</a>
+        
+          <div class="summary"><p>For thumbnails.</p></div>
         
       </li>
     
@@ -851,12 +863,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#tempfile%3AFile%7CNil-instance-method" class="signature"><strong>#tempfile</strong> : File | Nil</a>
+        <a href="#size%3D%28size%3AInt64%29-instance-method" class="signature"><strong>#size=</strong>(size : Int64)</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#tempfile%3F%3AFile%7CNil%7CNil-instance-method" class="signature"><strong>#tempfile?</strong> : File | Nil | Nil</a>
+          <div class="summary"><p>Image size in bytes (for original image).</p></div>
         
       </li>
     
@@ -870,14 +879,14 @@
       <li class="entry-summary">
         <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
         
-          <div class="summary"><p>URL to the image.</p></div>
+          <div class="summary"><p>URL to the image (for original image).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#url%3D%28url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(url : String)</a>
         
-          <div class="summary"><p>URL to the image.</p></div>
+          <div class="summary"><p>URL to the image (for original image).</p></div>
         
       </li>
     
@@ -914,10 +923,14 @@
       <li class="entry-summary">
         <a href="#url_xs%3AString-instance-method" class="signature"><strong>#url_xs</strong> : String</a>
         
+          <div class="summary"><p>For thumbnails.</p></div>
+        
       </li>
     
       <li class="entry-summary">
         <a href="#url_xs%3D%28url_xs%3AString%29-instance-method" class="signature"><strong>#url_xs=</strong>(url_xs : String)</a>
+        
+          <div class="summary"><p>For thumbnails.</p></div>
         
       </li>
     
@@ -1118,25 +1131,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="base64_to_tempfile(base64:String,filename:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>base64_to_tempfile</strong>(base64 : String, filename : String)
-
-        <a class="method-permalink" href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>filename: <em>Example: foo.png</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="delete=(delete:Bool)-instance-method">
       <div class="signature">
         
@@ -1165,12 +1159,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="delete_tempfile-instance-method">
+    <div class="entry-detail" id="extension:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>delete_tempfile</strong>
+        def <strong>extension</strong> : String | Nil
 
-        <a class="method-permalink" href="#delete_tempfile-instance-method">#</a>
+        <a class="method-permalink" href="#extension%3AString%7CNil-instance-method">#</a>
       </div>
       
       <br/>
@@ -1179,12 +1173,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="extension:String|Nil-instance-method">
+    <div class="entry-detail" id="extension=(extension:String|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>extension</strong> : String | Nil
+        def <strong>extension=</strong>(extension : String | Nil)
 
-        <a class="method-permalink" href="#extension%3AString%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#extension%3D%28extension%3AString%7CNil%29-instance-method">#</a>
       </div>
       
       <br/>
@@ -1245,12 +1239,12 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="images_dir:String|Nil-instance-method">
+    <div class="entry-detail" id="images_dir_path:String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>images_dir</strong> : String | Nil
+        def <strong>images_dir_path</strong> : String | Nil
 
-        <a class="method-permalink" href="#images_dir%3AString%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#images_dir_path%3AString%7CNil-instance-method">#</a>
       </div>
       
       <br/>
@@ -1259,12 +1253,68 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="images_dir?:String|Nil|Nil-instance-method">
+    <div class="entry-detail" id="images_dir_path=(images_dir_path:String|Nil)-instance-method">
       <div class="signature">
         
-        def <strong>images_dir?</strong> : String | Nil | Nil
+        def <strong>images_dir_path=</strong>(images_dir_path : String | Nil)
 
-        <a class="method-permalink" href="#images_dir%3F%3AString%7CNil%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#images_dir_path%3D%28images_dir_path%3AString%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="images_dir_path?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>images_dir_path?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#images_dir_path%3F%3AString%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="images_dir_url:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>images_dir_url</strong> : String | Nil
+
+        <a class="method-permalink" href="#images_dir_url%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="images_dir_url=(images_dir_url:String|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>images_dir_url=</strong>(images_dir_url : String | Nil)
+
+        <a class="method-permalink" href="#images_dir_url%3D%28images_dir_url%3AString%7CNil%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="images_dir_url?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>images_dir_url?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#images_dir_url%3F%3AString%7CNil%7CNil-instance-method">#</a>
       </div>
       
       <br/>
@@ -1321,7 +1371,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>Path to image.</p>
+          <p>Path to image (for original image).</p>
         </div>
       
       <br/>
@@ -1340,7 +1390,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>Path to image.</p>
+          <p>Path to image (for original image).</p>
         </div>
       
       <br/>
@@ -1433,20 +1483,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="path_to_tempfile(path:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>path_to_tempfile</strong>(path : String)
-
-        <a class="method-permalink" href="#path_to_tempfile%28path%3AString%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="path_xs:String-instance-method">
       <div class="signature">
         
@@ -1454,6 +1490,11 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
 
         <a class="method-permalink" href="#path_xs%3AString-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>For thumbnails.</p>
+        </div>
       
       <br/>
       <div>
@@ -1468,6 +1509,11 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
 
         <a class="method-permalink" href="#path_xs%3D%28path_xs%3AString%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>For thumbnails.</p>
+        </div>
       
       <br/>
       <div>
@@ -1494,27 +1540,18 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="tempfile:File|Nil-instance-method">
+    <div class="entry-detail" id="size=(size:Int64)-instance-method">
       <div class="signature">
         
-        def <strong>tempfile</strong> : File | Nil
+        def <strong>size=</strong>(size : Int64)
 
-        <a class="method-permalink" href="#tempfile%3AFile%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#size%3D%28size%3AInt64%29-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="tempfile?:File|Nil|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>tempfile?</strong> : File | Nil | Nil
-
-        <a class="method-permalink" href="#tempfile%3F%3AFile%7CNil%7CNil-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>Image size in bytes (for original image).</p>
+        </div>
       
       <br/>
       <div>
@@ -1553,7 +1590,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the image.</p>
+          <p>URL to the image (for original image).</p>
         </div>
       
       <br/>
@@ -1572,7 +1609,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the image.</p>
+          <p>URL to the image (for original image).</p>
         </div>
       
       <br/>
@@ -1673,6 +1710,11 @@ bson <span class="o">=</span> user.to_bson</code></pre>
         <a class="method-permalink" href="#url_xs%3AString-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>For thumbnails.</p>
+        </div>
+      
       <br/>
       <div>
         
@@ -1686,6 +1728,11 @@ bson <span class="o">=</span> user.to_bson</code></pre>
 
         <a class="method-permalink" href="#url_xs%3D%28url_xs%3AString%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>For thumbnails.</p>
+        </div>
       
       <br/>
       <div>

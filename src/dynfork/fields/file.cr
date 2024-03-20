@@ -89,6 +89,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_img_data(val : DynFork::Globals::ImageData); end
 
+    # :nodoc:
+    def extract_img_data : DynFork::Globals::ImageData?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
@@ -107,24 +110,106 @@ module DynFork::Fields
       @input_type = "file"
     end
 
-    # Convert base64 to tempfile for FileData.
+    # Convert base64 to a file and save in the target directory.
     # filename: _Example: foo.pdf_
-    def base64_to_tempfile(base64 : String, filename : String)
-      @value = (DynFork::Globals::FileData.new).base64_to_tempfile(base64, filename)
+    def base64_to_file(
+      base64 : String? = nil,
+      filename : String? = nil,
+      delete : Bool = false
+    )
+      value = DynFork::Globals::FileData.new
+      value.delete = delete
+      #
+      unless base64.nil?
+        # Get file extension.
+        extension = Path[filename].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
+        end
+        # Prepare Base64 content.
+        base64.each_char_with_index do |char, index|
+          if char == ','
+            base64 = base64.delete_at(0, index + 1)
+            break
+          end
+          break if index == 40
+        end
+        # Create target file name.
+        target_name = "#{UUID.v4}#{extension}"
+        # Create the current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target file.
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}"
+        # Create target directory if it does not exist.
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
+        end
+        target_path += "/#{target_name}"
+        # Save file in target directory.
+        File.write(
+          filename: target_path,
+          content: Base64.decode_string(base64),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target file.
+        value.path = target_path
+        value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        # Add original file name.
+        value.name = filename.not_nil!
+        # Add file size.
+        value.size = File.size(@value.path)
+      end
+      @value = value
     end
 
-    # Convert path to tempfile for FileData.
-    def path_to_tempfile(path : String)
-      @value = (DynFork::Globals::FileData.new).path_to_tempfile(path)
-    end
-
-    # Delete temporary file in FileData.
-    def delete_tempfile
-      self.value.delete_tempfile unless @value.nil?
+    # Convert path to a file and save in the target directory.
+    def path_to_file(
+      path : String? = nil,
+      delete : Bool = false
+    )
+      value = DynFork::Globals::FileData.new
+      value.delete = delete
+      #
+      unless path.nil?
+        # Get file extension.
+        extension = Path[path].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
+        end
+        # Create a target file name.
+        target_name = "#{UUID.v4}#{extension}"
+        # Get the current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target file.
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}"
+        # Create the target directory if it does not exist.
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
+        end
+        target_path += "/#{target_name}"
+        # Save file in target directory.
+        File.write(
+          filename: target_path,
+          content: File.read(path),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target file.
+        value.path = target_path
+        value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
+        # Add original file name.
+        value.name = File.basename(path)
+        # Add file size.
+        value.size = File.size(target_path)
+      end
+      @value = value
     end
 
     def refrash_val_file_data(val : DynFork::Globals::FileData)
       @value = val
+    end
+
+    def extract_file_data : DynFork::Globals::FileData?
+      @value
     end
   end
 end

@@ -715,13 +715,6 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method" class="signature"><strong>#base64_to_tempfile</strong>(base64 : String, filename : String)</a>
-        
-          <div class="summary"><p>filename: <em>Example: foo.pdf</em></p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#delete%3D%28delete%3ABool%29-instance-method" class="signature"><strong>#delete=</strong>(delete : Bool)</a>
         
       </li>
@@ -732,21 +725,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#delete_tempfile-instance-method" class="signature"><strong>#delete_tempfile</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
         
-          <div class="summary"><p>File name.</p></div>
+          <div class="summary"><p>Original file name.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
         
-          <div class="summary"><p>File name.</p></div>
+          <div class="summary"><p>Original file name.</p></div>
         
       </li>
     
@@ -765,11 +753,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#path_to_tempfile%28path%3AString%29-instance-method" class="signature"><strong>#path_to_tempfile</strong>(path : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#size%3AInt64-instance-method" class="signature"><strong>#size</strong> : Int64</a>
         
           <div class="summary"><p>File size in bytes.</p></div>
@@ -777,12 +760,9 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#tempfile%3AFile%7CNil-instance-method" class="signature"><strong>#tempfile</strong> : File | Nil</a>
+        <a href="#size%3D%28size%3AInt64%29-instance-method" class="signature"><strong>#size=</strong>(size : Int64)</a>
         
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#tempfile%3F%3AFile%7CNil%7CNil-instance-method" class="signature"><strong>#tempfile?</strong> : File | Nil | Nil</a>
+          <div class="summary"><p>File size in bytes.</p></div>
         
       </li>
     
@@ -796,14 +776,14 @@
       <li class="entry-summary">
         <a href="#url%3AString-instance-method" class="signature"><strong>#url</strong> : String</a>
         
-          <div class="summary"><p>URL to the file.</p></div>
+          <div class="summary"><p>URL to file.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#url%3D%28url%3AString%29-instance-method" class="signature"><strong>#url=</strong>(url : String)</a>
         
-          <div class="summary"><p>URL to the file.</p></div>
+          <div class="summary"><p>URL to file.</p></div>
         
       </li>
     
@@ -990,25 +970,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="base64_to_tempfile(base64:String,filename:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>base64_to_tempfile</strong>(base64 : String, filename : String)
-
-        <a class="method-permalink" href="#base64_to_tempfile%28base64%3AString%2Cfilename%3AString%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>filename: <em>Example: foo.pdf</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="delete=(delete:Bool)-instance-method">
       <div class="signature">
         
@@ -1037,20 +998,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="delete_tempfile-instance-method">
-      <div class="signature">
-        
-        def <strong>delete_tempfile</strong>
-
-        <a class="method-permalink" href="#delete_tempfile-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="name:String-instance-method">
       <div class="signature">
         
@@ -1061,7 +1008,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>File name.</p>
+          <p>Original file name.</p>
         </div>
       
       <br/>
@@ -1080,7 +1027,7 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       
         <div class="doc">
           
-          <p>File name.</p>
+          <p>Original file name.</p>
         </div>
       
       <br/>
@@ -1127,20 +1074,6 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="path_to_tempfile(path:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>path_to_tempfile</strong>(path : String)
-
-        <a class="method-permalink" href="#path_to_tempfile%28path%3AString%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="size:Int64-instance-method">
       <div class="signature">
         
@@ -1160,27 +1093,18 @@ data[<span class="s">&quot;name&quot;</span>] <span class="o">=</span> <span cla
       </div>
     </div>
   
-    <div class="entry-detail" id="tempfile:File|Nil-instance-method">
+    <div class="entry-detail" id="size=(size:Int64)-instance-method">
       <div class="signature">
         
-        def <strong>tempfile</strong> : File | Nil
+        def <strong>size=</strong>(size : Int64)
 
-        <a class="method-permalink" href="#tempfile%3AFile%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#size%3D%28size%3AInt64%29-instance-method">#</a>
       </div>
       
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="tempfile?:File|Nil|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>tempfile?</strong> : File | Nil | Nil
-
-        <a class="method-permalink" href="#tempfile%3F%3AFile%7CNil%7CNil-instance-method">#</a>
-      </div>
+        <div class="doc">
+          
+          <p>File size in bytes.</p>
+        </div>
       
       <br/>
       <div>
@@ -1219,7 +1143,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the file.</p>
+          <p>URL to file.</p>
         </div>
       
       <br/>
@@ -1238,7 +1162,7 @@ bson <span class="o">=</span> user.to_bson</code></pre>
       
         <div class="doc">
           
-          <p>URL to the file.</p>
+          <p>URL to file.</p>
         </div>
       
       <br/>

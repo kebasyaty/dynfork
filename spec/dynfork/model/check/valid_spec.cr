@@ -34,27 +34,23 @@ describe DynFork::Model do
       valid = m.valid?
       m.print_err unless valid
       valid.should be_true
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       #
       m = Spec::Data::DefaultNoNil.new
       valid = m.valid?
       m.print_err unless valid
       valid.should be_true
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       #
       m = Spec::Data::ValueNoNil.new
       valid = m.valid?
       m.print_err unless valid
       valid.should be_true
-      m.file.delete_tempfile
-      m.image.delete_tempfile
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
+      #
+      DynFork::Globals.cache_mongo_client.close
     end
   end
 end
