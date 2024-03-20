@@ -77,6 +77,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_date(val : Time); end
 
+    # :nodoc:
+    def extract_file_data : DynFork::Globals::FileData?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
@@ -183,6 +186,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_date(val : Time); end
 
+    # :nodoc:
+    def extract_file_data : DynFork::Globals::FileData?; end
+
     def initialize(
       @label : String = "",
       @default : Array(String)? = nil,
@@ -288,6 +294,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_datetime(val : Time); end
+
+    # :nodoc:
+    def extract_file_data : DynFork::Globals::FileData?; end
 
     # :nodoc:
     def refrash_val_date(val : Time); end
@@ -401,6 +410,9 @@ module DynFork::Fields
 
     # :nodoc:
     def refrash_val_date(val : Time); end
+
+    # :nodoc:
+    def extract_file_data : DynFork::Globals::FileData?; end
 
     def initialize(
       @label : String = "",

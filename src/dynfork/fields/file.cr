@@ -202,5 +202,9 @@ module DynFork::Fields
     def refrash_val_file_data(val : DynFork::Globals::FileData)
       @value = val
     end
+
+    def extract_file_data : DynFork::Globals::FileData?
+      @value
+    end
   end
 end

@@ -91,6 +91,9 @@ module DynFork::Fields
     # :nodoc:
     def refrash_val_file_data(val : DynFork::Globals::FileData); end
 
+    # :nodoc:
+    def extract_file_data : DynFork::Globals::FileData?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

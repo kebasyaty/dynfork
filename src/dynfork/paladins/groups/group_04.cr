@@ -23,12 +23,7 @@ module DynFork::Paladins::Groups
     end
 
     # Get current value.
-    current_value : DynFork::Globals::FileData?
-
-    unless (value = field_ptr.value.value?).nil?
-      json : String = value.to_json
-      current_value = DynFork::Globals::FileData.from_json(json)
-    end
+    current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
 
     # If necessary, use the default value.
     if !update? && current_value.nil?
