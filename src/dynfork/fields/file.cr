@@ -107,20 +107,61 @@ module DynFork::Fields
       @input_type = "file"
     end
 
-    # Convert base64 to tempfile for FileData.
+    # Convert base64 to a file and save in the target directory.
     # filename: _Example: foo.pdf_
-    def base64_to_tempfile(base64 : String, filename : String)
-      @value = (DynFork::Globals::FileData.new).base64_to_tempfile(base64, filename)
+    def base64_to_tempfile(
+      base64 : String? = nil,
+      filename : String? = nil,
+      delete : Bool = false
+    )
+      @value = DynFork::Globals::FileData.new
+      @value.delete = delete
+      #
+      if base64 = base64
+        # Get file extension.
+        if filename = filename
+          extension = Path[filename].extension
+          if extension.empty?
+            raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
+          end
+          # Add original file name.
+          @name = filename
+        end
+        # Prepare Base64 content.
+        base64.each_char_with_index do |char, index|
+          if char == ','
+            base64 = base64.delete_at(0, index + 1)
+            break
+          end
+          break if index == 40
+        end
+        # Create a target file name.
+        name = "#{UUID.v4.to_s}#{extension}"
+        # Get the current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target file.
+        path : String = "#{@media_root}/#{@target_dir}/#{date}/#{name}"
+        # Save file in target directory.
+        File.write(
+          filename: path,
+          content: Base64.decode_string(base64),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target file.
+        @value.path = path
+        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{name}"
+        # Add file size.
+        @size = File.size(self.tempfile.path)
+      end
     end
 
-    # Convert path to tempfile for FileData.
-    def path_to_tempfile(path : String)
-      @value = (DynFork::Globals::FileData.new).path_to_tempfile(path)
-    end
-
-    # Delete temporary file in FileData.
-    def delete_tempfile
-      self.value.delete_tempfile unless @value.nil?
+    # Convert path to a file and save in the target directory.
+    def path_to_tempfile(
+      path : String? = nil,
+      delete : Bool = false
+    )
+      @value = DynFork::Globals::FileData.new
+      @value.delete = delete
     end
 
     def refrash_val_file_data(val : DynFork::Globals::FileData)

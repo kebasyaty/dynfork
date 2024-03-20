@@ -19,21 +19,17 @@ module DynFork::Globals::Types
 
     # Path to file.
     property path : String = ""
-    # URL to the file.
+    # URL to file.
     property url : String = ""
-    # File name.
+    # Original file name.
     property name : String = ""
     # File size in bytes.
     getter size : Int64 = 0
-    # If the file needs to be deleted: delete=true.
+    # If the file needs to be deleted: _delete=true_.
     # <br>
-    # By default delete=false.
+    # By default: _delete=false_.
     @[BSON::Field(ignore: true)]
     property? delete : Bool = false
-    # For temporary storage of a file.
-    @[JSON::Field(ignore: true)]
-    @[BSON::Field(ignore: true)]
-    getter! tempfile : File?
 
     def initialize; end
 
@@ -63,9 +59,8 @@ module DynFork::Globals::Types
       ) do |file|
         file.print Base64.decode_string(base64)
       end
-      # Get file size.
+      # Add file size.
       @size = File.size(self.tempfile.path)
-      self
     end
 
     def path_to_tempfile(path : String)
@@ -90,13 +85,6 @@ module DynFork::Globals::Types
       # Get file size.
       @size = File.size(self.tempfile.path)
       self
-    end
-
-    def delete_tempfile
-      unless @tempfile.nil?
-        self.tempfile.delete
-        @tempfile = nil
-      end
     end
   end
 

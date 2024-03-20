@@ -93,9 +93,6 @@ module DynFork::Paladins::Groups
         perm: File::Permissions.new(0o644)
       )
       #
-      field_ptr.value.value = nil
-      current_value.delete_tempfile
-      #
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end
