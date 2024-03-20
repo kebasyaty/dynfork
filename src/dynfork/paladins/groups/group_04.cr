@@ -6,7 +6,7 @@ module DynFork::Paladins::Groups
     update? : Bool,
     save? : Bool,
     result_bson_ptr : Pointer(BSON),
-    cleaning_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
+    cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
@@ -66,7 +66,8 @@ module DynFork::Paladins::Groups
 
     # Get the paths value and save the file.
     unless current_value.path.empty?
-      cleaning_map_ptr.value[:files] << current_value.path
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:files] << current_value.path
       # Insert result.
       result_bson_ptr.value[field_ptr.value.name] = current_value
     end

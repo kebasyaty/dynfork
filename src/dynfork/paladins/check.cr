@@ -26,14 +26,14 @@ module DynFork::Paladins::Check
     result_bson : BSON = BSON.new
     result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
     # Addresses of files to be deleted (if error_symptom? = true).
-    cleaning_map : NamedTuple(
+    cleanup_map : NamedTuple(
       files: Array(String),
       images: Array(String),
     ) = {files: Array(String).new, images: Array(String).new}
-    cleaning_map_ptr : Pointer(NamedTuple(
+    cleanup_map_ptr : Pointer(NamedTuple(
       files: Array(String),
       images: Array(String),
-    )) = pointerof(cleaning_map)
+    )) = pointerof(cleanup_map)
     # Is there any incorrect data?
     error_symptom? : Bool = false
     error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
@@ -103,7 +103,7 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_bson_ptr,
-            cleaning_map_ptr
+            cleanup_map_ptr
           )
         when 5
           # Validation of fields of type ImageField.
@@ -113,7 +113,7 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_bson_ptr,
-            cleaning_map_ptr
+            cleanup_map_ptr
           )
         when 6
           # Validation of fields of type I64Field.
@@ -160,11 +160,11 @@ module DynFork::Paladins::Check
       # Reset the hash for a new document.
       (@hash.value = nil) if save? && !update?
       # Delete new files.
-      cleaning_map[:files].each do |path|
+      cleanup_map[:files].each do |path|
         File.delete(path)
       end
       # Delete new images.
-      cleaning_map[:images].each do |path|
+      cleanup_map[:images].each do |path|
         FileUtils.rm_rf(path)
       end
     end
