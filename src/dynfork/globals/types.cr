@@ -33,36 +33,6 @@ module DynFork::Globals::Types
 
     def initialize; end
 
-    # filename: _Example: foo.pdf_
-    def base64_to_tempfile(base64 : String, filename : String)
-      # Get file extension.
-      extension = Path[filename].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
-      end
-      # Prepare Base64 content.
-      base64.each_char_with_index do |char, index|
-        if char == ','
-          base64 = base64.delete_at(0, index + 1)
-          break
-        end
-        break if index == 40
-      end
-      # Create a prefix for the file name.
-      prefix : String = UUID.v4.to_s
-      @name = "#{prefix}#{extension}"
-      # Create a temporary file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{@extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print Base64.decode_string(base64)
-      end
-      # Add file size.
-      @size = File.size(self.tempfile.path)
-    end
-
     def path_to_tempfile(path : String)
       # Get file extension.
       extension = Path[path].extension

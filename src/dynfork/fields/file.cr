@@ -141,6 +141,10 @@ module DynFork::Fields
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
         path : String = "#{@media_root}/#{@target_dir}/#{date}/#{name}"
+        # Create the target directory if it does not exist.
+        unless Dir.exists?(path)
+          Dir.mkdir_p(path: path, mode: 0o777)
+        end
         # Save file in target directory.
         File.write(
           filename: path,
@@ -162,6 +166,16 @@ module DynFork::Fields
     )
       @value = DynFork::Globals::FileData.new
       @value.delete = delete
+      #
+      if path = path
+        # Get file extension.
+        extension = Path[path].extension
+        if extension.empty?
+          raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
+        end
+        # Add original file name.
+        @value.name = filename
+      end
     end
 
     def refrash_val_file_data(val : DynFork::Globals::FileData)
