@@ -122,6 +122,51 @@ module DynFork::Fields
       @value = DynFork::Globals::ImageData.new
       @value.delete = delete
       #
+      if base64 = base64
+        # Get image extension.
+        if filename = filename
+          extension = Path[filename].extension
+          if extension.empty?
+            raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
+          end
+          @value.extension = extension
+          # Add original image name.
+          @value.name = filename
+        end
+        # Prepare Base64 content.
+        base64.each_char_with_index do |char, index|
+          if char == ','
+            base64 = base64.delete_at(0, index + 1)
+            break
+          end
+          break if index == 40
+        end
+        # Create target directory name.
+        images_dir : String = UUID.v4.to_s
+        # Create target image name.
+        target_name = "original#{extension}"
+        # Create current date for the directory name.
+        date : String = Time.utc.to_s("%Y-%m-%d")
+        # Create path to target image.
+        target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        # Create the target directory if it does not exist.
+        unless Dir.exists?(target_path)
+          Dir.mkdir_p(path: target_path, mode: 0o777)
+        end
+        # Save image in target directory.
+        File.write(
+          filename: target_path,
+          content: Base64.decode_string(base64),
+          perm: File::Permissions.new(0o644)
+        )
+        # Add paths to target image.
+        @value.path = target_path
+        @value.url = "#{@media_url}/#{@target_dir}/#{date}/#{images_dir}/#{target_name}"
+        # Add target directory name for images.
+        @value.images_dir = images_dir
+        # Add image size.
+        @value.size = File.size(@value.path)
+      end
     end
 
     # Convert path to a image and save in the target directory.

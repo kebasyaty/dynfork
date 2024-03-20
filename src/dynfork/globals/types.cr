@@ -100,6 +100,7 @@ module DynFork::Globals::Types
       @name = "original#{extension}"
       # Create a prefix for the image file name and target directory.
       prefix : String = UUID.v4.to_s
+      # Get target directory name.
       @images_dir = prefix
       # Create a temporary image file.
       @tempfile = File.tempfile(

@@ -135,13 +135,13 @@ module DynFork::Fields
           end
           break if index == 40
         end
-        # Create a target file name.
+        # Create target file name.
         target_name = "#{UUID.v4.to_s}#{extension}"
-        # Get the current date for the directory name.
+        # Create the current date for the directory name.
         date : String = Time.utc.to_s("%Y-%m-%d")
         # Create path to target file.
         target_path : String = "#{@media_root}/#{@target_dir}/#{date}/#{target_name}"
-        # Create the target directory if it does not exist.
+        # Create target directory if it does not exist.
         unless Dir.exists?(target_path)
           Dir.mkdir_p(path: target_path, mode: 0o777)
         end
