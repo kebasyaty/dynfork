@@ -32,30 +32,6 @@ module DynFork::Globals::Types
     property? delete : Bool = false
 
     def initialize; end
-
-    def path_to_tempfile(path : String)
-      # Get file extension.
-      extension = Path[path].extension
-      if extension.empty?
-        raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
-      end
-      # Get the contents of the file.
-      content : String = File.read(path)
-      # Create a prefix for the file name.
-      prefix : String = UUID.v4.to_s
-      @name = "#{prefix}#{extension}"
-      # Create a temporary file.
-      @tempfile = File.tempfile(
-        prefix: "#{prefix}_",
-        suffix: "#{extension}",
-        dir: "tmp"
-      ) do |file|
-        file.print content
-      end
-      # Get file size.
-      @size = File.size(self.tempfile.path)
-      self
-    end
   end
 
   # Data type for ImageField.
