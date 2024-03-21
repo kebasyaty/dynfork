@@ -46,7 +46,7 @@ module DynFork::Paladins::Save
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
-      data : BSON = output_data.data
+      data = output_data.data.to_h
       data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
         if doc : BSON? = collection.find_one_and_update(
@@ -65,7 +65,7 @@ module DynFork::Paladins::Save
     else
       # Create doc.
       id = @hash.object_id?
-      data = output_data.data
+      data = output_data.data.to_h
       data["_id"] = id
       datetime : Time = Time.utc
       data["created_at"] = datetime
