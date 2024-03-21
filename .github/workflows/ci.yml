@@ -63,4 +63,5 @@ jobs:
           crystal spec --tag check
           crystal spec --tag valid
           crystal spec --tag check_required
-          crystal spec --tag save
+          crystal spec --tag save_create
+          crystal spec --tag save_update

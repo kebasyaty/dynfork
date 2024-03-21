@@ -46,17 +46,15 @@ module DynFork::Paladins::Save
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
-      data : BSON = output_data.data
+      data = output_data.data.to_h
       data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
-        filter = {"_id": id}
-        update = {"$set": data}
         if doc : BSON? = collection.find_one_and_update(
-             filter: filter,
-             update: update,
+             filter: {_id: id},
+             update: {"$set": data},
              new: true
            )
-          self.refrash_fields(doc.not_nil!.to_h)
+          self.refrash_fields(pointerof(doc))
         end
       else
         raise DynFork::Errors::Panic.new(
@@ -67,14 +65,14 @@ module DynFork::Paladins::Save
     else
       # Create doc.
       id = @hash.object_id?
-      data = output_data.data
+      data = output_data.data.to_h
       data["_id"] = id
       datetime : Time = Time.utc
       data["created_at"] = datetime
       data["updated_at"] = datetime
       collection.insert_one(data)
       if doc = collection.find_one({_id: id})
-        self.refrash_fields(doc.not_nil!.to_h)
+        self.refrash_fields(pointerof(doc))
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{self.model_name}` => The document was not created."
