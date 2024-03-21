@@ -1,7 +1,7 @@
 require "../../../../spec_helper"
 
 describe DynFork::Model do
-  describe "#save - (create)" do
+  describe "#save-(create)" do
     it "=> validation of instance of `FullDefault` model", tags: "save_create" do
       # Init data for test.
       #
