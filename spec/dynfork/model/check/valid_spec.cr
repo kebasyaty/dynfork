@@ -44,6 +44,9 @@ describe DynFork::Model do
       valid = m.valid?
       m.print_err unless valid
       valid.should be_true
+      #
+      Dir.delete?("assets/media/files")
+      Dir.delete?("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

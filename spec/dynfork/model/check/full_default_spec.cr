@@ -113,6 +113,8 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_false
       #
+      Dir.delete?("assets/media/files")
+      Dir.delete?("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
