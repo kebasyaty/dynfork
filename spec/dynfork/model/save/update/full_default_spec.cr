@@ -28,8 +28,13 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
+      # Create
       m = Spec::Data::FullDefault.new
       flag : Bool = m.save?
+      m.print_err unless flag
+      flag.should be_true
+      # Update
+      flag = m.save?
       m.print_err unless flag
       flag.should be_true
       #
@@ -116,7 +121,6 @@ describe DynFork::Model do
       m.f64.default?.should be_nil
       #
       m.bool.default?.should be_false
-      #
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
