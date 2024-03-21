@@ -17,7 +17,7 @@ module DynFork::Paladins::Save
   # user.birthday.value = "1970-01-01"
   #
   # user.print_err unless user.save?
-  # # print_err - convenient during development
+  # # print_err - convenient during development.
   # ```
   #
   def save? : Bool
