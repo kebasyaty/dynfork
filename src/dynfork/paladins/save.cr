@@ -49,11 +49,9 @@ module DynFork::Paladins::Save
       data : BSON = output_data.data
       data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
-        filter = {"_id": id}
-        update = {"$set": data}
         if doc : BSON? = collection.find_one_and_update(
-             filter: filter,
-             update: update,
+             filter: {_id: id},
+             update: {"$set": data},
              new: true
            )
           self.refrash_fields(pointerof(doc))
