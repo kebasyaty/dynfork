@@ -1,8 +1,8 @@
-require "../../../spec_helper"
+require "../../../../spec_helper"
 
 describe DynFork::Model do
   describe "#save" do
-    it "=> validation of instance of `FullDefault` model", tags: "save" do
+    it "=> validation of instance of `FullDefault` model", tags: "save_create" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
