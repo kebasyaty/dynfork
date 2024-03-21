@@ -115,9 +115,17 @@ module DynFork::Paladins::CheckPlus
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_fields(doc : Hash)
+  def refrash_fields(doc_ptr : Pointer(BSON?))
+    if doc_ptr.nil?
+      {% for field in @type.instance_vars %}
+        @{{ field }}.value =  nil
+      {% end %}
+      return
+    end
+    #
     field_type : String = ""
     name : String = ""
+    doc = doc_ptr.not_nil!.to_h
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
