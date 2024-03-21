@@ -17,7 +17,7 @@ module DynFork::Paladins::Save
   # user.birthday.value = "1970-01-01"
   #
   # user.print_err unless user.save?
-  # # print_err - convenient during development
+  # # print_err - convenient during development.
   # ```
   #
   def save? : Bool
@@ -42,13 +42,18 @@ module DynFork::Paladins::Save
       output_data.valid = false
     end
     # Leave the method if the check fails.
-    return false unless output_data.valid?
+    unless output_data.valid?
+      @hash.value = nil
+      return false
+    end
+    #
+    id : BSON::ObjectId?
+    data = output_data.data.to_h
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.
-      data = output_data.data.to_h
       data["updated_at"] = Time.utc
-      if id : BSON::ObjectId? = @hash.object_id?
+      if id = @hash.object_id?
         if doc : BSON? = collection.find_one_and_update(
              filter: {_id: id},
              update: {"$set": data},
@@ -65,7 +70,6 @@ module DynFork::Paladins::Save
     else
       # Create doc.
       id = @hash.object_id?
-      data = output_data.data.to_h
       data["_id"] = id
       datetime : Time = Time.utc
       data["created_at"] = datetime
