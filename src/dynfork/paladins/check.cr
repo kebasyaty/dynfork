@@ -13,6 +13,9 @@ module DynFork::Paladins::Check
     collection_ptr : Pointer(Mongo::Collection),
     save? : Bool = false
   ) : DynFork::Globals::OutputData
+    # Data to save or update to the database.
+    result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
     # Does the document exist in the database?
     update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
     # Validation the hash field value.
@@ -21,10 +24,11 @@ module DynFork::Paladins::Check
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
     end
-    (@hash.value = (BSON::ObjectId.new).to_s) if save? && !update?
-    # Data to save or update to the database.
-    result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
+    if save? && !update?
+      id : BSON::ObjectId = BSON::ObjectId.new
+      @hash.value = id.to_s
+      result_map["_id"] = id
+    end
     # Addresses of files to be deleted (if error_symptom? = true).
     cleanup_map : NamedTuple(
       files: Array(String),
