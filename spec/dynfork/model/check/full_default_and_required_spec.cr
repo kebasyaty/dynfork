@@ -37,7 +37,7 @@ describe DynFork::Model do
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
       (print "(!!!-normally-!!!)".colorize.fore(:cyan).mode(:bold)
       m.print_err) unless output_data.valid?
-      data : BSON = output_data.data
+      data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
       data.empty?.should be_true
       #
       # Param `value`

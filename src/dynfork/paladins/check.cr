@@ -23,8 +23,8 @@ module DynFork::Paladins::Check
     end
     (@hash.value = (BSON::ObjectId.new).to_s) if save? && !update?
     # Data to save or update to the database.
-    result_bson : BSON = BSON.new
-    result_bson_ptr : Pointer(BSON) = pointerof(result_bson)
+    result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
     # Addresses of files to be deleted (if error_symptom? = true).
     cleanup_map : NamedTuple(
       files: Array(String),
@@ -65,7 +65,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             collection_ptr
           )
         when 2
@@ -76,7 +76,7 @@ module DynFork::Paladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             collection_ptr
           )
         when 3
@@ -92,7 +92,7 @@ module DynFork::Paladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             collection_ptr
           )
         when 4
@@ -102,7 +102,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             cleanup_map_ptr
           )
         when 5
@@ -112,7 +112,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             cleanup_map_ptr
           )
         when 6
@@ -121,7 +121,7 @@ module DynFork::Paladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             collection_ptr
           )
         when 7
@@ -130,7 +130,7 @@ module DynFork::Paladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_bson_ptr,
+            result_map_ptr,
             collection_ptr
           )
         when 8
@@ -138,14 +138,14 @@ module DynFork::Paladins::Check
           self.group_08(
             pointerof(@{{ field }}),
             save?,
-            result_bson_ptr
+            result_map_ptr
           )
         when 9
           # Create string for SlugField.
           if save?
             self.group_09(
               pointerof(@{{ field }}),
-              result_bson_ptr
+              result_map_ptr
             )
           end
         else
@@ -171,7 +171,7 @@ module DynFork::Paladins::Check
     #
     # --------------------------------------------------------------------------
     DynFork::Globals::OutputData.new(
-      data: result_bson,
+      data: result_map,
       valid: !error_symptom?,
       update: update?
     )

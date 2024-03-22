@@ -48,7 +48,7 @@ module DynFork::Paladins::Save
     end
     #
     id : BSON::ObjectId?
-    data = output_data.data.to_h
+    data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
     # Create or update a document in the database.
     if output_data.update?
       # Update doc.

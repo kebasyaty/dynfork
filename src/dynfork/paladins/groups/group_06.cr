@@ -4,7 +4,7 @@ module DynFork::Paladins::Groups
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
   )
     # Get current value.
@@ -20,7 +20,7 @@ module DynFork::Paladins::Groups
             error_symptom_ptr?
           )
         end
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
       value.to_s.to_i64
@@ -65,6 +65,6 @@ module DynFork::Paladins::Groups
       )
     end
     # Insert result.
-    (result_bson_ptr.value[field_ptr.value.name] = current_value) if save?
+    (result_map_ptr.value[field_ptr.value.name] = current_value) if save?
   end
 end

@@ -204,11 +204,7 @@ module DynFork::Paladins::CheckPlus
               .new(self.model_name, {{ field.name.stringify }})
           end
         else
-          if field_type != "BoolField"
             @{{ field }}.value =  nil
-          else
-            @{{ field }}.refrash_val_bool(false)
-          end
         end
       end
     {% end %}

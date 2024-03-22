@@ -5,7 +5,7 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
@@ -18,7 +18,7 @@ module DynFork::Paladins::Groups
           error_symptom_ptr?
         )
       end
-      (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+      (result_map_ptr.value[field_ptr.value.name] = nil) if save?
       return
     end
 
@@ -44,7 +44,7 @@ module DynFork::Paladins::Groups
           error_symptom_ptr?
         )
       else
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
       end
       return
     end
@@ -71,7 +71,7 @@ module DynFork::Paladins::Groups
       # Add path in cleanup map (for error_symptom=true).
       cleanup_map_ptr.value[:files] << current_value.path
       # Insert result.
-      result_bson_ptr.value[field_ptr.value.name] = current_value
+      result_map_ptr.value[field_ptr.value.name] = current_value
     end
   end
 end

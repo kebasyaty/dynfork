@@ -2,7 +2,7 @@ module DynFork::Paladins::Groups
   # Create string for SlugField.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
-    result_bson_ptr : Pointer(BSON)
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   )
     raw_str : String = ""
     {% for field in @type.instance_vars %}
@@ -13,6 +13,6 @@ module DynFork::Paladins::Groups
       end
     {% end %}
     # Insert result.
-    result_bson_ptr.value[field_ptr.value.name] = Iom::WebSlug.slug(raw_str)
+    result_map_ptr.value[field_ptr.value.name] = Iom::WebSlug.slug(raw_str)
   end
 end
