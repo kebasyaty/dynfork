@@ -29,6 +29,7 @@ module DynFork::Paladins::Groups
     if !update? && current_value.nil?
       if default = field_ptr.value.default?
         field_ptr.value.path_to_file(default.to_s)
+        current_value = field_ptr.value.value
       end
     end
 
