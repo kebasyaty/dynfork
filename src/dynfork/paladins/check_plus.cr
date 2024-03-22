@@ -162,19 +162,22 @@ module DynFork::Paladins::CheckPlus
             # | ChoiceI64MultDynField | ChoiceF64MultDynField
             if field_type.includes?("Text")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_str(Array(String).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String)}
+                @{{ field }}.refrash_val_arr_str(arr)
               else
                 @{{ field }}.refrash_val_str(value.as(String))
               end
             elsif field_type.includes?("I64")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_i64(Array(Int64).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64)}
+                @{{ field }}.refrash_val_arr_i64(arr)
               else
                 @{{ field }}.refrash_val_i64(value.as(Int64))
               end
             elsif field_type.includes?("F64")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_f64(Array(Float64).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64)}
+                @{{ field }}.refrash_val_arr_f64(arr)
               else
                 @{{ field }}.refrash_val_f64(value.as(Float64))
               end
