@@ -101,7 +101,11 @@ module DynFork::Paladins::CheckPlus
     extension : String,
     max_size : Int32
   ) : IO::Memory
-    new_size = self.calculate_thumbnail_size(image_ptr.value.width, image_ptr.value.height, max_size)
+    new_size = self.calculate_thumbnail_size(
+      image_ptr.value.width,
+      image_ptr.value.height,
+      max_size
+    )
     image_ptr.value.bilinear_resize!(new_size[:width], new_size[:height])
     io = IO::Memory.new
     if [".jpg", ".jpeg"].includes?(extension)
