@@ -23,7 +23,7 @@ module DynFork::Paladins::Groups
         (result_map_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
-      value.not_nil!
+      value.as(Float64)
     )
     # Validation the `max` field attribute.
     unless (max = field_ptr.value.max?).nil?
