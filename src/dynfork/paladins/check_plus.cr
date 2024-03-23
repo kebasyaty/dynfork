@@ -191,7 +191,7 @@ module DynFork::Paladins::CheckPlus
           when 5
             # ImageField
             bson = BSON.new
-            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val } 
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
             @{{ field }}.refrash_val_img_data(
               DynFork::Globals::ImageData.from_bson(bson))
           when 6
