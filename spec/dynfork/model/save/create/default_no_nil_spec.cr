@@ -46,40 +46,40 @@ describe DynFork::Model do
       DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.created_at.value).should be_true
       DynFork::Globals.cache_regex[:datetime_parse_reverse].matches?(m.updated_at.value).should be_true
       #
-      m.url.value?.should be_nil
-      m.text.value?.should be_nil
-      m.phone.value?.should be_nil
+      m.url.value?.should eq("https://translate.google.com/")
+      m.text.value?.should eq("Some text")
+      m.phone.value?.should eq("+18004444444")
       m.password.value?.should be_nil
-      m.ip.value?.should be_nil
+      m.ip.value?.should eq("126.255.255.255")
       m.hash2.value?.should be_nil
-      m.email.value?.should be_nil
-      m.color.value?.should be_nil
+      m.email.value?.should eq("john.smith@example.com")
+      m.color.value?.should eq("#ff0000")
       #
-      m.date.value?.should be_nil
-      m.datetime.value?.should be_nil
+      m.date.value?.should eq("1970-01-01")
+      m.datetime.value?.should eq("1970-01-01T00:00:00")
       #
-      m.choice_text.value?.should be_nil
-      m.choice_text_mult.value?.should be_nil
+      m.choice_text.value?.should eq("value")
+      m.choice_text_mult.value?.should eq(["value"])
       m.choice_text_dyn.value?.should be_nil
       m.choice_text_mult_dyn.value?.should be_nil
       #
-      m.choice_i64.value?.should be_nil
-      m.choice_i64_mult.value?.should be_nil
+      m.choice_i64.value?.should eq(5_i64)
+      m.choice_i64_mult.value?.should eq([5_i64])
       m.choice_i64_dyn.value?.should be_nil
       m.choice_i64_mult_dyn.value?.should be_nil
       #
-      m.choice_f64.value?.should be_nil
-      m.choice_f64_mult.value?.should be_nil
+      m.choice_f64.value?.should eq(5.0)
+      m.choice_f64_mult.value?.should eq([5.0])
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
       m.file.value.name.should eq("no_doc.odt")
       m.image.value.name.should eq("no_photo.jpeg")
       #
-      m.i64.value?.should be_nil
-      m.f64.value?.should be_nil
+      m.i64.value?.should eq(10_i64)
+      m.f64.value?.should eq(10.2)
       #
-      m.bool.value?.should be_nil
+      m.bool.value?.should be_true
       #
       # Param `default`
       m.url.default?.should eq("https://translate.google.com/")
