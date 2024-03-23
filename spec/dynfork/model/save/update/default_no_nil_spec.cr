@@ -48,10 +48,11 @@ describe DynFork::Model do
       m.choice_i64_mult.value = [5_i64, 10_i64]
       m.choice_f64.value = 5.25
       m.choice_f64_mult.value = [5.0, 5.25]
-      m.file.value.path_to_file(delete: true)
-      m.image.value.path_to_image("pictures/pluto_3.webp")
+      m.file.path_to_file(delete: true)
+      m.image.path_to_image("pictures/pluto_3.webp")
       m.i64.value = 20_i64
       m.f64.value = 20.2
+      m.bool.value = false
       #
       flag = m.save?
       m.print_err unless flag
@@ -104,7 +105,7 @@ describe DynFork::Model do
       m.i64.value?.should eq(20_i64)
       m.f64.value?.should eq(20.2)
       #
-      m.bool.value?.should be_true
+      m.bool.value?.should be_false
       #
       # Param `default`
       m.url.default?.should eq("https://translate.google.com/")
