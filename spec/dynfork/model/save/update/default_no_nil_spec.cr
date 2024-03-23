@@ -33,7 +33,7 @@ describe DynFork::Model do
       flag : Bool = m.save?
       m.print_err unless flag
       flag.should be_true
-      m.color.value?.should eq("#000000")
+      m.color.value?.should eq("#ff0000")
       # Update
       m.url.value = "https://randompasswordgen.com/"
       m.phone.value = "+18004444455"
