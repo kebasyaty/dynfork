@@ -35,7 +35,7 @@ describe DynFork::Model do
       #
       # Get the collection for the current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        Spec::Data::FullDefault.meta[:collection_name]]
+        Spec::Data::DefaultNoNil.meta[:collection_name]]
       #
       collection.count_documents.should eq(1)
       #
@@ -73,8 +73,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.value?.should be_a(DynFork::Globals::FileData)
-      m.image.value?.should be_a(DynFork::Globals::ImageData)
+      m.file.value.name.should eq("no_doc.odt")
+      m.image.value.name.should eq("no_photo.jpeg")
       #
       m.i64.value?.should be_nil
       m.f64.value?.should be_nil
