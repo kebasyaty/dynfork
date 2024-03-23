@@ -100,6 +100,12 @@ module DynFork::Fields
     # :nodoc:
     def extract_default_bool? : Bool?; end
 
+    # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

@@ -90,6 +90,12 @@ module DynFork::Fields
     def extract_default_bool? : Bool?; end
 
     # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
+
+    # :nodoc:
     def base64_to_file(
       base64 : String? = nil,
       filename : String? = nil,
@@ -219,6 +225,12 @@ module DynFork::Fields
 
     # :nodoc:
     def extract_default_bool? : Bool?; end
+
+    # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
 
     # :nodoc:
     def base64_to_file(
@@ -355,6 +367,12 @@ module DynFork::Fields
     def extract_default_bool? : Bool?; end
 
     # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
+
+    # :nodoc:
     def base64_to_file(
       base64 : String? = nil,
       filename : String? = nil,
@@ -488,6 +506,12 @@ module DynFork::Fields
 
     # :nodoc:
     def extract_default_bool? : Bool?; end
+
+    # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
 
     # :nodoc:
     def base64_to_file(

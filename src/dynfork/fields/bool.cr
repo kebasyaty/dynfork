@@ -86,6 +86,12 @@ module DynFork::Fields
     def extract_img_data : DynFork::Globals::ImageData?; end
 
     # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
+
+    # :nodoc:
     def base64_to_file(
       base64 : String? = nil,
       filename : String? = nil,

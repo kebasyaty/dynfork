@@ -9,7 +9,7 @@ module DynFork::Paladins::Groups
   )
     # Get current value.
     current_value : Int64 = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
+      value : Int64? = field_ptr.value.extract_val_i64? || field_ptr.value.extract_default_i64?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?
@@ -23,7 +23,7 @@ module DynFork::Paladins::Groups
         (result_map_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
-      value.to_s.to_i64
+      value.not_nil!
     )
     # Validation the `max` field attribute.
     unless (max = field_ptr.value.max?).nil?

@@ -129,6 +129,14 @@ module DynFork::Fields
     def refrash_val_i64(val : Int64)
       @value = val
     end
+
+    def extract_val_i64? : Int64?
+      @value
+    end
+
+    def extract_default_i64? : Int64?
+      @default
+    end
   end
 
   # Field for entering float 64-bit numbers.
@@ -220,6 +228,12 @@ module DynFork::Fields
 
     # :nodoc:
     def extract_default_bool? : Bool?; end
+
+    # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
 
     # :nodoc:
     def base64_to_file(
