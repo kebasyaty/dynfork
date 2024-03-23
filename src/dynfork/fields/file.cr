@@ -92,6 +92,12 @@ module DynFork::Fields
     # :nodoc:
     def extract_img_data : DynFork::Globals::ImageData?; end
 
+    # :nodoc:
+    def extract_val_bool? : Bool?; end
+
+    # :nodoc:
+    def extract_default_bool? : Bool?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,

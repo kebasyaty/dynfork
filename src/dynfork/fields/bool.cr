@@ -112,5 +112,13 @@ module DynFork::Fields
     def refrash_val_bool(val : Bool)
       @value = val
     end
+
+    def extract_val_bool? : Bool?
+      @value
+    end
+
+    def extract_default_bool? : Bool?
+      @default
+    end
   end
 end

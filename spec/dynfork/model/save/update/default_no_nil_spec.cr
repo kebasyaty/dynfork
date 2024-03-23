@@ -99,7 +99,7 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.value.name.should be_nil
+      m.file.value?.should be_nil
       m.image.value.name.should eq("pluto_3.webp")
       #
       m.i64.value?.should eq(20_i64)

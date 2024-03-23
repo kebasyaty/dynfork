@@ -94,6 +94,12 @@ module DynFork::Fields
     # :nodoc:
     def extract_file_data : DynFork::Globals::FileData?; end
 
+    # :nodoc:
+    def extract_val_bool? : Bool?; end
+
+    # :nodoc:
+    def extract_default_bool? : Bool?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
