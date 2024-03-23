@@ -49,7 +49,7 @@ describe DynFork::Model do
       m.choice_f64.value = 5.25
       m.choice_f64_mult.value = [5.0, 5.25]
       m.file.path_to_file(delete: true)
-      m.image.path_to_img("pictures/pluto_3.webp")
+      m.image.path_to_file("pictures/pluto_3.webp")
       m.i64.value = 20_i64
       m.f64.value = 20.2
       m.bool.value = false
