@@ -28,7 +28,7 @@ module DynFork::Paladins::Groups
     # If necessary, use the default value.
     if !update? && current_value.nil?
       if default = field_ptr.value.default?
-        field_ptr.value.path_to_file(default.to_s)
+        field_ptr.value.path_to_img(default.to_s)
         current_value = field_ptr.value.extract_file_data
       end
     end
