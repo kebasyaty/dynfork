@@ -9,7 +9,7 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
   )
     # When updating, we skip field password type.
@@ -30,7 +30,7 @@ module DynFork::Paladins::Groups
             error_symptom_ptr?
           )
         end
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
       value.to_s
@@ -124,7 +124,7 @@ module DynFork::Paladins::Groups
       if field_ptr.value.field_type == "PasswordField"
         current_value = Crypto::Bcrypt::Password.create(current_value).to_s
       end
-      result_bson_ptr.value[field_ptr.value.name] = current_value
+      result_map_ptr.value[field_ptr.value.name] = current_value
     end
   end
 end

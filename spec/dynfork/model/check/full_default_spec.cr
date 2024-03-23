@@ -38,7 +38,7 @@ describe DynFork::Model do
       valid = output_data.valid?
       m.print_err unless valid
       valid.should be_true
-      data : BSON = output_data.data
+      data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
       data.empty?.should be_true
       #
       # Param `value`

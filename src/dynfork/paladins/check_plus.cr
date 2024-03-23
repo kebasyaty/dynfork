@@ -87,10 +87,10 @@ module DynFork::Paladins::CheckPlus
   ) : NamedTuple(width: Int32, height: Int32)
     if width > height
       if width > max_size
-        return {width: max_size, height: (height * (max_size // width))}
+        return {width: max_size, height: ((height * (max_size / width)).to_i32)}
       end
     elsif height > max_size
-      return {width: (width * (max_size // height)), height: max_size}
+      return {width: ((width * (max_size / height)).to_i32), height: max_size}
     end
     {width: width, height: height}
   end
@@ -101,7 +101,11 @@ module DynFork::Paladins::CheckPlus
     extension : String,
     max_size : Int32
   ) : IO::Memory
-    new_size = self.calculate_thumbnail_size(image_ptr.value.width, image_ptr.value.height, max_size)
+    new_size = self.calculate_thumbnail_size(
+      image_ptr.value.width,
+      image_ptr.value.height,
+      max_size
+    )
     image_ptr.value.bilinear_resize!(new_size[:width], new_size[:height])
     io = IO::Memory.new
     if [".jpg", ".jpeg"].includes?(extension)
@@ -162,31 +166,38 @@ module DynFork::Paladins::CheckPlus
             # | ChoiceI64MultDynField | ChoiceF64MultDynField
             if field_type.includes?("Text")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_str(Array(String).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String)}
+                @{{ field }}.refrash_val_arr_str(arr)
               else
                 @{{ field }}.refrash_val_str(value.as(String))
               end
             elsif field_type.includes?("I64")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_i64(Array(Int64).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64)}
+                @{{ field }}.refrash_val_arr_i64(arr)
               else
                 @{{ field }}.refrash_val_i64(value.as(Int64))
               end
             elsif field_type.includes?("F64")
               if field_type.includes?("Mult")
-                @{{ field }}.refrash_val_arr_f64(Array(Float64).from_bson(value.as(BSON)))
+                arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64)}
+                @{{ field }}.refrash_val_arr_f64(arr)
               else
                 @{{ field }}.refrash_val_f64(value.as(Float64))
               end
             end
           when 4
             # FileField
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
             @{{ field }}.refrash_val_file_data(
-              DynFork::Globals::FileData.from_bson(value.as(BSON)))
+              DynFork::Globals::FileData.from_bson(bson))
           when 5
             # ImageField
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
             @{{ field }}.refrash_val_img_data(
-              DynFork::Globals::ImageData.from_bson(value.as(BSON)))
+              DynFork::Globals::ImageData.from_bson(bson))
           when 6
             # I64Field
             @{{ field }}.refrash_val_i64(value.as(Int64))
@@ -204,11 +215,7 @@ module DynFork::Paladins::CheckPlus
               .new(self.model_name, {{ field.name.stringify }})
           end
         else
-          if field_type != "BoolField"
             @{{ field }}.value =  nil
-          else
-            @{{ field }}.refrash_val_bool(false)
-          end
         end
       end
     {% end %}

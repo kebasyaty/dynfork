@@ -86,6 +86,18 @@ module DynFork::Fields
     def extract_img_data : DynFork::Globals::ImageData?; end
 
     # :nodoc:
+    def extract_val_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_default_i64? : Int64?; end
+
+    # :nodoc:
+    def extract_val_f64? : Float64?; end
+
+    # :nodoc:
+    def extract_default_f64? : Float64?; end
+
+    # :nodoc:
     def base64_to_file(
       base64 : String? = nil,
       filename : String? = nil,
@@ -111,6 +123,14 @@ module DynFork::Fields
 
     def refrash_val_bool(val : Bool)
       @value = val
+    end
+
+    def extract_val_bool? : Bool?
+      @value
+    end
+
+    def extract_default_bool? : Bool?
+      @default
     end
   end
 end

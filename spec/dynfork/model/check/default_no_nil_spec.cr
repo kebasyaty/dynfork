@@ -38,7 +38,7 @@ describe DynFork::Model do
       valid = output_data.valid?
       m.print_err unless valid
       valid.should be_true
-      data : BSON = output_data.data
+      data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
       data.empty?.should be_true
       #
       # Param `value`
@@ -69,8 +69,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.value?.should be_a(DynFork::Globals::FileData)
-      m.image.value?.should be_a(DynFork::Globals::ImageData)
+      m.file.value.name.should eq("no_doc.odt")
+      m.image.value.name.should eq("no_photo.jpeg")
       #
       m.i64.value?.should be_nil
       m.f64.value?.should be_nil

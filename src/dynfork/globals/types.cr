@@ -5,11 +5,15 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include BSON::Serializable
 
-    getter data : BSON
+    getter data : Hash(String, DynFork::Globals::ResultMapType)
     property? valid : Bool
     getter? update : Bool
 
-    def initialize(@data : BSON, @valid : Bool, @update : Bool); end
+    def initialize(
+      @data : Hash(String, DynFork::Globals::ResultMapType),
+      @valid : Bool,
+      @update : Bool
+    ); end
   end
 
   # Data type for FileField.

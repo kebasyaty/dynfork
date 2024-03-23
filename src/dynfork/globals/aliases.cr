@@ -21,6 +21,11 @@ module DynFork::Globals::Aliases
                      DynFork::Globals::FileData | Array(String) | Array(Int64) |
                      Array(Float64) | Bool | Nil
 
+  # For struct DynFork::Globals::OutputData.
+  alias ResultMapType = String | Int64 | Float64 | DynFork::Globals::ImageData |
+                        DynFork::Globals::FileData | Array(String) | Array(Int64) |
+                        Array(Float64) | Bool | Nil | Time | BSON::ObjectId
+
   # Data types to select in dynamic fields.
   alias DataDynamicTypes = Array(String | Int64 | Float64)
 

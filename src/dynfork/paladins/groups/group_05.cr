@@ -5,7 +5,7 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
   )
     # Validation, if the field is required and empty, accumulate the error.
@@ -18,7 +18,7 @@ module DynFork::Paladins::Groups
           error_symptom_ptr?
         )
       end
-      (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+      (result_map_ptr.value[field_ptr.value.name] = nil) if save?
       return
     end
 
@@ -29,6 +29,7 @@ module DynFork::Paladins::Groups
     if !update? && current_value.nil?
       if default = field_ptr.value.default
         field_ptr.value.path_to_file(default.to_s)
+        current_value = field_ptr.value.extract_img_data
       end
     end
 
@@ -44,7 +45,7 @@ module DynFork::Paladins::Groups
           error_symptom_ptr?
         )
       else
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
       end
       return
     end
@@ -110,8 +111,8 @@ module DynFork::Paladins::Groups
         thumbnails.each do |(size_name, max_size)|
           case size_name
           when "lg"
-            current_value.path_lg = "#{images_dir_path}/lg.#{extension}"
-            current_value.url_lg = "#{images_dir_url}/lg.#{extension}"
+            current_value.path_lg = "#{images_dir_path}/lg#{extension}"
+            current_value.url_lg = "#{images_dir_url}/lg#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -120,8 +121,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "md"
-            current_value.path_md = "#{images_dir_path}/md.#{extension}"
-            current_value.url_md = "#{images_dir_url}/md.#{extension}"
+            current_value.path_md = "#{images_dir_path}/md#{extension}"
+            current_value.url_md = "#{images_dir_url}/md#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -130,8 +131,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "sm"
-            current_value.path_sm = "#{images_dir_path}/sm.#{extension}"
-            current_value.url_sm = "#{images_dir_url}/sm.#{extension}"
+            current_value.path_sm = "#{images_dir_path}/sm#{extension}"
+            current_value.url_sm = "#{images_dir_url}/sm#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -140,8 +141,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "xs"
-            current_value.path_xs = "#{images_dir_path}/xs.#{extension}"
-            current_value.url_xs = "#{images_dir_url}/xs.#{extension}"
+            current_value.path_xs = "#{images_dir_path}/xs#{extension}"
+            current_value.url_xs = "#{images_dir_url}/xs#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -155,7 +156,7 @@ module DynFork::Paladins::Groups
       # Add path in cleanup map (for error_symptom=true).
       cleanup_map_ptr.value[:images] << images_dir_path
       # Insert result.
-      result_bson_ptr.value[field_ptr.value.name] = current_value
+      result_map_ptr.value[field_ptr.value.name] = current_value
     end
   end
 end

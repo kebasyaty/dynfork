@@ -33,7 +33,9 @@ describe DynFork::Model do
       flag : Bool = m.save?
       m.print_err unless flag
       flag.should be_true
+      m.color.value?.should eq("#000000")
       # Update
+      m.color.value = "#ff0000"
       flag = m.save?
       m.print_err unless flag
       flag.should be_true
@@ -58,7 +60,7 @@ describe DynFork::Model do
       m.ip.value?.should be_nil
       m.hash2.value?.should be_nil
       m.email.value?.should be_nil
-      m.color.value?.should eq("#000000")
+      m.color.value?.should eq("#ff0000")
       #
       m.date.value?.should be_nil
       m.datetime.value?.should be_nil

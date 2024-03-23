@@ -4,12 +4,12 @@ module DynFork::Paladins::Groups
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
-    result_bson_ptr : Pointer(BSON),
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
   )
     # Get current value.
     current_value : Float64 = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
+      value : Float64? = field_ptr.value.extract_val_f64? || field_ptr.value.extract_default_f64?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?
@@ -20,10 +20,10 @@ module DynFork::Paladins::Groups
             error_symptom_ptr?
           )
         end
-        (result_bson_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
         return
       end
-      value.to_s.to_f64
+      value.as(Float64)
     )
     # Validation the `max` field attribute.
     unless (max = field_ptr.value.max?).nil?
@@ -65,6 +65,6 @@ module DynFork::Paladins::Groups
       )
     end
     # Insert result.
-    (result_bson_ptr.value[field_ptr.value.name] = current_value) if save?
+    (result_map_ptr.value[field_ptr.value.name] = current_value) if save?
   end
 end
