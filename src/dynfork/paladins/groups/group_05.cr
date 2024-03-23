@@ -111,8 +111,8 @@ module DynFork::Paladins::Groups
         thumbnails.each do |(size_name, max_size)|
           case size_name
           when "lg"
-            current_value.path_lg = "#{images_dir_path}/lg.#{extension}"
-            current_value.url_lg = "#{images_dir_url}/lg.#{extension}"
+            current_value.path_lg = "#{images_dir_path}/lg#{extension}"
+            current_value.url_lg = "#{images_dir_url}/lg#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -121,8 +121,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "md"
-            current_value.path_md = "#{images_dir_path}/md.#{extension}"
-            current_value.url_md = "#{images_dir_url}/md.#{extension}"
+            current_value.path_md = "#{images_dir_path}/md#{extension}"
+            current_value.url_md = "#{images_dir_url}/md#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -131,8 +131,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "sm"
-            current_value.path_sm = "#{images_dir_path}/sm.#{extension}"
-            current_value.url_sm = "#{images_dir_url}/sm.#{extension}"
+            current_value.path_sm = "#{images_dir_path}/sm#{extension}"
+            current_value.url_sm = "#{images_dir_url}/sm#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
@@ -141,8 +141,8 @@ module DynFork::Paladins::Groups
               perm: perm
             )
           when "xs"
-            current_value.path_xs = "#{images_dir_path}/xs.#{extension}"
-            current_value.url_xs = "#{images_dir_url}/xs.#{extension}"
+            current_value.path_xs = "#{images_dir_path}/xs#{extension}"
+            current_value.url_xs = "#{images_dir_url}/xs#{extension}"
             io = self.image_to_io_memory(image_ptr, extension, max_size)
             io.rewind
             File.write(
