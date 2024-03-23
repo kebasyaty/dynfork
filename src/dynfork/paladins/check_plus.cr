@@ -184,12 +184,16 @@ module DynFork::Paladins::CheckPlus
             end
           when 4
             # FileField
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
             @{{ field }}.refrash_val_file_data(
-              DynFork::Globals::FileData.from_bson(value.as(BSON)))
+              DynFork::Globals::FileData.from_bson(bson))
           when 5
             # ImageField
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val } 
             @{{ field }}.refrash_val_img_data(
-              DynFork::Globals::ImageData.from_bson(value.as(BSON)))
+              DynFork::Globals::ImageData.from_bson(bson))
           when 6
             # I64Field
             @{{ field }}.refrash_val_i64(value.as(Int64))
