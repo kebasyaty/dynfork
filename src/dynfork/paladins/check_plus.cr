@@ -87,10 +87,10 @@ module DynFork::Paladins::CheckPlus
   ) : NamedTuple(width: Int32, height: Int32)
     if width > height
       if width > max_size
-        return {width: max_size, height: (height * (max_size // width))}
+        return {width: max_size, height: ((height * (max_size / width)).to_i32)}
       end
     elsif height > max_size
-      return {width: (width * (max_size // height)), height: max_size}
+      return {width: ((width * (max_size / height)).to_i32), height: max_size}
     end
     {width: width, height: height}
   end
