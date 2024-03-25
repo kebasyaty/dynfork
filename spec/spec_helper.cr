@@ -1,5 +1,4 @@
 require "spec"
-require "colorize"
 require "./data/*"
 require "./support/*"
 require "../src/dynfork"

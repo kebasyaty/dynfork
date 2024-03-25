@@ -51,7 +51,7 @@ module DynFork
   #     label: "Confirm password",
   #     ignored: true
   #   )
-  #   getter active: DynFork::Fields::BoolField.new(
+  #   getter active = DynFork::Fields::BoolField.new(
   #     label: "is active?",
   #     default: true
   #   )
