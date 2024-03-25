@@ -1,0 +1,25 @@
+name: basic
+version: 0.1.0
+
+authors:
+  - kebasyaty <kebasyaty@gmail.com>
+
+targets:
+  basic:
+    main: src/basic.cr
+
+crystal: ">= 1.11.2, < 2.0"
+
+license: MIT
+
+description: |
+  An example of using additional validation.
+
+dependencies:
+  dynfork:
+    github: kebasyaty/dynfork
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 1.6.1
