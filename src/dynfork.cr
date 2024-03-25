@@ -17,7 +17,6 @@ require "webslug"
 # DynFork:
 require "./dynfork/errors/*"
 require "./dynfork/globals/store"
-require "./dynfork/tools/*"
 require "./dynfork/fields/*"
 require "./dynfork/meta"
 require "./dynfork/model"
