@@ -6,7 +6,7 @@ module DynFork::Fields
   # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
   # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
   struct DateField < DynFork::Fields::Field
-    include DynFork::Tools::Date
+    include DynFork::Globals::Date
 
     # Field type - Structure Name.
     getter field_type : String = "DateField"

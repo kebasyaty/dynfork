@@ -1,5 +1,5 @@
 # Converting string Date and DateTime to object Time.
-module DynFork::Tools::Date
+module DynFork::Globals::Date
   extend self
 
   # Converting string Date to object Time.

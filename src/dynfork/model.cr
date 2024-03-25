@@ -62,7 +62,7 @@ module DynFork
   abstract struct Model < DynFork::AA
     include JSON::Serializable
     include JSON::Serializable::Strict
-    include DynFork::Tools::Date
+    include DynFork::Globals::Date
     include DynFork::Paladins
 
     getter hash = DynFork::Fields::HashField

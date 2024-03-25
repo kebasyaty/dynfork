@@ -1,10 +1,12 @@
 require "./aliases"
 require "./types"
+require "./date"
 
 # Global storage for data cache.
 module DynFork::Globals
   include DynFork::Globals::Aliases
   include DynFork::Globals::Types
+  include DynFork::Globals::Date
 
   # Mongo client caching.
   class_property! cache_mongo_client : Mongo::Client

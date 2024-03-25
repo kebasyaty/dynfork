@@ -8,7 +8,7 @@ module DynFork::Fields
   # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
   # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_
   struct DateTimeField < DynFork::Fields::Field
-    include DynFork::Tools::Date
+    include DynFork::Globals::Date
 
     # Field type - Structure Name.
     getter field_type : String = "DateTimeField"
