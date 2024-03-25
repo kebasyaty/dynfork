@@ -1,9 +1,11 @@
 name: dynfork
 version: 0.1.0
-crystal: ">= 1.11.2, < 2.0"
 
 authors:
   - Gennady Kostyunin <kebasyaty@gmail.com>
+
+crystal: ">= 1.11.2, < 2.0"
+
 license: MIT
 
 description: |
