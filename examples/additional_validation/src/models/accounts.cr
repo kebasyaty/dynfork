@@ -40,5 +40,17 @@ module Models::Accounts
       slug_sources: ["hash", "username"],
       hide: true
     )
+
+    private def add_validation : Hash(String, String)
+      error_map = Hash(String, String).new
+      # Get clean data.
+      password = @password.value
+      confirm_password = @confirm_password.value
+      # Fields validation.
+      if password != confirm_password
+        error_map["confirm_password"] = I18n.t(:pass_does_not_match)
+      end
+      error_map
+    end
   end
 end

@@ -39,6 +39,7 @@ en:
   number_not_less_min:
     interpolation: "The number %{curr_num} must not be less than min=%{min_num}."
   old_pass_not_match: "The old password does not match."
+  pass_does_not_match: "Password confirmation does not match."
   allowed_files:
     interpolation: "Only %{types} files are allowed."
   data_not_greater_max:

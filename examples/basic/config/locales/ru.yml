@@ -39,6 +39,7 @@ ru:
   number_not_less_min:
     interpolation: "Число %{curr_num} не должно быть меньше min=%{min_num}."
   old_pass_not_match: "Старый пароль не совпадает."
+  pass_does_not_match: "Подтверждение пароля не совпадает."
   allowed_files:
     interpolation: "Разрешены только файлы %{types}."
   data_not_greater_max:

@@ -1,27 +1,8 @@
 # additional_validation
 
-TODO: Write a description here
-
-## Installation
-
-TODO: Write installation instructions here
+An example of using the method for additional validation.
 
 ## Usage
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/additional_validation/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [kebasyaty](https://github.com/your-github-user) - creator and maintainer
+1. Run `shards install`
+2. Run `crystal run`
