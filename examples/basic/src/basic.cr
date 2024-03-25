@@ -13,7 +13,7 @@ module Basic
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "924992B27o5zf40f",
+    "unique_app_key": "k7SBQPF6d2e2nts7",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
@@ -30,9 +30,12 @@ module Basic
   user.print_err unless user.save?
   # Print field values.
   puts "\n# New user details:"
+  puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"
   puts "email: #{user.email.value?}"
   puts "birthday: #{user.birthday.value?}"
+  puts "created_at: #{user.created_at.value?}"
+  puts "updated_at: #{user.updated_at.value?}"
 
   # Update user data.
   user.username.value = "username_2"
@@ -42,8 +45,11 @@ module Basic
   user.print_err unless user.save?
   # print
   puts "\n# Updated user information:"
+  puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"
   puts "email: #{user.email.value?}"
   puts "birthday: #{user.birthday.value?}"
+  puts "created_at: #{user.created_at.value?}"
+  puts "updated_at: #{user.updated_at.value?}"
   puts
 end
