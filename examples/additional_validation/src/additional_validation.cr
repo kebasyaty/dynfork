@@ -13,7 +13,7 @@ module AdditionalValidation
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "lL15C2zJW6f0C4OJ",
+    "unique_app_key": "lL15C2zJW6f0C4OH",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
