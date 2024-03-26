@@ -38,7 +38,15 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+1. Install MongoDB (if not installed):<br>
+   Ubuntu - Follow the link [Ubuntu - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu - Install MongoDB").<br>
+   Fedora - Follow the link [Fedora - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora - Install MongoDB").
+
+2. Install additional libraries (if not installed):<br>
+   Ubuntu - Follow the link [Ubuntu - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Additional Libraries").<br>
+   Fedora - Follow the link [Fedora - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora - Additional Libraries").
+
+3. Add the dependency to your `shard.yml`:
 
    ```yaml
    dependencies:
@@ -46,19 +54,51 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
        github: kebasyaty/dynfork
    ```
 
-2. Run `shards install`
+4. Run `shards install`
 
 ## Usage
 
 ```crystal
+require "i18n"
 require "dynfork"
+
+# Create your model.
+@[DynFork::Meta(service_name: "Accounts")]
+struct User < DynFork::Model
+  getter username = DynFork::Fields::TextField.new
+  getter email = DynFork::Fields::EmailField.new
+  getter birthday = DynFork::Fields::DateField.new
+end
+
+# Initialize locale.
+I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
+I18n.config.default_locale = :en
+I18n.init
+
+# Run migration.
+DynFork::Migration::Monitor.new(
+  "app_name": "AppName",
+  "unique_app_key": "k7SBQPF6d2e2nts7",
+  "mongo_uri": "mongodb://localhost:27017",
+  "model_list": {
+      User,
+  }
+).migrat
+
+# Create a user.
+user = User.new
+
+# Add user details.
+user.username.value = "username"
+user.email.value = "user@noreaply.net"
+user.birthday.value = "2024-03-26"
+
+# Save user.
+# Hint: print_err - convenient for development.
+user.print_err unless user.save?
 ```
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
 
 ## License
 
