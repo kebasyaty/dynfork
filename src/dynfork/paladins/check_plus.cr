@@ -118,6 +118,15 @@ module DynFork::Paladins::CheckPlus
     io
   end
 
+  # Reset the values ​​of ignored fields to nil.
+  def restor_ignored_fields(update? : Bool)
+    {% for field in @type.instance_vars %}
+      if @{{ field }}.ignored? && (@{{ field }}.name != "hash" || !update?)
+          @hash.value = nil
+      end
+    {% end %}
+  end
+
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc_ptr : Pointer(BSON?))
     if doc_ptr.value.nil?
