@@ -138,7 +138,7 @@ module DynFork::Paladins::CheckPlus
         @{{ field }}.refrash_val_str(doc["_id"].as(BSON::ObjectId).to_s)
       end
       #
-      unless @{{ field }}.ignored?
+      if !@{{ field }}.ignored?
         field_type = @{{ field }}.field_type
         if !(value = doc[name]).nil?
           case @{{ field }}.group
@@ -217,6 +217,8 @@ module DynFork::Paladins::CheckPlus
         else
             @{{ field }}.value =  nil
         end
+      else
+        (@{{ field }}.value =  nil) if name != "hash"
       end
     {% end %}
   end
