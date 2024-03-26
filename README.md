@@ -51,14 +51,44 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 ## Usage
 
 ```crystal
+require "i18n"
 require "dynfork"
+
+# Create your model.
+@[DynFork::Meta(service_name: "Accounts")]
+struct User < DynFork::Model
+  getter username = DynFork::Fields::TextField.new
+  getter email = DynFork::Fields::EmailField.new
+  getter birthday = DynFork::Fields::DateField.new
+end
+
+# Initialize locale.
+I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
+I18n.config.default_locale = :en
+I18n.init
+
+# Run migration.
+DynFork::Migration::Monitor.new(
+  "app_name": "AppName",
+  "unique_app_key": "k7SBQPF6d2e2nts7",
+  "mongo_uri": "mongodb://localhost:27017",
+  "model_list": {
+      User,
+  }
+).migrat
+
+# Create a user.
+user = Models::Accounts::User.new
+
+# Add user details.
+user.username.value = "username"
+user.email.value = "user@noreaply.net"
+user.birthday.value = "2023-03-25"
+
+# Save user.
+# Hint: print_err - convenient for development.
+user.print_err unless user.save?
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## License
 
