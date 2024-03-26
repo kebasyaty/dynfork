@@ -6,9 +6,7 @@ module Models::Accounts
   struct User < DynFork::Model
     getter username = DynFork::Fields::TextField.new(
       label: "Username",
-      maxlength: 150,
-      minlength: 1,
-      regex: "^[a-zA-Z0-9_@.+]$",
+      regex: "^[a-zA-Z0-9_@.+]{1,150}$",
       regex_err_msg: I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 _ @ . +"),
       required: true,
       unique: true
