@@ -218,7 +218,7 @@ module DynFork::Paladins::CheckPlus
             @{{ field }}.value =  nil
         end
       else
-        @{{ field }}.value =  nil
+        (@{{ field }}.value =  nil) if name != "hash"
       end
     {% end %}
   end
