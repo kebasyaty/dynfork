@@ -1,6 +1,6 @@
 # Ubuntu, Linux Mint
 
-## Install:
+### Install:
 
 ```shell
 $ sudo apt update
@@ -12,7 +12,7 @@ $ sudo apt install mongodb-org
 $ sudo systemctl enable --now mongod
 ```
 
-### For check:
+#### For check:
 
 ```shell
 $ mongod --version
@@ -20,7 +20,7 @@ $ mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 $ reboot
 ```
 
-## Systemd:
+### Systemd:
 
 ```shell
 $ sudo systemctl status mongod
@@ -31,13 +31,13 @@ $ sudo systemctl enable mongod
 $ sudo systemctl disable mongod
 ```
 
-## Configuration file:
+### Configuration file:
 
 ```shell
 $ sudo nano /etc/mongod.conf
 ```
 
-## Uninstall:
+### Uninstall:
 
 ```shell
 $ sudo systemctl stop mongod
@@ -52,7 +52,7 @@ $ sudo apt update
 
 # Fedora
 
-## Add repository:
+### Add repository:
 
 ```shell
 $ sudo nano /etc/yum.repos.d/mongodb.repo
@@ -69,7 +69,7 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc
 ```
 
-## Install:
+### Install:
 
 ```shell
 $ sudo dnf makecache --refresh
@@ -81,7 +81,7 @@ $ sudo systemctl status mongod.service
 $ sudo systemctl enable mongod.service
 ```
 
-## Uninstall:
+### Uninstall:
 
 ```shell
 sudo systemctl stop mongod.service &&
