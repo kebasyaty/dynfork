@@ -119,7 +119,7 @@ module DynFork::Paladins::CheckPlus
   end
 
   # Reset the values ​​of ignored fields to nil.
-  def restor_ignored_fields(update? : Bool)
+  def restor_ignored_fields(update? : Bool = false)
     {% for field in @type.instance_vars %}
       if @{{ field }}.ignored? && (@{{ field }}.name != "hash" || !update?)
           @hash.value = nil
