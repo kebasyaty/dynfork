@@ -622,6 +622,16 @@ The project is focused on web development.</p>
 </a>Installation</h2>
 <ol>
 <li>
+<p>Install MongoDB (if not installed):<br>
+Ubuntu - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md" title="Ubuntu - Install MongoDB">Ubuntu - Install MongoDB</a>.<br>
+Fedora - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md" title="Fedora - Install MongoDB">Fedora - Install MongoDB</a>.</p>
+</li>
+<li>
+<p>Install additional libraries (if not installed):<br>
+Ubuntu - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md" title="Additional Libraries">Ubuntu - Additional Libraries</a>.<br>
+Fedora - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md" title="Fedora - Additional Libraries">Fedora - Additional Libraries</a>.</p>
+</li>
+<li>
 <p>Add the dependency to your <code>shard.yml</code>:</p>
 <pre><code class="language-yaml">dependencies:
   dynfork:
@@ -636,14 +646,48 @@ The project is focused on web development.</p>
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;dynfork&quot;</span></code></pre>
-<p><span class="flag orange">TODO</span>  Write usage instructions here</p>
-<h2><a id="development" class="anchor" href="#development">
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;i18n&quot;</span>
+<span class="k">require</span> <span class="s">&quot;dynfork&quot;</span>
+
+<span class="c"># Create your model.</span>
+@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter email <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+<span class="c"># Initialize locale.</span>
+<span class="t">I18n</span>.config.loaders <span class="o">&lt;&lt;</span> <span class="t">I18n</span><span class="t">::</span><span class="t">Loader</span><span class="t">::</span><span class="t">YAML</span>.new(<span class="s">&quot;config/locales&quot;</span>)
+<span class="t">I18n</span>.config.default_locale <span class="o">=</span> <span class="n">:en</span>
+<span class="t">I18n</span>.init
+
+<span class="c"># Run migration.</span>
+<span class="t">DynFork</span><span class="t">::</span><span class="t">Migration</span><span class="t">::</span><span class="t">Monitor</span>.new(
+  <span class="s">&quot;app_name&quot;</span>: <span class="s">&quot;AppName&quot;</span>,
+  <span class="s">&quot;unique_app_key&quot;</span>: <span class="s">&quot;k7SBQPF6d2e2nts7&quot;</span>,
+  <span class="s">&quot;mongo_uri&quot;</span>: <span class="s">&quot;mongodb://localhost:27017&quot;</span>,
+  <span class="s">&quot;model_list&quot;</span>: {
+      <span class="t">User</span>,
+  }
+).migrat
+
+<span class="c"># Create a user.</span>
+user <span class="o">=</span> <span class="t">User</span>.new
+
+<span class="c"># Add user details.</span>
+user.username.value <span class="o">=</span> <span class="s">&quot;username&quot;</span>
+user.email.value <span class="o">=</span> <span class="s">&quot;user@noreaply.net&quot;</span>
+user.birthday.value <span class="o">=</span> <span class="s">&quot;2024-03-26&quot;</span>
+
+<span class="c"># Save user.</span>
+<span class="c"># Hint: print_err - convenient for development.</span>
+user.print_err <span class="k">unless</span> user.save?</code></pre>
+<h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Development</h2>
-<p><span class="flag orange">TODO</span>  Write development instructions here</p>
+</a><a href="https://github.com/kebasyaty/dynfork/tree/v0/examples" title="See more examples here.">See more examples here.</a></h3>
 <h2><a id="license" class="anchor" href="#license">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
