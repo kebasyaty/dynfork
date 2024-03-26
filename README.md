@@ -89,7 +89,7 @@ user = User.new
 # Add user details.
 user.username.value = "username"
 user.email.value = "user@noreaply.net"
-user.birthday.value = "2023-03-25"
+user.birthday.value = "2024-03-26"
 
 # Save user.
 # Hint: print_err - convenient for development.
