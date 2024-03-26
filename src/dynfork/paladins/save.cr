@@ -43,7 +43,7 @@ module DynFork::Paladins::Save
     end
     # Leave the method if the check fails.
     unless output_data.valid?
-      @hash.value = nil
+      self.restor_ignored_fields(output_data.update?)
       return false
     end
     #
