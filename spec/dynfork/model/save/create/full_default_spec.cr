@@ -54,6 +54,7 @@ describe DynFork::Model do
       m.hash2.value?.should be_nil
       m.email.value?.should be_nil
       m.color.value?.should eq("#000000")
+      m.slug.value?.should eq(m.hash.value?)
       #
       m.date.value?.should be_nil
       m.datetime.value?.should be_nil
@@ -90,6 +91,7 @@ describe DynFork::Model do
       m.hash2.default?.should be_nil
       m.email.default?.should be_nil
       m.color.default?.should eq("#000000")
+      m.slug.default?.should be_nil
       #
       m.date.default?.should be_nil
       m.datetime.default?.should be_nil
