@@ -98,6 +98,8 @@ user.birthday.value = "2024-03-26"
 user.print_err unless user.save?
 ```
 
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
+
 ## License
 
 **This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE "MIT").
