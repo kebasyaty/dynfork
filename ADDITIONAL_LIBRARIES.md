@@ -1,6 +1,6 @@
 # Ubuntu, Linux Mint
 
-## Install:
+### Install:
 
 ```shell
 sudo apt -y install libturbojpeg0-dev
@@ -17,7 +17,7 @@ sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4_amd64.deb'
 
 # Fedora
 
-## Install:
+### Install:
 
 ```shell
 sudo dnf install -y libjpeg-turbo turbojpeg-devel &&
