@@ -38,7 +38,12 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+1. Install MongoDB (if not installed):
+   Follow the link [Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/INSTALL_MONGODB.md "Install MongoDB").
+
+2.
+
+3. Add the dependency to your `shard.yml`:
 
    ```yaml
    dependencies:
@@ -46,7 +51,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
        github: kebasyaty/dynfork
    ```
 
-2. Run `shards install`
+4. Run `shards install`
 
 ## Usage
 
@@ -78,7 +83,7 @@ DynFork::Migration::Monitor.new(
 ).migrat
 
 # Create a user.
-user = Models::Accounts::User.new
+user = User.new
 
 # Add user details.
 user.username.value = "username"
