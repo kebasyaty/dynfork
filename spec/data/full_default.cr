@@ -13,6 +13,7 @@ module Spec::Data
     getter hash2 = DynFork::Fields::HashField.new
     getter email = DynFork::Fields::EmailField.new
     getter color = DynFork::Fields::ColorField.new
+    getter slug = DynFork::Fields::SlugField.new
 
     getter date = DynFork::Fields::DateField.new
     getter datetime = DynFork::Fields::DateTimeField.new

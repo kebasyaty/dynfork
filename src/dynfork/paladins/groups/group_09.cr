@@ -5,9 +5,10 @@ module DynFork::Paladins::Groups
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   )
     raw_str : String = ""
+    slug_sources : Array(String) = field_ptr.value.slug_sources
     {% for field in @type.instance_vars %}
-      if @{{ field }}.slug_sources.includes?({{ field.name.stringify }})
-        if value = @{{ field }}.value || @{{ field }}.default
+      if slug_sources.includes?({{ field.name.stringify }})
+        if value = @{{ field }}.value? || @{{ field }}.default?
           raw_str += value.to_s
         end
       end
