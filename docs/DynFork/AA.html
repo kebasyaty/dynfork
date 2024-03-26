@@ -847,8 +847,8 @@
   <span class="k">private</span> <span class="k">def</span> <span class="m">add_validation</span> : <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>)
     error_map <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">String</span>).new
     <span class="c"># Get clean data.</span>
-    password <span class="o">=</span> @password.value
-    confirm_password <span class="o">=</span> @confirm_password.value
+    password : <span class="t">String</span>? <span class="o">=</span> @password.value?
+    confirm_password : <span class="t">String</span>? <span class="o">=</span> @confirm_password.value?
     <span class="c"># Fields validation.</span>
     <span class="k">if</span> password <span class="o">!=</span> confirm_password
       error_map[<span class="s">&quot;confirm_password&quot;</span>] <span class="o">=</span> <span class="s">&quot;Password confirmation does not match.&quot;</span>
