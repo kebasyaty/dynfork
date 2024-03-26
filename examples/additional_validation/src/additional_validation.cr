@@ -13,7 +13,7 @@ module AdditionalValidation
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "lL15C2zJW6f0C4OB",
+    "unique_app_key": "lL15C2zJW6f0C4OJ",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
@@ -38,7 +38,7 @@ module AdditionalValidation
   puts "birthday: #{user.birthday.value?}"
   puts "password: #{user.password.value?}"
   puts "confirm_password: #{user.confirm_password.value?}"
-  puts "active: #{user.active.value?}"
+  puts "is_active: #{user.is_active.value?}"
   puts "slug: #{user.slug.value?}"
   puts "created_at: #{user.created_at.value?}"
   puts "updated_at: #{user.updated_at.value?}"
@@ -47,7 +47,7 @@ module AdditionalValidation
   user.username.value = "username_2"
   user.email.value = "user_2@noreaply.net"
   user.birthday.value = "2024-04-26"
-  user.active.value = false
+  user.is_active.value = false
   # update
   user.print_err unless user.save?
   # print
@@ -58,7 +58,7 @@ module AdditionalValidation
   puts "birthday: #{user.birthday.value?}"
   puts "password: #{user.password.value?}"
   puts "confirm_password: #{user.confirm_password.value?}"
-  puts "active: #{user.active.value?}"
+  puts "is_active: #{user.is_active.value?}"
   puts "slug: #{user.slug.value?}"
   puts "created_at: #{user.created_at.value?}"
   puts "updated_at: #{user.updated_at.value?}"
