@@ -7,7 +7,10 @@ module Models::Accounts
     getter username = DynFork::Fields::TextField.new(
       label: "Username",
       regex: "^[a-zA-Z0-9_@.+]{1,150}$",
-      regex_err_msg: I18n.t("allowed_chars.interpolation", chars: "a-z A-Z 0-9 _ @ . +"),
+      regex_err_msg: I18n.t(
+        "allowed_chars.interpolation",
+        chars: "a-z A-Z 0-9 _ @ . +"
+      ),
       required: true,
       unique: true
     )
@@ -29,7 +32,7 @@ module Models::Accounts
       label: "Confirm password",
       ignored: true
     )
-    getter active = DynFork::Fields::BoolField.new(
+    getter is_active = DynFork::Fields::BoolField.new(
       label: "is active?",
       default: true
     )
@@ -42,8 +45,8 @@ module Models::Accounts
     private def add_validation : Hash(String, String)
       error_map = Hash(String, String).new
       # Get clean data.
-      password = @password.value
-      confirm_password = @confirm_password.value
+      password : String? = @password.value?
+      confirm_password : String? = @confirm_password.value?
       # Fields validation.
       if password != confirm_password
         error_map["confirm_password"] = I18n.t(:pass_does_not_match)

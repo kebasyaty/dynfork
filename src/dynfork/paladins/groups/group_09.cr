@@ -9,7 +9,11 @@ module DynFork::Paladins::Groups
     {% for field in @type.instance_vars %}
       if slug_sources.includes?({{ field.name.stringify }})
         if value = @{{ field }}.value? || @{{ field }}.default?
-          raw_str += value.to_s
+          if !raw_str.empty?
+            raw_str += "-#{value}"
+          else
+            raw_str += value.to_s
+          end
         end
       end
     {% end %}
