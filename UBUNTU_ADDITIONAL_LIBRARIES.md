@@ -14,14 +14,3 @@ sudo dpkg -i 'libsharpyuv0_1.3.2-0.4_amd64.deb'
 sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4_amd64.deb' &&
 sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4_amd64.deb'
 ```
-
-# Fedora
-
-### Install:
-
-```shell
-sudo dnf install -y libjpeg-turbo turbojpeg-devel &&
-sudo dnf install -y libspng libspng-devel &&
-sudo dnf install -y libwebp libwebp-devel &&
-sudo dnf install -y libsharpyuv.so.0 &&
-```
