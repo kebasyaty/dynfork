@@ -38,10 +38,10 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Installation
 
-1. Install MongoDB (if not installed):
+1. Install MongoDB (if not installed):<br>
    Follow the link [Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/INSTALL_MONGODB.md "Install MongoDB").
 
-2. Install additional libraries (if not installed):
+2. Install additional libraries (if not installed):<br>
    Follow the link [Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/ADDITIONAL_LIBRARIES.md "Additional Libraries").
 
 3. Add the dependency to your `shard.yml`:
