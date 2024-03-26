@@ -86,7 +86,7 @@ describe DynFork::Model do
       m.hash2.value?.should eq("507c7f79bcf86cd7994f6c0e")
       m.email.value?.should eq("john.smith@example.com")
       m.color.value?.should eq("#ff0000")
-      m.slug.value?.should be_nil
+      m.slug.value?.should eq(m.hash.value?)
       #
       m.date.value?.should eq("1970-01-01")
       m.datetime.value?.should eq("1970-01-01T00:00:00")
@@ -123,7 +123,7 @@ describe DynFork::Model do
       m.hash2.default?.should be_nil
       m.email.default?.should be_nil
       m.color.default?.should eq("#000000")
-      m.slug.value?.should be_nil
+      m.slug.default?.should be_nil
       #
       m.date.default?.should be_nil
       m.datetime.default?.should be_nil

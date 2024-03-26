@@ -52,7 +52,7 @@ describe DynFork::Model do
       m.hash2.value?.should eq("507c7f79bcf86cd7994f6c0e")
       m.email.value?.should be_nil
       m.color.value?.should be_nil
-      m.slug.value?.should be_nil
+      m.slug.value?.should eq(m.hash.value?)
       #
       m.date.value?.should be_nil
       m.datetime.value?.should be_nil
