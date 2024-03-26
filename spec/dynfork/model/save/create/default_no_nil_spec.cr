@@ -90,7 +90,7 @@ describe DynFork::Model do
       m.hash2.default?.should be_nil
       m.email.default?.should eq("john.smith@example.com")
       m.color.default?.should eq("#ff0000")
-      m.slug.default?.should be_nil
+      m.slug.value?.should eq(m.hash.value?)
       #
       m.date.default?.should eq("1970-01-01")
       m.datetime.default?.should eq("1970-01-01T00:00:00")
