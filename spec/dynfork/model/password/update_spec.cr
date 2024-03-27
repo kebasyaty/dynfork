@@ -38,7 +38,7 @@ describe DynFork::Model do
       flag.should be_true
       #
       # Negative
-      ex = expect_raises(DynFork::Errors::Fields::SlugSourceNameInvalid) do
+      ex = expect_raises(DynFork::Errors::Password::OldPassNotMatch) do
         m.update_password(
           "XMl7976GO666b712",
           "7x553USYlwB44qi5"
