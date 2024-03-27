@@ -1,8 +1,8 @@
 require "../../../spec_helper"
 
 describe DynFork::Model do
-  describe "#verify_password" do
-    it "=> password verification", tags: "verify_password" do
+  describe "#update_password" do
+    it "=> update password in database", tags: "update_password" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
