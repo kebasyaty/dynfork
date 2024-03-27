@@ -39,5 +39,7 @@ module DynFork::Paladins::Password
     filter = {_id: self.object_id?}
     update = {"$set": {field_name => password_hash}}
     collection.update_one(filter, update)
+    #
+    nil
   end
 end

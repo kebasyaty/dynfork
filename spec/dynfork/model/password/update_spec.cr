@@ -6,7 +6,7 @@ describe DynFork::Model do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "XMl7976GO666b712"
+      unique_app_key = "7x553USYlwB44qi5"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 
@@ -37,8 +37,11 @@ describe DynFork::Model do
       m.print_err unless flag
       flag.should be_true
       #
-      m.verify_password("XMl7976GO666b712").should be_false
-      m.verify_password(password).should be_true
+      m.update_password(
+        "XMl7976GO666b712",
+        "7x553USYlwB44qi5"
+      ).should eq(I18n.t(:old_pass_not_match))
+      m.update_password(password, "7x553USYlwB44qi5").should be_nil
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
