@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe DynFork::Model do
   describe "#verify_password" do
-    it "=> check password validation", tags: "password" do
+    it "=> password verification", tags: "password" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
