@@ -39,12 +39,12 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   Ubuntu - Follow the link [Ubuntu - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu - Install MongoDB").<br>
-   Fedora - Follow the link [Fedora - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora - Install MongoDB").
+   **Ubuntu** - Follow the link [Ubuntu - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu - Install MongoDB").<br>
+   **Fedora** - Follow the link [Fedora - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora - Install MongoDB").
 
 2. Install additional libraries (if not installed):<br>
-   Ubuntu - Follow the link [Ubuntu - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Additional Libraries").<br>
-   Fedora - Follow the link [Fedora - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora - Additional Libraries").
+   **Ubuntu** - Follow the link [Ubuntu - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Additional Libraries").<br>
+   **Fedora** - Follow the link [Fedora - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora - Additional Libraries").
 
 3. Add the dependency to your `shard.yml`:
 
