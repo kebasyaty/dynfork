@@ -3,7 +3,6 @@ module DynFork::Fields
   @[JSON::Serializable::Options(emit_nulls: true)]
   abstract struct Field
     include JSON::Serializable
-    include JSON::Serializable::Strict
     # *Format: "ModelName--field-name"*
     # WARNING: The value is determined automatically.
     property id : String = ""
@@ -32,6 +31,7 @@ module DynFork::Fields
     property errors : Array(String) = Array(String).new
     # To optimize field traversal in the `check` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 0
 
     # Determine the presence of a variable (attribute) in the Field type.

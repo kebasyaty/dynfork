@@ -35,6 +35,7 @@ module DynFork::Fields
     getter maxsize : Int64
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 4
     #
     # :nodoc:

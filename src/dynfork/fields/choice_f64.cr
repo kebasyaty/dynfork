@@ -18,6 +18,7 @@ module DynFork::Fields
     getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 3
     #
     # :nodoc:
@@ -157,6 +158,7 @@ module DynFork::Fields
     getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 3
     #
     # :nodoc:
@@ -297,6 +299,7 @@ module DynFork::Fields
     getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 3
     #
     # :nodoc:
@@ -440,6 +443,7 @@ module DynFork::Fields
     getter! choices : Array(Tuple(Float64, String))?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
+    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 3
     #
     # :nodoc:
