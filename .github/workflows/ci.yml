@@ -66,3 +66,4 @@ jobs:
           crystal spec --tag save_create
           crystal spec --tag save_update
           crystal spec --tag delete
+          crystal spec --tag password
