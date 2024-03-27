@@ -1,5 +1,5 @@
-# Additional methods for Model validation.
-module DynFork::Paladins::CheckPlus
+# Tools - A set of additional auxiliary methods for Paladins.
+module DynFork::Paladins::Tools
   # Check data validity.
   # NOTE: The main use is to check data from web forms.
   #
