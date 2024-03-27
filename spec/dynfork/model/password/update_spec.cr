@@ -41,6 +41,16 @@ describe DynFork::Model do
         "XMl7976GO666b712",
         "7x553USYlwB44qi5"
       ).should eq(I18n.t(:old_pass_not_match))
+      #
+      # Negative
+      ex = expect_raises(DynFork::Errors::Fields::SlugSourceNameInvalid) do
+        Spec::Data::SlugSourceInvalidModel.new
+      end
+      ex.message.should eq(
+        "Model: `SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
+        "The `first_name` field missing in Model."
+      )
+      # Positive
       m.update_password(password, "7x553USYlwB44qi5").should be_nil
       # ------------------------------------------------------------------------
       #

@@ -37,7 +37,9 @@ describe DynFork::Model do
       m.print_err unless flag
       flag.should be_true
       #
+      # Negative
       m.verify_password("XMl7976GO666b712").should be_false
+      # Positive
       m.verify_password(password).should be_true
       # ------------------------------------------------------------------------
       #
