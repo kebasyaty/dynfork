@@ -50,6 +50,8 @@ module DynFork::Paladins::Save
     data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
     # Create or update a document in the database.
     if output_data.update?
+      # Run hook.
+      self.pre_update
       # Update doc.
       data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
@@ -66,7 +68,11 @@ module DynFork::Paladins::Save
           "Param: `value` => Hash is missing."
         )
       end
+      # Run hook.
+      self.post_update
     else
+      # Run hook.
+      self.pre_create
       # Create doc.
       datetime : Time = Time.utc
       data["created_at"] = datetime
@@ -79,6 +85,8 @@ module DynFork::Paladins::Save
           "Model : `#{self.model_name}` => The document was not created."
         )
       end
+      # Run hook.
+      self.post_create
     end
     #
     true

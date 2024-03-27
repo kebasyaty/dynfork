@@ -118,6 +118,22 @@ module DynFork::Paladins::Tools
     io
   end
 
+  # Remove a document from a collection in a database.
+  def delete
+    # Get collection.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    # Get the ID and delete the document.
+    if id : BSON::ObjectId? = @hash.object_id?
+      collection.delete_one({_id: id})
+    else
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{self.model_name}` > Field: `hash` > " +
+        "Param: `value` => Hash is missing."
+      )
+    end
+  end
+
   # Reset the values ​​of ignored fields to nil.
   def restor_ignored_fields(update? : Bool = false)
     {% for field in @type.instance_vars %}
