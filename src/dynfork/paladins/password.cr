@@ -10,7 +10,7 @@ module DynFork::Paladins::Password
         @@meta.not_nil![:collection_name]]
       # Get password hash.
       if doc = collection.find_one({_id: id})
-        return Crypto::Bcrypt::Password.new(doc[field_name].as(String)).verify
+        return Crypto::Bcrypt::Password.new(doc[field_name].as(String)).verify(password)
       end
       msg = "Model: `#{self.model_name}` > " +
             "Field: `#{field_name}` | Method: `verify_password` => " +
