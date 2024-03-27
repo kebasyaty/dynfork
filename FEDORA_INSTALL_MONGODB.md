@@ -6,7 +6,7 @@
 $ sudo nano /etc/yum.repos.d/mongodb.repo
 ```
 
-#### Add this text:
+###### Add this text:
 
 ```text
 [mongodb-org-4.4]
