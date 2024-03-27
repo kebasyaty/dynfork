@@ -646,6 +646,7 @@ Fedora - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/F
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
+<p>It is recommended to look at examples <a href="https://github.com/kebasyaty/dynfork/tree/v0/examples" title="here">here</a>.</p>
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;i18n&quot;</span>
 <span class="k">require</span> <span class="s">&quot;dynfork&quot;</span>
 
@@ -682,7 +683,16 @@ user.birthday.value <span class="o">=</span> <span class="s">&quot;2024-03-26&qu
 
 <span class="c"># Save user.</span>
 <span class="c"># Hint: print_err - convenient for development.</span>
-user.print_err <span class="k">unless</span> user.save?</code></pre>
+user.print_err <span class="k">unless</span> user.save?
+
+<span class="c"># Print user details.</span>
+puts <span class="s">&quot;# New user details:&quot;</span>
+puts <span class="s">&quot;hash: </span><span class="i">#{</span>user.hash.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;username: </span><span class="i">#{</span>user.username.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;email: </span><span class="i">#{</span>user.email.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthday.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span></code></pre>
 <h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
