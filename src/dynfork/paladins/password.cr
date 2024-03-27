@@ -29,7 +29,9 @@ module DynFork::Paladins::Password
     new_password : String,
     field_name : String = "password"
   ) : String?
-    return I18n.t(:old_pass_not_match) unless verify_password(old_password, field_name)
+    unless verify_password(old_password, field_name)
+      raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
