@@ -53,11 +53,15 @@ module DynFork::Paladins::Save
       # Update doc.
       data["updated_at"] = Time.utc
       if id : BSON::ObjectId? = @hash.object_id?
+        # Run hook.
+        self.pre_update
         if doc : BSON? = collection.find_one_and_update(
              filter: {_id: id},
              update: {"$set": data},
              new: true
            )
+          # Run hook.
+          self.post_update
           self.refrash_fields(pointerof(doc))
         end
       else
@@ -71,7 +75,12 @@ module DynFork::Paladins::Save
       datetime : Time = Time.utc
       data["created_at"] = datetime
       data["updated_at"] = datetime
+      # Run hook.
+      self.pre_create
+      # Insert doc.
       collection.insert_one(data)
+      # Run hook.
+      self.post_create
       if doc = collection.find_one({_id: data["_id"]})
         self.refrash_fields(pointerof(doc))
       else
