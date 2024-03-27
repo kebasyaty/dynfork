@@ -3,7 +3,7 @@ require "./root"
 # Errors associated with the fields.
 module DynFork::Errors::Fields
   # If the slug source does not match any field name in the Model.
-  class SlugSourceNameInvalid < DynFork::Errors::CrymonException
+  class SlugSourceNameInvalid < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       field_name : String,
@@ -17,7 +17,7 @@ module DynFork::Errors::Fields
   end
 
   # Invalid field type for slug source.
-  class SlugSourceTypeInvalid < DynFork::Errors::CrymonException
+  class SlugSourceTypeInvalid < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       slug_field : String,
@@ -34,7 +34,7 @@ module DynFork::Errors::Fields
   end
 
   # For slug sources, all fields except the `hash` field must be required.
-  class SlugSourceNotRequired < DynFork::Errors::CrymonException
+  class SlugSourceNotRequired < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       slug_field : String,
@@ -49,7 +49,7 @@ module DynFork::Errors::Fields
   end
 
   # If the slug source does not have unique fields.
-  class SlugSourceNotUnique < DynFork::Errors::CrymonException
+  class SlugSourceNotUnique < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       slug_field : String
@@ -63,7 +63,7 @@ module DynFork::Errors::Fields
   end
 
   # If the max date is not greater than the min date.
-  class NotCorrectMinDate < DynFork::Errors::CrymonException
+  class NotCorrectMinDate < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       field_name : String
@@ -76,7 +76,7 @@ module DynFork::Errors::Fields
   end
 
   # If the default date does not match the minimum or maximum value.
-  class NotCorrectDefaultDate < DynFork::Errors::CrymonException
+  class NotCorrectDefaultDate < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       field_name : String,
@@ -87,7 +87,7 @@ module DynFork::Errors::Fields
   end
 
   # Invalid input type.
-  class InvalidInputType < DynFork::Errors::CrymonException
+  class InvalidInputType < DynFork::Errors::DynForkException
     def initialize(input_type : String)
       super("The `#{input_type}` invalid input type.")
     end

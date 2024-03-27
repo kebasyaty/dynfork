@@ -52,6 +52,20 @@ module Spec::Data
     getter age = DynFork::Fields::I64Field.new(min: 0)
   end
 
+  # Test removing a document from a collection.
+  @[DynFork::Meta(service_name: "Accounts")]
+  struct DeleteModel < DynFork::Model
+    getter username = DynFork::Fields::TextField.new
+    getter password = DynFork::Fields::PasswordField.new
+  end
+
+  # For the test - Update password.
+  @[DynFork::Meta(service_name: "Accounts")]
+  struct UpdatePassword < DynFork::Model
+    getter username = DynFork::Fields::TextField.new
+    getter password = DynFork::Fields::PasswordField.new
+  end
+
   # For preliminary testing of additional abstractions.
   @[DynFork::Meta(service_name: "Accounts")]
   struct AAModel < DynFork::Model

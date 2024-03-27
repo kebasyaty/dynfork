@@ -3,7 +3,7 @@ require "./root"
 # Errors associated with the metadata.
 module DynFork::Errors::Meta
   # Missing parameter for Metadata.
-  class ParameterMissing < DynFork::Errors::CrymonException
+  class ParameterMissing < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       parameter_name : String
@@ -16,7 +16,7 @@ module DynFork::Errors::Meta
   end
 
   # Invalid parameter name.
-  class InvalidParamName < DynFork::Errors::CrymonException
+  class InvalidParamName < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       parameter_name : String
@@ -29,7 +29,7 @@ module DynFork::Errors::Meta
   end
 
   # The allowed number of characters in the metadata parameters has been exceeded.
-  class ParamExcessChars < DynFork::Errors::CrymonException
+  class ParamExcessChars < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       parameter_name : String,
@@ -43,7 +43,7 @@ module DynFork::Errors::Meta
   end
 
   # The metadata parameter fails regular expression validation.
-  class ParamRegexFails < DynFork::Errors::CrymonException
+  class ParamRegexFails < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
       parameter_name : String,

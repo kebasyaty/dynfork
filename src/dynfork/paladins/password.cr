@@ -4,20 +4,20 @@ module DynFork::Paladins::Password
     password : String,
     field_name : String = "password"
   ) : Bool
-    if doc_id = self.get_object_id
+    if id : BSON::ObjectId? = self.object_id?
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
         @@meta.not_nil![:collection_name]]
       # Get password hash.
-      if doc = collection.find_one({"_id" => doc_id})
-        return Crypto::Bcrypt::Password.new(doc[field_name]).verify
+      if doc = collection.find_one({_id: id})
+        return Crypto::Bcrypt::Password.new(doc[field_name].as(String)).verify(password)
       end
-      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
+      msg = "Model: `#{self.model_name}` > " +
             "Field: `#{field_name}` | Method: `verify_password` => " +
             "There is no document with ID `#{@hash.value}` in the database."
       raise DynFork::Errors::Panic.new msg
     end
-    msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
+    msg = "Model: `#{self.model_name}` > " +
           "Field: `#{field_name}` | Method: `verify_password` => " +
           "Cannot get document ID - Hash field is empty."
     raise DynFork::Errors::Panic.new msg
@@ -29,15 +29,19 @@ module DynFork::Paladins::Password
     new_password : String,
     field_name : String = "password"
   ) : String?
-    return I18n.t(:old_pass_not_match) unless verify_password(old_password, field_name)
+    unless verify_password(old_password, field_name)
+      raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get password hash.
     password_hash : String = Crypto::Bcrypt::Password.create(new_password).to_s
     # Update password.
-    filter = {"_id" => self.get_object_id}
+    filter = {_id: self.object_id?}
     update = {"$set": {field_name => password_hash}}
     collection.update_one(filter, update)
+    #
+    nil
   end
 end
