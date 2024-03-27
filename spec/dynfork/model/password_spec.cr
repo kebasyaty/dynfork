@@ -1,12 +1,12 @@
 require "../../spec_helper"
 
 describe DynFork::Model do
-  describe "#delete" do
-    it "=> remove a document from a collection", tags: "password" do
+  describe "#verify_password" do
+    it "=> check password validation", tags: "password" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "L1e4bxTuhriH99e3"
+      unique_app_key = "XMl7976GO666b712"
       database_name = "test_#{unique_app_key}"
       mongo_uri = "mongodb://localhost:27017"
 
@@ -29,16 +29,15 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::UpdatePassword.new
+      password = "E2ep4e3UPkWs84GO"
       m.username.value = "username"
-      m.password.value = "E2ep4e3UPkWs84GO"
+      m.password.value = password
       #
       flag : Bool = m.save?
       m.print_err unless flag
       flag.should be_true
       #
-      m.count_documents.should eq(1)
-      m.delete
-      m.count_documents.should eq(0)
+      m.verify_password(password).should be_true
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
