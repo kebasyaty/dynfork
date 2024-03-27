@@ -40,13 +40,16 @@ describe DynFork::Model do
       # Negative
       ex = expect_raises(DynFork::Errors::Password::OldPassNotMatch) do
         m.update_password(
-          "XMl7976GO666b712",
-          "7x553USYlwB44qi5"
+          old_password: "XMl7976GO666b712",
+          new_password: "7x553USYlwB44qi5"
         )
       end
       ex.message.should eq(I18n.t(:old_pass_not_match))
       # Positive
-      m.update_password(password, "7x553USYlwB44qi5").should be_nil
+      m.update_password(
+        old_password: password,
+        new_password: "7x553USYlwB44qi5"
+      ).should be_nil
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
