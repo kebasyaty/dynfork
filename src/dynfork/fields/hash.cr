@@ -24,7 +24,6 @@ module DynFork::Fields
     property alerts : Array(String) = Array(String).new
     # To optimize field traversal in the `paladins/check` method.
     # WARNING: It is recommended not to change.
-    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 1
     #
     # :nodoc:

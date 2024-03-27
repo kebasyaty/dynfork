@@ -13,7 +13,6 @@ module DynFork::Fields
     getter! default : Bool?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
-    @[JSON::Field(ignore: true)]
     getter group : UInt8 = 8
     #
     # :nodoc:
