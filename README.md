@@ -58,6 +58,8 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Usage
 
+It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/v0/examples "here").
+
 ```crystal
 require "i18n"
 require "dynfork"
@@ -96,6 +98,15 @@ user.birthday.value = "2024-03-26"
 # Save user.
 # Hint: print_err - convenient for development.
 user.print_err unless user.save?
+
+# Print user details.
+puts "# New user details:"
+puts "hash: #{user.hash.value?}"
+puts "username: #{user.username.value?}"
+puts "email: #{user.email.value?}"
+puts "birthday: #{user.birthday.value?}"
+puts "created_at: #{user.created_at.value?}"
+puts "updated_at: #{user.updated_at.value?}"
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
