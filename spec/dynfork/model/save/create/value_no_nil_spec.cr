@@ -34,7 +34,7 @@ describe DynFork::Model do
       m.url.value = "https://translate.google.com/"
       m.text.value = "Some text"
       m.phone.value = "+18004444444"
-      m.password.value = "E2ep4e3UPkWs84GO"
+      m.password.value = "7637Kw8#5GTb~]H#"
       m.ip.value = "126.255.255.255"
       m.hash2.value = "507c7f79bcf86cd7994f6c0e"
       m.email.value = "john.smith@example.com"
