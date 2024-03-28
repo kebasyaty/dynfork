@@ -1,12 +1,12 @@
-name: additional_validation
+name: app_name
 version: 0.1.0
 
 authors:
   - kebasyaty <kebasyaty@gmail.com>
 
 targets:
-  additional_validation:
-    main: src/additional_validation.cr
+  password:
+    main: src/app_name.cr
 
 crystal: ">= 1.11.2, < 2.0"
 

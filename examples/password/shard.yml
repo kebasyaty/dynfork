@@ -13,7 +13,7 @@ crystal: ">= 1.11.2, < 2.0"
 license: MIT
 
 description: |
-  A simple example to start using.
+  An example of verification and updating a password.
 
 dependencies:
   dynfork:

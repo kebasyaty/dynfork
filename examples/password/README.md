@@ -1,6 +1,6 @@
 # app_name
 
-A simple example to start using.
+An example of verification and updating a password.
 
 ## Usage
 

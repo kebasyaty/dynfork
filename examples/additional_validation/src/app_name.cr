@@ -2,7 +2,7 @@ require "i18n"
 require "dynfork"
 require "./models/*"
 
-module AdditionalValidation
+module AppName
   VERSION = "0.1.0"
 
   # Initialize locale.
