@@ -14,6 +14,7 @@ describe DynFork::Globals do
         datetime_parse: /^(?P<d>[0-9]{2})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<y>[0-9]{4})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2}:[0-9]{2})/,
         datetime_parse_reverse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2}:[0-9]{2})/,
         color_code: /^(?:#|0x)(?:[a-f0-9]{3}|[a-f0-9]{6}|[a-f0-9]{8})\b|(?:rgb|hsl)a?\([^\)]*\)$/i,
+        password: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/,
       )
     )
   end
@@ -109,6 +110,17 @@ describe DynFork::Globals do
       r.matches?("hsla(170,23%,25%,0.2)").should be_true
       r.matches?("0x00ffff").should be_true
       r.matches?("0x00FFFF").should be_true
+    end
+
+    it "=> cache_regex - password", tags: "global_regex" do
+      r : Regex = DynFork::Globals.cache_regex[:password]
+      # Negative:
+      r.matches?("").should be_false
+      r.matches?(" ").should be_false
+      # Positive:
+      r.matches?("9M,4%6]3ht7r{l59").should be_true
+      r.matches?("2XT~m:L!Hz_723J(").should be_true
+      r.matches?("d6'P30}e'#f^g3t5").should be_true
     end
   end
 end

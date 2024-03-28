@@ -117,13 +117,10 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @placeholder : String = "",
-      @maxlength : UInt32? = nil,
-      @minlength : UInt32? = nil,
-      @regex : String? = "^[a-zA-Z0-9@#$%^&+=*!~)(]{8,256}$",
-      @regex_err_msg : String? = I18n.t(
-        "allowed_chars.interpolation",
-        chars: "a-z A-Z 0-9 @ # $ % ^ & + = * ! ~ ) ("
-      ),
+      @maxlength : UInt32? = 256,
+      @minlength : UInt32? = 8,
+      @regex : String? = nil,
+      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @required : Bool = true,
       @ignored : Bool = false,

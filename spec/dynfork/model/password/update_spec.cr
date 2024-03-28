@@ -29,8 +29,8 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::UpdatePassword.new
-      password = "E2ep4e3UPkWs84GO"
-      new_password = "7x553USYlwB44qi5"
+      password = "9M,4%6]3ht7r{l59"
+      new_password = "2XT~m:L!Hz_723J("
       m.username.value = "username"
       m.password.value = password
       #
@@ -41,7 +41,7 @@ describe DynFork::Model do
       # Negative
       ex = expect_raises(DynFork::Errors::Password::OldPassNotMatch) do
         m.update_password(
-          old_password: "XMl7976GO666b712",
+          old_password: "d6'P30}e'#f^g3t5",
           new_password: new_password
         )
       end

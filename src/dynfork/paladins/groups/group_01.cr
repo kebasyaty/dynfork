@@ -118,6 +118,17 @@ module DynFork::Paladins::Groups
           error_symptom_ptr?
         )
       end
+    when "PasswordField"
+      unless Valid.password? current_value
+        self.accumulate_error(
+          I18n.t(
+            "allowed_chars.interpolation",
+            chars: %(a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ \( \) * + / \\ ? [ ] ^ |)
+          ),
+          field_ptr,
+          error_symptom_ptr?
+        )
+      end
     end
     # Insert result.
     if save?

@@ -70,6 +70,7 @@ describe DynFork::Globals do
           datetime_parse: Regex,
           datetime_parse_reverse: Regex,
           color_code: Regex,
+          password: Regex,
         )
       )
     end
