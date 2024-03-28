@@ -29,7 +29,7 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::UpdatePassword.new
-      password = "E2ep4e3UPkWs84GO"
+      password = "WO:4J_'2G#~$H4bx"
       m.username.value = "username"
       m.password.value = password
       #
@@ -38,7 +38,7 @@ describe DynFork::Model do
       flag.should be_true
       #
       # Negative
-      m.verify_password?("XMl7976GO666b712").should be_false
+      m.verify_password?("cH!29_#_5iBj}C41").should be_false
       # Positive
       m.verify_password?(password).should be_true
       # ------------------------------------------------------------------------
