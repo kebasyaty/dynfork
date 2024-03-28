@@ -120,10 +120,7 @@ module DynFork::Fields
       @maxlength : UInt32? = 256,
       @minlength : UInt32? = 8,
       @regex : String? = nil,
-      @regex_err_msg : String? = I18n.t(
-        "allowed_chars.interpolation",
-        chars: %(a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ \( \) * + / \\ ? [ ] ^ |)
-      ),
+      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @required : Bool = true,
       @ignored : Bool = false,
