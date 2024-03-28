@@ -112,7 +112,7 @@ puts "updated_at: #{user.updated_at.value?}"
 
 ## Model Parameters
 
-###### only **service_name** is a required parameter
+###### only `service_name` is a required parameter
 
 See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.html "here").
 
