@@ -12,15 +12,15 @@ module DynFork
   #   <tr>
   #     <td align="left">service_name</td>
   #     <td align="left">no</td>
-  #     <td align="left">**Examples:** Accounts | Smartphones | Washing machines | etc ... </td>
+  #     <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
   #   </tr>
   #   <tr>
   #     <td align="left">fixture_name</td>
   #     <td align="left">no</td>
   #     <td align="left">
-  #       The name of the fixture in the 'config/fixtures' directory (without extension).
+  #       The name of the fixture in the <b>config/fixtures</b> directory (without extension).
   #       <br>
-  #       **Examples:** SiteSettings | AppSettings | etc ...
+  #       <b>Examples:</b> SiteSettings | AppSettings | etc ...
   #     </td>
   #   </tr>
   #   <tr>
@@ -31,7 +31,7 @@ module DynFork
   #   <tr>
   #     <td align="left">saving_docs?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Create documents in the database. **false** - Alternatively, use it to validate data from web forms.</td>
+  #     <td align="left">Create documents in the database. <b>false</b> - Alternatively, use it to validate data from web forms.</td>
   #   </tr>
   #   <tr>
   #     <td align="left">updating_docs?</td>
