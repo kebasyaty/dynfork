@@ -8,6 +8,7 @@ module AppName
   # Password:
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
+  # WARNING: Default number of characters: max = 256, min = 8
 
   # Initialize locale.
   I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
