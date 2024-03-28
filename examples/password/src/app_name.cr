@@ -5,6 +5,10 @@ require "./models/*"
 module AppName
   VERSION = "0.1.0"
 
+  # Password:
+  # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
+  # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
+
   # Initialize locale.
   I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
   I18n.config.default_locale = :en
