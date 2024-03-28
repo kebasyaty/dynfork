@@ -13,7 +13,6 @@ The project is focused on web development.
 [![CI](https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg)](https://github.com/kebasyaty/dynfork/actions)
 [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/dynfork/)
 [![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
-[![Github all releases](https://img.shields.io/github/downloads/kebasyaty/dynfork/total.svg)](https://GitHub.com/kebasyaty/dynfork/releases/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/dynfork)](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE)
 <br>
 <br>
