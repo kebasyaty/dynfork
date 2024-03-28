@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Errors::Fields::SlugSourceNotUnique - dynfork v0-dev</title>
+  <title>DynFork::Errors::Password::OldPassNotMatch - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../../";
   </script>
@@ -117,7 +117,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="dynfork/DynFork/Errors/Fields" data-name="dynfork::errors::fields">
+  <li class="parent " data-id="dynfork/DynFork/Errors/Fields" data-name="dynfork::errors::fields">
       <a href="../../../DynFork/Errors/Fields.html">Fields</a>
       
         <ul>
@@ -147,7 +147,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotUnique" data-name="dynfork::errors::fields::slugsourcenotunique">
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotUnique" data-name="dynfork::errors::fields::slugsourcenotunique">
       <a href="../../../DynFork/Errors/Fields/SlugSourceNotUnique.html">SlugSourceNotUnique</a>
       
     </li>
@@ -227,12 +227,12 @@
       
     </li>
   
-  <li class="parent " data-id="dynfork/DynFork/Errors/Password" data-name="dynfork::errors::password">
+  <li class="parent open current" data-id="dynfork/DynFork/Errors/Password" data-name="dynfork::errors::password">
       <a href="../../../DynFork/Errors/Password.html">Password</a>
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Errors/Password/OldPassNotMatch" data-name="dynfork::errors::password::oldpassnotmatch">
+  <li class=" current" data-id="dynfork/DynFork/Errors/Password/OldPassNotMatch" data-name="dynfork::errors::password::oldpassnotmatch">
       <a href="../../../DynFork/Errors/Password/OldPassNotMatch.html">OldPassNotMatch</a>
       
     </li>
@@ -591,12 +591,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> DynFork::<wbr>Errors::<wbr>Fields::<wbr>SlugSourceNotUnique
+  <span class="kind">class</span> DynFork::<wbr>Errors::<wbr>Password::<wbr>OldPassNotMatch
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../DynFork/Errors/Fields/SlugSourceNotUnique.html">DynFork::Errors::Fields::SlugSourceNotUnique</a></li><li class="superclass"><a href="../../../DynFork/Errors/DynForkException.html">DynFork::Errors::DynForkException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../DynFork/Errors/Password/OldPassNotMatch.html">DynFork::Errors::Password::OldPassNotMatch</a></li><li class="superclass"><a href="../../../DynFork/Errors/DynForkException.html">DynFork::Errors::DynForkException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -610,7 +610,7 @@
     Overview
   </h2>
 
-  <p>If the slug source does not have unique fields.</p>
+  <p>Invalid type.</p>
 
 
 
@@ -635,7 +635,7 @@
   </h2>
   
     
-      dynfork/errors/fields.cr
+      dynfork/errors/password.cr
     
     <br/>
   
@@ -655,7 +655,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28model_name%3AString%2Cslug_field%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String, slug_field : String)</a>
+        <a href="#new%28message%3AString%29-class-method" class="signature"><strong>.new</strong>(message : String)</a>
         
       </li>
     
@@ -735,12 +735,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(model_name:String,slug_field:String)-class-method">
+    <div class="entry-detail" id="new(message:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(model_name : String, slug_field : String)
+        def self.<strong>new</strong>(message : String)
 
-        <a class="method-permalink" href="#new%28model_name%3AString%2Cslug_field%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28message%3AString%29-class-method">#</a>
       </div>
       
       <br/>

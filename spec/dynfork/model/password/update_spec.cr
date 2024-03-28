@@ -30,6 +30,7 @@ describe DynFork::Model do
       # ------------------------------------------------------------------------
       m = Spec::Data::UpdatePassword.new
       password = "E2ep4e3UPkWs84GO"
+      new_password = "7x553USYlwB44qi5"
       m.username.value = "username"
       m.password.value = password
       #
@@ -41,15 +42,16 @@ describe DynFork::Model do
       ex = expect_raises(DynFork::Errors::Password::OldPassNotMatch) do
         m.update_password(
           old_password: "XMl7976GO666b712",
-          new_password: "7x553USYlwB44qi5"
+          new_password: new_password
         )
       end
       ex.message.should eq(I18n.t(:old_pass_not_match))
       # Positive
       m.update_password(
         old_password: password,
-        new_password: "7x553USYlwB44qi5"
+        new_password: new_password
       ).should be_nil
+      m.verify_password(new_password).should be_true
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
