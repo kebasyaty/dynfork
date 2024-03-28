@@ -4,6 +4,7 @@ module DynFork::Fields
   # Field for entering password.
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
+  # WARNING: Default number of characters: max = 256, min = 8
   struct PasswordField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "PasswordField"
