@@ -53,7 +53,7 @@ module Validator
     DynFork::Globals.cache_regex[:color_code].matches?(value)
   end
 
-  # ???
+  # Custom validator to validate the password string.
   def self.password?(value : String) : Bool
     DynFork::Globals.cache_regex[:password].matches?(value)
   end
