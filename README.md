@@ -114,7 +114,7 @@ puts "updated_at: #{user.updated_at.value?}"
 
 ###### only **service_name** is a required parameter
 
-See the documentation [here](https://kebasyaty.github.io/dynfork/ "here").
+See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.html "here").
 
 <div>
    <table>
