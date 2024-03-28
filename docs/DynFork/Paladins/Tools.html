@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Paladins::Check - dynfork v0-dev</title>
+  <title>DynFork::Paladins::Tools - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -542,7 +542,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Paladins/Check" data-name="dynfork::paladins::check">
+  <li class=" " data-id="dynfork/DynFork/Paladins/Check" data-name="dynfork::paladins::check">
       <a href="../../DynFork/Paladins/Check.html">Check</a>
       
     </li>
@@ -562,7 +562,7 @@
       
     </li>
   
-  <li class=" " data-id="dynfork/DynFork/Paladins/Tools" data-name="dynfork::paladins::tools">
+  <li class=" current" data-id="dynfork/DynFork/Paladins/Tools" data-name="dynfork::paladins::tools">
       <a href="../../DynFork/Paladins/Tools.html">Tools</a>
       
     </li>
@@ -591,7 +591,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> DynFork::<wbr>Paladins::<wbr>Check
+  <span class="kind">module</span> DynFork::<wbr>Paladins::<wbr>Tools
 
 </h1>
 
@@ -608,27 +608,11 @@
     Overview
   </h2>
 
-  <p>1.Validation of Model data before saving to the database.
-<br>
-2.Web form validation. It is recommended to use the <em>saving_docs?=true</em> model parameter.</p>
+  <p>Tools - A set of additional auxiliary methods for Paladins.</p>
 
 
 
 
-
-  <h2>
-    <a id="included-modules" class="anchor" href="#included-modules">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Included Modules
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../../DynFork/Paladins/Groups.html">DynFork::Paladins::Groups</a></li>
-    
-  </ul>
 
 
 
@@ -663,7 +647,7 @@
   </h2>
   
     
-      dynfork/paladins/check.cr
+      dynfork/paladins/tools.cr
     
     <br/>
   
@@ -689,9 +673,65 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method" class="signature"><strong>#check</strong>(collection_ptr : Pointer(Mongo::Collection), save? : Bool = <span class="n">false</span>) : DynFork::Globals::OutputData</a>
+        <a href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29-instance-method" class="signature"><strong>#accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool))</a>
         
-          <div class="summary"><p>Validation of Model data.</p></div>
+          <div class="summary"><p>For accumulating errors.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#calculate_thumbnail_size%28width%3AInt32%2Cheight%3AInt32%2Cmax_size%3AInt32%29%3ANamedTuple%28width%3AInt32%2Cheight%3AInt32%29-instance-method" class="signature"><strong>#calculate_thumbnail_size</strong>(width : Int32, height : Int32, max_size : Int32) : NamedTuple(width: Int32, height: Int32)</a>
+        
+          <div class="summary"><p>Calculate the maximum size for a thumbnail.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count_documents%3AInt32-instance-method" class="signature"><strong>#count_documents</strong> : Int32</a>
+        
+          <div class="summary"><p>Get the number of documents in the collection.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#delete-instance-method" class="signature"><strong>#delete</strong></a>
+        
+          <div class="summary"><p>Delete a document from a collection in a database.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#image_to_io_memory%28image_ptr%3APointer%28Pluto%3A%3AImageRGBA%29%2Cextension%3AString%2Cmax_size%3AInt32%29%3AIO%3A%3AMemory-instance-method" class="signature"><strong>#image_to_io_memory</strong>(image_ptr : Pointer(Pluto::ImageRGBA), extension : String, max_size : Int32) : IO::Memory</a>
+        
+          <div class="summary"><p>Convert image to IO::Memory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
+        
+          <div class="summary"><p>Printing errors to the console ( for development ).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29-instance-method" class="signature"><strong>#refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil))</a>
+        
+          <div class="summary"><p>Refrash field values ​​after creating or updating a document.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Reset the values ​​of ignored fields to nil.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#valid%3F%3ABool-instance-method" class="signature"><strong>#valid?</strong> : Bool</a>
+        
+          <div class="summary"><p>Check data validity.</p></div>
         
       </li>
     
@@ -700,68 +740,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="../../DynFork/Paladins/Groups.html">DynFork::Paladins::Groups</a></code></h3>
-  
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_01%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Cupdate%3F%3ABool%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29-instance-method" class="tooltip">
-      <span>group_01(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), update? : Bool, save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), collection_ptr : Pointer(Mongo::Collection))</span>
-    group_01</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_02%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29-instance-method" class="tooltip">
-      <span>group_02(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), collection_ptr : Pointer(Mongo::Collection))</span>
-    group_02</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_03%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29-instance-method" class="tooltip">
-      <span>group_03(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), collection_ptr : Pointer(Mongo::Collection))</span>
-    group_03</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_04%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Cupdate%3F%3ABool%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccleanup_map_ptr%3APointer%28NamedTuple%28files%3AArray%28String%29%2Cimages%3AArray%28String%29%29%29%29-instance-method" class="tooltip">
-      <span>group_04(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), update? : Bool, save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String))))</span>
-    group_04</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_05%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Cupdate%3F%3ABool%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccleanup_map_ptr%3APointer%28NamedTuple%28files%3AArray%28String%29%2Cimages%3AArray%28String%29%29%29%29-instance-method" class="tooltip">
-      <span>group_05(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), update? : Bool, save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String))))</span>
-    group_05</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_06%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29-instance-method" class="tooltip">
-      <span>group_06(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), collection_ptr : Pointer(Mongo::Collection))</span>
-    group_06</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_07%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29-instance-method" class="tooltip">
-      <span>group_07(field_ptr : Pointer(DynFork::Globals::FieldTypes), error_symptom_ptr? : Pointer(Bool), save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)), collection_ptr : Pointer(Mongo::Collection))</span>
-    group_07</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_08%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Csave%3F%3ABool%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%29-instance-method" class="tooltip">
-      <span>group_08(field_ptr : Pointer(DynFork::Globals::FieldTypes), save? : Bool, result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)))</span>
-    group_08</a>, 
-    
-  
-    <a href="../../DynFork/Paladins/Groups.html#group_09%28field_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cresult_map_ptr%3APointer%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AResultMapType%29%29%29-instance-method" class="tooltip">
-      <span>group_09(field_ptr : Pointer(DynFork::Globals::FieldTypes), result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)))</span>
-    group_09</a>
-    
-  
-
-
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
@@ -781,17 +759,190 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="check(collection_ptr:Pointer(Mongo::Collection),save?:Bool=false):DynFork::Globals::OutputData-instance-method">
+    <div class="entry-detail" id="accumulate_error(err_msg:String,field_ptr:Pointer,error_symptom_ptr?:Pointer(Bool))-instance-method">
       <div class="signature">
         
-        def <strong>check</strong>(collection_ptr : Pointer(Mongo::Collection), save? : Bool = <span class="n">false</span>) : <a href="../../DynFork/Globals/Types/OutputData.html">DynFork::Globals::OutputData</a>
+        def <strong>accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool))
 
-        <a class="method-permalink" href="#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method">#</a>
+        <a class="method-permalink" href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Validation of Model data.</p>
+          <p>For accumulating errors.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="calculate_thumbnail_size(width:Int32,height:Int32,max_size:Int32):NamedTuple(width:Int32,height:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>calculate_thumbnail_size</strong>(width : Int32, height : Int32, max_size : Int32) : NamedTuple(width: Int32, height: Int32)
+
+        <a class="method-permalink" href="#calculate_thumbnail_size%28width%3AInt32%2Cheight%3AInt32%2Cmax_size%3AInt32%29%3ANamedTuple%28width%3AInt32%2Cheight%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Calculate the maximum size for a thumbnail.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count_documents:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>count_documents</strong> : Int32
+
+        <a class="method-permalink" href="#count_documents%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get the number of documents in the collection.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="delete-instance-method">
+      <div class="signature">
+        
+        def <strong>delete</strong>
+
+        <a class="method-permalink" href="#delete-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Delete a document from a collection in a database.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="image_to_io_memory(image_ptr:Pointer(Pluto::ImageRGBA),extension:String,max_size:Int32):IO::Memory-instance-method">
+      <div class="signature">
+        
+        def <strong>image_to_io_memory</strong>(image_ptr : Pointer(Pluto::ImageRGBA), extension : String, max_size : Int32) : IO::Memory
+
+        <a class="method-permalink" href="#image_to_io_memory%28image_ptr%3APointer%28Pluto%3A%3AImageRGBA%29%2Cextension%3AString%2Cmax_size%3AInt32%29%3AIO%3A%3AMemory-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Convert image to IO::Memory.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="print_err-instance-method">
+      <div class="signature">
+        
+        def <strong>print_err</strong>
+
+        <a class="method-permalink" href="#print_err-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Printing errors to the console ( for development ).</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+user <span class="o">=</span> <span class="t">User</span>.new
+user.print_err <span class="k">unless</span> user.valid?</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="refrash_fields(doc_ptr:Pointer(BSON|Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil))
+
+        <a class="method-permalink" href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Refrash field values ​​after creating or updating a document.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="restor_ignored_fields(update?:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reset the values ​​of ignored fields to nil.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="valid?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>valid?</strong> : Bool
+
+        <a class="method-permalink" href="#valid%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check data validity.</p>
+<p><span class="flag purple">NOTE</span>  The main use is to check data from web forms.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+user <span class="o">=</span> <span class="t">User</span>.new
+<span class="k">if</span> user.valid?
+  <span class="c"># your code...</span>
+<span class="k">end</span></code></pre>
         </div>
       
       <br/>
