@@ -71,11 +71,7 @@ describe DynFork::Model do
       m.print_err unless flag
       flag.should be_true
       #
-      # Get the collection for the current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        Spec::Data::ValueNoNil.meta[:collection_name]]
-      #
-      collection.count_documents.should eq(1)
+      m.count_documents.should eq(1)
       #
       # Param `value`
       m.url.value?.should eq("https://translate.google.com/")

@@ -38,9 +38,9 @@ describe DynFork::Model do
       flag.should be_true
       #
       # Negative
-      m.verify_password("XMl7976GO666b712").should be_false
+      m.verify_password?("XMl7976GO666b712").should be_false
       # Positive
-      m.verify_password(password).should be_true
+      m.verify_password?(password).should be_true
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
