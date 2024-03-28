@@ -111,5 +111,16 @@ describe DynFork::Globals do
       r.matches?("0x00ffff").should be_true
       r.matches?("0x00FFFF").should be_true
     end
+
+    it "=> cache_regex - password", tags: "global_regex" do
+      r : Regex = DynFork::Globals.cache_regex[:password]
+      # Negative:
+      r.matches?("").should be_false
+      r.matches?(" ").should be_false
+      # Positive:
+      r.matches?("9M,4%6]3ht7r{l59").should be_true
+      r.matches?("2XT~m:L!Hz_723J(").should be_true
+      r.matches?("d6'P30}e'#f^g3t5").should be_true
+    end
   end
 end
