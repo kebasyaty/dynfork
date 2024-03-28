@@ -52,4 +52,9 @@ module Validator
   def self.color_code?(value : String) : Bool
     DynFork::Globals.cache_regex[:color_code].matches?(value)
   end
+
+  # ???
+  def self.password?(value : String) : Bool
+    DynFork::Globals.cache_regex[:password].matches?(value)
+  end
 end
