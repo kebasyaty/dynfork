@@ -1,4 +1,4 @@
-# additional_validation
+# app_name
 
 An example of using the method for additional validation.
 

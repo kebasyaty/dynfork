@@ -1,6 +1,6 @@
 require "./spec_helper"
 
-describe AdditionalValidation do
+describe AppName do
   it "works" do
     true.should eq(true)
   end
