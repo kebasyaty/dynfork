@@ -1,6 +1,6 @@
 module DynFork::Paladins::Password
   # For password verification.
-  def verify_password(
+  def verify_password?(
     password : String,
     field_name : String = "password"
   ) : Bool
@@ -29,7 +29,7 @@ module DynFork::Paladins::Password
     new_password : String,
     field_name : String = "password"
   ) : String?
-    unless verify_password(old_password, field_name)
+    unless verify_password?(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
     # Get collection for current model.
