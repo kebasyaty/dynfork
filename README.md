@@ -110,6 +110,54 @@ puts "updated_at: #{user.updated_at.value?}"
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
 
+## Model Parameters
+
+###### only **service_name** is a required parameter
+
+<div>
+   <table>
+     <tr>
+       <th align="left">Parameter</th>
+       <th align="left">Default</th>
+       <th align="left">Description</th>
+     </tr>
+     <tr>
+       <td align="left">service_name</td>
+       <td align="left">no</td>
+       <td align="left">**Examples:** Accounts | Smartphones | Washing machines | etc ... </td>
+     </tr>
+     <tr>
+       <td align="left">fixture_name</td>
+       <td align="left">no</td>
+       <td align="left">
+         The name of the fixture in the 'config/fixtures' directory (without extension).
+         <br>
+         **Examples:** SiteSettings | AppSettings | etc ...
+       </td>
+     </tr>
+     <tr>
+       <td align="left">db_query_docs_limit</td>
+       <td align="left">1000</td>
+       <td align="left">limiting query results.</td>
+     </tr>
+     <tr>
+       <td align="left">saving_docs?</td>
+       <td align="left">true</td>
+       <td align="left">Create documents in the database. **false** - Alternatively, use it to validate data from web forms.</td>
+     </tr>
+     <tr>
+       <td align="left">updating_docs?</td>
+       <td align="left">true</td>
+       <td align="left">Update documents in the database.</td>
+     </tr>
+     <tr>
+       <td align="left">deleting_docs?</td>
+       <td align="left">true</td>
+       <td align="left">Delete documents from the database.</td>
+     </tr>
+   </table>
+</div>
+
 ## License
 
 **This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE "MIT").
