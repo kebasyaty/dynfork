@@ -2,7 +2,7 @@
   <p>
     <a href="https://github.com/kebasyaty/dynfork" target="_blank">
       <img
-        height="120"
+        height="100"
         alt="Logo"
         src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
     </a>
