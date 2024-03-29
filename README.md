@@ -1,8 +1,20 @@
-[![Logo](https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg "Logo")](https://github.com/kebasyaty/dynfork "Logo")
+<div align="center">
+  <p>
+    <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+      <img
+        height="120"
+        alt="Logo"
+        src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
+    </a>
+  </p>
+  <p>
+    <h1>DynFork</h1>
+    <h3>ORM-like API MongoDB for Crystal language.</h3>
+  </p>
+</div>
 
-# DynFork
+<hr>
 
-ORM-like API MongoDB for Crystal language.
 <br>
 For simulate relationship Many-to-One and Many-to-Many,
 <br>
