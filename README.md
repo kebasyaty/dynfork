@@ -26,9 +26,6 @@ For simulate relationship Many-to-One and Many-to-Many,
 a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
 <br>
 The project is focused on web development.
-
-[![GitHub license](https://badgen.net/github/license/kebasyaty/dynfork)](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE)
-<br>
 <br>
 _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 <br>
