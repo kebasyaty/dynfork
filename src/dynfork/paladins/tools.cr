@@ -120,6 +120,9 @@ module DynFork::Paladins::Tools
 
   # Delete a document from a collection in a database.
   def delete
+    unless @@meta.not_nil![:deleting_docs?]
+      raise DynFork::Errors::Meta::ForbiddenDeleting.new
+    end
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -129,6 +132,10 @@ module DynFork::Paladins::Tools
       self.pre_delete
       # Delete doc.
       collection.delete_one({_id: id})
+      # Reset field values.
+      {% for field in @type.instance_vars %}
+        @{{ field }}.value =  nil
+      {% end %}
       # Run hook.
       self.post_delete
     else

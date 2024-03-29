@@ -12,7 +12,7 @@ module DynFork
   #   <tr>
   #     <td align="left">service_name</td>
   #     <td align="left">no</td>
-  #     <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
+  #     <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc... </td>
   #   </tr>
   #   <tr>
   #     <td align="left">fixture_name</td>
@@ -31,7 +31,11 @@ module DynFork
   #   <tr>
   #     <td align="left">saving_docs?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Create documents in the database. <b>false</b> - Alternatively, use it to validate data from web forms.</td>
+  #     <td align="left">
+  #       Create documents in the database.<br>
+  #       If <b>false</b> - Alternatively,
+  #       use it to validate data from web forms (search form, contact form, etc...).
+  #     </td>
   #   </tr>
   #   <tr>
   #     <td align="left">updating_docs?</td>
