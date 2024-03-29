@@ -55,4 +55,11 @@ module DynFork::Errors::Meta
       )
     end
   end
+
+  # Invalid type.
+  class ForbiddenDeleting < DynFork::Errors::DynForkException
+    def initialize
+      super(I18n.t(:forbidden_deleting))
+    end
+  end
 end
