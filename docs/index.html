@@ -594,23 +594,32 @@
 
 
 <div class="main-content">
-<p><a href="https://github.com/kebasyaty/dynfork" title="Logo"><img src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg" alt="Logo" title="Logo" /></a></p>
-<h1><a id="dyn-fork" class="anchor" href="#dyn-fork">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>DynFork</h1>
-<p>ORM-like API MongoDB for Crystal language.
-<br>
-For simulate relationship Many-to-One and Many-to-Many,
+<div align="center">
+  <p>
+    <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+      <img
+        height="100"
+        alt="Logo"
+        src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
+    </a>
+  </p>
+  <p>
+    <h1>DynFork</h1>
+    <h3>ORM-like API MongoDB for Crystal language.</h3>
+    <p align="center">
+      <a href="https://github.com/kebasyaty/dynfork/actions" target="_blank"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
+      <a href="https://kebasyaty.github.io/dynfork/" target="_blank"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
+      <a href="https://crystal-lang.org/" target="_blank"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red" alt="Crysta"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE" target="_blank"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
+    </p>
+  </p>
+</div>
+<hr>
+<p>For simulate relationship Many-to-One and Many-to-Many,
 <br>
 a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
 <br>
-The project is focused on web development.</p>
-<p><a href="https://github.com/kebasyaty/dynfork/actions"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI" /></a>
-<a href="https://kebasyaty.github.io/dynfork/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a>
-<a href="https://crystal-lang.org/"><img src="https://img.shields.io/badge/crystal-v1.10+-red" alt="Crystal" /></a>
-<a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license" /></a>
+The project is focused on web development.
 <br>
 <br>
 <em>Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0.</em>
@@ -633,7 +642,7 @@ The project is focused on web development.</p>
     <use href="#octicon-link"/>
   </svg>
 </a>Requirements</h2>
-<p><a href="https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md" title="Requirements">View the list of requirements.</a></p>
+<p><a href="https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md" title="View the list of requirements.">View the list of requirements.</a></p>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -642,13 +651,13 @@ The project is focused on web development.</p>
 <ol>
 <li>
 <p>Install MongoDB (if not installed):<br>
-<strong>Ubuntu</strong> - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md" title="Ubuntu - Install MongoDB">Ubuntu - Install MongoDB</a>.<br>
-<strong>Fedora</strong> - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md" title="Fedora - Install MongoDB">Fedora - Install MongoDB</a>.</p>
+<a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md" title="Ubuntu">Ubuntu</a>.<br>
+<a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md" title="Fedora">Fedora</a>.</p>
 </li>
 <li>
 <p>Install additional libraries (if not installed):<br>
-<strong>Ubuntu</strong> - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md" title="Additional Libraries">Ubuntu - Additional Libraries</a>.<br>
-<strong>Fedora</strong> - Follow the link <a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md" title="Fedora - Additional Libraries">Fedora - Additional Libraries</a>.</p>
+<a href="https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md" title="Ubuntu">Ubuntu</a>.<br>
+<a href="https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md" title="Fedora">Fedora</a>.</p>
 </li>
 <li>
 <p>Add the dependency to your <code>shard.yml</code>:</p>
@@ -711,7 +720,14 @@ puts <span class="s">&quot;username: </span><span class="i">#{</span>user.userna
 puts <span class="s">&quot;email: </span><span class="i">#{</span>user.email.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthday.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span></code></pre>
+puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span>
+puts
+
+puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span>
+<span class="c"># Delete document.</span>
+puts <span class="s">&quot;Deleting a document.&quot;</span>
+user.delete
+puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
 <h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
