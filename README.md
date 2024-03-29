@@ -12,7 +12,9 @@
     <h3>ORM-like API MongoDB for Crystal language.</h3>
     <p align="center">
       <a href="https://github.com/kebasyaty/dynfork/actions" target="_blank"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
-      <a href="" target="_blank"><img src="" alt=""></a>
+      <a href="https://kebasyaty.github.io/dynfork/" target="_blank"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
+      <a href="https://crystal-lang.org/" target="_blank"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red" alt="Crysta"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE" target="_blank"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
     </p>
   </p>
 </div>
@@ -25,9 +27,6 @@ a simplified alternative (Types of selective fields with dynamic addition of ele
 <br>
 The project is focused on web development.
 
-[![CI](https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg)](https://github.com/kebasyaty/dynfork/actions)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://kebasyaty.github.io/dynfork/)
-[![Crystal](https://img.shields.io/badge/crystal-v1.10%2B-red)](https://crystal-lang.org/)
 [![GitHub license](https://badgen.net/github/license/kebasyaty/dynfork)](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE)
 <br>
 <br>
