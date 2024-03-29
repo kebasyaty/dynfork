@@ -10,12 +10,15 @@
   <p>
     <h1>DynFork</h1>
     <h3>ORM-like API MongoDB for Crystal language.</h3>
+    <p align="center">
+      <a href="https://github.com/kebasyaty/dynfork/actions" target="_blank"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
+      <a href="" target="_blank"><img src="" alt=""></a>
+    </p>
   </p>
 </div>
 
 <hr>
 
-<br>
 For simulate relationship Many-to-One and Many-to-Many,
 <br>
 a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
