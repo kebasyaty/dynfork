@@ -32,10 +32,10 @@ $ sudo systemctl enable mongod.service
 ### Uninstall:
 
 ```shell
-sudo systemctl stop mongod.service &&
-sudo systemctl disable mongod.service &&
-sudo dnf -y remove mongodb-org* &&
-sudo rm -f /etc/yum.repos.d/mongodb.repo &&
+sudo systemctl stop mongod.service
+sudo systemctl disable mongod.service
+sudo dnf -y remove mongodb-org*
+sudo rm -f /etc/yum.repos.d/mongodb.repo
 sudo dnf -y update
 # May be missing:
 sudo rm -r /var/log/mongodb
