@@ -145,7 +145,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
      <tr>
        <td align="left">saving_docs?</td>
        <td align="left">true</td>
-       <td align="left">Create documents in the database. <b>false</b> - Alternatively, use it to validate data from web forms.</td>
+       <td align="left">Create documents in the database. If <b>false</b> - Alternatively, use it to validate data from web forms (search form, contact form, etc.).</td>
      </tr>
      <tr>
        <td align="left">updating_docs?</td>
