@@ -50,6 +50,6 @@ eo:
   size_exceeds_max: "Dosiera grandeco superas la maksimuman valoron."
   invalid_file_type:
     interpolation: "%{type} - Nevalida dosiertipo."
-  forbidden_save: "Estas malpermesite ŝpari!"
-  forbidden_update: "Estas malpermesite ĝisdatigi!"
-  forbidden_delete: "Estas malpermesite forigi!"
+  forbidden_saving: "Estas malpermesite ŝpari!"
+  forbidden_updating: "Estas malpermesite ĝisdatigi!"
+  forbidden_deleting: "Estas malpermesite forigi!"
