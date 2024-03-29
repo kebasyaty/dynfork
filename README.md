@@ -45,17 +45,17 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md "Requirements")
+[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md "View the list of requirements.")
 
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   **Ubuntu** - Follow the link [Ubuntu - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu - Install MongoDB").<br>
-   **Fedora** - Follow the link [Fedora - Install MongoDB](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora - Install MongoDB").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora").
 
 2. Install additional libraries (if not installed):<br>
-   **Ubuntu** - Follow the link [Ubuntu - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Additional Libraries").<br>
-   **Fedora** - Follow the link [Fedora - Additional Libraries](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora - Additional Libraries").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
 
 3. Add the dependency to your `shard.yml`:
 
@@ -118,6 +118,13 @@ puts "email: #{user.email.value?}"
 puts "birthday: #{user.birthday.value?}"
 puts "created_at: #{user.created_at.value?}"
 puts "updated_at: #{user.updated_at.value?}"
+puts
+
+puts "Number of documents: #{user.count_documents}"
+# Delete document.
+puts "Deleting a document."
+user.delete
+puts "Number of documents: #{user.count_documents}"
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
