@@ -121,7 +121,7 @@ module DynFork::Paladins::Tools
   # Delete a document from a collection in a database.
   def delete
     unless @@meta.not_nil![:deleting_docs?]
-      raise DynFork::Errors::Panic.new(I18n.t(:forbidden_deleting))
+      raise DynFork::Errors::Panic.new(I18n.t(:forbidden_delete))
     end
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[

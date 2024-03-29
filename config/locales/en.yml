@@ -50,6 +50,6 @@ en:
   size_exceeds_max: "File size exceeds the maximum value."
   invalid_file_type:
     interpolation: "%{type} - Invalid file type."
-  forbidden_saving: "It is forbidden to perform saves!"
-  forbidden_updating: "It is forbidden to perform updates!"
-  forbidden_deleting: "It is forbidden to perform updates!"
+  forbidden_save: "It is forbidden to save!"
+  forbidden_update: "It is forbidden to update!"
+  forbidden_delete: "It is forbidden to delete!"
