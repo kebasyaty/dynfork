@@ -129,6 +129,10 @@ module DynFork::Paladins::Tools
       self.pre_delete
       # Delete doc.
       collection.delete_one({_id: id})
+      # Reset field values.
+      {% for field in @type.instance_vars %}
+        @{{ field }}.value =  nil
+      {% end %}
       # Run hook.
       self.post_delete
     else
