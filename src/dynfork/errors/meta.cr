@@ -56,7 +56,7 @@ module DynFork::Errors::Meta
     end
   end
 
-  # Invalid type.
+  # If deleting documents is prohibited.
   class ForbiddenDeleting < DynFork::Errors::DynForkException
     def initialize
       super(I18n.t(:forbidden_deleting))
