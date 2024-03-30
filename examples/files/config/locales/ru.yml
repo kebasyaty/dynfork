@@ -1,0 +1,55 @@
+# Russian
+#
+ru:
+  invalid_color_code: "Неправильный цветовой код."
+  allowed_chars:
+    interpolation: "Допустимые символы: %{chars}"
+  max_chars:
+    interpolation: "Максимум %{count} символов."
+  min_chars:
+    interpolation: "Минимум %{count} символов."
+  invalid_phone: "Неправильный номер телефона."
+  invalid_email: "Неправильный адрес электронной почты."
+  invalid_url: "Неправильный URL-адрес."
+  invalid_ip: "Неправильный IP-адрес"
+  invalid_ipv4: "Неправильный IPv4-адрес."
+  invalid_ipv6: "Неправильный IPv6-адрес."
+  invalid_date: "Некорректная дата."
+  invalid_datetime: "Некорректная дата и время."
+  format:
+    interpolation: "Формат: %{sample}"
+  formats:
+    interpolation: "Форматы: %{samples}"
+  example:
+    interpolation: "Пример: %{sample}"
+  examples:
+    interpolation: "Примеры: %{samples}"
+  not_unique: "Не является уникальным."
+  required_field: "Обязательное поле."
+  not_match_choices: "Значение не соответствует возможному выбору."
+  incorrect_date: "Неправильная дата."
+  non_existent_date: "Несуществующая дата!"
+  incorrect_date_time: "Неправильные дата и время."
+  non_existent_date_time: "Несуществующие дата или время!"
+  date_less_min: "Введенная дата меньше минимальной."
+  date_greater_max: "Введенная дата больше максимальной."
+  upload_new_file: "Загрузите новый файл, чтобы удалить предыдущий."
+  number_not_greater_max:
+    interpolation: "Число %{curr_num} не должно превышать max=%{max_num}."
+  number_not_less_min:
+    interpolation: "Число %{curr_num} не должно быть меньше min=%{min_num}."
+  old_pass_not_match: "Старый пароль не совпадает."
+  pass_does_not_match: "Подтверждение пароля не совпадает."
+  allowed_files:
+    interpolation: "Разрешены только файлы %{types}."
+  data_not_greater_max:
+    interpolation: "Дата %{curr_date} не должна быть больше max=%{max_date}."
+  data_not_less_min:
+    interpolation: "Дата %{curr_date} не должна быть меньше min=%{min_date}."
+  value_does_not_match: "Ваш выбор не соответствует предложенным вариантам."
+  size_exceeds_max: "Размер файла превышает максимальное значение."
+  invalid_file_type:
+    interpolation: "%{type} - Неверный тип файла."
+  forbidden_saving: "Запрещено сохранять!"
+  forbidden_updating: "Запрещено обновлять!"
+  forbidden_deleting: "Запрещено удалять!"

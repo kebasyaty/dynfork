@@ -27,9 +27,10 @@ module AppName
   user.username.value = "username"
   user.email.value = "user@noreaply.net"
   user.birthday.value = "2023-03-25"
-  # Save user (print_err - convenient for development).
+  # Run save.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save?
-  # Print field values.
+  # Print user data.
   puts "\n# New user details:"
   puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"
@@ -44,7 +45,7 @@ module AppName
   user.birthday.value = "2024-04-26"
   # update
   user.print_err unless user.save?
-  # print
+  # Print user data.
   puts "\n# Updated user information:"
   puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"

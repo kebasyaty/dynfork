@@ -36,7 +36,8 @@ module AppName
   user.username.value = "username"
   user.password.value = password
 
-  # Save user (print_err - convenient for development).
+  # Run save.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save?
 
   # Verify password.

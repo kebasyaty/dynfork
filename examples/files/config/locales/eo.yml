@@ -1,0 +1,55 @@
+# Esperanto
+#
+eo:
+  invalid_color_code: "Nevalida Kolorkodo."
+  allowed_chars:
+    interpolation: "Permesitaj signoj: %{chars}"
+  max_chars:
+    interpolation: "Maksimumo %{count} signoj."
+  min_chars:
+    interpolation: "Minimume %{count} signoj."
+  invalid_phone: "Nevalida Telefonnumero."
+  invalid_email: "Nevalida Retpoŝtadreso."
+  invalid_url: "Nevalida URL."
+  invalid_ip: "Nevalida IP-adreso."
+  invalid_ipv4: "Nevalida IPv4-adreso."
+  invalid_ipv6: "Nevalida IPv6-adreso."
+  invalid_date: "Nevalida dato."
+  invalid_datetime: "Nevalida dato kaj horo."
+  format:
+    interpolation: "Formato: %{sample}"
+  formats:
+    interpolation: "Formatoj: %{samples}"
+  example:
+    interpolation: "Ekzemplo: %{sample}"
+  examples:
+    interpolation: "Ekzemploj: %{samples}"
+  not_unique: "Ne estas unika."
+  required_field: "Bezonata kampo."
+  not_match_choices: "Valoro ne kongruas kun eblaj elektoj."
+  incorrect_date: "Malĝusta dato."
+  non_existent_date: "Neekzistanta dato!"
+  incorrect_date_time: "Neĝusta dato kaj horo."
+  non_existent_date_time: "Neekzistanta dato aŭ horo!"
+  date_less_min: "La enigita dato estas malpli ol la minimuma."
+  date_greater_max: "La enigita dato estas pli granda ol la maksimumo."
+  upload_new_file: "Alŝutu novan dosieron por forigi la antaŭan."
+  number_not_greater_max:
+    interpolation: "La nombro %{curr_num} ne devas esti pli granda ol max=%{max_num}."
+  number_not_less_min:
+    interpolation: "La nombro %{curr_num} ne devas esti malpli ol min=%{min_num}."
+  old_pass_not_match: "La malnova pasvorto ne kongruas."
+  pass_does_not_match: "Pasvortkonfirmo ne kongruas."
+  allowed_files:
+    interpolation: "Nur %{types} dosieroj estas permesitaj."
+  data_not_greater_max:
+    interpolation: "La dato %{curr_date} ne devas esti pli granda ol max=%{max_date}."
+  data_not_less_min:
+    interpolation: "La dato %{curr_date} ne devas esti malpli ol min=%{min_date}."
+  value_does_not_match: "Via elekto ne kongruas kun la ofertitaj opcioj."
+  size_exceeds_max: "Dosiera grandeco superas la maksimuman valoron."
+  invalid_file_type:
+    interpolation: "%{type} - Nevalida dosiertipo."
+  forbidden_saving: "Estas malpermesite ŝpari!"
+  forbidden_updating: "Ĝisdatigo estas malpermesita!"
+  forbidden_deleting: "Estas malpermesite forigi!"

@@ -14,7 +14,7 @@ module AppName
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "lL15C2zJW6f0C4OH",
+    "unique_app_key": "73J2zQ1tJFV0cO95",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
@@ -25,43 +25,30 @@ module AppName
   user = Models::Accounts::User.new
   # Add user details.
   user.username.value = "username"
-  user.email.value = "user@noreaply.net"
-  user.birthday.value = "2023-03-25"
-  user.password.value = "E2ep4e3UPkWs84GO"
-  user.confirm_password.value = "E2ep4e3UPkWs84GO"
-  # Save user (print_err - convenient for development).
+
+  # Run save.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save?
   # Print user data.
   puts "\n# New user details:"
   puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"
-  puts "email: #{user.email.value?}"
-  puts "birthday: #{user.birthday.value?}"
-  puts "password: #{user.password.value?}"
-  puts "confirm_password: #{user.confirm_password.value?}"
-  puts "is_active: #{user.is_active.value?}"
-  puts "slug: #{user.slug.value?}"
+  puts "avatar: #{user.avatar.value?}"
+  puts "resume: #{user.resume.value?}"
   puts "created_at: #{user.created_at.value?}"
   puts "updated_at: #{user.updated_at.value?}"
 
   # Update user data.
-  user.username.value = "username_2"
-  user.email.value = "user_2@noreaply.net"
-  user.birthday.value = "2024-04-26"
-  user.is_active.value = false
-  # update
+  user.avatar.path_to_file "assets/media/default/no_photo.jpeg"
+  user.resume.path_to_file "assets/media/default/no_doc.odt"
+  # Run update.
   user.print_err unless user.save?
   # Print user data.
-  puts "\n# New user details:"
+  puts "\n# Updated user information:"
   puts "hash: #{user.hash.value?}"
   puts "username: #{user.username.value?}"
-  puts "email: #{user.email.value?}"
-  puts "birthday: #{user.birthday.value?}"
-  puts "password: #{user.password.value?}"
-  puts "confirm_password: #{user.confirm_password.value?}"
-  puts "is_active: #{user.is_active.value?}"
-  puts "slug: #{user.slug.value?}"
+  puts "avatar: #{user.avatar.value?}"
+  puts "resume: #{user.resume.value?}"
   puts "created_at: #{user.created_at.value?}"
   puts "updated_at: #{user.updated_at.value?}"
-  puts
 end

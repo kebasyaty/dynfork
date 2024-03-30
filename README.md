@@ -106,7 +106,7 @@ user.username.value = "username"
 user.email.value = "user@noreaply.net"
 user.birthday.value = "2024-03-26"
 
-# Save user.
+# Run save.
 # Hint: print_err - convenient for development.
 user.print_err unless user.save?
 
