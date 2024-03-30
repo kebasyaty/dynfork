@@ -76,8 +76,8 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `unique` field attribute.
-    if field_ptr.value.unique? &&
-       !collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
+    if field_ptr.value.unique? && field_ptr.value.field_type != "PasswordField" &&
+       !self.check_uniqueness?(current_value, collection_ptr, field_ptr)
       self.accumulate_error(
         I18n.t(:not_unique),
         field_ptr,

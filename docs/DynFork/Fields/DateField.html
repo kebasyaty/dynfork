@@ -684,7 +684,7 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
       </li>
     
       <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))</a>
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))</a>
         
       </li>
     
@@ -799,13 +799,6 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
         <a href="#time_object%3F%3ATime%7CNil-instance-method" class="signature"><strong>#time_object?</strong> : Time | Nil</a>
         
           <div class="summary"><p>Get time object from value.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#unique%3F%3ABool-instance-method" class="signature"><strong>#unique?</strong> : Bool</a>
-        
-          <div class="summary"><p>The unique value of a field in a collection.</p></div>
         
       </li>
     
@@ -1090,12 +1083,12 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
       </div>
     </div>
   
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,max:String|Nil=nil,min:String|Nil=nil,hide:Bool=false,unique:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=I18n.t(&quot;formats.interpolation&quot;,samples:(&quot;dd-mm-yyyy|dd/mm/yyyy|&quot;+&quot;dd.mm.yyyy|yyyy-mm-dd|&quot;)+&quot;yyyy/mm/dd|yyyy.mm.dd&quot;))-class-method">
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,max:String|Nil=nil,min:String|Nil=nil,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=I18n.t(&quot;formats.interpolation&quot;,samples:(&quot;dd-mm-yyyy|dd/mm/yyyy|&quot;+&quot;dd.mm.yyyy|yyyy-mm-dd|&quot;)+&quot;yyyy/mm/dd|yyyy.mm.dd&quot;))-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, unique : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, max : String | Nil = <span class="n">nil</span>, min : String | Nil = <span class="n">nil</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="t">I18n</span>.t(<span class="s">&quot;formats.interpolation&quot;</span>, samples: (<span class="s">&quot;dd-mm-yyyy | dd/mm/yyyy | &quot;</span> <span class="o">+</span> <span class="s">&quot;dd.mm.yyyy | yyyy-mm-dd | &quot;</span>) <span class="o">+</span> <span class="s">&quot;yyyy/mm/dd | yyyy.mm.dd&quot;</span>))
 
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Cunique%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Cmax%3AString%7CNil%3Dnil%2Cmin%3AString%7CNil%3Dnil%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3DI18n.t%28%22formats.interpolation%22%2Csamples%3A%28%22dd-mm-yyyy%7Cdd/mm/yyyy%7C%22%2B%22dd.mm.yyyy%7Cyyyy-mm-dd%7C%22%29%2B%22yyyy/mm/dd%7Cyyyy.mm.dd%22%29%29-class-method">#</a>
       </div>
       
       <br/>
@@ -1378,25 +1371,6 @@ yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd</em></p>
         <div class="doc">
           
           <p>Get time object from value.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="unique?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>unique?</strong> : Bool
-
-        <a class="method-permalink" href="#unique%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The unique value of a field in a collection.</p>
         </div>
       
       <br/>
