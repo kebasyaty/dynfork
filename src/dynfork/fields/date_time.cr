@@ -28,8 +28,6 @@ module DynFork::Fields
     getter! max : String?
     # The lower value for entering a date and time.
     getter! min : String?
-    # The unique value of a field in a collection.
-    getter? unique : Bool
     # Additional explanation for the user.
     getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
@@ -56,6 +54,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? unique : Bool = false
 
     # :nodoc:
     def has_value?; end
@@ -134,7 +134,6 @@ module DynFork::Fields
       @max : String? = nil,
       @min : String? = nil,
       @hide : Bool = false,
-      @unique : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,

@@ -90,15 +90,6 @@ module DynFork::Paladins::Groups
         )
       end
     end
-    # Validation the `unique` field attribute.
-    if field_ptr.value.unique? &&
-       !self.check_uniqueness?(current_value, collection_ptr, field_ptr)
-      self.accumulate_error(
-        I18n.t(:not_unique),
-        field_ptr,
-        error_symptom_ptr?
-      )
-    end
     # Insert result.
     (result_map_ptr.value[field_ptr.value.name] = current_value) if save?
   end
