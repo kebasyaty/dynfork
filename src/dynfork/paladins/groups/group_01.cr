@@ -76,13 +76,14 @@ module DynFork::Paladins::Groups
       end
     end
     # Validation the `unique` field attribute.
-    if field_ptr.value.unique? &&
-       !collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
-      self.accumulate_error(
-        I18n.t(:not_unique),
-        field_ptr,
-        error_symptom_ptr?
-      )
+    if field_ptr.value.unique? && field_ptr.value.field_type != "PasswordField"
+      unless self.check_uniqueness?(current_value, collection_ptr, field_ptr)
+        self.accumulate_error(
+          I18n.t(:not_unique),
+          field_ptr,
+          error_symptom_ptr?
+        )
+      end
     end
     # Validation Email, Url, IP, Color.
     case field_ptr.value.field_type

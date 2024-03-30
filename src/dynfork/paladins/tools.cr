@@ -118,6 +118,21 @@ module DynFork::Paladins::Tools
     io
   end
 
+  # Check the uniqueness of the value in the database.
+  def check_uniqueness?(
+    current_value : String | Time | Int64 | Float64,
+    collection_ptr : Pointer(Mongo::Collection),
+    field_ptr : Pointer(DynFork::Globals::FieldTypes)
+  ) : Bool
+    # Get the ID and delete the document.
+    if id : BSON::ObjectId? = @hash.object_id?
+      filter = {"$and": [{_id: {"$ne": id}}, {field_ptr.value.name => current_value}]}
+      collection_ptr.value.find_one(filter).nil?
+    else
+      collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
+    end
+  end
+
   # Delete a document from a collection in a database.
   def delete
     unless @@meta.not_nil![:deleting_docs?]
