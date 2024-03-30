@@ -51,5 +51,5 @@ en:
   invalid_file_type:
     interpolation: "%{type} - Invalid file type."
   forbidden_saving: "It is forbidden to save!"
-  forbidden_updating: "It is forbidden to update!"
+  forbidden_updating: "Updating is prohibited!"
   forbidden_deleting: "It is forbidden to delete!"

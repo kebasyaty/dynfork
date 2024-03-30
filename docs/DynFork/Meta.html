@@ -647,8 +647,8 @@
     <td align="left">true</td>
     <td align="left">
       Create documents in the database.<br>
-      If <b>false</b> - Alternatively,
-      use it to validate data from web forms (search form, contact form, etc...).
+      If <b>false</b>,
+      alternatively use it to validate data from web forms (search form, contact form, etc...).
     </td>
   </tr>
   <tr>
@@ -663,7 +663,14 @@
   </tr>
 </table>
 <p>Example:</p>
-<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(
+  service_name: <span class="s">&quot;ServiceName&quot;</span>,
+  fixture_name: <span class="s">&quot;FixtureName&quot;</span>,
+  db_query_docs_limit: <span class="n">1000</span>,
+  saving_docs?: <span class="n">true</span>,
+  updating_docs?: <span class="n">true</span>,
+  deleting_docs?: <span class="n">true</span>
+)]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
   getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new

@@ -1,5 +1,5 @@
 <div align="center">
-  <p>
+  <p align="center">
     <a href="https://github.com/kebasyaty/dynfork" target="_blank">
       <img
         height="100"
@@ -16,18 +16,18 @@
       <a href="https://crystal-lang.org/" target="_blank"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red" alt="Crysta"></a>
       <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE" target="_blank"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
     </p>
+    <div align="center">
+      For simulate relationship Many-to-One and Many-to-Many,
+      <br>
+      a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
+      <br>
+      The project is focused on web development.
+    </div>
   </p>
 </div>
 
 <hr>
 
-For simulate relationship Many-to-One and Many-to-Many,
-<br>
-a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
-<br>
-The project is focused on web development.
-<br>
-<br>
 _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
@@ -121,9 +121,10 @@ puts "updated_at: #{user.updated_at.value?}"
 puts
 
 puts "Number of documents: #{user.count_documents}"
-# Delete document.
+
 puts "Deleting a document."
 user.delete
+
 puts "Number of documents: #{user.count_documents}"
 ```
 
@@ -164,7 +165,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
      <tr>
        <td align="left">saving_docs?</td>
        <td align="left">true</td>
-       <td align="left">Create documents in the database. If <b>false</b> - Alternatively, use it to validate data from web forms (search form, contact form, etc...).</td>
+       <td align="left">Create documents in the database. If <b>false</b>, alternatively use it to validate data from web forms (search form, contact form, etc...).</td>
      </tr>
      <tr>
        <td align="left">updating_docs?</td>
