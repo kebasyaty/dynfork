@@ -6,6 +6,7 @@ module AppName
   VERSION = "0.1.0"
 
   # Initialize locale.
+  # https://github.com/crystal-i18n/i18n
   I18n.config.loaders << I18n::Loader::YAML.new("config/locales")
   I18n.config.default_locale = :en
   I18n.init
@@ -52,4 +53,11 @@ module AppName
   puts "created_at: #{user.created_at.value?}"
   puts "updated_at: #{user.updated_at.value?}"
   puts
+
+  puts "Number of documents: #{user.count_documents}"
+
+  puts "Deleting a document."
+  user.delete
+
+  puts "Number of documents: #{user.count_documents}"
 end

@@ -121,9 +121,10 @@ puts "updated_at: #{user.updated_at.value?}"
 puts
 
 puts "Number of documents: #{user.count_documents}"
-# Delete document.
+
 puts "Deleting a document."
 user.delete
+
 puts "Number of documents: #{user.count_documents}"
 ```
 
@@ -164,7 +165,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
      <tr>
        <td align="left">saving_docs?</td>
        <td align="left">true</td>
-       <td align="left">Create documents in the database. If <b>false</b> - Alternatively, use it to validate data from web forms (search form, contact form, etc...).</td>
+       <td align="left">Create documents in the database. If <b>false</b>, alternatively use it to validate data from web forms (search form, contact form, etc...).</td>
      </tr>
      <tr>
        <td align="left">updating_docs?</td>

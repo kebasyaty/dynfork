@@ -50,5 +50,6 @@ ru:
   size_exceeds_max: "Размер файла превышает максимальное значение."
   invalid_file_type:
     interpolation: "%{type} - Неверный тип файла."
-  forbidden_saves: "Запрещено выполнять сохранения!"
-  forbidden_updates: "Запрещено выполнять обновления!"
+  forbidden_saving: "Запрещено сохранять!"
+  forbidden_updating: "Запрещено обновлять!"
+  forbidden_deleting: "Запрещено удалять!"

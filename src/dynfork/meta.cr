@@ -33,8 +33,8 @@ module DynFork
   #     <td align="left">true</td>
   #     <td align="left">
   #       Create documents in the database.<br>
-  #       If <b>false</b> - Alternatively,
-  #       use it to validate data from web forms (search form, contact form, etc...).
+  #       If <b>false</b>,
+  #       alternatively use it to validate data from web forms (search form, contact form, etc...).
   #     </td>
   #   </tr>
   #   <tr>
@@ -51,7 +51,14 @@ module DynFork
   #
   # Example:
   # ```
-  # @[DynFork::Meta(service_name: "Accounts")]
+  # @[DynFork::Meta(
+  #   service_name: "ServiceName",
+  #   fixture_name: "FixtureName",
+  #   db_query_docs_limit: 1000,
+  #   saving_docs?: true,
+  #   updating_docs?: true,
+  #   deleting_docs?: true
+  # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new
   #   getter birthday = DynFork::Fields::DateField.new
