@@ -22,7 +22,7 @@ module DynFork::Paladins::Check
     # Create an identifier for a new document.
     (id = BSON::ObjectId.new) if !update?
     if save?
-      @hash.value = id.to_s
+      (@hash.value = id.to_s) if !update?
       result_map["_id"] = id
     end
     # Addresses of files to be deleted (if error_symptom? = true).
