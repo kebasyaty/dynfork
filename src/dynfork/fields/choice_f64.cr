@@ -102,14 +102,14 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
     ); end
 
     # :nodoc:
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     ); end
@@ -241,14 +241,14 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
     ); end
 
     # :nodoc:
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     ); end
@@ -383,14 +383,14 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
     ); end
 
     # :nodoc:
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     ); end
@@ -526,14 +526,14 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
     ); end
 
     # :nodoc:
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     ); end
