@@ -15,16 +15,11 @@ module DynFork::Paladins::Check
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
     # Get the document ID.
-    id : BSON::ObjectId? = nil
+    id : BSON::ObjectId? = self.object_id?
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
-    update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
-    # Validation the hash field value.
-    if update? && !BSON::ObjectId.validate(@hash.value)
-      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
-            "Field: `hash` => The hash field value is not valid."
-      raise DynFork::Errors::Panic.new msg
-    end
+    update? : Bool = unless id.nil?
+    #
     if save? && !update?
       id = BSON::ObjectId.new
       @hash.value = id.to_s
