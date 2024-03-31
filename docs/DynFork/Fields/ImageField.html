@@ -697,13 +697,6 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#base64_to_file%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#base64_to_file</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)</a>
-        
-          <div class="summary"><p>Convert base64 to a image and save in the target directory.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
         
           <div class="summary"><p>Default file path.</p></div>
@@ -726,6 +719,20 @@
         <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
         
           <div class="summary"><p>Field type - Structure Name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_base64%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#from_base64</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Convert base64 to a image and save in the target directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_path%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#from_path</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Convert path to a image and save in the target directory.</p></div>
         
       </li>
     
@@ -775,13 +782,6 @@
         <a href="#media_url%3AString-instance-method" class="signature"><strong>#media_url</strong> : String</a>
         
           <div class="summary"><p>URL address for the media directory.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#path_to_file%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#path_to_file</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)</a>
-        
-          <div class="summary"><p>Convert path to a image and save in the target directory.</p></div>
         
       </li>
     
@@ -1123,26 +1123,6 @@ Describing which file types to allow.
       </div>
     </div>
   
-    <div class="entry-detail" id="base64_to_file(base64:String|Nil=nil,filename:String|Nil=nil,delete:Bool=false)-instance-method">
-      <div class="signature">
-        
-        def <strong>base64_to_file</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)
-
-        <a class="method-permalink" href="#base64_to_file%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Convert base64 to a image and save in the target directory.
-filename: <em>Example: foo.pdf</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="default:String|Nil-instance-method">
       <div class="signature">
         
@@ -1210,6 +1190,45 @@ filename: <em>Example: foo.pdf</em></p>
         <div class="doc">
           
           <p>Field type - Structure Name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_base64(base64:String|Nil=nil,filename:String|Nil=nil,delete:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>from_base64</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#from_base64%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Convert base64 to a image and save in the target directory.
+filename: <em>Example: foo.pdf</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_path(path:String|Nil=nil,delete:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>from_path</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#from_path%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Convert path to a image and save in the target directory.</p>
         </div>
       
       <br/>
@@ -1345,25 +1364,6 @@ filename: <em>Example: foo.pdf</em></p>
         <div class="doc">
           
           <p>URL address for the media directory.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="path_to_file(path:String|Nil=nil,delete:Bool=false)-instance-method">
-      <div class="signature">
-        
-        def <strong>path_to_file</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>)
-
-        <a class="method-permalink" href="#path_to_file%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Convert path to a image and save in the target directory.</p>
         </div>
       
       <br/>
