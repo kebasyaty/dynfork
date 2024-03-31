@@ -52,23 +52,16 @@ module DynFork::Paladins::Save
     if output_data.update?
       # Update doc.
       data["updated_at"] = Time.utc
-      if id : BSON::ObjectId? = @hash.object_id?
+      # Run hook.
+      self.pre_update
+      if doc : BSON? = collection.find_one_and_update(
+           filter: {_id: data["_id"]},
+           update: {"$set": data},
+           new: true
+         )
         # Run hook.
-        self.pre_update
-        if doc : BSON? = collection.find_one_and_update(
-             filter: {_id: id},
-             update: {"$set": data},
-             new: true
-           )
-          # Run hook.
-          self.post_update
-          self.refrash_fields(pointerof(doc))
-        end
-      else
-        raise DynFork::Errors::Panic.new(
-          "Model : `#{self.model_name}` > Field: `hash` > " +
-          "Param: `value` => Hash is missing."
-        )
+        self.post_update
+        self.refrash_fields(pointerof(doc))
       end
     else
       # Create doc.

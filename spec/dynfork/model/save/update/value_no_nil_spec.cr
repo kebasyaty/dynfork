@@ -59,8 +59,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.path_to_file("assets/media/default/no_doc.odt")
-      m.image.path_to_file("assets/media/default/no_photo.jpeg")
+      m.file.from_path("assets/media/default/no_doc.odt")
+      m.image.from_path("assets/media/default/no_photo.jpeg")
       #
       m.i64.value = 10_i64
       m.f64.value = 10.2
@@ -89,8 +89,8 @@ describe DynFork::Model do
       m.choice_i64_mult.value = [5_i64, 10_i64]
       m.choice_f64.value = 5.25
       m.choice_f64_mult.value = [5.0, 5.25]
-      m.file.path_to_file(delete: true)
-      m.image.path_to_file("pictures/pluto_3.webp")
+      m.file.from_path(delete: true)
+      m.image.from_path("pictures/pluto_3.webp")
       m.i64.value = 20_i64
       m.f64.value = 20.2
       m.bool.value = false

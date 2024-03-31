@@ -14,17 +14,15 @@ module DynFork::Paladins::Check
     # Data to save or update to the database.
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
+    # Get the document ID.
+    id : BSON::ObjectId? = self.object_id?
+    id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
-    update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
-    # Validation the hash field value.
-    if update? && !BSON::ObjectId.validate(@hash.value)
-      msg = "Model: `#{@@meta.not_nil![:model_name]}` > " +
-            "Field: `hash` => The hash field value is not valid."
-      raise DynFork::Errors::Panic.new msg
-    end
-    if save? && !update?
-      id : BSON::ObjectId = BSON::ObjectId.new
-      @hash.value = id.to_s
+    update? : Bool = !id.nil?
+    # Create an identifier for a new document.
+    (id = BSON::ObjectId.new) if !update?
+    if save?
+      (@hash.value = id.to_s) if !update?
       result_map["_id"] = id
     end
     # Addresses of files to be deleted (if error_symptom? = true).
@@ -68,7 +66,8 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 2
           # Validation of `date` type fields:
@@ -124,7 +123,8 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 7
           # Validation of fields of type F64Field.
@@ -133,7 +133,8 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 8
           # Validation of fields of type BoolField.

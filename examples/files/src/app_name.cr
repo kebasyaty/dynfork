@@ -39,8 +39,8 @@ module AppName
   puts "updated_at: #{user.updated_at.value?}"
 
   # Update user data.
-  user.avatar.path_to_file "assets/media/default/no_photo.jpeg"
-  user.resume.path_to_file "assets/media/default/no_doc.odt"
+  user.avatar.from_path "assets/media/default/no_photo.jpeg"
+  user.resume.from_path "assets/media/default/no_doc.odt"
   # Run update.
   user.print_err unless user.save?
   # Print user data.

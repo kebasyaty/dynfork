@@ -107,14 +107,14 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
     ); end
 
     # :nodoc:
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     ); end
@@ -137,9 +137,10 @@ module DynFork::Fields
 
     # Get ObjectId from value.
     def object_id? : BSON::ObjectId?
-      if value = self.value?
-        BSON::ObjectId.new(value)
+      if !@value.nil? && !@value.not_nil!.empty?
+        return BSON::ObjectId.new(@value.not_nil!)
       end
+      nil
     end
 
     def refrash_val_str(val : String)

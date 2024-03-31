@@ -122,15 +122,16 @@ module DynFork::Paladins::Tools
   def check_uniqueness?(
     current_value : String | Time | Int64 | Float64,
     collection_ptr : Pointer(Mongo::Collection),
-    field_ptr : Pointer(DynFork::Globals::FieldTypes)
+    field_ptr : Pointer(DynFork::Globals::FieldTypes),
+    id_ptr : Pointer(BSON::ObjectId?)
   ) : Bool
-    # Get the ID and delete the document.
-    if id : BSON::ObjectId? = @hash.object_id?
-      filter = {"$and": [{_id: {"$ne": id}}, {field_ptr.value.name => current_value}]}
-      collection_ptr.value.find_one(filter).nil?
-    else
-      collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
-    end
+    filter = {
+      "$and": [
+        {_id: {"$ne": id_ptr.value}},
+        {field_ptr.value.name => current_value},
+      ],
+    }
+    collection_ptr.value.find_one(filter).nil?
   end
 
   # Delete a document from a collection in a database.
@@ -142,7 +143,7 @@ module DynFork::Paladins::Tools
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get the ID and delete the document.
-    if id : BSON::ObjectId? = @hash.object_id?
+    if id : BSON::ObjectId? = self.object_id?
       # Run hook.
       self.pre_delete
       # Delete doc.
