@@ -143,7 +143,7 @@ module DynFork::Paladins::Tools
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get the ID and delete the document.
-    if id : BSON::ObjectId? = @hash.object_id?
+    if id : BSON::ObjectId? = self.object_id?
       # Run hook.
       self.pre_delete
       # Delete doc.
