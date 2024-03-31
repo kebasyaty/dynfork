@@ -23,8 +23,8 @@ module DynFork::Paladins::Check
     if save? && !update?
       id = BSON::ObjectId.new
       @hash.value = id.to_s
-      result_map["_id"] = id
     end
+    result_map["_id"] = id
     # Addresses of files to be deleted (if error_symptom? = true).
     cleanup_map : NamedTuple(
       files: Array(String),
