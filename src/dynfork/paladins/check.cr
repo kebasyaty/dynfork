@@ -19,32 +19,32 @@ module DynFork::Paladins::Check
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
     update? : Bool = unless id.nil?
-    # Create an identifier for a new document.
-    if save? && !update?
-      id = BSON::ObjectId.new
-      @hash.value = id.to_s
-    end
-    #
-    result_map["_id"] = id
-    # Addresses of files to be deleted (if error_symptom? = true).
-    cleanup_map : NamedTuple(
-      files: Array(String),
-      images: Array(String),
-    ) = {files: Array(String).new, images: Array(String).new}
-    cleanup_map_ptr : Pointer(NamedTuple(
-      files: Array(String),
-      images: Array(String),
-    )) = pointerof(cleanup_map)
-    # Is there any incorrect data?
-    error_symptom? : Bool = false
-    error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
-    # Errors from additional validation of fields.
-    error_map : Hash(String, String) = self.add_validation
-    # Current error message.
-    err_msg : String?
+      # Create an identifier for a new document.
+      if save? && !update?
+        id = BSON::ObjectId.new
+        @hash.value = id.to_s
+      end
+      #
+      result_map["_id"] = id
+      # Addresses of files to be deleted (if error_symptom? = true).
+      cleanup_map : NamedTuple(
+        files: Array(String),
+        images: Array(String),
+      ) = {files: Array(String).new, images: Array(String).new}
+      cleanup_map_ptr : Pointer(NamedTuple(
+        files: Array(String),
+        images: Array(String),
+      )) = pointerof(cleanup_map)
+      # Is there any incorrect data?
+      error_symptom? : Bool = false
+      error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
+      # Errors from additional validation of fields.
+      error_map : Hash(String, String) = self.add_validation
+      # Current error message.
+      err_msg : String?
 
-    # Start checking all fields.
-    {% for field in @type.instance_vars %}
+      # Start checking all fields.
+      {% for field in @type.instance_vars %}
       # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
@@ -159,25 +159,26 @@ module DynFork::Paladins::Check
       end
     {% end %}
 
-    # Actions in case of error.
-    if error_symptom?
-      # Reset the hash for a new document.
-      (@hash.value = nil) if save? && !update?
-      # Delete new files.
-      cleanup_map[:files].each do |path|
-        File.delete(path)
+      # Actions in case of error.
+      if error_symptom?
+        # Reset the hash for a new document.
+        (@hash.value = nil) if save? && !update?
+        # Delete new files.
+        cleanup_map[:files].each do |path|
+          File.delete(path)
+        end
+        # Delete new images.
+        cleanup_map[:images].each do |path|
+          FileUtils.rm_rf(path)
+        end
       end
-      # Delete new images.
-      cleanup_map[:images].each do |path|
-        FileUtils.rm_rf(path)
-      end
+      #
+      # --------------------------------------------------------------------------
+      DynFork::Globals::OutputData.new(
+        data: result_map,
+        valid: !error_symptom?,
+        update: update?
+      )
     end
-    #
-    # --------------------------------------------------------------------------
-    DynFork::Globals::OutputData.new(
-      data: result_map,
-      valid: !error_symptom?,
-      update: update?
-    )
   end
 end
