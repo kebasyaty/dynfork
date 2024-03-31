@@ -58,8 +58,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.path_to_file("assets/media/default/no_doc.odt")
-      m.image.path_to_file("assets/media/default/no_photo.jpeg")
+      m.file.from_path("assets/media/default/no_doc.odt")
+      m.image.from_path("assets/media/default/no_photo.jpeg")
       #
       m.i64.value = 10_i64
       m.f64.value = 10.2

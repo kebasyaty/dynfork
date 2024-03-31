@@ -132,7 +132,7 @@ module DynFork::Fields
 
     # Convert base64 to a image and save in the target directory.
     # filename: _Example: foo.pdf_
-    def base64_to_file(
+    def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
@@ -194,7 +194,7 @@ module DynFork::Fields
     end
 
     # Convert path to a image and save in the target directory.
-    def path_to_file(
+    def from_path(
       path : String? = nil,
       delete : Bool = false
     )
