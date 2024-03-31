@@ -137,8 +137,9 @@ module DynFork::Fields
 
     # Get ObjectId from value.
     def object_id? : BSON::ObjectId?
-      if value = self.value?
-        BSON::ObjectId.new(value)
+      value : String? = self.value?
+      if !value.nil? && !value.empty?
+        BSON::ObjectId.new(value.not_nil!)
       end
     end
 
