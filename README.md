@@ -2,7 +2,7 @@
   <p align="center">
     <a href="https://github.com/kebasyaty/dynfork" target="_blank">
       <img
-        height="100"
+        height="120"
         alt="Logo"
         src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
     </a>
@@ -34,7 +34,7 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" target="_blank">
-    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Development-.svg"
+    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Alpha-.svg"
       alt="Status Project">
   </a>
 </p>
