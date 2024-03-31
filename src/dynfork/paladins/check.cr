@@ -24,6 +24,7 @@ module DynFork::Paladins::Check
       id = BSON::ObjectId.new
       @hash.value = id.to_s
     end
+    #
     result_map["_id"] = id
     # Addresses of files to be deleted (if error_symptom? = true).
     cleanup_map : NamedTuple(
