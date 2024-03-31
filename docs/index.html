@@ -687,6 +687,7 @@
 <span class="k">end</span>
 
 <span class="c"># Initialize locale.</span>
+<span class="c"># https://github.com/crystal-i18n/i18n</span>
 <span class="t">I18n</span>.config.loaders <span class="o">&lt;&lt;</span> <span class="t">I18n</span><span class="t">::</span><span class="t">Loader</span><span class="t">::</span><span class="t">YAML</span>.new(<span class="s">&quot;config/locales&quot;</span>)
 <span class="t">I18n</span>.config.default_locale <span class="o">=</span> <span class="n">:en</span>
 <span class="t">I18n</span>.init
@@ -721,9 +722,8 @@ puts <span class="s">&quot;email: </span><span class="i">#{</span>user.email.val
 puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthday.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span>
-puts
 
-puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;\nNumber of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span>
 
 puts <span class="s">&quot;Deleting a document.&quot;</span>
 user.delete
