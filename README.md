@@ -118,9 +118,8 @@ puts "email: #{user.email.value?}"
 puts "birthday: #{user.birthday.value?}"
 puts "created_at: #{user.created_at.value?}"
 puts "updated_at: #{user.updated_at.value?}"
-puts
 
-puts "Number of documents: #{user.count_documents}"
+puts "\nNumber of documents: #{user.count_documents}"
 
 puts "Deleting a document."
 user.delete
