@@ -20,13 +20,8 @@ module DynFork::Paladins::Check
     # Does the document exist in the database?
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
-    if save?
-      if !update?
-        id = BSON::ObjectId.new
-        @hash.value = id.to_s
-      end
-      result_map["_id"] = id
-    end
+    (id = BSON::ObjectId.new) if !update?
+    (result_map["_id"] = id) if save?
     # Addresses of files to be deleted (if error_symptom? = true).
     cleanup_map : NamedTuple(
       files: Array(String),

@@ -125,13 +125,13 @@ module DynFork::Paladins::Tools
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Bool
-    # Get the ID and delete the document.
-    if id : BSON::ObjectId? = id_ptr.value
-      filter = {"$and": [{_id: {"$ne": id}}, {field_ptr.value.name => current_value}]}
-      collection_ptr.value.find_one(filter).nil?
-    else
-      collection_ptr.value.find_one({field_ptr.value.name => current_value}).nil?
-    end
+    filter = {
+      "$and": [
+        {_id: {"$ne": id_ptr.value}},
+        {field_ptr.value.name => current_value},
+      ],
+    }
+    collection_ptr.value.find_one(filter).nil?
   end
 
   # Delete a document from a collection in a database.
