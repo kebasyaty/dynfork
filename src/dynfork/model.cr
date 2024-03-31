@@ -108,8 +108,9 @@ module DynFork
     def object_id? : BSON::ObjectId?
       value : String? = @hash.value?
       if !value.nil? && !value.empty?
-        BSON::ObjectId.new(value.not_nil!)
+        return BSON::ObjectId.new(value.not_nil!)
       end
+      nil
     end
 
     # Determine the presence of a variable (field) in the model.

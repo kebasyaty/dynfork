@@ -139,8 +139,9 @@ module DynFork::Fields
     def object_id? : BSON::ObjectId?
       value : String? = self.value?
       if !value.nil? && !value.empty?
-        BSON::ObjectId.new(value.not_nil!)
+        return BSON::ObjectId.new(value.not_nil!)
       end
+      nil
     end
 
     def refrash_val_str(val : String)

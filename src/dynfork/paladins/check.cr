@@ -14,6 +14,9 @@ module DynFork::Paladins::Check
     # Data to save or update to the database.
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
+    # Get the document ID.
+    id : BSON::ObjectId? = nil
+    id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
     update? : Bool = !@hash.value?.nil? && !@hash.value.empty?
     # Validation the hash field value.
@@ -22,8 +25,6 @@ module DynFork::Paladins::Check
             "Field: `hash` => The hash field value is not valid."
       raise DynFork::Errors::Panic.new msg
     end
-    id : BSON::ObjectId?
-    id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     if save? && !update?
       id = BSON::ObjectId.new
       @hash.value = id.to_s
