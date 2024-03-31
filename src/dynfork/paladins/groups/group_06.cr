@@ -5,7 +5,8 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
-    collection_ptr : Pointer(Mongo::Collection)
+    collection_ptr : Pointer(Mongo::Collection),
+    id_ptr : Pointer(BSON::ObjectId?)
   )
     # Get current value.
     current_value : Int64 = (
@@ -57,7 +58,7 @@ module DynFork::Paladins::Groups
     end
     # Validation the `unique` field attribute.
     if field_ptr.value.unique? &&
-       !self.check_uniqueness?(current_value, collection_ptr, field_ptr)
+       !self.check_uniqueness?(current_value, collection_ptr, field_ptr, id_ptr)
       self.accumulate_error(
         I18n.t(:not_unique),
         field_ptr,

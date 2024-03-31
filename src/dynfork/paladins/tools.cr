@@ -122,10 +122,11 @@ module DynFork::Paladins::Tools
   def check_uniqueness?(
     current_value : String | Time | Int64 | Float64,
     collection_ptr : Pointer(Mongo::Collection),
-    field_ptr : Pointer(DynFork::Globals::FieldTypes)
+    field_ptr : Pointer(DynFork::Globals::FieldTypes),
+    id_ptr : Pointer(BSON::ObjectId?)
   ) : Bool
     # Get the ID and delete the document.
-    if id : BSON::ObjectId? = @hash.object_id?
+    if id : BSON::ObjectId? = id_ptr.value
       filter = {"$and": [{_id: {"$ne": id}}, {field_ptr.value.name => current_value}]}
       collection_ptr.value.find_one(filter).nil?
     else

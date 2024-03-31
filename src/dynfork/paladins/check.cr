@@ -66,7 +66,8 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 2
           # Validation of `date` type fields:
@@ -122,7 +123,8 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 7
           # Validation of fields of type F64Field.
@@ -131,7 +133,8 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
+            id_ptr
           )
         when 8
           # Validation of fields of type BoolField.
