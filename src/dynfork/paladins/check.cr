@@ -19,7 +19,7 @@ module DynFork::Paladins::Check
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
     update? : Bool = unless id.nil?
-    #
+    # Create an identifier for a new document.
     if save? && !update?
       id = BSON::ObjectId.new
       @hash.value = id.to_s
