@@ -1,5 +1,5 @@
 module DynFork::Paladins::Groups
-  # Validation of fields of type BoolField.
+  # Validation of fields of type _BoolField_.
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     save? : Bool,

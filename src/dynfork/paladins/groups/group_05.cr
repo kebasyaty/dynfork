@@ -1,5 +1,5 @@
 module DynFork::Paladins::Groups
-  # Validation of fields of type ImageField.
+  # Validation of fields of type _ImageField_.
   def group_05(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
