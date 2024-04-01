@@ -1,5 +1,5 @@
 module DynFork::Paladins::Groups
-  # Validation of fields of type F64Field.
+  # Validation of fields of type _F64Field_.
   def group_07(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),

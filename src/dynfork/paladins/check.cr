@@ -97,7 +97,7 @@ module DynFork::Paladins::Check
             collection_ptr
           )
         when 4
-          # Validation of fields of type FileField.
+          # Validation of fields of type _FileField_.
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -107,7 +107,7 @@ module DynFork::Paladins::Check
             cleanup_map_ptr
           )
         when 5
-          # Validation of fields of type ImageField.
+          # Validation of fields of type _ImageField_.
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -117,7 +117,7 @@ module DynFork::Paladins::Check
             cleanup_map_ptr
           )
         when 6
-          # Validation of fields of type I64Field.
+          # Validation of fields of type _I64Field_.
           self.group_06(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -127,7 +127,7 @@ module DynFork::Paladins::Check
             id_ptr
           )
         when 7
-          # Validation of fields of type F64Field.
+          # Validation of fields of type _F64Field_.
           self.group_07(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -137,14 +137,14 @@ module DynFork::Paladins::Check
             id_ptr
           )
         when 8
-          # Validation of fields of type BoolField.
+          # Validation of fields of type _BoolField_.
           self.group_08(
             pointerof(@{{ field }}),
             save?,
             result_map_ptr
           )
         when 9
-          # Create string for SlugField.
+          # Create string for _SlugField_.
           if save?
             self.group_09(
               pointerof(@{{ field }}),

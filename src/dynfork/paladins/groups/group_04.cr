@@ -1,5 +1,5 @@
 module DynFork::Paladins::Groups
-  # Validation of fields of type FileField.
+  # Validation of fields of type _FileField_.
   def group_04(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
