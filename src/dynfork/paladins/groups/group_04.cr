@@ -23,45 +23,51 @@ module DynFork::Paladins::Groups
     end
 
     # Get current value.
-    current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
+    _current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
 
     # If necessary, use the default value.
-    if !update? && current_value.nil?
+    if !update? && _current_value.nil?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        current_value = field_ptr.value.extract_file_data
+        _current_value = field_ptr.value.extract_file_data
       end
     end
 
     # Return if the current value is missing.
-    return if current_value.nil?
+    return if _current_value.nil?
+
+    current_value : DynFork::Globals::FileData = _current_value.not_nil!
+    _current_value = nil
 
     # If the file needs to be delete.
     if current_value.delete? && current_value.path.empty?
-      if field_ptr.value.required?
-        self.accumulate_error(
-          I18n.t(:required_field),
-          field_ptr,
-          error_symptom_ptr?
-        )
+      if default = field_ptr.value.default?
+        field_ptr.value.from_path(default.to_s, true)
+        current_value = field_ptr.value.extract_file_data.not_nil!
       else
-        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        if !field_ptr.value.required?
+          (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        else
+          self.accumulate_error(
+            I18n.t(:required_field),
+            field_ptr,
+            error_symptom_ptr?
+          )
+        end
+        return
       end
-      return
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    unless current_value.path.empty?
-      if current_value.size > field_ptr.value.maxsize
-        self.accumulate_error(
-          I18n.t(:size_exceeds_max),
-          field_ptr,
-          error_symptom_ptr?
-        )
-        # Add path in cleanup map.
-        cleanup_map_ptr.value[:files] << current_value.path
-        return
-      end
+    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+      self.accumulate_error(
+        I18n.t(:size_exceeds_max),
+        field_ptr,
+        error_symptom_ptr?
+      )
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:files] << current_value.path
+      return
     end
 
     # Return if there is no need to save.

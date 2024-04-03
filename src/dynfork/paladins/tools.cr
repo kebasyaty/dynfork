@@ -85,12 +85,17 @@ module DynFork::Paladins::Tools
     height : Int32,
     max_size : Int32
   ) : NamedTuple(width: Int32, height: Int32)
+    #
+    width_big : BigDecimal = BigDecimal.new(width)
+    height_big : BigDecimal = BigDecimal.new(height)
+    max_size_big : BigDecimal = BigDecimal.new(max_size)
+    #
     if width > height
       if width > max_size
-        return {width: max_size, height: ((height * (max_size / width)).to_i32)}
+        return {width: max_size, height: (height_big * (max_size_big / width_big)).to_i32}
       end
     elsif height > max_size
-      return {width: ((width * (max_size / height)).to_i32), height: max_size}
+      return {width: ((width_big * (max_size_big / height_big)).to_i32), height: max_size}
     end
     {width: width, height: height}
   end
