@@ -5,6 +5,7 @@ require "crypto/bcrypt/password"
 require "uuid"
 require "file_utils"
 require "colorize"
+require "big/big_decimal"
 # Third party libraries:
 require "cryomongo"
 require "bson"
