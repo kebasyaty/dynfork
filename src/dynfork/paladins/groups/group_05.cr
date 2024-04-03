@@ -35,33 +35,35 @@ module DynFork::Paladins::Groups
 
     # Return if the current value is missing.
     return if current_value.nil?
-
     # If the file needs to be delete.
     if current_value.delete? && current_value.path.empty?
-      if field_ptr.value.required?
-        self.accumulate_error(
-          I18n.t(:required_field),
-          field_ptr,
-          error_symptom_ptr?
-        )
+      if default = field_ptr.value.default?
+        field_ptr.value.from_path(default.to_s, true)
+        current_value = field_ptr.value.extract_img_data
       else
-        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        if !field_ptr.value.required?
+          (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        else
+          self.accumulate_error(
+            I18n.t(:required_field),
+            field_ptr,
+            error_symptom_ptr?
+          )
+        end
+        return
       end
-      return
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    unless current_value.path.empty?
-      if current_value.size > field_ptr.value.maxsize
-        self.accumulate_error(
-          I18n.t(:size_exceeds_max),
-          field_ptr,
-          error_symptom_ptr?
-        )
-        # Add path in cleanup map.
-        cleanup_map_ptr.value[:images] << current_value.images_dir_path
-        return
-      end
+    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+      self.accumulate_error(
+        I18n.t(:size_exceeds_max),
+        field_ptr,
+        error_symptom_ptr?
+      )
+      # Add path in cleanup map.
+      cleanup_map_ptr.value[:images] << current_value.images_dir_path
+      return
     end
 
     # Return if there is no need to save.
