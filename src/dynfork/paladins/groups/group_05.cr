@@ -35,6 +35,7 @@ module DynFork::Paladins::Groups
 
     # Return if the current value is missing.
     return if current_value.nil?
+
     # If the file needs to be delete.
     if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
