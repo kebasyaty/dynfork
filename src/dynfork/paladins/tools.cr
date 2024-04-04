@@ -158,11 +158,11 @@ module DynFork::Paladins::Tools
         # Delete orphaned files and images.
         if  @{{ field }}.input_type == "file" && !@{{ field }}.value.nil?
           if @{{ field }}.field_type == "ImageField"
-            if images_dir_path = @{{ field }}.value.images_dir_path?
+            if images_dir_path = @{{ field }}.extract_images_dir_path?
               FileUtils.rm_rf(images_dir_path)
             end
           else
-            if !(path = @{{ field }}.value.path).empty?
+            if path = @{{ field }}.extract_file_path?
               File.delete(path)
             end
           end

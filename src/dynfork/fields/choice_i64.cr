@@ -102,6 +102,9 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
+    def images_dir_path? : String?; end
+
+    # :nodoc:
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
@@ -239,6 +242,9 @@ module DynFork::Fields
 
     # :nodoc:
     def extract_default_f64? : Float64?; end
+
+    # :nodoc:
+    def images_dir_path? : String?; end
 
     # :nodoc:
     def from_base64(
@@ -383,6 +389,9 @@ module DynFork::Fields
     def extract_default_f64? : Float64?; end
 
     # :nodoc:
+    def images_dir_path? : String?; end
+
+    # :nodoc:
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
@@ -524,6 +533,9 @@ module DynFork::Fields
 
     # :nodoc:
     def extract_default_f64? : Float64?; end
+
+    # :nodoc:
+    def images_dir_path? : String?; end
 
     # :nodoc:
     def from_base64(

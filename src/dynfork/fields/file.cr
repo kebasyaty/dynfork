@@ -110,6 +110,9 @@ module DynFork::Fields
     # :nodoc:
     def extract_default_f64? : Float64?; end
 
+    # :nodoc:
+    def extract_images_dir_path? : String?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
@@ -226,8 +229,12 @@ module DynFork::Fields
       @value = val
     end
 
-    def extract_file_data : DynFork::Globals::FileData?
+    def extract_file_data? : DynFork::Globals::FileData?
       @value
+    end
+
+    def extract_file_path? : String?
+      @value.path unless @value.nil?
     end
   end
 end

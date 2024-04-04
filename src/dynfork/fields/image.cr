@@ -250,8 +250,12 @@ module DynFork::Fields
       @value = val
     end
 
-    def extract_img_data : DynFork::Globals::ImageData?
+    def extract_img_data? : DynFork::Globals::ImageData?
       @value
+    end
+
+    def extract_images_dir_path? : String?
+      @value.images_dir_path? unless @value.nil?
     end
   end
 end
