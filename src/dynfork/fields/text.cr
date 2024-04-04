@@ -107,6 +107,9 @@ module DynFork::Fields
     def extract_images_dir_path? : String?; end
 
     # :nodoc:
+    def extract_file_path? : String?; end
+
+    # :nodoc:
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
