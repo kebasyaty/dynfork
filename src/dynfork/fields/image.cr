@@ -112,6 +112,9 @@ module DynFork::Fields
     # :nodoc:
     def extract_default_f64? : Float64?; end
 
+    # :nodoc:
+    def extract_file_path? : String?; end
+
     def initialize(
       @label : String = "",
       @default : String? = nil,
