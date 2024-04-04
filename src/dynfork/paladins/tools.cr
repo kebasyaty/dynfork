@@ -167,7 +167,6 @@ module DynFork::Paladins::Tools
             end
           end
         end
-        end
         # Reset field.
         @{{ field }}.value =  nil
       {% end %}
