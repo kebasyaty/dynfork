@@ -78,10 +78,10 @@ module DynFork::Fields
     def refrash_val_date(val : Time); end
 
     # :nodoc:
-    def extract_file_data : DynFork::Globals::FileData?; end
+    def extract_file_data? : DynFork::Globals::FileData?; end
 
     # :nodoc:
-    def extract_img_data : DynFork::Globals::ImageData?; end
+    def extract_img_data? : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end
@@ -227,10 +227,10 @@ module DynFork::Fields
     def refrash_val_date(val : Time); end
 
     # :nodoc:
-    def extract_file_data : DynFork::Globals::FileData?; end
+    def extract_file_data? : DynFork::Globals::FileData?; end
 
     # :nodoc:
-    def extract_img_data : DynFork::Globals::ImageData?; end
+    def extract_img_data? : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end
@@ -376,10 +376,10 @@ module DynFork::Fields
     def refrash_val_datetime(val : Time); end
 
     # :nodoc:
-    def extract_file_data : DynFork::Globals::FileData?; end
+    def extract_file_data? : DynFork::Globals::FileData?; end
 
     # :nodoc:
-    def extract_img_data : DynFork::Globals::ImageData?; end
+    def extract_img_data? : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def refrash_val_date(val : Time); end
@@ -532,10 +532,10 @@ module DynFork::Fields
     def refrash_val_date(val : Time); end
 
     # :nodoc:
-    def extract_file_data : DynFork::Globals::FileData?; end
+    def extract_file_data? : DynFork::Globals::FileData?; end
 
     # :nodoc:
-    def extract_img_data : DynFork::Globals::ImageData?; end
+    def extract_img_data? : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end

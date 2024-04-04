@@ -92,7 +92,7 @@ module DynFork::Fields
     def refrash_val_file_data(val : DynFork::Globals::FileData); end
 
     # :nodoc:
-    def extract_file_data : DynFork::Globals::FileData?; end
+    def extract_file_data? : DynFork::Globals::FileData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end

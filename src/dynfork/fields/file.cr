@@ -90,7 +90,7 @@ module DynFork::Fields
     def refrash_val_img_data(val : DynFork::Globals::ImageData); end
 
     # :nodoc:
-    def extract_img_data : DynFork::Globals::ImageData?; end
+    def extract_img_data? : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end
