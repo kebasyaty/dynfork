@@ -155,6 +155,19 @@ module DynFork::Paladins::Tools
       collection.delete_one({_id: id})
       # Reset field values.
       {% for field in @type.instance_vars %}
+        # Delete orphaned files and images.
+        if  @{{ field }}.input_type == "file" && !@{{ field }}.value.nil?
+          if @{{ field }}.field_type == "ImageField"
+            if images_dir_path = @{{ field }}.extract_images_dir_path?
+              FileUtils.rm_rf(images_dir_path)
+            end
+          else
+            if path = @{{ field }}.extract_file_path?
+              File.delete(path)
+            end
+          end
+        end
+        # Reset field.
         @{{ field }}.value =  nil
       {% end %}
       # Run hook.
