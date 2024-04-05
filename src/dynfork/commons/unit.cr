@@ -14,14 +14,14 @@ module DynFork::Commons::UnitsManagement
   #   getter birthday = DynFork::Fields::DateField.new
   # end
   #
-  # dyn_unit = DynFork::Globals::DynUnit.new(
+  # unit = DynFork::Globals::DynUnit.new(
   #   field_name: "field_name",
   #   title: "Title",
   #   value: "value", # String | Int64 | Float64
   #   delete: false   # default is the same as false
   # )
   #
-  # User.unit_manager dyn_unit
+  # User.unit_manager unit
   # ```
   #
   def unit_manager(unit : DynFork::Globals::Unit)

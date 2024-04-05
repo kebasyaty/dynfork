@@ -16,8 +16,8 @@ module DynFork::Globals::Types
     ); end
   end
 
-  # Unit of information for the `choices` parameter in dynamic field types.
-  struct DynUnit
+  # Unit of information for `choices` parameter in dynamic field types.
+  struct Unit
     include JSON::Serializable
     include JSON::Serializable::Strict
 
