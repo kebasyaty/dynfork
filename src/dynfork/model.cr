@@ -1,6 +1,6 @@
 require "./paladins/aa"
-require "./commons/commons"
 require "./paladins/paladins"
+require "./commons/commons"
 
 module DynFork
   # Abstraction for converting Crystal structures into DynFork Models.
@@ -64,8 +64,8 @@ module DynFork
     include JSON::Serializable
     include JSON::Serializable::Strict
     include DynFork::Globals::Date
-    include DynFork::Commons
     include DynFork::Paladins
+    extend DynFork::Commons
 
     getter hash = DynFork::Fields::HashField
       .new(hide: true, unique: true, ignored: true)

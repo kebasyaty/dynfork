@@ -1,6 +1,6 @@
 require "./unit"
 
-# Commons - Model struct methods.
+# Commons - Model class methods.
 module DynFork::Commons
   include DynFork::Commons::Unit
 end
