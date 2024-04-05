@@ -46,7 +46,7 @@
         "crystal spec --tag delete;",
         "crystal spec --tag verify_password;",
         "crystal spec --tag update_password;",
-        "crystal spec --tag dyn_unit"
+        "crystal spec --tag unit"
       ],
       "problemMatcher": []
     }

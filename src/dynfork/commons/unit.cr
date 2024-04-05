@@ -1,8 +1,9 @@
-# Dynamic Unit Management.
-module DynFork::Commons::Unit
+# Units Management.
+# NOTE: Management for `choices` parameter in dynamic field types.
+module DynFork::Commons::UnitsManagement
   extend self
 
-  # For manage dynamic units (add or delete).
+  # For add or remove units.
   # NOTE: Management for `choices` parameter in dynamic field types.
   #
   # Example:
@@ -20,10 +21,10 @@ module DynFork::Commons::Unit
   #   delete: false   # default is the same as false
   # )
   #
-  # User.manager_dyn_unit dyn_unit
+  # User.unit_manager dyn_unit
   # ```
   #
-  def manager_dyn_unit(dyn_unit : DynFork::Globals::DynUnit)
+  def unit_manager(unit : DynFork::Globals::Unit)
     # ...
   end
 end
