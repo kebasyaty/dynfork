@@ -66,6 +66,12 @@ module Spec::Data
     getter password = DynFork::Fields::PasswordField.new
   end
 
+  @[DynFork::Meta(service_name: "Accounts")]
+  struct UnitModel < DynFork::Model
+    getter username = DynFork::Fields::TextField.new
+    getter birthday = DynFork::Fields::DateField.new
+  end
+
   # For preliminary testing of additional abstractions.
   @[DynFork::Meta(service_name: "Accounts")]
   struct AAModel < DynFork::Model

@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Errors::Panic - dynfork v0-dev</title>
+  <title>DynFork::Commons::Unit - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -67,12 +67,12 @@
       
     </li>
   
-  <li class="parent " data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
+  <li class="parent open current" data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
       <a href="../../DynFork/Commons.html">Commons</a>
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Commons/Unit" data-name="dynfork::commons::unit">
+  <li class=" current" data-id="dynfork/DynFork/Commons/Unit" data-name="dynfork::commons::unit">
       <a href="../../DynFork/Commons/Unit.html">Unit</a>
       
     </li>
@@ -82,7 +82,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="dynfork/DynFork/Errors" data-name="dynfork::errors">
+  <li class="parent " data-id="dynfork/DynFork/Errors" data-name="dynfork::errors">
       <a href="../../DynFork/Errors.html">Errors</a>
       
         <ul>
@@ -242,7 +242,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Errors/Panic" data-name="dynfork::errors::panic">
+  <li class=" " data-id="dynfork/DynFork/Errors/Panic" data-name="dynfork::errors::panic">
       <a href="../../DynFork/Errors/Panic.html">Panic</a>
       
     </li>
@@ -616,12 +616,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> DynFork::<wbr>Errors::<wbr>Panic
+  <span class="kind">module</span> DynFork::<wbr>Commons::<wbr>Unit
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Errors/Panic.html">DynFork::Errors::Panic</a></li><li class="superclass"><a href="../../DynFork/Errors/DynForkException.html">DynFork::Errors::DynForkException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -635,7 +633,7 @@
     Overview
   </h2>
 
-  <p>A type of global exception that should not be raised in production.</p>
+  <p>Dynamic Unit Management.</p>
 
 
 
@@ -643,9 +641,37 @@
 
 
 
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons/Unit.html">DynFork::Commons::Unit</a></li>
+    
+  </ul>
 
 
 
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons.html">DynFork::Commons</a></li>
+    
+  </ul>
 
 
 
@@ -660,7 +686,7 @@
   </h2>
   
     
-      dynfork/errors/root.cr
+      dynfork/commons/unit.cr
     
     <br/>
   
@@ -669,18 +695,26 @@
 
 
 
+
+
+
+
+
+
   <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
+    Instance Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28message%3AString%29-class-method" class="signature"><strong>.new</strong>(message : String)</a>
+        <a href="#manager_dyn_unit%28dyn_unit%3ADynFork%3A%3AGlobals%3A%3ADynUnit%29-instance-method" class="signature"><strong>#manager_dyn_unit</strong>(dyn_unit : DynFork::Globals::DynUnit)</a>
+        
+          <div class="summary"><p>For manage dynamic units (add or delete).</p></div>
         
       </li>
     
@@ -688,85 +722,54 @@
 
 
 
-
-
-
-
-
-
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
   
 </div>
 
 
+
+
+
+
+
+
   <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructor Detail
+    Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="new(message:String)-class-method">
+    <div class="entry-detail" id="manager_dyn_unit(dyn_unit:DynFork::Globals::DynUnit)-instance-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(message : String)
+        def <strong>manager_dyn_unit</strong>(dyn_unit : <a href="../../DynFork/Globals/Types/DynUnit.html">DynFork::Globals::DynUnit</a>)
 
-        <a class="method-permalink" href="#new%28message%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#manager_dyn_unit%28dyn_unit%3ADynFork%3A%3AGlobals%3A%3ADynUnit%29-instance-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>For manage dynamic units (add or delete).</p>
+<p><span class="flag purple">NOTE</span>  Management for <code>choices</code> parameter in dynamic field types.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+dyn_unit <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Globals</span><span class="t">::</span><span class="t">DynUnit</span>.new(
+  field_name: <span class="s">&quot;field_name&quot;</span>,
+  title: <span class="s">&quot;Title&quot;</span>,
+  value: <span class="s">&quot;value&quot;</span>, <span class="c"># String | Int64 | Float64</span>
+  delete: <span class="n">false</span>   <span class="c"># default is the same as false</span>
+)
+
+<span class="t">User</span>.manager_dyn_unit dyn_unit</code></pre>
+        </div>
       
       <br/>
       <div>
@@ -774,12 +777,6 @@
       </div>
     </div>
   
-
-
-
-
-
-
 
 
 </div>
