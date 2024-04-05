@@ -9,7 +9,7 @@ describe DynFork::Model do
         value: "value",
         delete: true
       )
-      Spec::Data::UnitModel.manager_dyn_unit dyn_unit
+      Spec::Data::UnitModel.manager_dyn_unit(dyn_unit).should be_nil
     end
   end
 end
