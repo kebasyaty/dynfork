@@ -1,7 +1,7 @@
 # Dynamic Unit Management.
 module DynFork::Commons::Unit
   # For manage dynamic units (add or delete).
-  # NOTE: The main use is to check data from web forms.
+  # NOTE: Management for `choices` parameter in dynamic field types.
   #
   # Example:
   # ```
