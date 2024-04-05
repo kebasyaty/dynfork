@@ -30,7 +30,7 @@ module DynFork::Globals::Types
       @field_name : String,
       @title : String,
       @value : String | Int64 | Float64,
-      @delete : Bool
+      @delete : Bool = false
     ); end
   end
 
