@@ -16,6 +16,24 @@ module DynFork::Globals::Types
     ); end
   end
 
+  # Unit of information for the `choices` parameter in dynamic field types.
+  struct DynUnit
+    include JSON::Serializable
+    include JSON::Serializable::Strict
+
+    getter! field_name : String
+    getter! title : String
+    getter! value : String | Int64 | Float64
+    getter? delete : Bool
+
+    def initialize(
+      @field_name : String,
+      @title : String,
+      @value : String | Int64 | Float64,
+      @delete : Bool
+    ); end
+  end
+
   # Data type for FileField.
   struct FileData
     include JSON::Serializable
