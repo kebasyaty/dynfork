@@ -72,8 +72,8 @@
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Commons/Unit" data-name="dynfork::commons::unit">
-      <a href="../../DynFork/Commons/Unit.html">Unit</a>
+  <li class=" " data-id="dynfork/DynFork/Commons/UnitsManagement" data-name="dynfork::commons::unitsmanagement">
+      <a href="../../DynFork/Commons/UnitsManagement.html">UnitsManagement</a>
       
     </li>
   
@@ -492,11 +492,6 @@
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Globals/Types/DynUnit" data-name="dynfork::globals::types::dynunit">
-      <a href="../../DynFork/Globals/Types/DynUnit.html">DynUnit</a>
-      
-    </li>
-  
   <li class=" " data-id="dynfork/DynFork/Globals/Types/FileData" data-name="dynfork::globals::types::filedata">
       <a href="../../DynFork/Globals/Types/FileData.html">FileData</a>
       
@@ -509,6 +504,11 @@
   
   <li class=" " data-id="dynfork/DynFork/Globals/Types/OutputData" data-name="dynfork::globals::types::outputdata">
       <a href="../../DynFork/Globals/Types/OutputData.html">OutputData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/Unit" data-name="dynfork::globals::types::unit">
+      <a href="../../DynFork/Globals/Types/Unit.html">Unit</a>
       
     </li>
   
@@ -742,7 +742,7 @@
       <li class="entry-summary">
         <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
         
-          <div class="summary"><p>Printing errors to the console ( for development ).</p></div>
+          <div class="summary"><p>Printing errors to the console.</p></div>
         
       </li>
     
@@ -915,7 +915,8 @@
       
         <div class="doc">
           
-          <p>Printing errors to the console ( for development ).</p>
+          <p>Printing errors to the console.
+Convenient to use during development.</p>
 <p>Example:</p>
 <pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
