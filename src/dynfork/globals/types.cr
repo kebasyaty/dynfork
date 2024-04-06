@@ -27,7 +27,7 @@ module DynFork::Globals::Types
     getter? delete : Bool
 
     def initialize(
-      @field_name : String,
+      @field : String,
       @title : String,
       @value : String | Int64 | Float64,
       @delete : Bool = false
