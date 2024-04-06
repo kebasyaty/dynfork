@@ -12,7 +12,6 @@ module DynFork::Errors::Fields
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
         "Attribute: `slug_sources` => The `#{source_name}` field missing in Model."
-          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -30,7 +29,6 @@ module DynFork::Errors::Fields
         "Invalid field type for slug source." +
         "Allowed field types: HashField, TextField, EmailField, " +
         "DateField, DateTimeField, I64Field, F64Field."
-          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -46,7 +44,6 @@ module DynFork::Errors::Fields
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
         "Attribute: `slug_sources` > Source Field: `#{source_field}` => " +
         "For slug sources, all fields except the `hash` field must be required."
-          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -61,7 +58,6 @@ module DynFork::Errors::Fields
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
         "Attribute: `slug_sources` => " +
         "Does not have a single unique field."
-          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -75,7 +71,6 @@ module DynFork::Errors::Fields
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
         "The max date must be greater than the min date."
-          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -87,20 +82,14 @@ module DynFork::Errors::Fields
       field_name : String,
       msg_err : String
     )
-      super(
-        "Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}"
-          .colorize.fore(:red).mode(:bold)
-      )
+      super("Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}")
     end
   end
 
   # Invalid input type.
   class InvalidInputType < DynFork::Errors::DynForkException
     def initialize(input_type : String)
-      super(
-        "The `#{input_type}` invalid input type."
-          .colorize.fore(:red).mode(:bold)
-      )
+      super("The `#{input_type}` invalid input type.")
     end
   end
 end

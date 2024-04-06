@@ -5,14 +5,14 @@ module DynFork::Errors::Date
   # Invalid date.
   class InvalidDate < DynFork::Errors::DynForkException
     def initialize
-      super(I18n.t(:invalid_date).colorize.fore(:red).mode(:bold))
+      super(I18n.t(:invalid_date))
     end
   end
 
   # Invalid date and time.
   class InvalidDateTime < DynFork::Errors::DynForkException
     def initialize
-      super(I18n.t(:invalid_datetime).colorize.fore(:red).mode(:bold))
+      super(I18n.t(:invalid_datetime))
     end
   end
 end
