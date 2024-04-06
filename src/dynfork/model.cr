@@ -106,6 +106,14 @@ module DynFork
       {{ @type.name.stringify }}.split("::").last
     end
 
+    # Get full Model name = ModuleName::StructureName.
+    # <br>
+    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
+    # WARNING: Maximum 25 characters.
+    def full_model_name : String
+      {{ @type.name.stringify }}
+    end
+
     # Get ObjectId from hash field.
     def object_id? : BSON::ObjectId?
       value : String? = @hash.value?
