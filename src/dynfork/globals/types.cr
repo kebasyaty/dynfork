@@ -21,7 +21,7 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include JSON::Serializable::Strict
 
-    getter! field_name : String
+    getter! field : String
     getter! title : String
     getter! value : String | Int64 | Float64
     getter? delete : Bool

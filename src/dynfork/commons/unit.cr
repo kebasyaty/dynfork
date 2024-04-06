@@ -15,7 +15,7 @@ module DynFork::Commons::UnitsManagement
   # end
   #
   # unit = DynFork::Globals::DynUnit.new(
-  #   field_name: "field_name",
+  #   field: "field_name",
   #   title: "Title",
   #   value: "value", # String | Int64 | Float64
   #   delete: false   # default is the same as false
@@ -25,6 +25,23 @@ module DynFork::Commons::UnitsManagement
   # ```
   #
   def unit_manager(unit : DynFork::Globals::Unit)
-    # ...
+    # Unit validation.
+    if unit.field.empty?
+      self.error_empty_field("field")
+    end
+    if unit.title.empty?
+      self.error_empty_field("title")
+    end
+    if unit.value.is_a?(String) && unit.value.to_s.empty?
+      self.error_empty_field("value")
+    end
   end
+
+  private def error_empty_field(field : String)
+    msg = "Model: `{{ @type.stringify }}` > " +
+          "Method: `unit_manager` > " +
+          "Argument: `unit` > " +
+          "Field `#{field}` => must not be empty."
+    raise DynFork::Errors::Panic.new msg
+  end #
 end
