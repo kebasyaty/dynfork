@@ -24,7 +24,8 @@ module DynFork::Paladins::Tools
     self.check(pointerof(collection)).valid?
   end
 
-  # Printing errors to the console ( for development ).
+  # Printing errors to the console.
+  # Convenient to use during development.
   #
   # Example:
   # ```
