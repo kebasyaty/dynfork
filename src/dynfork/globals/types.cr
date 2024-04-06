@@ -16,18 +16,18 @@ module DynFork::Globals::Types
     ); end
   end
 
-  # Unit of information for the `choices` parameter in dynamic field types.
-  struct DynUnit
+  # Unit of information for `choices` parameter in dynamic field types.
+  struct Unit
     include JSON::Serializable
     include JSON::Serializable::Strict
 
-    getter! field_name : String
+    getter! field : String
     getter! title : String
     getter! value : String | Int64 | Float64
     getter? delete : Bool
 
     def initialize(
-      @field_name : String,
+      @field : String,
       @title : String,
       @value : String | Int64 | Float64,
       @delete : Bool = false

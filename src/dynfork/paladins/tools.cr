@@ -24,7 +24,8 @@ module DynFork::Paladins::Tools
     self.check(pointerof(collection)).valid?
   end
 
-  # Printing errors to the console ( for development ).
+  # Printing errors to the console.
+  # Convenient to use during development.
   #
   # Example:
   # ```
@@ -43,21 +44,25 @@ module DynFork::Paladins::Tools
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
         # title - # ERRORS
-        (puts "\n# ERRORS:".colorize.fore(:red).mode(:bold); err? = true) unless err?
+        (
+          puts "\nERRORS:".colorize.fore(:red).mode(:bold)
+          puts "Model: `#{self.full_model_name}`".colorize.fore(:blue).mode(:bold)
+          err? = true
+        ) unless err?
         # field name
-        print "## #{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
-        print " => ".colorize.fore(:cyan).mode(:bold)
+        print "#{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
+        print " => ".colorize.fore(:blue).mode(:bold)
         # error messages
-        print @{{ field }}.errors.join("\t").colorize.fore(:red)
+        print @{{ field }}.errors.join(" || ").colorize.fore(:red)
         # line break
         print "\n"
       end
     {% end %}
     unless @hash.alerts.empty?
       # title
-      puts "# AlERTS:".colorize.fore(:yellow).mode(:bold)
+      puts "AlERTS:".colorize.fore(:yellow).mode(:bold)
       # messages
-      puts (@hash.alerts.map { |item| "## #{item}" }).join("\n").colorize.fore(:yellow)
+      puts @hash.alerts.join("\n").colorize.fore(:yellow)
       # line break
       print "\n\n"
     end
@@ -73,7 +78,7 @@ module DynFork::Paladins::Tools
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
     else
-      msg = ">hidden field< - Model: `#{@@meta.not_nil![:model_name]}` > " +
+      msg = ">hidden field< - Model: `#{self.full_model_name}` > " +
             "Field: `#{field_ptr.value.name}` => #{err_msg}"
       raise DynFork::Errors::Panic.new msg
     end
@@ -174,7 +179,7 @@ module DynFork::Paladins::Tools
       self.post_delete
     else
       raise DynFork::Errors::Panic.new(
-        "Model : `#{self.model_name}` > Field: `hash` > " +
+        "Model : `#{self.full_model_name}` > Field: `hash` > " +
         "Param: `value` => Hash is missing."
       )
     end
