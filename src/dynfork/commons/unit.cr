@@ -3,7 +3,7 @@
 module DynFork::Commons::UnitsManagement
   extend self
 
-  # For add or remove units.
+  # For insert, update and delete units.
   # NOTE: Management for `choices` parameter in dynamic field types.
   #
   # Example:
