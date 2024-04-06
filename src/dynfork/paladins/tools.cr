@@ -46,7 +46,7 @@ module DynFork::Paladins::Tools
         # title - # ERRORS
         (
           puts "\nERRORS:".colorize.fore(211, 47, 47).mode(:bold)
-          puts "Model: `#{self.full_model_name}`".colorize.fore(142, 36, 170).mode(:bold)
+          puts "Model: `#{self.full_model_name}`".colorize.fore(116, 96, 181).mode(:bold)
           err? = true
         ) unless err?
         # field name
