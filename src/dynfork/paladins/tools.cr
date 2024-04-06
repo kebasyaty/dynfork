@@ -46,12 +46,12 @@ module DynFork::Paladins::Tools
         # title - # ERRORS
         (
           puts "\nERRORS:".colorize.fore(211, 47, 47).mode(:bold)
-          puts "Model: `#{self.full_model_name}`".colorize.fore(116, 96, 181).mode(:bold)
+          puts "Model: `#{self.full_model_name}`".colorize.fore(104, 88, 160).mode(:bold)
           err? = true
         ) unless err?
         # field name
         print "#{{{field.name.stringify}}}".colorize.fore(67, 160, 71).mode(:bold)
-        print " => ".colorize.fore(194, 24, 91).mode(:bold)
+        print " => ".colorize.fore(104, 88, 160).mode(:bold)
         # error messages
         print @{{ field }}.errors.join(" || ").colorize.fore(211, 47, 47)
         # line break
