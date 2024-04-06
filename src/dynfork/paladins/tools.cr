@@ -44,24 +44,24 @@ module DynFork::Paladins::Tools
       unless @{{ field }}.errors.empty?
         # title - # ERRORS
         (
-          puts "\nERRORS:".colorize.fore(:red).mode(:bold)
-          puts "Model: `#{self.full_model_name}`".colorize.fore(:blue).mode(:bold)
+          puts "\nERRORS:".colorize.fore(211, 47, 47).mode(:bold)
+          puts "Model: `#{self.full_model_name}`".colorize.fore(142, 36, 170).mode(:bold)
           err? = true
         ) unless err?
         # field name
-        print "\t#{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
-        print " => ".colorize.fore(:magenta).mode(:bold)
+        print "\t#{{{field.name.stringify}}}".colorize.fore(67, 160, 71).mode(:bold)
+        print " => ".colorize.fore(123, 31, 162).mode(:bold)
         # error messages
-        print @{{ field }}.errors.join("\t").colorize.fore(:red)
+        print @{{ field }}.errors.join("\t").colorize.fore(211, 47, 47)
         # line break
         print "\n"
       end
     {% end %}
     unless @hash.alerts.empty?
       # title
-      puts "AlERTS:".colorize.fore(0, 255, 255).mode(:bold)
+      puts "AlERTS:".colorize.fore(255, 160, 0).mode(:bold)
       # messages
-      puts (@hash.alerts.map { |item| "\t#{item}" }).join("\n").colorize.fore(0, 255, 255)
+      puts (@hash.alerts.map { |item| "\t#{item}" }).join("\n").colorize.fore(255, 160, 0)
       # line break
       print "\n\n"
     end
