@@ -28,6 +28,47 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
+      # If the field `field` is empty?
+      ex = expect_raises(DynFork::Errors::Panic) do
+        unit = DynFork::Globals::Unit.new(
+          field: "",
+          title: "Title",
+          value: "value",
+          delete: true
+        )
+        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+      end
+      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+                           "Method: `unit_manager` > Argument: `unit` > " +
+                           "Field `field` => must not be empty."
+      #
+      # If the field `title` is empty?
+      ex = expect_raises(DynFork::Errors::Panic) do
+        unit = DynFork::Globals::Unit.new(
+          field: "field_name",
+          title: "",
+          value: "value",
+          delete: true
+        )
+        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+      end
+      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+                           "Method: `unit_manager` > Argument: `unit` > " +
+                           "Field `title` => must not be empty."
+      # If the field `value` is empty?
+      ex = expect_raises(DynFork::Errors::Panic) do
+        unit = DynFork::Globals::Unit.new(
+          field: "field_name",
+          title: "Title",
+          value: "",
+          delete: true
+        )
+        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+      end
+      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+                           "Method: `unit_manager` > Argument: `unit` > " +
+                           "Field `value` => must not be empty."
+      # All fields are filled in.
       unit = DynFork::Globals::Unit.new(
         field: "field_name",
         title: "Title",

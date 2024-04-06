@@ -38,7 +38,7 @@ module DynFork::Commons::UnitsManagement
   end
 
   private def error_empty_field(field : String)
-    msg = "Model: `{{ @type.stringify }}` > " +
+    msg = "Model: `#{{{ @type.stringify }}}` > " +
           "Method: `unit_manager` > " +
           "Argument: `unit` > " +
           "Field `#{field}` => must not be empty."
