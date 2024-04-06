@@ -11,7 +11,7 @@ module DynFork::Paladins::Groups
         if !(value = @{{ field }}.value? || @{{ field }}.default?).nil?
             raw_str_arr << value.to_s
         else
-          msg = "Model: `#{self.model_name}` > " +
+          msg = "Model: `#{self.full_model_name}` > " +
                 "Field: `#{field_ptr.value.name}` => " +
                 "`#{@{{ field }}.name}` - " +
                 "This field is specified in slug_sources. " +

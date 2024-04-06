@@ -73,7 +73,7 @@ module DynFork::Paladins::Tools
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
     else
-      msg = ">hidden field< - Model: `#{@@meta.not_nil![:model_name]}` > " +
+      msg = ">hidden field< - Model: `#{self.full_model_name}` > " +
             "Field: `#{field_ptr.value.name}` => #{err_msg}"
       raise DynFork::Errors::Panic.new msg
     end
@@ -174,7 +174,7 @@ module DynFork::Paladins::Tools
       self.post_delete
     else
       raise DynFork::Errors::Panic.new(
-        "Model : `#{self.model_name}` > Field: `hash` > " +
+        "Model : `#{self.full_model_name}` > Field: `hash` > " +
         "Param: `value` => Hash is missing."
       )
     end
