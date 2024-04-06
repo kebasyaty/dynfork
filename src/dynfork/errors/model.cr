@@ -5,14 +5,20 @@ module DynFork::Errors::Model
   # The Model has no fields.
   class FieldsMissing < DynFork::Errors::DynForkException
     def initialize(model_name : String)
-      super("Model `#{model_name}` has no fields.")
+      super(
+        "Model `#{model_name}` has no fields."
+          .colorize.fore(:red).mode(:bold)
+      )
     end
   end
 
   # The maximum number of characters in the model name has been exceeded.
   class ModelNameExcessChars < DynFork::Errors::DynForkException
     def initialize(model_name : String)
-      super("Model: `#{model_name}` => The Model name exceeds 25 characters.")
+      super(
+        "Model: `#{model_name}` => The Model name exceeds 25 characters."
+          .colorize.fore(:red).mode(:bold)
+      )
     end
   end
 
@@ -25,6 +31,7 @@ module DynFork::Errors::Model
       super(
         "Model: `#{model_name}` => " +
         "The model name fails the regular expression test #{regex_str}"
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -38,6 +45,7 @@ module DynFork::Errors::Model
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > Attribute: `group` => " +
         "Invalid group number."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end

@@ -11,6 +11,7 @@ module DynFork::Errors::Cache
       super(
         "Global settings > Parameter: `#{parameter_name}` => " +
         "The line size of #{limit_size} characters has been exceeded."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -24,6 +25,7 @@ module DynFork::Errors::Cache
       super(
         "Global settings > Parameter: `#{parameter_name}` => " +
         "Regular expression check fails: #{regex_str}."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end

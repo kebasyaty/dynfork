@@ -5,7 +5,7 @@ module DynFork::Errors::Password
   # Invalid type.
   class OldPassNotMatch < DynFork::Errors::DynForkException
     def initialize(message : String)
-      super
+      super(message.colorize.fore(:red).mode(:bold))
     end
   end
 end

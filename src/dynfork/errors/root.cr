@@ -6,7 +6,7 @@ module DynFork::Errors
   # A type of global exception that should not be raised in production.
   class Panic < DynFork::Errors::DynForkException
     def initialize(message : String)
-      super
+      super(message.colorize.fore(:red).mode(:bold))
     end
   end
 end

@@ -11,6 +11,7 @@ module DynFork::Errors::Meta
       super(
         "Model: `#{model_name}` => " +
         "Missing `#{parameter_name}` parameter for Meta."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -24,6 +25,7 @@ module DynFork::Errors::Meta
       super(
         "Model: `#{model_name}` > Meta parameter: #{parameter_name} => " +
         "Invalid model parameter name."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -38,6 +40,7 @@ module DynFork::Errors::Meta
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
         "The line size of #{limit_size} characters has been exceeded."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -52,6 +55,7 @@ module DynFork::Errors::Meta
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
         "Regular expression check fails: #{regex_str}."
+          .colorize.fore(:red).mode(:bold)
       )
     end
   end
@@ -59,7 +63,7 @@ module DynFork::Errors::Meta
   # If deleting documents is prohibited.
   class ForbiddenDeleting < DynFork::Errors::DynForkException
     def initialize
-      super(I18n.t(:forbidden_deleting))
+      super(I18n.t(:forbidden_deleting).colorize.fore(:red).mode(:bold))
     end
   end
 end
