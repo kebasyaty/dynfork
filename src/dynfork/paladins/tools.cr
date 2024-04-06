@@ -43,10 +43,14 @@ module DynFork::Paladins::Tools
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
         # title - # ERRORS
-        (puts "\n# ERRORS:".colorize.fore(:red).mode(:bold); err? = true) unless err?
+        (
+          puts "\nERRORS:".colorize.fore(:red).mode(:bold)
+          puts "Model: `#{self.full_model_name}`".colorize.fore(:blue).mode(:bold)
+          err? = true
+        ) unless err?
         # field name
-        print "## #{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
-        print " => ".colorize.fore(:cyan).mode(:bold)
+        print "\t#{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
+        print " => ".colorize.fore(:magenta).mode(:bold)
         # error messages
         print @{{ field }}.errors.join("\t").colorize.fore(:red)
         # line break
@@ -55,9 +59,9 @@ module DynFork::Paladins::Tools
     {% end %}
     unless @hash.alerts.empty?
       # title
-      puts "# AlERTS:".colorize.fore(:yellow).mode(:bold)
+      puts "AlERTS:".colorize.fore(0, 255, 255).mode(:bold)
       # messages
-      puts (@hash.alerts.map { |item| "## #{item}" }).join("\n").colorize.fore(:yellow)
+      puts (@hash.alerts.map { |item| "\t#{item}" }).join("\n").colorize.fore(0, 255, 255)
       # line break
       print "\n\n"
     end
