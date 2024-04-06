@@ -45,24 +45,24 @@ module DynFork::Paladins::Tools
       unless @{{ field }}.errors.empty?
         # title - # ERRORS
         (
-          puts "\nERRORS:".colorize.fore(211, 47, 47).mode(:bold)
+          puts "\nERRORS:".colorize.fore(:red).mode(:bold)
           puts "Model: `#{self.full_model_name}`".colorize.fore(:blue).mode(:bold)
           err? = true
         ) unless err?
         # field name
-        print "#{{{field.name.stringify}}}".colorize.fore(67, 160, 71).mode(:bold)
+        print "#{{{field.name.stringify}}}".colorize.fore(:green).mode(:bold)
         print " => ".colorize.fore(:blue).mode(:bold)
         # error messages
-        print @{{ field }}.errors.join(" || ").colorize.fore(211, 47, 47)
+        print @{{ field }}.errors.join(" || ").colorize.fore(:red)
         # line break
         print "\n"
       end
     {% end %}
     unless @hash.alerts.empty?
       # title
-      puts "AlERTS:".colorize.fore(255, 160, 0).mode(:bold)
+      puts "AlERTS:".colorize.fore(:yellow).mode(:bold)
       # messages
-      puts @hash.alerts.join("\n").colorize.fore(255, 160, 0)
+      puts @hash.alerts.join("\n").colorize.fore(:yellow)
       # line break
       print "\n\n"
     end
