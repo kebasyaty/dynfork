@@ -76,7 +76,7 @@ module DynFork::Paladins::Caching
       .new(self.full_model_name, "service_name", 25) if service_name.size > 25
     unless DynFork::Globals.cache_regex[:service_name].matches?(service_name)
       raise DynFork::Errors::Meta::ParamRegexFails
-        .new(self.full_model_name, "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+        .new(self.full_model_name.gsub("::", " > "), "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get collection name.
     # WARNING: Maximum 50 characters.
