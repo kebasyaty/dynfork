@@ -49,10 +49,10 @@ module DynFork::Paladins::Tools
           err? = true
         ) unless err?
         # field name
-        print "\t#{{{field.name.stringify}}}".colorize.fore(67, 160, 71).mode(:bold)
-        print " => ".colorize.fore(123, 31, 162).mode(:bold)
+        print "#{{{field.name.stringify}}}".colorize.fore(67, 160, 71).mode(:bold)
+        print " => ".colorize.fore(194, 24, 91).mode(:bold)
         # error messages
-        print @{{ field }}.errors.join("\t").colorize.fore(211, 47, 47)
+        print @{{ field }}.errors.join(" || ").colorize.fore(211, 47, 47)
         # line break
         print "\n"
       end
@@ -61,7 +61,7 @@ module DynFork::Paladins::Tools
       # title
       puts "AlERTS:".colorize.fore(255, 160, 0).mode(:bold)
       # messages
-      puts (@hash.alerts.map { |item| "\t#{item}" }).join("\n").colorize.fore(255, 160, 0)
+      puts @hash.alerts.join("\n").colorize.fore(255, 160, 0)
       # line break
       print "\n\n"
     end
