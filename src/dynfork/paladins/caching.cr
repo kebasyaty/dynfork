@@ -10,7 +10,7 @@ module DynFork::Paladins::Caching
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
-    model_name : String = {{ @type.stringify }}.split("::").last
+    model_name : String = @@full_model_name.split("::").last
     raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless DynFork::Globals.cache_regex[:model_name].matches?(model_name)
       raise DynFork::Errors::Model::ModelNameRegexFails
