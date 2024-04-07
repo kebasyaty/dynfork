@@ -75,6 +75,10 @@ module DynFork
       .new(label: "Updated at", hide: true, readonly: true)
     # Metadata cache.
     class_getter! meta : DynFork::Globals::CacheMetaDataType?
+    # Get full Model name = ModuleName::StructureName.
+    # <br>
+    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
+    class_getter full_model_name : String = ""
 
     def initialize
       self.caching if @@meta.nil?
@@ -98,42 +102,12 @@ module DynFork
       {% end %}
     end
 
-    # Get Model name = StructureName.
-    # <br>
-    # **Examples:** _User | UserProfile | ElectricCar | etc ..._
-    # WARNING: Maximum 25 characters.
-    def self.model_name : String
-      {{ @type.stringify }}.split("::").last
-    end
-
-    # Get Model name = StructureName.
-    # <br>
-    # **Examples:** _User | UserProfile | ElectricCar | etc ..._
-    # WARNING: Maximum 25 characters.
-    def model_name : String
-      {{ @type.stringify }}.split("::").last
-    end
-
-    # Get full Model name = ModuleName::StructureName.
-    # <br>
-    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
-    def self.full_model_name : String
-      {{ @type.stringify }}
-    end
-
-    # Get full Model name = ModuleName::StructureName.
-    # <br>
-    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
-    def full_model_name : String
-      {{ @type.stringify }}
-    end
-
     # Get ObjectId from hash field.
     def object_id? : BSON::ObjectId?
       value : String? = @hash.value?
       if !value.nil? && !value.empty?
         unless BSON::ObjectId.validate(value.not_nil!)
-          msg = "Model: `#{self.model_name}` > " +
+          msg = "Model: `#{@@full_model_name}` > " +
                 "Field: `hash` => The hash field value is not valid."
           raise DynFork::Errors::Panic.new msg
         end

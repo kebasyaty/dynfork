@@ -2,15 +2,19 @@
 module DynFork::Paladins::Caching
   # Add metadata to the global store.
   def caching
+    # Get full Model name = ModuleName::StructureName.
+    # <br>
+    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
+    @@full_model_name = {{ @type.stringify }}
     # Get Model name = Structure name.
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
-    model_name : String = self.model_name
+    model_name : String = {{ @type.stringify }}.split("::").last
     raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name) if model_name.size > 25
     unless DynFork::Globals.cache_regex[:model_name].matches?(model_name)
       raise DynFork::Errors::Model::ModelNameRegexFails
-        .new(self.full_model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+        .new(@@full_model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Checking valid names for Model parameters.
     meta_parans = [
@@ -24,13 +28,13 @@ module DynFork::Paladins::Caching
     {% for param in @type.annotation(DynFork::Meta).named_args %}
       unless meta_parans.includes?({{ param.stringify }})
         raise DynFork::Errors::Meta::InvalidParamName
-          .new(self.full_model_name, {{ param.stringify }})
+          .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
     # Checking the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
       # If there are no fields in the model, a FieldsMissing exception is raise.
-      raise DynFork::Errors::Model::FieldsMissing.new(self.full_model_name)
+      raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
     {% end %}
     # Checking attributes for file fields.
     (
@@ -39,7 +43,7 @@ module DynFork::Paladins::Caching
         if @{{ var }}.input_type? == "file"
           if @{{ var }}.target_dir.empty?
             raise DynFork::Errors::Panic.new(
-              "Model : `#{self.full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+              "Model : `#{@@full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
               "Param: `target_dir` => An empty string is not allowed."
             )
           end
@@ -48,14 +52,14 @@ module DynFork::Paladins::Caching
               thumbnails.each do |(size_name, max_size)|
                 if !size_name_list.includes?(size_name)
                   raise DynFork::Errors::Panic.new(
-                    "Model : `#{self.full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Model : `#{@@full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
                     "Param: `thumbnails` => '#{size_name}' - " +
                     "Invalid thumbnail size name. Examples: xs|sm|md|lg"
                   )
                 end
                 if max_size < 1
                   raise DynFork::Errors::Panic.new(
-                    "Model : `#{self.full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                    "Model : `#{@@full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
                     "Param: `thumbnails` => '#{max_size}' - " +
                     "The thumbnail size cannot be smaller than one pixel."
                   )
@@ -71,12 +75,12 @@ module DynFork::Paladins::Caching
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(DynFork::Meta)[:service_name] }} ||
-      raise DynFork::Errors::Meta::ParameterMissing.new(self.full_model_name, "service_name")
+      raise DynFork::Errors::Meta::ParameterMissing.new(@@full_model_name, "service_name")
     raise DynFork::Errors::Meta::ParamExcessChars
-      .new(self.full_model_name, "service_name", 25) if service_name.size > 25
+      .new(@@full_model_name, "service_name", 25) if service_name.size > 25
     unless DynFork::Globals.cache_regex[:service_name].matches?(service_name)
       raise DynFork::Errors::Meta::ParamRegexFails
-        .new(self.full_model_name.gsub("::", " > "), "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
+        .new(@@full_model_name.gsub("::", " > "), "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
     # Get collection name.
     # WARNING: Maximum 50 characters.
@@ -104,7 +108,7 @@ module DynFork::Paladins::Caching
           if path = @{{ var }}.default?
             unless File.file?(path.to_s)
               raise DynFork::Errors::Panic.new(
-                "Model : `#{self.full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
+                "Model : `#{@@full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
                 "Param: `default` => The file `#{path}` does not exist."
               )
             end
@@ -135,19 +139,19 @@ module DynFork::Paladins::Caching
             # Raise an exception if a non-existent field is specified.
             unless field_name_list.includes?(source_name)
               raise DynFork::Errors::Fields::SlugSourceNameInvalid
-                .new(self.full_model_name, {{ var.name.stringify }}, source_name)
+                .new(@@full_model_name, {{ var.name.stringify }}, source_name)
             end
             {% for var2 in @type.instance_vars %}
               if {{ var2.name.stringify }} == source_name
                 # Raise an exception if source field is not allowed type.
                 unless field_type_list.includes?(@{{ var2 }}.field_type)
                   raise DynFork::Errors::Fields::SlugSourceTypeInvalid
-                    .new(self.full_model_name, {{ var.name.stringify }}, source_name)
+                    .new(@@full_model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Raise an exception if sources are not required fields.
                 if source_name != "hash" && !@{{ var2 }}.required?
                   raise DynFork::Errors::Fields::SlugSourceNotRequired
-                    .new(self.full_model_name, {{ var.name.stringify }}, source_name)
+                    .new(@@full_model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Is there a unique field?
                 (one_unique_field? = true) if @{{ var2 }}.unique?
@@ -157,7 +161,7 @@ module DynFork::Paladins::Caching
           # Raise  an exception if unique fields are missing.
           unless one_unique_field?
             raise DynFork::Errors::Fields::SlugSourceNotUnique
-              .new(self.full_model_name, {{ var.name.stringify }})
+              .new(@@full_model_name, {{ var.name.stringify }})
           end
         end
       {% end %}
@@ -206,7 +210,7 @@ module DynFork::Paladins::Caching
           # The max date must be greater than the min date.
           if !max_time.nil? && !min_time.nil? && (max_time <=> min_time) != 1
             raise DynFork::Errors::Fields::NotCorrectMinDate
-              .new(self.full_model_name, {{ var.name.stringify }})
+              .new(@@full_model_name, {{ var.name.stringify }})
           end
           # Check the default date against the min and max parameters.
           unless default_time.nil?
@@ -214,7 +218,7 @@ module DynFork::Paladins::Caching
             if !max_time.nil? && (default_time <=> max_time) == 1
               raise DynFork::Errors::Fields::NotCorrectDefaultDate
                 .new(
-                  self.full_model_name,
+                  @@full_model_name,
                   {{ var.name.stringify }},
                   "The default date should not exceed the max date."
                 )
@@ -223,7 +227,7 @@ module DynFork::Paladins::Caching
             if !min_time.nil? && (default_time <=> min_time) == -1
               raise DynFork::Errors::Fields::NotCorrectDefaultDate
                 .new(
-                  self.full_model_name,
+                  @@full_model_name,
                   {{ var.name.stringify }},
                   "The default date must not be less than the min date."
                 )

@@ -46,7 +46,7 @@ module DynFork::Paladins::Tools
         # title - # ERRORS
         (
           puts "\nERRORS:".colorize.fore(:red).mode(:bold)
-          puts "Model: `#{self.full_model_name}`".colorize.fore(:blue).mode(:bold)
+          puts "Model: `#{@@full_model_name}`".colorize.fore(:blue).mode(:bold)
           err? = true
         ) unless err?
         # field name
@@ -78,7 +78,7 @@ module DynFork::Paladins::Tools
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
     else
-      msg = ">hidden field< - Model: `#{self.full_model_name}` > " +
+      msg = ">hidden field< - Model: `#{@@full_model_name}` > " +
             "Field: `#{field_ptr.value.name}` => #{err_msg}"
       raise DynFork::Errors::Panic.new msg
     end
@@ -179,7 +179,7 @@ module DynFork::Paladins::Tools
       self.post_delete
     else
       raise DynFork::Errors::Panic.new(
-        "Model : `#{self.full_model_name}` > Field: `hash` > " +
+        "Model : `#{@@full_model_name}` > Field: `hash` > " +
         "Param: `value` => Hash is missing."
       )
     end
@@ -294,7 +294,7 @@ module DynFork::Paladins::Tools
             @{{ field }}.refrash_val_str(value.as(String))
           else
             raise DynFork::Errors::Model::InvalidGroupNumber
-              .new(self.model_name, {{ field.name.stringify }})
+              .new(@@full_model_name, {{ field.name.stringify }})
           end
         else
             @{{ field }}.value =  nil

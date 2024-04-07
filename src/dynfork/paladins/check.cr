@@ -153,7 +153,7 @@ module DynFork::Paladins::Check
           end
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
-            .new(self.full_model_name, {{ field.name.stringify }})
+            .new(@@full_model_name, {{ field.name.stringify }})
         end
       end
     {% end %}

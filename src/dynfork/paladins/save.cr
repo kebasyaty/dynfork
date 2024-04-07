@@ -78,7 +78,7 @@ module DynFork::Paladins::Save
         self.refrash_fields(pointerof(doc))
       else
         raise DynFork::Errors::Panic.new(
-          "Model : `#{self.full_model_name}` => The document was not created."
+          "Model : `#{@@full_model_name}` => The document was not created."
         )
       end
     end
