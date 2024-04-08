@@ -48,6 +48,9 @@ module DynFork::Commons::UnitsManagement
     )
     # Insert, update or delete unit.
     if !unit.delete?
+      if model_state.data_dynamic_fields.has_key?(unit.title)
+        self.error_key_already_exists(unit.title)
+      end
       # Insert or update.
       model_state.data_dynamic_fields[unit.title] = unit.value.to_s
     else
@@ -60,9 +63,7 @@ module DynFork::Commons::UnitsManagement
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
     # Update documents in a collection.
-    if !unit.delete?
-      # ...
-    else
+    if unit.delete?
       # ...
     end
   end
@@ -75,10 +76,17 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
-  private def error_key_missing(field : String)
+  private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "Cannot delete, key `#{field}` is missing!"
+          "Key `#{title}` already exists!"
+    raise DynFork::Errors::Panic.new msg
+  end
+
+  private def error_key_missing(title : String)
+    msg = "Model: `#{self.full_model_name}` > " +
+          "Method: `unit_manager` => " +
+          "Cannot delete, key `#{title}` is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 end
