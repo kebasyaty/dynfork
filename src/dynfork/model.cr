@@ -73,12 +73,12 @@ module DynFork
       .new(label: "Created at", hide: true, readonly: true)
     getter updated_at = DynFork::Fields::DateTimeField
       .new(label: "Updated at", hide: true, readonly: true)
-    # Metadata cache.
-    class_getter! meta : DynFork::Globals::CacheMetaDataType?
     # Get full Model name = ModuleName::StructureName.
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     class_getter full_model_name : String = ""
+    # Metadata cache.
+    class_getter! meta : DynFork::Globals::CacheMetaDataType?
 
     def initialize
       self.caching if @@meta.nil?
