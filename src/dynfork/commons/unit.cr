@@ -64,7 +64,9 @@ module DynFork::Commons::UnitsManagement
     super_collection.update_one(filter, update)
     # Update documents in a collection.
     if unit.delete?
-      # ...
+      # Get collection for current model.
+      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+        @@meta.not_nil![:collection_name]]
     end
   end
 
