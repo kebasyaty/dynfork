@@ -71,6 +71,8 @@ module DynFork::Commons::UnitsManagement
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
         @@meta.not_nil![:collection_name]]
+      # Fetch a Cursor pointing to the  collection of current Model.
+      cursor : Mongo::Cursor = collection.find
     end
   end
 
