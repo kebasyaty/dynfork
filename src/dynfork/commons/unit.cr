@@ -47,14 +47,14 @@ module DynFork::Commons::UnitsManagement
       DynFork::Migration::ModelState.from_bson(document)
     )
     # Insert, update or delete unit.
-    if unit.delete?
+    if !unit.delete?
+      # Insert or update.
+      model_state.data_dynamic_fields[unit.title] = unit.value.to_s
+    else
       # Delete key.
       if model_state.data_dynamic_fields.delete(unit.title).nil?
         self.error_key_missing(unit.title)
       end
-    else
-      # Insert or update.
-      model_state.data_dynamic_fields[unit.title] = unit.value.to_s
     end
     # Update the state of the model in the database.
     super_collection.update_one(filter, {"$set": model_state})
