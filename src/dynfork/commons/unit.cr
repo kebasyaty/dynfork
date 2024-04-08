@@ -41,17 +41,30 @@ module DynFork::Commons::UnitsManagement
       DynFork::Globals.cache_super_collection_name]
     # Get Model state.
     model_state : DynFork::Migration::ModelState = (
-      filter = {"collection_name": metadata[:collection_name]}
+      filter = {"collection_name": @@meta.not_nil![:collection_name]}
       document = super_collection.find_one(filter)
       DynFork::Migration::ModelState.from_bson(document)
     )
+    #
+    if unit.delete?
+      unit.data_dynamic_fields.has_key?(unit.field)
+    else
+      # ...
+    end
   end
 
   private def error_empty_field(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` > " +
           "Argument: `unit` > " +
-          "Field `#{field}` => must not be empty."
+          "Field `#{field}` => Must not be empty!"
     raise DynFork::Errors::Panic.new msg
-  end #
+  end
+
+  private def error_key_missing(field : String)
+    msg = "Model: `#{self.full_model_name}` > " +
+          "Method: `unit_manager` => " +
+          "Cannot delete, key `#{field}` is missing!"
+    raise DynFork::Errors::Panic.new msg
+  end
 end
