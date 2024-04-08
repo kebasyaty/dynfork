@@ -79,7 +79,8 @@ module DynFork::Commons::UnitsManagement
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "Key `#{title}` already exists!"
+          "It is not possible to add the key `#{title}`, " +
+          "this key already exists!"
     raise DynFork::Errors::Panic.new msg
   end
 
