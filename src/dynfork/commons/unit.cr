@@ -64,7 +64,7 @@ module DynFork::Commons::UnitsManagement
     super_collection.update_one(filter, update)
     # Update metadata of the current Model.
     model_state.data_dynamic_fields.each do |field_name, choices_json|
-      self.meta[:data_dynamic_fields][field_name] = choices_json
+      @@meta.not_nil![:data_dynamic_fields][field_name] = choices_json
     end
     # Update documents in the collection of the current Model.
     if unit.delete?
