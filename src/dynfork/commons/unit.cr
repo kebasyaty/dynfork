@@ -75,8 +75,10 @@ module DynFork::Commons::UnitsManagement
       cursor : Mongo::Cursor = collection.find
       #
       cursor.each { |document|
-        filter = {"_id": document["_id"]}
-        update = {"$set": {"model_exists": false}}
+        doc_h = document.to_h
+        # ???
+        filter = {"_id": doc_h["_id"]}
+        update = {"$set": {unit.title => ???}}
         collection.update_one(filter, update)
       }
     end
