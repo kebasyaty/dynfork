@@ -73,6 +73,12 @@ module DynFork::Commons::UnitsManagement
         @@meta.not_nil![:collection_name]]
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
+      #
+      cursor.each { |document|
+        filter = {"_id": document["_id"]}
+        update = {"$set": {"model_exists": false}}
+        collection.update_one(filter, update)
+      }
     end
   end
 
