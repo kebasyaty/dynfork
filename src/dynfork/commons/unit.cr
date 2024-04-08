@@ -39,6 +39,12 @@ module DynFork::Commons::UnitsManagement
     # Contains model state and dynamic field data.
     super_collection = DynFork::Globals.cache_mongo_database[
       DynFork::Globals.cache_super_collection_name]
+    # Get Model state.
+    model_state : DynFork::Migration::ModelState = (
+      filter = {"collection_name": metadata[:collection_name]}
+      document = super_collection.find_one(filter)
+      DynFork::Migration::ModelState.from_bson(document)
+    )
   end
 
   private def error_empty_field(field : String)
