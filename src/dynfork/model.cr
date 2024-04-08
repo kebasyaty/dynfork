@@ -104,8 +104,7 @@ module DynFork
 
     # Get ObjectId from hash field.
     def object_id? : BSON::ObjectId?
-      value : String? = @hash.value?
-      if !value.nil? && !value.empty?
+      if value : String? = @hash.value?.presence
         unless BSON::ObjectId.validate(value.not_nil!)
           msg = "Model: `#{@@full_model_name}` > " +
                 "Field: `hash` => The hash field value is not valid."

@@ -1,7 +1,7 @@
 require "../../../spec_helper"
 
 describe DynFork::Model do
-  describe "self.unit_manager" do
+  describe ".unit_manager" do
     it "=> validation of unit", tags: "unit_errors" do
       # Init data for test.
       #
