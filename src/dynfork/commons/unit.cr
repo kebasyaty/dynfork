@@ -35,6 +35,10 @@ module DynFork::Commons::UnitsManagement
     if unit.value.is_a?(String) && unit.value.to_s.empty?
       self.error_empty_field("value")
     end
+    # Get super collection.
+    # Contains model state and dynamic field data.
+    super_collection = DynFork::Globals.cache_mongo_database[
+      DynFork::Globals.cache_super_collection_name]
   end
 
   private def error_empty_field(field : String)
