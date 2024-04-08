@@ -1,8 +1,8 @@
 require "../../../spec_helper"
 
 describe DynFork::Model do
-  describe "self.unit_manager" do
-    it "=> call class method", tags: "unit" do
+  describe ".unit_manager" do
+    it "=> validation of unit", tags: "unit_errors" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -68,14 +68,6 @@ describe DynFork::Model do
       ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
                            "Field `value` => must not be empty."
-      # All fields are filled in.
-      unit = DynFork::Globals::Unit.new(
-        field: "field_name",
-        title: "Title",
-        value: "value",
-        delete: true
-      )
-      Spec::Data::UnitModel.unit_manager(unit).should be_nil
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

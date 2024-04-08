@@ -73,12 +73,12 @@ module DynFork
       .new(label: "Created at", hide: true, readonly: true)
     getter updated_at = DynFork::Fields::DateTimeField
       .new(label: "Updated at", hide: true, readonly: true)
-    # Metadata cache.
-    class_getter! meta : DynFork::Globals::CacheMetaDataType?
     # Get full Model name = ModuleName::StructureName.
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     class_getter full_model_name : String = ""
+    # Metadata cache.
+    class_getter! meta : DynFork::Globals::CacheMetaDataType?
 
     def initialize
       self.caching if @@meta.nil?
@@ -86,7 +86,7 @@ module DynFork
     end
 
     # Injecting metadata from storage in Model.
-    def inject
+    private def inject
       var_name : String = ""
       json : String?
       #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.
@@ -104,8 +104,7 @@ module DynFork
 
     # Get ObjectId from hash field.
     def object_id? : BSON::ObjectId?
-      value : String? = @hash.value?
-      if !value.nil? && !value.empty?
+      if value : String? = @hash.value?.presence
         unless BSON::ObjectId.validate(value.not_nil!)
           msg = "Model: `#{@@full_model_name}` > " +
                 "Field: `hash` => The hash field value is not valid."
