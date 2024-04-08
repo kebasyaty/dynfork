@@ -48,11 +48,12 @@ module DynFork::Commons::UnitsManagement
     # Insert, update or delete unit.
     if unit.delete?
       # Delete key.
-      if model_state.data_dynamic_fields.delete(unit.field).nil?
-        self.error_key_missing(unit.field)
+      if model_state.data_dynamic_fields.delete(unit.title).nil?
+        self.error_key_missing(unit.title)
       end
     else
-      # ...
+      # Insert or update.
+      model_state.data_dynamic_fields[unit.title] = unit.value.to_s
     end
   end
 
