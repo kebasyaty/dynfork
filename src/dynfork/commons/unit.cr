@@ -59,6 +59,12 @@ module DynFork::Commons::UnitsManagement
     # Update the state of the model in the database.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
+    # Update documents in a collection.
+    if !unit.delete?
+      # ...
+    else
+      # ...
+    end
   end
 
   private def error_empty_field(field : String)
