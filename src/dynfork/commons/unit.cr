@@ -59,10 +59,14 @@ module DynFork::Commons::UnitsManagement
         self.error_key_missing(unit.title)
       end
     end
-    # Update the state of the model in the database.
+    # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
-    # Update documents in a collection.
+    # Update metadata of the current Model.
+    model_state.data_dynamic_fields.each do |field_name, choices_json|
+      self.meta[:data_dynamic_fields][field_name] = choices_json
+    end
+    # Update documents in the collection of the current Model.
     if unit.delete?
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
