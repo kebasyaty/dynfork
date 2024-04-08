@@ -45,9 +45,12 @@ module DynFork::Commons::UnitsManagement
       document = super_collection.find_one(filter)
       DynFork::Migration::ModelState.from_bson(document)
     )
-    #
+    # Insert, update or delete unit.
     if unit.delete?
-      unit.data_dynamic_fields.has_key?(unit.field)
+      # Delete key.
+      if model_state.data_dynamic_fields.delete(unit.field).nil?
+        self.error_key_missing(unit.field)
+      end
     else
       # ...
     end
