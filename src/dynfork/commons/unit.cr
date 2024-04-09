@@ -104,7 +104,21 @@ module DynFork::Commons::UnitsManagement
       #
       cursor.each { |_document|
         doc_h = _document.to_h
-        # ???
+        #
+        if dyn_field_type.includes?("Mult")
+          if dyn_field_type.includes?("Text")
+            # ...
+          elsif dyn_field_type.includes?("I64")
+            # ...
+          elsif dyn_field_type.includes?("F64")
+            # ...
+          else
+            self.error_invalid_field_type(dyn_field_type)
+          end
+        else
+          doc_h[unit.field] = nil
+        end
+        # update data
         filter = {"_id": doc_h["_id"]}
         update = {"$set": {unit.field => "???"}}
         collection.update_one(filter, update)
