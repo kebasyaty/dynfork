@@ -57,24 +57,27 @@ module DynFork::Commons::UnitsManagement
     # Check the presence of the key (Title).
     key_exists? : Bool = false
     # Get clean dynamic field data.
-    choices = if dyn_field_type.includes?("Text")
-                choices_text = Array(Tuple(String, String)).from_json(json)
-                key_exists? = choices_text.includes?({unit.value.to_s, unit.field})
-                choices_text
-              elsif dyn_field_type.includes?("I64")
-                choices_i64 = Array(Tuple(Int64, String)).from_json(json)
-                key_exists? = choices_i64.includes?({unit.value.to_i64, unit.field})
-                choices_i64
-              elsif dyn_field_type.includes?("F64")
-                choices_f64 = Array(Tuple(Float64, String)).from_json(json)
-                key_exists? = choices_f64.includes?({unit.value.to_f64, unit.field})
-                choices_f64
-              end
+    choices : Array(Tuple(String, String)) | Array(Tuple(Int64, String)) | Array(Tuple(Float64, String)) = (
+      if dyn_field_type.includes?("Text")
+        choices_text = Array(Tuple(String, String)).from_json(json)
+        key_exists? = choices_text.includes?({unit.value.to_s, unit.field})
+        choices_text
+      elsif dyn_field_type.includes?("I64")
+        choices_i64 = Array(Tuple(Int64, String)).from_json(json)
+        key_exists? = choices_i64.includes?({unit.value.to_i64, unit.field})
+        choices_i64
+      elsif dyn_field_type.includes?("F64")
+        choices_f64 = Array(Tuple(Float64, String)).from_json(json)
+        key_exists? = choices_f64.includes?({unit.value.to_f64, unit.field})
+        choices_f64
+      end
+    )
     # Insert, update or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
       # Insert key.
-      choices.select! { |item| item[1] }
+      choices << {unit.value, unit.title}
+      model_state.data_dynamic_fields[unit.field] = choices.to_json
     else
       self.error_key_missing(unit.title) unless key_exists?
       # Delete key.
