@@ -121,7 +121,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
-  # If the Model does not have a dynamic field specified in Unit.
+  # Error: If the Model does not have a dynamic field specified in Unit.
   private def error_field_missing(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -129,7 +129,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
-  # If the field type does not match.
+  # Error: If the field type does not match.
   private def error_invalid_field_type(field_type : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -137,6 +137,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: When try to add existing data.
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -144,6 +145,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: When try to delete data that doesn't exist.
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
