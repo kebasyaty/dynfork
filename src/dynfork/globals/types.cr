@@ -23,13 +23,13 @@ module DynFork::Globals::Types
 
     getter! field : String
     getter! title : String
-    getter! value : String | Int64 | Float64
+    getter! value : Float64 | Int64 | String
     getter? delete : Bool
 
     def initialize(
       @field : String,
       @title : String,
-      @value : String | Int64 | Float64,
+      @value : Float64 | Int64 | String,
       @delete : Bool = false
     ); end
   end

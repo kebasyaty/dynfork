@@ -46,7 +46,8 @@ module DynFork::Migration
 
     # Update the state of Models in the super collection.
     private def refresh
-      # Get super collection - State of Models and dynamic field data.
+      # Get super collection.
+      # Contains model state and dynamic field data.
       super_collection = DynFork::Globals.cache_mongo_database[
         DynFork::Globals.cache_super_collection_name]
       # Fetch a Cursor pointing to the super collection.
@@ -106,7 +107,8 @@ module DynFork::Migration
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # If the Model parameter add_doc is false, skip the iteration.
         next unless metadata[:saving_docs?]
-        # Get super collection - State of Models and dynamic fields data.
+        # Get super collection.
+        # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
           DynFork::Globals.cache_super_collection_name]
         # Get ModelState for current Model.
@@ -201,7 +203,7 @@ module DynFork::Migration
         end
         #
         # ----------------------------------------------------------------------
-        # Get dynamic field data and add it to the current Model metadata.
+        # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
           model.meta[:data_dynamic_fields][field_name] = choices_json
         end
