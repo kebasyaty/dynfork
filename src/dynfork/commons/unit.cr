@@ -95,21 +95,21 @@ module DynFork::Commons::UnitsManagement
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
-    # if unit.delete?
-    #   # Get collection for current model.
-    #   collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-    #     @@meta.not_nil![:collection_name]]
-    #   # Fetch a Cursor pointing to the  collection of current Model.
-    #   cursor : Mongo::Cursor = collection.find
-    #   #
-    #   cursor.each { |_document|
-    #     doc_h = _document.to_h
-    #     # ???
-    #     filter = {"_id": doc_h["_id"]}
-    #     update = {"$set": {unit.unit.field => "???"}}
-    #     collection.update_one(filter, update)
-    #   }
-    # end
+    if unit.delete?
+      # Get collection for current model.
+      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+        @@meta.not_nil![:collection_name]]
+      # Fetch a Cursor pointing to the  collection of current Model.
+      cursor : Mongo::Cursor = collection.find
+      #
+      cursor.each { |_document|
+        doc_h = _document.to_h
+        # ???
+        filter = {"_id": doc_h["_id"]}
+        update = {"$set": {unit.unit.field => "???"}}
+        collection.update_one(filter, update)
+      }
+    end
   end
 
   # Error: If any of the fields in the Unit is empty.
