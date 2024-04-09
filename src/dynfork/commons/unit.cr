@@ -112,7 +112,7 @@ module DynFork::Commons::UnitsManagement
     # end
   end
 
-  # If any of the fields in the Unit is empty.
+  # Error: If any of the fields in the Unit is empty.
   private def error_empty_field(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` > " +
