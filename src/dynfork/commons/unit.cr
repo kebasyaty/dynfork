@@ -101,7 +101,7 @@ module DynFork::Commons::UnitsManagement
         doc_h = _document.to_h
         # ???
         filter = {"_id": doc_h["_id"]}
-        update = {"$set": {unit.title => "???"}}
+        update = {"$set": {unit.unit.field => "???"}}
         collection.update_one(filter, update)
       }
     end
