@@ -72,7 +72,7 @@ module DynFork::Commons::UnitsManagement
         choices_f64
       end
     )
-    # Insert, update or delete unit.
+    # Insert or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
       # Insert key.
