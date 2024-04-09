@@ -81,6 +81,19 @@ describe DynFork::Model do
       ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` => " +
                            "The Model is missing a dynamic field `field_name`!"
+      # When try to delete data that doesn't exist.
+      ex = expect_raises(DynFork::Errors::Panic) do
+        unit = DynFork::Globals::Unit.new(
+          field: "choice_text_dyn",
+          title: "Title",
+          value: "value",
+          delete: true
+        )
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      end
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
+                           "Method: `unit_manager` => " +
+                           "It is impossible to delete a unit, the `Title` key|title is missing!"
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
