@@ -50,6 +50,18 @@ module DynFork::Commons::UnitsManagement
     unless model_state.data_dynamic_fields.has_key?(unit.field)
       self.error_field_missing(unit.field)
     end
+    # Get the dynamic field type.
+    dyn_field_type : String = @@meta.not_nil![:field_name_and_type_list][unit.field]
+    # Get dynamic fields data in json format.
+    json : String = model_state.data_dynamic_fields[unit.field]
+    # ???
+    choices = if dyn_field_type.includes?("Text")
+                Array(Tuple(String, String)).from_json(json)
+              elsif dyn_field_type.includes?("I64")
+                Array(Tuple(Int64, String)).from_json(json)
+              elsif dyn_field_type.includes?("F64")
+                Array(Tuple(Float64, String)).from_json(json)
+              end
     # Insert, update or delete unit.
     if !unit.delete?
       # Insert key.
@@ -57,12 +69,10 @@ module DynFork::Commons::UnitsManagement
       # Delete key.
     end
     # Update the state of the Model in the super collection.
-    update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
+    update = {"$set": {"data_dynamic_fields": data_dynamic_fields}}
     super_collection.update_one(filter, update)
     # Update metadata of the current Model.
-    model_state.data_dynamic_fields.each do |field_name, choices_json|
-      @@meta.not_nil![:data_dynamic_fields][field_name] = choices_json
-    end
+    @@meta.not_nil![:data_dynamic_fields][unit.field] = "???"
     # Update documents in the collection of the current Model.
     if unit.delete?
       # Get collection for current model.
@@ -71,8 +81,8 @@ module DynFork::Commons::UnitsManagement
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
       #
-      cursor.each { |document|
-        doc_h = document.to_h
+      cursor.each { |_document|
+        doc_h = _document.to_h
         # ???
         filter = {"_id": doc_h["_id"]}
         update = {"$set": {unit.title => "???"}}
