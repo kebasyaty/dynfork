@@ -756,10 +756,14 @@
           <p>For insert or delete units.</p>
 <p><span class="flag purple">NOTE</span>  Management for <code>choices</code> parameter in dynamic field types.</p>
 <p>Example:</p>
-<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
-<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
-  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
-  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;TestModel&quot;</span>)]
+<span class="k">struct</span> <span class="t">ModelName</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter choice_text_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceTextDynField</span>.new
+  getter choice_text_mult_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceTextMultDynField</span>.new
+  getter choice_i64_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceI64DynField</span>.new
+  getter choice_i64_mult_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceI64MultDynField</span>.new
+  getter choice_f64_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceF64DynField</span>.new
+  getter choice_f64_mult_dyn <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">ChoiceF64MultDynField</span>.new
 <span class="k">end</span>
 
 unit <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Globals</span><span class="t">::</span><span class="t">DynUnit</span>.new(
@@ -769,7 +773,7 @@ unit <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</
   delete: <span class="n">false</span>   <span class="c"># default is the same as false</span>
 )
 
-<span class="t">User</span>.unit_manager unit</code></pre>
+<span class="t">ModelName</span>.unit_manager unit</code></pre>
         </div>
       
       <br/>
