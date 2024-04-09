@@ -104,7 +104,7 @@ module DynFork::Commons::UnitsManagement
       #
       cursor.each { |_document|
         doc_h = _document.to_h
-        # update field
+        # Update field value in document.
         if !(value = doc_h[unit.field]).nil?
           if dyn_field_type.includes?("Mult")
             if dyn_field_type.includes?("Text")
@@ -126,7 +126,7 @@ module DynFork::Commons::UnitsManagement
             doc_h[unit.field] = nil
           end
         end
-        # update data
+        # Update the value of a field in the collection of the current Model.
         filter = {"_id": doc_h["_id"]}
         update = {"$set": {unit.field => doc_h[unit.field]}}
         collection.update_one(filter, update)
