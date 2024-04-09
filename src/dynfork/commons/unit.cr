@@ -112,6 +112,7 @@ module DynFork::Commons::UnitsManagement
     # end
   end
 
+  # If any of the fields in the Unit is empty.
   private def error_empty_field(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` > " +
@@ -120,6 +121,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # If the Model does not have a dynamic field specified in Unit.
   private def error_field_missing(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -127,6 +129,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # If the field type does not match.
   private def error_invalid_field_type(field_type : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
