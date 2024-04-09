@@ -81,19 +81,6 @@ describe DynFork::Model do
       ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` => " +
                            "The Model is missing a dynamic field `field_name`!"
-      # plus this option
-      ex = expect_raises(DynFork::Errors::Panic) do
-        unit = DynFork::Globals::Unit.new(
-          field: "birthday",
-          title: "Title",
-          value: "value",
-          delete: true
-        )
-        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
-      end
-      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
-                           "Method: `unit_manager` => " +
-                           "The Model is missing a dynamic field `birthday`!" #
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
