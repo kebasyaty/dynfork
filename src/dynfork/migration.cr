@@ -185,7 +185,7 @@ module DynFork::Migration
             model_collection.update_one(filter, update)
           }
           #
-          # Update dynamic fields data in ModelState.
+          # **Update dynamic fields data in ModelState:**
           # <br>
           # <br>
           # Get a list of names of current dynamic fields.
