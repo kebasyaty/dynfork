@@ -59,30 +59,33 @@ module DynFork::Commons::UnitsManagement
     # Get clean dynamic field data.
     choices = if dyn_field_type.includes?("Text")
                 choices_text = Array(Tuple(String, String)).from_json(json)
-                key_exists? = choices_text.includes?({unit.value.as(String), unit.field})
+                key_exists? = choices_text.includes?({unit.value.to_s, unit.field})
                 choices_text
               elsif dyn_field_type.includes?("I64")
                 choices_i64 = Array(Tuple(Int64, String)).from_json(json)
-                key_exists? = choices_i64.includes?({unit.value.as(Int64), unit.field})
+                key_exists? = choices_i64.includes?({unit.value.to_i64, unit.field})
                 choices_i64
               elsif dyn_field_type.includes?("F64")
                 choices_f64 = Array(Tuple(Float64, String)).from_json(json)
-                key_exists? = choices_f64.includes?({unit.value.as(Float64), unit.field})
+                key_exists? = choices_f64.includes?({unit.value.to_f64, unit.field})
                 choices_f64
               end
     # Insert, update or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
       # Insert key.
+      choices.select! { |item| item[1] }
     else
       self.error_key_missing(unit.title) unless key_exists?
       # Delete key.
+      choices.select! { |item| item[1] != unit.title }
+      model_state.data_dynamic_fields[unit.field] = choices.to_json
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
     # Update metadata of the current Model.
-    @@meta.not_nil![:data_dynamic_fields][unit.field] = "???"
+    @@meta.not_nil![:data_dynamic_fields][unit.field] = choices.to_json
     # Update documents in the collection of the current Model.
     if unit.delete?
       # Get collection for current model.
