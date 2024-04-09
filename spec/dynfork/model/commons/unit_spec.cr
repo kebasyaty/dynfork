@@ -81,7 +81,7 @@ describe DynFork::Model do
       ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
                            "Method: `unit_manager` => " +
                            "The Model is missing a dynamic field `field_name`!"
-      # OR
+      # plus this option
       ex = expect_raises(DynFork::Errors::Panic) do
         unit = DynFork::Globals::Unit.new(
           field: "birthday",
