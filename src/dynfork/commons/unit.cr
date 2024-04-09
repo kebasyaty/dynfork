@@ -95,23 +95,48 @@ module DynFork::Commons::UnitsManagement
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
-    # if unit.delete?
-    #   # Get collection for current model.
-    #   collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-    #     @@meta.not_nil![:collection_name]]
-    #   # Fetch a Cursor pointing to the  collection of current Model.
-    #   cursor : Mongo::Cursor = collection.find
-    #   #
-    #   cursor.each { |_document|
-    #     doc_h = _document.to_h
-    #     # ???
-    #     filter = {"_id": doc_h["_id"]}
-    #     update = {"$set": {unit.unit.field => "???"}}
-    #     collection.update_one(filter, update)
-    #   }
-    # end
+    if unit.delete?
+      # Get collection for current model.
+      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+        @@meta.not_nil![:collection_name]]
+      # Fetch a Cursor pointing to the  collection of current Model.
+      cursor : Mongo::Cursor = collection.find
+      #
+      cursor.each { |_doc|
+        _doc_h = _doc.to_h
+        # Update field value in document.
+        if !(value = _doc_h[unit.field]).nil?
+          if dyn_field_type.includes?("Mult")
+            if dyn_field_type.includes?("Text")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String) }
+              arr.delete(unit.value.to_s)
+              _doc[unit.field] = !arr.empty? ? arr : nil
+            elsif dyn_field_type.includes?("I64")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64) }
+              arr.delete(unit.value.to_i64)
+              _doc[unit.field] = !arr.empty? ? arr : nil
+            elsif dyn_field_type.includes?("F64")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64) }
+              arr.delete(unit.value.to_f64)
+              _doc[unit.field] = !arr.empty? ? arr : nil
+            else
+              self.error_invalid_field_type(dyn_field_type)
+            end
+          else
+            _doc[unit.field] = nil
+          end
+        end
+        # Update the value of a field in the collection of the current Model.
+        filter = {"_id": _doc["_id"]}
+        update = {"$set": {unit.field => _doc[unit.field]}}
+        collection.update_one(filter, update)
+      }
+    end
+    #
+    nil
   end
 
+  # Error: If any of the fields in the Unit is empty.
   private def error_empty_field(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` > " +
@@ -120,6 +145,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: If the Model does not have a dynamic field specified in Unit.
   private def error_field_missing(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -127,6 +153,7 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: If the field type does not match.
   private def error_invalid_field_type(field_type : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
@@ -134,17 +161,19 @@ module DynFork::Commons::UnitsManagement
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: When try to add existing data.
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "Cannot add a new unit, the `#{title}` key is already present!"
+          "Cannot add a new unit, the `#{title}` key|title is already present!"
     raise DynFork::Errors::Panic.new msg
   end
 
+  # Error: When try to delete data that doesn't exist.
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "It is impossible to delete a unit, the `#{title}` key is missing!"
+          "It is impossible to delete a unit, the `#{title}` key|title is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 end
