@@ -72,39 +72,42 @@ module DynFork::Commons::UnitsManagement
         choices_f64
       end
     )
+    choices_json : String = ""
     # Insert or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
       # Insert key.
       choices << {unit.value, unit.title}
-      model_state.data_dynamic_fields[unit.field] = choices.to_json
+      choices_json = choices.to_json
+      model_state.data_dynamic_fields[unit.field] = choices_json
     else
       self.error_key_missing(unit.title) unless key_exists?
       # Delete key.
       choices.select! { |item| item[1] != unit.title }
-      model_state.data_dynamic_fields[unit.field] = choices.to_json
+      choices_json = choices.to_json
+      model_state.data_dynamic_fields[unit.field] = choices_json
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
     # Update metadata of the current Model.
-    @@meta.not_nil![:data_dynamic_fields][unit.field] = choices.to_json
+    @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
-    if unit.delete?
-      # Get collection for current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        @@meta.not_nil![:collection_name]]
-      # Fetch a Cursor pointing to the  collection of current Model.
-      cursor : Mongo::Cursor = collection.find
-      #
-      cursor.each { |_document|
-        doc_h = _document.to_h
-        # ???
-        filter = {"_id": doc_h["_id"]}
-        update = {"$set": {unit.unit.field => "???"}}
-        collection.update_one(filter, update)
-      }
-    end
+    # if unit.delete?
+    #   # Get collection for current model.
+    #   collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    #     @@meta.not_nil![:collection_name]]
+    #   # Fetch a Cursor pointing to the  collection of current Model.
+    #   cursor : Mongo::Cursor = collection.find
+    #   #
+    #   cursor.each { |_document|
+    #     doc_h = _document.to_h
+    #     # ???
+    #     filter = {"_id": doc_h["_id"]}
+    #     update = {"$set": {unit.unit.field => "???"}}
+    #     collection.update_one(filter, update)
+    #   }
+    # end
   end
 
   private def error_empty_field(field : String)
