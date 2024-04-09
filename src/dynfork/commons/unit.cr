@@ -8,10 +8,14 @@ module DynFork::Commons::UnitsManagement
   #
   # Example:
   # ```
-  # @[DynFork::Meta(service_name: "Accounts")]
-  # struct User < DynFork::Model
-  #   getter username = DynFork::Fields::TextField.new
-  #   getter birthday = DynFork::Fields::DateField.new
+  # @[DynFork::Meta(service_name: "TestModel")]
+  # struct ModelName < DynFork::Model
+  #   getter choice_text_dyn = DynFork::Fields::ChoiceTextDynField.new
+  #   getter choice_text_mult_dyn = DynFork::Fields::ChoiceTextMultDynField.new
+  #   getter choice_i64_dyn = DynFork::Fields::ChoiceI64DynField.new
+  #   getter choice_i64_mult_dyn = DynFork::Fields::ChoiceI64MultDynField.new
+  #   getter choice_f64_dyn = DynFork::Fields::ChoiceF64DynField.new
+  #   getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
   # end
   #
   # unit = DynFork::Globals::DynUnit.new(
@@ -21,7 +25,7 @@ module DynFork::Commons::UnitsManagement
   #   delete: false   # default is the same as false
   # )
   #
-  # User.unit_manager unit
+  # ModelName.unit_manager unit
   # ```
   #
   def unit_manager(unit : DynFork::Globals::Unit)
