@@ -3,7 +3,7 @@
 module DynFork::Commons::UnitsManagement
   extend self
 
-  # For insert, update and delete units.
+  # For insert or delete units.
   # NOTE: Management for `choices` parameter in dynamic field types.
   #
   # Example:
@@ -46,18 +46,15 @@ module DynFork::Commons::UnitsManagement
       document = super_collection.find_one(filter)
       DynFork::Migration::ModelState.from_bson(document)
     )
+    # Check for the presence of a dynamic field.
+    unless model_state.data_dynamic_fields.has_key?(unit.field)
+      self.error_field_missing(unit.field)
+    end
     # Insert, update or delete unit.
     if !unit.delete?
-      if model_state.data_dynamic_fields.has_key?(unit.title)
-        self.error_key_already_exists(unit.title)
-      end
-      # Insert or update.
-      model_state.data_dynamic_fields[unit.title] = unit.value.to_s
+      # Insert key.
     else
       # Delete key.
-      if model_state.data_dynamic_fields.delete(unit.title).nil?
-        self.error_key_missing(unit.title)
-      end
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
@@ -78,7 +75,7 @@ module DynFork::Commons::UnitsManagement
         doc_h = document.to_h
         # ???
         filter = {"_id": doc_h["_id"]}
-        update = {"$set": {unit.title => ???}}
+        update = {"$set": {unit.title => "???"}}
         collection.update_one(filter, update)
       }
     end
@@ -89,6 +86,13 @@ module DynFork::Commons::UnitsManagement
           "Method: `unit_manager` > " +
           "Argument: `unit` > " +
           "Field `#{field}` => Must not be empty!"
+    raise DynFork::Errors::Panic.new msg
+  end
+
+  private def error_field_missing(field : String)
+    msg = "Model: `#{self.full_model_name}` > " +
+          "Method: `unit_manager` => " +
+          "Dynamic field `#{field}` is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 
