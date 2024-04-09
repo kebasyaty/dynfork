@@ -54,22 +54,32 @@ module DynFork::Commons::UnitsManagement
     dyn_field_type : String = @@meta.not_nil![:field_name_and_type_list][unit.field]
     # Get dynamic field data in json format.
     json : String = model_state.data_dynamic_fields[unit.field]
+    # Check the presence of the key (Title).
+    key_exists? : Bool = false
     # Get clean dynamic field data.
     choices = if dyn_field_type.includes?("Text")
-                Array(Tuple(String, String)).from_json(json)
+                choices_text = Array(Tuple(String, String)).from_json(json)
+                key_exists? = choices_text.includes?({unit.value.as(String), unit.field})
+                choices_text
               elsif dyn_field_type.includes?("I64")
-                Array(Tuple(Int64, String)).from_json(json)
+                choices_i64 = Array(Tuple(Int64, String)).from_json(json)
+                key_exists? = choices_i64.includes?({unit.value.as(Int64), unit.field})
+                choices_i64
               elsif dyn_field_type.includes?("F64")
-                Array(Tuple(Float64, String)).from_json(json)
+                choices_f64 = Array(Tuple(Float64, String)).from_json(json)
+                key_exists? = choices_f64.includes?({unit.value.as(Float64), unit.field})
+                choices_f64
               end
     # Insert, update or delete unit.
     if !unit.delete?
+      self.error_key_already_exists(unit.title) if key_exists?
       # Insert key.
     else
+      self.error_key_missing(unit.title) unless key_exists?
       # Delete key.
     end
     # Update the state of the Model in the super collection.
-    update = {"$set": {"data_dynamic_fields": data_dynamic_fields}}
+    update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     super_collection.update_one(filter, update)
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = "???"
@@ -109,15 +119,14 @@ module DynFork::Commons::UnitsManagement
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "It is not possible to add the key `#{title}`, " +
-          "this key already exists!"
+          "Cannot add a new unit, the `#{title}` key is already present!"
     raise DynFork::Errors::Panic.new msg
   end
 
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "Cannot delete, key `#{title}` is missing!"
+          "It is impossible to delete a unit, the `#{title}` key is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 end
