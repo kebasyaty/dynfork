@@ -104,19 +104,27 @@ module DynFork::Commons::UnitsManagement
       #
       cursor.each { |_document|
         doc_h = _document.to_h
-        #
-        if dyn_field_type.includes?("Mult")
-          if dyn_field_type.includes?("Text")
-            # ...
-          elsif dyn_field_type.includes?("I64")
-            # ...
-          elsif dyn_field_type.includes?("F64")
-            # ...
+        # update field
+        if !(value = doc_h[unit.field]).nil?
+          if dyn_field_type.includes?("Mult")
+            if dyn_field_type.includes?("Text")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String) }
+              arr.delete(unit.value.to_s)
+              doc_h[unit.field] = !arr.empty? ? arr : nil
+            elsif dyn_field_type.includes?("I64")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64) }
+              arr.delete(unit.value.to_i64)
+              doc_h[unit.field] = !arr.empty? ? arr : nil
+            elsif dyn_field_type.includes?("F64")
+              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64) }
+              arr.delete(unit.value.to_f64)
+              doc_h[unit.field] = !arr.empty? ? arr : nil
+            else
+              self.error_invalid_field_type(dyn_field_type)
+            end
           else
-            self.error_invalid_field_type(dyn_field_type)
+            doc_h[unit.field] = nil
           end
-        else
-          doc_h[unit.field] = nil
         end
         # update data
         filter = {"_id": doc_h["_id"]}
@@ -124,6 +132,8 @@ module DynFork::Commons::UnitsManagement
         collection.update_one(filter, update)
       }
     end
+    #
+    nil
   end
 
   # Error: If any of the fields in the Unit is empty.
