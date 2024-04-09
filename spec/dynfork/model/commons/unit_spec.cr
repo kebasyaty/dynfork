@@ -40,8 +40,7 @@ describe DynFork::Model do
       end
       ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
-                           "Field `field` => must not be empty."
-      #
+                           "The Model is missing a dynamic field `field`!"
       # If the field `title` is empty?
       ex = expect_raises(DynFork::Errors::Panic) do
         unit = DynFork::Globals::Unit.new(
@@ -54,7 +53,7 @@ describe DynFork::Model do
       end
       ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
-                           "Field `title` => must not be empty."
+                           "The Model is missing a dynamic field `title`!"
       # If the field `value` is empty?
       ex = expect_raises(DynFork::Errors::Panic) do
         unit = DynFork::Globals::Unit.new(
