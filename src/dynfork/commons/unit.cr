@@ -44,7 +44,7 @@ module DynFork::Commons::UnitsManagement
     # Get Model state.
     model_state : DynFork::Migration::ModelState = (
       document = super_collection.find_one(filter)
-      DynFork::Migration::ModelState.from_bson(document)
+      DynFork::Migration::ModelState.from_bson(document.not_nil!)
     )
     # Check for the presence of a dynamic field.
     unless model_state.data_dynamic_fields.has_key?(unit.field)
