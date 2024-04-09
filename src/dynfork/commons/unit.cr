@@ -123,7 +123,14 @@ module DynFork::Commons::UnitsManagement
   private def error_field_missing(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
-          "Dynamic field `#{field}` is missing!"
+          "The Model is missing a dynamic field `#{field}`!"
+    raise DynFork::Errors::Panic.new msg
+  end
+
+  private def error_invalid_field_type(field_type : String)
+    msg = "Model: `#{self.full_model_name}` > " +
+          "Method: `unit_manager` => " +
+          "Invalid dynamic field type `#{field_type}`!"
     raise DynFork::Errors::Panic.new msg
   end
 
@@ -138,13 +145,6 @@ module DynFork::Commons::UnitsManagement
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` => " +
           "It is impossible to delete a unit, the `#{title}` key is missing!"
-    raise DynFork::Errors::Panic.new msg
-  end
-
-  private def error_invalid_field_type(field_type : String)
-    msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` => " +
-          "Invalid dynamic field type `#{field_type}`!"
     raise DynFork::Errors::Panic.new msg
   end
 end
