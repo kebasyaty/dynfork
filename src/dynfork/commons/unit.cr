@@ -52,9 +52,9 @@ module DynFork::Commons::UnitsManagement
     end
     # Get the dynamic field type.
     dyn_field_type : String = @@meta.not_nil![:field_name_and_type_list][unit.field]
-    # Get dynamic fields data in json format.
+    # Get dynamic field data in json format.
     json : String = model_state.data_dynamic_fields[unit.field]
-    # ???
+    # Get clean dynamic field data.
     choices = if dyn_field_type.includes?("Text")
                 Array(Tuple(String, String)).from_json(json)
               elsif dyn_field_type.includes?("I64")
