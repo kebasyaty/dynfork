@@ -105,7 +105,7 @@ module DynFork::Commons::UnitsManagement
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `unit_manager` > " +
           "Argument: `unit` > " +
-          "Field `#{field}` => Must not be empty!"
+          "The Model is missing a dynamic field `#{field}`!"
     raise DynFork::Errors::Panic.new msg
   end
 
