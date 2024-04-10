@@ -109,4 +109,24 @@ module DynFork::Commons::Others
     # Get the collection name.
     collection.name
   end
+
+  # Returns a variety of storage statistics for the collection.
+  # <br>
+  # For more details, please check the official MongoDB documentation:
+  # <br>
+  # https://docs.mongodb.com/manual/reference/command/collStats/
+  def stats(
+    *,
+    scale : Int32? = nil,
+    session : Session::ClientSession? = nil
+  ) : BSON?
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    # Get statistics.
+    collection.stats(
+      scale: scale,
+      session: session
+    )
+  end
 end
