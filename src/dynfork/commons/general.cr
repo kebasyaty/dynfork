@@ -9,7 +9,6 @@ module DynFork::Commons::QGeneral
   # https://docs.mongodb.com/manual/reference/command/aggregate/
   def aggregate(
     pipeline : Array,
-    *,
     allow_disk_use : Bool? = nil,
     batch_size : Int32? = nil,
     max_time_ms : Int64? = nil,
@@ -49,7 +48,6 @@ module DynFork::Commons::QGeneral
   # For a fast count of the total documents in a collection see **estimated_document_count**.
   def count_documents(
     filter = BSON.new,
-    *,
     skip : Int32? = nil,
     limit : Int32? = nil,
     collation : Collation? = nil,
@@ -80,7 +78,6 @@ module DynFork::Commons::QGeneral
   # <br>
   # https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details
   def estimated_document_count(
-    *,
     max_time_ms : Int64? = nil,
     read_preference : ReadPreference? = nil,
     session : Session::ClientSession? = nil
@@ -116,7 +113,6 @@ module DynFork::Commons::QGeneral
   # <br>
   # https://docs.mongodb.com/manual/reference/command/collStats/
   def stats(
-    *,
     scale : Int32? = nil,
     session : Session::ClientSession? = nil
   ) : BSON?
