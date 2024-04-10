@@ -15,7 +15,7 @@ module DynFork::Commons::QOne
     skip : Int32? = nil,
     comment : String? = nil,
     max_time_ms : Int64? = nil,
-    read_concern : ReadConcern? = nil,
+    read_concern : Mongo::ReadConcern? = nil,
     max = nil,
     min = nil,
     return_key : Bool? = nil,
@@ -23,9 +23,9 @@ module DynFork::Commons::QOne
     oplog_replay : Bool? = nil,
     no_cursor_timeout : Bool? = nil,
     allow_partial_results : Bool? = nil,
-    collation : Collation? = nil,
-    read_preference : ReadPreference? = nil,
-    session : Session::ClientSession? = nil
+    collation : Mongo::Collation? = nil,
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
   ) : self?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[

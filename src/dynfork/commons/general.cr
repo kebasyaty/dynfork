@@ -142,8 +142,8 @@ module DynFork::Commons::QGeneral
   #
   def estimated_document_count(
     max_time_ms : Int64? = nil,
-    read_preference : ReadPreference? = nil,
-    session : Session::ClientSession? = nil
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
   ) : Int32
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -162,7 +162,7 @@ module DynFork::Commons::QGeneral
   end
 
   # The collection name.
-  def name : CollectionKey
+  def name : Mongo::CollectionKey
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -177,7 +177,7 @@ module DynFork::Commons::QGeneral
   # https://docs.mongodb.com/manual/reference/command/collStats/
   def stats(
     scale : Int32? = nil,
-    session : Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil
   ) : BSON?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
