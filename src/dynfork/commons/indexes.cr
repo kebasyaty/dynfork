@@ -39,6 +39,7 @@ module DynFork::Commons::Indexes
   #
   def create_index(
     keys,
+    *,
     options = NamedTuple.new,
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
@@ -79,11 +80,12 @@ module DynFork::Commons::Indexes
   #
   def create_indexes(
     models : Array,
+    *,
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
-    write_concern : WriteConcern? = nil,
-    session : Session::ClientSession? = nil
-  ) : Commands::CreateIndexes::Result?
+    write_concern : Mongo::WriteConcern? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Commands::CreateIndexes::Result?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -102,10 +104,11 @@ module DynFork::Commons::Indexes
   # See: #drop_indexes.
   def drop_index(
     name : String,
+    *,
     max_time_ms : Int64? = nil,
-    write_concern : WriteConcern? = nil,
-    session : Session::ClientSession? = nil
-  ) : Commands::Common::BaseResult?
+    write_concern : Mongo::WriteConcern? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Commands::Common::BaseResult?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -124,10 +127,11 @@ module DynFork::Commons::Indexes
   # <br>
   # https://docs.mongodb.com/manual/reference/command/dropIndexes/
   def drop_indexes(
+    *,
     max_time_ms : Int64? = nil,
-    write_concern : WriteConcern? = nil,
-    session : Session::ClientSession? = nil
-  ) : Commands::Common::BaseResult?
+    write_concern : Mongo::WriteConcern? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Commands::Common::BaseResult?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -143,7 +147,7 @@ module DynFork::Commons::Indexes
   # <br>
   # For more details, please check the official documentation:
   # https://docs.mongodb.com/manual/reference/command/listIndexes/
-  def list_indexes(session : Session::ClientSession? = nil) : Mongo::Cursor?
+  def list_indexes(session : Mongo::Session::ClientSession? = nil) : Mongo::Cursor?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
