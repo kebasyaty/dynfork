@@ -35,13 +35,83 @@ describe DynFork::Model do
         value: "value",
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
-      # insert
+      #
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
         title: "Title 2",
         value: "value 2",
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_text_mult_dyn",
+        title: "Title",
+        value: "value",
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_text_mult_dyn",
+        title: "Title 2",
+        value: "value 2",
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_dyn",
+        title: "Title",
+        value: 12,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_dyn",
+        title: "Title 2",
+        value: 12,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+-     unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_mult_dyn",
+        title: "Title",
+        value: 12,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_mult_dyn",
+        title: "Title 2",
+        value: 12,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_dyn",
+        title: "Title",
+        value: 5.2,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_dyn",
+        title: "Title 2",
+        value: 5.2,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_mult_dyn",
+        title: "Title",
+        value: 5.2,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_mult_dyn",
+        title: "Title 2",
+        value: 5.2,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      # 
       # delete
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
@@ -50,11 +120,91 @@ describe DynFork::Model do
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
-      # delete
+      #
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
         title: "Title 2",
         value: "value 2",
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_text_mult_dyn",
+        title: "Title",
+        value: "value",
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_text_mult_dyn",
+        title: "Title 2",
+        value: "value 2",
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_dyn",
+        title: "Title",
+        value: 12,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_dyn",
+        title: "Title 2",
+        value: 12,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_mult_dyn",
+        title: "Title",
+        value: 12,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_i64_mult_dyn",
+        title: "Title 2",
+        value: 12,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_dyn",
+        title: "Title",
+        value: 5.2,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_dyn",
+        title: "Title 2",
+        value: 5.2,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_mult_dyn",
+        title: "Title",
+        value: 5.2,
+        delete: true,
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_f64_mult_dyn",
+        title: "Title 2",
+        value: 5.2,
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
