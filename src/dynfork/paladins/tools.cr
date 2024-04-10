@@ -1,7 +1,7 @@
 # Tools - A set of additional auxiliary methods for Paladins.
 module DynFork::Paladins::Tools
   # Check data validity.
-  # NOTE: The main use is to check data from web forms.
+  # NOTE: the main use is to check data from web forms.
   #
   # Example:
   # ```

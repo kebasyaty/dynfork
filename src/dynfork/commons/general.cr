@@ -41,6 +41,16 @@ module DynFork::Commons::QGeneral
     )
   end
 
+  # Finds the distinct values for a specified field across a single collection.
+  # <br>
+  # NOTE: the results are backed by the "values" array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
+  # For more details, please check the official MongoDB documentation:
+  # <br>
+  # https://docs.mongodb.com/manual/reference/command/distinct/
+  def distinct(key : String, *, filter = nil, read_concern : ReadConcern? = nil, collation : Collation? = nil, read_preference : ReadPreference? = nil, session : Session::ClientSession? = nil) : Array
+    # ...
+  end
+
   # Count the number of documents in a collection that match the given filter.
   # <br>
   # Note that an empty filter will force a scan of the entire collection.
