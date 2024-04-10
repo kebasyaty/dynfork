@@ -188,7 +188,7 @@ module DynFork::Paladins::Tools
   # Get the number of documents in the collection.
   def count_documents : Int32
     DynFork::Globals.cache_mongo_database[
-      @@meta.not_nil![:collection_name]].count_documents
+      @@meta.not_nil![:collection_name]].estimated_document_count
   end
 
   # Reset the values ​​of ignored fields to nil.
