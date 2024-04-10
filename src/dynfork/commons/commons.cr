@@ -1,8 +1,8 @@
 require "./unit"
-require "./others"
+require "./general"
 
 # Commons - Model class methods.
 module DynFork::Commons
   include DynFork::Commons::UnitsManagement
-  include DynFork::Commons::Others
+  include DynFork::Commons::QGeneral
 end

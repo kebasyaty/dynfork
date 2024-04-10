@@ -1,5 +1,5 @@
-# ???
-module DynFork::Commons::Others
+# General purpose query methods.
+module DynFork::Commons::QGeneral
   extend self
 
   # Runs an aggregation framework pipeline.
