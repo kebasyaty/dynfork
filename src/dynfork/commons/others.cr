@@ -61,7 +61,7 @@ module DynFork::Commons::Others
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
-    #
+    # Get document count.
     collection.count_documents(
       filter: filter,
       skip: skip,
@@ -88,7 +88,7 @@ module DynFork::Commons::Others
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
-    #
+    # Get document count.
     collection.estimated_document_count(
       max_time_ms: max_time_ms,
       read_preference: read_preference,
@@ -99,5 +99,14 @@ module DynFork::Commons::Others
   # The parent database.
   def database : Mongo::Database
     DynFork::Globals.cache_mongo_database
+  end
+
+  # The collection name.
+  def name : CollectionKey
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    # Get the collection name.
+    collection.name
   end
 end
