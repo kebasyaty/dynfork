@@ -73,4 +73,9 @@ module DynFork::Commons::Others
       session,
     )
   end
+
+  # The parent database.
+  def database : Mongo::Database
+    Mongo::Collection = DynFork::Globals.cache_mongo_database
+  end 
 end
