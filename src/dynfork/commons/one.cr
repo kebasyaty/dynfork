@@ -32,7 +32,7 @@ module DynFork::Commons::QOne
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    if doc : BSON? = collection.find_one_to_instance(
+    if doc : BSON? = collection.find_one(
          filter: filter,
          sort: sort,
          projection: projection,
@@ -52,7 +52,65 @@ module DynFork::Commons::QOne
          read_preference: read_preference,
          session: session,
        )
-      return self.new.refrash_fields pointerof(doc)
+      return self.new.refrash_fields! pointerof(doc)
+    end
+    #
+    nil
+  end
+
+  # Finds the document and converts it to a json string.
+  # <br>
+  # For more details, please check the official MongoDB documentation:
+  # <br>
+  # https://docs.mongodb.com/manual/reference/command/find/
+  def find_one_to_json(
+    filter = BSON.new,
+    *,
+    sort = nil,
+    projection = nil,
+    hint : String | H? = nil,
+    skip : Int32? = nil,
+    comment : String? = nil,
+    max_time_ms : Int64? = nil,
+    read_concern : Mongo::ReadConcern? = nil,
+    max = nil,
+    min = nil,
+    return_key : Bool? = nil,
+    show_record_id : Bool? = nil,
+    oplog_replay : Bool? = nil,
+    no_cursor_timeout : Bool? = nil,
+    allow_partial_results : Bool? = nil,
+    collation : Mongo::Collation? = nil,
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : String?
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    if doc : BSON? = collection.find_one(
+         filter: filter,
+         sort: sort,
+         projection: projection,
+         hint: hint,
+         skip: skip,
+         comment: comment,
+         max_time_ms: max_time_ms,
+         read_concern: read_concern,
+         max: max,
+         min: min,
+         return_key: return_key,
+         show_record_id: show_record_id,
+         oplog_replay: oplog_replay,
+         no_cursor_timeout: no_cursor_timeout,
+         allow_partial_results: allow_partial_results,
+         collation: collation,
+         read_preference: read_preference,
+         session: session,
+       )
+      instance = self.new
+      instance.refrash_fields! pointerof(doc)
+      return instance.to_json
     end
     #
     nil

@@ -201,7 +201,7 @@ module DynFork::Paladins::Tools
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_fields(doc_ptr : Pointer(BSON?))
+  def refrash_fields!(doc_ptr : Pointer(BSON?))
     if doc_ptr.value.nil?
       {% for field in @type.instance_vars %}
         @{{ field }}.value =  nil
