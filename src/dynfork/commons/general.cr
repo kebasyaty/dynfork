@@ -20,6 +20,7 @@ module DynFork::Commons::QGeneral
   #
   def aggregate(
     pipeline : Array,
+    *,
     allow_disk_use : Bool? = nil,
     batch_size : Int32? = nil,
     max_time_ms : Int64? = nil,
@@ -70,6 +71,7 @@ module DynFork::Commons::QGeneral
   #
   def distinct(
     key : String,
+    *,
     filter = nil,
     read_concern : ReadConcern? = nil,
     collation : Collation? = nil,
@@ -104,6 +106,7 @@ module DynFork::Commons::QGeneral
   #
   def count_documents(
     filter = BSON.new,
+    *,
     skip : Int32? = nil,
     limit : Int32? = nil,
     collation : Collation? = nil,
@@ -141,6 +144,7 @@ module DynFork::Commons::QGeneral
   # ```
   #
   def estimated_document_count(
+    *,
     max_time_ms : Int64? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
