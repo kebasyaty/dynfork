@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Fields::ChoiceTextDynField - dynfork v0-dev</title>
+  <title>DynFork::Commons::QOne - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -67,7 +67,7 @@
       
     </li>
   
-  <li class="parent " data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
+  <li class="parent open current" data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
       <a href="../../DynFork/Commons.html">Commons</a>
       
         <ul>
@@ -87,7 +87,7 @@
       
     </li>
   
-  <li class=" " data-id="dynfork/DynFork/Commons/QOne" data-name="dynfork::commons::qone">
+  <li class=" current" data-id="dynfork/DynFork/Commons/QOne" data-name="dynfork::commons::qone">
       <a href="../../DynFork/Commons/QOne.html">QOne</a>
       
     </li>
@@ -302,7 +302,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
+  <li class="parent " data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
       <a href="../../DynFork/Fields.html">Fields</a>
       
         <ul>
@@ -352,7 +352,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
       <a href="../../DynFork/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
       
     </li>
@@ -636,12 +636,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> DynFork::<wbr>Fields::<wbr>ChoiceTextDynField
+  <span class="kind">module</span> DynFork::<wbr>Commons::<wbr>QOne
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Fields/ChoiceTextDynField.html">DynFork::Fields::ChoiceTextDynField</a></li><li class="superclass"><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -655,9 +653,7 @@
     Overview
   </h2>
 
-  <p>Type of selective field with dynamic addition of elements.</p>
-<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-One.</p>
-<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName.update_dyn_field()</code> method.</p>
+  <p>Requests like <code>find one</code>.</p>
 
 
 
@@ -665,9 +661,37 @@
 
 
 
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons/QOne.html">DynFork::Commons::QOne</a></li>
+    
+  </ul>
 
 
 
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons.html">DynFork::Commons</a></li>
+    
+  </ul>
 
 
 
@@ -682,7 +706,7 @@
   </h2>
   
     
-      dynfork/fields/choice_text.cr
+      dynfork/commons/one.cr
     
     <br/>
   
@@ -690,30 +714,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Type of selective field with dynamic addition of elements.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -732,77 +732,16 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method" class="signature"><strong>#choices</strong> : Array(Tuple(String, String)) | Nil</a>
+        <a href="#find_one_to_instance%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CH%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3Aself%7CNil-instance-method" class="signature"><strong>#find_one_to_instance</strong>(filter = <span class="t">BSON</span>.new, *, sort = <span class="n">nil</span>, projection = <span class="n">nil</span>, hint : String | H | Nil = <span class="n">nil</span>, skip : Int32 | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, max = <span class="n">nil</span>, min = <span class="n">nil</span>, return_key : Bool | Nil = <span class="n">nil</span>, show_record_id : Bool | Nil = <span class="n">nil</span>, oplog_replay : Bool | Nil = <span class="n">nil</span>, no_cursor_timeout : Bool | Nil = <span class="n">nil</span>, allow_partial_results : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : <span class="k">self</span> | Nil</a>
         
-          <div class="summary"><p>Html tag: select.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#choices%3F%3AArray%28Tuple%28String%2CString%29%29%7CNil%7CNil-instance-method" class="signature"><strong>#choices?</strong> : Array(Tuple(String, String)) | Nil | Nil</a>
-        
-          <div class="summary"><p>Html tag: select.</p></div>
+          <div class="summary"><p>Finds the document and converts it to a Model instance.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#choices_from_json%28json%3AString%29-instance-method" class="signature"><strong>#choices_from_json</strong>(json : String)</a>
+        <a href="#find_one_to_json%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CH%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AString%7CNil-instance-method" class="signature"><strong>#find_one_to_json</strong>(filter = <span class="t">BSON</span>.new, *, sort = <span class="n">nil</span>, projection = <span class="n">nil</span>, hint : String | H | Nil = <span class="n">nil</span>, skip : Int32 | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, max = <span class="n">nil</span>, min = <span class="n">nil</span>, return_key : Bool | Nil = <span class="n">nil</span>, show_record_id : Bool | Nil = <span class="n">nil</span>, oplog_replay : Bool | Nil = <span class="n">nil</span>, no_cursor_timeout : Bool | Nil = <span class="n">nil</span>, allow_partial_results : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : String | Nil</a>
         
-          <div class="summary"><p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
-        
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#has_value%3F%3ABool-instance-method" class="signature"><strong>#has_value?</strong> : Bool</a>
-        
-          <div class="summary"><p>Does the field value match the possible options in choices.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#multiple%3F%3ABool-instance-method" class="signature"><strong>#multiple?</strong> : Bool</a>
-        
-          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#refrash_val_str%28val%3AString%29-instance-method" class="signature"><strong>#refrash_val_str</strong>(val : String)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3AString%7CNil-instance-method" class="signature"><strong>#value</strong> : String | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#value?</strong> : String | Nil | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><p>Finds the document and converts it to a json string.</p></div>
         
       </li>
     
@@ -812,246 +751,8 @@
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../DynFork/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#choices_from_json%28json%3AString%29-instance-method" class="tooltip">
-      <span>choices_from_json(json : String)</span>
-    choices_from_json</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
-      <span>disabled=(disabled : Bool)</span>
-    disabled=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
-      <span>disabled? : Bool</span>
-    disabled?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
-      <span>hide=(hide : Bool)</span>
-    hide=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
-      <span>hide? : Bool</span>
-    hide?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
-      <span>ignored? : Bool</span>
-    ignored?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#readonly%3D%28readonly%3ABool%29-instance-method" class="tooltip">
-      <span>readonly=(readonly : Bool)</span>
-    readonly=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#readonly%3F%3ABool-instance-method" class="tooltip">
-      <span>readonly? : Bool</span>
-    readonly?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#required%3F%3ABool-instance-method" class="tooltip">
-      <span>required? : Bool</span>
-    required?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
-      <span>slug_sources : Array(String)</span>
-    slug_sources</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../DynFork/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(pull : JSON::PullParser)
-
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Type of selective field with dynamic addition of elements.</p>
-<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-One.</p>
-<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName.update_dyn_field()</code> method.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>)
-
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
@@ -1068,40 +769,21 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="choices:Array(Tuple(String,String))|Nil-instance-method">
+    <div class="entry-detail" id="find_one_to_instance(filter=BSON.new,*,sort=nil,projection=nil,hint:String|H|Nil=nil,skip:Int32|Nil=nil,comment:String|Nil=nil,max_time_ms:Int64|Nil=nil,read_concern:Mongo::ReadConcern|Nil=nil,max=nil,min=nil,return_key:Bool|Nil=nil,show_record_id:Bool|Nil=nil,oplog_replay:Bool|Nil=nil,no_cursor_timeout:Bool|Nil=nil,allow_partial_results:Bool|Nil=nil,collation:Mongo::Collation|Nil=nil,read_preference:Mongo::ReadPreference|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):self|Nil-instance-method">
       <div class="signature">
         
-        def <strong>choices</strong> : Array(Tuple(String, String)) | Nil
+        def <strong>find_one_to_instance</strong>(filter = <span class="t">BSON</span>.new, *, sort = <span class="n">nil</span>, projection = <span class="n">nil</span>, hint : String | H | Nil = <span class="n">nil</span>, skip : Int32 | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, max = <span class="n">nil</span>, min = <span class="n">nil</span>, return_key : Bool | Nil = <span class="n">nil</span>, show_record_id : Bool | Nil = <span class="n">nil</span>, oplog_replay : Bool | Nil = <span class="n">nil</span>, no_cursor_timeout : Bool | Nil = <span class="n">nil</span>, allow_partial_results : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : <span class="k">self</span> | Nil
 
-        <a class="method-permalink" href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#find_one_to_instance%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CH%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3Aself%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Html tag: select.
+          <p>Finds the document and converts it to a Model instance.
 <br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="choices?:Array(Tuple(String,String))|Nil|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>choices?</strong> : Array(Tuple(String, String)) | Nil | Nil
-
-        <a class="method-permalink" href="#choices%3F%3AArray%28Tuple%28String%2CString%29%29%7CNil%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Html tag: select.
+For more details, please check the official MongoDB documentation:
 <br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
+https://docs.mongodb.com/manual/reference/command/find/</p>
         </div>
       
       <br/>
@@ -1110,165 +792,21 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="choices_from_json(json:String)-instance-method">
+    <div class="entry-detail" id="find_one_to_json(filter=BSON.new,*,sort=nil,projection=nil,hint:String|H|Nil=nil,skip:Int32|Nil=nil,comment:String|Nil=nil,max_time_ms:Int64|Nil=nil,read_concern:Mongo::ReadConcern|Nil=nil,max=nil,min=nil,return_key:Bool|Nil=nil,show_record_id:Bool|Nil=nil,oplog_replay:Bool|Nil=nil,no_cursor_timeout:Bool|Nil=nil,allow_partial_results:Bool|Nil=nil,collation:Mongo::Collation|Nil=nil,read_preference:Mongo::ReadPreference|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):String|Nil-instance-method">
       <div class="signature">
         
-        def <strong>choices_from_json</strong>(json : String)
+        def <strong>find_one_to_json</strong>(filter = <span class="t">BSON</span>.new, *, sort = <span class="n">nil</span>, projection = <span class="n">nil</span>, hint : String | H | Nil = <span class="n">nil</span>, skip : Int32 | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, max = <span class="n">nil</span>, min = <span class="n">nil</span>, return_key : Bool | Nil = <span class="n">nil</span>, show_record_id : Bool | Nil = <span class="n">nil</span>, oplog_replay : Bool | Nil = <span class="n">nil</span>, no_cursor_timeout : Bool | Nil = <span class="n">nil</span>, allow_partial_results : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : String | Nil
 
-        <a class="method-permalink" href="#choices_from_json%28json%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#find_one_to_json%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CH%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AString%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="field_type:String-instance-method">
-      <div class="signature">
-        
-        def <strong>field_type</strong> : String
-
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Field type - Structure Name.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="group:UInt8-instance-method">
-      <div class="signature">
-        
-        def <strong>group</strong> : UInt8
-
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="has_value?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>has_value?</strong> : Bool
-
-        <a class="method-permalink" href="#has_value%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Does the field value match the possible options in choices.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="multiple?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>multiple?</strong> : Bool
-
-        <a class="method-permalink" href="#multiple%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies that multiple options can be selected at once.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="refrash_val_str(val:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>refrash_val_str</strong>(val : String)
-
-        <a class="method-permalink" href="#refrash_val_str%28val%3AString%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:String|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : String | Nil
-
-        <a class="method-permalink" href="#value%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:String|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : String | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value?:String|Nil|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value?</strong> : String | Nil | Nil
-
-        <a class="method-permalink" href="#value%3F%3AString%7CNil%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
+          <p>Finds the document and converts it to a json string.
+<br>
+For more details, please check the official MongoDB documentation:
+<br>
+https://docs.mongodb.com/manual/reference/command/find/</p>
         </div>
       
       <br/>

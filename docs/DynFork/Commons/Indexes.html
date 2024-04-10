@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Fields::ChoiceTextDynField - dynfork v0-dev</title>
+  <title>DynFork::Commons::Indexes - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -67,12 +67,12 @@
       
     </li>
   
-  <li class="parent " data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
+  <li class="parent open current" data-id="dynfork/DynFork/Commons" data-name="dynfork::commons">
       <a href="../../DynFork/Commons.html">Commons</a>
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Commons/Indexes" data-name="dynfork::commons::indexes">
+  <li class=" current" data-id="dynfork/DynFork/Commons/Indexes" data-name="dynfork::commons::indexes">
       <a href="../../DynFork/Commons/Indexes.html">Indexes</a>
       
     </li>
@@ -302,7 +302,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
+  <li class="parent " data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
       <a href="../../DynFork/Fields.html">Fields</a>
       
         <ul>
@@ -352,7 +352,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
       <a href="../../DynFork/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
       
     </li>
@@ -636,12 +636,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> DynFork::<wbr>Fields::<wbr>ChoiceTextDynField
+  <span class="kind">module</span> DynFork::<wbr>Commons::<wbr>Indexes
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Fields/ChoiceTextDynField.html">DynFork::Fields::ChoiceTextDynField</a></li><li class="superclass"><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -655,9 +653,7 @@
     Overview
   </h2>
 
-  <p>Type of selective field with dynamic addition of elements.</p>
-<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-One.</p>
-<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName.update_dyn_field()</code> method.</p>
+  <p>Indexing collections.</p>
 
 
 
@@ -665,9 +661,37 @@
 
 
 
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons/Indexes.html">DynFork::Commons::Indexes</a></li>
+    
+  </ul>
 
 
 
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../../DynFork/Commons.html">DynFork::Commons</a></li>
+    
+  </ul>
 
 
 
@@ -682,7 +706,7 @@
   </h2>
   
     
-      dynfork/fields/choice_text.cr
+      dynfork/commons/indexes.cr
     
     <br/>
   
@@ -690,30 +714,6 @@
 
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
-        
-          <div class="summary"><p>Type of selective field with dynamic addition of elements.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#new%28label%3AString%3D%22%22%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>)</a>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -732,77 +732,37 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method" class="signature"><strong>#choices</strong> : Array(Tuple(String, String)) | Nil</a>
+        <a href="#create_index%28keys%2C%2A%2Coptions%3DNamedTuple.new%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AWriteConcern%7CNil%3Dnil%2Csession%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ACommands%3A%3ACreateIndexes%3A%3AResult%7CNil-instance-method" class="signature"><strong>#create_index</strong>(keys, *, options = <span class="t">NamedTuple</span>.new, commit_quorum : Int32 | String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : WriteConcern | Nil = <span class="n">nil</span>, session : Session::ClientSession | Nil = <span class="n">nil</span>) : Commands::CreateIndexes::Result | Nil</a>
         
-          <div class="summary"><p>Html tag: select.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#choices%3F%3AArray%28Tuple%28String%2CString%29%29%7CNil%7CNil-instance-method" class="signature"><strong>#choices?</strong> : Array(Tuple(String, String)) | Nil | Nil</a>
-        
-          <div class="summary"><p>Html tag: select.</p></div>
+          <div class="summary"><p>This is a convenience method for creating a single index.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#choices_from_json%28json%3AString%29-instance-method" class="signature"><strong>#choices_from_json</strong>(json : String)</a>
+        <a href="#create_indexes%28models%3AArray%2C%2A%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACreateIndexes%3A%3AResult%7CNil-instance-method" class="signature"><strong>#create_indexes</strong>(models : Array, *, commit_quorum : Int32 | String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::CreateIndexes::Result | Nil</a>
         
-          <div class="summary"><p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
-        
-          <div class="summary"><p>Field type - Structure Name.</p></div>
+          <div class="summary"><p>Creates multiple indexes in the collection.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
+        <a href="#drop_index%28name%3AString%2C%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ABaseResult%7CNil-instance-method" class="signature"><strong>#drop_index</strong>(name : String, *, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::BaseResult | Nil</a>
         
-          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#has_value%3F%3ABool-instance-method" class="signature"><strong>#has_value?</strong> : Bool</a>
-        
-          <div class="summary"><p>Does the field value match the possible options in choices.</p></div>
+          <div class="summary"><p>Drops a single index from the collection by the index name.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#multiple%3F%3ABool-instance-method" class="signature"><strong>#multiple?</strong> : Bool</a>
+        <a href="#drop_indexes%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ABaseResult%7CNil-instance-method" class="signature"><strong>#drop_indexes</strong>(*, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::BaseResult | Nil</a>
         
-          <div class="summary"><p>Specifies that multiple options can be selected at once.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#refrash_val_str%28val%3AString%29-instance-method" class="signature"><strong>#refrash_val_str</strong>(val : String)</a>
+          <div class="summary"><p>Drops all indexes in the collection.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#value%3AString%7CNil-instance-method" class="signature"><strong>#value</strong> : String | Nil</a>
+        <a href="#list_indexes%28session%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method" class="signature"><strong>#list_indexes</strong>(session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Cursor | Nil</a>
         
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3D%28value%3AString%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : String | Nil)</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#value%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#value?</strong> : String | Nil | Nil</a>
-        
-          <div class="summary"><p>Sets the value of an element.</p></div>
+          <div class="summary"><p>Gets index information for all indexes in the collection.</p></div>
         
       </li>
     
@@ -812,246 +772,8 @@
 
 <div class="methods-inherited">
   
-    
-
-  <h3>Instance methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../DynFork/Fields/Field.html#%5B%5D%3F%28variable%29%3ABool-instance-method" class="tooltip">
-      <span>[]?(variable) : Bool</span>
-    []?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#choices_from_json%28json%3AString%29-instance-method" class="tooltip">
-      <span>choices_from_json(json : String)</span>
-    choices_from_json</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
-      <span>disabled=(disabled : Bool)</span>
-    disabled=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
-      <span>disabled? : Bool</span>
-    disabled?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
-      <span>errors : Array(String)</span>
-    errors</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
-      <span>errors=(errors : Array(String))</span>
-    errors=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
-      <span>field_type : String</span>
-    field_type</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
-      <span>group : UInt8</span>
-    group</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
-      <span>hide=(hide : Bool)</span>
-    hide=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
-      <span>hide? : Bool</span>
-    hide?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
-      <span>hint : String</span>
-    hint</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#id%3AString-instance-method" class="tooltip">
-      <span>id : String</span>
-    id</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
-      <span>id=(id : String)</span>
-    id=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
-      <span>ignored? : Bool</span>
-    ignored?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#label%3AString-instance-method" class="tooltip">
-      <span>label : String</span>
-    label</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#name%3AString-instance-method" class="tooltip">
-      <span>name : String</span>
-    name</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
-      <span>name=(name : String)</span>
-    name=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#readonly%3D%28readonly%3ABool%29-instance-method" class="tooltip">
-      <span>readonly=(readonly : Bool)</span>
-    readonly=</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#readonly%3F%3ABool-instance-method" class="tooltip">
-      <span>readonly? : Bool</span>
-    readonly?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#required%3F%3ABool-instance-method" class="tooltip">
-      <span>required? : Bool</span>
-    required?</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
-      <span>slug_sources : Array(String)</span>
-    slug_sources</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#warning%3AString-instance-method" class="tooltip">
-      <span>warning : String</span>
-    warning</a>, 
-    
-  
-    <a href="../../DynFork/Fields/Field.html#warning%3D%28warning%3AString%29-instance-method" class="tooltip">
-      <span>warning=(warning : String)</span>
-    warning=</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
-  
-  
-    <a href="../../DynFork/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
-      <span>new(pull : JSON::PullParser)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(pull : JSON::PullParser)
-
-        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Type of selective field with dynamic addition of elements.</p>
-<p><span class="flag purple">NOTE</span>  For simulate relationship Many-to-One.</p>
-<p><span class="flag purple">NOTE</span>  Elements are added via the <code>ModelName.update_dyn_field()</code> method.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(label:String=&quot;&quot;,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>)
-
-        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
@@ -1068,19 +790,47 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="choices:Array(Tuple(String,String))|Nil-instance-method">
+    <div class="entry-detail" id="create_index(keys,*,options=NamedTuple.new,commit_quorum:Int32|String|Nil=nil,max_time_ms:Int64|Nil=nil,write_concern:WriteConcern|Nil=nil,session:Session::ClientSession|Nil=nil):Commands::CreateIndexes::Result|Nil-instance-method">
       <div class="signature">
         
-        def <strong>choices</strong> : Array(Tuple(String, String)) | Nil
+        def <strong>create_index</strong>(keys, *, options = <span class="t">NamedTuple</span>.new, commit_quorum : Int32 | String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : WriteConcern | Nil = <span class="n">nil</span>, session : Session::ClientSession | Nil = <span class="n">nil</span>) : Commands::CreateIndexes::Result | Nil
 
-        <a class="method-permalink" href="#choices%3AArray%28Tuple%28String%2CString%29%29%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#create_index%28keys%2C%2A%2Coptions%3DNamedTuple.new%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AWriteConcern%7CNil%3Dnil%2Csession%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ACommands%3A%3ACreateIndexes%3A%3AResult%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Html tag: select.
+          <p>This is a convenience method for creating a single index.
 <br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
+See: #create_indexes.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Create one index without options…</span>
+<span class="t">ModelName</span>.create_index(
+  keys: {
+    <span class="s">&quot;a&quot;</span>: <span class="n">1</span>,
+    <span class="s">&quot;b&quot;</span>: <span class="n">-1</span>,
+  }
+)
+<span class="c"># or with options (snake_cased)</span>
+<span class="t">ModelName</span>.create_index(
+  keys: {
+    <span class="s">&quot;a&quot;</span>: <span class="n">1</span>,
+    <span class="s">&quot;b&quot;</span>: <span class="n">-1</span>,
+  },
+  options: {
+    unique: <span class="n">true</span>,
+  }
+)
+<span class="c"># and optionally specify the name.</span>
+<span class="t">ModelName</span>.create_index(
+  keys: {
+    <span class="s">&quot;a&quot;</span>: <span class="n">1</span>,
+    <span class="s">&quot;b&quot;</span>: <span class="n">-1</span>,
+  },
+  options: {
+    name: <span class="s">&quot;index_name&quot;</span>,
+  }
+)</code></pre>
         </div>
       
       <br/>
@@ -1089,19 +839,30 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="choices?:Array(Tuple(String,String))|Nil|Nil-instance-method">
+    <div class="entry-detail" id="create_indexes(models:Array,*,commit_quorum:Int32|String|Nil=nil,max_time_ms:Int64|Nil=nil,write_concern:Mongo::WriteConcern|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Commands::CreateIndexes::Result|Nil-instance-method">
       <div class="signature">
         
-        def <strong>choices?</strong> : Array(Tuple(String, String)) | Nil | Nil
+        def <strong>create_indexes</strong>(models : Array, *, commit_quorum : Int32 | String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::CreateIndexes::Result | Nil
 
-        <a class="method-permalink" href="#choices%3F%3AArray%28Tuple%28String%2CString%29%29%7CNil%7CNil-instance-method">#</a>
+        <a class="method-permalink" href="#create_indexes%28models%3AArray%2C%2A%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACreateIndexes%3A%3AResult%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Html tag: select.
+          <p>Creates multiple indexes in the collection.
 <br>
-<em>Example: [{&quot;value&quot;, &quot;Title&quot;}, {&quot;value 2&quot;, &quot;Title 2&quot;}]</em></p>
+For more details, please check the official documentation:
+https://docs.mongodb.com/manual/reference/command/createIndexes/</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Follow the same rules to create multiple indexes with a single method call.</span>
+<span class="t">ModelName</span>.create_indexes([
+  {
+    keys: {a: <span class="n">1</span>},
+  },
+  {
+    keys: {b: <span class="n">2</span>}, options: {expire_after_seconds: <span class="n">3600</span>},
+  },
+])</code></pre>
         </div>
       
       <br/>
@@ -1110,17 +871,19 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="choices_from_json(json:String)-instance-method">
+    <div class="entry-detail" id="drop_index(name:String,*,max_time_ms:Int64|Nil=nil,write_concern:Mongo::WriteConcern|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Commands::Common::BaseResult|Nil-instance-method">
       <div class="signature">
         
-        def <strong>choices_from_json</strong>(json : String)
+        def <strong>drop_index</strong>(name : String, *, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::BaseResult | Nil
 
-        <a class="method-permalink" href="#choices_from_json%28json%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#drop_index%28name%3AString%2C%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ABaseResult%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Add data for dynamic fields from the local <code>@@meta</code> cache.</p>
+          <p>Drops a single index from the collection by the index name.
+<br>
+See: #drop_indexes.</p>
         </div>
       
       <br/>
@@ -1129,17 +892,21 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="field_type:String-instance-method">
+    <div class="entry-detail" id="drop_indexes(*,max_time_ms:Int64|Nil=nil,write_concern:Mongo::WriteConcern|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Commands::Common::BaseResult|Nil-instance-method">
       <div class="signature">
         
-        def <strong>field_type</strong> : String
+        def <strong>drop_indexes</strong>(*, max_time_ms : Int64 | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::BaseResult | Nil
 
-        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#drop_indexes%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ABaseResult%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Field type - Structure Name.</p>
+          <p>Drops all indexes in the collection.
+<br>
+For more details, please check the official documentation:
+<br>
+https://docs.mongodb.com/manual/reference/command/dropIndexes/</p>
         </div>
       
       <br/>
@@ -1148,127 +915,20 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="group:UInt8-instance-method">
+    <div class="entry-detail" id="list_indexes(session:Mongo::Session::ClientSession|Nil=nil):Mongo::Cursor|Nil-instance-method">
       <div class="signature">
         
-        def <strong>group</strong> : UInt8
+        def <strong>list_indexes</strong>(session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Cursor | Nil
 
-        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
+        <a class="method-permalink" href="#list_indexes%28session%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
-<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="has_value?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>has_value?</strong> : Bool
-
-        <a class="method-permalink" href="#has_value%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Does the field value match the possible options in choices.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="multiple?:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>multiple?</strong> : Bool
-
-        <a class="method-permalink" href="#multiple%3F%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Specifies that multiple options can be selected at once.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="refrash_val_str(val:String)-instance-method">
-      <div class="signature">
-        
-        def <strong>refrash_val_str</strong>(val : String)
-
-        <a class="method-permalink" href="#refrash_val_str%28val%3AString%29-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value:String|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value</strong> : String | Nil
-
-        <a class="method-permalink" href="#value%3AString%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value=(value:String|Nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>value=</strong>(value : String | Nil)
-
-        <a class="method-permalink" href="#value%3D%28value%3AString%7CNil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="value?:String|Nil|Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>value?</strong> : String | Nil | Nil
-
-        <a class="method-permalink" href="#value%3F%3AString%7CNil%7CNil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Sets the value of an element.</p>
+          <p>Gets index information for all indexes in the collection.
+<br>
+For more details, please check the official documentation:
+https://docs.mongodb.com/manual/reference/command/listIndexes/</p>
         </div>
       
       <br/>
