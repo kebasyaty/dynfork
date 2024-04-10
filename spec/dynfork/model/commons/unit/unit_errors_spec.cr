@@ -23,7 +23,7 @@ describe DynFork::Model do
         "mongo_uri": mongo_uri,
         "model_list": {
           Spec::Data::DynFieldsModel,
-        }
+        },
       ).migrat
       #
       # HELLISH BURN
@@ -34,7 +34,7 @@ describe DynFork::Model do
           field: "",
           title: "Title",
           value: "value",
-          delete: true
+          delete: true,
         )
         Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
@@ -48,7 +48,7 @@ describe DynFork::Model do
           field: "field_name",
           title: "",
           value: "value",
-          delete: true
+          delete: true,
         )
         Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
@@ -61,7 +61,7 @@ describe DynFork::Model do
           field: "field_name",
           title: "Title",
           value: "",
-          delete: true
+          delete: true,
         )
         Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
@@ -74,7 +74,7 @@ describe DynFork::Model do
           field: "field_name",
           title: "Title",
           value: "value",
-          delete: true
+          delete: true,
         )
         Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
@@ -87,7 +87,7 @@ describe DynFork::Model do
           field: "choice_text_dyn",
           title: "Title",
           value: "value",
-          delete: true
+          delete: true,
         )
         Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
