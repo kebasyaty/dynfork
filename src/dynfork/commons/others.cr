@@ -74,6 +74,28 @@ module DynFork::Commons::Others
     )
   end
 
+  # Gets an estimate of the count of documents in a collection using collection metadata.
+  # <br>
+  # See the specification document:
+  # <br>
+  # https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details
+  def estimated_document_count(
+    *,
+    max_time_ms : Int64? = nil,
+    read_preference : ReadPreference? = nil,
+    session : Session::ClientSession? = nil
+  ) : Int32
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.estimated_document_count(
+      max_time_ms: max_time_ms,
+      read_preference: read_preference,
+      session: session,
+    )
+  end
+
   # The parent database.
   def database : Mongo::Database
     DynFork::Globals.cache_mongo_database
