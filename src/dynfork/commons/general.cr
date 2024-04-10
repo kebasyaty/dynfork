@@ -133,6 +133,13 @@ module DynFork::Commons::QGeneral
   # See the specification document:
   # <br>
   # https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details
+  #
+  # Example:
+  # ```
+  # # Estimated count
+  # counter = ModelName.estimated_document_count
+  # ```
+  #
   def estimated_document_count(
     max_time_ms : Int64? = nil,
     read_preference : ReadPreference? = nil,
