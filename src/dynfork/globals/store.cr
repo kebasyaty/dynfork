@@ -9,9 +9,9 @@ module DynFork::Globals
   include DynFork::Globals::Date
 
   # Mongo client caching.
-  class_property! cache_mongo_client : Mongo::Client?
+  class_property! cache_mongo_client : Mongo::Client
   # Mongo database caching.
-  class_property! cache_mongo_database : Mongo::Database?
+  class_property! cache_mongo_database : Mongo::Database
   # Super collection name caching.
   # <br>
   # <br>
