@@ -106,33 +106,33 @@ module DynFork::Commons::UnitsManagement
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
       #
-      cursor.each { |_doc|
-        _doc_h = _doc.to_h
+      cursor.each { |doc|
+        doc_h = doc.to_h
         # Update field value in document.
-        if !(value = _doc_h[unit.field]).nil?
+        if !(value = doc_h[unit.field]).nil?
           if dyn_field_type.includes?("Mult")
             if dyn_field_type.includes?("Text")
               arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String) }
               arr.delete(unit.value.to_s)
-              _doc[unit.field] = !arr.empty? ? arr : nil
+              doc[unit.field] = !arr.empty? ? arr : nil
             elsif dyn_field_type.includes?("I64")
               arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64) }
               arr.delete(unit.value.to_i64)
-              _doc[unit.field] = !arr.empty? ? arr : nil
+              doc[unit.field] = !arr.empty? ? arr : nil
             elsif dyn_field_type.includes?("F64")
               arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64) }
               arr.delete(unit.value.to_f64)
-              _doc[unit.field] = !arr.empty? ? arr : nil
+              doc[unit.field] = !arr.empty? ? arr : nil
             else
               self.error_invalid_field_type(dyn_field_type)
             end
           else
-            _doc[unit.field] = nil
+            doc[unit.field] = nil
           end
         end
         # Update the value of a field in the collection of the current Model.
-        filter = {"_id": _doc["_id"]}
-        update = {"$set": {unit.field => _doc[unit.field]}}
+        filter = {"_id": doc["_id"]}
+        update = {"$set": {unit.field => doc[unit.field]}}
         collection.update_one(filter, update)
       }
     end
