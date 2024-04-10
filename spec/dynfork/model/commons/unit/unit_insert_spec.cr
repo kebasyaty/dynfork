@@ -35,6 +35,13 @@ describe DynFork::Model do
         value: "value",
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      # insert
+      unit = DynFork::Globals::Unit.new(
+        field: "choice_text_dyn",
+        title: "Title 2",
+        value: "value 2",
+      )
+      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       # delete
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
@@ -43,18 +50,11 @@ describe DynFork::Model do
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
-      # insert
-      unit = DynFork::Globals::Unit.new(
-        field: "choice_text_dyn",
-        title: "Title",
-        value: "value",
-      )
-      Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       # delete
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
-        title: "Title",
-        value: "value",
+        title: "Title 2",
+        value: "value 2",
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
