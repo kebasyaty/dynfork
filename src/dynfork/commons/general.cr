@@ -47,8 +47,26 @@ module DynFork::Commons::QGeneral
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/distinct/
-  def distinct(key : String, *, filter = nil, read_concern : ReadConcern? = nil, collation : Collation? = nil, read_preference : ReadPreference? = nil, session : Session::ClientSession? = nil) : Array
-    # ...
+  def distinct(
+    key : String,
+    filter = nil,
+    read_concern : ReadConcern? = nil,
+    collation : Collation? = nil,
+    read_preference : ReadPreference? = nil,
+    session : Session::ClientSession? = nil
+  ) : Array
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.distinct(
+      key: key,
+      filter: filter,
+      read_concern: read_concern,
+      collation: collation,
+      read_preference: read_preference,
+      session: session
+    )
   end
 
   # Count the number of documents in a collection that match the given filter.
