@@ -95,6 +95,13 @@ module DynFork::Commons::QGeneral
   # Note that an empty filter will force a scan of the entire collection.
   # <br>
   # For a fast count of the total documents in a collection see **estimated_document_count**.
+  #
+  # Example:
+  # ```
+  # # Documents count
+  # counter = ModelName.count_documents({age: {"$lt": 18}})
+  # ```
+  #
   def count_documents(
     filter = BSON.new,
     skip : Int32? = nil,
