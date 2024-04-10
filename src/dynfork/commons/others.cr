@@ -126,7 +126,7 @@ module DynFork::Commons::Others
     # Get statistics.
     collection.stats(
       scale: scale,
-      session: session
+      session: session,
     )
   end
 end
