@@ -9,6 +9,7 @@ module DynFork::Commons::QOne
   # https://docs.mongodb.com/manual/reference/command/find/
   def find_one_to_instance(
     filter = BSON.new,
+    *,
     sort = nil,
     projection = nil,
     hint : String | H? = nil,
