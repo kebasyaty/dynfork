@@ -8,7 +8,8 @@ module DynFork::Commons::Others
   # <br>
   # https://docs.mongodb.com/manual/reference/command/aggregate/
   def aggregate(
-    pipeline : Array, *,
+    pipeline : Array,
+    *,
     allow_disk_use : Bool? = nil,
     batch_size : Int32? = nil,
     max_time_ms : Int64? = nil,
@@ -26,18 +27,18 @@ module DynFork::Commons::Others
       @@meta.not_nil![:collection_name]]
     #
     collection.aggregate(
-      pipeline,
-      allow_disk_use,
-      batch_size,
-      max_time_ms,
-      bypass_document_validation,
-      collation,
-      hint,
-      comment,
-      read_concern,
-      write_concern,
-      read_preference,
-      session,
+      pipeline: pipeline,
+      allow_disk_use: allow_disk_use,
+      batch_size: batch_size,
+      max_time_ms: max_time_ms,
+      bypass_document_validation: bypass_document_validation,
+      collation: collation,
+      hint: hint,
+      comment: comment,
+      read_concern: read_concern,
+      write_concern: write_concern,
+      read_preference: read_preference,
+      session: session,
     )
   end
 
@@ -64,7 +65,7 @@ module DynFork::Commons::Others
     collection.count_documents(
       filter: filter,
       skip: skip,
-      limit: limit,
+      limit: limit || @@meta.not_nil![:db_query_docs_limit].to_i32,
       collation: collation,
       hint: hint,
       max_time_ms: max_time_ms,
