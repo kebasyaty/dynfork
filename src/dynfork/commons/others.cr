@@ -40,4 +40,37 @@ module DynFork::Commons::Others
       session,
     )
   end
+
+  # Count the number of documents in a collection that match the given filter.
+  # <br>
+  # Note that an empty filter will force a scan of the entire collection.
+  # <br> 
+  # For a fast count of the total documents in a collection see **estimated_document_count**.
+  def count_documents(
+    filter = BSON.new,
+    *,
+    skip : Int32? = nil,
+    limit : Int32? = nil,
+    collation : Collation? = nil,
+    hint : String | H? = nil,
+    max_time_ms : Int64? = nil,
+    read_preference : ReadPreference? = nil,
+    session : Session::ClientSession? = nil,
+  ) : Int32
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.count_documents(
+      filter,
+      *,
+      skip,
+      limit,
+      collation,
+      hint,
+      max_time_ms,
+      read_preference,
+      session,
+    )
+  end
 end
