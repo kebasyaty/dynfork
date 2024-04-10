@@ -180,6 +180,7 @@ module DynFork::Commons::QGeneral
   # <br>
   # https://docs.mongodb.com/manual/reference/command/collStats/
   def stats(
+    *,
     scale : Int32? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : BSON?
