@@ -28,4 +28,28 @@ module DynFork::Commons::Indexes
       session: session,
     )
   end
+
+  # Creates multiple indexes in the collection.
+  # <br>
+  # For more details, please check the official documentation:
+  # https://docs.mongodb.com/manual/reference/command/createIndexes/
+  def create_indexes(
+    models : Array,
+    commit_quorum : Int32 | String? = nil,
+    max_time_ms : Int64? = nil,
+    write_concern : WriteConcern? = nil,
+    session : Session::ClientSession? = nil
+  ) : Commands::CreateIndexes::Result?
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.create_indexes(
+      models: models,
+      commit_quorum: commit_quorum,
+      max_time_ms: max_time_ms,
+      write_concern: write_concern,
+      session: session,
+    )
+  end
 end
