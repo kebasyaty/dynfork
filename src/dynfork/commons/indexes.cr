@@ -71,4 +71,25 @@ module DynFork::Commons::Indexes
       session: session,
     )
   end
+
+  # Drops all indexes in the collection.
+  # <br>
+  # For more details, please check the official documentation:
+  # <br>
+  # https://docs.mongodb.com/manual/reference/command/dropIndexes/
+  def drop_indexes(
+    max_time_ms : Int64? = nil,
+    write_concern : WriteConcern? = nil,
+    session : Session::ClientSession? = nil
+  ) : Commands::Common::BaseResult?
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.drop_indexes(
+      max_time_ms: max_time_ms,
+      write_concern: write_concern,
+      session: session,
+    )
+  end
 end
