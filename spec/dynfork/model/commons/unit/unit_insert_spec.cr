@@ -2,7 +2,7 @@ require "../../../../spec_helper"
 
 describe DynFork::Model do
   describe ".unit_manager" do
-    it "=> insert and delete data", tags: "unit" do
+    it "=> insert and delete data", tags: "unit_add_del" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -70,7 +70,7 @@ describe DynFork::Model do
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       #
--     unit = DynFork::Globals::Unit.new(
+      unit = DynFork::Globals::Unit.new(
         field: "choice_i64_mult_dyn",
         title: "Title",
         value: 12,
@@ -111,7 +111,7 @@ describe DynFork::Model do
         value: 5.2,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
-      # 
+      #
       # delete
       unit = DynFork::Globals::Unit.new(
         field: "choice_text_dyn",
