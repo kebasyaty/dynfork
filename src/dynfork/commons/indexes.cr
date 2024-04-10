@@ -39,6 +39,7 @@ module DynFork::Commons::Indexes
   #
   def create_index(
     keys,
+    *,
     options = NamedTuple.new,
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
@@ -79,6 +80,7 @@ module DynFork::Commons::Indexes
   #
   def create_indexes(
     models : Array,
+    *,
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
@@ -102,6 +104,7 @@ module DynFork::Commons::Indexes
   # See: #drop_indexes.
   def drop_index(
     name : String,
+    *,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
@@ -124,6 +127,7 @@ module DynFork::Commons::Indexes
   # <br>
   # https://docs.mongodb.com/manual/reference/command/dropIndexes/
   def drop_indexes(
+    *,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
