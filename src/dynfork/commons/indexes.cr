@@ -92,4 +92,16 @@ module DynFork::Commons::Indexes
       session: session,
     )
   end
+
+  # Gets index information for all indexes in the collection.
+  # <br>
+  # For more details, please check the official documentation:
+  # https://docs.mongodb.com/manual/reference/command/listIndexes/
+  def list_indexes(session : Session::ClientSession? = nil) : Mongo::Cursor?
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.list_indexes(session: session)
+  end
 end
