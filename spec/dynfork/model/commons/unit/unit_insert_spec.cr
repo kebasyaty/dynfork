@@ -59,28 +59,28 @@ describe DynFork::Model do
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_dyn",
         title: "Title",
-        value: 12,
+        value: 12_i64,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       #
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_dyn",
         title: "Title 2",
-        value: 12,
+        value: 12_i64,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       #
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_mult_dyn",
         title: "Title",
-        value: 12,
+        value: 12_i64,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       #
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_mult_dyn",
         title: "Title 2",
-        value: 12,
+        value: 12_i64,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       #
@@ -148,7 +148,7 @@ describe DynFork::Model do
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_dyn",
         title: "Title",
-        value: 12,
+        value: 12_i64,
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
@@ -156,7 +156,7 @@ describe DynFork::Model do
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_dyn",
         title: "Title 2",
-        value: 12,
+        value: 12_i64,
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
@@ -164,7 +164,7 @@ describe DynFork::Model do
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_mult_dyn",
         title: "Title",
-        value: 12,
+        value: 12_i64,
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
@@ -172,7 +172,7 @@ describe DynFork::Model do
       unit = DynFork::Globals::Unit.new(
         field: "choice_i64_mult_dyn",
         title: "Title 2",
-        value: 12,
+        value: 12_i64,
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
