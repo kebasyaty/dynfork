@@ -7,6 +7,17 @@ module DynFork::Commons::QGeneral
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/aggregate/
+  #
+  # Example:
+  # ```
+  # # Perform an aggregation pipeline query
+  # cursor = ModelName.aggregate([
+  #   {"$match": { status: "available" }}
+  #   {"$limit": 5},
+  # ])
+  # cursor.try &.each { |bson| puts bson.to_json }
+  # ```
+  #
   def aggregate(
     pipeline : Array,
     allow_disk_use : Bool? = nil,
@@ -47,6 +58,16 @@ module DynFork::Commons::QGeneral
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/distinct/
+  #
+  # Example:
+  # ```
+  # # Distinct collection values
+  # values = ModelName.distinct(
+  #   key: "field",
+  #   filter: {age: {"$gt": 18}}
+  # )
+  # ```
+  #
   def distinct(
     key : String,
     filter = nil,
