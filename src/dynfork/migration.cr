@@ -112,7 +112,6 @@ module DynFork::Migration
         super_collection : Mongo::Collection = database[
           DynFork::Globals.cache_super_collection_name]
         # Get ModelState for current Model.
-        next? : Bool = false
         model_state = (
           filter = {"collection_name": metadata[:collection_name]}
           document = super_collection.find_one(filter)
@@ -130,12 +129,9 @@ module DynFork::Migration
             )
             super_collection.insert_one(m_state.to_bson)
             database.command(Mongo::Commands::Create, name: m_state.collection_name)
-            next? = true
             m_state
           end
         )
-        # If this is a new Model, move on to the next iteration.
-        next if next?
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
@@ -184,29 +180,29 @@ module DynFork::Migration
             update = {"$set": freshed_document}
             model_collection.update_one(filter, update)
           }
-          #
-          # Update dynamic fields data in ModelState.
-          # <br>
-          # <br>
-          # Get a list of names of current dynamic fields.
-          current_dynamic_fields : Array(String) = metadata[:field_name_and_type_list]
-            .select { |_, field_type| field_type.includes?("Dyn") }.keys
-          # Remove missing dynamic fields.
-          model_state.data_dynamic_fields
-            .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
-          # Add new dynamic fields.
-          current_dynamic_fields.each do |field_name|
-            unless model_state.data_dynamic_fields.includes?(field_name)
-              model_state.data_dynamic_fields[field_name] = "[]"
-            end
-          end
         end
         #
-        # ----------------------------------------------------------------------
+        # **Update dynamic fields data in ModelState:**
+        # <br>
+        # <br>
+        # Get a list of names of current dynamic fields.
+        current_dynamic_fields : Array(String) = metadata[:field_name_and_type_list]
+          .select { |_, field_type| field_type.includes?("Dyn") }.keys
+        # Remove missing dynamic fields.
+        model_state.data_dynamic_fields
+          .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
+        # Add new dynamic fields.
+        current_dynamic_fields.each do |field_name|
+          unless model_state.data_dynamic_fields.includes?(field_name)
+            model_state.data_dynamic_fields[field_name] = "[]"
+          end
+        end #
         # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
           model.meta[:data_dynamic_fields][field_name] = choices_json
         end
+        #
+        # ----------------------------------------------------------------------
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.

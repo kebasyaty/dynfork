@@ -22,7 +22,7 @@ describe DynFork::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Spec::Data::UnitModel,
+          Spec::Data::DynFieldsModel,
         }
       ).migrat
       #
@@ -36,9 +36,9 @@ describe DynFork::Model do
           value: "value",
           delete: true
         )
-        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
-      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
                            "Field `field` => must not be empty!"
       #
@@ -50,9 +50,9 @@ describe DynFork::Model do
           value: "value",
           delete: true
         )
-        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
-      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
                            "Field `title` => must not be empty!"
       # If the field `value` is empty?
@@ -63,9 +63,9 @@ describe DynFork::Model do
           value: "",
           delete: true
         )
-        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
-      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` > Argument: `unit` > " +
                            "Field `value` => must not be empty!"
       # If the Model does not have a dynamic field specified in the Unit.
@@ -76,24 +76,24 @@ describe DynFork::Model do
           value: "value",
           delete: true
         )
-        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
-      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` => " +
                            "The Model is missing a dynamic field `field_name`!"
-      # plus this option
+      # When try to delete data that doesn't exist.
       ex = expect_raises(DynFork::Errors::Panic) do
         unit = DynFork::Globals::Unit.new(
-          field: "birthday",
+          field: "choice_text_dyn",
           title: "Title",
           value: "value",
           delete: true
         )
-        Spec::Data::UnitModel.unit_manager(unit).should be_nil
+        Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
       end
-      ex.message.should eq "Model: `Spec::Data::UnitModel` > " +
+      ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `unit_manager` => " +
-                           "The Model is missing a dynamic field `birthday`!" #
+                           "It is impossible to delete a unit, the `Title` key|title is missing!"
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
