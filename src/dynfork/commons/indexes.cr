@@ -5,6 +5,38 @@ module DynFork::Commons::Indexes
   # This is a convenience method for creating a single index.
   # <br>
   # See: #create_indexes.
+  #
+  # Example:
+  # ```
+  # # Create one index without options…
+  # ModelName.create_index(
+  #   keys: {
+  #     "a": 1,
+  #     "b": -1,
+  #   }
+  # )
+  # # or with options (snake_cased)
+  # ModelName.create_index(
+  #   keys: {
+  #     "a": 1,
+  #     "b": -1,
+  #   },
+  #   options: {
+  #     unique: true,
+  #   }
+  # )
+  # # and optionally specify the name.
+  # ModelName.create_index(
+  #   keys: {
+  #     "a": 1,
+  #     "b": -1,
+  #   },
+  #   options: {
+  #     name: "index_name",
+  #   }
+  # )
+  # ```
+  #
   def create_index(
     keys,
     options = NamedTuple.new,
@@ -31,6 +63,20 @@ module DynFork::Commons::Indexes
   # <br>
   # For more details, please check the official documentation:
   # https://docs.mongodb.com/manual/reference/command/createIndexes/
+  #
+  # Example:
+  # ```
+  # # Follow the same rules to create multiple indexes with a single method call.
+  # ModelName.create_indexes([
+  #   {
+  #     keys: {a: 1},
+  #   },
+  #   {
+  #     keys: {b: 2}, options: {expire_after_seconds: 3600},
+  #   },
+  # ])
+  # ```
+  #
   def create_indexes(
     models : Array,
     commit_quorum : Int32 | String? = nil,
