@@ -65,7 +65,7 @@ module DynFork::Commons::Others
     collection.count_documents(
       filter: filter,
       skip: skip,
-      limit: limit || @@meta.not_nil![:db_query_docs_limit].to_i32,
+      limit: limit,
       collation: collation,
       hint: hint,
       max_time_ms: max_time_ms,
