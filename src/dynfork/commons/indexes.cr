@@ -65,9 +65,10 @@ module DynFork::Commons::Indexes
       @@meta.not_nil![:collection_name]]
     #
     collection.drop_index(
-    name: name,
-    max_time_ms: max_time_ms,
-    write_concern: write_concern,
-    session: session,
-  )
+      name: name,
+      max_time_ms: max_time_ms,
+      write_concern: write_concern,
+      session: session,
+    )
+  end
 end
