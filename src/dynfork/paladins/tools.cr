@@ -1,7 +1,7 @@
 # Tools - A set of additional auxiliary methods for Paladins.
 module DynFork::Paladins::Tools
   # Check data validity.
-  # NOTE: The main use is to check data from web forms.
+  # NOTE: the main use is to check data from web forms.
   #
   # Example:
   # ```
@@ -188,7 +188,7 @@ module DynFork::Paladins::Tools
   # Get the number of documents in the collection.
   def count_documents : Int32
     DynFork::Globals.cache_mongo_database[
-      @@meta.not_nil![:collection_name]].count_documents
+      @@meta.not_nil![:collection_name]].estimated_document_count
   end
 
   # Reset the values ​​of ignored fields to nil.
