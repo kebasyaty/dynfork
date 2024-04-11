@@ -20,12 +20,9 @@ module DynFork::Commons::Converter
     doc = doc_ptr.value.not_nil!.to_h
     doc_hash = Hash(String, DynFork::Globals::ValueTypes).new
     #
+    doc_hash["hash"] = doc["_id"].as(BSON::ObjectId).to_s
+    #
     @@meta.not_nil![:field_name_and_type_list].each do |field_name, field_type|
-      if field_name == "hash"
-        doc_hash[field_name] = doc["_id"].as(BSON::ObjectId).to_s
-        next
-      end
-      #
       if !(value = doc[field_name]).nil?
         if TEXT_FIELD_TYPES.includes?(field_type)
           doc_hash[field_name] = value.as(String)
