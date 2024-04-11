@@ -7,6 +7,11 @@ module DynFork::Commons::QOne
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/find/
+  #
+  # Example:
+  # ```
+  # ```
+  #
   def find_one_to_instance(
     filter = BSON.new,
     *,
@@ -63,6 +68,11 @@ module DynFork::Commons::QOne
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/find/
+  #
+  # Example:
+  # ```
+  # ```
+  #
   def find_one_to_json(
     filter = BSON.new,
     *,
