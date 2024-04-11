@@ -10,6 +10,7 @@ module DynFork::Commons::QOne
   #
   # Example:
   # ```
+  # model_name : ModelName? = ModelName.find_one_to_instance({_id: id})
   # ```
   #
   def find_one_to_instance(
@@ -71,6 +72,7 @@ module DynFork::Commons::QOne
   #
   # Example:
   # ```
+  # json_str : String? = ModelName.find_one_to_json({_id: id})
   # ```
   #
   def find_one_to_json(
