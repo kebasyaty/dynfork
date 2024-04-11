@@ -66,26 +66,24 @@ module DynFork::Commons::Converter
             # FileField
             bson = BSON.new
             value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-            @{{ field }}.refrash_val_file_data(
-              DynFork::Globals::FileData.from_bson(bson))
+            doc_hash[name] = DynFork::Globals::FileData.from_bson(bson)
           when 5
             # ImageField
             bson = BSON.new
             value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-            @{{ field }}.refrash_val_img_data(
-              DynFork::Globals::ImageData.from_bson(bson))
+            doc_hash[name] = DynFork::Globals::ImageData.from_bson(bson)
           when 6
             # I64Field
-            @{{ field }}.refrash_val_i64(value.as(Int64))
+            doc_hash[name] = value.as(Int64)
           when 7
             # F64Field
-            @{{ field }}.refrash_val_f64(value.as(Float64))
+            doc_hash[name] = value.as(Float64)
           when 8
             # BoolField
-            @{{ field }}.refrash_val_bool(value.as(Bool))
+            doc_hash[name] = value.as(Bool)
           when 9
             # SlugField
-            @{{ field }}.refrash_val_str(value.as(String))
+            doc_hash[name] = value.as(String)
           else
             raise DynFork::Errors::Model::InvalidGroupNumber
               .new(@@full_model_name, {{ field.name.stringify }})
