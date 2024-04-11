@@ -12,7 +12,7 @@ module DynFork::Commons::Converter
       #
       if !(value = doc[field_name]).nil?
         if ["ColorField", "EmailField", "PhoneField", "TextField", "HashField", "URLField", "IPField"].includes?(field_type)
-            doc_hash[field_name] = value.as(String)
+          doc_hash[field_name] = value.as(String)
         elsif ["DateField", "DateTimeField"].includes?(field_type)
           if field_type.includes?("Time")
             doc_hash[field_name] = value.as(Time).to_s("%FT%H:%M:%S")
@@ -48,27 +48,27 @@ module DynFork::Commons::Converter
               doc_hash[field_name] = value.as(Float64)
             end
           end
-        when "FileField"
+        elsif field_type == "FileField"
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           doc_hash[field_name] = DynFork::Globals::FileData.from_bson(bson)
-        when "ImageField"
+        elsif field_type == "ImageField"
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           doc_hash[field_name] = DynFork::Globals::ImageData.from_bson(bson)
-        when "I64Field"
+        elsif field_type == "I64Field"
           doc_hash[field_name] = value.as(Int64)
-        when "F64Field"
+        elsif field_type == "F64Field"
           doc_hash[field_name] = value.as(Float64)
-        when "BoolField"
+        elsif field_type == "BoolField"
           doc_hash[field_name] = value.as(Bool)
-        when "SlugField"
+        elsif field_type == "SlugField"
           doc_hash[field_name] = value.as(String)
-        when "PasswordField"
+        elsif field_type == "PasswordField"
           doc_hash[field_name] = nil
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
-            .new(@@full_model_name, {{ field.name.stringify }})
+            .new(@@full_model_name, field_name)
         end
       else
         doc_hash[field_name] = nil
