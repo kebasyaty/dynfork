@@ -78,5 +78,7 @@ module DynFork::Commons::QMany
     cursor.each { |document|
       hash_list << self.document_to_hash(pointerof(document))
     }
+    #
+    hash_list
   end
 end
