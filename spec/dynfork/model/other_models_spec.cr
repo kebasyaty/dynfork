@@ -6,7 +6,7 @@ describe DynFork::Model do
       ex = expect_raises(DynFork::Errors::Model::FieldsMissing) do
         Spec::Data::EmptyModel.new
       end
-      ex.message.should eq("Model `Spec::Data::EmptyModel` has no fields.")
+      ex.message.should eq("Model `Spec::Data::EmptyModel` has no fields!")
     end
 
     it "=> create instance of filled Model", tags: "model" do
@@ -97,7 +97,7 @@ describe DynFork::Model do
       end
       ex.message.should eq(
         "Model: `Spec::Data::SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
-        "The `first_name` field missing in Model."
+        "The `first_name` field missing in Model!"
       )
     end
 
@@ -107,7 +107,7 @@ describe DynFork::Model do
           Spec::Data::NoParamServiceNameModel.new
         end
         ex.message.should eq(
-          "Model: `Spec::Data::NoParamServiceNameModel` => Missing `service_name` parameter for Meta."
+          "Model: `Spec::Data::NoParamServiceNameModel` => Missing `service_name` parameter for Meta!"
         )
       end
     end

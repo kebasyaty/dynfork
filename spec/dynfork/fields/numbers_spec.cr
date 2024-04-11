@@ -42,7 +42,7 @@ describe DynFork::Fields::I64Field do
           input_type: t
         )
       end
-      ex.message.should eq "The `#{t}` invalid input type."
+      ex.message.should eq "The `#{t}` invalid input type!"
     end
   end
 end
@@ -90,7 +90,7 @@ describe DynFork::Fields::F64Field do
           input_type: t
         )
       end
-      ex.message.should eq "The `#{t}` invalid input type."
+      ex.message.should eq "The `#{t}` invalid input type!"
     end
   end
 end
