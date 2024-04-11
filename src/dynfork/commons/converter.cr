@@ -2,6 +2,8 @@
 module DynFork::Commons::Converter
   extend self
 
+  TEXT_FIELD_TYPES = ["ColorField", "EmailField", "PhoneField", "TextField", "HashField", "URLField", "IPField"]
+
   # ???
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
     doc = doc_ptr.value.not_nil!.to_h
@@ -11,7 +13,7 @@ module DynFork::Commons::Converter
       (doc_hash[field_name] = doc["_id"].as(BSON::ObjectId).to_s) if field_name == "hash"
       #
       if !(value = doc[field_name]).nil?
-        if ["ColorField", "EmailField", "PhoneField", "TextField", "HashField", "URLField", "IPField"].includes?(field_type)
+        if TEXT_FIELD_TYPES.includes?(field_type)
           doc_hash[field_name] = value.as(String)
         elsif ["DateField", "DateTimeField"].includes?(field_type)
           if field_type.includes?("Time")
