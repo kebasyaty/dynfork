@@ -68,7 +68,7 @@ module DynFork::Commons::Converter
           doc_hash[field_name] = nil
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
-            .new(@@full_model_name, field_name)
+            .new(@@full_model_name, "document_to_hash", field_name)
         end
       else
         doc_hash[field_name] = nil
