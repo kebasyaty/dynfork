@@ -13,8 +13,6 @@ module DynFork::Commons::Converter
     "IPField",
   ]
 
-  FIELD_DATE_TYPES = ["DateField", "DateTimeField"]
-
   # ???
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
     doc = doc_ptr.value.not_nil!.to_h
@@ -25,7 +23,7 @@ module DynFork::Commons::Converter
       if !(value = doc[field_name]).nil?
         if TEXT_FIELD_TYPES.includes?(field_type)
           doc_hash[field_name] = value.as(String)
-        elsif FIELD_DATE_TYPES.includes?(field_type)
+        elsif field_type.includes?("Date")
           if field_type.includes?("Time")
             doc_hash[field_name] = value.as(Time).to_s("%FT%H:%M:%S")
           else
