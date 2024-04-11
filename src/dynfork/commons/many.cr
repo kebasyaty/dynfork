@@ -86,7 +86,7 @@ module DynFork::Commons::QMany
 
   # Finds the documents matching the Model.
   # <br>
-  # Converts documents into a array of Hash objects.
+  # Converts documents to a json string.
   # <br>
   # For more details, please check the official MongoDB documentation:
   # <br>
