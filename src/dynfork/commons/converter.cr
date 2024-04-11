@@ -67,7 +67,7 @@ module DynFork::Commons::Converter
         elsif field_type == "PasswordField"
           doc_hash[field_name] = nil
         else
-          raise DynFork::Errors::Model::InvalidGroupNumber
+          raise DynFork::Errors::Model::InvalidFieldType
             .new(@@full_model_name, "document_to_hash", field_name)
         end
       else
