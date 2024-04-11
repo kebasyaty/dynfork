@@ -51,7 +51,7 @@ module DynFork::Errors::Meta
     )
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
-        "Regular expression check fails: #{regex_str}"
+        "Regular expression check fails: #{regex_str}."
       )
     end
   end

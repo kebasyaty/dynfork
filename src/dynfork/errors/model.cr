@@ -24,7 +24,7 @@ module DynFork::Errors::Model
     )
       super(
         "Model: `#{model_name}` => " +
-        "The model name fails the regular expression test #{regex_str}"
+        "The model name fails the regular expression test #{regex_str}."
       )
     end
   end

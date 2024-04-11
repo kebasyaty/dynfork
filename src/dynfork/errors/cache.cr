@@ -23,7 +23,7 @@ module DynFork::Errors::Cache
     )
       super(
         "Global settings > Parameter: `#{parameter_name}` => " +
-        "Regular expression check fails: #{regex_str}"
+        "Regular expression check fails: #{regex_str}."
       )
     end
   end
