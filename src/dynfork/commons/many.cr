@@ -163,6 +163,10 @@ module DynFork::Commons::QMany
       hash_list << self.document_to_hash(pointerof(document))
     }
     #
-    hash_list.to_json
+    if !hash_list.empty?
+      return hash_list.to_json
+    else
+      return ""
+    end
   end
 end
