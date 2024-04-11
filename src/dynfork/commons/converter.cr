@@ -19,7 +19,7 @@ module DynFork::Commons::Converter
           else
             doc_hash[field_name] = value.as(Time).to_s("%F")
           end
-        when 3
+        elsif field_type.includes?("Choice")
           # ChoiceTextField | ChoiceI64Field
           # | ChoiceF64Field | ChoiceTextMultField
           # | ChoiceI64MultField | ChoiceF64MultField
