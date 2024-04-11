@@ -2,7 +2,16 @@
 module DynFork::Commons::Converter
   extend self
 
-  TEXT_FIELD_TYPES = ["ColorField", "EmailField", "PhoneField", "TextField", "HashField", "URLField", "IPField"]
+  # WARNING: `PasswordField` is excluded from the list.
+  TEXT_FIELD_TYPES = [
+    "ColorField",
+    "EmailField",
+    "PhoneField",
+    "TextField",
+    "HashField",
+    "URLField",
+    "IPField",
+  ]
 
   # ???
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
