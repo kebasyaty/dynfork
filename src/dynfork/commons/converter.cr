@@ -11,21 +11,13 @@ module DynFork::Commons::Converter
       (doc_hash[field_name] = doc["_id"].as(BSON::ObjectId).to_s) if field_name == "hash"
       #
       if !(value = doc[field_name]).nil?
-        case field_type
-        when 1
-          # ColorField | EmailField | PasswordField | PhoneField
-          # | TextField | HashField | URLField | IPField
-          if field_type != "PasswordField"
+        if ["ColorField", "EmailField", "PhoneField", "TextField", "HashField", "URLField", "IPField"].includes?(field_type)
             doc_hash[field_name] = value.as(String)
-          else
-            doc_hash[field_name] = nil
-          end
-        when 2
-          # DateField | DateTimeField
+        elsif ["DateField", "DateTimeField"].includes?(field_type)
           if field_type.includes?("Time")
-            doc_hash[field_name] = value.as(Time)
+            doc_hash[field_name] = value.as(Time).to_s("%FT%H:%M:%S")
           else
-            doc_hash[field_name] = value.as(Time)
+            doc_hash[field_name] = value.as(Time).to_s("%F")
           end
         when 3
           # ChoiceTextField | ChoiceI64Field
@@ -56,28 +48,24 @@ module DynFork::Commons::Converter
               doc_hash[field_name] = value.as(Float64)
             end
           end
-        when 4
-          # FileField
+        when "FileField"
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           doc_hash[field_name] = DynFork::Globals::FileData.from_bson(bson)
-        when 5
-          # ImageField
+        when "ImageField"
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           doc_hash[field_name] = DynFork::Globals::ImageData.from_bson(bson)
-        when 6
-          # I64Field
+        when "I64Field"
           doc_hash[field_name] = value.as(Int64)
-        when 7
-          # F64Field
+        when "F64Field"
           doc_hash[field_name] = value.as(Float64)
-        when 8
-          # BoolField
+        when "BoolField"
           doc_hash[field_name] = value.as(Bool)
-        when 9
-          # SlugField
+        when "SlugField"
           doc_hash[field_name] = value.as(String)
+        when "PasswordField"
+          doc_hash[field_name] = nil
         else
           raise DynFork::Errors::Model::InvalidGroupNumber
             .new(@@full_model_name, {{ field.name.stringify }})
