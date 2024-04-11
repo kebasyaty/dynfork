@@ -1,4 +1,4 @@
-# ???
+# Methods for obtaining clean data from documents.
 module DynFork::Commons::Converter
   extend self
 
