@@ -22,16 +22,16 @@ module DynFork::Commons::Converter
             # ColorField | EmailField | PasswordField | PhoneField
             # | TextField | HashField | URLField | IPField
             if field_type != "PasswordField"
-              @{{ field }}.refrash_val_str(value.as(String))
+              doc_hash[name] = value.as(String)
             else
-              @{{ field }}.value =  nil
+              doc_hash[name] = nil
             end
           when 2
             # DateField | DateTimeField
             if field_type.includes?("Time")
-              @{{ field }}.refrash_val_datetime(value.as(Time))
+              doc_hash[name] = value.as(Time)
             else
-              @{{ field }}.refrash_val_date(value.as(Time))
+              doc_hash[name] = value.as(Time)
             end
           when 3
             # ChoiceTextField | ChoiceI64Field
