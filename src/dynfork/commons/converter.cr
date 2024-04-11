@@ -10,7 +10,7 @@ module DynFork::Commons::Converter
     @@meta.not_nil![:field_name_and_type_list].each do |field_name, field_type|
       (doc_hash[field_name] = doc["_id"].as(BSON::ObjectId).to_s) if field_name == "hash"
       #
-      if !(value = doc[name]).nil?
+      if !(value = doc[field_name]).nil?
         case field_type
         when 1
           # ColorField | EmailField | PasswordField | PhoneField
