@@ -16,6 +16,7 @@ module DynFork::Commons::QMany
   #
   # Example:
   # ```
+  # arr = ModelName.find_many_to_hash_list({qty: {"$gt": 4}})
   # ```
   #
   def find_many_to_hash_list(
@@ -98,6 +99,7 @@ module DynFork::Commons::QMany
   #
   # Example:
   # ```
+  # json_str = ModelName.find_many_to_json({qty: {"$gt": 4}})
   # ```
   #
   def find_many_to_json(
