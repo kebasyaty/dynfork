@@ -12,8 +12,13 @@ module DynFork::Commons::Converter
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
       #
-      (doc_hash["hash"] = doc["_id"].as(BSON::ObjectId).to_s) if name == "hash"
+      (doc_hash[name] = doc["_id"].as(BSON::ObjectId).to_s) if name == "hash"
       #
+      if !@{{ field }}.ignored?
+       # ...
+      else
+        (doc_hash[name] = nil) if name != "hash"
+      end 
     {% end %}
     #
     doc_hash
