@@ -1,6 +1,7 @@
 module DynFork
   # Additional abstraction.
   # NOTE: How to use, see examples.
+  # WARNING: The method is called automatically.
   # <br>
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
@@ -40,33 +41,33 @@ module DynFork
       error_map
     end
 
+    # For set up and start indexing.
+    # WARNING: The method is called automatically.
+    def indexing
+      # ...
+    end
+
     # Called before a new document is created in the database.
-    # <br>
     # WARNING: The method is called automatically.
     def pre_create; end
 
     # Called after a new document has been created in the database.
-    # <br>
     # WARNING: The method is called automatically.
     def post_create; end
 
     # Called before updating an existing document in the database.
-    # <br>
     # WARNING: The method is called automatically.
     def pre_update; end
 
     # Called after an existing document in the database is updated.
-    # <br>
     # WARNING: The method is called automatically.
     def post_update; end
 
     # Called before deleting an existing document in the database.
-    # <br>
     # WARNING: The method is called automatically.
     def pre_delete; end
 
     # Called after an existing document in the database has been deleted.
-    # <br>
     # WARNING: The method is called automatically.
     def post_delete; end
   end
