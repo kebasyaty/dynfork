@@ -13,7 +13,7 @@ module DynFork::Commons::Converter
     "IPField",
   ]
 
-  # ???
+  # Get clean data from a document, in the form of a Hash object.
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
     doc_hash = doc_ptr.value.not_nil!.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
