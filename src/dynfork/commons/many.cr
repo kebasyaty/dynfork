@@ -4,6 +4,8 @@ module DynFork::Commons::QMany
 
   # Finds the documents matching the Model.
   # <br>
+  # Converts documents into a array of Hash objects.
+  # <br>
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/find/
