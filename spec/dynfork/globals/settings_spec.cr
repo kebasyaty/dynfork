@@ -33,7 +33,7 @@ describe DynFork::Globals do
         DynFork::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: `cache_app_name` => The line size of 44 characters has been exceeded."
+        "Global settings > Parameter: `cache_app_name` => The line size of 44 characters has been exceeded!"
       )
     end
 
@@ -58,7 +58,7 @@ describe DynFork::Globals do
         DynFork::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: `cache_unique_app_key` => The line size of 16 characters has been exceeded."
+        "Global settings > Parameter: `cache_unique_app_key` => The line size of 16 characters has been exceeded!"
       )
     end
 
@@ -82,7 +82,7 @@ describe DynFork::Globals do
         DynFork::Globals::ValidationCacheSettings.validation
       end
       ex.message.should eq(
-        "Global settings > Parameter: `cache_database_name` => The line size of 60 characters has been exceeded."
+        "Global settings > Parameter: `cache_database_name` => The line size of 60 characters has been exceeded!"
       )
       # Reset the state to working.
       DynFork::Globals.cache_database_name = "DatabaseName360"

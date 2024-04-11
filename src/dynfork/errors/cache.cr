@@ -10,7 +10,7 @@ module DynFork::Errors::Cache
     )
       super(
         "Global settings > Parameter: `#{parameter_name}` => " +
-        "The line size of #{limit_size} characters has been exceeded."
+        "The line size of #{limit_size} characters has been exceeded!"
       )
     end
   end

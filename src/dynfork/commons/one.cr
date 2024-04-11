@@ -7,6 +7,12 @@ module DynFork::Commons::QOne
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/find/
+  #
+  # Example:
+  # ```
+  # model_name : ModelName? = ModelName.find_one_to_instance({_id: id})
+  # ```
+  #
   def find_one_to_instance(
     filter = BSON.new,
     *,
@@ -63,6 +69,12 @@ module DynFork::Commons::QOne
   # For more details, please check the official MongoDB documentation:
   # <br>
   # https://docs.mongodb.com/manual/reference/command/find/
+  #
+  # Example:
+  # ```
+  # json_str : String? = ModelName.find_one_to_json({_id: id})
+  # ```
+  #
   def find_one_to_json(
     filter = BSON.new,
     *,
