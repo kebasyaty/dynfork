@@ -38,22 +38,22 @@ module DynFork::Commons::Converter
           # | ChoiceI64MultDynField | ChoiceF64MultDynField
           if field_type.includes?("Text")
             if field_type.includes?("Mult")
-              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String) }
-              result[field_name] = arr
+              result[field_name] = value.as(
+                Array(BSON::RecursiveValue)).map { |item| item.as(String) }
             else
               result[field_name] = value.as(String)
             end
           elsif field_type.includes?("I64")
             if field_type.includes?("Mult")
-              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64) }
-              result[field_name] = arr
+              result[field_name] = value.as(
+                Array(BSON::RecursiveValue)).map { |item| item.as(Int64) }
             else
               result[field_name] = value.as(Int64)
             end
           elsif field_type.includes?("F64")
             if field_type.includes?("Mult")
-              arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64) }
-              result[field_name] = arr
+              result[field_name] = value.as(
+                Array(BSON::RecursiveValue)).map { |item| item.as(Float64) }
             else
               result[field_name] = value.as(Float64)
             end
