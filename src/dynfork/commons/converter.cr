@@ -43,23 +43,23 @@ module DynFork::Commons::Converter
             if field_type.includes?("Text")
               if field_type.includes?("Mult")
                 arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String)}
-                @{{ field }}.refrash_val_arr_str(arr)
+                doc_hash[name] = arr
               else
-                @{{ field }}.refrash_val_str(value.as(String))
+                doc_hash[name] = value.as(String)
               end
             elsif field_type.includes?("I64")
               if field_type.includes?("Mult")
                 arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64)}
-                @{{ field }}.refrash_val_arr_i64(arr)
+                doc_hash[name] = arr
               else
-                @{{ field }}.refrash_val_i64(value.as(Int64))
+                doc_hash[name] = value.as(Int64)
               end
             elsif field_type.includes?("F64")
               if field_type.includes?("Mult")
                 arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64)}
-                @{{ field }}.refrash_val_arr_f64(arr)
+                doc_hash[name] = arr
               else
-                @{{ field }}.refrash_val_f64(value.as(Float64))
+                doc_hash[name] = value.as(Float64)
               end
             end
           when 4
