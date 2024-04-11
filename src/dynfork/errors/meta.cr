@@ -10,7 +10,7 @@ module DynFork::Errors::Meta
     )
       super(
         "Model: `#{model_name}` => " +
-        "Missing `#{parameter_name}` parameter for Meta."
+        "Missing `#{parameter_name}` parameter for Meta!"
       )
     end
   end
@@ -23,7 +23,7 @@ module DynFork::Errors::Meta
     )
       super(
         "Model: `#{model_name}` > Meta parameter: #{parameter_name} => " +
-        "Invalid model parameter name."
+        "Invalid model parameter name!"
       )
     end
   end
@@ -37,7 +37,7 @@ module DynFork::Errors::Meta
     )
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
-        "The line size of #{limit_size} characters has been exceeded."
+        "The line size of #{limit_size} characters has been exceeded!"
       )
     end
   end
@@ -51,7 +51,7 @@ module DynFork::Errors::Meta
     )
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
-        "Regular expression check fails: #{regex_str}."
+        "Regular expression check fails: #{regex_str}"
       )
     end
   end

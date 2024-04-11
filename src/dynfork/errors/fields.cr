@@ -11,7 +11,7 @@ module DynFork::Errors::Fields
     )
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
-        "Attribute: `slug_sources` => The `#{source_name}` field missing in Model."
+        "Attribute: `slug_sources` => The `#{source_name}` field missing in Model!"
       )
     end
   end
@@ -26,7 +26,7 @@ module DynFork::Errors::Fields
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
         "Attribute: `slug_sources` > Source Field: `#{source_field}` => " +
-        "Invalid field type for slug source." +
+        "Invalid field type for slug source!" +
         "Allowed field types: HashField, TextField, EmailField, " +
         "DateField, DateTimeField, I64Field, F64Field."
       )
@@ -43,7 +43,7 @@ module DynFork::Errors::Fields
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
         "Attribute: `slug_sources` > Source Field: `#{source_field}` => " +
-        "For slug sources, all fields except the `hash` field must be required."
+        "For slug sources, all fields except the `hash` field must be required!"
       )
     end
   end
@@ -57,7 +57,7 @@ module DynFork::Errors::Fields
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
         "Attribute: `slug_sources` => " +
-        "Does not have a single unique field."
+        "Does not have a single unique field!"
       )
     end
   end
@@ -70,7 +70,7 @@ module DynFork::Errors::Fields
     )
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
-        "The max date must be greater than the min date."
+        "The max date must be greater than the min date!"
       )
     end
   end
@@ -89,7 +89,7 @@ module DynFork::Errors::Fields
   # Invalid input type.
   class InvalidInputType < DynFork::Errors::DynForkException
     def initialize(input_type : String)
-      super("The `#{input_type}` invalid input type.")
+      super("The `#{input_type}` invalid input type!")
     end
   end
 end
