@@ -19,7 +19,6 @@ module DynFork::Commons::Converter
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
     doc = doc_ptr.value.not_nil!.to_h
     doc_hash = Hash(String, DynFork::Globals::ValueTypes).new
-    #
     doc_hash["hash"] = doc["_id"].as(BSON::ObjectId).to_s
     #
     @@meta.not_nil![:field_name_and_type_list].each do |field_name, field_type|
