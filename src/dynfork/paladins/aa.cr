@@ -1,7 +1,6 @@
 module DynFork
   # Additional abstraction.
   # NOTE: How to use, see examples.
-  # WARNING: The method is called automatically.
   # <br>
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
