@@ -99,7 +99,7 @@ module DynFork::Paladins::Caching
     )
     # **Format:** _<field_name, <field_type, field_group>>_
     field_name_type_group_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
-      fields = Hash(String, String).new
+      fields = Hash(String, NamedTuple(type: String, group: UInt8)).new
       {% for var in @type.instance_vars %}
         unless @{{ var }}.ignored?
           fields[{{ var.name.stringify }}] = {type: {{ var.type.stringify }}.split("::").last, group: @{{ var }}.group}
