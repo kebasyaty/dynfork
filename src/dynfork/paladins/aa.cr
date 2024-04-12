@@ -53,21 +53,25 @@ module DynFork
     #   getter username = DynFork::Fields::TextField.new
     #   getter email = DynFork::Fields::EmailField.new
     #
-    #   def indexing(collection : Mongo::Collection)
+    #   def indexing
+    #     # Get collection for current model.
+    #     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    #       @@meta.not_nil![:collection_name]]
+    #     #
     #     collection.create_index(
     #       keys: {
-    #         "a": 1,
-    #         "b": -1,
+    #         "username": 1,
     #       },
     #       options: {
     #         unique: true,
+    #         name:   "usernameIdx",
     #       }
     #     )
     #   end
     # end
     # ```
     #
-    def self.indexing(collection : Mongo::Collection); end
+    def self.indexing; end
 
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
