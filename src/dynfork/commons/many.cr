@@ -6,13 +6,9 @@ module DynFork::Commons::QMany
   # <br>
   # Converts documents into a array of Hash objects.
   # <br>
-  # For more details, please check the official MongoDB documentation:
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
-  # https://docs.mongodb.com/manual/reference/command/find/
-  # <br>
-  # For an overview of read operations, check the official manual:
-  # <br>
-  # https://docs.mongodb.com/manual/core/read-operations-introduction/
+  # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
   # Example:
   # ```
@@ -89,13 +85,9 @@ module DynFork::Commons::QMany
   # <br>
   # Converts documents to a json string.
   # <br>
-  # For more details, please check the official MongoDB documentation:
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
-  # https://docs.mongodb.com/manual/reference/command/find/
-  # <br>
-  # For an overview of read operations, check the official manual:
-  # <br>
-  # https://docs.mongodb.com/manual/core/read-operations-introduction/
+  # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
   # Example:
   # ```

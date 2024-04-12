@@ -1,13 +1,15 @@
 module DynFork
   # Additional abstraction.
-  # NOTE: How to use, see examples.
   # <br>
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
   # <br>
+  # **Indexing** - XXX.
+  # <br>
   # **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct AA
     # It is supposed to be use to additional validation of fields.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/additional_validation" target="_blank">example</a>.
     # WARNING: The method is called automatically when checking or saving the Model.
     #
     # Example:
@@ -40,34 +42,67 @@ module DynFork
       error_map
     end
 
-    # Called before a new document is created in the database.
+    # For set up and start indexing.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example></a>.
+    # WARNING: The method is called automatically.
     # <br>
+    # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
+    #
+    # Example:
+    # ```
+    # @[DynFork::Meta(service_name: "Accounts")]
+    # struct User < DynFork::Model
+    #   getter username = DynFork::Fields::TextField.new(unique: true)
+    #   getter email = DynFork::Fields::EmailField.new(unique: true)
+    #
+    #   def indexing
+    #     # Get collection for current model.
+    #     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    #       @@meta.not_nil![:collection_name]]
+    #     #
+    #     collection.create_index(
+    #       keys: {
+    #         "username": 1,
+    #       },
+    #       options: {
+    #         unique: true,
+    #         name:   "usernameIdx",
+    #       }
+    #     )
+    #   end
+    # end
+    # ```
+    #
+    def self.indexing; end
+
+    # Called before a new document is created in the database.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     # WARNING: The method is called automatically.
     def pre_create; end
 
     # Called after a new document has been created in the database.
-    # <br>
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     def post_create; end
 
     # Called before updating an existing document in the database.
-    # <br>
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     def pre_update; end
 
     # Called after an existing document in the database is updated.
-    # <br>
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     def post_update; end
 
     # Called before deleting an existing document in the database.
-    # <br>
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     def pre_delete; end
 
     # Called after an existing document in the database has been deleted.
-    # <br>
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     def post_delete; end
   end
 end

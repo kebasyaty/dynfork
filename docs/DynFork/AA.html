@@ -72,6 +72,11 @@
       
         <ul>
   
+  <li class=" " data-id="dynfork/DynFork/Commons/Converter" data-name="dynfork::commons::converter">
+      <a href="../DynFork/Commons/Converter.html">Converter</a>
+      
+    </li>
+  
   <li class=" " data-id="dynfork/DynFork/Commons/Indexes" data-name="dynfork::commons::indexes">
       <a href="../DynFork/Commons/Indexes.html">Indexes</a>
       
@@ -239,6 +244,11 @@
   
   <li class=" " data-id="dynfork/DynFork/Errors/Model/FieldsMissing" data-name="dynfork::errors::model::fieldsmissing">
       <a href="../DynFork/Errors/Model/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidFieldType" data-name="dynfork::errors::model::invalidfieldtype">
+      <a href="../DynFork/Errors/Model/InvalidFieldType.html">InvalidFieldType</a>
       
     </li>
   
@@ -655,11 +665,12 @@
     Overview
   </h2>
 
-  <p>Additional abstraction.</p>
-<p><span class="flag purple">NOTE</span>  How to use, see examples.
+  <p>Additional abstraction.
 <br>
 <br>
 <strong>Additional validation</strong> - It is supposed to be use to additional validation of fields.
+<br>
+<strong>Indexing</strong> - XXX.
 <br>
 <strong>Hooks</strong> - Methods that are called at different stages when accessing the database.</p>
 
@@ -727,6 +738,25 @@
   </ul>
 
 
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#indexing-class-method" class="signature"><strong>.indexing</strong></a>
+        
+          <div class="summary"><p>For set up and start indexing.</p></div>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -870,6 +900,61 @@
 
 
 
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="indexing-class-method">
+      <div class="signature">
+        
+        def self.<strong>indexing</strong>
+
+        <a class="method-permalink" href="#indexing-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>For set up and start indexing.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example&gt;</a>.</p>
+<p><span class="flag yellow">WARNING</span>  The method is called automatically.
+<br>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(unique: <span class="n">true</span>)
+  getter email <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new(unique: <span class="n">true</span>)
+
+  <span class="k">def</span> <span class="m">indexing</span>
+    <span class="c"># Get collection for current model.</span>
+    collection : <span class="t">Mongo</span><span class="t">::</span><span class="t">Collection</span> <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Globals</span>.cache_mongo_database[
+      @@meta.not_nil![<span class="n">:collection_name</span>]]
+    <span class="c">#</span>
+    collection.create_index(
+      keys: {
+        <span class="s">&quot;username&quot;</span>: <span class="n">1</span>,
+      },
+      options: {
+        unique: <span class="n">true</span>,
+        name:   <span class="s">&quot;usernameIdx&quot;</span>,
+      }
+    )
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
 
 
 
@@ -894,6 +979,7 @@
         <div class="doc">
           
           <p>It is supposed to be use to additional validation of fields.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/additional_validation" target="_blank">example</a>.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically when checking or saving the Model.</p>
 <p>Example:</p>
 <pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
@@ -948,9 +1034,9 @@
       
         <div class="doc">
           
-          <p>Called after a new document has been created in the database.
-<br></p>
+          <p>Called after a new document has been created in the database.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
         </div>
       
       <br/>
@@ -969,9 +1055,9 @@
       
         <div class="doc">
           
-          <p>Called after an existing document in the database has been deleted.
-<br></p>
+          <p>Called after an existing document in the database has been deleted.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
         </div>
       
       <br/>
@@ -990,9 +1076,9 @@
       
         <div class="doc">
           
-          <p>Called after an existing document in the database is updated.
-<br></p>
+          <p>Called after an existing document in the database is updated.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
         </div>
       
       <br/>
@@ -1011,8 +1097,8 @@
       
         <div class="doc">
           
-          <p>Called before a new document is created in the database.
-<br></p>
+          <p>Called before a new document is created in the database.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
         </div>
       
@@ -1032,9 +1118,9 @@
       
         <div class="doc">
           
-          <p>Called before deleting an existing document in the database.
-<br></p>
+          <p>Called before deleting an existing document in the database.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
         </div>
       
       <br/>
@@ -1053,9 +1139,9 @@
       
         <div class="doc">
           
-          <p>Called before updating an existing document in the database.
-<br></p>
+          <p>Called before updating an existing document in the database.</p>
 <p><span class="flag yellow">WARNING</span>  The method is called automatically.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.</p>
         </div>
       
       <br/>

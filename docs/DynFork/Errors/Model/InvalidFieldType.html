@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Errors::Types::InvalidType - dynfork v0-dev</title>
+  <title>DynFork::Errors::Model::InvalidFieldType - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../../";
   </script>
@@ -237,7 +237,7 @@
       
     </li>
   
-  <li class="parent " data-id="dynfork/DynFork/Errors/Model" data-name="dynfork::errors::model">
+  <li class="parent open current" data-id="dynfork/DynFork/Errors/Model" data-name="dynfork::errors::model">
       <a href="../../../DynFork/Errors/Model.html">Model</a>
       
         <ul>
@@ -247,7 +247,7 @@
       
     </li>
   
-  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidFieldType" data-name="dynfork::errors::model::invalidfieldtype">
+  <li class=" current" data-id="dynfork/DynFork/Errors/Model/InvalidFieldType" data-name="dynfork::errors::model::invalidfieldtype">
       <a href="../../../DynFork/Errors/Model/InvalidFieldType.html">InvalidFieldType</a>
       
     </li>
@@ -292,12 +292,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="dynfork/DynFork/Errors/Types" data-name="dynfork::errors::types">
+  <li class="parent " data-id="dynfork/DynFork/Errors/Types" data-name="dynfork::errors::types">
       <a href="../../../DynFork/Errors/Types.html">Types</a>
       
         <ul>
   
-  <li class=" current" data-id="dynfork/DynFork/Errors/Types/InvalidType" data-name="dynfork::errors::types::invalidtype">
+  <li class=" " data-id="dynfork/DynFork/Errors/Types/InvalidType" data-name="dynfork::errors::types::invalidtype">
       <a href="../../../DynFork/Errors/Types/InvalidType.html">InvalidType</a>
       
     </li>
@@ -646,12 +646,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> DynFork::<wbr>Errors::<wbr>Types::<wbr>InvalidType
+  <span class="kind">class</span> DynFork::<wbr>Errors::<wbr>Model::<wbr>InvalidFieldType
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../DynFork/Errors/Types/InvalidType.html">DynFork::Errors::Types::InvalidType</a></li><li class="superclass"><a href="../../../DynFork/Errors/DynForkException.html">DynFork::Errors::DynForkException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../../DynFork/Errors/Model/InvalidFieldType.html">DynFork::Errors::Model::InvalidFieldType</a></li><li class="superclass"><a href="../../../DynFork/Errors/DynForkException.html">DynFork::Errors::DynForkException</a></li><li class="superclass">Exception</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -665,7 +665,7 @@
     Overview
   </h2>
 
-  <p>Invalid type.</p>
+  <p>Invalid field type.</p>
 
 
 
@@ -690,7 +690,7 @@
   </h2>
   
     
-      dynfork/errors/types.cr
+      dynfork/errors/model.cr
     
     <br/>
   
@@ -710,7 +710,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28message%3AString%29-class-method" class="signature"><strong>.new</strong>(message : String)</a>
+        <a href="#new%28model_name%3AString%2Cmethod_name%3AString%2Cfield_name%3AString%2Cfield_type%3AString%29-class-method" class="signature"><strong>.new</strong>(model_name : String, method_name : String, field_name : String, field_type : String)</a>
         
       </li>
     
@@ -790,12 +790,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(message:String)-class-method">
+    <div class="entry-detail" id="new(model_name:String,method_name:String,field_name:String,field_type:String)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(message : String)
+        def self.<strong>new</strong>(model_name : String, method_name : String, field_name : String, field_type : String)
 
-        <a class="method-permalink" href="#new%28message%3AString%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28model_name%3AString%2Cmethod_name%3AString%2Cfield_name%3AString%2Cfield_type%3AString%29-class-method">#</a>
       </div>
       
       <br/>

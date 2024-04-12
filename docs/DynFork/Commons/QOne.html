@@ -72,6 +72,11 @@
       
         <ul>
   
+  <li class=" " data-id="dynfork/DynFork/Commons/Converter" data-name="dynfork::commons::converter">
+      <a href="../../DynFork/Commons/Converter.html">Converter</a>
+      
+    </li>
+  
   <li class=" " data-id="dynfork/DynFork/Commons/Indexes" data-name="dynfork::commons::indexes">
       <a href="../../DynFork/Commons/Indexes.html">Indexes</a>
       
@@ -239,6 +244,11 @@
   
   <li class=" " data-id="dynfork/DynFork/Errors/Model/FieldsMissing" data-name="dynfork::errors::model::fieldsmissing">
       <a href="../../DynFork/Errors/Model/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidFieldType" data-name="dynfork::errors::model::invalidfieldtype">
+      <a href="../../DynFork/Errors/Model/InvalidFieldType.html">InvalidFieldType</a>
       
     </li>
   
@@ -781,9 +791,9 @@
           
           <p>Finds the document and converts it to a Model instance.
 <br>
-For more details, please check the official MongoDB documentation:
-<br>
-https://docs.mongodb.com/manual/reference/command/find/</p>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">model_name : <span class="t">ModelName</span>? <span class="o">=</span> <span class="t">ModelName</span>.find_one_to_instance({_id: id})</code></pre>
         </div>
       
       <br/>
@@ -804,9 +814,9 @@ https://docs.mongodb.com/manual/reference/command/find/</p>
           
           <p>Finds the document and converts it to a json string.
 <br>
-For more details, please check the official MongoDB documentation:
-<br>
-https://docs.mongodb.com/manual/reference/command/find/</p>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">json_str : <span class="t">String</span>? <span class="o">=</span> <span class="t">ModelName</span>.find_one_to_json({_id: id})</code></pre>
         </div>
       
       <br/>

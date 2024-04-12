@@ -72,6 +72,11 @@
       
         <ul>
   
+  <li class=" " data-id="dynfork/DynFork/Commons/Converter" data-name="dynfork::commons::converter">
+      <a href="../../DynFork/Commons/Converter.html">Converter</a>
+      
+    </li>
+  
   <li class=" " data-id="dynfork/DynFork/Commons/Indexes" data-name="dynfork::commons::indexes">
       <a href="../../DynFork/Commons/Indexes.html">Indexes</a>
       
@@ -239,6 +244,11 @@
   
   <li class=" " data-id="dynfork/DynFork/Errors/Model/FieldsMissing" data-name="dynfork::errors::model::fieldsmissing">
       <a href="../../DynFork/Errors/Model/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidFieldType" data-name="dynfork::errors::model::invalidfieldtype">
+      <a href="../../DynFork/Errors/Model/InvalidFieldType.html">InvalidFieldType</a>
       
     </li>
   
@@ -802,9 +812,7 @@
           
           <p>Runs an aggregation framework pipeline.
 <br>
-For more details, please check the official MongoDB documentation:
-<br>
-https://docs.mongodb.com/manual/reference/command/aggregate/</p>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Perform an aggregation pipeline query</span>
 cursor <span class="o">=</span> <span class="t">ModelName</span>.aggregate([
@@ -878,9 +886,8 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.count_document
           <p>Finds the distinct values for a specified field across a single collection.
 <br></p>
 <p><span class="flag purple">NOTE</span>  the results are backed by the &quot;values&quot; array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
-For more details, please check the official MongoDB documentation:
 <br>
-https://docs.mongodb.com/manual/reference/command/distinct/</p>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Distinct collection values</span>
 values <span class="o">=</span> <span class="t">ModelName</span>.distinct(
@@ -907,9 +914,7 @@ values <span class="o">=</span> <span class="t">ModelName</span>.distinct(
           
           <p>Gets an estimate of the count of documents in a collection using collection metadata.
 <br>
-See the specification document:
-<br>
-https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details</p>
+For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Estimated count</span>
 counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_document_count</code></pre>
@@ -952,9 +957,7 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_docu
           
           <p>Returns a variety of storage statistics for the collection.
 <br>
-For more details, please check the official MongoDB documentation:
-<br>
-https://docs.mongodb.com/manual/reference/command/collStats/</p>
+For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/collStats/" target="_blank">documentation</a>.</p>
         </div>
       
       <br/>
