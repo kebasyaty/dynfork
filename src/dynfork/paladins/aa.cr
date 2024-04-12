@@ -45,6 +45,8 @@ module DynFork
     # For set up and start indexing.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example></a>.
     # WARNING: The method is called automatically.
+    # <br>
+    # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
     #
     # Example:
     # ```
