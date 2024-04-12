@@ -88,11 +88,11 @@ module DynFork::Paladins::Caching
     # Get list of names and types of variables (fields).
     # <br>
     # **Format:** _<field_name, field_type>_
-    field_name_and_type_list : Hash(String, String) = (
+    field_name_and_type_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
         unless @{{ var }}.ignored?
-          fields[{{ var.name.stringify }}] = {{ var.type.stringify }}.split("::").last
+          fields[{{ var.name.stringify }}] = {type: {{ var.type.stringify }}.split("::").last, group: @{{ var }}.group}
         end
       {% end %}
       fields

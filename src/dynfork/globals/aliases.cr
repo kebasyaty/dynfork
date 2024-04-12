@@ -36,7 +36,7 @@ module DynFork::Globals::Aliases
     collection_name: String,
     db_query_docs_limit: UInt32,
     field_count: Int32,
-    field_name_and_type_list: Hash(String, String),
+    field_name_and_type_list: Hash(String, NamedTuple(type: String, group: UInt8)),
     default_value_list: Hash(String, DynFork::Globals::ValueTypes),
     saving_docs?: Bool,
     updating_docs?: Bool,
