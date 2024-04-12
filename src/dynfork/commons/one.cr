@@ -64,9 +64,7 @@ module DynFork::Commons::QOne
 
   # Finds the document and converts it to a json string.
   # <br>
-  # For more details, please check the official MongoDB documentation:
-  # <br>
-  # https://docs.mongodb.com/manual/reference/command/find/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
