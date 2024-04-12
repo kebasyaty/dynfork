@@ -8,9 +8,7 @@ module DynFork::Commons::QMany
   # <br>
   # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
-  # For an overview of read operations, check the official manual:
-  # <br>
-  # https://docs.mongodb.com/manual/core/read-operations-introduction/
+  # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
   # Example:
   # ```
