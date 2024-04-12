@@ -87,8 +87,7 @@ module DynFork::Commons::Converter
           # SlugField
           result[field_name] = value.as(String)
         else
-          raise DynFork::Errors::Model::InvalidFieldType
-            .new(@@full_model_name, "document_to_hash", field_name, field_type)
+          # ...
         end
       else
         result[field_name] = nil

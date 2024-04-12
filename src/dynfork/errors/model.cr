@@ -42,19 +42,4 @@ module DynFork::Errors::Model
       )
     end
   end
-
-  # Invalid field type.
-  class InvalidFieldType < DynFork::Errors::DynForkException
-    def initialize(
-      model_name : String,
-      method_name : String,
-      field_name : String,
-      field_type : String
-    )
-      super(
-        "Model: `#{model_name}` > Method: `#{method_name}` => " +
-        "Field `#{field_name}` - Invalid type `#{field_type}`!"
-      )
-    end
-  end
 end
