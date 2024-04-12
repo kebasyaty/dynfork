@@ -4,9 +4,7 @@ module DynFork::Commons::QGeneral
 
   # Runs an aggregation framework pipeline.
   # <br>
-  # For more details, please check the official MongoDB documentation:
-  # <br>
-  # https://docs.mongodb.com/manual/reference/command/aggregate/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -56,9 +54,8 @@ module DynFork::Commons::QGeneral
   # Finds the distinct values for a specified field across a single collection.
   # <br>
   # NOTE: the results are backed by the "values" array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
-  # For more details, please check the official MongoDB documentation:
   # <br>
-  # https://docs.mongodb.com/manual/reference/command/distinct/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -133,9 +130,7 @@ module DynFork::Commons::QGeneral
 
   # Gets an estimate of the count of documents in a collection using collection metadata.
   # <br>
-  # See the specification document:
-  # <br>
-  # https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details
+  # For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -176,9 +171,7 @@ module DynFork::Commons::QGeneral
 
   # Returns a variety of storage statistics for the collection.
   # <br>
-  # For more details, please check the official MongoDB documentation:
-  # <br>
-  # https://docs.mongodb.com/manual/reference/command/collStats/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/collStats/" target="_blank">documentation</a>.
   def stats(
     *,
     scale : Int32? = nil,
