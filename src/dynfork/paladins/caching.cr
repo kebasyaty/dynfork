@@ -88,7 +88,17 @@ module DynFork::Paladins::Caching
     # Get list of names and types of variables (fields).
     # <br>
     # **Format:** _<field_name, field_type>_
-    field_name_and_type_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
+    field_name_and_type_list : Hash(String, String) = (
+      fields = Hash(String, String).new
+      {% for var in @type.instance_vars %}
+        unless @{{ var }}.ignored?
+          fields[{{ var.name.stringify }}] = {{ var.type.stringify }}.split("::").last
+        end
+      {% end %}
+      fields
+    )
+    # **Format:** _<field_name, <field_type, field_group>>_
+    field_name_type_group_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
         unless @{{ var }}.ignored?
@@ -257,6 +267,8 @@ module DynFork::Paladins::Caching
       # <br>
       # **Format:** _<field_name, field_type>_
       field_name_and_type_list: field_name_and_type_list,
+      # **Format:** _<field_name, <field_type, field_group>>_
+      field_name_type_group_list: field_name_type_group_list,
       # Default value list.
       # <br>
       # **Format:** _<field_name, default_value>_
