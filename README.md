@@ -35,7 +35,7 @@ _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 <p>
-  <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
     <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Development-.svg"
       alt="Status Project">
   </a>
