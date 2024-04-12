@@ -62,8 +62,7 @@ module DynFork::Commons::Indexes
 
   # Creates multiple indexes in the collection.
   # <br>
-  # For more details, please check the official documentation:
-  # https://docs.mongodb.com/manual/reference/command/createIndexes/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
