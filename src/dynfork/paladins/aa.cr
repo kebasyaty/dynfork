@@ -1,6 +1,5 @@
 module DynFork
   # Additional abstraction.
-  # NOTE: How to use, see examples.
   # <br>
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
@@ -8,6 +7,7 @@ module DynFork
   # **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct AA
     # It is supposed to be use to additional validation of fields.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/additional_validation" target="_blank">example></a>.
     # WARNING: The method is called automatically when checking or saving the Model.
     #
     # Example:
@@ -41,33 +41,45 @@ module DynFork
     end
 
     # For set up and start indexing.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example></a>.
     # WARNING: The method is called automatically.
+    #
+    # Example:
+    # ```
+    # ```
+    #
     def indexing
       # ...
     end
 
     # Called before a new document is created in the database.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     # WARNING: The method is called automatically.
     def pre_create; end
 
     # Called after a new document has been created in the database.
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     def post_create; end
 
     # Called before updating an existing document in the database.
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     def pre_update; end
 
     # Called after an existing document in the database is updated.
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     def post_update; end
 
     # Called before deleting an existing document in the database.
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     def pre_delete; end
 
     # Called after an existing document in the database has been deleted.
     # WARNING: The method is called automatically.
+    # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
     def post_delete; end
   end
 end
