@@ -74,8 +74,11 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
+    field_name_type_group_list_ptr = pointerof(
+      @@meta.not_nil![:field_name_type_group_list]
+    )
     cursor.each { |document|
-      hash_list << self.document_to_hash(pointerof(document))
+      hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
     }
     #
     hash_list
