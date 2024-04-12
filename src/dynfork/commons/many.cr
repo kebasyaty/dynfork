@@ -6,9 +6,7 @@ module DynFork::Commons::QMany
   # <br>
   # Converts documents into a array of Hash objects.
   # <br>
-  # For more details, please check the official MongoDB documentation:
-  # <br>
-  # https://docs.mongodb.com/manual/reference/command/find/
+  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
   # For an overview of read operations, check the official manual:
   # <br>
