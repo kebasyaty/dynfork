@@ -97,6 +97,16 @@ module DynFork::Paladins::Caching
       {% end %}
       fields
     )
+    # **Format:** _<field_name, <field_type, field_group>>_
+    field_name_type_group_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
+      fields = Hash(String, NamedTuple(type: String, group: UInt8)).new
+      {% for var in @type.instance_vars %}
+        unless @{{ var }}.ignored?
+          fields[{{ var.name.stringify }}] = {type: {{ var.type.stringify }}.split("::").last, group: @{{ var }}.group}
+        end
+      {% end %}
+      fields
+    )
     # Get default value list.
     # <br>
     # **Format:** _<field_name, default_value>_
@@ -257,6 +267,8 @@ module DynFork::Paladins::Caching
       # <br>
       # **Format:** _<field_name, field_type>_
       field_name_and_type_list: field_name_and_type_list,
+      # **Format:** _<field_name, <field_type, field_group>>_
+      field_name_type_group_list: field_name_type_group_list,
       # Default value list.
       # <br>
       # **Format:** _<field_name, default_value>_

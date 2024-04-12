@@ -17,7 +17,7 @@
       <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE" target="_blank"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
     </p>
     <div align="center">
-      DynFork is built around [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo") and is more focused on web development.
+      DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
       <br>
       For simulate relationship Many-to-One and Many-to-Many,
       <br>
@@ -35,7 +35,7 @@ _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 <p>
-  <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
     <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Development-.svg"
       alt="Status Project">
   </a>
