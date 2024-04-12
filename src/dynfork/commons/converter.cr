@@ -16,10 +16,9 @@ module DynFork::Commons::Converter
     #
     doc_hash.each do |field_name, value|
       result[field_name] = nil; next if value.nil?
-      field_info = field_name_type_group_list_ptr.value[:field_name]?
-      if !field_info.nil?
-        field_type = field_info[:type]
-        case field_info[:group]
+      if !(field_info = field_name_type_group_list_ptr.value[:field_name]?).nil?
+        field_type = field_info.not_nil![:type]
+        case field_info.not_nil![:group]
         when 1
           # ColorField | EmailField | PasswordField | PhoneField
           # | TextField | HashField | URLField | IPField
