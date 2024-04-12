@@ -4,6 +4,8 @@ module DynFork
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
   # <br>
+  # **Indexing** - XXX.
+  # <br>
   # **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct AA
     # It is supposed to be use to additional validation of fields.
@@ -49,14 +51,23 @@ module DynFork
     # @[DynFork::Meta(service_name: "Accounts")]
     # struct User < DynFork::Model
     #   getter username = DynFork::Fields::TextField.new
-    #   getter password = DynFork::Fields::PasswordField.new
+    #   getter email = DynFork::Fields::EmailField.new
     #
-    #   def indexing
+    #   def indexing(collection : Mongo::Collection)
+    #     collection.create_index(
+    #       keys: {
+    #         "a": 1,
+    #         "b": -1,
+    #       },
+    #       options: {
+    #         unique: true,
+    #       }
+    #     )
     #   end
     # end
     # ```
     #
-    def indexing; end
+    def self.indexing(collection : Mongo::Collection); end
 
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
