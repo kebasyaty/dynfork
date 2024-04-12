@@ -7,11 +7,13 @@ module DynFork::Commons::Converter
     doc_hash = doc_ptr.value.not_nil!.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
+    field_type : String = ""
     #
-    doc_hash.each do |field_name, field_value|
-      type_and_group = @@meta.not_nil![:field_name_type_group_list]
-      if !(value = field_value).nil?
-        case type_and_group[:group]
+    doc_hash.each do |field_name, value|
+      field_info = @@meta.not_nil![:field_name_type_group_list][:field_name]
+      if !value.nil?
+        field_type = field_info[:type]
+        case field_info[:group]
         when 1
           # ColorField | EmailField | PasswordField | PhoneField
           # | TextField | HashField | URLField | IPField
