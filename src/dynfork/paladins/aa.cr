@@ -46,11 +46,17 @@ module DynFork
     #
     # Example:
     # ```
+    # @[DynFork::Meta(service_name: "Accounts")]
+    # struct User < DynFork::Model
+    #   getter username = DynFork::Fields::TextField.new
+    #   getter password = DynFork::Fields::PasswordField.new
+    #
+    #   def indexing
+    #   end
+    # end
     # ```
     #
-    def indexing
-      # ...
-    end
+    def indexing; end
 
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example></a>.
