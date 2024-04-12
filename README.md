@@ -17,7 +17,7 @@
       <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE" target="_blank"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
     </p>
     <div align="center">
-      DynFork is built around [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo") and is more focused on web development.
+      DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
       <br>
       For simulate relationship Many-to-One and Many-to-Many,
       <br>
