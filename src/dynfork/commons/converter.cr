@@ -2,34 +2,38 @@
 module DynFork::Commons::Converter
   extend self
 
-  # WARNING: `PasswordField` is excluded from the list.
-  TEXT_FIELD_TYPES = [
-    "ColorField",
-    "EmailField",
-    "PhoneField",
-    "TextField",
-    "HashField",
-    "URLField",
-    "IPField",
-  ]
-
   # Get clean data from a document, as a Hash object.
   def document_to_hash(doc_ptr : Pointer(BSON)) : Hash(String, DynFork::Globals::ValueTypes)
     doc_hash = doc_ptr.value.not_nil!.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
     #
-    @@meta.not_nil![:field_name_and_type_list].each do |field_name, field_type|
-      if !(value = doc_hash[field_name]).nil?
-        if TEXT_FIELD_TYPES.includes?(field_type)
-          result[field_name] = value.as(String)
-        elsif field_type.includes?("Date")
+    doc_hash.each do |field_name, field_value|
+      type_and_group = @@meta.not_nil![:field_name_type_group_list]
+      if !(value = field_value).nil?
+        case type_and_group[:group]
+        when 1
+          # ColorField | EmailField | PasswordField | PhoneField
+          # | TextField | HashField | URLField | IPField
+          if field_type != "PasswordField"
+            result[field_name] = value.as(String)
+          else
+            result[field_name] = nil
+          end
+        when 2
+          # DateField | DateTimeField
           if field_type.includes?("Time")
             result[field_name] = value.as(Time).to_s("%FT%H:%M:%S")
           else
             result[field_name] = value.as(Time).to_s("%F")
           end
-        elsif field_type.includes?("Choice")
+        when 3
+          # ChoiceTextField | ChoiceI64Field
+          # | ChoiceF64Field | ChoiceTextMultField
+          # | ChoiceI64MultField | ChoiceF64MultField
+          # | ChoiceTextMultField | ChoiceI64MultField
+          # | ChoiceF64MultField | ChoiceTextMultDynField
+          # | ChoiceI64MultDynField | ChoiceF64MultDynField
           # ChoiceTextField | ChoiceI64Field
           # | ChoiceF64Field | ChoiceTextMultField
           # | ChoiceI64MultField | ChoiceF64MultField
@@ -58,24 +62,28 @@ module DynFork::Commons::Converter
               result[field_name] = value.as(Float64)
             end
           end
-        elsif field_type == "FileField"
+        when 4
+          # FileField
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           result[field_name] = DynFork::Globals::FileData.from_bson(bson)
-        elsif field_type == "ImageField"
+        when 5
+          # ImageField
           bson = BSON.new
           value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
           result[field_name] = DynFork::Globals::ImageData.from_bson(bson)
-        elsif field_type == "I64Field"
+        when 6
+          # I64Field
           result[field_name] = value.as(Int64)
-        elsif field_type == "F64Field"
+        when 7
+          # F64Field
           result[field_name] = value.as(Float64)
-        elsif field_type == "BoolField"
+        when 8
+          # BoolField
           result[field_name] = value.as(Bool)
-        elsif field_type == "SlugField"
+        when 9
+          # SlugField
           result[field_name] = value.as(String)
-        elsif field_type == "PasswordField"
-          result[field_name] = nil
         else
           raise DynFork::Errors::Model::InvalidFieldType
             .new(@@full_model_name, "document_to_hash", field_name, field_type)
