@@ -97,7 +97,7 @@ module DynFork::Commons::Converter
         end
       else
         if field_name == "_id"
-          result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
+          result["hash"] = value.as(BSON::ObjectId).to_s
         end
       end
     end
