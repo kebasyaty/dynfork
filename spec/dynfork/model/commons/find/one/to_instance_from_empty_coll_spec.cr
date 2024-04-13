@@ -1,8 +1,8 @@
 require "../../../../../spec_helper"
 
 describe DynFork::Model do
-  describe "Find One" do
-    it "=> in empty collection", tags: "find_one" do
+  describe ".find_one_to_instance" do
+    it "=> from empty collection", tags: "find_one" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -30,9 +30,6 @@ describe DynFork::Model do
       # ------------------------------------------------------------------------
       instance = Spec::Data::FullDefault.find_one_to_instance
       instance.should be_nil
-      #
-      json : String = Spec::Data::FullDefault.find_one_to_json
-      json.empty?.should be_true
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
