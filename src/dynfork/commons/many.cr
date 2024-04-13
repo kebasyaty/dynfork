@@ -74,9 +74,8 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list_ptr = pointerof(
-      @@meta.not_nil![:field_name_type_group_list]
-    )
+    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
+    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
     cursor.each { |document|
       hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
     }
@@ -157,11 +156,10 @@ module DynFork::Commons::QMany
     # )
     cursor : Mongo::Cursor = collection.find
     #
-    field_name_type_group_list_ptr = pointerof(
-      @@meta.not_nil![:field_name_type_group_list]
-    )
+    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
+    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
     cursor.each { |document|
-      json += self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
+      json += (self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)).to_json
     }
     #
     if json.size > 1
