@@ -61,7 +61,7 @@ module DynFork::Paladins::Save
          )
         # Run hook.
         self.post_update
-        self.refrash_fields!(pointerof(doc))
+        self.refrash_fields(pointerof(doc))
       end
     else
       # Create doc.
@@ -75,7 +75,7 @@ module DynFork::Paladins::Save
       # Run hook.
       self.post_create
       if doc = collection.find_one({_id: data["_id"]})
-        self.refrash_fields!(pointerof(doc))
+        self.refrash_fields(pointerof(doc))
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{@@full_model_name}` => The document was not created."

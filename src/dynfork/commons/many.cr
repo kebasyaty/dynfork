@@ -128,7 +128,7 @@ module DynFork::Commons::QMany
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    hash_list = Array(Hash(String, DynFork::Globals::ValueTypes)).new
+    json : String = "["
     cursor : Mongo::Cursor = collection.find(
       filter: filter,
       sort: sort,
@@ -160,10 +160,10 @@ module DynFork::Commons::QMany
       @@meta.not_nil![:field_name_type_group_list]
     )
     cursor.each { |document|
-      hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
+      json += self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
     }
     #
-    return hash_list.to_json unless hash_list.empty?
+    return json + "]" unless json.size > 1
     ""
   end
 end
