@@ -47,7 +47,8 @@
         "crystal spec --tag verify_password;",
         "crystal spec --tag update_password;",
         "crystal spec --tag unit_errors;",
-        "crystal spec --tag unit_add_del"
+        "crystal spec --tag unit_add_del;",
+        "crystal spec --tag find_one"
       ],
       "problemMatcher": []
     }
