@@ -163,7 +163,11 @@ module DynFork::Commons::QMany
       json += self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
     }
     #
-    return json + "]" unless json.size > 1
+    if json.size > 1
+      json += "]"
+      return json
+    end
+    #
     ""
   end
 end

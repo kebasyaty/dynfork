@@ -93,7 +93,7 @@ module DynFork::Commons::QOne
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : String?
+  ) : String
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -123,6 +123,6 @@ module DynFork::Commons::QOne
       return instance.to_json
     end
     #
-    nil
+    ""
   end
 end
