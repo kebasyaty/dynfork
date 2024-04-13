@@ -128,33 +128,32 @@ module DynFork::Commons::QMany
       @@meta.not_nil![:collection_name]]
     #
     json : String = "["
-    # cursor : Mongo::Cursor = collection.find(
-    #   filter: filter,
-    #   sort: sort,
-    #   projection: projection,
-    #   hint: hint,
-    #   skip: skip,
-    #   limit: limit || @@meta.not_nil![:db_query_docs_limit],
-    #   batch_size: batch_size,
-    #   single_batch: single_batch,
-    #   comment: comment,
-    #   max_time_ms: max_time_ms,
-    #   read_concern: read_concern,
-    #   max: max,
-    #   min: min,
-    #   return_key: return_key,
-    #   show_record_id: show_record_id,
-    #   tailable: tailable,
-    #   oplog_replay: oplog_replay,
-    #   no_cursor_timeout: no_cursor_timeout,
-    #   await_data: await_data,
-    #   allow_partial_results: allow_partial_results,
-    #   allow_disk_use: allow_disk_use,
-    #   collation: collation,
-    #   read_preference: read_preference,
-    #   session: session,
-    # )
-    cursor : Mongo::Cursor = collection.find
+    cursor : Mongo::Cursor = collection.find(
+      filter: filter,
+      sort: sort,
+      projection: projection,
+      hint: hint,
+      skip: skip,
+      limit: limit || @@meta.not_nil![:db_query_docs_limit],
+      batch_size: batch_size,
+      single_batch: single_batch,
+      comment: comment,
+      max_time_ms: max_time_ms,
+      read_concern: read_concern,
+      max: max,
+      min: min,
+      return_key: return_key,
+      show_record_id: show_record_id,
+      tailable: tailable,
+      oplog_replay: oplog_replay,
+      no_cursor_timeout: no_cursor_timeout,
+      await_data: await_data,
+      allow_partial_results: allow_partial_results,
+      allow_disk_use: allow_disk_use,
+      collation: collation,
+      read_preference: read_preference,
+      session: session,
+    )
     #
     field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
     field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
