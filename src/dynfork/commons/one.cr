@@ -56,7 +56,9 @@ module DynFork::Commons::QOne
          read_preference: read_preference,
          session: session,
        )
-      return self.new.refrash_fields pointerof(doc)
+      instance = self.new
+      instance.refrash_fields pointerof(doc)
+      return instance
     end
     #
     nil
