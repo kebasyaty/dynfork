@@ -120,7 +120,8 @@ module DynFork::Commons::QOne
        )
       instance = self.new
       instance.refrash_fields pointerof(doc)
-      return instance.to_json
+      json : String = instance.to_json
+      return json
     end
     #
     ""
