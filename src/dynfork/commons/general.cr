@@ -53,6 +53,8 @@ module DynFork::Commons::QGeneral
 
   # Finds the distinct values for a specified field across a single collection.
   # <br>
+  # Returns an array of unique values for specified field of collection.
+  # <br>
   # NOTE: the results are backed by the "values" array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
   # <br>
   # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.
