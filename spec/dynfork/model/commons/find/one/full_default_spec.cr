@@ -2,7 +2,7 @@ require "../../../../../spec_helper"
 
 describe DynFork::Model do
   describe ".find_one_to_instance" do
-    it "=> from an empty database", tags: "find_one" do
+    it "=> from an empty collection", tags: "find_one" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
