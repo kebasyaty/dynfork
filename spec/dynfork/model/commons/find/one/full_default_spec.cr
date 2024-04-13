@@ -67,8 +67,8 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      instance = Spec::Data::FullDefault.find_one_to_json
-      instance.should be_nil
+      json : String = Spec::Data::FullDefault.find_one_to_json
+      json.should eq ""
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
