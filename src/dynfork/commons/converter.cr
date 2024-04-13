@@ -92,11 +92,8 @@ module DynFork::Commons::Converter
           # SlugField
           result[field_name] = value.as(String)
         else
-          # ...
-        end
-      else
-        if field_name == "_id"
-          result["hash"] = value.as(BSON::ObjectId).to_s
+          raise DynFork::Errors::Model::InvalidGroupNumber
+            .new(@@full_model_name, field_name)
         end
       end
     end
