@@ -56,7 +56,7 @@ module DynFork::Commons::QOne
          read_preference: read_preference,
          session: session,
        )
-      return self.new.refrash_fields! pointerof(doc)
+      return self.new.refrash_fields pointerof(doc)
     end
     #
     nil
@@ -117,7 +117,7 @@ module DynFork::Commons::QOne
          session: session,
        )
       instance = self.new
-      instance.refrash_fields! pointerof(doc)
+      instance.refrash_fields pointerof(doc)
       return instance.to_json
     end
     #
