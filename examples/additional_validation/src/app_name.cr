@@ -30,7 +30,7 @@ module AppName
   user.password.value = "E2ep4e3UPkWs84GO"
   user.confirm_password.value = "E2ep4e3UPkWs84GO"
   # Save user (print_err - convenient for development).
-  user.print_err unless user.save?
+  user.print_err unless user.save
   # Print user data.
   puts "\n# New user details:"
   puts "hash: #{user.hash.value?}"
@@ -50,7 +50,7 @@ module AppName
   user.birthday.value = "2024-04-26"
   user.is_active.value = false
   # update
-  user.print_err unless user.save?
+  user.print_err unless user.save
   # Print user data.
   puts "\n# New user details:"
   puts "hash: #{user.hash.value?}"
