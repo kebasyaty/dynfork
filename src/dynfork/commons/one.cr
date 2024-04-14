@@ -70,7 +70,7 @@ module DynFork::Commons::QOne
   #
   # Example:
   # ```
-  # doc_hash = ModelName.find_one_to_hash({_id: id})
+  # doc_hash : Hash(String, DynFork::Globals::ValueTypes)? = ModelName.find_one_to_hash({_id: id})
   # ```
   #
   def find_one_to_hash(
@@ -120,7 +120,7 @@ module DynFork::Commons::QOne
        )
       field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
       field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
-      doc_hash = self.document_to_hash(pointerof(doc), field_name_type_group_list_ptr)
+      doc_hash = self.document_to_hash(pointerof(doc.not_nil!), field_name_type_group_list_ptr)
       return doc_hash
     end
     #
