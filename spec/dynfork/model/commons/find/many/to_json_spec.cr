@@ -1,6 +1,6 @@
 require "../../../../../spec_helper"
 
-describe DynFork::Model do
+describe DynFork::Commons::QMany do
   describe ".find_many_to_json" do
     it "=> find documents", tags: "find_many" do
       # Init data for test.
