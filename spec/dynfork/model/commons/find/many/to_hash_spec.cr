@@ -40,6 +40,9 @@ describe DynFork::Model do
       #
       arr = Spec::Data::DefaultNoNil.find_many_to_hash_list
       arr.size.should eq 2
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

@@ -40,6 +40,9 @@ describe DynFork::Model do
       #
       json = Spec::Data::DefaultNoNil.find_many_to_json
       json.empty?.should be_false
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
