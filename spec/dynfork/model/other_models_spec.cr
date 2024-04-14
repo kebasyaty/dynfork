@@ -34,7 +34,7 @@ describe DynFork::Model do
       m.updated_at.name.should eq("updated_at")
       #
       m.first_name.value = "Gene"
-      m.age.value = 32
+      m.age.value = 32_i64
       m.birthday.value = "23.12.2023"
       m.birthday.time_object?.should eq(DynFork::Globals::Date.date_parse("23.12.2023"))
       m.hash.value?.should be_nil
@@ -48,7 +48,7 @@ describe DynFork::Model do
       m.updated_at.time_object?.should eq(DynFork::Globals::Date.datetime_parse("24.12.2023T08:54:00"))
       #
       m.first_name.value.should eq("Gene")
-      m.age.value.should eq(32_u32)
+      m.age.value.should eq(32_i64)
       m.hash.value.should eq("507f191e810c19729de860ea")
       m.created_at.value.should eq("2023-11-02T12:15:00")
       m.updated_at.value.should eq("24.12.2023T08:54:00")
@@ -58,7 +58,7 @@ describe DynFork::Model do
       metadata["service_name"].should eq("ServiceName")
       metadata["fixture_name"].should be_nil
       metadata["collection_name"].should eq("ServiceName_FilledModel")
-      metadata["db_query_docs_limit"].should eq(2000_u32)
+      metadata["db_query_docs_limit"].should eq(2000_i32)
       metadata["field_count"].should eq(6_i32)
       metadata["field_name_and_type_list"].should eq(
         {"created_at" => "DateTimeField",

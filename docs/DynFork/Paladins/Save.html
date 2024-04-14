@@ -723,7 +723,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#save%3F%3ABool-instance-method" class="signature"><strong>#save?</strong> : Bool</a>
+        <a href="#save%3ABool-instance-method" class="signature"><strong>#save</strong> : Bool</a>
         
           <div class="summary"><p>Creating and updating documents in the database.</p></div>
         
@@ -753,12 +753,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="save?:Bool-instance-method">
+    <div class="entry-detail" id="save:Bool-instance-method">
       <div class="signature">
         
-        def <strong>save?</strong> : Bool
+        def <strong>save</strong> : Bool
 
-        <a class="method-permalink" href="#save%3F%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#save%3ABool-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -777,7 +777,7 @@ user <span class="o">=</span> <span class="t">User</span>.new
 user.username.value <span class="o">=</span> <span class="s">&quot;username&quot;</span>
 user.birthday.value <span class="o">=</span> <span class="s">&quot;1970-01-01&quot;</span>
 
-user.print_err <span class="k">unless</span> user.save?
+user.print_err <span class="k">unless</span> user.save
 <span class="c"># print_err - convenient during development.</span></code></pre>
         </div>
       

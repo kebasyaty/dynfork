@@ -20,7 +20,7 @@ module DynFork::Commons::QMany
     *,
     sort = nil,
     projection = nil,
-    hint : String | H? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
     skip : Int32? = nil,
     limit : Int32? = nil,
     batch_size : Int32? = nil,
@@ -74,9 +74,8 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list_ptr = pointerof(
-      @@meta.not_nil![:field_name_type_group_list]
-    )
+    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
+    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
     cursor.each { |document|
       hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
     }
@@ -102,7 +101,7 @@ module DynFork::Commons::QMany
     *,
     sort = nil,
     projection = nil,
-    hint : String | H? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
     skip : Int32? = nil,
     limit : Int32? = nil,
     batch_size : Int32? = nil,
@@ -156,14 +155,17 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list_ptr = pointerof(
-      @@meta.not_nil![:field_name_type_group_list]
-    )
+    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
+    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
     cursor.each { |document|
-      json += self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
+      json += (self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)).to_json
     }
     #
-    return json + "]" unless json.size > 1
+    if json.size > 1
+      json += "]"
+      return json
+    end
+    #
     ""
   end
 end

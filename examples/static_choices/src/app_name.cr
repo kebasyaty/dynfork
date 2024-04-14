@@ -29,7 +29,7 @@ module AppName
 
   # Run save.
   # Hint: print_err - convenient for development.
-  tv.print_err unless tv.save?
+  tv.print_err unless tv.save
   # Print tv data.
   puts "\n# TV details:"
   puts "hash: #{tv.hash.value?}"

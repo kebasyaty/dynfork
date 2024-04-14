@@ -29,11 +29,11 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::FullDefault.new
-      flag : Bool = m.save?
+      flag : Bool = m.save
       m.print_err unless flag
       flag.should be_true
       #
-      m.count_documents.should eq(1)
+      Spec::Data::FullDefault.estimated_document_count.should eq(1)
       #
       # Param `value`
       m.hash.value.empty?.should be_false

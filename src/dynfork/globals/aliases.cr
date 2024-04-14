@@ -34,7 +34,7 @@ module DynFork::Globals::Aliases
     model_name: String,
     service_name: String,
     collection_name: String,
-    db_query_docs_limit: UInt32,
+    db_query_docs_limit: Int32,
     field_count: Int32,
     field_name_and_type_list: Hash(String, String),
     field_name_type_group_list: Hash(String, NamedTuple(type: String, group: UInt8)),

@@ -28,7 +28,7 @@ module AppName
 
   # Run save.
   # Hint: print_err - convenient for development.
-  user.print_err unless user.save?
+  user.print_err unless user.save
   # Print user data.
   puts "\n# New user details:"
   puts "hash: #{user.hash.value?}"
@@ -42,7 +42,7 @@ module AppName
   user.avatar.from_path "assets/media/default/no_photo.jpeg"
   user.resume.from_path "assets/media/default/no_doc.odt"
   # Run update.
-  user.print_err unless user.save?
+  user.print_err unless user.save
   # Print user data.
   puts "\n# Updated user information:"
   puts "hash: #{user.hash.value?}"

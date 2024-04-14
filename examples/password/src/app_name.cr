@@ -38,7 +38,7 @@ module AppName
 
   # Run save.
   # Hint: print_err - convenient for development.
-  user.print_err unless user.save?
+  user.print_err unless user.save
 
   # Verify password.
   if user.verify_password?(password)

@@ -23,13 +23,13 @@ module DynFork::Commons::QGeneral
     batch_size : Int32? = nil,
     max_time_ms : Int64? = nil,
     bypass_document_validation : Bool? = nil,
-    collation : Collation? = nil,
-    hint : String | H? = nil,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
     comment : String? = nil,
-    read_concern : ReadConcern? = nil,
-    write_concern : WriteConcern? = nil,
-    read_preference : ReadPreference? = nil,
-    session : Session::ClientSession? = nil
+    read_concern : Mongo::ReadConcern? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
   ) : Mongo::Cursor?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -72,10 +72,10 @@ module DynFork::Commons::QGeneral
     key : String,
     *,
     filter = nil,
-    read_concern : ReadConcern? = nil,
-    collation : Collation? = nil,
-    read_preference : ReadPreference? = nil,
-    session : Session::ClientSession? = nil
+    read_concern : Mongo::ReadConcern? = nil,
+    collation : Mongo::Collation? = nil,
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
   ) : Array
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -108,11 +108,11 @@ module DynFork::Commons::QGeneral
     *,
     skip : Int32? = nil,
     limit : Int32? = nil,
-    collation : Collation? = nil,
-    hint : String | H? = nil,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
     max_time_ms : Int64? = nil,
-    read_preference : ReadPreference? = nil,
-    session : Session::ClientSession? = nil
+    read_preference : Mongo::ReadPreference? = nil,
+    session : Mongo::Session::ClientSession? = nil
   ) : Int32
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -121,7 +121,7 @@ module DynFork::Commons::QGeneral
     collection.count_documents(
       filter: filter,
       skip: skip,
-      limit: limit,
+      limit: limit || @@meta.not_nil![:db_query_docs_limit],
       collation: collation,
       hint: hint,
       max_time_ms: max_time_ms,

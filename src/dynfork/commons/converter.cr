@@ -11,12 +11,10 @@ module DynFork::Commons::Converter
     doc_hash = doc_ptr.value.not_nil!.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
-    field_info : NamedTuple(type: String, group: UInt8)? = nil
     field_type : String = ""
     #
-    doc_hash.each do |field_name, value|
-      result[field_name] = nil; next if value.nil?
-      if !(field_info = field_name_type_group_list_ptr.value[:field_name]?).nil?
+    field_name_type_group_list_ptr.value.each do |field_name, field_info|
+      if !(value = doc_hash[field_name]).nil?
         field_type = field_info.not_nil![:type]
         case field_info.not_nil![:group]
         when 1
@@ -95,6 +93,8 @@ module DynFork::Commons::Converter
           raise DynFork::Errors::Model::InvalidGroupNumber
             .new(@@full_model_name, field_name)
         end
+      else
+        result[field_name] = nil
       end
     end
     #
