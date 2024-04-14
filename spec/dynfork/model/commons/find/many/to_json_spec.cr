@@ -30,6 +30,14 @@ describe DynFork::Model do
       # ------------------------------------------------------------------------
       json : String = Spec::Data::DefaultNoNil.find_many_to_json
       json.empty?.should be_true
+      #
+      Spec::Data::DefaultNoNil.new
+      Spec::Data::DefaultNoNil.new
+      Spec::Data::DefaultNoNil.count_documents.should eq(2)
+      Spec::Data::DefaultNoNil.estimated_document_count.should eq(2)
+      #
+      json = Spec::Data::DefaultNoNil.find_many_to_json
+      json.empty?.should be_false
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

@@ -73,7 +73,7 @@ describe DynFork::Model do
       flag.should be_true
       m.color.value?.should eq("#ff0000")
       #
-      m.count_documents.should eq(1)
+      Spec::Data::ValueNoNil.estimated_document_count.should eq(1)
       # Update
       m.url.value = "https://randompasswordgen.com/"
       m.phone.value = "+18004444455"
@@ -100,7 +100,7 @@ describe DynFork::Model do
       flag.should be_true
       #
       #
-      m.count_documents.should eq(1)
+      Spec::Data::ValueNoNil.estimated_document_count.should eq(1)
       #
       # Param `value`
       m.hash.value.empty?.should be_false

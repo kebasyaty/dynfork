@@ -31,6 +31,13 @@ describe DynFork::Model do
       arr : Array(Hash(String, DynFork::Globals::ValueTypes)) = Spec::Data::DefaultNoNil.find_many_to_hash_list
       arr.empty?.should be_true
       #
+      Spec::Data::DefaultNoNil.new
+      Spec::Data::DefaultNoNil.new
+      Spec::Data::DefaultNoNil.count_documents.should eq(2)
+      Spec::Data::DefaultNoNil.estimated_document_count.should eq(2)
+      #
+      arr = Spec::Data::DefaultNoNil.find_many_to_hash_list
+      arr.size.should eq 2
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
