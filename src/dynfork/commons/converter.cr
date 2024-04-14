@@ -11,7 +11,6 @@ module DynFork::Commons::Converter
     doc_hash = doc_ptr.value.not_nil!.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
-    field_info : NamedTuple(type: String, group: UInt8)? = nil
     field_type : String = ""
     #
     field_name_type_group_list_ptr.value.each do |field_name, field_info|
