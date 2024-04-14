@@ -30,7 +30,7 @@ describe DynFork::Commons::QGeneral do
     Spec::Data::ValueNoNil.count_documents.should eq 0
     Spec::Data::ValueNoNil.estimated_document_count.should eq 0
     Spec::Data::ValueNoNil.database.should eq DynFork::Globals.cache_mongo_database
-    Spec::Data::ValueNoNil.name.should eq Spec::Data::ValueNoNil.meta[:collection_name]
+    Spec::Data::ValueNoNil.collection_name.should eq Spec::Data::ValueNoNil.meta[:collection_name]
     # Spec::Data::ValueNoNil.stats.should eq "???"
     #
     2.times { |idx|
