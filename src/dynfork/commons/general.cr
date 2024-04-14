@@ -163,7 +163,7 @@ module DynFork::Commons::QGeneral
   end
 
   # The collection name.
-  def name : Mongo::CollectionKey
+  def name : Mongo::Collection::CollectionKey
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
