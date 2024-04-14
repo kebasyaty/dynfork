@@ -77,7 +77,7 @@ describe DynFork::Model do
       Spec::Data::ValueNoNil.estimated_document_count.should eq(2)
       #
       doc_hash = Spec::Data::ValueNoNil.find_one_to_hash({text: "Some text 2"})
-      doc_hash.not_nil!.text.should eq "Some text 2"
+      doc_hash.not_nil!["text"].should eq "Some text 2"
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")
