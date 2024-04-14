@@ -157,13 +157,8 @@ module DynFork::Commons::QGeneral
     )
   end
 
-  # The parent database.
-  def database : Mongo::Database
-    DynFork::Globals.cache_mongo_database
-  end
-
-  # The collection name.
-  def name : Mongo::CollectionKey
+  # Get collection name.
+  def collection_name : Mongo::Collection::CollectionKey
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
