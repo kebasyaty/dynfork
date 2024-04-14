@@ -64,13 +64,13 @@ module DynFork::Commons::QOne
     nil
   end
 
-  # Finds the document and converts it to a Model instance.
+  # Find the document and convert it to a Hash object.
   # <br>
   # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
-  # model_name : ModelName? = ModelName.find_one_to_instance({_id: id})
+  # doc_hash = ModelName.find_one_to_hash({_id: id})
   # ```
   #
   def find_one_to_hash(
