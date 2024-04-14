@@ -29,7 +29,7 @@ describe DynFork::Model do
       # HELLISH BURN
       # ------------------------------------------------------------------------
       m = Spec::Data::DefaultNoNil.new
-      flag : Bool = m.save?
+      flag : Bool = m.save
       m.print_err unless flag
       flag.should be_true
       #

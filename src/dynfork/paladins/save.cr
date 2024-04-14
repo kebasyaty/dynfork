@@ -16,11 +16,11 @@ module DynFork::Paladins::Save
   # user.username.value = "username"
   # user.birthday.value = "1970-01-01"
   #
-  # user.print_err unless user.save?
+  # user.print_err unless user.save
   # # print_err - convenient during development.
   # ```
   #
-  def save? : Bool
+  def save : Bool
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]

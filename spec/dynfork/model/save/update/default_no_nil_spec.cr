@@ -30,7 +30,7 @@ describe DynFork::Model do
       # ------------------------------------------------------------------------
       # Create
       m = Spec::Data::DefaultNoNil.new
-      flag : Bool = m.save?
+      flag : Bool = m.save
       m.print_err unless flag
       flag.should be_true
       m.color.value?.should eq("#ff0000")
@@ -54,7 +54,7 @@ describe DynFork::Model do
       m.f64.value = 20.2
       m.bool.value = false
       #
-      flag = m.save?
+      flag = m.save
       m.print_err unless flag
       flag.should be_true
       #

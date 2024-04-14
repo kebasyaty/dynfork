@@ -67,7 +67,7 @@ describe DynFork::Model do
       m.bool.value = true
       #
       #
-      flag : Bool = m.save?
+      flag : Bool = m.save
       m.print_err unless flag
       flag.should be_true
       #
