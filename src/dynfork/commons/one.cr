@@ -118,9 +118,10 @@ module DynFork::Commons::QOne
          read_preference: read_preference,
          session: session,
        )
+      doc_bson : BSON = doc.not_nil!
       field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
       field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
-      doc_hash = self.document_to_hash(pointerof(doc.not_nil!), field_name_type_group_list_ptr)
+      doc_hash = self.document_to_hash(pointerof(doc_bson), field_name_type_group_list_ptr)
       return doc_hash
     end
     #
