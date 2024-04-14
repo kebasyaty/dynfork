@@ -30,7 +30,7 @@ describe DynFork::Commons::QGeneral do
     Spec::Data::ValueNoNil.count_documents.should eq 0
     Spec::Data::ValueNoNil.estimated_document_count.should eq 0
     Spec::Data::ValueNoNil.collection_name.should eq Spec::Data::ValueNoNil.meta[:collection_name]
-    # Spec::Data::ValueNoNil.stats.should eq "???"
+    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -75,7 +75,7 @@ describe DynFork::Commons::QGeneral do
     }
     Spec::Data::ValueNoNil.count_documents.should eq 2
     Spec::Data::ValueNoNil.estimated_document_count.should eq 2
-    # Spec::Data::ValueNoNil.stats.should eq "???"
+    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")
