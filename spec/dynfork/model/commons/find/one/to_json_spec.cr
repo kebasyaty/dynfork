@@ -36,7 +36,7 @@ describe DynFork::Model do
         #
         # Init `value`
         m.url.value = "https://translate.google.com/"
-        m.text.value = "Some text #{idx}"
+        m.text.value = "Some text #{idx + 1}"
         m.phone.value = "+18004444444"
         m.password.value = "7637Kw8#5GTb~]H#"
         m.ip.value = "126.255.255.255"
