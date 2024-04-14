@@ -121,7 +121,7 @@ module DynFork::Commons::QGeneral
     collection.count_documents(
       filter: filter,
       skip: skip,
-      limit: limit,
+      limit: limit || @@meta.not_nil![:db_query_docs_limit],
       collation: collation,
       hint: hint,
       max_time_ms: max_time_ms,
