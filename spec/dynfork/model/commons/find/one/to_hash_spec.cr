@@ -28,8 +28,8 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      instance = Spec::Data::ValueNoNil.find_one_to_hash({text: "Some text"})
-      instance.should be_nil
+      doc_hash = Spec::Data::ValueNoNil.find_one_to_hash({text: "Some text"})
+      doc_hash.should be_nil
       #
       m = Spec::Data::ValueNoNil.new
       #
@@ -77,7 +77,7 @@ describe DynFork::Model do
       Spec::Data::ValueNoNil.estimated_document_count.should eq(2)
       #
       doc_hash = Spec::Data::ValueNoNil.find_one_to_hash({text: "Some text 2"})
-      doc_hash.not_nil!.text.value?.should eq "Some text 2"
+      doc_hash.not_nil!.text.should eq "Some text 2"
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")
