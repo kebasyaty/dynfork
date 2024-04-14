@@ -744,16 +744,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#count_documents%28filter%3DBSON.new%2C%2A%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method" class="signature"><strong>#count_documents</strong>(filter = <span class="t">BSON</span>.new, *, skip : Int32 | Nil = <span class="n">nil</span>, limit : Int32 | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Int32</a>
+        <a href="#collection_name%3AMongo%3A%3ACollection%3A%3ACollectionKey-instance-method" class="signature"><strong>#collection_name</strong> : Mongo::Collection::CollectionKey</a>
         
-          <div class="summary"><p>Count the number of documents in a collection that match the given filter.</p></div>
+          <div class="summary"><p>Get collection name.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#database%3AMongo%3A%3ADatabase-instance-method" class="signature"><strong>#database</strong> : Mongo::Database</a>
+        <a href="#count_documents%28filter%3DBSON.new%2C%2A%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method" class="signature"><strong>#count_documents</strong>(filter = <span class="t">BSON</span>.new, *, skip : Int32 | Nil = <span class="n">nil</span>, limit : Int32 | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Int32</a>
         
-          <div class="summary"><p>The parent database.</p></div>
+          <div class="summary"><p>Count the number of documents in a collection that match the given filter.</p></div>
         
       </li>
     
@@ -768,13 +768,6 @@
         <a href="#estimated_document_count%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method" class="signature"><strong>#estimated_document_count</strong>(*, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Int32</a>
         
           <div class="summary"><p>Gets an estimate of the count of documents in a collection using collection metadata.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#name%3AMongo%3A%3ACollectionKey-instance-method" class="signature"><strong>#name</strong> : Mongo::CollectionKey</a>
-        
-          <div class="summary"><p>The collection name.</p></div>
         
       </li>
     
@@ -837,6 +830,25 @@ cursor.try <span class="o">&amp;</span>.each { <span class="o">|</span>bson<span
       </div>
     </div>
   
+    <div class="entry-detail" id="collection_name:Mongo::Collection::CollectionKey-instance-method">
+      <div class="signature">
+        
+        def <strong>collection_name</strong> : Mongo::Collection::CollectionKey
+
+        <a class="method-permalink" href="#collection_name%3AMongo%3A%3ACollection%3A%3ACollectionKey-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get collection name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="count_documents(filter=BSON.new,*,skip:Int32|Nil=nil,limit:Int32|Nil=nil,collation:Mongo::Collation|Nil=nil,hint:String|Hash|NamedTuple|Nil=nil,max_time_ms:Int64|Nil=nil,read_preference:Mongo::ReadPreference|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Int32-instance-method">
       <div class="signature">
         
@@ -855,25 +867,6 @@ For a fast count of the total documents in a collection see <strong>estimated_do
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Documents count</span>
 counter <span class="o">=</span> <span class="t">ModelName</span>.count_documents({age: {<span class="s">&quot;$lt&quot;</span>: <span class="n">18</span>}})</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="database:Mongo::Database-instance-method">
-      <div class="signature">
-        
-        def <strong>database</strong> : Mongo::Database
-
-        <a class="method-permalink" href="#database%3AMongo%3A%3ADatabase-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The parent database.</p>
         </div>
       
       <br/>
@@ -929,25 +922,6 @@ For more details, please check the official <a href="https://github.com/mongodb/
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Estimated count</span>
 counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_document_count</code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="name:Mongo::CollectionKey-instance-method">
-      <div class="signature">
-        
-        def <strong>name</strong> : Mongo::CollectionKey
-
-        <a class="method-permalink" href="#name%3AMongo%3A%3ACollectionKey-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>The collection name.</p>
         </div>
       
       <br/>
