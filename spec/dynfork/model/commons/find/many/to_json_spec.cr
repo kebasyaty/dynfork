@@ -2,7 +2,7 @@ require "../../../../../spec_helper"
 
 describe DynFork::Model do
   describe ".find_many_to_json" do
-    it "=> from empty collection", tags: "find_many" do
+    it "=> find documents", tags: "find_many" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
@@ -22,13 +22,13 @@ describe DynFork::Model do
         "database_name": database_name,
         "mongo_uri": mongo_uri,
         "model_list": {
-          Spec::Data::FullDefault,
+          Spec::Data::DefaultNoNil,
         }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      json : String = Spec::Data::FullDefault.find_many_to_json
+      json : String = Spec::Data::DefaultNoNil.find_many_to_json
       json.empty?.should be_true
       # ------------------------------------------------------------------------
       #
