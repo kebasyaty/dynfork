@@ -36,9 +36,9 @@ describe DynFork::Model do
       m.print_err unless flag
       flag.should be_true
       #
-      m.count_documents.should eq(1)
+      Spec::Data::DeleteModel.count_documents.should eq(1)
       m.delete
-      m.count_documents.should eq(0)
+      Spec::Data::DeleteModel.estimated_document_count.should eq(0)
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
