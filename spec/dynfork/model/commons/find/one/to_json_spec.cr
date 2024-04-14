@@ -39,7 +39,7 @@ describe DynFork::Model do
       Spec::Data::DefaultNoNil.count_documents.should eq(2)
       Spec::Data::DefaultNoNil.estimated_document_count.should eq(2)
       #
-      json : String = Spec::Data::DefaultNoNil.find_one_to_json({text: "Some text 2"})
+      json = Spec::Data::DefaultNoNil.find_one_to_json({text: "Some text 2"})
       json.empty?.should be_false
       #
       FileUtils.rm_rf("assets/media/files")
