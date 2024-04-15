@@ -27,10 +27,14 @@ describe DynFork::Commons::Indexes do
     #
     # HELLISH BURN
     # ------------------------------------------------------------------------
-    Spec::Data::ValueNoNil.count_documents.should eq 0
-    Spec::Data::ValueNoNil.estimated_document_count.should eq 0
-    Spec::Data::ValueNoNil.collection_name.should eq Spec::Data::ValueNoNil.meta[:collection_name]
-    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
+    Spec::Data::ValueNoNil.create_index(
+      keys: {
+        "text": 1,
+      },
+      options: {
+        name: "textIdx",
+      }
+    )
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -73,9 +77,8 @@ describe DynFork::Commons::Indexes do
       #
       m.save
     }
-    Spec::Data::ValueNoNil.count_documents.should eq 2
-    Spec::Data::ValueNoNil.estimated_document_count.should eq 2
-    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
+    #
+    # ???
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")
