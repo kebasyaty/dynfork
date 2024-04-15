@@ -47,7 +47,7 @@ module DynFork::Paladins::Caching
         "The value must not be less than zero."
       )
     end
-    # Checking the model for the presence of variables (fields).
+    # Checking the Model for missing fields
     {% if @type.instance_vars.size < 4 %}
       # If there are no fields in the model, a FieldsMissing exception is raise.
       raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
