@@ -268,7 +268,7 @@ module DynFork::Paladins::Caching
       # Collection name.
       collection_name: collection_name,
       # limiting query results.
-      db_query_docs_limit: {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000,
+      db_query_docs_limit: db_query_docs_limit,
       # Number of variables (fields).
       field_count: {{ @type.instance_vars.size }},
       # List of names and types of variables (fields).
