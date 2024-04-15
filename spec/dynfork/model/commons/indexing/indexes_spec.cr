@@ -27,13 +27,15 @@ describe DynFork::Commons::Indexes do
     #
     # HELLISH BURN
     # ------------------------------------------------------------------------
-    Spec::Data::ValueNoNil.create_index(
-      keys: {
-        "text": 1,
+    Spec::Data::ValueNoNil.create_indexes(
+      {
+        keys: {
+          "text": 1,
+        },
+        options: {
+          name: "textIdx",
+        },
       },
-      options: {
-        name: "textIdx",
-      }
     ).not_nil!.ok.should eq 1.0
     #
     2.times { |idx|
@@ -78,7 +80,7 @@ describe DynFork::Commons::Indexes do
       m.save
     }
     #
-    Spec::Data::ValueNoNil.drop_index("textIdx").not_nil!.ok.should eq 1.0
+    Spec::Data::ValueNoNil.drop_indexes.not_nil!.ok.should eq 1.0
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")
