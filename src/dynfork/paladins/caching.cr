@@ -6,6 +6,11 @@ module DynFork::Paladins::Caching
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     @@full_model_name = {{ @type.stringify }}
+    # Checking the Model for missing fields
+    {% if @type.instance_vars.size < 4 %}
+      # If there are no fields in the model, a FieldsMissing exception is raise.
+      raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
+    {% end %}
     # Get Model name = Structure name.
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
@@ -47,11 +52,6 @@ module DynFork::Paladins::Caching
         "The value must not be less than zero."
       )
     end
-    # Checking the Model for missing fields
-    {% if @type.instance_vars.size < 4 %}
-      # If there are no fields in the model, a FieldsMissing exception is raise.
-      raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
-    {% end %}
     # Checking attributes for file fields.
     (
       size_name_list : Array(String) = ["xs", "sm", "md", "lg"]
