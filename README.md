@@ -112,7 +112,7 @@ user.birthday.value = "2024-03-26"
 
 # Run save.
 # Hint: print_err - convenient for development.
-user.print_err unless user.save?
+user.print_err unless user.save
 
 # Print user details.
 puts "# New user details:"

@@ -14,7 +14,7 @@ module AppName
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "k7SBQPF6d2e2nts7",
+    "unique_app_key": "k7SBQPF6d2e3nts7",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
@@ -55,10 +55,10 @@ module AppName
   puts "updated_at: #{user.updated_at.value?}"
   puts
 
-  puts "Number of documents: #{user.count_documents}"
+  puts "Number of documents: #{Models::Accounts::User.count_documents}"
 
   puts "Deleting a document."
   user.delete
 
-  puts "Number of documents: #{user.count_documents}"
+  puts "Number of documents: #{Models::Accounts::User.estimated_document_count}"
 end
