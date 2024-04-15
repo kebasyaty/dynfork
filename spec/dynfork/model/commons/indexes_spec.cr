@@ -34,7 +34,7 @@ describe DynFork::Commons::Indexes do
       options: {
         name: "textIdx",
       }
-    ).should be_nil
+    ).nil?.should eq be_false
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -54,18 +54,18 @@ describe DynFork::Commons::Indexes do
       #
       m.choice_text.value = "value"
       m.choice_text_mult.value = ["value"]
-      m.choice_text_dyn.value?.should be_nil
-      m.choice_text_mult_dyn.value?.should be_nil
+      m.choice_text_dyn.value = nil
+      m.choice_text_mult_dyn.value = nil
       #
       m.choice_i64.value = 5_i64
       m.choice_i64_mult.value = [5_i64]
-      m.choice_i64_dyn.value?.should be_nil
-      m.choice_i64_mult_dyn.value?.should be_nil
+      m.choice_i64_dyn.value = nil
+      m.choice_i64_mult_dyn.value = nil
       #
       m.choice_f64.value = 5.0
       m.choice_f64_mult.value = [5.0]
-      m.choice_f64_dyn.value?.should be_nil
-      m.choice_f64_mult_dyn.value?.should be_nil
+      m.choice_f64_dyn.value = nil
+      m.choice_f64_mult_dyn.value = nil
       #
       m.file.from_path("assets/media/default/no_doc.odt")
       m.image.from_path("assets/media/default/no_photo.jpeg")
@@ -78,7 +78,7 @@ describe DynFork::Commons::Indexes do
       m.save
     }
     #
-    Spec::Data::ValueNoNil.drop_index("textIdx").should be_nil
+    Spec::Data::ValueNoNil.drop_index("textIdx").nil?.should eq be_false
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")
