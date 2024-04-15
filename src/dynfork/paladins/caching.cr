@@ -36,7 +36,7 @@ module DynFork::Paladins::Caching
     if !fixture_name.nil? && fixture_name.presence.nil?
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
-        "???"
+        "The parameter contains an empty value."
       )
     end
     # Checking a parameter for an unsigned value.
