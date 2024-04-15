@@ -45,7 +45,7 @@ module DynFork::Paladins::Caching
       )
     end
     # Check the presence of the fixture file.
-    if true
+    if !fixture_name.nil? && !File.file?("config/fixtures/#{fixture_name}.yml")
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
         "The `#{fixture_name}` fixture is missing in the `config/fixtures` directory!"
