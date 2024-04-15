@@ -50,7 +50,8 @@
         "crystal spec --tag unit_add_del;",
         "crystal spec --tag find_one;",
         "crystal spec --tag find_many;",
-        "crystal spec --tag general"
+        "crystal spec --tag general;",
+        "crystal spec --tag indexing"
       ],
       "problemMatcher": []
     }
