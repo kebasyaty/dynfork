@@ -31,7 +31,7 @@ module DynFork::Paladins::Caching
           .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
-    # ???
+    # Get the parameter and check for an empty value.
     fixture_name : String? = {{ @type.annotation(DynFork::Meta)[:fixture_name] }}
     if !fixture_name.nil? && fixture_name.presence.nil?
       raise DynFork::Errors::Panic.new(
