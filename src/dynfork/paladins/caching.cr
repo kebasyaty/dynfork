@@ -36,7 +36,7 @@ module DynFork::Paladins::Caching
     if db_query_docs_limit < 0
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `db_query_docs_limit` => " +
-        "???."
+        "The value must not be below zero."
       )
     end
     # Checking the model for the presence of variables (fields).
