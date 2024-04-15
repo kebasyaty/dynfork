@@ -31,6 +31,14 @@ module DynFork::Paladins::Caching
           .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
+    # ???
+    fixture_name : String? = {{ @type.annotation(DynFork::Meta)[:fixture_name] }}
+    if !fixture_name.nil? && fixture_name.presence.nil?
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
+        "???"
+      )
+    end
     # Checking a parameter for an unsigned value.
     db_query_docs_limit : Int32 = {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000
     if db_query_docs_limit < 0
@@ -311,7 +319,7 @@ module DynFork::Paladins::Caching
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
       # The name of the fixture in the 'config/fixtures' directory (without extension).
-      fixture_name: {{ @type.annotation(DynFork::Meta)[:fixture_name] }},
+      fixture_name: fixture_name,
     }
   end
 end
