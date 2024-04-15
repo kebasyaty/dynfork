@@ -34,7 +34,7 @@ describe DynFork::Commons::Indexes do
       options: {
         name: "textIdx",
       }
-    ).should eq be_nil
+    ).not_nil!.ok.should eq 1.0
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -78,7 +78,7 @@ describe DynFork::Commons::Indexes do
       m.save
     }
     #
-    Spec::Data::ValueNoNil.drop_index("textIdx").should eq be_nil
+    Spec::Data::ValueNoNil.drop_index("textIdx").not_nil!.ok.should eq 1.0
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")
