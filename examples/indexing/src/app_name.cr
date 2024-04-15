@@ -14,7 +14,7 @@ module AppName
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "3i1Zh8c5Z0C5s5g6",
+    "unique_app_key": "k76BQPF6d2e2nts8",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,
@@ -43,7 +43,7 @@ module AppName
   user.username.value = "username_2"
   user.email.value = "user_2@noreaply.net"
   user.birthday.value = "2024-04-26"
-  # update
+  # Run update.
   user.print_err unless user.save
   # Print user data.
   puts "\n# Updated user information:"
@@ -55,10 +55,6 @@ module AppName
   puts "updated_at: #{user.updated_at.value?}"
   puts
 
-  puts "Number of documents: #{Models::Accounts::User.count_documents}"
-
   puts "Deleting a document."
   user.delete
-
-  puts "Number of documents: #{Models::Accounts::User.estimated_document_count}"
 end
