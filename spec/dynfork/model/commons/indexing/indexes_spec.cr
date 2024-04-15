@@ -27,7 +27,7 @@ describe DynFork::Commons::Indexes do
     #
     # HELLISH BURN
     # ------------------------------------------------------------------------
-    Spec::Data::ValueNoNil.create_indexes(
+    Spec::Data::ValueNoNil.create_indexes([
       {
         keys: {
           "text": 1,
@@ -36,7 +36,7 @@ describe DynFork::Commons::Indexes do
           name: "textIdx",
         },
       },
-    ).not_nil!.ok.should eq 1.0
+    ]).not_nil!.ok.should eq 1.0
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
