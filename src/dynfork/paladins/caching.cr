@@ -48,7 +48,7 @@ module DynFork::Paladins::Caching
     if true
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
-        "The `#{fixture_name}` fixture is missing from the `config/fixtures` section!"
+        "The `#{fixture_name}` fixture is missing in the `config/fixtures` directory!"
       )
     end
     # Checking a parameter for an unsigned value.
