@@ -215,6 +215,11 @@ module DynFork::Migration
       # Delete data for non-existent Models from a
       # super collection and delete collections associated with those Models.
       self.napalm
+      #
+      # Run indexing.
+      @model_list.each do |model|
+        model.indexing
+      end
     end
   end
 end
