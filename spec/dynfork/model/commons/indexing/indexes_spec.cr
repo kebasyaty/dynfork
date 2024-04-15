@@ -1,11 +1,11 @@
 require "../../../../spec_helper"
 
 describe DynFork::Commons::Indexes do
-  it "=> create and drop index", tags: "indexing" do
+  it "=> create and drop indexes", tags: "indexing" do
     # Init data for test.
     #
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    unique_app_key = "e382228V46ERO0Oq"
+    unique_app_key = "171350nkyLzH5OC7"
     database_name = "test_#{unique_app_key}"
     mongo_uri = "mongodb://localhost:27017"
 
