@@ -5,7 +5,7 @@ describe DynFork::Commons::Indexes do
     # Init data for test.
     #
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    unique_app_key = "A1R30DP9Ot29Wkts"
+    unique_app_key = "e382228V46ERO0Oq"
     database_name = "test_#{unique_app_key}"
     mongo_uri = "mongodb://localhost:27017"
 
