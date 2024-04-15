@@ -31,7 +31,7 @@ module DynFork::Paladins::Caching
           .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
-    # ???
+    # Checking a parameter for an unsigned value.
     db_query_docs_limit : Int32 = {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000
     if db_query_docs_limit < 0
       raise DynFork::Errors::Panic.new(
