@@ -1,6 +1,6 @@
 # app_name
 
-A simple example to start using.
+A simple example of how to set up indexing.
 
 ## Usage
 
