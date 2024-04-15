@@ -1,7 +1,7 @@
-require "../../../spec_helper"
+require "../../../../spec_helper"
 
 describe DynFork::Commons::Indexes do
-  it "=> indexing collection", tags: "indexing" do
+  it "=> create and drop index", tags: "indexing" do
     # Init data for test.
     #
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
