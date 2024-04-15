@@ -44,6 +44,13 @@ module DynFork::Paladins::Caching
         "The parameter contains an empty value."
       )
     end
+    # Check the presence of the fixture file.
+    if true
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
+        "The `#{fixture_name}` fixture is missing from the `config/fixtures` section!"
+      )
+    end
     # Checking a parameter for an unsigned value.
     db_query_docs_limit : Int32 = {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000
     if db_query_docs_limit < 0
