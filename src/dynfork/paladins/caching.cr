@@ -31,6 +31,14 @@ module DynFork::Paladins::Caching
           .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
+    # ???
+    db_query_docs_limit : Int32 = {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000
+    if db_query_docs_limit < 0
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `db_query_docs_limit` => " +
+        "???."
+      )
+    end
     # Checking the model for the presence of variables (fields).
     {% if @type.instance_vars.size < 4 %}
       # If there are no fields in the model, a FieldsMissing exception is raise.
