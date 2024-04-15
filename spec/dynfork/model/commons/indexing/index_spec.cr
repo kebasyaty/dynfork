@@ -1,11 +1,11 @@
-require "../../../spec_helper"
+require "../../../../spec_helper"
 
-describe DynFork::Commons::QGeneral do
-  it "=> general methods", tags: "general" do
+describe DynFork::Commons::Indexes do
+  it "=> create and drop index", tags: "indexing" do
     # Init data for test.
     #
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    unique_app_key = "A1R30DP9Ot29Wkts"
+    unique_app_key = "e382228V46ERO0Oq"
     database_name = "test_#{unique_app_key}"
     mongo_uri = "mongodb://localhost:27017"
 
@@ -27,10 +27,14 @@ describe DynFork::Commons::QGeneral do
     #
     # HELLISH BURN
     # ------------------------------------------------------------------------
-    Spec::Data::ValueNoNil.count_documents.should eq 0
-    Spec::Data::ValueNoNil.estimated_document_count.should eq 0
-    Spec::Data::ValueNoNil.collection_name.should eq Spec::Data::ValueNoNil.meta[:collection_name]
-    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
+    Spec::Data::ValueNoNil.create_index(
+      keys: {
+        "text": 1,
+      },
+      options: {
+        name: "textIdx",
+      }
+    ).not_nil!.ok.should eq 1.0
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -73,9 +77,8 @@ describe DynFork::Commons::QGeneral do
       #
       m.save
     }
-    Spec::Data::ValueNoNil.count_documents.should eq 2
-    Spec::Data::ValueNoNil.estimated_document_count.should eq 2
-    # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
+    #
+    Spec::Data::ValueNoNil.drop_index("textIdx").not_nil!.ok.should eq 1.0
     #
     FileUtils.rm_rf("assets/media/files")
     FileUtils.rm_rf("assets/media/images")

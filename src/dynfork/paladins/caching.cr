@@ -6,6 +6,11 @@ module DynFork::Paladins::Caching
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     @@full_model_name = {{ @type.stringify }}
+    # Checking the Model for missing fields
+    {% if @type.instance_vars.size < 4 %}
+      # If there are no fields in the model, a FieldsMissing exception is raise.
+      raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
+    {% end %}
     # Get Model name = Structure name.
     # <br>
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
@@ -31,11 +36,29 @@ module DynFork::Paladins::Caching
           .new(@@full_model_name, {{ param.stringify }})
       end
     {% end %}
-    # Checking the model for the presence of variables (fields).
-    {% if @type.instance_vars.size < 4 %}
-      # If there are no fields in the model, a FieldsMissing exception is raise.
-      raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
-    {% end %}
+    # Get the parameter and check for an empty value.
+    fixture_name : String? = {{ @type.annotation(DynFork::Meta)[:fixture_name] }}
+    if !fixture_name.nil? && fixture_name.presence.nil?
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
+        "The parameter contains an empty value."
+      )
+    end
+    # Check the presence of the fixture file.
+    if !fixture_name.nil? && !File.file?("config/fixtures/#{fixture_name}.yml")
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `fixture_name` => " +
+        "The `#{fixture_name}` fixture is missing in the `config/fixtures` directory!"
+      )
+    end
+    # Checking a parameter for an unsigned value.
+    db_query_docs_limit : Int32 = {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000
+    if db_query_docs_limit < 0
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `db_query_docs_limit` => " +
+        "The value must not be less than zero."
+      )
+    end
     # Checking attributes for file fields.
     (
       size_name_list : Array(String) = ["xs", "sm", "md", "lg"]
@@ -260,7 +283,7 @@ module DynFork::Paladins::Caching
       # Collection name.
       collection_name: collection_name,
       # limiting query results.
-      db_query_docs_limit: {{ @type.annotation(DynFork::Meta)[:db_query_docs_limit] }} || 1000,
+      db_query_docs_limit: db_query_docs_limit,
       # Number of variables (fields).
       field_count: {{ @type.instance_vars.size }},
       # List of names and types of variables (fields).
@@ -303,7 +326,7 @@ module DynFork::Paladins::Caching
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
       # The name of the fixture in the 'config/fixtures' directory (without extension).
-      fixture_name: {{ @type.annotation(DynFork::Meta)[:fixture_name] }},
+      fixture_name: fixture_name,
     }
   end
 end

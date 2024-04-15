@@ -43,9 +43,9 @@ module DynFork::Commons::Indexes
     options = NamedTuple.new,
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
-    write_concern : WriteConcern? = nil,
-    session : Session::ClientSession? = nil
-  ) : Commands::CreateIndexes::Result?
+    write_concern : Mongo::WriteConcern? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Commands::CreateIndexes::Result?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
