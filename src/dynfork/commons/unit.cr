@@ -119,7 +119,7 @@ module DynFork::Commons::UnitsManagement
          bypass_document_validation: bypass_document_validation,
          session: session,
        )
-      if write_errors : Array(WriteError)? = result.not_nil!.write_errors
+      if write_errors : Array(Mongo::Commands::Common::WriteError)? = result.not_nil!.write_errors
         msg_err : String = ""
         write_errors.not_nil!.each do |write_rrror|
           msg_err += "#{write_rrror.errmsg}\n"
@@ -184,7 +184,7 @@ module DynFork::Commons::UnitsManagement
              bypass_document_validation: bypass_document_validation,
              session: session,
            )
-          if write_errors : Array(WriteError)? = result.not_nil!.write_errors
+          if write_errors : Array(Mongo::Commands::Common::WriteError)? = result.not_nil!.write_errors
             msg_err : String = ""
             write_errors.not_nil!.each do |write_rrror|
               msg_err += "#{write_rrror.errmsg}\n"
