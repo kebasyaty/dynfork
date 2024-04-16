@@ -106,18 +106,24 @@ module DynFork::Commons::UnitsManagement
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
-    super_collection.update_one(
-      filter,
-      update,
-      upsert: upsert,
-      array_filters: array_filters,
-      collation: collation,
-      hint: hint,
-      ordered: ordered,
-      write_concern: write_concern,
-      bypass_document_validation: bypass_document_validation,
-      session: session,
-    )
+    if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
+         filter,
+         update,
+         upsert: upsert,
+         array_filters: array_filters,
+         collation: collation,
+         hint: hint,
+         ordered: ordered,
+         write_concern: write_concern,
+         bypass_document_validation: bypass_document_validation,
+         session: session,
+       )
+    else
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `unit_manager` => " +
+        "Updating data in a super collection returned an empty result!"
+      )
+    end
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
