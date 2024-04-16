@@ -119,12 +119,12 @@ module DynFork::Commons::UnitsManagement
          session: session,
        )
       if write_errors : Array(WriteError)? = result.not_nil!.write_errors
-        msg_err : String = "\n"
+        msg_err : String = ""
         write_errors.not_nil!.each do |write_rrror|
-          msg_err + write_rrror.errmsg
+          msg_err += "#{write_rrror.errmsg}\n"
         end
         raise DynFork::Errors::Panic.new(
-          "Model : `#{@@full_model_name}` > Method: `unit_manager` => #{msg_err}"
+          "Model : `#{@@full_model_name}` > Method: `unit_manager` =>\n#{msg_err}"
         )
       end
     else
@@ -184,9 +184,9 @@ module DynFork::Commons::UnitsManagement
              session: session,
            )
           if write_errors : Array(WriteError)? = result.not_nil!.write_errors
-            msg_err : String = write_errors.not_nil!.join("\n")
+            msg_err : String = ""
             write_errors.not_nil!.each do |write_rrror|
-              msg_err + write_rrror.errmsg
+              msg_err += "#{write_rrror.errmsg}\n"
             end
             raise DynFork::Errors::Panic.new(
               "Model : `#{@@full_model_name}` > Method: `unit_manager` =>\n#{msg_err}"
