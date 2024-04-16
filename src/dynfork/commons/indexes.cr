@@ -159,7 +159,6 @@ module DynFork::Commons::Indexes
       @@meta.not_nil![:collection_name]]
     #
     if collection.drop_indexes(
-         name: name,
          max_time_ms: max_time_ms,
          write_concern: write_concern,
          session: session,
