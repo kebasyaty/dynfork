@@ -45,7 +45,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Mongo::Commands::CreateIndexes::Result?
+  )
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -94,7 +94,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Mongo::Commands::CreateIndexes::Result?
+  )
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -128,17 +128,22 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Mongo::Commands::Common::BaseResult?
+  )
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    collection.drop_index(
-      name: name,
-      max_time_ms: max_time_ms,
-      write_concern: write_concern,
-      session: session,
-    )
+    if collection.drop_index(
+         name: name,
+         max_time_ms: max_time_ms,
+         write_concern: write_concern,
+         session: session,
+       ).nil?
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `.drop_index` => " +
+        "Index creation returned empty result!"
+      )
+    end
   end
 
   # Drops all indexes in the collection.
@@ -148,16 +153,22 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Mongo::Commands::Common::BaseResult?
+  )
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    collection.drop_indexes(
-      max_time_ms: max_time_ms,
-      write_concern: write_concern,
-      session: session,
-    )
+    if collection.drop_indexes(
+         name: name,
+         max_time_ms: max_time_ms,
+         write_concern: write_concern,
+         session: session,
+       ).nil?
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `.drop_indexes` => " +
+        "Index creation returned empty result!"
+      )
+    end
   end
 
   # Gets index information for all indexes in the collection.
