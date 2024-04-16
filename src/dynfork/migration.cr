@@ -157,7 +157,7 @@ module DynFork::Migration
           # Go through all documents to make changes.
           cursor.each { |doc|
             # Create a new document for the updated state.
-            freshed_document : Hash(String, BSON::Value) = {"_id" => doc["_id"]}
+            freshed_document = {"_id" => doc["_id"]}
             # Create a new document without the deleted fields.
             old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)

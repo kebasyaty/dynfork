@@ -8,7 +8,7 @@ module DynFork::Commons::Converter
     field_name_type_group_list_ptr : Pointer(Hash(String, NamedTuple(type: String, group: UInt8)))
   ) : Hash(String, DynFork::Globals::ValueTypes)
     #
-    doc_hash = doc_ptr.value.not_nil!.to_h
+    doc_hash = doc_ptr.value.to_h
     result = Hash(String, DynFork::Globals::ValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
     field_type : String = ""
