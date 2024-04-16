@@ -118,6 +118,15 @@ module DynFork::Commons::UnitsManagement
          bypass_document_validation: bypass_document_validation,
          session: session,
        )
+      if write_errors : Array(WriteError)? = result.not_nil!.write_errors
+        msg_err : String = "\n"
+        write_errors.not_nil!.each do |write_rrror|
+          msg_err + write_rrror.errmsg
+        end
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `unit_manager` => #{msg_err}"
+        )
+      end
     else
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Method: `unit_manager` => " +
@@ -161,18 +170,34 @@ module DynFork::Commons::UnitsManagement
         # Update the value of a field in the collection of the current Model.
         filter = {"_id": doc["_id"]}
         update = {"$set": {unit.field => doc[unit.field]}}
-        collection.update_one(
-          filter,
-          update,
-          upsert: upsert,
-          array_filters: array_filters,
-          collation: collation,
-          hint: hint,
-          ordered: ordered,
-          write_concern: write_concern,
-          bypass_document_validation: bypass_document_validation,
-          session: session,
-        )
+        update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
+        if result : Mongo::Commands::Common::UpdateResult? = collection.update_one(
+             filter,
+             update,
+             upsert: upsert,
+             array_filters: array_filters,
+             collation: collation,
+             hint: hint,
+             ordered: ordered,
+             write_concern: write_concern,
+             bypass_document_validation: bypass_document_validation,
+             session: session,
+           )
+          if write_errors : Array(WriteError)? = result.not_nil!.write_errors
+            msg_err : String = write_errors.not_nil!.join("\n")
+            write_errors.not_nil!.each do |write_rrror|
+              msg_err + write_rrror.errmsg
+            end
+            raise DynFork::Errors::Panic.new(
+              "Model : `#{@@full_model_name}` > Method: `unit_manager` =>\n#{msg_err}"
+            )
+          end
+        else
+          raise DynFork::Errors::Panic.new(
+            "Model : `#{@@full_model_name}` > Method: `unit_manager` => " +
+            "Updating data in a super collection returned an empty result!"
+          )
+        end
       }
     end
     #
