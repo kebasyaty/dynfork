@@ -172,7 +172,7 @@ module DynFork::Commons::UnitsManagement
         filter = {"_id": doc["_id"]}
         update = {"$set": {unit.field => doc[unit.field]}}
         update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
-        if result : Mongo::Commands::Common::UpdateResult? = collection.update_one(
+        if result = collection.update_one(
              filter,
              update,
              upsert: upsert,
@@ -184,7 +184,7 @@ module DynFork::Commons::UnitsManagement
              bypass_document_validation: bypass_document_validation,
              session: session,
            )
-          if write_errors : Array(Mongo::Commands::Common::WriteError)? = result.not_nil!.write_errors
+          if write_errors = result.not_nil!.write_errors
             msg_err : String = ""
             write_errors.not_nil!.each do |write_rrror|
               msg_err += "#{write_rrror.errmsg}\n"
