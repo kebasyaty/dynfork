@@ -55,12 +55,8 @@ module DynFork
     #   getter username = DynFork::Fields::TextField.new(unique: true)
     #   getter email = DynFork::Fields::EmailField.new(unique: true)
     #
-    #   def indexing
-    #     # Get collection for current model.
-    #     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-    #       @@meta.not_nil![:collection_name]]
-    #     #
-    #     collection.create_index(
+    #   def self.indexing
+    #     self.create_index(
     #       keys: {
     #         "username": 1,
     #       },

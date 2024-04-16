@@ -14,7 +14,7 @@ module AppName
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "k76BQPF6d2e3nts9",
+    "unique_app_key": "k76BQPF6d5e8nts9",
     "mongo_uri": "mongodb://localhost:27017",
     "model_list": {
       Models::Accounts::User,

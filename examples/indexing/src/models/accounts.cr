@@ -5,12 +5,8 @@ module Models::Accounts
     getter email = DynFork::Fields::EmailField.new(unique: true)
     getter birthday = DynFork::Fields::DateField.new
 
-    def indexing
-      # Get collection for current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
-        @@meta.not_nil![:collection_name]]
-      #
-      if result : Mongo::Commands::CreateIndexes::Result? = collection.create_index(
+    def self.indexing
+      if result : Mongo::Commands::CreateIndexes::Result? = self.create_index(
            keys: {
              "username": 1,
            },
