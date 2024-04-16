@@ -205,18 +205,18 @@ module DynFork::Paladins::Tools
     #
     field_type : String = ""
     name : String = ""
-    doc = doc_ptr.value.not_nil!.to_h
+    doc_hash = doc_ptr.value.not_nil!.to_h
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
       #
       if name == "hash"
-        @{{ field }}.refrash_val_str(doc["_id"].as(BSON::ObjectId).to_s)
+        @{{ field }}.refrash_val_str(doc_hash["_id"].as(BSON::ObjectId).to_s)
       end
       #
       if !@{{ field }}.ignored?
         field_type = @{{ field }}.field_type
-        if !(value = doc[name]).nil?
+        if !(value = doc_hash[name]).nil?
           case @{{ field }}.group
           when 1
             # ColorField | EmailField | PasswordField | PhoneField

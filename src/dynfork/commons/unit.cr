@@ -5,6 +5,7 @@ module DynFork::Commons::UnitsManagement
 
   # For insert or delete units.
   # NOTE: Management for `choices` parameter in dynamic field types.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/update/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -28,7 +29,18 @@ module DynFork::Commons::UnitsManagement
   # ModelName.unit_manager unit
   # ```
   #
-  def unit_manager(unit : DynFork::Globals::Unit)
+  def unit_manager(
+    unit : DynFork::Globals::Unit,
+    *,
+    upsert : Bool = false,
+    array_filters = nil,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
+    ordered : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    bypass_document_validation : Bool? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  )
     # Unit validation.
     if unit.field.empty?
       self.error_empty_field("field")
@@ -95,7 +107,33 @@ module DynFork::Commons::UnitsManagement
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
-    super_collection.update_one(filter, update)
+    if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
+         filter,
+         update,
+         upsert: upsert,
+         array_filters: array_filters,
+         collation: collation,
+         hint: hint,
+         ordered: ordered,
+         write_concern: write_concern,
+         bypass_document_validation: bypass_document_validation,
+         session: session,
+       )
+      if write_errors : Array(Mongo::Commands::Common::WriteError)? = result.not_nil!.write_errors
+        msg_err : String = ""
+        write_errors.not_nil!.each do |write_rrror|
+          msg_err += "#{write_rrror.errmsg}\n"
+        end
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `.unit_manager` =>\n#{msg_err}"
+        )
+      end
+    else
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `.unit_manager` => " +
+        "Updating data in a super collection returned an empty result!"
+      )
+    end
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
@@ -133,7 +171,34 @@ module DynFork::Commons::UnitsManagement
         # Update the value of a field in the collection of the current Model.
         filter = {"_id": doc["_id"]}
         update = {"$set": {unit.field => doc[unit.field]}}
-        collection.update_one(filter, update)
+        update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
+        if result = collection.update_one(
+             filter,
+             update,
+             upsert: upsert,
+             array_filters: array_filters,
+             collation: collation,
+             hint: hint,
+             ordered: ordered,
+             write_concern: write_concern,
+             bypass_document_validation: bypass_document_validation,
+             session: session,
+           )
+          if write_errors = result.not_nil!.write_errors
+            msg_err = ""
+            write_errors.not_nil!.each do |write_rrror|
+              msg_err += "#{write_rrror.errmsg}\n"
+            end
+            raise DynFork::Errors::Panic.new(
+              "Model : `#{@@full_model_name}` > Method: `.unit_manager` =>\n#{msg_err}"
+            )
+          end
+        else
+          raise DynFork::Errors::Panic.new(
+            "Model : `#{@@full_model_name}` > Method: `.unit_manager` => " +
+            "Updating data in a super collection returned an empty result!"
+          )
+        end
       }
     end
     #

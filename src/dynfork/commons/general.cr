@@ -3,8 +3,7 @@ module DynFork::Commons::QGeneral
   extend self
 
   # Runs an aggregation framework pipeline.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -54,7 +53,6 @@ module DynFork::Commons::QGeneral
   # Finds the distinct values for a specified field across a single collection.
   # <br>
   # Returns an array of unique values for specified field of collection.
-  # <br>
   # NOTE: the results are backed by the "values" array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
   # <br>
   # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.
@@ -94,8 +92,7 @@ module DynFork::Commons::QGeneral
   # Count the number of documents in a collection that match the given filter.
   # <br>
   # Note that an empty filter will force a scan of the entire collection.
-  # <br>
-  # For a fast count of the total documents in a collection see **estimated_document_count**.
+  # NOTE: For a fast count of the total documents in a collection see **estimated_document_count**.
   #
   # Example:
   # ```
@@ -131,8 +128,7 @@ module DynFork::Commons::QGeneral
   end
 
   # Gets an estimate of the count of documents in a collection using collection metadata.
-  # <br>
-  # For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -167,8 +163,7 @@ module DynFork::Commons::QGeneral
   end
 
   # Returns a variety of storage statistics for the collection.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/collStats/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/collStats/" target="_blank">documentation</a>.
   def stats(
     *,
     scale : Int32? = nil,

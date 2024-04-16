@@ -3,8 +3,7 @@ module DynFork::Commons::QOne
   extend self
 
   # Finds the document and converts it to a Model instance.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -65,8 +64,7 @@ module DynFork::Commons::QOne
   end
 
   # Find the document and convert it to a Hash object.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -119,9 +117,9 @@ module DynFork::Commons::QOne
          session: session,
        )
       doc_bson : BSON = doc.not_nil!
-      field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
-      field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
-      doc_hash = self.document_to_hash(pointerof(doc_bson), field_name_type_group_list_ptr)
+      field_name_params_list = @@meta.not_nil![:field_name_params_list]
+      field_name_params_list_ptr = pointerof(field_name_params_list)
+      doc_hash = self.document_to_hash(pointerof(doc_bson), field_name_params_list_ptr)
       return doc_hash
     end
     #
@@ -129,8 +127,7 @@ module DynFork::Commons::QOne
   end
 
   # Finds the document and converts it to a json string.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```

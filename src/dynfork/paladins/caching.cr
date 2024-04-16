@@ -121,7 +121,7 @@ module DynFork::Paladins::Caching
       fields
     )
     # **Format:** _<field_name, <field_type, field_group>>_
-    field_name_type_group_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
+    field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
       fields = Hash(String, NamedTuple(type: String, group: UInt8)).new
       {% for var in @type.instance_vars %}
         unless @{{ var }}.ignored?
@@ -291,7 +291,7 @@ module DynFork::Paladins::Caching
       # **Format:** _<field_name, field_type>_
       field_name_and_type_list: field_name_and_type_list,
       # **Format:** _<field_name, <field_type, field_group>>_
-      field_name_type_group_list: field_name_type_group_list,
+      field_name_params_list: field_name_params_list,
       # Default value list.
       # <br>
       # **Format:** _<field_name, default_value>_

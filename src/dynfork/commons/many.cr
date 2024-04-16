@@ -5,8 +5,7 @@ module DynFork::Commons::QMany
   # Finds the documents matching the Model.
   # <br>
   # Converts documents into a array of Hash objects.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
   # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
@@ -74,10 +73,10 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
-    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
+    field_name_params_list = @@meta.not_nil![:field_name_params_list]
+    field_name_params_list_ptr = pointerof(field_name_params_list)
     cursor.each { |document|
-      hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
+      hash_list << self.document_to_hash(pointerof(document), field_name_params_list_ptr)
     }
     #
     hash_list
@@ -86,8 +85,7 @@ module DynFork::Commons::QMany
   # Finds the documents matching the Model.
   # <br>
   # Converts documents to a json string.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
   # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
@@ -155,10 +153,10 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
-    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
+    field_name_params_list = @@meta.not_nil![:field_name_params_list]
+    field_name_params_list_ptr = pointerof(field_name_params_list)
     cursor.each { |document|
-      json += (self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)).to_json
+      json += (self.document_to_hash(pointerof(document), field_name_params_list_ptr)).to_json
     }
     #
     if json.size > 1
