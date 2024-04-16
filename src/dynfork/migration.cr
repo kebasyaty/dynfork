@@ -71,7 +71,7 @@ module DynFork::Migration
       cursor : Mongo::Cursor = super_collection.find
       # Delete data for non-existent Models.
       cursor.each { |document|
-        unless document["model_exists"]
+        unless document["model_exists"].as(Bool)
           # Get the name of the collection associated with the Model.
           model_collection_name : String = document["collection_name"].as(String)
           # Delete data for non-existent Model.
@@ -157,7 +157,7 @@ module DynFork::Migration
           # Go through all documents to make changes.
           cursor.each { |doc|
             # Create a new document for the updated state.
-            freshed_document = BSON.new({"_id": doc["_id"]})
+            freshed_document = {"_id" => doc["_id"]}
             # Create a new document without the deleted fields.
             old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)

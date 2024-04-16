@@ -925,12 +925,8 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(unique: <span class="n">true</span>)
   getter email <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new(unique: <span class="n">true</span>)
 
-  <span class="k">def</span> <span class="m">indexing</span>
-    <span class="c"># Get collection for current model.</span>
-    collection : <span class="t">Mongo</span><span class="t">::</span><span class="t">Collection</span> <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Globals</span>.cache_mongo_database[
-      @@meta.not_nil![<span class="n">:collection_name</span>]]
-    <span class="c">#</span>
-    collection.create_index(
+  <span class="k">def</span> <span class="m">self</span>.indexing
+    <span class="k">self</span>.create_index(
       keys: {
         <span class="s">&quot;username&quot;</span>: <span class="n">1</span>,
       },
