@@ -6,21 +6,15 @@ module Models::Accounts
     getter birthday = DynFork::Fields::DateField.new
 
     def self.indexing
-      if result : Mongo::Commands::CreateIndexes::Result? = self.create_index(
-           keys: {
-             "username": 1,
-           },
-           options: {
-             unique: true,
-             name:   "usernameIdx",
-           }
-         )
-        if errmsg : String? = result.not_nil!.errmsg
-          raise errmsg.not_nil!
-        end
-      else
-        raise "Index creation returned empty result!"
-      end
+      self.create_index(
+        keys: {
+          "username": 1,
+        },
+        options: {
+          unique: true,
+          name:   "usernameIdx",
+        }
+      )
     end
   end
 end
