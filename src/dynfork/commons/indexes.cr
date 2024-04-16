@@ -50,14 +50,25 @@ module DynFork::Commons::Indexes
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    collection.create_index(
-      keys: keys,
-      options: options,
-      commit_quorum: commit_quorum,
-      max_time_ms: max_time_ms,
-      write_concern: write_concern,
-      session: session,
-    )
+    if result : Mongo::Commands::CreateIndexes::Result? = collection.create_index(
+         keys: keys,
+         options: options,
+         commit_quorum: commit_quorum,
+         max_time_ms: max_time_ms,
+         write_concern: write_concern,
+         session: session,
+       )
+      if errmsg : String? = result.not_nil!.errmsg
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `.create_index` => #{errmsg}"
+        )
+      end
+    else
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `.create_index` => " +
+        "Index creation returned empty result!"
+      )
+    end
   end
 
   # Creates multiple indexes in the collection.
@@ -88,13 +99,24 @@ module DynFork::Commons::Indexes
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    collection.create_indexes(
-      models: models,
-      commit_quorum: commit_quorum,
-      max_time_ms: max_time_ms,
-      write_concern: write_concern,
-      session: session,
-    )
+    if result : Mongo::Commands::CreateIndexes::Result? = collection.create_indexes(
+         models: models,
+         commit_quorum: commit_quorum,
+         max_time_ms: max_time_ms,
+         write_concern: write_concern,
+         session: session,
+       )
+      if errmsg : String? = result.not_nil!.errmsg
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `.create_indexes` => #{errmsg}"
+        )
+      end
+    else
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Method: `.create_indexes` => " +
+        "Index creation returned empty result!"
+      )
+    end
   end
 
   # Drops a single index from the collection by the index name.
