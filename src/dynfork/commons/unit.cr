@@ -185,7 +185,7 @@ module DynFork::Commons::UnitsManagement
              session: session,
            )
           if write_errors = result.not_nil!.write_errors
-            msg_err : String = ""
+            msg_err = ""
             write_errors.not_nil!.each do |write_rrror|
               msg_err += "#{write_rrror.errmsg}\n"
             end
