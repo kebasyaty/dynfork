@@ -73,10 +73,10 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
-    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
+    field_name_params_list = @@meta.not_nil![:field_name_params_list]
+    field_name_params_list_ptr = pointerof(field_name_params_list)
     cursor.each { |document|
-      hash_list << self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)
+      hash_list << self.document_to_hash(pointerof(document), field_name_params_list_ptr)
     }
     #
     hash_list
@@ -153,10 +153,10 @@ module DynFork::Commons::QMany
       session: session,
     )
     #
-    field_name_type_group_list = @@meta.not_nil![:field_name_type_group_list]
-    field_name_type_group_list_ptr = pointerof(field_name_type_group_list)
+    field_name_params_list = @@meta.not_nil![:field_name_params_list]
+    field_name_params_list_ptr = pointerof(field_name_params_list)
     cursor.each { |document|
-      json += (self.document_to_hash(pointerof(document), field_name_type_group_list_ptr)).to_json
+      json += (self.document_to_hash(pointerof(document), field_name_params_list_ptr)).to_json
     }
     #
     if json.size > 1
