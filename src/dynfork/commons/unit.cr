@@ -28,7 +28,18 @@ module DynFork::Commons::UnitsManagement
   # ModelName.unit_manager unit
   # ```
   #
-  def unit_manager(unit : DynFork::Globals::Unit)
+  def unit_manager(
+    unit : DynFork::Globals::Unit,
+    *,
+    upsert : Bool = false,
+    array_filters = nil,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
+    ordered : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    bypass_document_validation : Bool? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  )
     # Unit validation.
     if unit.field.empty?
       self.error_empty_field("field")
@@ -95,7 +106,18 @@ module DynFork::Commons::UnitsManagement
     end
     # Update the state of the Model in the super collection.
     update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
-    super_collection.update_one(filter, update)
+    super_collection.update_one(
+      filter,
+      update,
+      upsert: upsert,
+      array_filters: array_filters,
+      collation: collation,
+      hint: hint,
+      ordered: ordered,
+      write_concern: write_concern,
+      bypass_document_validation: bypass_document_validation,
+      session: session,
+    )
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
     # Update documents in the collection of the current Model.
@@ -133,7 +155,18 @@ module DynFork::Commons::UnitsManagement
         # Update the value of a field in the collection of the current Model.
         filter = {"_id": doc["_id"]}
         update = {"$set": {unit.field => doc[unit.field]}}
-        collection.update_one(filter, update)
+        collection.update_one(
+          filter,
+          update,
+          upsert: upsert,
+          array_filters: array_filters,
+          collation: collation,
+          hint: hint,
+          ordered: ordered,
+          write_concern: write_concern,
+          bypass_document_validation: bypass_document_validation,
+          session: session,
+        )
       }
     end
     #
