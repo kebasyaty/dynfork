@@ -61,8 +61,7 @@ module DynFork::Commons::Indexes
   end
 
   # Creates multiple indexes in the collection.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -121,8 +120,7 @@ module DynFork::Commons::Indexes
   end
 
   # Drops all indexes in the collection.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/dropIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/dropIndexes/" target="_blank">documentation</a>.
   def drop_indexes(
     *,
     max_time_ms : Int64? = nil,
@@ -141,8 +139,7 @@ module DynFork::Commons::Indexes
   end
 
   # Gets index information for all indexes in the collection.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/listIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/listIndexes/" target="_blank">documentation</a>.
   def list_indexes(session : Mongo::Session::ClientSession? = nil) : Mongo::Cursor?
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[

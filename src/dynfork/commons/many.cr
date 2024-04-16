@@ -5,8 +5,7 @@ module DynFork::Commons::QMany
   # Finds the documents matching the Model.
   # <br>
   # Converts documents into a array of Hash objects.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
   # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #
@@ -86,8 +85,7 @@ module DynFork::Commons::QMany
   # Finds the documents matching the Model.
   # <br>
   # Converts documents to a json string.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   # <br>
   # For an overview of read operations, check the official <a href="https://docs.mongodb.com/manual/core/read-operations-introduction/" target="_blank">manual</a>.
   #

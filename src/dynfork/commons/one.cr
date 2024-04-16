@@ -3,8 +3,7 @@ module DynFork::Commons::QOne
   extend self
 
   # Finds the document and converts it to a Model instance.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -65,8 +64,7 @@ module DynFork::Commons::QOne
   end
 
   # Find the document and convert it to a Hash object.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -129,8 +127,7 @@ module DynFork::Commons::QOne
   end
 
   # Finds the document and converts it to a json string.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
