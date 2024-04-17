@@ -62,10 +62,10 @@ module DynFork
   #   service_name: "ServiceName",
   #   fixture_name: "FixtureName",
   #   db_query_docs_limit: 1000,
-  #   migrat_model?: false,
-  #   create_doc?: false,
-  #   update_doc?: false,
-  #   delete_doc?: false,
+  #   migrat_model?: true,
+  #   create_doc?: true,
+  #   update_doc?: true,
+  #   delete_doc?: true,
   # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new
