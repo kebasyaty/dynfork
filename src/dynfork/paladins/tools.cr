@@ -342,21 +342,21 @@ module DynFork::Paladins::Tools
               # | ChoiceI64MultDynField | ChoiceF64MultDynField
               if field_type.includes?("Text")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.as_s}
+                  arr = value.as_a.map { |item| item.as_s}
                   @{{ field }}.refrash_val_arr_str(arr)
                 else
                   @{{ field }}.refrash_val_str(value.as_s)
                 end
               elsif field_type.includes?("I64")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.as_i64}
+                  arr = value.as_a.map { |item| item.as_i64}
                   @{{ field }}.refrash_val_arr_i64(arr)
                 else
                   @{{ field }}.refrash_val_i64(value.as_i64)
                 end
               elsif field_type.includes?("F64")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.as_f}
+                  arr = value.as_a.map { |item| item.as_f}
                   @{{ field }}.refrash_val_arr_f64(arr)
                 else
                   @{{ field }}.refrash_val_f64(value.as_f)
