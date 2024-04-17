@@ -74,7 +74,9 @@ module DynFork
     # Apply a fixture to the Model.
     def self.apply_fixture
       if _fixture_name : String? = @@meta.not_nil![:fixture_name]
-        # ...
+        if self.estimated_document_count == 0
+          # ...
+        end
       end
     end
 
