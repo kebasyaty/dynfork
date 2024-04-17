@@ -218,10 +218,17 @@ module DynFork::Migration
       #
       # Run indexing.
       @model_list.each do |model|
-        # Run indexing.
-        model.indexing
-        # Apply a fixture to the Model.
-        model.apply_fixture
+        if model.meta[:migrat_model?]
+          # Run indexing.
+          model.indexing
+          # Apply a fixture to the Model.
+          model.apply_fixture
+        else
+          raise DynFork::Errors::Panic.new(
+            "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +
+            "This Model is not migrated to the database!"
+          )
+        end
       end
     end
   end
