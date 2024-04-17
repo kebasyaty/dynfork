@@ -26,9 +26,10 @@ module DynFork::Paladins::Caching
       "service_name",
       "fixture_name",
       "db_query_docs_limit",
-      "saving_docs?",
-      "updating_docs?",
-      "deleting_docs?",
+      "ignored_model?",
+      "create_doc?",
+      "update_doc?",
+      "delete_doc?",
     ]
     {% for param in @type.annotation(DynFork::Meta).named_args %}
       unless meta_parans.includes?({{ param.stringify }})
