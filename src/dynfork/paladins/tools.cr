@@ -305,7 +305,7 @@ module DynFork::Paladins::Tools
     {% end %}
   end
 
-  # Apply a fixture to the Model.
+  # Apply a fixture for current Model.
   def apply_fixture
     if fixture_name : String? = @@meta.not_nil![:fixture_name]
       if self.estimated_document_count == 0
