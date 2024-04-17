@@ -30,16 +30,18 @@ module DynFork
   #   </tr>
   #   <tr>
   #     <td align="left">ignored_model?</td>
-  #     <td align="left">true</td>
+  #     <td align="left">false</td>
   #     <td align="left">
-  #       Create documents in the database.<br>
-  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+  #       ???
   #     </td>
   #   </tr>
   #   <tr>
   #     <td align="left">create_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Can a Model create new documents in a collection?</td>
+  #     <td align="left">
+  #       Can a Model create new documents in a collection?<br>
+  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+  #     </td>
   #   </tr>
   #   <tr>
   #     <td align="left">update_doc?</td>
