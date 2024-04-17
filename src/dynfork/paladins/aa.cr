@@ -71,6 +71,11 @@ module DynFork
     #
     def self.indexing; end
 
+    # ???
+    def self.apply_fixture
+      # ...
+    end
+
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     # WARNING: The method is called automatically.
