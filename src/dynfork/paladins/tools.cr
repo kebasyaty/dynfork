@@ -331,7 +331,7 @@ module DynFork::Paladins::Tools
             when 2
               # DateField | DateTimeField
               if field_type.includes?("Time")
-                dt : Time = self.datetime_parse(value.as_s)
+                dt = self.datetime_parse(value.as_s)
                 @{{ field }}.refrash_val_datetime(dt)
               else
                 dt = self.date_parse(value.as_s)
