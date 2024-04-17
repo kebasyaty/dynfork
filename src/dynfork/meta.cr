@@ -32,7 +32,8 @@ module DynFork
   #     <td align="left">ignored_model?</td>
   #     <td align="left">false</td>
   #     <td align="left">
-  #       Set to <b>false</b> if you do not need to import the Model into the database.
+  #       Set to <b>true</b> if you do not need to import the Model into the database.<br>
+  #       This can be used to validate a web form - Search form, Contact form, etc.
   #     </td>
   #   </tr>
   #   <tr>
