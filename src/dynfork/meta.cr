@@ -29,7 +29,7 @@ module DynFork
   #     <td align="left">limiting query results.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">saving_docs?</td>
+  #     <td align="left">ignored_model?</td>
   #     <td align="left">true</td>
   #     <td align="left">
   #       Create documents in the database.<br>
