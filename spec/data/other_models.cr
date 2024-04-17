@@ -10,9 +10,10 @@ module Spec::Data
   @[DynFork::Meta(
     service_name: "ServiceName",
     db_query_docs_limit: 2000,
-    saving_docs?: false,
-    updating_docs?: false,
-    deleting_docs?: false,
+    ignored_model?: false,
+    create_doc?: true,
+    update_doc?: true,
+    delete_doc?: true,
   )]
   struct FilledModel < DynFork::Model
     getter first_name = DynFork::Fields::TextField.new(
