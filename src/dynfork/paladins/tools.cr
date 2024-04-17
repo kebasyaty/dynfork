@@ -334,7 +334,7 @@ module DynFork::Paladins::Tools
                 dt : Time = self.datetime_parse(value.as_s)
                 @{{ field }}.refrash_val_datetime(dt)
               else
-                dt : Time = self.date_parse(value.as_s)
+                dt = self.date_parse(value.as_s)
                 @{{ field }}.refrash_val_date(dt)
               end
             when 3
