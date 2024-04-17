@@ -306,6 +306,7 @@ module DynFork::Paladins::Tools
   end
 
   # Apply fixture for current Model.
+  # WARNING: Runs automatically during Model migration.
   def apply_fixture(fixture_name : String?)
     yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
     #
