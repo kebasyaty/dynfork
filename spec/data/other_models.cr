@@ -80,7 +80,7 @@ module Spec::Data
     getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
   end
 
-  # ???
+  # For testing fixture.
   @[DynFork::Meta(
     service_name: "Admin",
     fixture_name: "SiteSettings",
