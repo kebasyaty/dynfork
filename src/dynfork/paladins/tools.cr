@@ -312,7 +312,7 @@ module DynFork::Paladins::Tools
         yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
         #
         {% for field in @type.instance_vars %}
-          name = @{{ field }}.name
+          value = yaml[@{{ field }}.name]
           if !@{{ field }}.ignored?
             field_type = @{{ field }}.field_type
             case @{{ field }}.group
@@ -320,7 +320,7 @@ module DynFork::Paladins::Tools
               # ColorField | EmailField | PasswordField | PhoneField
               # | TextField | HashField | URLField | IPField
               if field_type != "PasswordField"
-                @{{ field }}.refrash_val_str(value.as(String))
+                @{{ field }}.refrash_val_str(value.to_s)
               else
                 @{{ field }}.value =  nil
               end
@@ -340,24 +340,24 @@ module DynFork::Paladins::Tools
               # | ChoiceI64MultDynField | ChoiceF64MultDynField
               if field_type.includes?("Text")
                 if field_type.includes?("Mult")
-                  arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String)}
+                  arr = value.map { |item| item.to_s}
                   @{{ field }}.refrash_val_arr_str(arr)
                 else
-                  @{{ field }}.refrash_val_str(value.as(String))
+                  @{{ field }}.refrash_val_str(value.to_s)
                 end
               elsif field_type.includes?("I64")
                 if field_type.includes?("Mult")
-                  arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Int64)}
+                  arr = value.map { |item| item.to_i64}
                   @{{ field }}.refrash_val_arr_i64(arr)
                 else
-                  @{{ field }}.refrash_val_i64(value.as(Int64))
+                  @{{ field }}.refrash_val_i64(value.to_i64)
                 end
               elsif field_type.includes?("F64")
                 if field_type.includes?("Mult")
-                  arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(Float64)}
+                  arr = value.map { |item| item.to_f64}
                   @{{ field }}.refrash_val_arr_f64(arr)
                 else
-                  @{{ field }}.refrash_val_f64(value.as(Float64))
+                  @{{ field }}.refrash_val_f64(value.to_f64)
                 end
               end
             when 4
@@ -374,16 +374,16 @@ module DynFork::Paladins::Tools
                 DynFork::Globals::ImageData.from_bson(bson))
             when 6
               # I64Field
-              @{{ field }}.refrash_val_i64(value.as(Int64))
+              @{{ field }}.refrash_val_i64(value.to_i64)
             when 7
               # F64Field
-              @{{ field }}.refrash_val_f64(value.as(Float64))
+              @{{ field }}.refrash_val_f64(value.to_f64)
             when 8
               # BoolField
-              @{{ field }}.refrash_val_bool(value.as(Bool))
+              @{{ field }}.refrash_val_bool(value.)
             when 9
               # SlugField
-              @{{ field }}.refrash_val_str(value.as(String))
+              @{{ field }}.refrash_val_str(value.to_s)
             else
               raise DynFork::Errors::Model::InvalidGroupNumber
                 .new(@@full_model_name, {{ field.name.stringify }})
