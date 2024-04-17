@@ -106,7 +106,7 @@ module DynFork::Migration
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # If the Model parameter add_doc is false, skip the iteration.
-        next unless metadata[:saving_docs?]
+        next if metadata[:ignored_model?]
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
