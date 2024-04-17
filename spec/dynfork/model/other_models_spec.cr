@@ -87,7 +87,7 @@ describe DynFork::Model do
       Spec::Data::AAModel.new
       metadata = Spec::Data::AAModel.meta
       metadata["service_name"].should eq("Accounts")
-      metadata["migrat_model?"].should be_false
+      metadata["migrat_model?"].should be_true
       metadata["create_doc?"].should be_true
       metadata["update_doc?"].should be_true
       metadata["delete_doc?"].should be_true
