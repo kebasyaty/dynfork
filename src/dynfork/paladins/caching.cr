@@ -297,6 +297,12 @@ module DynFork::Paladins::Caching
       # <br>
       # **Format:** _<field_name, default_value>_
       default_value_list: default_value_list,
+      # ???
+      ignored_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:ignored_model?] }}).nil?
+        val
+      else
+        false
+      end,
       # Create documents in the database. By default = true.
       # NOTE: false - Alternatively, use it to validate data from web forms.
       saving_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:saving_docs?] }}).nil?
