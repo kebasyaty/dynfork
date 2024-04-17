@@ -29,23 +29,30 @@ module DynFork
   #     <td align="left">limiting query results.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">saving_docs?</td>
+  #     <td align="left">migrat_model?</td>
   #     <td align="left">true</td>
   #     <td align="left">
-  #       Create documents in the database.<br>
-  #       If <b>false</b>,
-  #       alternatively use it to validate data from web forms (search form, contact form, etc...).
+  #       Set to <b>false</b> if you do not need to migrate the model to the database.<br>
+  #       This can be use to validate a web forms - Search form, Contact form, etc.
   #     </td>
   #   </tr>
   #   <tr>
-  #     <td align="left">updating_docs?</td>
+  #     <td align="left">create_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Update documents in the database.</td>
+  #     <td align="left">
+  #       Can a Model create new documents in a collection?<br>
+  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+  #     </td>
   #   </tr>
   #   <tr>
-  #     <td align="left">deleting_docs?</td>
+  #     <td align="left">update_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Delete documents from the database.</td>
+  #     <td align="left">Can a Model update documents in a collection?</td>
+  #   </tr>
+  #   <tr>
+  #     <td align="left">delete_doc?</td>
+  #     <td align="left">true</td>
+  #     <td align="left">Can a Model remove documents from a collection?</td>
   #   </tr>
   # </table>
   #
@@ -55,9 +62,10 @@ module DynFork
   #   service_name: "ServiceName",
   #   fixture_name: "FixtureName",
   #   db_query_docs_limit: 1000,
-  #   saving_docs?: true,
-  #   updating_docs?: true,
-  #   deleting_docs?: true
+  #   migrat_model?: true,
+  #   create_doc?: true,
+  #   update_doc?: true,
+  #   delete_doc?: true,
   # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new

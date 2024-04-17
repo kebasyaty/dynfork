@@ -146,8 +146,14 @@ module DynFork::Paladins::Tools
 
   # Delete a document from a collection in a database.
   def delete
-    unless @@meta.not_nil![:deleting_docs?]
-      raise DynFork::Errors::Meta::ForbiddenDeleting.new
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    unless @@meta.not_nil![:delete_doc?]
+      raise DynFork::Errors::Meta::ForbiddenDeletingDocs.new
     end
     # Get collection.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[

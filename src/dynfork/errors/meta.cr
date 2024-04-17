@@ -57,9 +57,9 @@ module DynFork::Errors::Meta
   end
 
   # If deleting documents is prohibited.
-  class ForbiddenDeleting < DynFork::Errors::DynForkException
+  class ForbiddenDeletingDocs < DynFork::Errors::DynForkException
     def initialize
-      super(I18n.t(:forbidden_deleting))
+      super(I18n.t(:forbidden_deleting_docs))
     end
   end
 end

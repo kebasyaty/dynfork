@@ -207,8 +207,8 @@
       
         <ul>
   
-  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ForbiddenDeleting" data-name="dynfork::errors::meta::forbiddendeleting">
-      <a href="../DynFork/Errors/Meta/ForbiddenDeleting.html">ForbiddenDeleting</a>
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ForbiddenDeletingDocs" data-name="dynfork::errors::meta::forbiddendeletingdocs">
+      <a href="../DynFork/Errors/Meta/ForbiddenDeletingDocs.html">ForbiddenDeletingDocs</a>
       
     </li>
   
@@ -688,23 +688,30 @@
     <td align="left">limiting query results.</td>
   </tr>
   <tr>
-    <td align="left">saving_docs?</td>
+    <td align="left">migrat_model?</td>
     <td align="left">true</td>
     <td align="left">
-      Create documents in the database.<br>
-      If <b>false</b>,
-      alternatively use it to validate data from web forms (search form, contact form, etc...).
+      Set to <b>false</b> if you do not need to migrate the model to the database.<br>
+      This can be use to validate a web forms - Search form, Contact form, etc.
     </td>
   </tr>
   <tr>
-    <td align="left">updating_docs?</td>
+    <td align="left">create_doc?</td>
     <td align="left">true</td>
-    <td align="left">Update documents in the database.</td>
+    <td align="left">
+      Can a Model create new documents in a collection?<br>
+      Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+    </td>
   </tr>
   <tr>
-    <td align="left">deleting_docs?</td>
+    <td align="left">update_doc?</td>
     <td align="left">true</td>
-    <td align="left">Delete documents from the database.</td>
+    <td align="left">Can a Model update documents in a collection?</td>
+  </tr>
+  <tr>
+    <td align="left">delete_doc?</td>
+    <td align="left">true</td>
+    <td align="left">Can a Model remove documents from a collection?</td>
   </tr>
 </table>
 <p>Example:</p>
@@ -712,9 +719,10 @@
   service_name: <span class="s">&quot;ServiceName&quot;</span>,
   fixture_name: <span class="s">&quot;FixtureName&quot;</span>,
   db_query_docs_limit: <span class="n">1000</span>,
-  saving_docs?: <span class="n">true</span>,
-  updating_docs?: <span class="n">true</span>,
-  deleting_docs?: <span class="n">true</span>
+  migrat_model?: <span class="n">true</span>,
+  create_doc?: <span class="n">true</span>,
+  update_doc?: <span class="n">true</span>,
+  delete_doc?: <span class="n">true</span>,
 )]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new

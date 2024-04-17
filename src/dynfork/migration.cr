@@ -106,7 +106,7 @@ module DynFork::Migration
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # If the Model parameter add_doc is false, skip the iteration.
-        next unless metadata[:saving_docs?]
+        next unless metadata[:migrat_model?]
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
@@ -218,7 +218,17 @@ module DynFork::Migration
       #
       # Run indexing.
       @model_list.each do |model|
-        model.indexing
+        if model.meta[:migrat_model?]
+          # Run indexing.
+          model.indexing
+          # Apply a fixture to the Model.
+          model.apply_fixture
+        else
+          raise DynFork::Errors::Panic.new(
+            "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +
+            "This Model is not migrated to the database!"
+          )
+        end
       end
     end
   end

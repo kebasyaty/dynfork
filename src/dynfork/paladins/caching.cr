@@ -26,9 +26,10 @@ module DynFork::Paladins::Caching
       "service_name",
       "fixture_name",
       "db_query_docs_limit",
-      "saving_docs?",
-      "updating_docs?",
-      "deleting_docs?",
+      "migrat_model?",
+      "create_doc?",
+      "update_doc?",
+      "delete_doc?",
     ]
     {% for param in @type.annotation(DynFork::Meta).named_args %}
       unless meta_parans.includes?({{ param.stringify }})
@@ -200,7 +201,7 @@ module DynFork::Paladins::Caching
       {% end %}
     )
     # Get list of field names that will not be saved to the database.
-    ignore_fields : Array(String) = (
+    ignored_fields : Array(String) = (
       fields = Array(String).new
       {% for var in @type.instance_vars %}
         if @{{ var }}.ignored?
@@ -296,27 +297,33 @@ module DynFork::Paladins::Caching
       # <br>
       # **Format:** _<field_name, default_value>_
       default_value_list: default_value_list,
-      # Create documents in the database. By default = true.
-      # NOTE: false - Alternatively, use it to validate data from web forms.
-      saving_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:saving_docs?] }}).nil?
+      # Set to **true** if you do not need to import the Model into the database.<br>
+      # This can be use to validate a web forms - Search form, Contact form, etc.
+      migrat_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:migrat_model?] }}).nil?
         val
       else
         true
       end,
-      # Update documents in the database.
-      updating_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:updating_docs?] }}).nil?
+      # Can a Model create new documents in a collection?
+      create_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:create_doc?] }}).nil?
         val
       else
         true
       end,
-      # Delete documents from the database.
-      deleting_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:deleting_docs?] }}).nil?
+      # Can a Model update documents in a collection?
+      update_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:update_doc?] }}).nil?
+        val
+      else
+        true
+      end,
+      # Can a Model remove documents from a collection?
+      delete_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:delete_doc?] }}).nil?
         val
       else
         true
       end,
       # List of field names that will not be saved to the database.
-      ignore_fields: ignore_fields,
+      ignored_fields: ignored_fields,
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
