@@ -303,21 +303,20 @@ module DynFork::Paladins::Caching
       else
         false
       end,
-      # Create documents in the database. By default = true.
-      # NOTE: false - Alternatively, use it to validate data from web forms.
-      saving_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:saving_docs?] }}).nil?
+      # Can a Model create new documents in a collection?
+      create_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:create_doc?] }}).nil?
         val
       else
         true
       end,
-      # Update documents in the database.
-      updating_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:updating_docs?] }}).nil?
+      # Can a Model update documents in a collection?
+      update_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:update_doc?] }}).nil?
         val
       else
         true
       end,
-      # Delete documents from the database.
-      deleting_docs?: if !(val = {{ @type.annotation(DynFork::Meta)[:deleting_docs?] }}).nil?
+      # Can a Model remove documents from a collection?
+      delete_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:delete_doc?] }}).nil?
         val
       else
         true
