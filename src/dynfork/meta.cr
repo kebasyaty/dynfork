@@ -32,7 +32,7 @@ module DynFork
   #     <td align="left">ignored_model?</td>
   #     <td align="left">false</td>
   #     <td align="left">
-  #       ???
+  #       Set to <b>false</b> if you do not need to import the Model into the database.
   #     </td>
   #   </tr>
   #   <tr>
