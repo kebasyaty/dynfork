@@ -73,7 +73,9 @@ module DynFork
 
     # ???
     def self.apply_fixture
-      # ...
+      if fixture_name : String = @@meta.not_nil![:fixture_name]
+        # ...
+      end
     end
 
     # Called before a new document is created in the database.
