@@ -308,7 +308,11 @@ module DynFork::Paladins::Tools
   # Apply fixture for current Model.
   def apply_fixture
     if fixture_name : String? = @@meta.not_nil![:fixture_name]
-      if self.estimated_document_count == 0
+      # Get collection for current model.
+      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+        @@meta.not_nil![:collection_name]]
+      #
+      if collection.estimated_document_count == 0
         yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
         #
         {% for field in @type.instance_vars %}
