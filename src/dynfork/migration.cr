@@ -218,7 +218,10 @@ module DynFork::Migration
       #
       # Run indexing.
       @model_list.each do |model|
+        # Run indexing.
         model.indexing
+        # Apply a fixture to the Model.
+        model.apply_fixture
       end
     end
   end
