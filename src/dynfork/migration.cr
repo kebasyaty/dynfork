@@ -222,7 +222,9 @@ module DynFork::Migration
           # Run indexing.
           model.indexing
           # Apply a fixture to the Model.
-          model.apply_fixture
+          curr_model = model.new
+          curr_model.apply_fixture
+          curr_model.save
         else
           raise DynFork::Errors::Panic.new(
             "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +

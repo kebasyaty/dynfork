@@ -72,7 +72,7 @@ module DynFork
     def self.indexing; end
 
     # Apply a fixture to the Model.
-    def self.apply_fixture
+    def apply_fixture
       if fixture_name : String? = self.meta[:fixture_name]
         if self.estimated_document_count == 0
           yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
