@@ -4,6 +4,13 @@ module DynFork::Paladins::Password
     password : String,
     field_name : String = "password"
   ) : Bool
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    #
     if id : BSON::ObjectId? = self.object_id?
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
@@ -29,7 +36,7 @@ module DynFork::Paladins::Password
     new_password : String,
     field_name : String = "password"
   ) : String?
-    unless verify_password?(old_password, field_name)
+    unless self.verify_password?(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
     # Get collection for current model.
