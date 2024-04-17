@@ -75,7 +75,7 @@ module DynFork
     def self.apply_fixture
       if _fixture_name : String? = @@meta.not_nil![:fixture_name]
         if self.estimated_document_count == 0
-          # ...
+          fixture_hash = Hash(String, DynFork::Globals::ValueTypes).from_yaml("")
         end
       end
     end
