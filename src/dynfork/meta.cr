@@ -29,10 +29,10 @@ module DynFork
   #     <td align="left">limiting query results.</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">ignored_model?</td>
-  #     <td align="left">false</td>
+  #     <td align="left">migrat_model?</td>
+  #     <td align="left">true</td>
   #     <td align="left">
-  #       Set to <b>true</b> if you do not need to import the Model into the database.<br>
+  #       Set to <b>false</b> if you do not need to migrate the model to the database.<br>
   #       This can be use to validate a web forms - Search form, Contact form, etc.
   #     </td>
   #   </tr>
@@ -62,7 +62,7 @@ module DynFork
   #   service_name: "ServiceName",
   #   fixture_name: "FixtureName",
   #   db_query_docs_limit: 1000,
-  #   ignored_model?: false,
+  #   migrat_model?: false,
   #   create_doc?: false,
   #   update_doc?: false,
   #   delete_doc?: false,
