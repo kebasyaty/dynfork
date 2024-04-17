@@ -302,7 +302,7 @@ module DynFork::Paladins::Caching
       migrat_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:migrat_model?] }}).nil?
         val
       else
-        false
+        true
       end,
       # Can a Model create new documents in a collection?
       create_doc?: if !(val = {{ @type.annotation(DynFork::Meta)[:create_doc?] }}).nil?
