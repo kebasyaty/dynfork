@@ -71,15 +71,6 @@ module DynFork
     #
     def self.indexing; end
 
-    # Apply a fixture to the Model.
-    def apply_fixture
-      if fixture_name : String? = self.meta[:fixture_name]
-        if self.estimated_document_count == 0
-          yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
-        end
-      end
-    end
-
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     # WARNING: The method is called automatically.

@@ -304,4 +304,16 @@ module DynFork::Paladins::Tools
       end
     {% end %}
   end
+
+  # Apply a fixture to the Model.
+  def apply_fixture
+    if fixture_name : String? = self.meta[:fixture_name]
+      if self.estimated_document_count == 0
+        yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
+        #
+        {% for field in @type.instance_vars %}
+        {% end %}
+      end
+    end
+  end
 end
