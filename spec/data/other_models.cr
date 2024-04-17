@@ -83,7 +83,9 @@ module Spec::Data
   @[DynFork::Meta(
     service_name: "Admin",
     fixture_name: "SiteSettings",
+    ignored_model?: true,
     create_doc?: false,
+    update_doc?: true,
     delete_doc?: false,
   )]
   struct SiteSettings < DynFork::Model
