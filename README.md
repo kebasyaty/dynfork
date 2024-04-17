@@ -123,12 +123,12 @@ puts "birthday: #{user.birthday.value?}"
 puts "created_at: #{user.created_at.value?}"
 puts "updated_at: #{user.updated_at.value?}"
 
-puts "\nNumber of documents: #{user.count_documents}"
+puts "\nNumber of documents: #{User.estimated_document_count}"
 
 puts "Deleting a document."
 user.delete
 
-puts "Number of documents: #{user.count_documents}"
+puts "Number of documents: #{User.count_documents}"
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
