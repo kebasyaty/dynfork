@@ -222,9 +222,15 @@ module DynFork::Migration
           # Run indexing.
           model.indexing
           # Apply a fixture to the Model.
-          curr_model = model.new
-          curr_model.apply_fixture
-          curr_model.save
+          if fixture_name = model.meta[:fixture_name]
+            collection = DynFork::Globals.cache_mongo_database[
+              model.meta[:collection_name]]
+            if collection.estimated_document_count == 0
+              curr_model = model.new
+              curr_model.apply_fixture(fixture_name)
+              curr_model.save
+            end
+          end
         else
           raise DynFork::Errors::Panic.new(
             "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +
