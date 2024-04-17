@@ -320,7 +320,7 @@ module DynFork::Paladins::Tools
               # ColorField | EmailField | PasswordField | PhoneField
               # | TextField | HashField | URLField | IPField
               if field_type != "PasswordField"
-                @{{ field }}.refrash_val_str(value.to_s)
+                @{{ field }}.refrash_val_str(value.as_s)
               else
                 @{{ field }}.value =  nil
               end
@@ -340,24 +340,24 @@ module DynFork::Paladins::Tools
               # | ChoiceI64MultDynField | ChoiceF64MultDynField
               if field_type.includes?("Text")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.to_s}
+                  arr = value.map { |item| item.as_s}
                   @{{ field }}.refrash_val_arr_str(arr)
                 else
-                  @{{ field }}.refrash_val_str(value.to_s)
+                  @{{ field }}.refrash_val_str(value.as_s)
                 end
               elsif field_type.includes?("I64")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.to_i64}
+                  arr = value.map { |item| item.as_i64}
                   @{{ field }}.refrash_val_arr_i64(arr)
                 else
-                  @{{ field }}.refrash_val_i64(value.to_i64)
+                  @{{ field }}.refrash_val_i64(value.as_i64)
                 end
               elsif field_type.includes?("F64")
                 if field_type.includes?("Mult")
-                  arr = value.map { |item| item.to_f64}
+                  arr = value.map { |item| item.as_f}
                   @{{ field }}.refrash_val_arr_f64(arr)
                 else
-                  @{{ field }}.refrash_val_f64(value.to_f64)
+                  @{{ field }}.refrash_val_f64(value.as_f)
                 end
               end
             when 4
@@ -374,16 +374,16 @@ module DynFork::Paladins::Tools
                 DynFork::Globals::ImageData.from_bson(bson))
             when 6
               # I64Field
-              @{{ field }}.refrash_val_i64(value.to_i64)
+              @{{ field }}.refrash_val_i64(value.as_i64)
             when 7
               # F64Field
-              @{{ field }}.refrash_val_f64(value.to_f64)
+              @{{ field }}.refrash_val_f64(value.as_f)
             when 8
               # BoolField
-              @{{ field }}.refrash_val_bool(value.)
+              @{{ field }}.refrash_val_bool(value.as_bool)
             when 9
               # SlugField
-              @{{ field }}.refrash_val_str(value.to_s)
+              @{{ field }}.refrash_val_str(value.as_s)
             else
               raise DynFork::Errors::Model::InvalidGroupNumber
                 .new(@@full_model_name, {{ field.name.stringify }})
