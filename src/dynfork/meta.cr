@@ -38,14 +38,19 @@ module DynFork
   #     </td>
   #   </tr>
   #   <tr>
-  #     <td align="left">updating_docs?</td>
+  #     <td align="left">create_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Update documents in the database.</td>
+  #     <td align="left">Can a Model create documents in a collection?</td>
   #   </tr>
   #   <tr>
-  #     <td align="left">deleting_docs?</td>
+  #     <td align="left">update_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Delete documents from the database.</td>
+  #     <td align="left">Can a Model update documents in a collection?</td>
+  #   </tr>
+  #   <tr>
+  #     <td align="left">delete_doc?</td>
+  #     <td align="left">true</td>
+  #     <td align="left">Can a Model remove documents from a collection?</td>
   #   </tr>
   # </table>
   #
