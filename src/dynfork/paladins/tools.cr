@@ -312,6 +312,10 @@ module DynFork::Paladins::Tools
         yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
         #
         {% for field in @type.instance_vars %}
+          name = @{{ field }}.name
+          if !@{{ field }}.ignored?
+            # ...
+          end
         {% end %}
       end
     end
