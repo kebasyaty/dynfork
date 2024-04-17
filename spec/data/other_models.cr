@@ -11,9 +11,9 @@ module Spec::Data
     service_name: "ServiceName",
     db_query_docs_limit: 2000,
     ignored_model?: false,
-    create_doc?: true,
-    update_doc?: true,
-    delete_doc?: true,
+    create_doc?: false,
+    update_doc?: false,
+    delete_doc?: false,
   )]
   struct FilledModel < DynFork::Model
     getter first_name = DynFork::Fields::TextField.new(

@@ -70,10 +70,11 @@ describe DynFork::Model do
          "updated_at" => nil,
          "first_name" => "Cat"}
       )
-      metadata["saving_docs?"].should be_false
-      metadata["updating_docs?"].should be_false
-      metadata["deleting_docs?"].should be_false
-      metadata["ignore_fields"].should eq(["hash", "age", "birthday"])
+      metadata["ignored_model?"].should be_false
+      metadata["create_doc?"].should be_false
+      metadata["update_doc?"].should be_false
+      metadata["delete_doc?"].should be_false
+      metadata["ignored_fields"].should eq(["hash", "age", "birthday"])
     end
 
     it "=> create instance of AuxiliaryModel", tags: "model" do
@@ -86,9 +87,10 @@ describe DynFork::Model do
       Spec::Data::AAModel.new
       metadata = Spec::Data::AAModel.meta
       metadata["service_name"].should eq("Accounts")
-      metadata["saving_docs?"].should be_true
-      metadata["updating_docs?"].should be_true
-      metadata["deleting_docs?"].should be_true
+      metadata["ignored_model?"].should be_false
+      metadata["create_doc?"].should be_true
+      metadata["update_doc?"].should be_true
+      metadata["delete_doc?"].should be_true
     end
 
     it "=> create instance of SlugSourceInvalidModel", tags: "model" do
