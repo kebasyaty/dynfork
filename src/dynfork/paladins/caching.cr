@@ -297,7 +297,8 @@ module DynFork::Paladins::Caching
       # <br>
       # **Format:** _<field_name, default_value>_
       default_value_list: default_value_list,
-      # ???
+      # Set to **true** if you do not need to import the Model into the database.<br>
+      # This can be use to validate a web forms - Search form, Contact form, etc.
       ignored_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:ignored_model?] }}).nil?
         val
       else
