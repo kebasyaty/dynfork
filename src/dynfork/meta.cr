@@ -33,17 +33,13 @@ module DynFork
   #     <td align="left">true</td>
   #     <td align="left">
   #       Create documents in the database.<br>
-  #       If <b>false</b>,
-  #       alternatively use it to validate data from web forms (search form, contact form, etc...).
+  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
   #     </td>
   #   </tr>
   #   <tr>
   #     <td align="left">create_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">
-  #       Can a Model create new documents in a collection?<br>
-  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
-  #     </td>
+  #     <td align="left">Can a Model create new documents in a collection?</td>
   #   </tr>
   #   <tr>
   #     <td align="left">update_doc?</td>
