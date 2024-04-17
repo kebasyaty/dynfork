@@ -73,9 +73,9 @@ module DynFork
 
     # Apply a fixture to the Model.
     def self.apply_fixture
-      if _fixture_name : String? = @@meta.not_nil![:fixture_name]
+      if fixture_name : String? = self.meta[:fixture_name]
         if self.estimated_document_count == 0
-          fixture_hash = Hash(String, DynFork::Globals::ValueTypes).from_yaml("")
+          yaml = YAML.parse(File.read("config/fixtures/#{fixture_name}.yml"))
         end
       end
     end
