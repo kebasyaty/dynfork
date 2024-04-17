@@ -40,7 +40,10 @@ module DynFork
   #   <tr>
   #     <td align="left">create_doc?</td>
   #     <td align="left">true</td>
-  #     <td align="left">Can a Model create documents in a collection?</td>
+  #     <td align="left">
+  #       Can a Model create new documents in a collection?<br>
+  #       Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+  #     </td>
   #   </tr>
   #   <tr>
   #     <td align="left">update_doc?</td>
