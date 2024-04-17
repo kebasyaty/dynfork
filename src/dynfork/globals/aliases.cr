@@ -39,7 +39,7 @@ module DynFork::Globals::Aliases
     field_name_and_type_list: Hash(String, String),
     field_name_params_list: Hash(String, NamedTuple(type: String, group: UInt8)),
     default_value_list: Hash(String, DynFork::Globals::ValueTypes),
-    ignored_model?: Bool,
+    migrat_model?: Bool,
     create_doc?: Bool,
     update_doc?: Bool,
     delete_doc?: Bool,
