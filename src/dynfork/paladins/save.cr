@@ -33,12 +33,12 @@ module DynFork::Paladins::Save
     # <br>
     # Reset the alerts to exclude duplicates.
     @hash.alerts = Array(String).new
-    if !output_data.update? && !@@meta.not_nil![:saving_docs?]
-      @hash.alerts << I18n.t(:forbidden_saving)
+    if !output_data.update? && !@@meta.not_nil![:create_doc?]
+      @hash.alerts << I18n.t(:forbidden_creating_docs)
       output_data.valid = false
     end
-    if output_data.update? && !@@meta.not_nil![:updating_docs?]
-      @hash.alerts << I18n.t(:forbidden_updating)
+    if output_data.update? && !@@meta.not_nil![:update_doc?]
+      @hash.alerts << I18n.t(:forbidden_updating_docs)
       output_data.valid = false
     end
     # Leave the method if the check fails.
