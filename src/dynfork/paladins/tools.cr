@@ -364,16 +364,9 @@ module DynFork::Paladins::Tools
               end
             when 4
               # FileField
-              bson = BSON.new
-              value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-              @{{ field }}.refrash_val_file_data(
-                DynFork::Globals::FileData.from_bson(bson))
+              @{{ field }}.from_path(value.as_s)
             when 5
-              # ImageField
-              bson = BSON.new
-              value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-              @{{ field }}.refrash_val_img_data(
-                DynFork::Globals::ImageData.from_bson(bson))
+              @{{ field }}.from_path(value.as_s)
             when 6
               # I64Field
               @{{ field }}.refrash_val_i64(value.as_i64)
