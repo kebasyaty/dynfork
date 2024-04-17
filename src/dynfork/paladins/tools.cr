@@ -327,9 +327,11 @@ module DynFork::Paladins::Tools
             when 2
               # DateField | DateTimeField
               if field_type.includes?("Time")
-                @{{ field }}.value = value.as_s
+                dt : Time = self.datetime_parse(value.as_s)
+                @{{ field }}.refrash_val_datetime(dt)
               else
-                @{{ field }}.value = value.as_s
+                dt : Time = self.date_parse(value.as_s)
+                @{{ field }}.refrash_val_date(dt)
               end
             when 3
               # ChoiceTextField | ChoiceI64Field
