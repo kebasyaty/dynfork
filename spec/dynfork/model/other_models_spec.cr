@@ -70,7 +70,7 @@ describe DynFork::Model do
          "updated_at" => nil,
          "first_name" => "Cat"}
       )
-      metadata["migrat_model?"].should be_false
+      metadata["migrat_model?"].should be_true
       metadata["create_doc?"].should be_false
       metadata["update_doc?"].should be_false
       metadata["delete_doc?"].should be_false

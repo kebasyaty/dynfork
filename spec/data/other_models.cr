@@ -10,7 +10,7 @@ module Spec::Data
   @[DynFork::Meta(
     service_name: "ServiceName",
     db_query_docs_limit: 2000,
-    migrat_model?: false,
+    migrat_model?: true,
     create_doc?: false,
     update_doc?: false,
     delete_doc?: false,
