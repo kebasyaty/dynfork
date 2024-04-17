@@ -26,7 +26,7 @@ module DynFork::Paladins::Caching
       "service_name",
       "fixture_name",
       "db_query_docs_limit",
-      "ignored_model?",
+      "migrat_model?",
       "create_doc?",
       "update_doc?",
       "delete_doc?",
@@ -299,7 +299,7 @@ module DynFork::Paladins::Caching
       default_value_list: default_value_list,
       # Set to **true** if you do not need to import the Model into the database.<br>
       # This can be use to validate a web forms - Search form, Contact form, etc.
-      ignored_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:ignored_model?] }}).nil?
+      migrat_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:migrat_model?] }}).nil?
         val
       else
         false

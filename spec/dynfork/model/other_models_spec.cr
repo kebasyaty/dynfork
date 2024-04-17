@@ -70,7 +70,7 @@ describe DynFork::Model do
          "updated_at" => nil,
          "first_name" => "Cat"}
       )
-      metadata["ignored_model?"].should be_false
+      metadata["migrat_model?"].should be_false
       metadata["create_doc?"].should be_false
       metadata["update_doc?"].should be_false
       metadata["delete_doc?"].should be_false
@@ -87,7 +87,7 @@ describe DynFork::Model do
       Spec::Data::AAModel.new
       metadata = Spec::Data::AAModel.meta
       metadata["service_name"].should eq("Accounts")
-      metadata["ignored_model?"].should be_false
+      metadata["migrat_model?"].should be_false
       metadata["create_doc?"].should be_true
       metadata["update_doc?"].should be_true
       metadata["delete_doc?"].should be_true

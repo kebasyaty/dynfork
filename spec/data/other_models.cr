@@ -10,7 +10,7 @@ module Spec::Data
   @[DynFork::Meta(
     service_name: "ServiceName",
     db_query_docs_limit: 2000,
-    ignored_model?: false,
+    migrat_model?: false,
     create_doc?: false,
     update_doc?: false,
     delete_doc?: false,
@@ -84,7 +84,7 @@ module Spec::Data
   @[DynFork::Meta(
     service_name: "Admin",
     fixture_name: "SiteSettings",
-    ignored_model?: false,
+    migrat_model?: false,
     create_doc?: false,
     update_doc?: true,
     delete_doc?: false,
