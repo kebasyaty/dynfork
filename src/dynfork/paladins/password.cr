@@ -35,7 +35,7 @@ module DynFork::Paladins::Password
     old_password : String,
     new_password : String,
     field_name : String = "password"
-  ) : String?
+  ) : Void
     unless self.verify_password?(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
@@ -48,7 +48,5 @@ module DynFork::Paladins::Password
     filter = {_id: self.object_id?}
     update = {"$set": {field_name => password_hash}}
     collection.update_one(filter, update)
-    #
-    nil
   end
 end

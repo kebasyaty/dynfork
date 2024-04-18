@@ -85,7 +85,7 @@ module DynFork
     end
 
     # Injecting metadata from storage in Model.
-    private def inject
+    private def inject : Void
       var_name : String = ""
       json : String?
       #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.
