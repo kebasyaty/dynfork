@@ -7,7 +7,7 @@ module DynFork::Paladins::Groups
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
-  )
+  ) : Void
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
     if !update? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?

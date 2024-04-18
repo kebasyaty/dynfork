@@ -13,7 +13,7 @@ module DynFork::Paladins::Groups
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
-  )
+  ) : Void
     # Get current value.
     current_value : DynFork::Globals::ValueTypes = (
       value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?

@@ -7,7 +7,7 @@ module DynFork::Paladins::Groups
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection),
     id_ptr : Pointer(BSON::ObjectId?)
-  )
+  ) : Void
     # Get current value.
     current_value : Int64 = (
       value : Int64? = field_ptr.value.extract_val_i64? || field_ptr.value.extract_default_i64?
