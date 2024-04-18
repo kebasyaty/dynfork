@@ -32,7 +32,7 @@ module DynFork
   #     <td align="left">migrat_model?</td>
   #     <td align="left">true</td>
   #     <td align="left">
-  #       Set to <b>false</b> if you do not need to migrate the model to the database.<br>
+  #       Set to <b>false</b> if you do not need to migrate the Model to the database.<br>
   #       This can be use to validate a web forms - Search form, Contact form, etc.
   #     </td>
   #   </tr>

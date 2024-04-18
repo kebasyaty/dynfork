@@ -315,76 +315,77 @@ module DynFork::Paladins::Tools
     yaml = YAML.parse(File.read(fixture_path))
     #
     {% for field in @type.instance_vars %}
-      value = yaml[@{{ field }}.name]
-      if !@{{ field }}.ignored?
-        field_type = @{{ field }}.field_type
-        case @{{ field }}.group
-        when 1
-          # ColorField | EmailField | PasswordField | PhoneField
-          # | TextField | HashField | URLField | IPField
-          if field_type != "PasswordField"
+      unless @{{ field }}.ignored?
+        unless (value = yaml[@{{ field }}.name]?).nil?
+          field_type = @{{ field }}.field_type
+          case @{{ field }}.group
+          when 1
+            # ColorField | EmailField | PasswordField | PhoneField
+            # | TextField | HashField | URLField | IPField
+            if field_type != "PasswordField"
+              @{{ field }}.refrash_val_str(value.as_s)
+            else
+              @{{ field }}.value =  nil
+            end
+          when 2
+            # DateField | DateTimeField
+            if field_type.includes?("Time")
+              dt = self.datetime_parse(value.as_s)
+              @{{ field }}.refrash_val_datetime(dt)
+            else
+              dt = self.date_parse(value.as_s)
+              @{{ field }}.refrash_val_date(dt)
+            end
+          when 3
+            # ChoiceTextField | ChoiceI64Field
+            # | ChoiceF64Field | ChoiceTextMultField
+            # | ChoiceI64MultField | ChoiceF64MultField
+            # | ChoiceTextMultField | ChoiceI64MultField
+            # | ChoiceF64MultField | ChoiceTextMultDynField
+            # | ChoiceI64MultDynField | ChoiceF64MultDynField
+            if field_type.includes?("Text")
+              if field_type.includes?("Mult")
+                arr = value.as_a.map { |item| item.as_s}
+                @{{ field }}.refrash_val_arr_str(arr)
+              else
+                @{{ field }}.refrash_val_str(value.as_s)
+              end
+            elsif field_type.includes?("I64")
+              if field_type.includes?("Mult")
+                arr = value.as_a.map { |item| item.as_i64}
+                @{{ field }}.refrash_val_arr_i64(arr)
+              else
+                @{{ field }}.refrash_val_i64(value.as_i64)
+              end
+            elsif field_type.includes?("F64")
+              if field_type.includes?("Mult")
+                arr = value.as_a.map { |item| item.as_f}
+                @{{ field }}.refrash_val_arr_f64(arr)
+              else
+                @{{ field }}.refrash_val_f64(value.as_f)
+              end
+            end
+          when 4
+            # FileField
+            @{{ field }}.from_path(value.as_s)
+          when 5
+            @{{ field }}.from_path(value.as_s)
+          when 6
+            # I64Field
+            @{{ field }}.refrash_val_i64(value.as_i64)
+          when 7
+            # F64Field
+            @{{ field }}.refrash_val_f64(value.as_f)
+          when 8
+            # BoolField
+            @{{ field }}.refrash_val_bool(value.as_bool)
+          when 9
+            # SlugField
             @{{ field }}.refrash_val_str(value.as_s)
           else
-            @{{ field }}.value =  nil
+            raise DynFork::Errors::Model::InvalidGroupNumber
+              .new(@@full_model_name, {{ field.name.stringify }})
           end
-        when 2
-          # DateField | DateTimeField
-          if field_type.includes?("Time")
-            dt = self.datetime_parse(value.as_s)
-            @{{ field }}.refrash_val_datetime(dt)
-          else
-            dt = self.date_parse(value.as_s)
-            @{{ field }}.refrash_val_date(dt)
-          end
-        when 3
-          # ChoiceTextField | ChoiceI64Field
-          # | ChoiceF64Field | ChoiceTextMultField
-          # | ChoiceI64MultField | ChoiceF64MultField
-          # | ChoiceTextMultField | ChoiceI64MultField
-          # | ChoiceF64MultField | ChoiceTextMultDynField
-          # | ChoiceI64MultDynField | ChoiceF64MultDynField
-          if field_type.includes?("Text")
-            if field_type.includes?("Mult")
-              arr = value.as_a.map { |item| item.as_s}
-              @{{ field }}.refrash_val_arr_str(arr)
-            else
-              @{{ field }}.refrash_val_str(value.as_s)
-            end
-          elsif field_type.includes?("I64")
-            if field_type.includes?("Mult")
-              arr = value.as_a.map { |item| item.as_i64}
-              @{{ field }}.refrash_val_arr_i64(arr)
-            else
-              @{{ field }}.refrash_val_i64(value.as_i64)
-            end
-          elsif field_type.includes?("F64")
-            if field_type.includes?("Mult")
-              arr = value.as_a.map { |item| item.as_f}
-              @{{ field }}.refrash_val_arr_f64(arr)
-            else
-              @{{ field }}.refrash_val_f64(value.as_f)
-            end
-          end
-        when 4
-          # FileField
-          @{{ field }}.from_path(value.as_s)
-        when 5
-          @{{ field }}.from_path(value.as_s)
-        when 6
-          # I64Field
-          @{{ field }}.refrash_val_i64(value.as_i64)
-        when 7
-          # F64Field
-          @{{ field }}.refrash_val_f64(value.as_f)
-        when 8
-          # BoolField
-          @{{ field }}.refrash_val_bool(value.as_bool)
-        when 9
-          # SlugField
-          @{{ field }}.refrash_val_str(value.as_s)
-        else
-          raise DynFork::Errors::Model::InvalidGroupNumber
-            .new(@@full_model_name, {{ field.name.stringify }})
         end
       end
     {% end %}
