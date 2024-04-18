@@ -307,7 +307,7 @@ module DynFork::Paladins::Tools
 
   # Apply fixture for current Model.
   # WARNING: Runs automatically during Model migration.
-  def apply_fixture(fixture_name : String?)
+  def apply_fixture(fixture_name : String?, collection_ptr : Pointer)
     fixture_path : String = "config/fixtures/#{fixture_name}.yml"
     yaml = YAML.parse(File.read(fixture_path))
     #
@@ -386,8 +386,17 @@ module DynFork::Paladins::Tools
       end
     {% end %}
     #
-    if self.valid?
-      # ...
+    # Check and get output data.
+    output_data : DynFork::Globals::OutputData = self.check(
+      collection_ptr: collection_ptr,
+      save?: true
+    )
+    if output_data.valid?
+      # Create doc.
+      data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
+      datetime : Time = Time.utc
+      data["created_at"] = datetime
+      data["updated_at"] = datetime
     else
       print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
       print fixture_path.colorize.fore(:blue).mode(:bold)
