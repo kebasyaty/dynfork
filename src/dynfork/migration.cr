@@ -227,7 +227,10 @@ module DynFork::Migration
               model.meta[:collection_name]]
             if collection.estimated_document_count == 0
               curr_model = model.new
-              curr_model.apply_fixture(fixture_name)
+              curr_model.apply_fixture(
+                fixture_name: fixture_name,
+                collection_ptr: pointerof(collection),
+              )
             end
           end
         else
