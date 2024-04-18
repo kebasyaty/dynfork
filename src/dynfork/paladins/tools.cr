@@ -307,7 +307,10 @@ module DynFork::Paladins::Tools
 
   # Apply fixture for current Model.
   # WARNING: Runs automatically during Model migration.
-  def apply_fixture(fixture_name : String?, collection_ptr : Pointer)
+  def apply_fixture(
+    fixture_name : String?,
+    collection_ptr : Pointer(Mongo::Collection)
+  )
     fixture_path : String = "config/fixtures/#{fixture_name}.yml"
     yaml = YAML.parse(File.read(fixture_path))
     #
