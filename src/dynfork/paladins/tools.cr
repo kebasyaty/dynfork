@@ -315,8 +315,8 @@ module DynFork::Paladins::Tools
     yaml = YAML.parse(File.read(fixture_path))
     #
     {% for field in @type.instance_vars %}
-      value = yaml[@{{ field }}.name]
-      if !@{{ field }}.ignored?
+      unless @{{ field }}.ignored?
+        value = yaml[@{{ field }}.name]
         field_type = @{{ field }}.field_type
         case @{{ field }}.group
         when 1
