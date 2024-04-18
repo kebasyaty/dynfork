@@ -387,8 +387,8 @@ module DynFork::Paladins::Tools
     {% end %}
     #
     unless self.save
-      puts "FIXTURE:"
-      puts fixture_path
+      puts "\nFIXTURE:".colorize.fore(:red).mode(:bold)
+      puts fixture_path.colorize.fore(:blue).mode(:bold)
       self.print_err
       raise
     end
