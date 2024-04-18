@@ -390,7 +390,7 @@ module DynFork::Paladins::Tools
       puts "FIXTURE:"
       puts fixture_path
       self.print_err
-      raise ""
+      raise
     end
   end
 end
