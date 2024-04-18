@@ -316,7 +316,7 @@ module DynFork::Paladins::Tools
     #
     {% for field in @type.instance_vars %}
       unless @{{ field }}.ignored?
-        if value = yaml[@{{ field }}.name]?
+        unless (value = yaml[@{{ field }}.name]?).nil?
           field_type = @{{ field }}.field_type
           case @{{ field }}.group
           when 1
