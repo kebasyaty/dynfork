@@ -44,7 +44,7 @@ module DynFork
 
     # For set up and start indexing.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example></a>.
-    # WARNING: The method is called automatically.
+    # WARNING: Runs automatically during Model migration.
     # <br>
     # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
     #
@@ -69,43 +69,36 @@ module DynFork
     # end
     # ```
     #
-    def self.indexing; end
-
-    # Apply a fixture to the Model.
-    def self.apply_fixture
-      if _fixture_name : String? = @@meta.not_nil![:fixture_name]
-        # ...
-      end
-    end
+    def self.indexing : Void; end
 
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     # WARNING: The method is called automatically.
-    def pre_create; end
+    def pre_create : Void; end
 
     # Called after a new document has been created in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_create; end
+    def post_create : Void; end
 
     # Called before updating an existing document in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def pre_update; end
+    def pre_update : Void; end
 
     # Called after an existing document in the database is updated.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_update; end
+    def post_update : Void; end
 
     # Called before deleting an existing document in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def pre_delete; end
+    def pre_delete : Void; end
 
     # Called after an existing document in the database has been deleted.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_delete; end
+    def post_delete : Void; end
   end
 end

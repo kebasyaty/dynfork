@@ -1,7 +1,7 @@
 # For caching Model metadata.
 module DynFork::Paladins::Caching
   # Add metadata to the global store.
-  private def caching
+  private def caching : Void
     # Get full Model name = ModuleName::StructureName.
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._

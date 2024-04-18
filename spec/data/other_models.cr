@@ -123,27 +123,27 @@ module Spec::Data
     end
 
     private def pre_create
-      pust "!!!=Pre Create=!!!"
+      # ...
     end
 
     private def post_create
-      pust "!!!=Post Create=!!!"
+      # ...
     end
 
     private def pre_update
-      pust "!!!=Pre Update=!!!"
+      # ...
     end
 
     private def post_update
-      pust "!!!=Post Update=!!!"
+      # ...
     end
 
     private def pre_delete
-      pust "!!!=Pre Delete=!!!"
+      # ...
     end
 
     private def post_delete
-      pust "!!!=Post Delete=!!!"
+      # ...
     end
   end
 end

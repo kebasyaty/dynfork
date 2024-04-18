@@ -675,7 +675,7 @@
 <em>For more information see <a href="https://github.com/elbywan/cryomongo" title="Cryomongo">Cryomongo</a></em>.</p>
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
-    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Development-.svg"
+    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Alpha-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -771,12 +771,12 @@ puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthd
 puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span>
 
-puts <span class="s">&quot;\nNumber of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;\nNumber of documents: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
 
 puts <span class="s">&quot;Deleting a document.&quot;</span>
 user.delete
 
-puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>user.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
+puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span><span class="t">User</span>.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
 <h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -803,7 +803,7 @@ puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>
      <tr>
        <td align="left">service_name</td>
        <td align="left">no</td>
-       <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
+       <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc... </td>
      </tr>
      <tr>
        <td align="left">fixture_name</td>
@@ -811,7 +811,7 @@ puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>
        <td align="left">
          The name of the fixture in the <b>config/fixtures</b> directory (without extension).
          <br>
-         <b>Examples:</b> SiteSettings | AppSettings | etc...
+         <b>Examples:</b> SiteSettings | AppSettings | etc ...
        </td>
      </tr>
      <tr>
@@ -820,19 +820,30 @@ puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span>
        <td align="left">limiting query results.</td>
      </tr>
      <tr>
-       <td align="left">saving_docs?</td>
+       <td align="left">migrat_model?</td>
        <td align="left">true</td>
-       <td align="left">Create documents in the database. If <b>false</b>, alternatively use it to validate data from web forms (search form, contact form, etc...).</td>
+       <td align="left">
+         Set to <b>false</b> if you do not need to migrate the model to the database.<br>
+         This can be use to validate a web forms - Search form, Contact form, etc.
+       </td>
      </tr>
      <tr>
-       <td align="left">updating_docs?</td>
+       <td align="left">create_doc?</td>
        <td align="left">true</td>
-       <td align="left">Update documents in the database.</td>
+       <td align="left">
+         Can a Model create new documents in a collection?<br>
+         Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+       </td>
      </tr>
      <tr>
-       <td align="left">deleting_docs?</td>
+       <td align="left">update_doc?</td>
        <td align="left">true</td>
-       <td align="left">Delete documents from the database.</td>
+       <td align="left">Can a Model update documents in a collection?</td>
+     </tr>
+     <tr>
+       <td align="left">delete_doc?</td>
+       <td align="left">true</td>
+       <td align="left">Can a Model remove documents from a collection?</td>
      </tr>
    </table>
 </div>

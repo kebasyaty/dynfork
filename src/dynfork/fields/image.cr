@@ -249,7 +249,7 @@ module DynFork::Fields
       @value = value
     end
 
-    def refrash_val_img_data(val : DynFork::Globals::ImageData)
+    def refrash_val_img_data(val : DynFork::Globals::ImageData) : Void
       @value = val
     end
 

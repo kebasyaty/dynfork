@@ -1,4 +1,4 @@
-require "./paladins/aa"
+require "./aa"
 require "./paladins/paladins"
 require "./commons/commons"
 
@@ -62,7 +62,6 @@ module DynFork
   @[DynFork::Meta]
   abstract struct Model < DynFork::AA
     include JSON::Serializable
-    include JSON::Serializable::Strict
     include DynFork::Globals::Date
     include DynFork::Paladins
     extend DynFork::Commons
@@ -86,7 +85,7 @@ module DynFork
     end
 
     # Injecting metadata from storage in Model.
-    private def inject
+    private def inject : Void
       var_name : String = ""
       json : String?
       #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.

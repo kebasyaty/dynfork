@@ -37,7 +37,7 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
-    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Development-.svg"
+    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Alpha-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -123,12 +123,12 @@ puts "birthday: #{user.birthday.value?}"
 puts "created_at: #{user.created_at.value?}"
 puts "updated_at: #{user.updated_at.value?}"
 
-puts "\nNumber of documents: #{user.count_documents}"
+puts "\nNumber of documents: #{User.estimated_document_count}"
 
 puts "Deleting a document."
 user.delete
 
-puts "Number of documents: #{user.count_documents}"
+puts "Number of documents: #{User.count_documents}"
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
@@ -149,7 +149,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
      <tr>
        <td align="left">service_name</td>
        <td align="left">no</td>
-       <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
+       <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc... </td>
      </tr>
      <tr>
        <td align="left">fixture_name</td>
@@ -157,7 +157,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
        <td align="left">
          The name of the fixture in the <b>config/fixtures</b> directory (without extension).
          <br>
-         <b>Examples:</b> SiteSettings | AppSettings | etc...
+         <b>Examples:</b> SiteSettings | AppSettings | etc ...
        </td>
      </tr>
      <tr>
@@ -166,19 +166,30 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
        <td align="left">limiting query results.</td>
      </tr>
      <tr>
-       <td align="left">saving_docs?</td>
+       <td align="left">migrat_model?</td>
        <td align="left">true</td>
-       <td align="left">Create documents in the database. If <b>false</b>, alternatively use it to validate data from web forms (search form, contact form, etc...).</td>
+       <td align="left">
+         Set to <b>false</b> if you do not need to migrate the model to the database.<br>
+         This can be use to validate a web forms - Search form, Contact form, etc.
+       </td>
      </tr>
      <tr>
-       <td align="left">updating_docs?</td>
+       <td align="left">create_doc?</td>
        <td align="left">true</td>
-       <td align="left">Update documents in the database.</td>
+       <td align="left">
+         Can a Model create new documents in a collection?<br>
+         Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+       </td>
      </tr>
      <tr>
-       <td align="left">deleting_docs?</td>
+       <td align="left">update_doc?</td>
        <td align="left">true</td>
-       <td align="left">Delete documents from the database.</td>
+       <td align="left">Can a Model update documents in a collection?</td>
+     </tr>
+     <tr>
+       <td align="left">delete_doc?</td>
+       <td align="left">true</td>
+       <td align="left">Can a Model remove documents from a collection?</td>
      </tr>
    </table>
 </div>

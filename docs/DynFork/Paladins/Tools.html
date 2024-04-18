@@ -723,9 +723,16 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29-instance-method" class="signature"><strong>#accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool))</a>
+        <a href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29%3AVoid-instance-method" class="signature"><strong>#accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool)) : Void</a>
         
           <div class="summary"><p>For accumulating errors.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#apply_fixture%28fixture_name%3AString%7CNil%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29%3AVoid-instance-method" class="signature"><strong>#apply_fixture</strong>(fixture_name : String | Nil, collection_ptr : Pointer(Mongo::Collection)) : Void</a>
+        
+          <div class="summary"><p>Apply fixture for current Model.</p></div>
         
       </li>
     
@@ -744,7 +751,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#delete-instance-method" class="signature"><strong>#delete</strong></a>
+        <a href="#delete%3AVoid-instance-method" class="signature"><strong>#delete</strong> : Void</a>
         
           <div class="summary"><p>Delete a document from a collection in a database.</p></div>
         
@@ -758,21 +765,21 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#print_err-instance-method" class="signature"><strong>#print_err</strong></a>
+        <a href="#print_err%3AVoid-instance-method" class="signature"><strong>#print_err</strong> : Void</a>
         
           <div class="summary"><p>Printing errors to the console.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29-instance-method" class="signature"><strong>#refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil))</a>
+        <a href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29%3AVoid-instance-method" class="signature"><strong>#refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil)) : Void</a>
         
           <div class="summary"><p>Refrash field values ​​after creating or updating a document.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29-instance-method" class="signature"><strong>#restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>)</a>
+        <a href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29%3AVoid-instance-method" class="signature"><strong>#restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>) : Void</a>
         
           <div class="summary"><p>Reset the values ​​of ignored fields to nil.</p></div>
         
@@ -809,17 +816,37 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="accumulate_error(err_msg:String,field_ptr:Pointer,error_symptom_ptr?:Pointer(Bool))-instance-method">
+    <div class="entry-detail" id="accumulate_error(err_msg:String,field_ptr:Pointer,error_symptom_ptr?:Pointer(Bool)):Void-instance-method">
       <div class="signature">
         
-        def <strong>accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool))
+        def <strong>accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool)) : Void
 
-        <a class="method-permalink" href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>For accumulating errors.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="apply_fixture(fixture_name:String|Nil,collection_ptr:Pointer(Mongo::Collection)):Void-instance-method">
+      <div class="signature">
+        
+        def <strong>apply_fixture</strong>(fixture_name : String | Nil, collection_ptr : Pointer(Mongo::Collection)) : Void
+
+        <a class="method-permalink" href="#apply_fixture%28fixture_name%3AString%7CNil%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%29%3AVoid-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Apply fixture for current Model.</p>
+<p><span class="flag yellow">WARNING</span>  Runs automatically during Model migration.</p>
         </div>
       
       <br/>
@@ -866,12 +893,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="delete-instance-method">
+    <div class="entry-detail" id="delete:Void-instance-method">
       <div class="signature">
         
-        def <strong>delete</strong>
+        def <strong>delete</strong> : Void
 
-        <a class="method-permalink" href="#delete-instance-method">#</a>
+        <a class="method-permalink" href="#delete%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -904,12 +931,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="print_err-instance-method">
+    <div class="entry-detail" id="print_err:Void-instance-method">
       <div class="signature">
         
-        def <strong>print_err</strong>
+        def <strong>print_err</strong> : Void
 
-        <a class="method-permalink" href="#print_err-instance-method">#</a>
+        <a class="method-permalink" href="#print_err%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -933,12 +960,12 @@ user.print_err <span class="k">unless</span> user.valid?</code></pre>
       </div>
     </div>
   
-    <div class="entry-detail" id="refrash_fields(doc_ptr:Pointer(BSON|Nil))-instance-method">
+    <div class="entry-detail" id="refrash_fields(doc_ptr:Pointer(BSON|Nil)):Void-instance-method">
       <div class="signature">
         
-        def <strong>refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil))
+        def <strong>refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil)) : Void
 
-        <a class="method-permalink" href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -952,12 +979,12 @@ user.print_err <span class="k">unless</span> user.valid?</code></pre>
       </div>
     </div>
   
-    <div class="entry-detail" id="restor_ignored_fields(update?:Bool=false)-instance-method">
+    <div class="entry-detail" id="restor_ignored_fields(update?:Bool=false):Void-instance-method">
       <div class="signature">
         
-        def <strong>restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>)
+        def <strong>restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>) : Void
 
-        <a class="method-permalink" href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29-instance-method">#</a>
+        <a class="method-permalink" href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">

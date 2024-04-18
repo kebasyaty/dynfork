@@ -45,7 +45,7 @@ module DynFork::Migration
     end
 
     # Update the state of Models in the super collection.
-    private def refresh
+    private def refresh : Void
       # Get super collection.
       # Contains model state and dynamic field data.
       super_collection = DynFork::Globals.cache_mongo_database[
@@ -62,7 +62,7 @@ module DynFork::Migration
 
     # Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
-    private def napalm
+    private def napalm : Void
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Get super collection - State of Models and dynamic field data.
@@ -92,7 +92,7 @@ module DynFork::Migration
     # <br>
     # 4) Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
-    def migrat
+    def migrat : Void
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------
@@ -105,7 +105,7 @@ module DynFork::Migration
         model.new
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
-        # If the Model parameter add_doc is false, skip the iteration.
+        # If the Model parameter `migrat_model?` is false, skip the iteration.
         next unless metadata[:migrat_model?]
         # Get super collection.
         # Contains model state and dynamic field data.
@@ -222,7 +222,17 @@ module DynFork::Migration
           # Run indexing.
           model.indexing
           # Apply a fixture to the Model.
-          model.apply_fixture
+          if fixture_name = model.meta[:fixture_name]
+            collection = DynFork::Globals.cache_mongo_database[
+              model.meta[:collection_name]]
+            if collection.estimated_document_count == 0
+              curr_model = model.new
+              curr_model.apply_fixture(
+                fixture_name: fixture_name,
+                collection_ptr: pointerof(collection),
+              )
+            end
+          end
         else
           raise DynFork::Errors::Panic.new(
             "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +

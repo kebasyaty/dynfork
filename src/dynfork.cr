@@ -1,5 +1,6 @@
 # Standard:
 require "json"
+require "yaml"
 require "base64"
 require "crypto/bcrypt/password"
 require "uuid"

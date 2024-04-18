@@ -706,7 +706,7 @@
   </h2>
   
     
-      dynfork/paladins/aa.cr
+      dynfork/aa.cr
     
     <br/>
   
@@ -745,14 +745,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#apply_fixture-class-method" class="signature"><strong>.apply_fixture</strong></a>
-        
-          <div class="summary"><p>Apply a fixture to the Model.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#indexing-class-method" class="signature"><strong>.indexing</strong></a>
+        <a href="#indexing%3AVoid-class-method" class="signature"><strong>.indexing</strong> : Void</a>
         
           <div class="summary"><p>For set up and start indexing.</p></div>
         
@@ -787,42 +780,42 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#post_create-instance-method" class="signature"><strong>#post_create</strong></a>
+        <a href="#post_create%3AVoid-instance-method" class="signature"><strong>#post_create</strong> : Void</a>
         
           <div class="summary"><p>Called after a new document has been created in the database.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#post_delete-instance-method" class="signature"><strong>#post_delete</strong></a>
+        <a href="#post_delete%3AVoid-instance-method" class="signature"><strong>#post_delete</strong> : Void</a>
         
           <div class="summary"><p>Called after an existing document in the database has been deleted.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#post_update-instance-method" class="signature"><strong>#post_update</strong></a>
+        <a href="#post_update%3AVoid-instance-method" class="signature"><strong>#post_update</strong> : Void</a>
         
           <div class="summary"><p>Called after an existing document in the database is updated.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#pre_create-instance-method" class="signature"><strong>#pre_create</strong></a>
+        <a href="#pre_create%3AVoid-instance-method" class="signature"><strong>#pre_create</strong> : Void</a>
         
           <div class="summary"><p>Called before a new document is created in the database.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#pre_delete-instance-method" class="signature"><strong>#pre_delete</strong></a>
+        <a href="#pre_delete%3AVoid-instance-method" class="signature"><strong>#pre_delete</strong> : Void</a>
         
           <div class="summary"><p>Called before deleting an existing document in the database.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#pre_update-instance-method" class="signature"><strong>#pre_update</strong></a>
+        <a href="#pre_update%3AVoid-instance-method" class="signature"><strong>#pre_update</strong> : Void</a>
         
           <div class="summary"><p>Called before updating an existing document in the database.</p></div>
         
@@ -911,38 +904,19 @@
     Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="apply_fixture-class-method">
+    <div class="entry-detail" id="indexing:Void-class-method">
       <div class="signature">
         
-        def self.<strong>apply_fixture</strong>
+        def self.<strong>indexing</strong> : Void
 
-        <a class="method-permalink" href="#apply_fixture-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Apply a fixture to the Model.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="indexing-class-method">
-      <div class="signature">
-        
-        def self.<strong>indexing</strong>
-
-        <a class="method-permalink" href="#indexing-class-method">#</a>
+        <a class="method-permalink" href="#indexing%3AVoid-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>For set up and start indexing.</p>
 <p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/indexing" target="_blank">example&gt;</a>.</p>
-<p><span class="flag yellow">WARNING</span>  The method is called automatically.
+<p><span class="flag yellow">WARNING</span>  Runs automatically during Model migration.
 <br>
 For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.</p>
 <p>Example:</p>
@@ -1041,12 +1015,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="post_create-instance-method">
+    <div class="entry-detail" id="post_create:Void-instance-method">
       <div class="signature">
         
-        def <strong>post_create</strong>
+        def <strong>post_create</strong> : Void
 
-        <a class="method-permalink" href="#post_create-instance-method">#</a>
+        <a class="method-permalink" href="#post_create%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1062,12 +1036,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="post_delete-instance-method">
+    <div class="entry-detail" id="post_delete:Void-instance-method">
       <div class="signature">
         
-        def <strong>post_delete</strong>
+        def <strong>post_delete</strong> : Void
 
-        <a class="method-permalink" href="#post_delete-instance-method">#</a>
+        <a class="method-permalink" href="#post_delete%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1083,12 +1057,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="post_update-instance-method">
+    <div class="entry-detail" id="post_update:Void-instance-method">
       <div class="signature">
         
-        def <strong>post_update</strong>
+        def <strong>post_update</strong> : Void
 
-        <a class="method-permalink" href="#post_update-instance-method">#</a>
+        <a class="method-permalink" href="#post_update%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1104,12 +1078,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="pre_create-instance-method">
+    <div class="entry-detail" id="pre_create:Void-instance-method">
       <div class="signature">
         
-        def <strong>pre_create</strong>
+        def <strong>pre_create</strong> : Void
 
-        <a class="method-permalink" href="#pre_create-instance-method">#</a>
+        <a class="method-permalink" href="#pre_create%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1125,12 +1099,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="pre_delete-instance-method">
+    <div class="entry-detail" id="pre_delete:Void-instance-method">
       <div class="signature">
         
-        def <strong>pre_delete</strong>
+        def <strong>pre_delete</strong> : Void
 
-        <a class="method-permalink" href="#pre_delete-instance-method">#</a>
+        <a class="method-permalink" href="#pre_delete%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -1146,12 +1120,12 @@ For more details, please check the official <a href="https://docs.mongodb.com/ma
       </div>
     </div>
   
-    <div class="entry-detail" id="pre_update-instance-method">
+    <div class="entry-detail" id="pre_update:Void-instance-method">
       <div class="signature">
         
-        def <strong>pre_update</strong>
+        def <strong>pre_update</strong> : Void
 
-        <a class="method-permalink" href="#pre_update-instance-method">#</a>
+        <a class="method-permalink" href="#pre_update%3AVoid-instance-method">#</a>
       </div>
       
         <div class="doc">

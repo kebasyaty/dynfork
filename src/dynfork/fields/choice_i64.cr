@@ -132,7 +132,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
 
-    def refrash_val_i64(val : Int64)
+    def refrash_val_i64(val : Int64) : Void
       @value = val
     end
 
@@ -277,7 +277,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
 
-    def refrash_val_arr_i64(val : Array(Int64))
+    def refrash_val_arr_i64(val : Array(Int64)) : Void
       @value = val
     end
 
@@ -424,11 +424,11 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def json_to_choices(json : String)
+    def json_to_choices(json : String) : Void
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
 
-    def refrash_val_i64(val : Int64)
+    def refrash_val_i64(val : Int64) : Void
       @value = val
     end
 
@@ -572,12 +572,12 @@ module DynFork::Fields
       @hint : String = ""
     ); end
 
-    def refrash_val_arr_i64(val : Array(Int64))
+    def refrash_val_arr_i64(val : Array(Int64)) : Void
       @value = val
     end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def choices_from_json(json : String)
+    def choices_from_json(json : String) : Void
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
 
