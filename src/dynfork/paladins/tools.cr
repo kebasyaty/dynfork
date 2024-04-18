@@ -401,6 +401,12 @@ module DynFork::Paladins::Tools
       datetime : Time = Time.utc
       data["created_at"] = datetime
       data["updated_at"] = datetime
+      # Run hook.
+      self.pre_create
+      # Insert doc.
+      collection.insert_one(data)
+      # Run hook.
+      self.post_create
     else
       print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
       print fixture_path.colorize.fore(:blue).mode(:bold)
