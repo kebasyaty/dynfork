@@ -227,8 +227,7 @@ module DynFork::Migration
               model.meta[:collection_name]]
             if collection.estimated_document_count == 0
               curr_model = model.new
-              # curr_model.apply_fixture(fixture_name)
-              curr_model.print_err unless curr_model.save
+              curr_model.apply_fixture(fixture_name)
             end
           end
         else
