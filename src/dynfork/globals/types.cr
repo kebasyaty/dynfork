@@ -102,7 +102,7 @@ module DynFork::Globals::Types
 
   # Validation global DynFork settings.
   struct ValidationCacheSettings
-    def self.validation
+    def self.validation : Void
       self.valid_app_name DynFork::Globals.cache_app_name
       self.valid_unique_app_key DynFork::Globals.cache_unique_app_key
       if DynFork::Globals.cache_database_name.empty?
@@ -117,7 +117,7 @@ module DynFork::Globals::Types
     # App name = Project name.
     # WARNING: Maximum 44 characters.
     # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
-    def self.valid_app_name(app_name : String)
+    def self.valid_app_name(app_name : String) : Void
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
         "cache_app_name", 44
       ) if app_name.size > 44
@@ -131,7 +131,7 @@ module DynFork::Globals::Types
 
     # Unique project key.
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
-    def self.valid_unique_app_key(unique_app_key : String)
+    def self.valid_unique_app_key(unique_app_key : String) : Void
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
         "cache_unique_app_key", 16
       ) if unique_app_key.size > 16
@@ -145,7 +145,7 @@ module DynFork::Globals::Types
 
     # Database name.
     # WARNING: Maximum 60 characters.
-    def self.valid_database_name(database_name : String)
+    def self.valid_database_name(database_name : String) : Void
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
         "cache_database_name", 60
       ) if database_name.size > 60
