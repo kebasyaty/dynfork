@@ -403,9 +403,9 @@ module DynFork::Paladins::Tools
       data["updated_at"] = datetime
       # Run hook.
       self.pre_create
-      # Insert doc.
-      collection.insert_one(data)
-      # Run hook.
+      # # Insert doc.
+      collection_ptr.value.insert_one(data)
+      # # Run hook.
       self.post_create
     else
       print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
