@@ -1,6 +1,10 @@
 # app_name
 
 An example of using Fixtures.
+<br>
+**Fixtures** - To populate the database with pre-created data.
+<br>
+**config/fixtures** - Directory for creating fixtures.
 
 ## Usage
 
