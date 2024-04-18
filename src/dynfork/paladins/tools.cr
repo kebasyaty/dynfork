@@ -390,7 +390,7 @@ module DynFork::Paladins::Tools
       print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
       print fixture_path.colorize.fore(:blue).mode(:bold)
       self.print_err
-      raise
+      raise ""
     end
   end
 end
