@@ -39,7 +39,7 @@ module DynFork::Paladins::Tools
   # user.print_err unless user.valid?
   # ```
   #
-  def print_err
+  def print_err : Void
     err? : Bool = false
     {% for field in @type.instance_vars %}
       unless @{{ field }}.errors.empty?
@@ -73,7 +73,7 @@ module DynFork::Paladins::Tools
     err_msg : String,
     field_ptr : Pointer,
     error_symptom_ptr? : Pointer(Bool)
-  )
+  ) : Void
     if !field_ptr.value.hide?
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
@@ -145,7 +145,7 @@ module DynFork::Paladins::Tools
   end
 
   # Delete a document from a collection in a database.
-  def delete
+  def delete : Void
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -192,7 +192,7 @@ module DynFork::Paladins::Tools
   end
 
   # Reset the values ​​of ignored fields to nil.
-  def restor_ignored_fields(update? : Bool = false)
+  def restor_ignored_fields(update? : Bool = false) : Void
     {% for field in @type.instance_vars %}
       if @{{ field }}.ignored? && (@{{ field }}.name != "hash" || !update?)
           @hash.value = nil
@@ -201,7 +201,7 @@ module DynFork::Paladins::Tools
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_fields(doc_ptr : Pointer(BSON?))
+  def refrash_fields(doc_ptr : Pointer(BSON?)) : Void
     if doc_ptr.value.nil?
       {% for field in @type.instance_vars %}
         @{{ field }}.value =  nil
