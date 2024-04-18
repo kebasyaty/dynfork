@@ -386,7 +386,7 @@ module DynFork::Paladins::Tools
       end
     {% end %}
     #
-    unless curr_model.save
+    unless self.save
       puts "FIXTURE:"
       puts fixture_path
       self.print_err
