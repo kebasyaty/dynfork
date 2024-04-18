@@ -391,6 +391,7 @@ module DynFork::Paladins::Tools
       collection_ptr: collection_ptr,
       save?: true
     )
+    #
     if output_data.valid?
       # Create doc.
       data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
