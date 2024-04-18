@@ -310,7 +310,7 @@ module DynFork::Paladins::Tools
   def apply_fixture(
     fixture_name : String?,
     collection_ptr : Pointer(Mongo::Collection)
-  )
+  ) : Void
     fixture_path : String = "config/fixtures/#{fixture_name}.yml"
     yaml = YAML.parse(File.read(fixture_path))
     #
