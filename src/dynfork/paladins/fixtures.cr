@@ -1,7 +1,7 @@
 # **Fixtures** - To populate the database with pre-created data.
 # <br>
 # **config/fixtures** - Standard directory for creating fixtures.
-module DynFork::Fixtures
+module DynFork::Paladins::Fixtures
   # Apply fixture for current Model.
   # WARNING: Runs automatically during Model migration.
   def apply_fixture(

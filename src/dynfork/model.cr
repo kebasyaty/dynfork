@@ -1,6 +1,5 @@
 require "./aa"
 require "./paladins/paladins"
-require "./dynfork/fixtures"
 require "./commons/commons"
 
 module DynFork
@@ -65,7 +64,6 @@ module DynFork
     include JSON::Serializable
     include DynFork::Globals::Date
     include DynFork::Paladins
-    include DynFork::Fixtures
     extend DynFork::Commons
 
     getter hash = DynFork::Fields::HashField
