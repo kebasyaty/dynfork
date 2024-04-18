@@ -137,7 +137,7 @@ module DynFork::Fields
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
-    )
+    ) : Void
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
@@ -187,7 +187,7 @@ module DynFork::Fields
     def from_path(
       path : String? = nil,
       delete : Bool = false
-    )
+    ) : Void
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
@@ -225,7 +225,7 @@ module DynFork::Fields
       @value = value
     end
 
-    def refrash_val_file_data(val : DynFork::Globals::FileData)
+    def refrash_val_file_data(val : DynFork::Globals::FileData) : Void
       @value = val
     end
 

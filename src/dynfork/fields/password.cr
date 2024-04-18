@@ -139,7 +139,7 @@ module DynFork::Fields
       @input_type = "password"
     end
 
-    def refrash_val_str(val : String)
+    def refrash_val_str(val : String) : Void
       @value = val
     end
   end
