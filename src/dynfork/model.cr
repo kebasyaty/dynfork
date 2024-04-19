@@ -67,7 +67,7 @@ module DynFork
     extend DynFork::Commons
 
     getter hash = DynFork::Fields::HashField
-      .new(hide: true, unique: true, ignored: true)
+      .new(label: "Hash", hide: true, unique: true, ignored: true)
     getter created_at = DynFork::Fields::DateTimeField
       .new(label: "Created at", hide: true, readonly: true)
     getter updated_at = DynFork::Fields::DateTimeField
