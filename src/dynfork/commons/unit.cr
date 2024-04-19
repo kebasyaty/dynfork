@@ -208,7 +208,7 @@ module DynFork::Commons::UnitsManagement
   # Error: If any of the fields in the Unit is empty.
   private def error_empty_field(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` > " +
+          "Method: `.unit_manager` > " +
           "Argument: `unit` > " +
           "Field `#{field}` => must not be empty!"
     raise DynFork::Errors::Panic.new msg
@@ -217,7 +217,7 @@ module DynFork::Commons::UnitsManagement
   # Error: If the Model does not have a dynamic field specified in Unit.
   private def error_field_missing(field : String)
     msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` => " +
+          "Method: `.unit_manager` => " +
           "The Model is missing a dynamic field `#{field}`!"
     raise DynFork::Errors::Panic.new msg
   end
@@ -225,7 +225,7 @@ module DynFork::Commons::UnitsManagement
   # Error: If the field type does not match.
   private def error_invalid_field_type(field_type : String)
     msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` => " +
+          "Method: `.unit_manager` => " +
           "Invalid dynamic field type `#{field_type}`!"
     raise DynFork::Errors::Panic.new msg
   end
@@ -233,7 +233,7 @@ module DynFork::Commons::UnitsManagement
   # Error: When try to add existing data.
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` => " +
+          "Method: `.unit_manager` => " +
           "Cannot add a new unit, the `#{title}` key|title is already present!"
     raise DynFork::Errors::Panic.new msg
   end
@@ -241,7 +241,7 @@ module DynFork::Commons::UnitsManagement
   # Error: When try to delete data that doesn't exist.
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
-          "Method: `unit_manager` => " +
+          "Method: `.unit_manager` => " +
           "It is impossible to delete a unit, the `#{title}` key|title is missing!"
     raise DynFork::Errors::Panic.new msg
   end
