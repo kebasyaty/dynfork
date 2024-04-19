@@ -41,6 +41,12 @@ module DynFork::Commons::UnitsManagement
     bypass_document_validation : Bool? = nil,
     session : Mongo::Session::ClientSession? = nil
   )
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Unit validation.
     if unit.field.empty?
       self.error_empty_field("field")

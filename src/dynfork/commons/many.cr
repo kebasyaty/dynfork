@@ -41,6 +41,12 @@ module DynFork::Commons::QMany
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Array(Hash(String, DynFork::Globals::ValueTypes))
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -121,6 +127,12 @@ module DynFork::Commons::QMany
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : String
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
