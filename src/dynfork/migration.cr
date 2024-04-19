@@ -45,7 +45,7 @@ module DynFork::Migration
     end
 
     # Update the state of Models in the super collection.
-    private def refresh : Void
+    private def refresh : Nil
       # Get super collection.
       # Contains model state and dynamic field data.
       super_collection = DynFork::Globals.cache_mongo_database[
@@ -62,7 +62,7 @@ module DynFork::Migration
 
     # Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
-    private def napalm : Void
+    private def napalm : Nil
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Get super collection - State of Models and dynamic field data.
@@ -92,7 +92,7 @@ module DynFork::Migration
     # <br>
     # 4) Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
-    def migrat : Void
+    def migrat : Nil
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------

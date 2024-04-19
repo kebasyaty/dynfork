@@ -69,36 +69,36 @@ module DynFork
     # end
     # ```
     #
-    def self.indexing : Void; end
+    def self.indexing : Nil; end
 
     # Called before a new document is created in the database.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
     # WARNING: The method is called automatically.
-    def pre_create : Void; end
+    def pre_create : Nil; end
 
     # Called after a new document has been created in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_create : Void; end
+    def post_create : Nil; end
 
     # Called before updating an existing document in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def pre_update : Void; end
+    def pre_update : Nil; end
 
     # Called after an existing document in the database is updated.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_update : Void; end
+    def post_update : Nil; end
 
     # Called before deleting an existing document in the database.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def pre_delete : Void; end
+    def pre_delete : Nil; end
 
     # Called after an existing document in the database has been deleted.
     # WARNING: The method is called automatically.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/hooks" target="_blank">example</a>.
-    def post_delete : Void; end
+    def post_delete : Nil; end
   end
 end

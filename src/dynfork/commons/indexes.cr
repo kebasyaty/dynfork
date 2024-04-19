@@ -45,7 +45,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Void
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -100,7 +100,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Void
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -140,7 +140,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Void
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -171,7 +171,7 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Void
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +

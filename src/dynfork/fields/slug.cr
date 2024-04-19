@@ -156,7 +156,7 @@ module DynFork::Fields
       @slug_sources
     end
 
-    def refrash_val_str(val : String) : Void
+    def refrash_val_str(val : String) : Nil
       @value = val
     end
   end

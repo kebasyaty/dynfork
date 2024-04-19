@@ -7,7 +7,7 @@ module DynFork::Paladins::Fixtures
   def apply_fixture(
     fixture_name : String?,
     collection_ptr : Pointer(Mongo::Collection)
-  ) : Void
+  ) : Nil
     fixture_path : String = "config/fixtures/#{fixture_name}.yml"
     yaml_arr = YAML.parse_all(File.read(fixture_path))
     #

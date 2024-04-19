@@ -138,7 +138,7 @@ module DynFork::Fields
       end
     end
 
-    def refrash_val_i64(val : Int64) : Void
+    def refrash_val_i64(val : Int64) : Nil
       @value = val
     end
 
@@ -285,7 +285,7 @@ module DynFork::Fields
       end
     end
 
-    def refrash_val_f64(val : Float64) : Void
+    def refrash_val_f64(val : Float64) : Nil
       @value = val
     end
 

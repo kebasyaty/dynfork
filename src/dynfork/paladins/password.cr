@@ -35,7 +35,7 @@ module DynFork::Paladins::Password
     old_password : String,
     new_password : String,
     field_name : String = "password"
-  ) : Void
+  ) : Nil
     unless self.verify_password?(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
