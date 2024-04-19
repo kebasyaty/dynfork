@@ -132,7 +132,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Float64, String))? = Array(Tuple(Float64, String)).new
     ); end
 
-    def refrash_val_f64(val : Float64) : Void
+    def refrash_val_f64(val : Float64) : Nil
       @value = val
     end
 
@@ -277,7 +277,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Float64, String))? = Array(Tuple(Float64, String)).new
     ); end
 
-    def refrash_val_arr_f64(val : Array(Float64)) : Void
+    def refrash_val_arr_f64(val : Array(Float64)) : Nil
       @value = val
     end
 
@@ -424,11 +424,11 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def choices_from_json(json : String) : Void
+    def choices_from_json(json : String) : Nil
       @choices = Array(Tuple(Float64, String)).from_json(json)
     end
 
-    def refrash_val_f64(val : Float64) : Void
+    def refrash_val_f64(val : Float64) : Nil
       @value = val
     end
 
@@ -573,11 +573,11 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def choices_from_json(json : String) : Void
+    def choices_from_json(json : String) : Nil
       @choices = Array(Tuple(Float64, String)).from_json(json)
     end
 
-    def refrash_val_arr_f64(val : Array(Float64)) : Void
+    def refrash_val_arr_f64(val : Array(Float64)) : Nil
       @value = val
     end
 

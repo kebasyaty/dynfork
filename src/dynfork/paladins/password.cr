@@ -20,12 +20,12 @@ module DynFork::Paladins::Password
         return Crypto::Bcrypt::Password.new(doc[field_name].as(String)).verify(password)
       end
       msg = "Model: `#{@@full_model_name}` > " +
-            "Field: `#{field_name}` | Method: `verify_password` => " +
+            "Field: `#{field_name}` | Method: `#verify_password` => " +
             "There is no document with ID `#{@hash.value}` in the database."
       raise DynFork::Errors::Panic.new msg
     end
     msg = "Model: `#{@@full_model_name}` > " +
-          "Field: `#{field_name}` | Method: `verify_password` => " +
+          "Field: `#{field_name}` | Method: `#verify_password` => " +
           "Cannot get document ID - Hash field is empty."
     raise DynFork::Errors::Panic.new msg
   end
@@ -35,7 +35,7 @@ module DynFork::Paladins::Password
     old_password : String,
     new_password : String,
     field_name : String = "password"
-  ) : Void
+  ) : Nil
     unless self.verify_password?(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end

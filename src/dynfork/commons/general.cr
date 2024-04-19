@@ -30,6 +30,12 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Mongo::Cursor?
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -75,6 +81,12 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Array
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -111,6 +123,12 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -142,6 +160,12 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -155,6 +179,12 @@ module DynFork::Commons::QGeneral
 
   # Get collection name.
   def collection_name : Mongo::Collection::CollectionKey
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -169,6 +199,12 @@ module DynFork::Commons::QGeneral
     scale : Int32? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : BSON?
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]

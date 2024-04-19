@@ -132,7 +132,7 @@ module DynFork::Fields
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
-    def refrash_val_str(val : String) : Void
+    def refrash_val_str(val : String) : Nil
       @value = val
     end
 
@@ -281,7 +281,7 @@ module DynFork::Fields
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
-    def refrash_val_arr_str(val : Array(String)) : Void
+    def refrash_val_arr_str(val : Array(String)) : Nil
       @value = val
     end
 
@@ -432,11 +432,11 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def choices_from_json(json : String) : Void
+    def choices_from_json(json : String) : Nil
       @choices = Array(Tuple(String, String)).from_json(json)
     end
 
-    def refrash_val_str(val : String) : Void
+    def refrash_val_str(val : String) : Nil
       @value = val
     end
 
@@ -585,11 +585,11 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def choices_from_json(json : String) : Void
+    def choices_from_json(json : String) : Nil
       @choices = Array(Tuple(String, String)).from_json(json)
     end
 
-    def refrash_val_arr_str(val : Array(String)) : Void
+    def refrash_val_arr_str(val : Array(String)) : Nil
       @value = val
     end
 

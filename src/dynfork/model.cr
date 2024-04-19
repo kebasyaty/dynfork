@@ -67,7 +67,7 @@ module DynFork
     extend DynFork::Commons
 
     getter hash = DynFork::Fields::HashField
-      .new(hide: true, unique: true, ignored: true)
+      .new(label: "Hash", hide: true, unique: true, ignored: true)
     getter created_at = DynFork::Fields::DateTimeField
       .new(label: "Created at", hide: true, readonly: true)
     getter updated_at = DynFork::Fields::DateTimeField
@@ -85,7 +85,7 @@ module DynFork
     end
 
     # Injecting metadata from storage in Model.
-    private def inject : Void
+    private def inject : Nil
       var_name : String = ""
       json : String?
       #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.

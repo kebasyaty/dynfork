@@ -137,7 +137,7 @@ module DynFork::Fields
       @minlength = 0
     end
 
-    def refrash_val_str(val : String) : Void
+    def refrash_val_str(val : String) : Nil
       @value = val
     end
   end

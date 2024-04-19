@@ -45,7 +45,13 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nil
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -94,7 +100,13 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nil
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -128,7 +140,13 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nil
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -153,7 +171,13 @@ module DynFork::Commons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nil
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
@@ -173,6 +197,12 @@ module DynFork::Commons::Indexes
   # Gets index information for all indexes in the collection.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/listIndexes/" target="_blank">documentation</a>.
   def list_indexes(session : Mongo::Session::ClientSession? = nil) : Mongo::Cursor?
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
       @@meta.not_nil![:collection_name]]
