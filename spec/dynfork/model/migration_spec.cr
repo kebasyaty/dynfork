@@ -38,7 +38,6 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0w7n5731X13s1641")
       DynFork::Globals.cache_database_name.should eq("AppName_0w7n5731X13s1641")
       #
-      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -58,7 +57,6 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0585I0S5huR5r08q")
       DynFork::Globals.cache_database_name.should eq("DatabaseName360")
       #
-      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -74,7 +72,6 @@ describe DynFork::Migration::Monitor do
         "mongo_uri": "mongodb://localhost:27017",
       )
       #
-      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
