@@ -20,11 +20,7 @@ module DynFork::Paladins::Fixtures
             when 1
               # ColorField | EmailField | PasswordField | PhoneField
               # | TextField | HashField | URLField | IPField
-              if field_type != "PasswordField"
-                @{{ field }}.refrash_val_str(value.as_s)
-              else
-                @{{ field }}.value =  nil
-              end
+              @{{ field }}.refrash_val_str(value.as_s)
             when 2
               # DateField | DateTimeField
               if field_type.includes?("Time")
@@ -87,31 +83,31 @@ module DynFork::Paladins::Fixtures
           end
         end
       {% end %}
-    end
-    #
-    # Check and get output data.
-    output_data : DynFork::Globals::OutputData = self.check(
-      collection_ptr: collection_ptr,
-      save?: true
-    )
-    #
-    if output_data.valid?
-      # Create doc.
-      data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
-      datetime : Time = Time.utc
-      data["created_at"] = datetime
-      data["updated_at"] = datetime
-      # Run hook.
-      self.pre_create
-      # # Insert doc.
-      collection_ptr.value.insert_one(data)
-      # # Run hook.
-      self.post_create
-    else
-      print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
-      print fixture_path.colorize.fore(:blue).mode(:bold)
-      self.print_err
-      raise ""
+      #
+      # Check and get output data.
+      output_data : DynFork::Globals::OutputData = self.check(
+        collection_ptr: collection_ptr,
+        save?: true
+      )
+      #
+      if output_data.valid?
+        # Create doc.
+        data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
+        datetime : Time = Time.utc
+        data["created_at"] = datetime
+        data["updated_at"] = datetime
+        # Run hook.
+        self.pre_create
+        # # Insert doc.
+        collection_ptr.value.insert_one(data)
+        # # Run hook.
+        self.post_create
+      else
+        print "\nFIXTURE: ".colorize.fore(:red).mode(:bold)
+        print fixture_path.colorize.fore(:blue).mode(:bold)
+        self.print_err
+        raise ""
+      end
     end
   end
 end
