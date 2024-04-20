@@ -1,4 +1,5 @@
 require "spec"
+require "./data/*"
 require "./support/*"
 require "../src/dynfork"
 

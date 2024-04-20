@@ -2,9 +2,9 @@ require "../../src/dynfork"
 
 # Structures for testing.
 module Spec::Data
-  # Model without variables and methods.
-  @[DynFork::Meta(service_name: "ServiceName")]
-  struct EmptyModel < DynFork::Model; end
+  #   # Model without variables and methods.
+  #   @[DynFork::Meta(service_name: "ServiceName")]
+  #   struct EmptyModel < DynFork::Model; end
 
   # Model with variables and methods.
   @[DynFork::Meta(
@@ -38,20 +38,20 @@ module Spec::Data
   end
 
   # Model with an incorrect slug source.
-  @[DynFork::Meta(service_name: "ServiceName")]
-  struct SlugSourceInvalidModel < DynFork::Model
-    getter name = DynFork::Fields::TextField.new
-    getter slug = DynFork::Fields::SlugField.new(
-      slug_sources: ["first_name", "hash"]
-    )
-  end
+  # @[DynFork::Meta(service_name: "ServiceName")]
+  # struct SlugSourceInvalidModel < DynFork::Model
+  #   getter name = DynFork::Fields::TextField.new
+  #   getter slug = DynFork::Fields::SlugField.new(
+  #     slug_sources: ["first_name", "hash"]
+  #   )
+  # end
 
   # Model without the required 'service_name' parameter for metadata.
-  @[DynFork::Meta]
-  struct NoParamServiceNameModel < DynFork::Model
-    getter name = DynFork::Fields::TextField.new
-    getter age = DynFork::Fields::I64Field.new(min: 0)
-  end
+  # @[DynFork::Meta]
+  # struct NoParamServiceNameModel < DynFork::Model
+  #   getter name = DynFork::Fields::TextField.new
+  #   getter age = DynFork::Fields::I64Field.new(min: 0)
+  # end
 
   # For preliminary testing of additional abstractions.
   @[DynFork::Meta(service_name: "Accounts")]
