@@ -1,4 +1,5 @@
 require "../../../../spec_helper"
+require "../../../../data/unit"
 
 describe DynFork::Model do
   describe ".unit_manager" do
