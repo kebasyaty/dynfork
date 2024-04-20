@@ -1,5 +1,4 @@
 require "../../../../../spec_helper"
-require "../../../../../data/value_no_nil"
 
 describe DynFork::Commons::QOne do
   describe ".find_one_to_json" do

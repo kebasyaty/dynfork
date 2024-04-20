@@ -1,5 +1,4 @@
 require "../../../spec_helper"
-require "../../../data/full_default_and_required"
 
 describe DynFork::Model do
   describe "#check" do

@@ -1,5 +1,4 @@
 require "../../../spec_helper"
-require "../../../data/value_no_nil"
 
 describe DynFork::Commons::QGeneral do
   it "=> general methods", tags: "general" do

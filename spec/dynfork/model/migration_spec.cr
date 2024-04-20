@@ -1,6 +1,4 @@
 require "../../spec_helper"
-require "../../data/default_no_nil"
-require "../../data/value_no_nil"
 
 describe DynFork::Migration::ModelState do
   describe ".new" do

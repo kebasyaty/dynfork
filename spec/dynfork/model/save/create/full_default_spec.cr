@@ -1,5 +1,4 @@
 require "../../../../spec_helper"
-require "../../../../data/full_default"
 
 describe DynFork::Model do
   describe "#save-(create)" do

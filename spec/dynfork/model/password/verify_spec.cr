@@ -1,5 +1,4 @@
 require "../../../spec_helper"
-require "../../../data/password"
 
 describe DynFork::Model do
   describe "#verify_password" do
