@@ -47,9 +47,7 @@ module DynFork::Migration
         # Run matadata caching.
         model.new
       end
-      p! model_list
       model_list.select! { |model| model.meta[:migrat_model?] }
-      p! model_list
       if model_list.empty?
         raise DynFork::Errors::Panic.new("No Models for Migration!")
       end
