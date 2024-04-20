@@ -1,4 +1,5 @@
 require "../../../../spec_helper"
+require "../../../../data/value_no_nil"
 
 describe DynFork::Commons::Indexes do
   it "=> create and drop index", tags: "indexing" do

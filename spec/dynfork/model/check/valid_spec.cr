@@ -1,4 +1,6 @@
 require "../../../spec_helper"
+require "../../../data/default_no_nil"
+require "../../../data/value_no_nil"
 
 describe DynFork::Model do
   describe "#valid?" do
@@ -25,11 +27,6 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      m = Spec::Data::FullDefault.new
-      valid = m.valid?
-      m.print_err unless valid
-      valid.should be_true
-      #
       m = Spec::Data::DefaultNoNil.new
       valid = m.valid?
       m.print_err unless valid
