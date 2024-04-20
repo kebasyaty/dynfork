@@ -1,4 +1,6 @@
 require "../../spec_helper"
+require "../../data/default_no_nil"
+require "../../data/value_no_nil"
 
 describe DynFork::Migration::ModelState do
   describe ".new" do
@@ -38,7 +40,7 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0w7n5731X13s1641")
       DynFork::Globals.cache_database_name.should eq("AppName_0w7n5731X13s1641")
       #
-      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
+      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -58,7 +60,7 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0585I0S5huR5r08q")
       DynFork::Globals.cache_database_name.should eq("DatabaseName360")
       #
-      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
+      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -74,7 +76,7 @@ describe DynFork::Migration::Monitor do
         "mongo_uri": "mongodb://localhost:27017",
       )
       #
-      m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
+      m.model_list.should eq([Spec::Data::DefaultNoNil, Spec::Data::ValueNoNil])
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -116,8 +118,8 @@ describe DynFork::Migration::Monitor do
       # Checking for data updates for dynamic fields.
       field_name = "field_name"
       data = "[]"
-      Spec::Data::FilledModel.meta[:data_dynamic_fields][field_name] = data
-      Spec::Data::FilledModel.meta[:data_dynamic_fields][field_name].should eq(data)
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name] = data
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name].should eq(data)
 
       # Delete database after test.
       Spec::Support.delete_test_db(

@@ -1,4 +1,5 @@
 require "../../spec_helper"
+require "../../data/delete"
 
 describe DynFork::Model do
   describe "#delete" do

@@ -1,4 +1,5 @@
 require "../../spec_helper"
+require "../../data/other_models"
 
 describe DynFork::Model do
   describe ".new" do
