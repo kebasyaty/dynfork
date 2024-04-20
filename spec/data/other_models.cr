@@ -53,13 +53,6 @@ module Spec::Data
     getter age = DynFork::Fields::I64Field.new(min: 0)
   end
 
-  # For the test - Update password.
-  @[DynFork::Meta(service_name: "Accounts")]
-  struct UpdatePassword < DynFork::Model
-    getter username = DynFork::Fields::TextField.new
-    getter password = DynFork::Fields::PasswordField.new
-  end
-
   @[DynFork::Meta(service_name: "Accounts")]
   struct DynFieldsModel < DynFork::Model
     # test
