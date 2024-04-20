@@ -112,8 +112,6 @@ module DynFork::Migration
         model.new
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
-        # If the Model parameter `migrat_model?` is false, skip the iteration.
-        next unless metadata[:migrat_model?]
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
@@ -225,26 +223,19 @@ module DynFork::Migration
       #
       # Run indexing.
       @model_list.each do |model|
-        if model.meta[:migrat_model?]
-          # Run indexing.
-          model.indexing
-          # Apply a fixture to the Model.
-          if fixture_name = model.meta[:fixture_name]
-            collection = DynFork::Globals.cache_mongo_database[
-              model.meta[:collection_name]]
-            if collection.estimated_document_count == 0
-              curr_model = model.new
-              curr_model.apply_fixture(
-                fixture_name: fixture_name,
-                collection_ptr: pointerof(collection),
-              )
-            end
+        # Run indexing.
+        model.indexing
+        # Apply a fixture to the Model.
+        if fixture_name = model.meta[:fixture_name]
+          collection = DynFork::Globals.cache_mongo_database[
+            model.meta[:collection_name]]
+          if collection.estimated_document_count == 0
+            curr_model = model.new
+            curr_model.apply_fixture(
+              fixture_name: fixture_name,
+              collection_ptr: pointerof(collection),
+            )
           end
-        else
-          raise DynFork::Errors::Panic.new(
-            "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +
-            "This Model is not migrated to the database!"
-          )
         end
       end
     end
