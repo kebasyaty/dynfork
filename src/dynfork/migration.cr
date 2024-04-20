@@ -42,7 +42,7 @@ module DynFork::Migration
       DynFork::Globals.cache_mongo_database = DynFork::Globals
         .cache_mongo_client[DynFork::Globals.cache_database_name]
       # Get Model list.
-      @model_list = DynFork::Model.subclasses.map { |model| model.meta[:migrat_model?] }
+      @model_list = DynFork::Model.subclasses.select { |model| model.meta[:migrat_model?] }
       if model_list.empty?
         raise DynFork::Errors::Panic.new("No Models for Migration!")
       end
