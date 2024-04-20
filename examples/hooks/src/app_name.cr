@@ -55,10 +55,10 @@ module AppName
   puts "updated_at: #{user.updated_at.value?}"
   puts
 
-  puts "Number of documents: #{Models::Accounts::User.count_documents}"
+  puts "Documwnt count: #{Models::Accounts::User.count_documents}"
 
   puts "Deleting a document."
   user.delete
 
-  puts "Number of documents: #{Models::Accounts::User.estimated_document_count}"
+  puts "Documwnt count: #{Models::Accounts::User.estimated_document_count}"
 end

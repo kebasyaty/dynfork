@@ -115,7 +115,7 @@ user.birthday.value = "2024-03-26"
 user.print_err unless user.save
 
 # Print user details.
-puts "# New user details:"
+puts "New user details:"
 puts "hash: #{user.hash.value?}"
 puts "username: #{user.username.value?}"
 puts "email: #{user.email.value?}"
@@ -123,12 +123,12 @@ puts "birthday: #{user.birthday.value?}"
 puts "created_at: #{user.created_at.value?}"
 puts "updated_at: #{user.updated_at.value?}"
 
-puts "\nNumber of documents: #{User.estimated_document_count}"
+puts "Documwnt count: #{User.estimated_document_count}"
 
 puts "Deleting a document."
 user.delete
 
-puts "Number of documents: #{User.count_documents}"
+puts "Documwnt count: #{User.count_documents}"
 ```
 
 ### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
