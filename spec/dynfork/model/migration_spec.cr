@@ -32,10 +32,6 @@ describe DynFork::Migration::Monitor do
         "app_name": "AppName",
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
-        "model_list": {
-          Spec::Data::FilledModel,
-          Spec::Data::AuxiliaryModel,
-        }
       )
       #
       DynFork::Globals.cache_app_name.should eq("AppName")
@@ -56,10 +52,6 @@ describe DynFork::Migration::Monitor do
         "unique_app_key": "0585I0S5huR5r08q",
         "database_name": "DatabaseName360",
         "mongo_uri": "mongodb://localhost:27017",
-        "model_list": {
-          Spec::Data::FilledModel,
-          Spec::Data::AuxiliaryModel,
-        }
       )
       #
       DynFork::Globals.cache_app_name.should eq("AppName")
@@ -80,10 +72,6 @@ describe DynFork::Migration::Monitor do
         "app_name": "AppName",
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
-        "model_list": {
-          Spec::Data::FilledModel,
-          Spec::Data::AuxiliaryModel,
-        }
       )
       #
       m.model_list.should eq({Spec::Data::FilledModel, Spec::Data::AuxiliaryModel})
@@ -122,10 +110,6 @@ describe DynFork::Migration::Monitor do
         "unique_app_key": unique_app_key,
         "database_name": database_name,
         "mongo_uri": mongo_uri,
-        "model_list": {
-          Spec::Data::FilledModel,
-          Spec::Data::AuxiliaryModel,
-        }
       )
       m.migrat.should be_nil
 

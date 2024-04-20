@@ -114,6 +114,11 @@ module DynFork
       nil
     end
 
+    # Get a list of Models.
+    def self.subclasses : Array(DynFork::Model.class)
+      {{@type.subclasses}}
+    end
+
     # Determine the presence of a variable (field) in the model.
     def []?(variable) : Bool
       {% for var in @type.instance_vars %}
