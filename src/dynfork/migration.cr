@@ -42,13 +42,16 @@ module DynFork::Migration
       DynFork::Globals.cache_mongo_database = DynFork::Globals
         .cache_mongo_client[DynFork::Globals.cache_database_name]
       # Get Model list.
-      model_list : Array(DynFork::Model.class) = DynFork::Model
-        .subclasses.select { |model| model.meta[:migrat_model?] }
-      if !model_list.empty?
-        @model_list = model_list
-      else
+      model_list : Array(DynFork::Model.class) = DynFork::Model.subclasses
+      model_list.each do |model|
+        # Run matadata caching.
+        model.new
+      end
+      model_list.select! { |model| model.meta[:migrat_model?] }
+      unless model_list.empty?
         raise DynFork::Errors::Panic.new("No Models for Migration!")
       end
+      @model_list = model_list
     end
 
     # Update the state of Models in the super collection.
@@ -108,8 +111,6 @@ module DynFork::Migration
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
       @model_list.each do |model|
-        # Run matadata caching.
-        model.new
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # Get super collection.
