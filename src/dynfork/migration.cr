@@ -23,8 +23,6 @@ module DynFork::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
-    getter model_list : Array(DynFork::Model.class)
-
     def initialize(
       app_name : String,
       unique_app_key : String,
@@ -41,17 +39,6 @@ module DynFork::Migration
       DynFork::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
       DynFork::Globals.cache_mongo_database = DynFork::Globals
         .cache_mongo_client[DynFork::Globals.cache_database_name]
-      # Get Model list.
-      model_list = DynFork::Model.subclasses
-      model_list.each do |model|
-        # Run matadata caching.
-        model.new
-      end
-      model_list.select! { |model| model.meta[:migrat_model?] }
-      if model_list.empty?
-        raise DynFork::Errors::Panic.new("No Models for Migration!")
-      end
-      @model_list = model_list
     end
 
     # Update the state of Models in the super collection.
@@ -107,10 +94,20 @@ module DynFork::Migration
       self.refresh
       # ------------------------------------------------------------------------
       #
+      # Get Model list.
+      model_list = DynFork::Model.subclasses
+      model_list.each do |model|
+        # Run matadata caching.
+        model.new
+      end
+      model_list.select! { |model| model.meta[:migrat_model?] }
+      if model_list.empty?
+        raise DynFork::Errors::Panic.new("No Models for Migration!")
+      end
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
-      @model_list.each do |model|
+      model_list.each do |model|
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
         # Get super collection.
@@ -223,7 +220,7 @@ module DynFork::Migration
       self.napalm
       #
       # Run indexing.
-      @model_list.each do |model|
+      model_list.each do |model|
         # Run indexing.
         model.indexing
         # Apply a fixture to the Model.
