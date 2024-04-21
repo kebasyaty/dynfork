@@ -42,7 +42,7 @@ module DynFork::Migration
       DynFork::Globals.cache_mongo_database = DynFork::Globals
         .cache_mongo_client[DynFork::Globals.cache_database_name]
       # Get Model list.
-      model_list : Array(DynFork::Model.class) = DynFork::Model.subclasses
+      model_list = DynFork::Model.subclasses
       model_list.each do |model|
         # Run matadata caching.
         model.new

@@ -12,7 +12,7 @@ module DynFork
   #   <tr>
   #     <td align="left">service_name</td>
   #     <td align="left">no</td>
-  #     <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc... </td>
+  #     <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
   #   </tr>
   #   <tr>
   #     <td align="left">fixture_name</td>
