@@ -9,7 +9,7 @@ date: "1970-01-01"
 datetime: "1970-01-01T00:00:00"
 choice_text: "value"
 choice_text_mult: ["value"]
-choice_i64: 5,
+choice_i64: 5
 choice_i64_mult: [5]
 choice_f64: 5.0
 choice_f64_mult: [5.0]
