@@ -14,15 +14,9 @@ module AppName
   # Run migration.
   DynFork::Migration::Monitor.new(
     "app_name": "AppName",
-    "unique_app_key": "k76BQPF6d5e8nts9",
+    "unique_app_key": "0U6r3itxQkF5l4Dx",
     "mongo_uri": "mongodb://localhost:27017",
   ).migrat
 
-  if cursor : Mongo::Cursor? = Models::Accounts::User.list_indexes
-    cursor.not_nil!.each { |doc|
-      puts doc.to_h
-    }
-  else
-    raise "The index list returned an empty cursor!"
-  end
+  puts "Documwnt count: #{Models::Accounts::User.estimated_document_count}" # => 3
 end

@@ -16,9 +16,6 @@ module AppName
     "app_name": "AppName",
     "unique_app_key": "lL15C2zJW6f0C4OH",
     "mongo_uri": "mongodb://localhost:27017",
-    "model_list": {
-      Models::Accounts::User,
-    }
   ).migrat
 
   # Create a user.

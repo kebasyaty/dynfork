@@ -97,9 +97,6 @@ DynFork::Migration::Monitor.new(
   "app_name": "AppName",
   "unique_app_key": "k7SBQPF6d2e2nts7",
   "mongo_uri": "mongodb://localhost:27017",
-  "model_list": {
-      User,
-  }
 ).migrat
 
 # Create a user.

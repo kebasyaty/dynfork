@@ -1,0 +1,16 @@
+username: "admin"
+email: "admin@noreaply.net"
+password: "1234"
+active: true
+
+---
+username: "employee_1"
+email: "employee_1_@noreaply.net"
+password: "1234"
+active: false
+
+---
+username: "employee_2"
+email: "employee_2_@noreaply.net"
+password: "1234"
+active: false
