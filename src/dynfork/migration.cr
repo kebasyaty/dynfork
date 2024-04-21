@@ -23,7 +23,7 @@ module DynFork::Migration
 
   # Monitoring and update the database state for the application.
   struct Monitor
-    getter model_list : Array(DynFork::Model.class)
+    getter model_list : Array
 
     def initialize(
       app_name : String,
