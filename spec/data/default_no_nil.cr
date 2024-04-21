@@ -3,7 +3,10 @@ require "../../src/dynfork"
 # Structure for testing.
 module Spec::Data
   # Model with overridden _default_ parameter for all fields.
-  @[DynFork::Meta(service_name: "ServiceName")]
+  @[DynFork::Meta(
+    service_name: "ServiceName",
+    fixture_name: "DefaultNoNil",
+  )]
   struct DefaultNoNil < DynFork::Model
     getter url = DynFork::Fields::URLField.new(default: "https://translate.google.com/")
     getter text = DynFork::Fields::TextField.new(default: "Some text")
