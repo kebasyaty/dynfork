@@ -12,6 +12,7 @@ module DynFork::Paladins::Fixtures
     yaml_arr = YAML.parse_all(File.read(fixture_path))
     #
     yaml_arr.each do |yaml|
+      @hash.value = nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           unless (value = yaml[@{{ field }}.name]?).nil?
