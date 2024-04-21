@@ -25,7 +25,7 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      Spec::Data::FullDefault.count_documents.should eq(1)
+      Spec::Data::DefaultNoNil.count_documents.should eq(1)
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

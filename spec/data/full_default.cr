@@ -3,10 +3,7 @@ require "../../src/dynfork"
 # Structure for testing.
 module Spec::Data
   # A model with all parameters and fields by default.
-  @[DynFork::Meta(
-    service_name: "ServiceName",
-    fixture_name: "FullDefault",
-  )]
+  @[DynFork::Meta(service_name: "ServiceName")]
   struct FullDefault < DynFork::Model
     getter url = DynFork::Fields::URLField.new
     getter text = DynFork::Fields::TextField.new
