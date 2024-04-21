@@ -1,7 +1,7 @@
 url: "https://translate.google.com/"
 text: "Some text"
 phone: "+18004444444"
-password: false
+password: "12345678"
 ip: "126.255.255.255"
 hash2:
 email: "john.smith@example.com"
