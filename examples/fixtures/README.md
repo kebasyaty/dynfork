@@ -6,7 +6,7 @@ An example of using Fixtures.
 <br>
 **config/fixtures** - Directory for creating fixtures.
 <br>
-**Do not add a field with an empty value to a Fixture; this will cause an error.**
+**WARNING:** _Do not add a field with an empty value to a Fixture; this will cause an error._
 
 ## Usage
 
@@ -15,7 +15,7 @@ An example of using Fixtures.
 
 ## Fixture Example
 
-**Do not add a field with an empty value to a Fixture; this will cause an error.**
+**WARNING:** _Do not add a field with an empty value to a Fixture; this will cause an error._
 
 ```yaml
 url: "https://translate.google.com/"
