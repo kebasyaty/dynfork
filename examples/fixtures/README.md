@@ -5,6 +5,8 @@ An example of using Fixtures.
 **Fixtures** - To populate the database with pre-created data.
 <br>
 **config/fixtures** - Directory for creating fixtures.
+<br>
+**Do not add a field with an empty value to a Fixture; this will cause an error.**
 
 ## Usage
 
@@ -12,6 +14,8 @@ An example of using Fixtures.
 2. Run `crystal run`
 
 ## Fixture Example
+
+**Do not add a field with an empty value to a Fixture; this will cause an error.**
 
 ```yaml
 url: "https://translate.google.com/"
