@@ -28,7 +28,7 @@ end
 describe DynFork::Migration::Monitor do
   describe ".new" do
     it "=> create instance without database name", tags: "migration" do
-      m = DynFork::Migration::Monitor.new(
+      DynFork::Migration::Monitor.new(
         "app_name": "AppName",
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
@@ -46,7 +46,7 @@ describe DynFork::Migration::Monitor do
     end
 
     it "=> create instance with database name", tags: "migration" do
-      m = DynFork::Migration::Monitor.new(
+      DynFork::Migration::Monitor.new(
         "app_name": "AppName",
         "unique_app_key": "0585I0S5huR5r08q",
         "database_name": "DatabaseName360",
@@ -66,7 +66,7 @@ describe DynFork::Migration::Monitor do
 
     it "=> create instance and testing model list", tags: "migration" do
       # Run migration.
-      m = DynFork::Migration::Monitor.new(
+      DynFork::Migration::Monitor.new(
         "app_name": "AppName",
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
