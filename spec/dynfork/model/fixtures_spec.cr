@@ -2,7 +2,7 @@ require "../../spec_helper"
 
 describe DynFork::Model do
   describe "#apply_fixture" do
-    it "=> ???", tags: "fixtures" do
+    it "=> create doc from fixture", tags: "fixtures" do
       # Init data for test.
       #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
