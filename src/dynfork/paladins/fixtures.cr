@@ -1,6 +1,7 @@
 # **Fixtures** - To populate the database with pre-created data.
 # <br>
 # **config/fixtures** - Directory for creating fixtures.
+# WARNING: Do not add a field with an empty value to a Fixture; this will cause an error.
 module DynFork::Paladins::Fixtures
   # Apply fixture for current Model.
   # WARNING: Runs automatically during Model migration.
