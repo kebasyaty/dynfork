@@ -22,14 +22,13 @@ module DynFork::Migration
   end
 
   # Monitoring and update the database state for the application.
-  struct Monitor(T)
-    getter model_list : T
+  struct Monitor
+    getter model_list : Array(DynFork::Model.class)
 
     def initialize(
       app_name : String,
       unique_app_key : String,
       mongo_uri : String,
-      @model_list : T,
       database_name : String = ""
     )
       # Update global storage state.
@@ -42,6 +41,17 @@ module DynFork::Migration
       DynFork::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
       DynFork::Globals.cache_mongo_database = DynFork::Globals
         .cache_mongo_client[DynFork::Globals.cache_database_name]
+      # Get Model list.
+      model_list : Array(DynFork::Model.class) = DynFork::Model.subclasses
+      model_list.each do |model|
+        # Run matadata caching.
+        model.new
+      end
+      model_list.select! { |model| model.meta[:migrat_model?] }
+      if model_list.empty?
+        raise DynFork::Errors::Panic.new("No Models for Migration!")
+      end
+      @model_list = model_list
     end
 
     # Update the state of Models in the super collection.
@@ -101,12 +111,8 @@ module DynFork::Migration
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
       @model_list.each do |model|
-        # Run matadata caching.
-        model.new
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model.meta
-        # If the Model parameter `migrat_model?` is false, skip the iteration.
-        next unless metadata[:migrat_model?]
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
@@ -218,26 +224,19 @@ module DynFork::Migration
       #
       # Run indexing.
       @model_list.each do |model|
-        if model.meta[:migrat_model?]
-          # Run indexing.
-          model.indexing
-          # Apply a fixture to the Model.
-          if fixture_name = model.meta[:fixture_name]
-            collection = DynFork::Globals.cache_mongo_database[
-              model.meta[:collection_name]]
-            if collection.estimated_document_count == 0
-              curr_model = model.new
-              curr_model.apply_fixture(
-                fixture_name: fixture_name,
-                collection_ptr: pointerof(collection),
-              )
-            end
+        # Run indexing.
+        model.indexing
+        # Apply a fixture to the Model.
+        if fixture_name = model.meta[:fixture_name]
+          collection = DynFork::Globals.cache_mongo_database[
+            model.meta[:collection_name]]
+          if collection.estimated_document_count == 0
+            curr_model = model.new
+            curr_model.apply_fixture(
+              fixture_name: fixture_name,
+              collection_ptr: pointerof(collection),
+            )
           end
-        else
-          raise DynFork::Errors::Panic.new(
-            "Model : `#{model.full_model_name}` > Param: `migrat_model?` => " +
-            "This Model is not migrated to the database!"
-          )
         end
       end
     end

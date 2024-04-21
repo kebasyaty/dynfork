@@ -1,4 +1,5 @@
 require "../../spec_helper"
+require "../../data/other_models"
 
 describe Spec::Data::FilledModel do
   describe "#to_json" do

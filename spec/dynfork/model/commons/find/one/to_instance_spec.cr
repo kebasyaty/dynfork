@@ -21,9 +21,6 @@ describe DynFork::Commons::QOne do
         "unique_app_key": unique_app_key,
         "database_name": database_name,
         "mongo_uri": mongo_uri,
-        "model_list": {
-          Spec::Data::ValueNoNil,
-        }
       ).migrat
       #
       # HELLISH BURN

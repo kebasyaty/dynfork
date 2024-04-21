@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>DynFork::Migration::Monitor(T) - dynfork v0-dev</title>
+  <title>DynFork::Migration::Monitor - dynfork v0-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -567,7 +567,7 @@
       
     </li>
   
-  <li class=" current" data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor(t)">
+  <li class=" current" data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor">
       <a href="../../DynFork/Migration/Monitor.html">Monitor</a>
       
     </li>
@@ -646,12 +646,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> DynFork::<wbr>Migration::<wbr>Monitor(T)
+  <span class="kind">struct</span> DynFork::<wbr>Migration::<wbr>Monitor
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Migration/Monitor.html">DynFork::Migration::Monitor(T)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Migration/Monitor.html">DynFork::Migration::Monitor</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -710,7 +710,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_list%3AT%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_list : T, database_name : String = <span class="s">&quot;&quot;</span>)</a>
+        <a href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method" class="signature"><strong>.new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)</a>
         
       </li>
     
@@ -740,7 +740,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#model_list%3AT-instance-method" class="signature"><strong>#model_list</strong> : T</a>
+        <a href="#model_list%3AArray%28DynFork%3A%3AModel.class%29-instance-method" class="signature"><strong>#model_list</strong> : Array(<span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>.<span class="k">class</span>)</a>
         
       </li>
     
@@ -801,12 +801,12 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,model_list:T,database_name:String=&quot;&quot;)-class-method">
+    <div class="entry-detail" id="new(app_name:String,unique_app_key:String,mongo_uri:String,database_name:String=&quot;&quot;)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, model_list : T, database_name : String = <span class="s">&quot;&quot;</span>)
+        def self.<strong>new</strong>(app_name : String, unique_app_key : String, mongo_uri : String, database_name : String = <span class="s">&quot;&quot;</span>)
 
-        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cmodel_list%3AT%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28app_name%3AString%2Cunique_app_key%3AString%2Cmongo_uri%3AString%2Cdatabase_name%3AString%3D%22%22%29-class-method">#</a>
       </div>
       
       <br/>
@@ -861,12 +861,12 @@ super collection and delete collections associated with those Models.
       </div>
     </div>
   
-    <div class="entry-detail" id="model_list:T-instance-method">
+    <div class="entry-detail" id="model_list:Array(DynFork::Model.class)-instance-method">
       <div class="signature">
         
-        def <strong>model_list</strong> : T
+        def <strong>model_list</strong> : Array(<span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>.<span class="k">class</span>)
 
-        <a class="method-permalink" href="#model_list%3AT-instance-method">#</a>
+        <a class="method-permalink" href="#model_list%3AArray%28DynFork%3A%3AModel.class%29-instance-method">#</a>
       </div>
       
       <br/>

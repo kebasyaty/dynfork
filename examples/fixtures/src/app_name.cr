@@ -21,5 +21,5 @@ module AppName
     }
   ).migrat
 
-  puts "Number of documents: #{Models::Admin::SiteSettings.estimated_document_count}" # => 1
+  puts "Documwnt count: #{Models::Admin::SiteSettings.estimated_document_count}" # => 1
 end

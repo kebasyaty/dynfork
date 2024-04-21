@@ -567,7 +567,7 @@
       
     </li>
   
-  <li class=" " data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor(t)">
+  <li class=" " data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor">
       <a href="DynFork/Migration/Monitor.html">Monitor</a>
       
     </li>
@@ -768,7 +768,7 @@ user.birthday.value <span class="o">=</span> <span class="s">&quot;2024-03-26&qu
 user.print_err <span class="k">unless</span> user.save
 
 <span class="c"># Print user details.</span>
-puts <span class="s">&quot;# New user details:&quot;</span>
+puts <span class="s">&quot;New user details:&quot;</span>
 puts <span class="s">&quot;hash: </span><span class="i">#{</span>user.hash.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;username: </span><span class="i">#{</span>user.username.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;email: </span><span class="i">#{</span>user.email.value?<span class="i">}</span><span class="s">&quot;</span>
@@ -776,12 +776,12 @@ puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthd
 puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
 puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span>
 
-puts <span class="s">&quot;\nNumber of documents: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
 
 puts <span class="s">&quot;Deleting a document.&quot;</span>
 user.delete
 
-puts <span class="s">&quot;Number of documents: </span><span class="i">#{</span><span class="t">User</span>.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
+puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
 <h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>

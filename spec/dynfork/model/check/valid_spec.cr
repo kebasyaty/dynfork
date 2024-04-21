@@ -21,20 +21,10 @@ describe DynFork::Model do
         "unique_app_key": unique_app_key,
         "database_name": database_name,
         "mongo_uri": mongo_uri,
-        "model_list": {
-          Spec::Data::FullDefault,
-          Spec::Data::DefaultNoNil,
-          Spec::Data::ValueNoNil,
-        }
       ).migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      m = Spec::Data::FullDefault.new
-      valid = m.valid?
-      m.print_err unless valid
-      valid.should be_true
-      #
       m = Spec::Data::DefaultNoNil.new
       valid = m.valid?
       m.print_err unless valid

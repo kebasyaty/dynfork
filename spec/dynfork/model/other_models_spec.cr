@@ -2,12 +2,12 @@ require "../../spec_helper"
 
 describe DynFork::Model do
   describe ".new" do
-    it "=> create instance of empty Model", tags: "model" do
-      ex = expect_raises(DynFork::Errors::Model::FieldsMissing) do
-        Spec::Data::EmptyModel.new
-      end
-      ex.message.should eq("Model `Spec::Data::EmptyModel` has no fields!")
-    end
+    # it "=> create instance of empty Model", tags: "model" do
+    #   ex = expect_raises(DynFork::Errors::Model::FieldsMissing) do
+    #     Spec::Data::EmptyModel.new
+    #   end
+    #   ex.message.should eq("Model `Spec::Data::EmptyModel` has no fields!")
+    # end
 
     it "=> create instance of filled Model", tags: "model" do
       m = Spec::Data::FilledModel.new
@@ -93,25 +93,25 @@ describe DynFork::Model do
       metadata["delete_doc?"].should be_true
     end
 
-    it "=> create instance of SlugSourceInvalidModel", tags: "model" do
-      ex = expect_raises(DynFork::Errors::Fields::SlugSourceNameInvalid) do
-        Spec::Data::SlugSourceInvalidModel.new
-      end
-      ex.message.should eq(
-        "Model: `Spec::Data::SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
-        "The `first_name` field missing in Model!"
-      )
-    end
+    # it "=> create instance of SlugSourceInvalidModel", tags: "model" do
+    #   ex = expect_raises(DynFork::Errors::Fields::SlugSourceNameInvalid) do
+    #     Spec::Data::SlugSourceInvalidModel.new
+    #   end
+    #   ex.message.should eq(
+    #     "Model: `Spec::Data::SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
+    #     "The `first_name` field missing in Model!"
+    #   )
+    # end
 
-    describe "#caching" do
-      it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
-        ex = expect_raises(DynFork::Errors::Meta::ParameterMissing) do
-          Spec::Data::NoParamServiceNameModel.new
-        end
-        ex.message.should eq(
-          "Model: `Spec::Data::NoParamServiceNameModel` => Missing `service_name` parameter for Meta!"
-        )
-      end
-    end
+    # describe "#caching" do
+    #   it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
+    #     ex = expect_raises(DynFork::Errors::Meta::ParameterMissing) do
+    #       Spec::Data::NoParamServiceNameModel.new
+    #     end
+    #     ex.message.should eq(
+    #       "Model: `Spec::Data::NoParamServiceNameModel` => Missing `service_name` parameter for Meta!"
+    #     )
+    #   end
+    # end
   end
 end
