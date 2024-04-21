@@ -115,7 +115,7 @@ module DynFork
     end
 
     # Get a list of Models.
-    def self.subclasses : Array(DynFork::Model.class)
+    def self.subclasses
       {{@type.subclasses}}
     end
 
