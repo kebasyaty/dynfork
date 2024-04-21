@@ -16,9 +16,6 @@ module AppName
     "app_name": "AppName",
     "unique_app_key": "0U6r2itxQkF3l1Dx",
     "mongo_uri": "mongodb://localhost:27017",
-    "model_list": {
-      Models::Admin::SiteSettings,
-    }
   ).migrat
 
   puts "Documwnt count: #{Models::Admin::SiteSettings.estimated_document_count}" # => 1

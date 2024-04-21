@@ -16,9 +16,6 @@ module AppName
     "app_name": "AppName",
     "unique_app_key": "22915V44DssD7f33",
     "mongo_uri": "mongodb://localhost:27017",
-    "model_list": {
-      Models::TVs::TV,
-    }
   ).migrat
 
   # Create a tv.
