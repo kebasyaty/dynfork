@@ -74,3 +74,4 @@ jobs:
           crystal spec --tag find_many
           crystal spec --tag general
           crystal spec --tag indexing
+          crystal spec --tag fixtures
