@@ -193,7 +193,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-MIT "MIT") and [Apache Version 2.0](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-APACHE "Apache Version 2.0")
 
 ## Changelog
 
