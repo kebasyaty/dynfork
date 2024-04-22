@@ -209,7 +209,7 @@ module DynFork::Migration
         # Update the state of the current Model.
         filter = {"collection_name": model_state.collection_name}
         # update = {"$set": model_state}
-        super_collection.update_one(filter, update.to_bson)
+        super_collection.update_one(filter, model_state.to_bson)
       end
       #
       # ------------------------------------------------------------------------
