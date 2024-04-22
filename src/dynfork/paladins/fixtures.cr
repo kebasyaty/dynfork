@@ -99,7 +99,9 @@ module DynFork::Paladins::Fixtures
               end
             when 8
               # BoolField
-              @{{ field }}.refrash_val_bool(value.as_bool)
+              if !(val = value.as_bool?).nil? 
+                @{{ field }}.refrash_val_bool(val)
+              end
             when 9
               # SlugField
               if !(val = value.as_s?).nil?
