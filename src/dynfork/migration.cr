@@ -176,7 +176,6 @@ module DynFork::Migration
                                   default_value_list[field_name]
                                 end
             end
-            puts freshed_document
             # Update document.
             filter = {"_id": freshed_document["_id"]}
             update = {"$set": freshed_document}
