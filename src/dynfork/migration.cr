@@ -152,8 +152,7 @@ module DynFork::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
-            # Add new fields with default value or
-            # update existing fields whose field type has changed.
+            # Add new fields to current doc.
             new_fields.each do |field_name|
               doc[field_name] = nil
             end
