@@ -5,8 +5,6 @@ An example of a fixture with several documents.
 **Fixtures** - To populate the database with pre-created data.
 <br>
 **config/fixtures** - Directory for creating fixtures.
-<br>
-**WARNING:** _Do not add a field with an empty value to a Fixture; this will cause an error._
 
 ## Usage
 
@@ -14,8 +12,6 @@ An example of a fixture with several documents.
 2. Run `crystal run`
 
 ## Fixture Example
-
-**WARNING:** _Do not add a field with an empty value to a Fixture; this will cause an error._
 
 ```yaml
 username: "admin"
