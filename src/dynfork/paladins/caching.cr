@@ -134,9 +134,9 @@ module DynFork::Paladins::Caching
     # Get default value list.
     # <br>
     # **Format:** _<field_name, default_value>_
-    default_value_list : Hash(String, DynFork::Globals::ValueTypes | Time | BSON::ObjectId) = (
+    default_value_list : Hash(String, DynFork::Globals::ValueTypes) = (
       # Get default value.
-      fields = Hash(String, DynFork::Globals::ValueTypes | Time | BSON::ObjectId).new
+      fields = Hash(String, DynFork::Globals::ValueTypes).new
       {% for var in @type.instance_vars %}
         if @{{ var }}.input_type? == "file"
           if path = @{{ var }}.default?
