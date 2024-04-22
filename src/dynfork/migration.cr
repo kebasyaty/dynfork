@@ -170,13 +170,11 @@ module DynFork::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              doc[field_name] = (
-                if metadata[:field_name_and_type_list][field_name].includes?("Date")
-                  metadata[:time_object_list][field_name][:default]
-                else
-                  default_value_list[field_name]
-                end
-              )
+              doc[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
+                                  metadata[:time_object_list][field_name][:default]
+                                else
+                                  default_value_list[field_name]
+                                end
             end
             # Update document.
             filter = {"_id": freshed_document["_id"]}
@@ -210,8 +208,7 @@ module DynFork::Migration
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.
         filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state}
-        super_collection.update_one(filter, update)
+        super_collection.update_one(filter, model_state)
       end
       #
       # ------------------------------------------------------------------------
