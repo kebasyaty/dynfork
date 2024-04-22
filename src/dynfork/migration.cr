@@ -135,6 +135,8 @@ module DynFork::Migration
             m_state
           end
         )
+        p! model_state.field_name_and_type_list
+        p! metadata[:field_name_and_type_list]
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
