@@ -171,11 +171,11 @@ module DynFork::Migration
             if output_data.valid?
               # Create doc.
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
-              datetime : Time = Time.utc
-              data["created_at"] = datetime
-              data["updated_at"] = datetime
+              data["updated_at"] = Time.utc
               # Update doc.
-              model_collection.insert_one(data)
+              filter = {_id: data["_id"]}
+              update = {"$set": data}
+              model_collection.update_one(filter, update)
             else
               puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
               fresh_model.print_err
