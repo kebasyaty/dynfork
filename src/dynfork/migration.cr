@@ -174,7 +174,7 @@ module DynFork::Migration
               freshed_document[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
                                                metadata[:time_object_list][field_name][:default]
                                              else
-                                               default_value_list[field_name]
+                                               default_value_list[field_name].to_bson
                                              end
             end
             # Update document.
