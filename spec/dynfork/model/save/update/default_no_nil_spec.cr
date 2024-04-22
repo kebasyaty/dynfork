@@ -55,7 +55,7 @@ describe DynFork::Model do
       m.print_err unless flag
       flag.should be_true
       #
-      Spec::Data::DefaultNoNil.estimated_document_count.should eq(2) # + fixture
+      Spec::Data::DefaultNoNil.estimated_document_count.should eq(3) # + 2 fixtures
       #
       # Param `value`
       m.hash.value.empty?.should be_false

@@ -1,7 +1,6 @@
 # **Fixtures** - To populate the database with pre-created data.
 # <br>
 # **config/fixtures** - Directory for creating fixtures.
-# WARNING: Do not add a field with an empty value to a Fixture; this will cause an error.
 module DynFork::Paladins::Fixtures
   # Apply fixture for current Model.
   # WARNING: Runs automatically during Model migration.
@@ -13,8 +12,8 @@ module DynFork::Paladins::Fixtures
     yaml_arr = YAML.parse_all(File.read(fixture_path))
     #
     yaml_arr.each do |yaml|
-      @hash.value = nil
       {% for field in @type.instance_vars %}
+        @{{ field }}.value = nil
         unless @{{ field }}.ignored?
           unless (value = yaml[@{{ field }}.name]?).nil?
             field_type = @{{ field }}.field_type
@@ -22,15 +21,21 @@ module DynFork::Paladins::Fixtures
             when 1
               # ColorField | EmailField | PasswordField | PhoneField
               # | TextField | HashField | URLField | IPField
-              @{{ field }}.refrash_val_str(value.as_s)
+              if !(val = value.as_s?).nil?
+                @{{ field }}.refrash_val_str(val)
+              end
             when 2
               # DateField | DateTimeField
               if field_type.includes?("Time")
-                dt = self.datetime_parse(value.as_s)
-                @{{ field }}.refrash_val_datetime(dt)
+                if !(val = value.as_s?).nil?
+                  dt = self.datetime_parse(val)
+                  @{{ field }}.refrash_val_datetime(dt)
+                end
               else
-                dt = self.date_parse(value.as_s)
-                @{{ field }}.refrash_val_date(dt)
+                if !(val = value.as_s?).nil?
+                  dt = self.date_parse(val)
+                  @{{ field }}.refrash_val_date(dt)
+                end
               end
             when 3
               # ChoiceTextField | ChoiceI64Field
@@ -41,43 +46,67 @@ module DynFork::Paladins::Fixtures
               # | ChoiceI64MultDynField | ChoiceF64MultDynField
               if field_type.includes?("Text")
                 if field_type.includes?("Mult")
-                  arr = value.as_a.map { |item| item.as_s}
-                  @{{ field }}.refrash_val_arr_str(arr)
+                  if !(val = value.as_a?).nil?
+                    arr = val.map { |item| item.as_s}
+                    @{{ field }}.refrash_val_arr_str(arr)
+                  end
                 else
-                  @{{ field }}.refrash_val_str(value.as_s)
+                  if !(val = value.as_s?).nil?
+                    @{{ field }}.refrash_val_str(val)
+                  end
                 end
               elsif field_type.includes?("I64")
                 if field_type.includes?("Mult")
-                  arr = value.as_a.map { |item| item.as_i64}
-                  @{{ field }}.refrash_val_arr_i64(arr)
+                  if !(val = value.as_a?).nil?
+                    arr = val.map { |item| item.as_i64}
+                    @{{ field }}.refrash_val_arr_i64(arr)
+                  end
                 else
-                  @{{ field }}.refrash_val_i64(value.as_i64)
+                  if !(val = value.as_i64?).nil?
+                    @{{ field }}.refrash_val_i64(val)
+                  end
                 end
               elsif field_type.includes?("F64")
                 if field_type.includes?("Mult")
-                  arr = value.as_a.map { |item| item.as_f}
-                  @{{ field }}.refrash_val_arr_f64(arr)
+                  if !(val = value.as_a?).nil?
+                    arr = val.map { |item| item.as_f}
+                    @{{ field }}.refrash_val_arr_f64(arr)
+                  end
                 else
-                  @{{ field }}.refrash_val_f64(value.as_f)
+                  if !(val = value.as_f?).nil?
+                    @{{ field }}.refrash_val_f64(val)
+                  end
                 end
               end
             when 4
               # FileField
-              @{{ field }}.from_path(value.as_s)
+              if !(val = value.as_s?).nil?
+                @{{ field }}.from_path(val)
+              end
             when 5
-              @{{ field }}.from_path(value.as_s)
+              if !(val = value.as_s?).nil?
+                @{{ field }}.from_path(val)
+              end
             when 6
               # I64Field
-              @{{ field }}.refrash_val_i64(value.as_i64)
+              if !(val = value.as_i64?).nil?
+                @{{ field }}.refrash_val_i64(val)
+              end
             when 7
               # F64Field
-              @{{ field }}.refrash_val_f64(value.as_f)
+              if !(val = value.as_f?).nil?
+                @{{ field }}.refrash_val_f64(val)
+              end
             when 8
               # BoolField
-              @{{ field }}.refrash_val_bool(value.as_bool)
+              if !(val = value.as_bool?).nil?
+                @{{ field }}.refrash_val_bool(val)
+              end
             when 9
               # SlugField
-              @{{ field }}.refrash_val_str(value.as_s)
+              if !(val = value.as_s?).nil?
+                @{{ field }}.refrash_val_str(val)
+              end
             else
               raise DynFork::Errors::Model::InvalidGroupNumber
                 .new(@@full_model_name, {{ field.name.stringify }})
