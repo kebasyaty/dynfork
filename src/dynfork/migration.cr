@@ -208,7 +208,8 @@ module DynFork::Migration
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.
         filter = {"collection_name": model_state.collection_name}
-        super_collection.update_one(filter, model_state)
+        # update = {"$set": model_state}
+        super_collection.update_one(filter, update.to_bson)
       end
       #
       # ------------------------------------------------------------------------
