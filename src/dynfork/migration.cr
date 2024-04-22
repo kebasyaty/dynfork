@@ -138,13 +138,6 @@ module DynFork::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
-          # Get a list of default values.
-          default_value_list = metadata[:default_value_list]
-          # List of previous field names.
-          old_fields : Array(String) = model_state.field_name_and_type_list.keys
-          # Get a list of missing fields.
-          missing_fields : Array(String) = old_fields -
-            metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
           new_fields = Array(String).new
           metadata[:field_name_and_type_list].each do |field_name, field_type|
@@ -165,15 +158,8 @@ module DynFork::Migration
               doc[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
                                   metadata[:time_object_list][field_name][:default]
                                 else
-                                  default_value_list[field_name]
+                                  metadata[:default_value_list][field_name]
                                 end
-            end
-            doc_h = doc.to_h
-            # Delete missing fields.
-            old_fields.each do |field_name|
-              if missing_fields.includes?(field_name)
-                doc_h.delete(field_name)
-              end
             end
             # Update document.
             fresh_model = model.new
