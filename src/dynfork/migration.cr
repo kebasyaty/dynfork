@@ -176,11 +176,11 @@ module DynFork::Migration
               end
             end
             # Update document.
-            m = model.new
-            m.refrash_fields(pointerof(doc))
-            unless m.save
+            fresh_model = model.new
+            fresh_model.refrash_fields(pointerof(doc))
+            unless fresh_model.save
               puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
-              m.print_err
+              fresh_model.print_err
               raise ""
             end
           }
