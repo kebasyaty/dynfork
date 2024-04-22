@@ -138,6 +138,7 @@ module DynFork::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
+          puts "Yes!!!"
           # Get a list of default values.
           default_value_list = metadata[:default_value_list]
           # List of previous field names.
