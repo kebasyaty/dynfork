@@ -169,7 +169,6 @@ module DynFork::Migration
               save?: true
             )
             if output_data.valid?
-              # Create doc.
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               data["updated_at"] = Time.utc
               # Update doc.
