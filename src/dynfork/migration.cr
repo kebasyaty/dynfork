@@ -145,7 +145,6 @@ module DynFork::Migration
           # Get a list of missing fields.
           missing_fields : Array(String) = old_fields -
             metadata[:field_name_and_type_list].keys
-          puts missing_fields
           # Get a list of new fields.
           new_fields = Array(String).new
           metadata[:field_name_and_type_list].each do |field_name, field_type|
