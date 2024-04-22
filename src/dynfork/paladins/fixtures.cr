@@ -89,10 +89,14 @@ module DynFork::Paladins::Fixtures
               end
             when 6
               # I64Field
-              @{{ field }}.refrash_val_i64(value.as_i64)
+              if !(val = value.as_i64?).nil?
+                @{{ field }}.refrash_val_i64(val)
+              end
             when 7
               # F64Field
-              @{{ field }}.refrash_val_f64(value.as_f)
+              if !(val = value.as_f?).nil?
+                @{{ field }}.refrash_val_f64(val)
+              end
             when 8
               # BoolField
               @{{ field }}.refrash_val_bool(value.as_bool)
