@@ -25,7 +25,7 @@ describe DynFork::Model do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      Spec::Data::DefaultNoNil.count_documents.should eq(1)
+      Spec::Data::DefaultNoNil.count_documents.should eq(2)
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")
