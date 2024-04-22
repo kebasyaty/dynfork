@@ -164,7 +164,19 @@ module DynFork::Migration
             # Update document.
             fresh_model = model.new
             fresh_model.refrash_fields(pointerof(doc))
-            unless fresh_model.save
+            output_data : DynFork::Globals::OutputData = fresh_model.check(
+              collection_ptr: pointerof(model_collection),
+              save?: true
+            )
+            if output_data.valid?
+              # Create doc.
+              data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
+              datetime : Time = Time.utc
+              data["created_at"] = datetime
+              data["updated_at"] = datetime
+              # Update doc.
+              model_collection.insert_one(data)
+            else
               puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
               fresh_model.print_err
               raise ""
