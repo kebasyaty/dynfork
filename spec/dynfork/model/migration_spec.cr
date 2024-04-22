@@ -38,6 +38,9 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0w7n5731X13s1641")
       DynFork::Globals.cache_database_name.should eq("AppName_0w7n5731X13s1641")
       #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
+      #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -57,6 +60,9 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.cache_unique_app_key.should eq("0585I0S5huR5r08q")
       DynFork::Globals.cache_database_name.should eq("DatabaseName360")
       #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
+      #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
@@ -71,6 +77,9 @@ describe DynFork::Migration::Monitor do
         "unique_app_key": "0w7n5731X13s1641",
         "mongo_uri": "mongodb://localhost:27017",
       )
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
@@ -115,7 +124,10 @@ describe DynFork::Migration::Monitor do
       data = "[]"
       Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name] = data
       Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name].should eq(data)
-
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
+      #
       # Delete database after test.
       Spec::Support.delete_test_db(
         DynFork::Globals.cache_mongo_database)
