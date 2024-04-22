@@ -160,8 +160,7 @@ module DynFork::Migration
           # Go through all documents to make changes.
           cursor.each { |doc|
             # Create a new document for the updated state.
-            freshed_document = BSON.new
-            freshed_document = {"_id" => doc["_id"]}
+            freshed_document = BSON.new({"_id" => doc["_id"]})
             # Create a new document without the deleted fields.
             old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)
@@ -174,7 +173,7 @@ module DynFork::Migration
               freshed_document[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
                                                metadata[:time_object_list][field_name][:default]
                                              else
-                                               default_value_list[field_name].to_bson
+                                               default_value_list[field_name]
                                              end
             end
             # Update document.
