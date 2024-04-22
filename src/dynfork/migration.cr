@@ -155,11 +155,7 @@ module DynFork::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              doc[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
-                                  metadata[:time_object_list][field_name][:default]
-                                else
-                                  metadata[:default_value_list][field_name]
-                                end
+              doc[field_name] = nil
             end
             # Update document.
             fresh_model = model.new
