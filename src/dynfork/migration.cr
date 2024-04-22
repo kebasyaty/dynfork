@@ -159,26 +159,25 @@ module DynFork::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
-            # Create a new document for the updated state.
-            freshed_document = BSON.new({"_id" => doc["_id"]})
-            # Create a new document without the deleted fields.
-            old_fields.each do |field_name|
-              unless missing_fields.includes?(field_name)
-                freshed_document[field_name] = doc[field_name]
-              end
-            end
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              freshed_document[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
-                                               metadata[:time_object_list][field_name][:default]
-                                             else
-                                               default_value_list[field_name]
-                                             end
+              doc[field_name] = if metadata[:field_name_and_type_list][field_name].includes?("Date")
+                                  metadata[:time_object_list][field_name][:default]
+                                else
+                                  default_value_list[field_name]
+                                end
+            end
+            doc_h = doc.to_h
+            # Delete missing fields.
+            old_fields.each do |field_name|
+              if missing_fields.includes?(field_name)
+                doc_h.delete(field_name)
+              end
             end
             # Update document.
-            filter = {"_id": freshed_document["_id"]}
-            update = {"$set": freshed_document.to_h}
+            filter = {"_id": doc_h["_id"]}
+            update = {"$set": doc_h}
             model_collection.update_one(filter, update)
           }
         end
