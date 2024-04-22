@@ -68,7 +68,7 @@ module DynFork::Paladins::Fixtures
                 end
               elsif field_type.includes?("F64")
                 if field_type.includes?("Mult")
-                  if !(val = value.as_s?).nil?
+                  if !(val = value.as_a?).nil?
                     arr = val.map { |item| item.as_f}
                     @{{ field }}.refrash_val_arr_f64(arr)
                   end
