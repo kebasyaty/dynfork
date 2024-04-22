@@ -176,9 +176,13 @@ module DynFork::Migration
               end
             end
             # Update document.
-            filter = {"_id": doc_h["_id"]}
-            update = {"$set": doc_h}
-            model_collection.update_one(filter, update)
+            m = model.new
+            m.refrash_fields(pointerof(doc))
+            unless m.save
+              puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
+              m.print_err
+              raise ""
+            end
           }
         end
         #
