@@ -159,12 +159,13 @@ module DynFork::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
+            doc_h = doc.to_h
             # Create a new document for the updated state.
-            freshed_document = {"_id" => doc["_id"]}
+            freshed_document = {"_id" => doc_h["_id"]}
             # Create a new document without the deleted fields.
             old_fields.each do |field_name|
               unless missing_fields.includes?(field_name)
-                freshed_document[field_name] = doc[field_name]
+                freshed_document[field_name] = doc_h[field_name]
               end
             end
             # Add new fields with default value or
