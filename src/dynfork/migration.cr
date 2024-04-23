@@ -173,11 +173,10 @@ module DynFork::Migration
                   "The number of fields does not match!"
                 )
               end
-              doc_h = doc.to_h
               model_state.field_name_and_type_list.each do |field_name, field_type|
                 if field_type == "PasswordField"
-                  if !(value = doc_h[field_name]?).nil?
-                    data[field_name] = value.not_nil!
+                  if !(value = doc[field_name]?).nil?
+                    data[field_name] = value
                   end
                 end
               end
