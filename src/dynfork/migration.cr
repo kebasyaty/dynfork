@@ -169,7 +169,8 @@ module DynFork::Migration
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               if data.size != metadata[:field_count]
                 raise DynFork::Errors::Panic.new(
-                  "Migration > Model: `#{model_class.full_model_name}` "
+                  "MIGRATION > Model: `#{model_class.full_model_name}` => " +
+                  "The number of fields does not match!"
                 )
               end
               data["updated_at"] = Time.utc
