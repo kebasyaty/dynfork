@@ -201,7 +201,7 @@ module DynFork::Paladins::Tools
   end
 
   # Refrash field values ​​after creating or updating a document.
-  def refrash_fields(doc_ptr : Pointer(BSON?), new_fields : Array(String)? = nil) : Nil
+  def refrash_fields(doc_ptr : Pointer(BSON?)) : Nil
     if doc_ptr.value.nil?
       {% for field in @type.instance_vars %}
         @{{ field }}.value =  nil
@@ -267,24 +267,16 @@ module DynFork::Paladins::Tools
             end
           when 4
             # FileField
-            if !new_fields.nil? && new_fields.not_nil!.includes?(name)
-              @{{ field }}.from_path(delete: true)
-            else
-              bson = BSON.new
-              value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-              @{{ field }}.refrash_val_file_data(
-                DynFork::Globals::FileData.from_bson(bson))
-            end
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
+            @{{ field }}.refrash_val_file_data(
+              DynFork::Globals::FileData.from_bson(bson))
           when 5
             # ImageField
-            if !new_fields.nil? && new_fields.not_nil!.includes?(name)
-              @{{ field }}.from_path(delete: true)
-            else
-              bson = BSON.new
-              value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
-              @{{ field }}.refrash_val_img_data(
-                DynFork::Globals::ImageData.from_bson(bson))
-            end
+            bson = BSON.new
+            value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
+            @{{ field }}.refrash_val_img_data(
+              DynFork::Globals::ImageData.from_bson(bson))
           when 6
             # I64Field
             @{{ field }}.refrash_val_i64(value.as(Int64))
