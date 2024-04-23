@@ -212,6 +212,7 @@ module DynFork::Paladins::Tools
     field_type : String = ""
     name : String = ""
     doc_hash = doc_ptr.value.not_nil!.to_h
+    @hash.value = doc_hash["_id"].as(BSON::ObjectId).to_s
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
@@ -296,11 +297,7 @@ module DynFork::Paladins::Tools
             @{{ field }}.value =  nil
         end
       else
-        if name != "hash"
-          @{{ field }}.value =  nil
-        else
-          @hash.value = doc_hash["_id"].as(BSON::ObjectId).to_s
-        end
+          (@{{ field }}.value = nil) if name != "hash"
       end
     {% end %}
   end
