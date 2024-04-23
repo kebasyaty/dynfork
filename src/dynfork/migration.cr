@@ -209,7 +209,7 @@ module DynFork::Migration
         end #
         # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
-          model.meta[:data_dynamic_fields][field_name] = choices_json
+          model_class.meta[:data_dynamic_fields][field_name] = choices_json
         end
         #
         # ----------------------------------------------------------------------
