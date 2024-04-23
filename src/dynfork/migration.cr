@@ -161,9 +161,9 @@ module DynFork::Migration
                   doc[field_name] = (DynFork::Globals::FileData.new).delete = true
                 elsif field_type == "ImageField"
                   doc[field_name] = (DynFork::Globals::ImageData.new).delete = true
+                else
+                  doc[field_name] = nil
                 end
-              else
-                doc[field_name] = nil
               end
             end
             #
