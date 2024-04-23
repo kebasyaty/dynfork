@@ -42,7 +42,7 @@ module DynFork::Paladins::Groups
     # If the file needs to be delete.
     if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
-        field_ptr.value.from_path(default.to_s, true)
+        field_ptr.value.from_path(default.to_s)
         current_value = field_ptr.value.extract_file_data?.not_nil!
       else
         if !field_ptr.value.required?

@@ -168,7 +168,7 @@ module DynFork::Migration
             end
             #
             fresh_model = model_class.new
-            fresh_model.refrash_fields(pointerof(doc), new_fields)
+            fresh_model.refrash_fields(pointerof(doc))
             output_data : DynFork::Globals::OutputData = fresh_model.check(
               collection_ptr: pointerof(model_collection),
               save?: true
