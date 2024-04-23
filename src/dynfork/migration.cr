@@ -153,10 +153,8 @@ module DynFork::Migration
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               data["updated_at"] = Time.utc
-              # Update document.
-              filter = {_id: data["_id"]}
-              update = {"$set": data}
-              model_collection.update_one(filter, update)
+              # Replace document.
+              model_collection.replace_one({_id: data["_id"]}, data)
             else
               puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
               fresh_model.print_err
