@@ -168,8 +168,9 @@ module DynFork::Migration
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               doc_h = doc.to_h
-              model_state.field_name_and_type_list.each do |field_name, field_type|
-                if field_type == "PasswordField"
+              metadata[:field_name_and_type_list].each do |field_name, field_type|
+                if field_type == "PasswordField" &&
+                   model_state.field_name_and_type_list[field_name]? == "PasswordField"
                   if !(value = doc_h[field_name]?).nil?
                     data[field_name] = value.as(String)
                   end
