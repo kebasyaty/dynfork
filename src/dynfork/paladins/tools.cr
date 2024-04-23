@@ -222,7 +222,7 @@ module DynFork::Paladins::Tools
       #
       if !@{{ field }}.ignored?
         field_type = @{{ field }}.field_type
-        if !(value = doc_hash[name]).nil?
+        if !(value = doc_hash[name]?).nil?
           case @{{ field }}.group
           when 1
             # ColorField | EmailField | PasswordField | PhoneField
