@@ -158,9 +158,13 @@ module DynFork::Migration
             new_fields.each do |field_name|
               if field_type = metadata[:field_name_and_type_list][field_name]
                 if field_type == "FileField"
-                  doc[field_name] = (DynFork::Globals::FileData.new).delete = true
+                  file = DynFork::Globals::FileData.new
+                  file.delete = true
+                  doc[field_name] = file
                 elsif field_type == "ImageField"
-                  doc[field_name] = (DynFork::Globals::ImageData.new).delete = true
+                  img = DynFork::Globals::ImageData.new
+                  img.delete = true
+                  doc[field_name] = img
                 else
                   doc[field_name] = nil
                 end
