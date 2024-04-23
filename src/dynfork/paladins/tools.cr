@@ -298,7 +298,7 @@ module DynFork::Paladins::Tools
       else
         if name != "hash"
           @{{ field }}.value =  nil
-        end
+        else
           @{{ field }}.refrash_val_str(doc_hash["_id"].as(BSON::ObjectId).to_s)
         end
       end
