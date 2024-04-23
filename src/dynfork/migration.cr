@@ -167,12 +167,6 @@ module DynFork::Migration
             )
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
-              if data.size != metadata[:field_count]
-                raise DynFork::Errors::Panic.new(
-                  "MIGRATION > Model: `#{model_class.full_model_name}` => " +
-                  "The number of fields does not match!"
-                )
-              end
               doc_h = doc.to_h
               model_state.field_name_and_type_list.each do |field_name, field_type|
                 if field_type == "PasswordField"
@@ -180,6 +174,12 @@ module DynFork::Migration
                     data[field_name] = value.as(String)
                   end
                 end
+              end
+              if data.size != metadata[:field_count]
+                raise DynFork::Errors::Panic.new(
+                  "MIGRATION > Model: `#{model_class.full_model_name}` => " +
+                  "The number of fields does not match!"
+                )
               end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
