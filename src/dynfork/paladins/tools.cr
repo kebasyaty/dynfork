@@ -216,10 +216,6 @@ module DynFork::Paladins::Tools
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
       #
-      if name == "hash"
-        @{{ field }}.refrash_val_str(doc_hash["_id"].as(BSON::ObjectId).to_s)
-      end
-      #
       if !@{{ field }}.ignored?
         field_type = @{{ field }}.field_type
         if !(value = doc_hash[name]?).nil?
@@ -300,7 +296,11 @@ module DynFork::Paladins::Tools
             @{{ field }}.value =  nil
         end
       else
-        (@{{ field }}.value =  nil) if name != "hash"
+        if name != "hash"
+          @{{ field }}.value =  nil
+        end
+          @{{ field }}.refrash_val_str(doc_hash["_id"].as(BSON::ObjectId).to_s)
+        end
       end
     {% end %}
   end
