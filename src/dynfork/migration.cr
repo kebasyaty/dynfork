@@ -92,11 +92,11 @@ module DynFork::Migration
     def migrat : Nil
       # Get Model list.
       model_list = DynFork::Model.subclasses
-      model_list.each do |model|
+      model_list.each do |model_class|
         # Run matadata caching.
-        model.new
+        model_class.new
       end
-      model_list.select! { |model| model.meta[:migrat_model?] }
+      model_list.select! { |model_class| model_class.meta[:migrat_model?] }
       if model_list.empty?
         raise DynFork::Errors::Panic.new("No Models for Migration!")
       end
