@@ -267,23 +267,23 @@ module DynFork::Paladins::Tools
             end
           when 4
             # FileField
-            if new_fields.nil?
+            if !new_fields.nil? && new_fields.not_nil!.includes?(name)
+              @{{ field }}.from_path(delete: true)
+            else
               bson = BSON.new
               value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
               @{{ field }}.refrash_val_file_data(
                 DynFork::Globals::FileData.from_bson(bson))
-            elsif new_fields.not_nil!.includes?(name)
-              @{{ field }}.from_path(delete: true)
             end
           when 5
             # ImageField
-            if new_fields.nil?
+            if !new_fields.nil? && new_fields.not_nil!.includes?(name)
+              @{{ field }}.from_path(delete: true)
+            else
               bson = BSON.new
               value.as(Hash(String, BSON::RecursiveValue)).each { |key, val| bson[key] = val }
               @{{ field }}.refrash_val_img_data(
                 DynFork::Globals::ImageData.from_bson(bson))
-            elsif new_fields.not_nil!.includes?(name)
-              @{{ field }}.from_path(delete: true)
             end
           when 6
             # I64Field
