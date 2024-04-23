@@ -43,16 +43,6 @@ module DynFork::Migration
 
     # Update the state of Models in the super collection.
     private def refresh : Nil
-      # Get Model list.
-      model_list = DynFork::Model.subclasses
-      model_list.each do |model|
-        # Run matadata caching.
-        model.new
-      end
-      model_list.select! { |model| model.meta[:migrat_model?] }
-      if model_list.empty?
-        raise DynFork::Errors::Panic.new("No Models for Migration!")
-      end
       # Get super collection.
       # Contains model state and dynamic field data.
       super_collection = DynFork::Globals.cache_mongo_database[
@@ -100,6 +90,17 @@ module DynFork::Migration
     # 4) Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
     def migrat : Nil
+      # Get Model list.
+      model_list = DynFork::Model.subclasses
+      model_list.each do |model|
+        # Run matadata caching.
+        model.new
+      end
+      model_list.select! { |model| model.meta[:migrat_model?] }
+      if model_list.empty?
+        raise DynFork::Errors::Panic.new("No Models for Migration!")
+      end
+      #
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------
