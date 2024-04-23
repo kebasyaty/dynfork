@@ -43,6 +43,16 @@ module DynFork::Migration
 
     # Update the state of Models in the super collection.
     private def refresh : Nil
+      # Get Model list.
+      model_list = DynFork::Model.subclasses
+      model_list.each do |model|
+        # Run matadata caching.
+        model.new
+      end
+      model_list.select! { |model| model.meta[:migrat_model?] }
+      if model_list.empty?
+        raise DynFork::Errors::Panic.new("No Models for Migration!")
+      end
       # Get super collection.
       # Contains model state and dynamic field data.
       super_collection = DynFork::Globals.cache_mongo_database[
@@ -94,16 +104,6 @@ module DynFork::Migration
       self.refresh
       # ------------------------------------------------------------------------
       #
-      # Get Model list.
-      model_list = DynFork::Model.subclasses
-      model_list.each do |model|
-        # Run matadata caching.
-        model.new
-      end
-      model_list.select! { |model| model.meta[:migrat_model?] }
-      if model_list.empty?
-        raise DynFork::Errors::Panic.new("No Models for Migration!")
-      end
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
@@ -166,6 +166,9 @@ module DynFork::Migration
             )
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
+              if data.size != metadata[:field_count]
+                raise DynFork::Errors::Panic.new("???")
+              end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
               model_collection.replace_one({_id: data["_id"]}, data)
