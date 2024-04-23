@@ -108,9 +108,9 @@ module DynFork::Migration
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
-      model_list.each do |model|
+      model_list.each do |model_class|
         # Get metadata of Model from cache.
-        metadata : DynFork::Globals::CacheMetaDataType = model.meta
+        metadata : DynFork::Globals::CacheMetaDataType = model_class.meta
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
@@ -159,7 +159,7 @@ module DynFork::Migration
               doc[field_name] = nil
             end
             #
-            fresh_model = model.new
+            fresh_model = model_class.new
             fresh_model.refrash_fields(pointerof(doc))
             output_data : DynFork::Globals::OutputData = fresh_model.check(
               collection_ptr: pointerof(model_collection),
@@ -168,7 +168,9 @@ module DynFork::Migration
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               if data.size != metadata[:field_count]
-                raise DynFork::Errors::Panic.new("???")
+                raise DynFork::Errors::Panic.new(
+                  "Migration > Model: `#{model_class.full_model_name}` "
+                )
               end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
@@ -216,15 +218,15 @@ module DynFork::Migration
       self.napalm
       #
       # Run indexing.
-      model_list.each do |model|
+      model_list.each do |model_class|
         # Run indexing.
-        model.indexing
+        model_class.indexing
         # Apply a fixture to the Model.
-        if fixture_name = model.meta[:fixture_name]
+        if fixture_name = model_class.meta[:fixture_name]
           collection = DynFork::Globals.cache_mongo_database[
-            model.meta[:collection_name]]
+            model_class.meta[:collection_name]]
           if collection.estimated_document_count == 0
-            curr_model = model.new
+            curr_model = model_class.new
             curr_model.apply_fixture(
               fixture_name: fixture_name,
               collection_ptr: pointerof(collection),
