@@ -156,9 +156,11 @@ module DynFork::Migration
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              if field_type = model_state.field_name_and_type_list[field_name]?
-                if field_type.not_nil! != "FileField" && field_type.not_nil! != "ImageField"
-                  doc[field_name] = nil
+              if field_type = metadata[:field_name_and_type_list][field_name]
+                if field_type == "FileField"
+                  doc[field_name] = (DynFork::Globals::FileData.new).delete = true
+                elsif field_type == "ImageField"
+                  doc[field_name] = (DynFork::Globals::ImageData.new).delete = true
                 end
               else
                 doc[field_name] = nil
