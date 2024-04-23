@@ -173,6 +173,14 @@ module DynFork::Migration
                   "The number of fields does not match!"
                 )
               end
+              doc_h = doc.to_h
+              model_state.field_name_and_type_list.each do |field_name, field_type|
+                if field_type == "PasswordField"
+                  if !(value = doc_h[field_name]?).nil?
+                    data[field_name] = value.not_nil!
+                  end
+                end
+              end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
               model_collection.replace_one({_id: data["_id"]}, data)
