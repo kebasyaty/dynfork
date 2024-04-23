@@ -138,25 +138,12 @@ module DynFork::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
-          # Get a list of new fields.
-          new_fields = Array(String).new
-          metadata[:field_name_and_type_list].each do |field_name, field_type|
-            old_field_type : String? = model_state.field_name_and_type_list[field_name]?
-            if old_field_type.nil? || old_field_type != field_type
-              new_fields << field_name
-            end
-          end
           # Get collection for current Model.
           model_collection : Mongo::Collection = database[metadata[:collection_name]]
           # Fetch a Cursor pointing to the collection of current Model.
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
-            # Add new fields to current doc.
-            new_fields.each do |field_name|
-              doc[field_name] = nil
-            end
-            # Update document.
             fresh_model = model.new
             fresh_model.refrash_fields(pointerof(doc))
             output_data : DynFork::Globals::OutputData = fresh_model.check(
@@ -166,7 +153,7 @@ module DynFork::Migration
             if output_data.valid?
               data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
               data["updated_at"] = Time.utc
-              # Update doc.
+              # Update document.
               filter = {_id: data["_id"]}
               update = {"$set": data}
               model_collection.update_one(filter, update)
