@@ -231,7 +231,7 @@ module DynFork::Migration
         # Update the state of the current Model.
         super_collection.replace_one(
           filter: {"collection_name": model_state.collection_name},
-          replacement: model_state,
+          replacement: model_state.to_bson,
         )
       end
       #
