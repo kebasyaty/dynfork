@@ -18,7 +18,7 @@ module DynFork
   # ```
   # @[DynFork::Meta(
   #   service_name: "Accounts",
-  #   deleting_docs?: false
+  #   delete_doc?: false
   # )]
   # struct User < DynFork::Model
   #   getter username = DynFork::Fields::TextField.new(
