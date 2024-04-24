@@ -132,7 +132,10 @@ module DynFork::Migration
               "model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
-            database.command(Mongo::Commands::Create, name: m_state.collection_name)
+            database.command(
+              Mongo::Commands::Create,
+              name: m_state.collection_name,
+            )
             m_state
           end
         )
