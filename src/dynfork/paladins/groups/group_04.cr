@@ -6,7 +6,7 @@ module DynFork::Paladins::Groups
     update? : Bool,
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
-  ) : Void
+  ) : Nil
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
     if !update? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
