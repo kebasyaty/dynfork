@@ -139,9 +139,6 @@ module DynFork::Migration
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
-          # Get a list of missing fields.
-          missing_fields : Array(String) = model_state.field_name_and_type_list.keys -
-            metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
           new_fields = Array(String).new
           metadata[:field_name_and_type_list].each do |field_name, field_type|
@@ -156,13 +153,6 @@ module DynFork::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
-            updated_doc = BSON.new(doc["_id"])
-            # ???
-            model_state.field_name_and_type_list.each do |field_name|
-              unless missing_fields.includes?(field_name)
-                updated_doc[field_name] = doc[field_name]
-              end
-            end
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
@@ -170,19 +160,19 @@ module DynFork::Migration
                 if field_type == "FileField"
                   file = DynFork::Globals::FileData.new
                   file.delete = true
-                  updated_doc[field_name] = file
+                  doc[field_name] = file
                 elsif field_type == "ImageField"
                   img = DynFork::Globals::ImageData.new
                   img.delete = true
-                  updated_doc[field_name] = img
+                  doc[field_name] = img
                 else
-                  updated_doc[field_name] = nil
+                  doc[field_name] = nil
                 end
               end
             end
             #
             fresh_model = model_class.new
-            fresh_model.refrash_fields(pointerof(updated_doc))
+            fresh_model.refrash_fields(pointerof(doc))
             output_data : DynFork::Globals::OutputData = fresh_model.check(
               collection_ptr: pointerof(model_collection),
               save?: true
