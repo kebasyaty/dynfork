@@ -675,7 +675,7 @@
 <p>Extended example:</p>
 <pre><code class="language-crystal">@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(
   service_name: <span class="s">&quot;Accounts&quot;</span>,
-  deleting_docs?: <span class="n">false</span>
+  delete_doc?: <span class="n">false</span>
 )]
 <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
   getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new(
