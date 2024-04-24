@@ -50,7 +50,6 @@ module DynFork::Globals::Types
     # If the file needs to be deleted: _delete=true_.
     # <br>
     # By default: _delete=false_.
-    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
 
     def initialize; end
@@ -86,7 +85,6 @@ module DynFork::Globals::Types
     # If the images needs to be deleted: _delete=true_.
     # <br>
     # By default: _delete=false_.
-    @[BSON::Field(ignore: true)]
     property? delete : Bool = false
     # Image extension.
     # <br>

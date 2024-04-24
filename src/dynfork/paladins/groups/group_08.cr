@@ -4,7 +4,7 @@ module DynFork::Paladins::Groups
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
-  ) : Void
+  ) : Nil
     current_value : Bool = false
     if !(val = field_ptr.value.extract_val_bool?).nil?
       current_value = val.not_nil!

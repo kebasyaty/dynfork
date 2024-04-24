@@ -90,26 +90,27 @@ module DynFork::Migration
     # 4) Delete data for non-existent Models from a
     # super collection and delete collections associated with those Models.
     def migrat : Nil
+      # Get Model list.
+      model_list = DynFork::Model.subclasses
+      model_list.each do |model_class|
+        # Run matadata caching.
+        model_class.new
+      end
+      model_list.select! { |model_class| model_class.meta[:migrat_model?] }
+      if model_list.empty?
+        raise DynFork::Errors::Panic.new("No Models for Migration!")
+      end
+      #
       # Update the state of Models in the super collection.
       self.refresh
       # ------------------------------------------------------------------------
       #
-      # Get Model list.
-      model_list = DynFork::Model.subclasses
-      model_list.each do |model|
-        # Run matadata caching.
-        model.new
-      end
-      model_list.select! { |model| model.meta[:migrat_model?] }
-      if model_list.empty?
-        raise DynFork::Errors::Panic.new("No Models for Migration!")
-      end
       # Get database of application.
       database : Mongo::Database = DynFork::Globals.cache_mongo_database
       # Enumeration of keys for Model migration.
-      model_list.each do |model|
+      model_list.each do |model_class|
         # Get metadata of Model from cache.
-        metadata : DynFork::Globals::CacheMetaDataType = model.meta
+        metadata : DynFork::Globals::CacheMetaDataType = model_class.meta
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
@@ -131,20 +132,16 @@ module DynFork::Migration
               "model_exists": true,
             )
             super_collection.insert_one(m_state.to_bson)
-            database.command(Mongo::Commands::Create, name: m_state.collection_name)
+            database.command(
+              Mongo::Commands::Create,
+              name: m_state.collection_name,
+            )
             m_state
           end
         )
         # Review field changes in the current Model and (if necessary)
         # update documents in the appropriate Collection.
         if model_state.field_name_and_type_list != metadata[:field_name_and_type_list]
-          # Get a list of default values.
-          default_value_list = metadata[:default_value_list]
-          # List of previous field names.
-          old_fields : Array(String) = model_state.field_name_and_type_list.keys
-          # Get a list of missing fields.
-          missing_fields : Array(String) = old_fields -
-            metadata[:field_name_and_type_list].keys
           # Get a list of new fields.
           new_fields = Array(String).new
           metadata[:field_name_and_type_list].each do |field_name, field_type|
@@ -159,29 +156,58 @@ module DynFork::Migration
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
           cursor.each { |doc|
-            # Create a new document for the updated state.
-            freshed_document = {"_id" => doc["_id"]}
-            # Create a new document without the deleted fields.
-            old_fields.each do |field_name|
-              unless missing_fields.includes?(field_name)
-                freshed_document[field_name] = doc[field_name]
-              end
-            end
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
-              doc[field_name] = (
-                if metadata[:field_name_and_type_list][field_name].includes?("Date")
-                  metadata[:time_object_list][field_name][:default]
+              if field_type = metadata[:field_name_and_type_list][field_name]
+                if field_type == "FileField"
+                  file = DynFork::Globals::FileData.new
+                  file.delete = true
+                  doc[field_name] = file
+                elsif field_type == "ImageField"
+                  img = DynFork::Globals::ImageData.new
+                  img.delete = true
+                  doc[field_name] = img
                 else
-                  default_value_list[field_name]
+                  doc[field_name] = nil
                 end
-              )
+              end
             end
-            # Update document.
-            filter = {"_id": freshed_document["_id"]}
-            update = {"$set": freshed_document}
-            model_collection.update_one(filter, update)
+            #
+            fresh_model = model_class.new
+            fresh_model.refrash_fields(pointerof(doc))
+            output_data : DynFork::Globals::OutputData = fresh_model.check(
+              collection_ptr: pointerof(model_collection),
+              save?: true
+            )
+            if output_data.valid?
+              data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
+              doc_h = doc.to_h
+              metadata[:field_name_and_type_list].each do |field_name, field_type|
+                if field_type == "PasswordField" &&
+                   model_state.field_name_and_type_list[field_name]? == "PasswordField"
+                  if !(value = doc_h[field_name]?).nil?
+                    data[field_name] = value.as(String)
+                  end
+                end
+              end
+              if data.size != metadata[:field_count]
+                raise DynFork::Errors::Panic.new(
+                  "MIGRATION > Model: `#{model_class.full_model_name}` => " +
+                  "The number of fields does not match!"
+                )
+              end
+              data["updated_at"] = Time.utc
+              # Replace the document with an updated one.
+              model_collection.replace_one(
+                filter: {_id: data["_id"]},
+                replacement: data,
+              )
+            else
+              puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
+              fresh_model.print_err
+              raise ""
+            end
           }
         end
         #
@@ -202,16 +228,17 @@ module DynFork::Migration
         end #
         # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
-          model.meta[:data_dynamic_fields][field_name] = choices_json
+          model_class.meta[:data_dynamic_fields][field_name] = choices_json
         end
         #
         # ----------------------------------------------------------------------
         # Update list.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
         # Update the state of the current Model.
-        filter = {"collection_name": model_state.collection_name}
-        update = {"$set": model_state}
-        super_collection.update_one(filter, update)
+        super_collection.replace_one(
+          filter: {"collection_name": model_state.collection_name},
+          replacement: model_state.to_bson,
+        )
       end
       #
       # ------------------------------------------------------------------------
@@ -220,15 +247,15 @@ module DynFork::Migration
       self.napalm
       #
       # Run indexing.
-      model_list.each do |model|
+      model_list.each do |model_class|
         # Run indexing.
-        model.indexing
+        model_class.indexing
         # Apply a fixture to the Model.
-        if fixture_name = model.meta[:fixture_name]
+        if fixture_name = model_class.meta[:fixture_name]
           collection = DynFork::Globals.cache_mongo_database[
-            model.meta[:collection_name]]
+            model_class.meta[:collection_name]]
           if collection.estimated_document_count == 0
-            curr_model = model.new
+            curr_model = model_class.new
             curr_model.apply_fixture(
               fixture_name: fixture_name,
               collection_ptr: pointerof(collection),

@@ -12,7 +12,7 @@ module DynFork::Paladins::Groups
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection),
     id_ptr : Pointer(BSON::ObjectId?)
-  ) : Void
+  ) : Nil
     # When updating, we skip field password type.
     if update? && field_ptr.value.field_type == "PasswordField"
       field_ptr.value.value = nil

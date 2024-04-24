@@ -166,19 +166,6 @@ module DynFork::Paladins::Tools
       collection.delete_one({_id: id})
       # Reset field values.
       {% for field in @type.instance_vars %}
-        # Delete orphaned files and images.
-        if  @{{ field }}.input_type == "file" && !@{{ field }}.value.nil?
-          if @{{ field }}.field_type == "ImageField"
-            if images_dir_path = @{{ field }}.extract_images_dir_path?
-              FileUtils.rm_rf(images_dir_path)
-            end
-          else
-            if path = @{{ field }}.extract_file_path?
-              File.delete(path)
-            end
-          end
-        end
-        # Reset field.
         @{{ field }}.value =  nil
       {% end %}
       # Run hook.
@@ -212,13 +199,10 @@ module DynFork::Paladins::Tools
     field_type : String = ""
     name : String = ""
     doc_hash = doc_ptr.value.not_nil!.to_h
+    @hash.value = doc_hash["_id"].as(BSON::ObjectId).to_s
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
-      #
-      if name == "hash"
-        @{{ field }}.refrash_val_str(doc_hash["_id"].as(BSON::ObjectId).to_s)
-      end
       #
       if !@{{ field }}.ignored?
         field_type = @{{ field }}.field_type
@@ -300,7 +284,7 @@ module DynFork::Paladins::Tools
             @{{ field }}.value =  nil
         end
       else
-        (@{{ field }}.value =  nil) if name != "hash"
+          (@{{ field }}.value = nil) if name != "hash"
       end
     {% end %}
   end

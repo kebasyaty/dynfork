@@ -5,9 +5,8 @@ module DynFork::Paladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
-    cleanup_map_ptr : Pointer(NamedTuple(files: Array(String), images: Array(String)))
-  ) : Void
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
+  ) : Nil
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
     if !update? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?
@@ -42,7 +41,7 @@ module DynFork::Paladins::Groups
     # If the file needs to be delete.
     if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
-        field_ptr.value.from_path(default.to_s, true)
+        field_ptr.value.from_path(default.to_s)
         current_value = field_ptr.value.extract_file_data?.not_nil!
       else
         if !field_ptr.value.required?
@@ -65,8 +64,6 @@ module DynFork::Paladins::Groups
         field_ptr,
         error_symptom_ptr?
       )
-      # Add path in cleanup map.
-      cleanup_map_ptr.value[:files] << current_value.path
       return
     end
 
@@ -75,8 +72,6 @@ module DynFork::Paladins::Groups
 
     #
     unless current_value.path.empty?
-      # Add path in cleanup map (for error_symptom=true).
-      cleanup_map_ptr.value[:files] << current_value.path
       # Insert result.
       result_map_ptr.value[field_ptr.value.name] = current_value
     end

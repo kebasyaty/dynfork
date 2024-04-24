@@ -25,15 +25,6 @@ module DynFork::Paladins::Check
       (@hash.value = id.to_s) if !update?
       result_map["_id"] = id
     end
-    # Addresses of files to be deleted (if error_symptom? = true).
-    cleanup_map : NamedTuple(
-      files: Array(String),
-      images: Array(String),
-    ) = {files: Array(String).new, images: Array(String).new}
-    cleanup_map_ptr : Pointer(NamedTuple(
-      files: Array(String),
-      images: Array(String),
-    )) = pointerof(cleanup_map)
     # Is there any incorrect data?
     error_symptom? : Bool = false
     error_symptom_ptr? : Pointer(Bool) = pointerof(error_symptom?)
@@ -67,7 +58,7 @@ module DynFork::Paladins::Check
             save?,
             result_map_ptr,
             collection_ptr,
-            id_ptr
+            id_ptr,
           )
         when 2
           # Validation of `date` type fields:
@@ -78,7 +69,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
           )
         when 3
           # Validation of `choice` type fields:
@@ -94,7 +85,7 @@ module DynFork::Paladins::Check
             error_symptom_ptr?,
             save?,
             result_map_ptr,
-            collection_ptr
+            collection_ptr,
           )
         when 4
           # Validation of fields of type _FileField_.
@@ -104,7 +95,6 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_map_ptr,
-            cleanup_map_ptr
           )
         when 5
           # Validation of fields of type _ImageField_.
@@ -114,7 +104,6 @@ module DynFork::Paladins::Check
             update?,
             save?,
             result_map_ptr,
-            cleanup_map_ptr
           )
         when 6
           # Validation of fields of type _I64Field_.
@@ -124,7 +113,7 @@ module DynFork::Paladins::Check
             save?,
             result_map_ptr,
             collection_ptr,
-            id_ptr
+            id_ptr,
           )
         when 7
           # Validation of fields of type _F64Field_.
@@ -134,21 +123,21 @@ module DynFork::Paladins::Check
             save?,
             result_map_ptr,
             collection_ptr,
-            id_ptr
+            id_ptr,
           )
         when 8
           # Validation of fields of type _BoolField_.
           self.group_08(
             pointerof(@{{ field }}),
             save?,
-            result_map_ptr
+            result_map_ptr,
           )
         when 9
           # Create string for _SlugField_.
           if save?
             self.group_09(
               pointerof(@{{ field }}),
-              result_map_ptr
+              result_map_ptr,
             )
           end
         else
@@ -162,14 +151,6 @@ module DynFork::Paladins::Check
     if error_symptom?
       # Reset the hash for a new document.
       (@hash.value = nil) if save? && !update?
-      # Delete new files.
-      cleanup_map[:files].each do |path|
-        File.delete(path)
-      end
-      # Delete new images.
-      cleanup_map[:images].each do |path|
-        FileUtils.rm_rf(path)
-      end
     end
     #
     # --------------------------------------------------------------------------
