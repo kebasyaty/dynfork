@@ -191,12 +191,6 @@ module DynFork::Migration
                   end
                 end
               end
-              if data.size != metadata[:field_count]
-                raise DynFork::Errors::Panic.new(
-                  "MIGRATION > Model: `#{model_class.full_model_name}` => " +
-                  "The number of fields does not match!"
-                )
-              end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
               model_collection.replace_one(
