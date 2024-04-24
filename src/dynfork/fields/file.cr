@@ -119,7 +119,7 @@ module DynFork::Fields
       @target_dir : String = "files",
       @accept : String = "",
       @placeholder : String = "",
-      @maxsize : Int64 = 524288, # 0.5 MB
+      @maxsize : Int64 = 2097152, # 2 MB
       @hide : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
