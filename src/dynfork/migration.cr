@@ -199,7 +199,10 @@ module DynFork::Migration
               end
               data["updated_at"] = Time.utc
               # Replace the document with an updated one.
-              model_collection.replace_one({_id: data["_id"]}, data)
+              model_collection.replace_one(
+                filter: {_id: data["_id"]},
+                replacement: data,
+              )
             else
               puts "\n!!!>MIGRATION<!!!".colorize.fore(:red).mode(:bold)
               fresh_model.print_err
