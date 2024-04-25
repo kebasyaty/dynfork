@@ -59,8 +59,8 @@ module DynFork::Commons::UnitsManagement
     end
     # Get super collection.
     # Contains model state and dynamic field data.
-    super_collection = DynFork::Globals.cache_mongo_database[
-      DynFork::Globals.cache_super_collection_name]
+    super_collection = DynFork::Globals.mongo_database[
+      DynFork::Globals.super_collection_name]
     # Create a search filter.
     filter = {"collection_name": @@meta.not_nil![:collection_name]}
     # Get Model state.
@@ -145,7 +145,7 @@ module DynFork::Commons::UnitsManagement
     # Update documents in the collection of the current Model.
     if unit.delete?
       # Get collection for current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      collection : Mongo::Collection = DynFork::Globals.mongo_database[
         @@meta.not_nil![:collection_name]]
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find

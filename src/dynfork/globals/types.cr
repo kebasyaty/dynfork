@@ -101,14 +101,14 @@ module DynFork::Globals::Types
   # Validation global DynFork settings.
   struct ValidationCacheSettings
     def self.validation : Nil
-      self.valid_app_name DynFork::Globals.cache_app_name
-      self.valid_unique_app_key DynFork::Globals.cache_unique_app_key
-      if DynFork::Globals.cache_database_name.empty?
-        app_name = DynFork::Globals.cache_app_name
-        unique_app_key = DynFork::Globals.cache_unique_app_key
-        DynFork::Globals.cache_database_name = "#{app_name}_#{unique_app_key}"
+      self.valid_app_name DynFork::Globals.app_name
+      self.valid_unique_app_key DynFork::Globals.unique_app_key
+      if DynFork::Globals.database_name.empty?
+        app_name = DynFork::Globals.app_name
+        unique_app_key = DynFork::Globals.unique_app_key
+        DynFork::Globals.database_name = "#{app_name}_#{unique_app_key}"
       else
-        self.valid_database_name DynFork::Globals.cache_database_name
+        self.valid_database_name DynFork::Globals.database_name
       end
     end
 
@@ -117,11 +117,11 @@ module DynFork::Globals::Types
     # WARNING: Match regular expression: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/
     def self.valid_app_name(app_name : String) : Nil
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
-        "cache_app_name", 44
+        "app_name", 44
       ) if app_name.size > 44
-      unless DynFork::Globals.cache_regex[:app_name].matches?(app_name)
+      unless DynFork::Globals.regex[:app_name].matches?(app_name)
         raise DynFork::Errors::Cache::SettingsRegexFails.new(
-          "cache_app_name",
+          "app_name",
           "/^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/"
         )
       end
@@ -131,11 +131,11 @@ module DynFork::Globals::Types
     # WARNING: Match regular expression: /^[a-zA-Z0-9]{16}$/
     def self.valid_unique_app_key(unique_app_key : String) : Nil
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
-        "cache_unique_app_key", 16
+        "unique_app_key", 16
       ) if unique_app_key.size > 16
-      unless DynFork::Globals.cache_regex[:unique_app_key].matches?(unique_app_key)
+      unless DynFork::Globals.regex[:unique_app_key].matches?(unique_app_key)
         raise DynFork::Errors::Cache::SettingsRegexFails.new(
-          "cache_unique_app_key",
+          "unique_app_key",
           "/^[a-zA-Z0-9]{16}$/"
         )
       end
@@ -145,7 +145,7 @@ module DynFork::Globals::Types
     # WARNING: Maximum 60 characters.
     def self.valid_database_name(database_name : String) : Nil
       raise DynFork::Errors::Cache::SettingsExcessChars.new(
-        "cache_database_name", 60
+        "database_name", 60
       ) if database_name.size > 60
     end
   end

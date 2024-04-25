@@ -28,7 +28,7 @@ module DynFork::Paladins::Save
       )
     end
     # Get collection.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Check and get output data.
     output_data : DynFork::Globals::OutputData = self.check(

@@ -37,7 +37,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     collection.aggregate(
@@ -88,7 +88,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     collection.distinct(
@@ -130,7 +130,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get document count.
     collection.count_documents(
@@ -167,7 +167,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get document count.
     collection.estimated_document_count(
@@ -186,7 +186,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get the collection name.
     collection.name
@@ -206,7 +206,7 @@ module DynFork::Commons::QGeneral
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get statistics.
     collection.stats(

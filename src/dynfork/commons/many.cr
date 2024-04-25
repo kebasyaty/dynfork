@@ -48,7 +48,7 @@ module DynFork::Commons::QMany
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     hash_list = Array(Hash(String, DynFork::Globals::ValueTypes)).new
@@ -134,7 +134,7 @@ module DynFork::Commons::QMany
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     json : String = "["
