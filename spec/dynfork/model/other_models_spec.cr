@@ -65,11 +65,6 @@ describe DynFork::Model do
          "updated_at" => "DateTimeField",
          "first_name" => "TextField"}
       )
-      metadata["default_value_list"].should eq(
-        {"created_at" => nil,
-         "updated_at" => nil,
-         "first_name" => "Cat"}
-      )
       metadata["migrat_model?"].should be_true
       metadata["create_doc?"].should be_false
       metadata["update_doc?"].should be_false

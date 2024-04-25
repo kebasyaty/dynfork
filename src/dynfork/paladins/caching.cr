@@ -131,29 +131,6 @@ module DynFork::Paladins::Caching
       {% end %}
       fields
     )
-    # Get default value list.
-    # <br>
-    # **Format:** _<field_name, default_value>_
-    default_value_list : Hash(String, DynFork::Globals::ValueTypes) = (
-      # Get default value.
-      fields = Hash(String, DynFork::Globals::ValueTypes).new
-      {% for var in @type.instance_vars %}
-        if @{{ var }}.input_type? == "file"
-          if path = @{{ var }}.default?
-            unless File.file?(path.to_s)
-              raise DynFork::Errors::Panic.new(
-                "Model : `#{@@full_model_name}` > Field: `#{{{ var.name.stringify }}}` > " +
-                "Param: `default` => The file `#{path}` does not exist."
-              )
-            end
-          end
-        end
-        unless @{{ var }}.ignored?
-          fields[{{ var.name.stringify }}] = @{{ var }}.default?
-        end
-      {% end %}
-      fields
-    )
     # SlugField - Checking the slug_sources parameter.
     (
       one_unique_field? : Bool = false
@@ -293,10 +270,6 @@ module DynFork::Paladins::Caching
       field_name_and_type_list: field_name_and_type_list,
       # **Format:** _<field_name, <field_type, field_group>>_
       field_name_params_list: field_name_params_list,
-      # Default value list.
-      # <br>
-      # **Format:** _<field_name, default_value>_
-      default_value_list: default_value_list,
       # Set to **true** if you do not need to import the Model into the database.<br>
       # This can be use to validate a web forms - Search form, Contact form, etc.
       migrat_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:migrat_model?] }}).nil?
