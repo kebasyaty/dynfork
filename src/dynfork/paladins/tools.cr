@@ -19,7 +19,7 @@ module DynFork::Paladins::Tools
   #
   def valid? : Bool
     # Get the collection for the current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     self.check(pointerof(collection)).valid?
   end
@@ -156,7 +156,7 @@ module DynFork::Paladins::Tools
       raise DynFork::Errors::Meta::ForbiddenDeletingDocs.new
     end
     # Get collection.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get the ID and delete the document.
     if id : BSON::ObjectId? = self.object_id?

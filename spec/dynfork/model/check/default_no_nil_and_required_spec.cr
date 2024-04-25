@@ -30,7 +30,7 @@ describe DynFork::Model do
       m.hash2.value = "507c7f79bcf86cd7994f6c0e"
       #
       # Get the collection for the current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      collection : Mongo::Collection = DynFork::Globals.mongo_database[
         Spec::Data::DefaultNoNilAndRequired.meta[:collection_name]]
       #
       output_data : DynFork::Globals::OutputData = m.check(pointerof(collection))
@@ -120,9 +120,9 @@ describe DynFork::Model do
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database)
+        DynFork::Globals.mongo_database)
       #
-      DynFork::Globals.cache_mongo_client.close
+      DynFork::Globals.mongo_client.close
     end
   end
 end

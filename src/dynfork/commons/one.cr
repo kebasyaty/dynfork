@@ -38,7 +38,7 @@ module DynFork::Commons::QOne
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if doc : BSON? = collection.find_one(
@@ -105,7 +105,7 @@ module DynFork::Commons::QOne
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if doc : BSON? = collection.find_one(
@@ -174,7 +174,7 @@ module DynFork::Commons::QOne
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if doc : BSON? = collection.find_one(

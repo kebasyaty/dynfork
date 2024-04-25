@@ -17,7 +17,7 @@ module DynFork::Paladins::Caching
     # WARNING: Maximum 25 characters.
     model_name : String = @@full_model_name.split("::").last
     raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name) if model_name.size > 25
-    unless DynFork::Globals.cache_regex[:model_name].matches?(model_name)
+    unless DynFork::Globals.regex[:model_name].matches?(model_name)
       raise DynFork::Errors::Model::ModelNameRegexFails
         .new(@@full_model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end
@@ -102,7 +102,7 @@ module DynFork::Paladins::Caching
       raise DynFork::Errors::Meta::ParameterMissing.new(@@full_model_name, "service_name")
     raise DynFork::Errors::Meta::ParamExcessChars
       .new(@@full_model_name, "service_name", 25) if service_name.size > 25
-    unless DynFork::Globals.cache_regex[:service_name].matches?(service_name)
+    unless DynFork::Globals.regex[:service_name].matches?(service_name)
       raise DynFork::Errors::Meta::ParamRegexFails
         .new(@@full_model_name.gsub("::", " > "), "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
     end

@@ -53,7 +53,7 @@ module DynFork::Commons::Indexes
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if result : Mongo::Commands::CreateIndexes::Result? = collection.create_index(
@@ -108,7 +108,7 @@ module DynFork::Commons::Indexes
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if result : Mongo::Commands::CreateIndexes::Result? = collection.create_indexes(
@@ -148,7 +148,7 @@ module DynFork::Commons::Indexes
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if collection.drop_index(
@@ -179,7 +179,7 @@ module DynFork::Commons::Indexes
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     if collection.drop_indexes(
@@ -204,7 +204,7 @@ module DynFork::Commons::Indexes
       )
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
     collection.list_indexes(session: session)

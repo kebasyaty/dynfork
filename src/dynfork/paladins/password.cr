@@ -13,7 +13,7 @@ module DynFork::Paladins::Password
     #
     if id : BSON::ObjectId? = self.object_id?
       # Get collection for current model.
-      collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+      collection : Mongo::Collection = DynFork::Globals.mongo_database[
         @@meta.not_nil![:collection_name]]
       # Get password hash.
       if doc = collection.find_one({_id: id})
@@ -40,7 +40,7 @@ module DynFork::Paladins::Password
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
     # Get collection for current model.
-    collection : Mongo::Collection = DynFork::Globals.cache_mongo_database[
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get password hash.
     password_hash : String = Crypto::Bcrypt::Password.create(new_password).to_s

@@ -30,23 +30,23 @@ module DynFork::Migration
       database_name : String = ""
     )
       # Update global storage state.
-      DynFork::Globals.cache_app_name = app_name
-      DynFork::Globals.cache_unique_app_key = unique_app_key
+      DynFork::Globals.app_name = app_name
+      DynFork::Globals.unique_app_key = unique_app_key
       unless database_name.empty?
-        DynFork::Globals.cache_database_name = database_name
+        DynFork::Globals.database_name = database_name
       end
       DynFork::Globals::ValidationCacheSettings.validation
-      DynFork::Globals.cache_mongo_client = Mongo::Client.new mongo_uri
-      DynFork::Globals.cache_mongo_database = DynFork::Globals
-        .cache_mongo_client[DynFork::Globals.cache_database_name]
+      DynFork::Globals.mongo_client = Mongo::Client.new mongo_uri
+      DynFork::Globals.mongo_database = DynFork::Globals
+        .mongo_client[DynFork::Globals.database_name]
     end
 
     # Update the state of Models in the super collection.
     private def refresh : Nil
       # Get super collection.
       # Contains model state and dynamic field data.
-      super_collection = DynFork::Globals.cache_mongo_database[
-        DynFork::Globals.cache_super_collection_name]
+      super_collection = DynFork::Globals.mongo_database[
+        DynFork::Globals.super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor : Mongo::Cursor = super_collection.find
       # Reset Models state information.
@@ -61,9 +61,9 @@ module DynFork::Migration
     # super collection and delete collections associated with those Models.
     private def napalm : Nil
       # Get database of application.
-      database : Mongo::Database = DynFork::Globals.cache_mongo_database
+      database : Mongo::Database = DynFork::Globals.mongo_database
       # Get super collection - State of Models and dynamic field data.
-      super_collection = database[DynFork::Globals.cache_super_collection_name]
+      super_collection = database[DynFork::Globals.super_collection_name]
       # Fetch a Cursor pointing to the super collection.
       cursor : Mongo::Cursor = super_collection.find
       # Delete data for non-existent Models.
@@ -106,7 +106,7 @@ module DynFork::Migration
       # ------------------------------------------------------------------------
       #
       # Get database of application.
-      database : Mongo::Database = DynFork::Globals.cache_mongo_database
+      database : Mongo::Database = DynFork::Globals.mongo_database
       # Enumeration of keys for Model migration.
       model_list.each do |model_class|
         # Get metadata of Model from cache.
@@ -114,7 +114,7 @@ module DynFork::Migration
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
-          DynFork::Globals.cache_super_collection_name]
+          DynFork::Globals.super_collection_name]
         # Get ModelState for current Model.
         model_state = (
           filter = {"collection_name": metadata[:collection_name]}
@@ -246,7 +246,7 @@ module DynFork::Migration
         model_class.indexing
         # Apply a fixture to the Model.
         if fixture_name = model_class.meta[:fixture_name]
-          collection = DynFork::Globals.cache_mongo_database[
+          collection = DynFork::Globals.mongo_database[
             model_class.meta[:collection_name]]
           if collection.estimated_document_count == 0
             curr_model = model_class.new

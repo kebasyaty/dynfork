@@ -81,9 +81,9 @@ describe DynFork::Commons::QMany do
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
-        DynFork::Globals.cache_mongo_database)
+        DynFork::Globals.mongo_database)
       #
-      DynFork::Globals.cache_mongo_client.close
+      DynFork::Globals.mongo_client.close
     end
   end
 end

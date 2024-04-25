@@ -1,8 +1,8 @@
 require "../../spec_helper"
 
 describe DynFork::Globals do
-  it "=> cache_regex - type checking", tags: "global_regex" do
-    DynFork::Globals.cache_regex.should eq(
+  it "=> regex - type checking", tags: "global_regex" do
+    DynFork::Globals.regex.should eq(
       NamedTuple.new(
         model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
         app_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,43}$/,
@@ -20,8 +20,8 @@ describe DynFork::Globals do
   end
 
   describe "Regular Expression" do
-    it "=> cache_regex - model_name", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:model_name]
+    it "=> regex - model_name", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:model_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("360").should be_false
@@ -37,8 +37,8 @@ describe DynFork::Globals do
       r.matches?("MODELNAME360").should be_true
     end
 
-    it "=> cache_regex - app_name", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:app_name]
+    it "=> regex - app_name", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:app_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("electric car store").should be_false
@@ -55,8 +55,8 @@ describe DynFork::Globals do
     end
 
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    it "=> cache_regex - unique_app_key", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:unique_app_key]
+    it "=> regex - unique_app_key", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:unique_app_key]
       # Negative:
       r.matches?("").should be_false
       # < 16 characters
@@ -70,8 +70,8 @@ describe DynFork::Globals do
       r.matches?("x4N83BGV26b3Npg2").should be_true
     end
 
-    it "=> cache_regex - service_name", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:service_name]
+    it "=> regex - service_name", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:service_name]
       # Negative:
       r.matches?("").should be_false
       r.matches?("Auto parts").should be_false
@@ -87,8 +87,8 @@ describe DynFork::Globals do
       r.matches?("AutoParts360").should be_true
     end
 
-    it "=> cache_regex - color_code", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:color_code]
+    it "=> regex - color_code", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:color_code]
       # Negative:
       r.matches?("").should be_false
       r.matches?("#f2ewq").should be_false
@@ -112,8 +112,8 @@ describe DynFork::Globals do
       r.matches?("0x00FFFF").should be_true
     end
 
-    it "=> cache_regex - password", tags: "global_regex" do
-      r : Regex = DynFork::Globals.cache_regex[:password]
+    it "=> regex - password", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:password]
       # Negative:
       r.matches?("").should be_false
       r.matches?(" ").should be_false

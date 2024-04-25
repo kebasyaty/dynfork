@@ -16,8 +16,8 @@ module DynFork::Globals::Date
   # <br>Netherlands - D-M-YYYY
   # <br>Brazil, Greece, Thailand - D/M/YYYY
   def date_parse(date : String) : Time
-    md = DynFork::Globals.cache_regex[:date_parse].match(date) ||
-         DynFork::Globals.cache_regex[:date_parse_reverse].match(date)
+    md = DynFork::Globals.regex[:date_parse].match(date) ||
+         DynFork::Globals.regex[:date_parse_reverse].match(date)
     raise DynFork::Errors::Date::InvalidDate.new if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]}", "%F")
   end
@@ -38,8 +38,8 @@ module DynFork::Globals::Date
   # <br>Netherlands - D-M-YYYY
   # <br>Brazil, Greece, Thailand - D/M/YYYY
   def datetime_parse(datetime : String) : Time
-    md = DynFork::Globals.cache_regex[:datetime_parse].match(datetime) ||
-         DynFork::Globals.cache_regex[:datetime_parse_reverse].match(datetime)
+    md = DynFork::Globals.regex[:datetime_parse].match(datetime) ||
+         DynFork::Globals.regex[:datetime_parse_reverse].match(datetime)
     raise DynFork::Errors::Date::InvalidDateTime.new if md.nil?
     Time.parse_utc("#{md["y"]}-#{md["m"]}-#{md["d"]}T#{md["t"]}", "%FT%H:%M:%S")
   end
