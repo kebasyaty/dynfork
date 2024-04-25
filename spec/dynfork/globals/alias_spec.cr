@@ -45,7 +45,6 @@ describe DynFork::Globals do
           field_count: Int32,
           field_name_and_type_list: Hash(String, String),
           field_name_params_list: Hash(String, NamedTuple(type: String, group: UInt8)),
-          default_value_list: Hash(String, DynFork::Globals::ValueTypes),
           migrat_model?: Bool,
           create_doc?: Bool,
           update_doc?: Bool,
