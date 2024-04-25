@@ -19,7 +19,7 @@ module DynFork::Commons::UnitsManagement
   #   getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
   # end
   #
-  # unit = DynFork::Globals::DynUnit.new(
+  # unit = DynFork::Globals::Unit.new(
   #   field: "field_name",
   #   title: "Title",
   #   value: "value", # String | Int64 | Float64
