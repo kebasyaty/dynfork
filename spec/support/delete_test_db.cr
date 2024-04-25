@@ -7,7 +7,7 @@ module Spec::Support
   # # To generate a key (This is not an advertisement): https://randompasswordgen.com/
   # unique_app_key = "jeKZ9lIGL9aLRvlz"
   # database_name = "test_#{unique_app_key}"
-  # database = DynFork::Globals.cache_mongo_client[database_name]
+  # database = DynFork::Globals.mongo_client[database_name]
   # # Delete the database for the test.
   # Spec::Support.delete_test_db(database)
   # ```
