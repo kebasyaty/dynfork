@@ -116,9 +116,10 @@ module DynFork::Migration
         super_collection : Mongo::Collection = database[
           DynFork::Globals.super_collection_name]
         # Get ModelState for current Model.
-        model_state = (
-          filter = {"collection_name": metadata[:collection_name]}
-          document = super_collection.find_one(filter)
+        model_state : DynFork::Migration::ModelState = (
+          document = super_collection.find_one(
+            filter: {"collection_name": metadata[:collection_name]}
+          )
           if !document.nil?
             # Get existing ModelState for the current Model.
             m_state = DynFork::Migration::ModelState.from_bson(document)
