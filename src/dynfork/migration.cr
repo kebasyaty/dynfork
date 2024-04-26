@@ -110,7 +110,6 @@ module DynFork::Migration
       model_list.each do |model_class|
         # Get metadata of Model from cache.
         metadata : DynFork::Globals::CacheMetaDataType = model_class.meta
-        pp metadata[:data_dynamic_fields]
         # Get super collection.
         # Contains model state and dynamic field data.
         super_collection : Mongo::Collection = database[
