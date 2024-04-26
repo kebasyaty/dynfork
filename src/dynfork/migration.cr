@@ -15,10 +15,9 @@ module DynFork::Migration
     def initialize(
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
+      @data_dynamic_fields : Hash(String, String),
       @model_exists : Bool = false
-    )
-      @data_dynamic_fields = Hash(String, String).new
-    end
+    ); end
   end
 
   # Monitoring and update the database state for the application.
