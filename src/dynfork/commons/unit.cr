@@ -177,7 +177,6 @@ module DynFork::Commons::UnitsManagement
         # Update the value of a field in the collection of the current Model.
         filter = {"_id": doc["_id"]}
         update = {"$set": {unit.field => doc[unit.field]}}
-        update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
         if result = collection.update_one(
              filter,
              update,
