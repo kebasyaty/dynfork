@@ -81,15 +81,15 @@ module DynFork::Commons::UnitsManagement
     # Get clean dynamic field data.
     choices : Array(Tuple(Float64 | Int64 | String, String)) = if dyn_field_type.includes?("Text")
       choices_text = Array(Tuple(String, String)).from_json(data_json)
-      key_exists? = choices_text.includes?({unit.value.to_s, unit.title})
+      key_exists? = (choices_text.map { |item| item[1] }).includes?(unit.title)
       choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     elsif dyn_field_type.includes?("I64")
       choices_i64 = Array(Tuple(Int64, String)).from_json(data_json)
-      key_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
+      key_exists? = (choices_i64.map { |item| item[1] }).includes?(unit.title)
       choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     elsif dyn_field_type.includes?("F64")
       choices_f64 = Array(Tuple(Float64, String)).from_json(data_json)
-      key_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
+      key_exists? = (choices_f64.map { |item| item[1] }).includes?(unit.title)
       choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     else
       self.error_invalid_field_type(dyn_field_type)
