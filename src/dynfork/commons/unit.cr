@@ -111,10 +111,9 @@ module DynFork::Commons::UnitsManagement
       model_state.data_dynamic_fields[unit.field] = choices_json
     end
     # Update the state of the Model in the super collection.
-    update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
-         filter,
-         update,
+         filter: filter,
+         update: {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}},
          upsert: upsert,
          array_filters: array_filters,
          collation: collation,
@@ -175,11 +174,9 @@ module DynFork::Commons::UnitsManagement
           end
         end
         # Update the value of a field in the collection of the current Model.
-        filter = {"_id": doc["_id"]}
-        update = {"$set": {unit.field => doc[unit.field]}}
         if result = collection.update_one(
-             filter,
-             update,
+             filter: {"_id": doc["_id"]},
+             update: {"$set": {unit.field => doc[unit.field]}},
              upsert: upsert,
              array_filters: array_filters,
              collation: collation,
