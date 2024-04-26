@@ -237,7 +237,7 @@ module DynFork::Commons::UnitsManagement
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `.unit_manager` => " +
-          "Cannot add a new unit, the `#{title}` key|title is already present!"
+          "Cannot add a new unit, the `#{title}` key is already present!"
     raise DynFork::Errors::Panic.new msg
   end
 
@@ -245,7 +245,7 @@ module DynFork::Commons::UnitsManagement
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `.unit_manager` => " +
-          "It is impossible to delete a unit, the `#{title}` key|title is missing!"
+          "It is impossible to delete a unit, the `#{title}` key is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 end
