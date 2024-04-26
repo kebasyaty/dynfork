@@ -40,7 +40,7 @@ module DynFork::Commons::UnitsManagement
     write_concern : Mongo::WriteConcern? = nil,
     bypass_document_validation : Bool? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nill
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
