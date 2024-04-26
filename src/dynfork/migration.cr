@@ -217,11 +217,11 @@ module DynFork::Migration
         model_state.data_dynamic_fields
           .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
         # Add new dynamic fields.
-        current_dynamic_fields.each do |field_name|
-          unless model_state.data_dynamic_fields.includes?(field_name)
-            model_state.data_dynamic_fields[field_name] = "[]"
-          end
-        end
+        # current_dynamic_fields.each do |field_name|
+        #   unless model_state.data_dynamic_fields.includes?(field_name)
+        #     model_state.data_dynamic_fields[field_name] = "[]"
+        #   end
+        # end
         # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
           model_class.meta[:data_dynamic_fields][field_name] = choices_json
