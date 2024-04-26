@@ -209,8 +209,10 @@ module DynFork::Migration
         # <br>
         # <br>
         # Get a list of names of current dynamic fields.
-        current_dynamic_fields : Array(String) = metadata[:field_name_and_type_list]
-          .select { |_, field_type| field_type.includes?("Dyn") }.keys
+        current_dynamic_fields : Array(String) = (
+          metadata[:field_name_and_type_list]
+            .select { |_, field_type| field_type.includes?("Dyn") }
+        ).keys
         # Remove missing dynamic fields.
         model_state.data_dynamic_fields
           .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
