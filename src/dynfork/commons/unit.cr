@@ -95,20 +95,17 @@ module DynFork::Commons::UnitsManagement
       self.error_invalid_field_type(dyn_field_type)
     end
     #
-    choices_json : String = ""
     # Insert or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
-      # Insert key.
+      # Insert key-value.
       choices << {unit.value, unit.title}
-      choices_json = choices.to_json
-      model_state.data_dynamic_fields[unit.field] = choices_json
+      model_state.data_dynamic_fields[unit.field] = choices.to_json
     else
       self.error_key_missing(unit.title) unless key_exists?
-      # Delete key.
+      # Delete key-value.
       choices.select! { |item| item[1] != unit.title }
-      choices_json = choices.to_json
-      model_state.data_dynamic_fields[unit.field] = choices_json
+      model_state.data_dynamic_fields[unit.field] = choices.to_json
     end
     # Update the state of the Model in the super collection.
     if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
