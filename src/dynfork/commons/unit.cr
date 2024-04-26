@@ -146,7 +146,7 @@ module DynFork::Commons::UnitsManagement
     if unit.delete?
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.mongo_database[
-        @@meta.not_nil![:collection_name]]
+        model_state.collection_name]
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
       #
