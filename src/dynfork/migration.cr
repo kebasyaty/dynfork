@@ -206,11 +206,11 @@ module DynFork::Migration
           }
         end
         #
-        # **Update dynamic fields data in ModelState:**
-        # <br>
-        # <br>
+        # Update dynamic fields data in ModelState.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
-          if metadata[:data_dynamic_fields].has_key?(field_name)
+          if metadata[:data_dynamic_fields].has_key?(field_name) &&
+             (model_state.field_name_and_type_list[field_name] ==
+               metadata[:field_name_and_type_list][field_name])
             metadata[:data_dynamic_fields][field_name] = choices_json
           end
         end
