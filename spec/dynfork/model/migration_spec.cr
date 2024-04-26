@@ -124,10 +124,12 @@ describe DynFork::Migration::Monitor do
       m.migrat.should be_nil
 
       # Checking for data updates for dynamic fields.
-      field_name = "field_name"
-      data = "[]"
-      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name] = data
-      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name].should eq(data)
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_text_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_text_mult_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_i64_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_i64_mult_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_mult_dyn"].should eq("[]")
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")

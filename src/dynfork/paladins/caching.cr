@@ -207,7 +207,7 @@ module DynFork::Paladins::Caching
     data_dynamic_fields : Hash(String, String) = (
       dyn_fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
-        if @{{ var }}.field_type.includes?("Dyn")
+        if !@{{ var }}.ignored? && @{{ var }}.field_type.includes?("Dyn")
           dyn_fields[@{{ var }}.name] = "[]"
         end
       {% end %}
