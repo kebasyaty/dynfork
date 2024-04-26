@@ -196,7 +196,8 @@ module DynFork::Commons::UnitsManagement
               msg_err += "#{write_rrror.errmsg}\n"
             end
             raise DynFork::Errors::Panic.new(
-              "Model : `#{@@full_model_name}` > Method: `.unit_manager` =>\n#{msg_err}"
+              "Model : `#{@@full_model_name}` > Method: `.unit_manager` => " +
+              "Updating a document:\n#{msg_err}"
             )
           end
         else
