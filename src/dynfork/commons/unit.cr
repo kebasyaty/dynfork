@@ -81,9 +81,7 @@ module DynFork::Commons::UnitsManagement
     # Get clean dynamic field data.
     choices : Array(Tuple(Float64 | Int64 | String, String)) = if dyn_field_type.includes?("Text")
       choices_text = Array(Tuple(String, String)).from_json(data_df_json)
-      p! choices_text
       key_exists? = (choices_text.map { |item| item[1] }).includes?(unit.title)
-      p! key_exists?
       choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     elsif dyn_field_type.includes?("I64")
       choices_i64 = Array(Tuple(Int64, String)).from_json(data_df_json)
