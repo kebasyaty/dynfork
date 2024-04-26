@@ -209,24 +209,12 @@ module DynFork::Migration
         # **Update dynamic fields data in ModelState:**
         # <br>
         # <br>
-        # Get a list of names of current dynamic fields.
-        current_dynamic_fields : Array(String) = (
-          metadata[:field_name_and_type_list]
-            .select { |_, field_type| field_type.includes?("Dyn") }
-        ).keys
-        # Remove missing dynamic fields.
-        model_state.data_dynamic_fields
-          .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
-        # Add new dynamic fields.
-        current_dynamic_fields.each do |field_name|
-          unless model_state.data_dynamic_fields.includes?(field_name)
-            model_state.data_dynamic_fields[field_name] = "[]"
+        model_state.data_dynamic_fields.each do |field_name, choices_json|
+          if metadata[:data_dynamic_fields].has_key?(field_name)
+            metadata[:data_dynamic_fields][field_name] = choices_json
           end
         end
-        # Update metadata of the current Model.
-        model_state.data_dynamic_fields.each do |field_name, choices_json|
-          model_class.meta[:data_dynamic_fields][field_name] = choices_json
-        end
+        model_state.data_dynamic_fields = metadata[:data_dynamic_fields]
         #
         # ----------------------------------------------------------------------
         # Update list.
