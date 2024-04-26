@@ -221,7 +221,7 @@ module DynFork::Migration
           unless model_state.data_dynamic_fields.includes?(field_name)
             model_state.data_dynamic_fields[field_name] = "[]"
           end
-        end #
+        end
         # Update metadata of the current Model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
           model_class.meta[:data_dynamic_fields][field_name] = choices_json
