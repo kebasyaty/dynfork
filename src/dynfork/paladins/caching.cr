@@ -201,6 +201,18 @@ module DynFork::Paladins::Caching
       {% end %}
       fields
     )
+    # Data for dynamic fields.
+    # <br>
+    # **Format:** _<field_name, data_json>_
+    data_dynamic_fields : Hash(String, String) = (
+      dyn_fields = Hash(String, String).new
+      {% for var in @type.instance_vars %}
+        if @{{ var }}.field_type.includes?("Dyn")
+          dyn_fields[@{{ var }}.name] = "[]"
+        end
+      {% end %}
+      dyn_fields
+    )
     # Caching Time objects for date and time fields.
     time_object_list : Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)) = (
       result = Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)).new
@@ -302,7 +314,7 @@ module DynFork::Paladins::Caching
       # Data for dynamic fields.
       # <br>
       # **Format:** _<field_name, data_json>_
-      data_dynamic_fields: Hash(String, String).new,
+      data_dynamic_fields: data_dynamic_fields,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
       # The name of the fixture in the 'config/fixtures' directory (without extension).
