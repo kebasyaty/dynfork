@@ -127,9 +127,10 @@ module DynFork::Migration
           else
             # Create a new ModelState for current Model.
             m_state = DynFork::Migration::ModelState.new(
-              "collection_name": metadata[:collection_name],
-              "field_name_and_type_list": metadata[:field_name_and_type_list],
-              "model_exists": true,
+              collection_name: metadata[:collection_name],
+              field_name_and_type_list: metadata[:field_name_and_type_list],
+              data_dynamic_fields: metadata[:data_dynamic_fields],
+              model_exists: true,
             )
             super_collection.insert_one(m_state.to_bson)
             database.command(
