@@ -49,7 +49,6 @@ describe DynFork::Globals do
           create_doc?: Bool,
           update_doc?: Bool,
           delete_doc?: Bool,
-          ignored_fields: Array(String),
           field_attrs: Hash(String, NamedTuple(id: String, name: String)),
           data_dynamic_fields: Hash(String, String),
           time_object_list: Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)),

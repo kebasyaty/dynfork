@@ -177,16 +177,6 @@ module DynFork::Paladins::Caching
         end
       {% end %}
     )
-    # Get list of field names that will not be saved to the database.
-    ignored_fields : Array(String) = (
-      fields = Array(String).new
-      {% for var in @type.instance_vars %}
-        if @{{ var }}.ignored?
-          fields << {{ var.name.stringify }}
-        end
-      {% end %}
-      fields
-    )
     # Get attributes value for fields of Model: id, name.
     field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
       fields = Hash(String, NamedTuple(id: String, name: String)).new
@@ -307,8 +297,6 @@ module DynFork::Paladins::Caching
       else
         true
       end,
-      # List of field names that will not be saved to the database.
-      ignored_fields: ignored_fields,
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
