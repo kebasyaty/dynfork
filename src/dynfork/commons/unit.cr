@@ -40,7 +40,7 @@ module DynFork::Commons::UnitsManagement
     write_concern : Mongo::WriteConcern? = nil,
     bypass_document_validation : Bool? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Nill
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -204,8 +204,6 @@ module DynFork::Commons::UnitsManagement
         end
       }
     end
-    #
-    nil
   end
 
   # Error: If any of the fields in the Unit is empty.
