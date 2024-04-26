@@ -301,7 +301,7 @@ module DynFork::Paladins::Caching
       field_attrs: field_attrs,
       # Data for dynamic fields.
       # <br>
-      # **Format:** _<field_name, json>_
+      # **Format:** _<field_name, data_json>_
       data_dynamic_fields: Hash(String, String).new,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
