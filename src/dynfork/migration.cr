@@ -246,7 +246,7 @@ module DynFork::Migration
       model_list.each do |model_class|
         # Run indexing.
         model_class.indexing
-        # Apply a fixture to the Model.
+        # Apply the fixture to the current Model.
         if fixture_name = model_class.meta[:fixture_name]
           collection = DynFork::Globals.mongo_database[
             model_class.meta[:collection_name]]
