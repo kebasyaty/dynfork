@@ -75,20 +75,20 @@ module DynFork::Commons::UnitsManagement
     # Get the dynamic field type.
     dyn_field_type : String = model_state.field_name_and_type_list[unit.field]
     # Get dynamic field data in json format.
-    json : String = model_state.data_dynamic_fields[unit.field]
+    data_json : String = model_state.data_dynamic_fields[unit.field]
     # Check the presence of the key (Title).
     key_exists? : Bool = false
     # Get clean dynamic field data.
     choices : Array(Tuple(Float64 | Int64 | String, String)) = if dyn_field_type.includes?("Text")
-      choices_text = Array(Tuple(String, String)).from_json(json)
+      choices_text = Array(Tuple(String, String)).from_json(data_json)
       key_exists? = choices_text.includes?({unit.value.to_s, unit.title})
       choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     elsif dyn_field_type.includes?("I64")
-      choices_i64 = Array(Tuple(Int64, String)).from_json(json)
+      choices_i64 = Array(Tuple(Int64, String)).from_json(data_json)
       key_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
       choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     elsif dyn_field_type.includes?("F64")
-      choices_f64 = Array(Tuple(Float64, String)).from_json(json)
+      choices_f64 = Array(Tuple(Float64, String)).from_json(data_json)
       key_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
       choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
     else
