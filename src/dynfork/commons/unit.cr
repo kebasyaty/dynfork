@@ -73,7 +73,7 @@ module DynFork::Commons::UnitsManagement
       self.error_field_missing(unit.field)
     end
     # Get the dynamic field type.
-    dyn_field_type : String = @@meta.not_nil![:field_name_and_type_list][unit.field]
+    dyn_field_type : String = model_state.field_name_and_type_list[unit.field]
     # Get dynamic field data in json format.
     json : String = model_state.data_dynamic_fields[unit.field]
     # Check the presence of the key (Title).
