@@ -40,7 +40,7 @@ module DynFork::Commons::UnitsManagement
     write_concern : Mongo::WriteConcern? = nil,
     bypass_document_validation : Bool? = nil,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -73,29 +73,28 @@ module DynFork::Commons::UnitsManagement
       self.error_field_missing(unit.field)
     end
     # Get the dynamic field type.
-    dyn_field_type : String = @@meta.not_nil![:field_name_and_type_list][unit.field]
+    dyn_field_type : String = model_state.field_name_and_type_list[unit.field]
     # Get dynamic field data in json format.
     json : String = model_state.data_dynamic_fields[unit.field]
     # Check the presence of the key (Title).
     key_exists? : Bool = false
     # Get clean dynamic field data.
-    choices : Array(Tuple(Float64 | Int64 | String, String)) = (
-      if dyn_field_type.includes?("Text")
-        choices_text = Array(Tuple(String, String)).from_json(json)
-        key_exists? = choices_text.includes?({unit.value.to_s, unit.title})
-        choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-      elsif dyn_field_type.includes?("I64")
-        choices_i64 = Array(Tuple(Int64, String)).from_json(json)
-        key_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
-        choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-      elsif dyn_field_type.includes?("F64")
-        choices_f64 = Array(Tuple(Float64, String)).from_json(json)
-        key_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
-        choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-      else
-        self.error_invalid_field_type(dyn_field_type)
-      end
-    )
+    choices : Array(Tuple(Float64 | Int64 | String, String)) = if dyn_field_type.includes?("Text")
+      choices_text = Array(Tuple(String, String)).from_json(json)
+      key_exists? = choices_text.includes?({unit.value.to_s, unit.title})
+      choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+    elsif dyn_field_type.includes?("I64")
+      choices_i64 = Array(Tuple(Int64, String)).from_json(json)
+      key_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
+      choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+    elsif dyn_field_type.includes?("F64")
+      choices_f64 = Array(Tuple(Float64, String)).from_json(json)
+      key_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
+      choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+    else
+      self.error_invalid_field_type(dyn_field_type)
+    end
+    #
     choices_json : String = ""
     # Insert or delete unit.
     if !unit.delete?
@@ -112,10 +111,9 @@ module DynFork::Commons::UnitsManagement
       model_state.data_dynamic_fields[unit.field] = choices_json
     end
     # Update the state of the Model in the super collection.
-    update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
     if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
-         filter,
-         update,
+         filter: filter,
+         update: {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}},
          upsert: upsert,
          array_filters: array_filters,
          collation: collation,
@@ -131,7 +129,8 @@ module DynFork::Commons::UnitsManagement
           msg_err += "#{write_rrror.errmsg}\n"
         end
         raise DynFork::Errors::Panic.new(
-          "Model : `#{@@full_model_name}` > Method: `.unit_manager` =>\n#{msg_err}"
+          "Model : `#{@@full_model_name}` > Method: `.unit_manager` => " +
+          "ModelState updating:\n#{msg_err}"
         )
       end
     else
@@ -146,7 +145,7 @@ module DynFork::Commons::UnitsManagement
     if unit.delete?
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.mongo_database[
-        @@meta.not_nil![:collection_name]]
+        model_state.collection_name]
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
       #
@@ -175,12 +174,9 @@ module DynFork::Commons::UnitsManagement
           end
         end
         # Update the value of a field in the collection of the current Model.
-        filter = {"_id": doc["_id"]}
-        update = {"$set": {unit.field => doc[unit.field]}}
-        update = {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}}
         if result = collection.update_one(
-             filter,
-             update,
+             filter: {"_id": doc["_id"]},
+             update: {"$set": {unit.field => doc[unit.field]}},
              upsert: upsert,
              array_filters: array_filters,
              collation: collation,
@@ -196,7 +192,8 @@ module DynFork::Commons::UnitsManagement
               msg_err += "#{write_rrror.errmsg}\n"
             end
             raise DynFork::Errors::Panic.new(
-              "Model : `#{@@full_model_name}` > Method: `.unit_manager` =>\n#{msg_err}"
+              "Model : `#{@@full_model_name}` > Method: `.unit_manager` => " +
+              "Updating a document:\n#{msg_err}"
             )
           end
         else
@@ -207,8 +204,6 @@ module DynFork::Commons::UnitsManagement
         end
       }
     end
-    #
-    nil
   end
 
   # Error: If any of the fields in the Unit is empty.
