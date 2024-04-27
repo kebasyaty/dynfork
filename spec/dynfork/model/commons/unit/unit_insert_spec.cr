@@ -205,6 +205,9 @@ describe DynFork::Model do
         delete: true,
       )
       Spec::Data::DynFieldsModel.unit_manager(unit).should be_nil
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
