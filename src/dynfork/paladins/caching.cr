@@ -97,8 +97,8 @@ module DynFork::Paladins::Caching
     #
     # Checking attributes for file fields.
     {% for var in @type.instance_vars %}
-      if !@{{ var }}.ignored? && 
-        @{{ var }}.field_type.includes?("Choice") && 
+      if !@{{ var }}.ignored? &&
+        @{{ var }}.field_type.includes?("Choice") &&
           !@{{ var }}.field_type.includes?("Dyn")
         #
         if @{{ var }}.choices.nil?
