@@ -30,15 +30,7 @@ module DynFork::Commons::UnitsManagement
   # ```
   #
   def unit_manager(
-    unit : DynFork::Globals::Unit,
-    *,
-    upsert : Bool = false,
-    collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
-    ordered : Bool? = nil,
-    write_concern : Mongo::WriteConcern? = nil,
-    bypass_document_validation : Bool? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    unit : DynFork::Globals::Unit
   ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -115,13 +107,6 @@ module DynFork::Commons::UnitsManagement
     super_collection.replace_one(
       filter: {"collection_name": model_state.collection_name},
       replacement: model_state.to_bson,
-      upsert: upsert,
-      collation: collation,
-      hint: hint,
-      ordered: ordered,
-      write_concern: write_concern,
-      bypass_document_validation: bypass_document_validation,
-      session: session,
     )
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
@@ -162,13 +147,6 @@ module DynFork::Commons::UnitsManagement
         collection.replace_one(
           filter: {_id: doc["_id"]},
           replacement: doc,
-          upsert: upsert,
-          collation: collation,
-          hint: hint,
-          ordered: ordered,
-          write_concern: write_concern,
-          bypass_document_validation: bypass_document_validation,
-          session: session,
         )
       }
     end
