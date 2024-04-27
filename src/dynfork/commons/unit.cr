@@ -33,7 +33,6 @@ module DynFork::Commons::UnitsManagement
     unit : DynFork::Globals::Unit,
     *,
     upsert : Bool = false,
-    array_filters = nil,
     collation : Mongo::Collation? = nil,
     hint : String | Hash | NamedTuple | Nil = nil,
     ordered : Bool? = nil,
