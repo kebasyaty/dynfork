@@ -61,11 +61,11 @@ module DynFork::Commons::UnitsManagement
     # Contains model state and dynamic field data.
     super_collection = DynFork::Globals.mongo_database[
       DynFork::Globals.super_collection_name]
-    # Create a search filter.
-    filter = {"collection_name": @@meta.not_nil![:collection_name]}
     # Get Model state.
     model_state : DynFork::Migration::ModelState = (
-      document = super_collection.find_one(filter)
+      document = super_collection.find_one(
+        filter: {"collection_name": @@meta.not_nil![:collection_name]}
+      )
       DynFork::Migration::ModelState.from_bson(document.not_nil!)
     )
     # Check for the presence of a dynamic field.
@@ -114,7 +114,7 @@ module DynFork::Commons::UnitsManagement
     end
     # Update the state of the Model in the super collection.
     if result : Mongo::Commands::Common::UpdateResult? = super_collection.update_one(
-         filter: filter,
+         filter: {"collection_name": @@meta.not_nil![:collection_name]},
          update: {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}},
          upsert: upsert,
          array_filters: array_filters,
