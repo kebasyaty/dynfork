@@ -67,8 +67,9 @@ module DynFork::Commons::UnitsManagement
     dyn_field_type : String = model_state.field_name_and_type_list[unit.field]
     # Get dynamic field data in json format.
     data_df_json : String = model_state.data_dynamic_fields[unit.field]
-    # Check the presence of the key (Title).
+    # Check the presence of the key (title) and value.
     key_exists? : Bool = false
+    val_exists? : Bool = false
     # Get clean dynamic field data.
     choices : Array(Tuple(Float64 | Int64 | String, String)) = (
       if dyn_field_type.includes?("Text")
@@ -98,6 +99,7 @@ module DynFork::Commons::UnitsManagement
       model_state.data_dynamic_fields[unit.field] = choices_json
     else
       self.error_key_missing(unit.title) unless key_exists?
+      self.error_value_missing(unit.title, unit.value) unless val_exists?
       # Delete key-value.
       choices.select! { |item| item[1] != unit.title }
       choices_json = choices.to_json
