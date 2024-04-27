@@ -95,7 +95,7 @@ module DynFork::Paladins::Caching
       {% end %}
     )
     #
-    # Checking attributes for file fields.
+    # Choice fields (non-dynamic) should not have a Nil value in the `choices` parameter.
     {% for var in @type.instance_vars %}
       if !@{{ var }}.ignored? &&
         @{{ var }}.field_type.includes?("Choice") &&
