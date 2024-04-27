@@ -1,7 +1,7 @@
 module DynFork::Paladins::Groups
   # Validation of `date` type fields:
   # <br>
-  # _"DateField" | "DateTimeField"_
+  # DateField | DateTimeField
   def group_02(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),

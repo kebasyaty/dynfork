@@ -1,5 +1,5 @@
 module DynFork::Paladins::Groups
-  # Create string for _SlugField_.
+  # Create string for SlugField.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))

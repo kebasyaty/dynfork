@@ -1,12 +1,12 @@
 module DynFork::Paladins::Groups
   # Validation of `choice` type fields:
   # <br>
-  # _"ChoiceTextField" | "ChoiceTextMultField"
-  # | "ChoiceTextDynField" | "ChoiceTextMultDynField"
-  # | "ChoiceI64Field" | "ChoiceI64MultField"
-  # | "ChoiceI64DynField" | "ChoiceI64MultDynField"
-  # | "ChoiceF64Field" | "ChoiceF64MultField"
-  # | "ChoiceF64DynField" | "ChoiceF64MultDynField"_
+  # ChoiceTextField | ChoiceTextMultField
+  # | ChoiceTextDynField | ChoiceTextMultDynField
+  # | ChoiceI64Field | ChoiceI64MultField
+  # | ChoiceI64DynField | ChoiceI64MultDynField
+  # | ChoiceF64Field | ChoiceF64MultField
+  # | ChoiceF64DynField | ChoiceF64MultDynField
   def group_03(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),

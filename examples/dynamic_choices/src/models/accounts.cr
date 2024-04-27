@@ -1,0 +1,11 @@
+module Models::Accounts
+  @[DynFork::Meta(service_name: "Accounts")]
+  struct User < DynFork::Model
+    getter choice_text_dyn = DynFork::Fields::ChoiceTextDynField.new
+    getter choice_text_mult_dyn = DynFork::Fields::ChoiceTextMultDynField.new
+    getter choice_i64_dyn = DynFork::Fields::ChoiceI64DynField.new
+    getter choice_i64_mult_dyn = DynFork::Fields::ChoiceI64MultDynField.new
+    getter choice_f64_dyn = DynFork::Fields::ChoiceF64DynField.new
+    getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
+  end
+end

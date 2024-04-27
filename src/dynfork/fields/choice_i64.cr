@@ -424,7 +424,7 @@ module DynFork::Fields
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
-    def json_to_choices(json : String) : Nil
+    def choices_from_json(json : String) : Nil
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
 
