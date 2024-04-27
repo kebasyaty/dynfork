@@ -75,37 +75,39 @@ module DynFork::Commons::UnitsManagement
     # Get the dynamic field type.
     dyn_field_type : String = model_state.field_name_and_type_list[unit.field]
     # Get dynamic field data in json format.
-    json : String = model_state.data_dynamic_fields[unit.field]
+    data_df_json : String = model_state.data_dynamic_fields[unit.field]
     # Check the presence of the key (Title).
     key_exists? : Bool = false
     # Get clean dynamic field data.
-    choices : Array(Tuple(Float64 | Int64 | String, String)) = if dyn_field_type.includes?("Text")
-      choices_text = Array(Tuple(String, String)).from_json(json)
-      key_exists? = choices_text.includes?({unit.value.to_s, unit.title})
-      choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-    elsif dyn_field_type.includes?("I64")
-      choices_i64 = Array(Tuple(Int64, String)).from_json(json)
-      key_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
-      choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-    elsif dyn_field_type.includes?("F64")
-      choices_f64 = Array(Tuple(Float64, String)).from_json(json)
-      key_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
-      choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
-    else
-      self.error_invalid_field_type(dyn_field_type)
-    end
+    choices : Array(Tuple(Float64 | Int64 | String, String)) = (
+      if dyn_field_type.includes?("Text")
+        choices_text = Array(Tuple(String, String)).from_json(data_df_json)
+        key_exists? = (choices_text.map { |item| item[1] }).includes?(unit.title)
+        choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+      elsif dyn_field_type.includes?("I64")
+        choices_i64 = Array(Tuple(Int64, String)).from_json(data_df_json)
+        key_exists? = (choices_i64.map { |item| item[1] }).includes?(unit.title)
+        choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+      elsif dyn_field_type.includes?("F64")
+        choices_f64 = Array(Tuple(Float64, String)).from_json(data_df_json)
+        key_exists? = (choices_f64.map { |item| item[1] }).includes?(unit.title)
+        choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
+      else
+        self.error_invalid_field_type(dyn_field_type)
+      end
+    )
     #
     choices_json : String = ""
     # Insert or delete unit.
     if !unit.delete?
       self.error_key_already_exists(unit.title) if key_exists?
-      # Insert key.
+      # Insert key-value.
       choices << {unit.value, unit.title}
       choices_json = choices.to_json
       model_state.data_dynamic_fields[unit.field] = choices_json
     else
       self.error_key_missing(unit.title) unless key_exists?
-      # Delete key.
+      # Delete key-value.
       choices.select! { |item| item[1] != unit.title }
       choices_json = choices.to_json
       model_state.data_dynamic_fields[unit.field] = choices_json
@@ -235,7 +237,7 @@ module DynFork::Commons::UnitsManagement
   private def error_key_already_exists(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `.unit_manager` => " +
-          "Cannot add a new unit, the `#{title}` key|title is already present!"
+          "Cannot add a new unit, the `#{title}` key is already present!"
     raise DynFork::Errors::Panic.new msg
   end
 
@@ -243,7 +245,7 @@ module DynFork::Commons::UnitsManagement
   private def error_key_missing(title : String)
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `.unit_manager` => " +
-          "It is impossible to delete a unit, the `#{title}` key|title is missing!"
+          "It is impossible to delete a unit, the `#{title}` key is missing!"
     raise DynFork::Errors::Panic.new msg
   end
 end

@@ -4,22 +4,26 @@ describe DynFork::Migration::ModelState do
   describe ".new" do
     it "=> create instance without model_exists", tags: "migration" do
       ms = DynFork::Migration::ModelState.new(
-        "collection_name": "ServiceName_ModelName",
-        "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"}
+        collection_name: "ServiceName_ModelName",
+        field_name_and_type_list: {"field_name" => "TextField", "field_name_2" => "EmailField"},
+        data_dynamic_fields: Hash(String, String).new,
       )
       ms.collection_name.should eq("ServiceName_ModelName")
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
+      ms.data_dynamic_fields.should eq(Hash(String, String).new)
       ms.model_exists?.should be_false
     end
 
     it "=> create instance with model_exists", tags: "migration" do
       ms = DynFork::Migration::ModelState.new(
-        "collection_name": "ServiceName_ModelName",
-        "field_name_and_type_list": {"field_name" => "TextField", "field_name_2" => "EmailField"},
-        "model_exists": true
+        collection_name: "ServiceName_ModelName",
+        field_name_and_type_list: {"field_name" => "TextField", "field_name_2" => "EmailField"},
+        data_dynamic_fields: Hash(String, String).new,
+        model_exists: true
       )
       ms.collection_name.should eq("ServiceName_ModelName")
       ms.field_name_and_type_list.should eq({"field_name" => "TextField", "field_name_2" => "EmailField"})
+      ms.data_dynamic_fields.should eq(Hash(String, String).new)
       ms.model_exists?.should be_true
     end
   end
@@ -120,10 +124,12 @@ describe DynFork::Migration::Monitor do
       m.migrat.should be_nil
 
       # Checking for data updates for dynamic fields.
-      field_name = "field_name"
-      data = "[]"
-      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name] = data
-      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields][field_name].should eq(data)
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_text_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_text_mult_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_i64_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_i64_mult_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_dyn"].should eq("[]")
+      Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_mult_dyn"].should eq("[]")
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")

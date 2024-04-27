@@ -29,10 +29,10 @@ jobs:
           sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
           sudo dpkg -i 'libspng-dev_0.7.3-3_amd64.deb'
           sudo apt -y install libwebp-dev
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv0_1.3.2-0.4_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv0_1.3.2-0.4_amd64.deb'
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4_amd64.deb'
+          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv0_1.3.2-0.4+b1_amd64.deb' &&
+          sudo dpkg -i 'libsharpyuv0_1.3.2-0.4+b1_amd64.deb'
+          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb' &&
+          sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb'
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies

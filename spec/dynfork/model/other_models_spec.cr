@@ -69,7 +69,6 @@ describe DynFork::Model do
       metadata["create_doc?"].should be_false
       metadata["update_doc?"].should be_false
       metadata["delete_doc?"].should be_false
-      metadata["ignored_fields"].should eq(["hash", "age", "birthday"])
     end
 
     it "=> create instance of AuxiliaryModel", tags: "model" do

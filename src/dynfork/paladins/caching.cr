@@ -177,16 +177,6 @@ module DynFork::Paladins::Caching
         end
       {% end %}
     )
-    # Get list of field names that will not be saved to the database.
-    ignored_fields : Array(String) = (
-      fields = Array(String).new
-      {% for var in @type.instance_vars %}
-        if @{{ var }}.ignored?
-          fields << {{ var.name.stringify }}
-        end
-      {% end %}
-      fields
-    )
     # Get attributes value for fields of Model: id, name.
     field_attrs : Hash(String, NamedTuple(id: String, name: String)) = (
       fields = Hash(String, NamedTuple(id: String, name: String)).new
@@ -200,6 +190,18 @@ module DynFork::Paladins::Caching
         }
       {% end %}
       fields
+    )
+    # Data for dynamic fields.
+    # <br>
+    # **Format:** _<field_name, data_json>_
+    data_dynamic_fields : Hash(String, String) = (
+      dyn_fields = Hash(String, String).new
+      {% for var in @type.instance_vars %}
+        if !@{{ var }}.ignored? && @{{ var }}.field_type.includes?("Dyn")
+          dyn_fields[{{ var.name.stringify }}] = "[]"
+        end
+      {% end %}
+      dyn_fields
     )
     # Caching Time objects for date and time fields.
     time_object_list : Hash(String, NamedTuple(default: Time?, max: Time?, min: Time?)) = (
@@ -295,14 +297,12 @@ module DynFork::Paladins::Caching
       else
         true
       end,
-      # List of field names that will not be saved to the database.
-      ignored_fields: ignored_fields,
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
       # <br>
-      # **Format:** _<field_name, json>_
-      data_dynamic_fields: Hash(String, String).new,
+      # **Format:** _<field_name, data_json>_
+      data_dynamic_fields: data_dynamic_fields,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
       # The name of the fixture in the 'config/fixtures' directory (without extension).

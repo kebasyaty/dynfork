@@ -90,7 +90,10 @@ describe DynFork::Model do
       end
       ex.message.should eq "Model: `Spec::Data::DynFieldsModel` > " +
                            "Method: `.unit_manager` => " +
-                           "It is impossible to delete a unit, the `Title` key|title is missing!"
+                           "It is impossible to delete a unit, the `Title` key is missing!"
+      #
+      FileUtils.rm_rf("assets/media/files")
+      FileUtils.rm_rf("assets/media/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

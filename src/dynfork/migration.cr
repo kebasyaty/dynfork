@@ -15,10 +15,9 @@ module DynFork::Migration
     def initialize(
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
+      @data_dynamic_fields : Hash(String, String),
       @model_exists : Bool = false
-    )
-      @data_dynamic_fields = Hash(String, String).new
-    end
+    ); end
   end
 
   # Monitoring and update the database state for the application.
@@ -116,9 +115,10 @@ module DynFork::Migration
         super_collection : Mongo::Collection = database[
           DynFork::Globals.super_collection_name]
         # Get ModelState for current Model.
-        model_state = (
-          filter = {"collection_name": metadata[:collection_name]}
-          document = super_collection.find_one(filter)
+        model_state : DynFork::Migration::ModelState = (
+          document = super_collection.find_one(
+            filter: {"collection_name": metadata[:collection_name]}
+          )
           if !document.nil?
             # Get existing ModelState for the current Model.
             m_state = DynFork::Migration::ModelState.from_bson(document)
@@ -127,9 +127,10 @@ module DynFork::Migration
           else
             # Create a new ModelState for current Model.
             m_state = DynFork::Migration::ModelState.new(
-              "collection_name": metadata[:collection_name],
-              "field_name_and_type_list": metadata[:field_name_and_type_list],
-              "model_exists": true,
+              collection_name: metadata[:collection_name],
+              field_name_and_type_list: metadata[:field_name_and_type_list],
+              data_dynamic_fields: metadata[:data_dynamic_fields],
+              model_exists: true,
             )
             super_collection.insert_one(m_state.to_bson)
             database.command(
@@ -205,30 +206,21 @@ module DynFork::Migration
           }
         end
         #
-        # **Update dynamic fields data in ModelState:**
-        # <br>
-        # <br>
-        # Get a list of names of current dynamic fields.
-        current_dynamic_fields : Array(String) = metadata[:field_name_and_type_list]
-          .select { |_, field_type| field_type.includes?("Dyn") }.keys
-        # Remove missing dynamic fields.
-        model_state.data_dynamic_fields
-          .select! { |field_name, _| current_dynamic_fields.includes?(field_name) }
-        # Add new dynamic fields.
-        current_dynamic_fields.each do |field_name|
-          unless model_state.data_dynamic_fields.includes?(field_name)
-            model_state.data_dynamic_fields[field_name] = "[]"
-          end
-        end #
-        # Update metadata of the current Model.
+        # Refresh the dynamic fields data for the current model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
-          model_class.meta[:data_dynamic_fields][field_name] = choices_json
+          if field_type = metadata[:field_name_and_type_list][field_name]?
+            if metadata[:data_dynamic_fields].has_key?(field_name) &&
+               (model_state.field_name_and_type_list[field_name] == field_type)
+              metadata[:data_dynamic_fields][field_name] = choices_json
+            end
+          end
         end
+        model_state.data_dynamic_fields = metadata[:data_dynamic_fields]
         #
         # ----------------------------------------------------------------------
-        # Update list.
+        # Refresh the list of all fields.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
-        # Update the state of the current Model.
+        # Refresh the state of the current Model.
         super_collection.replace_one(
           filter: {"collection_name": model_state.collection_name},
           replacement: model_state.to_bson,
@@ -244,7 +236,7 @@ module DynFork::Migration
       model_list.each do |model_class|
         # Run indexing.
         model_class.indexing
-        # Apply a fixture to the Model.
+        # Apply the fixture to the current Model.
         if fixture_name = model_class.meta[:fixture_name]
           collection = DynFork::Globals.mongo_database[
             model_class.meta[:collection_name]]
