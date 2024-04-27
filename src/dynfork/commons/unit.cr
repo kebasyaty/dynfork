@@ -127,6 +127,7 @@ module DynFork::Commons::UnitsManagement
     )
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
+    #
     # Update documents in the collection of the current Model.
     if unit.delete?
       # Get collection for current model.
