@@ -177,7 +177,7 @@ module DynFork::Commons::UnitsManagement
         end
         # Update the value of a field in the collection of the current Model.
         if result = collection.update_one(
-             filter: {_id: doc_h["_id"].as(BSON::ObjectId)},
+             filter: {_id: doc["_id"]},
              update: {"$set": {unit.field => doc[unit.field]}},
              upsert: upsert,
              array_filters: array_filters,
