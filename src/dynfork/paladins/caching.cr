@@ -94,6 +94,21 @@ module DynFork::Paladins::Caching
         end
       {% end %}
     )
+    #
+    # Choice fields (non-dynamic) should not have a Nil value in the `choices` parameter.
+    {% for var in @type.instance_vars %}
+      if !@{{ var }}.ignored? &&
+        @{{ var }}.field_type.includes?("Choice") &&
+        !@{{ var }}.field_type.includes?("Dyn")
+        #
+        if @{{ var }}.choices.nil?
+          msg = "Field type: `#{@{{ var }}.field_type}` => " +
+                "The `choices` parameter cannot be Nil."
+          raise DynFork::Errors::Panic.new msg
+        end
+      end
+    {% end %}
+    #
     # Get Service name = Module name.
     # <br>
     # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
