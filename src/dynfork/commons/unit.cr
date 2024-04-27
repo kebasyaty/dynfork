@@ -199,7 +199,10 @@ module DynFork::Commons::UnitsManagement
   end
 
   # Error: When try to delete data that doesn't exist.
-  private def error_value_missing(title : String, value : String)
+  private def error_value_missing(
+    title : String,
+    value : String | Int64 | Float64
+  )
     msg = "Model: `#{self.full_model_name}` > " +
           "Method: `.unit_manager` => " +
           "It is impossible to delete an object, " +
