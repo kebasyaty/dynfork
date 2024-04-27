@@ -113,17 +113,9 @@ module DynFork::Commons::UnitsManagement
       model_state.data_dynamic_fields[unit.field] = choices_json
     end
     # Update the state of the Model in the super collection.
-    super_collection.update_one(
-      filter: {"collection_name": @@meta.not_nil![:collection_name]},
-      update: {"$set": {"data_dynamic_fields": model_state.data_dynamic_fields}},
-      upsert: upsert,
-      array_filters: array_filters,
-      collation: collation,
-      hint: hint,
-      ordered: ordered,
-      write_concern: write_concern,
-      bypass_document_validation: bypass_document_validation,
-      session: session,
+    super_collection.replace_one(
+      filter: {"collection_name": model_state.collection_name},
+      replacement: model_state.to_bson,
     )
     # Update metadata of the current Model.
     @@meta.not_nil![:data_dynamic_fields][unit.field] = choices_json
