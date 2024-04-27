@@ -49,7 +49,7 @@ require "./dynfork/migration"
 # <br>
 #  Copyright (c) 2023 kebasyaty - Gennady Kostyunin
 # <br>
-#  DynFork is free software under terms of the MIT License.
+#  DynFork is free software under terms of the Apache Version 2.0 and MIT License.
 module DynFork
   VERSION = "0.1.0"
 end
