@@ -435,6 +435,10 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
+        if @choices.nil?
+          msg = "Field type: `#{@field_type}` => The `choices` parameter cannot be Nil."
+          raise DynFork::Errors::Panic.new msg
+        end
         value_list : Array(Float64) = self.choices.map { |item| item[0] }
         return false unless value_list.includes?(value)
       end
@@ -584,6 +588,10 @@ module DynFork::Fields
     # Does the field value match the possible options in choices.
     def has_value? : Bool
       if value = @value || @default
+        if @choices.nil?
+          msg = "Field type: `#{@field_type}` => The `choices` parameter cannot be Nil."
+          raise DynFork::Errors::Panic.new msg
+        end
         value_list : Array(Float64) = self.choices.map { |item| item[0] }
         value.each do |elem|
           return false unless value_list.includes?(elem)
