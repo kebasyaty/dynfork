@@ -188,6 +188,7 @@ module DynFork::Commons::UnitsManagement
              bypass_document_validation: bypass_document_validation,
              session: session,
            )
+          pp result
           if write_errors = result.not_nil!.write_errors
             msg_err = ""
             write_errors.not_nil!.each do |write_rrror|
