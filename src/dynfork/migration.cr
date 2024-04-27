@@ -206,7 +206,7 @@ module DynFork::Migration
           }
         end
         #
-        # Update dynamic fields data in ModelState.
+        # Refresh the dynamic fields data for the current model.
         model_state.data_dynamic_fields.each do |field_name, choices_json|
           if field_type = metadata[:field_name_and_type_list][field_name]?
             if metadata[:data_dynamic_fields].has_key?(field_name) &&
@@ -218,9 +218,9 @@ module DynFork::Migration
         model_state.data_dynamic_fields = metadata[:data_dynamic_fields]
         #
         # ----------------------------------------------------------------------
-        # Update list.
+        # Refresh the list of all fields.
         model_state.field_name_and_type_list = metadata[:field_name_and_type_list]
-        # Update the state of the current Model.
+        # Refresh the state of the current Model.
         super_collection.replace_one(
           filter: {"collection_name": model_state.collection_name},
           replacement: model_state.to_bson,
