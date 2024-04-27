@@ -153,7 +153,6 @@ module DynFork::Commons::UnitsManagement
       #
       cursor.each { |doc|
         doc_h = doc.to_h
-        pp doc_h
         # Update field value in document.
         if !(value = doc_h[unit.field]).nil?
           if dyn_field_type.includes?("Mult")
@@ -176,7 +175,6 @@ module DynFork::Commons::UnitsManagement
             doc[unit.field] = nil
           end
         end
-        pp doc.to_h
         # Update the value of a field in the collection of the current Model.
         if result = collection.update_one(
              filter: {_id: doc["_id"]},
