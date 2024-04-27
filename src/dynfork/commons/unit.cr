@@ -161,17 +161,9 @@ module DynFork::Commons::UnitsManagement
           end
         end
         # Update the value of a field in the collection of the current Model.
-        collection.update_one(
+        collection.replace_one(
           filter: {_id: doc["_id"]},
-          update: {"$set": {unit.field => doc[unit.field]}},
-          upsert: upsert,
-          array_filters: array_filters,
-          collation: collation,
-          hint: hint,
-          ordered: ordered,
-          write_concern: write_concern,
-          bypass_document_validation: bypass_document_validation,
-          session: session,
+          replacement: doc,
         )
       }
     end
