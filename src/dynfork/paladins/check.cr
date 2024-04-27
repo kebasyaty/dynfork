@@ -49,8 +49,8 @@ module DynFork::Paladins::Check
         when 1
           # Validation of `text` type fields:
           # <br>
-          # _"ColorField" | "EmailField" | "PasswordField" | "PhoneField"
-          # | "TextField" | "HashField" | "URLField" | "IPField"_
+          # ColorField | EmailField | PasswordField | PhoneField
+          # | TextField | HashField | URLField | IPField
           self.group_01(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -63,7 +63,7 @@ module DynFork::Paladins::Check
         when 2
           # Validation of `date` type fields:
           # <br>
-          # _"DateField" | "DateTimeField"_
+          # DateField | DateTimeField
           self.group_02(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -74,12 +74,12 @@ module DynFork::Paladins::Check
         when 3
           # Validation of `choice` type fields:
           # <br>
-          # _"ChoiceTextField" | "ChoiceTextMultField"
-          # | "ChoiceTextDynField" | "ChoiceTextMultDynField"
-          # | "ChoiceI64Field" | "ChoiceI64MultField"
-          # | "ChoiceI64DynField" | "ChoiceI64MultDynField"
-          # | "ChoiceF64Field" | "ChoiceF64MultField"
-          # | "ChoiceF64DynField" | "ChoiceF64MultDynField"_
+          # ChoiceTextField | ChoiceTextMultField
+          # | ChoiceTextDynField | ChoiceTextMultDynField
+          # | ChoiceI64Field | ChoiceI64MultField
+          # | ChoiceI64DynField | ChoiceI64MultDynField
+          # | ChoiceF64Field | ChoiceF64MultField
+          # | ChoiceF64DynField | ChoiceF64MultDynField
           self.group_03(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
