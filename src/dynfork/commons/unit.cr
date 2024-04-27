@@ -23,7 +23,7 @@ module DynFork::Commons::UnitsManagement
   #   field: "field_name",
   #   title: "Title",
   #   value: "value", # String | Int64 | Float64
-  #   delete: false   # default is the same as false
+  #   delete: false   # default is the same as `false`
   # )
   #
   # ModelName.unit_manager unit
