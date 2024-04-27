@@ -74,12 +74,12 @@ module DynFork::Paladins::Check
         when 3
           # Validation of `choice` type fields:
           # <br>
-          # _"ChoiceTextField" | "ChoiceI64Field"
-          # | "ChoiceF64Field" | "ChoiceTextMultField"
-          # | "ChoiceI64MultField" | "ChoiceF64MultField"
-          # | "ChoiceTextMultField" | "ChoiceI64MultField"
-          # | "ChoiceF64MultField" | "ChoiceTextMultDynField"
-          # | "ChoiceI64MultDynField" | "ChoiceF64MultDynField"_
+          # _"ChoiceTextField" | "ChoiceTextMultField"
+          # | "ChoiceTextDynField" | "ChoiceTextMultDynField"
+          # | "ChoiceI64Field" | "ChoiceI64MultField"
+          # | "ChoiceI64DynField" | "ChoiceI64MultDynField"
+          # | "ChoiceF64Field" | "ChoiceF64MultField"
+          # | "ChoiceF64DynField" | "ChoiceF64MultDynField"_
           self.group_03(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
