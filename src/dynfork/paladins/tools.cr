@@ -224,12 +224,12 @@ module DynFork::Paladins::Tools
               @{{ field }}.refrash_val_date(value.as(Time))
             end
           when 3
-            # ChoiceTextField | ChoiceI64Field
-            # | ChoiceF64Field | ChoiceTextMultField
-            # | ChoiceI64MultField | ChoiceF64MultField
-            # | ChoiceTextMultField | ChoiceI64MultField
-            # | ChoiceF64MultField | ChoiceTextMultDynField
-            # | ChoiceI64MultDynField | ChoiceF64MultDynField
+            # ChoiceTextField | ChoiceTextMultField
+            # | ChoiceTextDynField | ChoiceTextMultDynField
+            # | ChoiceI64Field | ChoiceI64MultField
+            # | ChoiceI64DynField | ChoiceI64MultDynField
+            # | ChoiceF64Field | ChoiceF64MultField
+            # | ChoiceF64DynField | ChoiceF64MultDynField
             if field_type.includes?("Text")
               if field_type.includes?("Mult")
                 arr = value.as(Array(BSON::RecursiveValue)).map { |item| item.as(String)}
