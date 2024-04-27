@@ -69,23 +69,23 @@ module DynFork::Commons::UnitsManagement
     data_df_json : String = model_state.data_dynamic_fields[unit.field]
     # Check the presence of the key (title) and value.
     key_exists? : Bool = false
-    val_exists? : Bool = false
+    value_match? : Bool = true
     # Get clean dynamic field data.
     choices : Array(Tuple(Float64 | Int64 | String, String)) = (
       if dyn_field_type.includes?("Text")
         choices_text = Array(Tuple(String, String)).from_json(data_df_json)
         key_exists? = (choices_text.map { |item| item[1] }).includes?(unit.title)
-        val_exists? = choices_text.includes?({unit.value.to_s, unit.title})
+        (value_match? = choices_text.includes?({unit.value.to_s, unit.title})) if unit.delete?
         choices_text.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
       elsif dyn_field_type.includes?("I64")
         choices_i64 = Array(Tuple(Int64, String)).from_json(data_df_json)
         key_exists? = (choices_i64.map { |item| item[1] }).includes?(unit.title)
-        val_exists? = choices_i64.includes?({unit.value.to_i64, unit.title})
+        (value_match? = choices_i64.includes?({unit.value.to_i64, unit.title})) if unit.delete?
         choices_i64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
       elsif dyn_field_type.includes?("F64")
         choices_f64 = Array(Tuple(Float64, String)).from_json(data_df_json)
         key_exists? = (choices_f64.map { |item| item[1] }).includes?(unit.title)
-        val_exists? = choices_f64.includes?({unit.value.to_f64, unit.title})
+        (value_match? = choices_f64.includes?({unit.value.to_f64, unit.title})) if unit.delete?
         choices_f64.map { |item| {item[0].as(Float64 | Int64 | String), item[1]} }
       else
         self.error_invalid_field_type(dyn_field_type)
@@ -102,7 +102,7 @@ module DynFork::Commons::UnitsManagement
       model_state.data_dynamic_fields[unit.field] = choices_json
     else
       self.error_key_missing(unit.title) unless key_exists?
-      self.error_value_missing(unit.title, unit.value) unless val_exists?
+      self.error_value_not_match(unit.title, unit.value) unless value_match?
       # Delete key-value.
       choices.select! { |item| item[1] != unit.title }
       choices_json = choices.to_json
@@ -199,7 +199,7 @@ module DynFork::Commons::UnitsManagement
   end
 
   # Error: When try to delete data that doesn't exist.
-  private def error_value_missing(
+  private def error_value_not_match(
     title : String,
     value : String | Int64 | Float64
   )
