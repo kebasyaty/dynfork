@@ -192,4 +192,13 @@ module DynFork::Commons::UnitsManagement
           "It is impossible to delete a unit, the `#{title}` key is missing!"
     raise DynFork::Errors::Panic.new msg
   end
+
+  # Error: When try to delete data that doesn't exist.
+  private def error_value_missing(title : String, value : String)
+    msg = "Model: `#{self.full_model_name}` > " +
+          "Method: `.unit_manager` => " +
+          "It is impossible to delete an object, " +
+          "the key `#{title}` does not contain the value `#{value}`!"
+    raise DynFork::Errors::Panic.new msg
+  end
 end
