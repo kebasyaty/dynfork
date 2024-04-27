@@ -99,7 +99,7 @@ module DynFork::Paladins::Caching
     {% for var in @type.instance_vars %}
       if !@{{ var }}.ignored? &&
         @{{ var }}.field_type.includes?("Choice") &&
-          !@{{ var }}.field_type.includes?("Dyn")
+        !@{{ var }}.field_type.includes?("Dyn")
         #
         if @{{ var }}.choices.nil?
           msg = "Field type: `#{@{{ var }}.field_type}` => " +
