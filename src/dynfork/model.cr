@@ -88,13 +88,13 @@ module DynFork
     private def inject : Nil
       field_name : String = ""
       json : String?
-      #  Add the values of the attributes **id** and **name** from the local `@@meta` cache.
+      #  Add the values of the attributes **id** and **name** from `@@meta`.
       {% for var in @type.instance_vars %}
         field_name = {{ var.name.stringify }}
         field_attrs = @@meta.not_nil![:field_attrs][field_name]
         @{{ var }}.id = field_attrs[:id]
         @{{ var }}.name = field_attrs[:name]
-        # Add data for dynamic fields from the local `@@meta` cache.
+        # Add data for dynamic fields from `@@meta`.
         if json = @@meta.not_nil![:data_dynamic_fields][field_name]?
           @{{ var }}.choices_from_json(json)
         end
