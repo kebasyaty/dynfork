@@ -4,7 +4,7 @@
       <img
         height="120"
         alt="Logo"
-        src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
+        src="https://github.com/kebasyaty/dynfork/raw/main/logo/logo.svg">
     </a>
   </p>
   <p>
