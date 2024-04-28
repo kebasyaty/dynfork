@@ -105,20 +105,16 @@ user = User.new
 # Add user details.
 user.username.value = "username"
 user.email.value = "user@noreaply.net"
-user.birthday.value = "2024-03-26"
+user.birthday.value = "1970-01-01"
 
 # Run save.
 # Hint: print_err - convenient for development.
 user.print_err unless user.save
 
 # Print user details.
-puts "New user details:"
-puts "hash: #{user.hash.value?}"
-puts "username: #{user.username.value?}"
-puts "email: #{user.email.value?}"
-puts "birthday: #{user.birthday.value?}"
-puts "created_at: #{user.created_at.value?}"
-puts "updated_at: #{user.updated_at.value?}"
+puts "User details:"
+user_list = User.find_many_to_hash_list
+pp user_list
 
 puts "Documwnt count: #{User.estimated_document_count}"
 
