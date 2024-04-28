@@ -1,3 +1,7 @@
+#### v0.1.1 2023-04-28
+
+- Update examples.
+
 #### v0.1.0 2023-04-27
 
 - The project has entered the **Beta** state.
