@@ -195,7 +195,12 @@ _Links to documentation._
 [add_validation](https://kebasyaty.github.io/dynfork/DynFork/AA.html#add_validation%3AHash%28String%2CString%29-instance-method "add_validation")
 
 **Indexing:**<br>
-[indexing](https://kebasyaty.github.io/dynfork/DynFork/AA.html#indexing%3ANil-class-method "indexing")
+[indexing](https://kebasyaty.github.io/dynfork/DynFork/AA.html#indexing%3ANil-class-method "indexing")<br>
+[create_index](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_index%28keys%2C%2A%2Coptions%3DNamedTuple.new%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "create_index")<br>
+[create_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_indexes%28models%3AArray%2C%2A%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "create_indexes")<br>
+[drop_index](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_index%28name%3AString%2C%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "drop_index")<br>
+[drop_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_indexes%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "drop_indexes")<br>
+[list_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#list_indexes%28session%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method "list_indexes")
 
 **Hooks:**<br>
 [pre_create](https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_create%3ANil-instance-method "pre_create")<br>
