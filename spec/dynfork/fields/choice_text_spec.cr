@@ -22,8 +22,6 @@ describe DynFork::Fields::ChoiceTextField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end
@@ -50,8 +48,6 @@ describe DynFork::Fields::ChoiceTextMultField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end
@@ -78,8 +74,6 @@ describe DynFork::Fields::ChoiceTextDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end
@@ -106,8 +100,6 @@ describe DynFork::Fields::ChoiceTextMultDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end

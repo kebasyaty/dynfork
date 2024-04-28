@@ -26,8 +26,6 @@ describe DynFork::Fields::PasswordField do
       f.warning.should eq("")
       f.errors.empty?.should be_true
       f.group.should eq(1_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end

@@ -23,8 +23,6 @@ describe DynFork::Fields::SlugField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(9_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
   end
 end

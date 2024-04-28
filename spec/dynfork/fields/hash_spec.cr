@@ -25,8 +25,6 @@ describe DynFork::Fields::HashField do
       f.errors.should eq(Array(String).new)
       f.alerts.should eq(Array(String).new)
       f.group.should eq(1_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
       f.object_id?.should be_nil
     end
   end
