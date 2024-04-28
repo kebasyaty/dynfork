@@ -191,7 +191,7 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
 
 _Links to documentation._
 
-**Additional validation:**
+**Additional validation:**<br>
 [add_validation](https://kebasyaty.github.io/dynfork/DynFork/AA.html#add_validation%3AHash%28String%2CString%29-instance-method "add_validation")
 
 **Indexing:**<br>
