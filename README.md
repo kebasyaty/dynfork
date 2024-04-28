@@ -37,7 +37,7 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
-    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://github.com/kebasyaty/dynfork/raw/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
