@@ -243,7 +243,12 @@ _Links to documentation._
 
 ## License
 
-**This project is licensed under the** [Apache Version 2.0](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-APACHE "Apache Version 2.0") and [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-MIT "MIT")
+Licensed under either of
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
 
 ## Changelog
 
