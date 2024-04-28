@@ -1,8 +1,12 @@
-#### v0.1.1 2023-04-28
+#### v0.1.2 2024-04-28
+
+- Update README.md.
+
+#### v0.1.1 2024-04-28
 
 - Update examples.
 
-#### v0.1.0 2023-04-27
+#### v0.1.0 2024-04-27
 
 - The project has entered the **Beta** state.
 
