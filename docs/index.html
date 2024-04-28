@@ -758,20 +758,16 @@ user <span class="o">=</span> <span class="t">User</span>.new
 <span class="c"># Add user details.</span>
 user.username.value <span class="o">=</span> <span class="s">&quot;username&quot;</span>
 user.email.value <span class="o">=</span> <span class="s">&quot;user@noreaply.net&quot;</span>
-user.birthday.value <span class="o">=</span> <span class="s">&quot;2024-03-26&quot;</span>
+user.birthday.value <span class="o">=</span> <span class="s">&quot;1970-01-01&quot;</span>
 
 <span class="c"># Run save.</span>
 <span class="c"># Hint: print_err - convenient for development.</span>
 user.print_err <span class="k">unless</span> user.save
 
 <span class="c"># Print user details.</span>
-puts <span class="s">&quot;New user details:&quot;</span>
-puts <span class="s">&quot;hash: </span><span class="i">#{</span>user.hash.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;username: </span><span class="i">#{</span>user.username.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;email: </span><span class="i">#{</span>user.email.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;birthday: </span><span class="i">#{</span>user.birthday.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;created_at: </span><span class="i">#{</span>user.created_at.value?<span class="i">}</span><span class="s">&quot;</span>
-puts <span class="s">&quot;updated_at: </span><span class="i">#{</span>user.updated_at.value?<span class="i">}</span><span class="s">&quot;</span>
+puts <span class="s">&quot;User details:&quot;</span>
+user_list <span class="o">=</span> <span class="t">User</span>.find_many_to_hash_list
+pp user_list
 
 puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
 
@@ -849,6 +845,55 @@ puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span
      </tr>
    </table>
 </div>
+<h2><a id="methods-for-developers" class="anchor" href="#methods-for-developers">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Methods for developers</h2>
+<p><em>Links to documentation.</em></p>
+<p><strong>Additional validation:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#add_validation:Hash(String,String)-instance-method" title="add_validation">add_validation</a></p>
+<p><strong>Indexing:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#indexing:Nil-class-method" title="indexing">indexing</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_index(keys,*,options=NamedTuple.new,commit_quorum:Int32%7CString%7CNil=nil,max_time_ms:Int64%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Nil-instance-method" title="create_index">create_index</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_indexes(models:Array,*,commit_quorum:Int32%7CString%7CNil=nil,max_time_ms:Int64%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Nil-instance-method" title="create_indexes">create_indexes</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_index(name:String,*,max_time_ms:Int64%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Nil-instance-method" title="drop_index">drop_index</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_indexes(*,max_time_ms:Int64%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Nil-instance-method" title="drop_indexes">drop_indexes</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#list_indexes(session:Mongo::Session::ClientSession%7CNil=nil):Mongo::Cursor%7CNil-instance-method" title="list_indexes">list_indexes</a></p>
+<p><strong>Hooks:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_create:Nil-instance-method" title="pre_create">pre_create</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_create:Nil-instance-method" title="post_create">post_create</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_update:Nil-instance-method" title="pre_update">pre_update</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_update:Nil-instance-method" title="post_update">post_update</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_delete:Nil-instance-method" title="pre_delete">pre_delete</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_delete:Nil-instance-method" title="post_delete">post_delete</a></p>
+<p><strong>Migration:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Migration/Monitor.html#migrat:Nil-instance-method" title="migrat">migrat</a></p>
+<p><strong>Model:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#full_model_name:String-class-method" title="full_model_name">full_model_name</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#meta:DynFork::Globals::CacheMetaDataType%7CNil-class-method" title="meta">meta</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#subclasses-class-method" title="subclasses">subclasses</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#object_id?:BSON::ObjectId%7CNil-instance-method" title="object_id?">object_id?</a></p>
+<p><strong>Paladins:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#valid?:Bool-instance-method" title="valid?">valid?</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Save.html" title="save">save</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#print_err:Nil-instance-method" title="print_err">print_err</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#delete:Nil-instance-method" title="delete">delete</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#verify_password?(password:String,field_name:String=%22password%22):Bool-instance-method" title="verify_password?">verify_password?</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#update_password(old_password:String,new_password:String,field_name:String=%22password%22):Nil-instance-method" title="update_password">update_password</a></p>
+<p><strong>Commons:</strong><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#aggregate(pipeline:Array,*,allow_disk_use:Bool%7CNil=nil,batch_size:Int32%7CNil=nil,max_time_ms:Int64%7CNil=nil,bypass_document_validation:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,comment:String%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Mongo::Cursor%7CNil-instance-method" title="aggregate">aggregate</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#collection_name:Mongo::Collection::CollectionKey-instance-method" title="collection_name">collection_name</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#count_documents(filter=BSON.new,*,skip:Int32%7CNil=nil,limit:Int32%7CNil=nil,collation:Mongo::Collation%7CNil=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Int32-instance-method" title="count_documents">count_documents</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#distinct(key:String,*,filter=nil,read_concern:Mongo::ReadConcern%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Array-instance-method" title="distinct">distinct</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#estimated_document_count(*,max_time_ms:Int64%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Int32-instance-method" title="estimated_document_count">estimated_document_count</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#stats(*,scale:Int32%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):BSON%7CNil-instance-method" title="stats">stats</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QMany.html#find_many_to_hash_list(filter=BSON.new,*,sort=nil,projection=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,skip:Int32%7CNil=nil,limit:Int32%7CNil=nil,batch_size:Int32%7CNil=nil,single_batch:Bool%7CNil=nil,comment:String%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,max=nil,min=nil,return_key:Bool%7CNil=nil,show_record_id:Bool%7CNil=nil,tailable:Bool%7CNil=nil,oplog_replay:Bool%7CNil=nil,no_cursor_timeout:Bool%7CNil=nil,await_data:Bool%7CNil=nil,allow_partial_results:Bool%7CNil=nil,allow_disk_use:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Array(Hash(String,DynFork::Globals::ValueTypes))-instance-method" title="find_many_to_hash_list">find_many_to_hash_list</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QMany.html#find_many_to_json(filter=BSON.new,*,sort=nil,projection=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,skip:Int32%7CNil=nil,limit:Int32%7CNil=nil,batch_size:Int32%7CNil=nil,single_batch:Bool%7CNil=nil,comment:String%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,max=nil,min=nil,return_key:Bool%7CNil=nil,show_record_id:Bool%7CNil=nil,tailable:Bool%7CNil=nil,oplog_replay:Bool%7CNil=nil,no_cursor_timeout:Bool%7CNil=nil,await_data:Bool%7CNil=nil,allow_partial_results:Bool%7CNil=nil,allow_disk_use:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):String-instance-method" title="find_many_to_json">find_many_to_json</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_hash(filter=BSON.new,*,sort=nil,projection=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,skip:Int32%7CNil=nil,comment:String%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,max=nil,min=nil,return_key:Bool%7CNil=nil,show_record_id:Bool%7CNil=nil,oplog_replay:Bool%7CNil=nil,no_cursor_timeout:Bool%7CNil=nil,allow_partial_results:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Hash(String,DynFork::Globals::ValueTypes)%7CNil-instance-method" title="find_one_to_hash">find_one_to_hash</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_instance(filter=BSON.new,*,sort=nil,projection=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,skip:Int32%7CNil=nil,comment:String%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,max=nil,min=nil,return_key:Bool%7CNil=nil,show_record_id:Bool%7CNil=nil,oplog_replay:Bool%7CNil=nil,no_cursor_timeout:Bool%7CNil=nil,allow_partial_results:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):self%7CNil-instance-method" title="find_one_to_instance">find_one_to_instance</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_json(filter=BSON.new,*,sort=nil,projection=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,skip:Int32%7CNil=nil,comment:String%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,max=nil,min=nil,return_key:Bool%7CNil=nil,show_record_id:Bool%7CNil=nil,oplog_replay:Bool%7CNil=nil,no_cursor_timeout:Bool%7CNil=nil,allow_partial_results:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):String-instance-method" title="find_one_to_json">find_one_to_json</a><br>
+<a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/UnitsManagement.html#unit_manager(unit:DynFork::Globals::Unit):Nil-instance-method" title="unit_manager">unit_manager</a></p>
 <h2><a id="license" class="anchor" href="#license">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>

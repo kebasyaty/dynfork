@@ -20,32 +20,29 @@ module AppName
 
   # Create a user.
   user = Models::Accounts::User.new
-  # Add user details.
+
+  # Add user data.
   user.username.value = "username"
 
-  # Run save.
+  # Save user.
   # Hint: print_err - convenient for development.
   user.print_err unless user.save
-  # Print user data.
-  puts "\n# New user details:"
-  puts "hash: #{user.hash.value?}"
-  puts "username: #{user.username.value?}"
-  puts "avatar: #{user.avatar.value?}"
-  puts "resume: #{user.resume.value?}"
-  puts "created_at: #{user.created_at.value?}"
-  puts "updated_at: #{user.updated_at.value?}"
+
+  # Print user details.
+  puts "\n\nUser details:"
+  user_list = Models::Accounts::User.find_many_to_hash_list
+  pp user_list
 
   # Update user data.
   user.avatar.from_path "assets/media/default/no_photo.jpeg"
   user.resume.from_path "assets/media/default/no_doc.odt"
-  # Run update.
+
+  # Save user.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save
-  # Print user data.
-  puts "\n# Updated user information:"
-  puts "hash: #{user.hash.value?}"
-  puts "username: #{user.username.value?}"
-  puts "avatar: #{user.avatar.value?}"
-  puts "resume: #{user.resume.value?}"
-  puts "created_at: #{user.created_at.value?}"
-  puts "updated_at: #{user.updated_at.value?}"
+
+  # Print user details.
+  puts "\n\nUser details:"
+  user_list = Models::Accounts::User.find_many_to_hash_list
+  pp user_list
 end

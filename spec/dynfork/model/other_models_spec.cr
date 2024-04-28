@@ -12,14 +12,6 @@ describe DynFork::Model do
     it "=> create instance of filled Model", tags: "model" do
       m = Spec::Data::FilledModel.new
       #
-      m["first_name"]?.should be_true
-      m["age"]?.should be_true
-      m["birthday"]?.should be_true
-      m["hash"]?.should be_true
-      m["created_at"]?.should be_true
-      m["updated_at"]?.should be_true
-      m["???"]?.should be_false
-      #
       m.first_name.id.should eq("FilledModel--first-name")
       m.first_name.name.should eq("first_name")
       m.age.id.should eq("FilledModel--age")

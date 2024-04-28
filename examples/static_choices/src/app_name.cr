@@ -20,18 +20,17 @@ module AppName
 
   # Create a tv.
   tv = Models::TVs::TV.new
+
   # Select the TV model.
   tv.model.value = "big-tv"
   tv.included.value = [1_i64, 2_i64, 3_i64]
 
-  # Run save.
+  # Save .
   # Hint: print_err - convenient for development.
   tv.print_err unless tv.save
-  # Print tv data.
-  puts "\n# TV details:"
-  puts "hash: #{tv.hash.value?}"
-  puts "model: #{tv.model.value?}"
-  puts "included: #{tv.included.value?}"
-  puts "created_at: #{tv.created_at.value?}"
-  puts "updated_at: #{tv.updated_at.value?}"
+
+  # Print tv details.
+  puts "\n\nTV details:"
+  user_list = Models::TVs::TV.find_many_to_hash_list
+  pp user_list
 end

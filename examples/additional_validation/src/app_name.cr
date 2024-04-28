@@ -20,45 +20,35 @@ module AppName
 
   # Create a user.
   user = Models::Accounts::User.new
-  # Add user details.
+
+  # Add user data.
   user.username.value = "username"
   user.email.value = "user@noreaply.net"
   user.birthday.value = "2023-03-25"
   user.password.value = "E2ep4e3UPkWs84GO"
   user.confirm_password.value = "E2ep4e3UPkWs84GO"
-  # Save user (print_err - convenient for development).
+
+  # Save user.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save
-  # Print user data.
-  puts "\n# New user details:"
-  puts "hash: #{user.hash.value?}"
-  puts "username: #{user.username.value?}"
-  puts "email: #{user.email.value?}"
-  puts "birthday: #{user.birthday.value?}"
-  puts "password: #{user.password.value?}"
-  puts "confirm_password: #{user.confirm_password.value?}"
-  puts "is_active: #{user.is_active.value?}"
-  puts "slug: #{user.slug.value?}"
-  puts "created_at: #{user.created_at.value?}"
-  puts "updated_at: #{user.updated_at.value?}"
+
+  # Print user details.
+  puts "\n\nUser details:"
+  user_list = Models::Accounts::User.find_many_to_hash_list
+  pp user_list
 
   # Update user data.
   user.username.value = "username_2"
   user.email.value = "user_2@noreaply.net"
   user.birthday.value = "2024-04-26"
   user.is_active.value = false
-  # update
+
+  # Save user.
+  # Hint: print_err - convenient for development.
   user.print_err unless user.save
-  # Print user data.
-  puts "\n# New user details:"
-  puts "hash: #{user.hash.value?}"
-  puts "username: #{user.username.value?}"
-  puts "email: #{user.email.value?}"
-  puts "birthday: #{user.birthday.value?}"
-  puts "password: #{user.password.value?}"
-  puts "confirm_password: #{user.confirm_password.value?}"
-  puts "is_active: #{user.is_active.value?}"
-  puts "slug: #{user.slug.value?}"
-  puts "created_at: #{user.created_at.value?}"
-  puts "updated_at: #{user.updated_at.value?}"
-  puts
+
+  # Print user details.
+  puts "\n\nUser details:"
+  user_list = Models::Accounts::User.find_many_to_hash_list
+  pp user_list
 end

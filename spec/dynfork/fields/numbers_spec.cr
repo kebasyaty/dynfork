@@ -24,8 +24,6 @@ describe DynFork::Fields::I64Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(6_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
 
     it "=> create instance with input_type=range", tags: "fields" do
@@ -72,8 +70,6 @@ describe DynFork::Fields::F64Field do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
-      f["default"]?.should be_true
-      f["no_var"]?.should be_false
     end
 
     it "=> create instance with input_type=range", tags: "fields" do

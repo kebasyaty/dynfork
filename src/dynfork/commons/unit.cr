@@ -5,7 +5,6 @@ module DynFork::Commons::UnitsManagement
 
   # For insert or delete units.
   # NOTE: Management for `choices` parameter in dynamic field types.
-  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/update/" target="_blank">documentation</a>.
   #
   # Example:
   # ```
