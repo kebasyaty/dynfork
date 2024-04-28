@@ -48,17 +48,17 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md "View the list of requirements.")
+[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/main/REQUIREMENTS.md "View the list of requirements.")
 
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md "Fedora").
 
 2. Install additional libraries (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
 
 3. Add the dependency to your `shard.yml`:
 
@@ -72,7 +72,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Usage
 
-It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/v0/examples "here").
+It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
 
 ```crystal
 require "i18n"
@@ -124,7 +124,7 @@ user.delete
 puts "Documwnt count: #{User.count_documents}"
 ```
 
-### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/main/examples "See more examples here.")
 
 ## Model Parameters
 
@@ -252,7 +252,7 @@ at your option.
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/dynfork/blob/v0/CHANGELOG.md "Changelog")
+[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
 
 ## Contributing
 
