@@ -1,3 +1,7 @@
+#### v0.1.3 2024-04-28
+
+- []? method removed from Model.
+
 #### v0.1.2 2024-04-28
 
 - Update README.md.
