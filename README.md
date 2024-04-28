@@ -4,7 +4,7 @@
       <img
         height="120"
         alt="Logo"
-        src="https://github.com/kebasyaty/dynfork/raw/v0/logo/logo.svg">
+        src="https://github.com/kebasyaty/dynfork/raw/main/logo/logo.svg">
     </a>
   </p>
   <p>
@@ -14,8 +14,8 @@
       <a href="https://github.com/kebasyaty/dynfork/actions" alt="CI"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
       <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red"></a>
-      <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-APACHE" alt="Apache Version 2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg" alt="Apache Version 2.0"></a>
-      <a href="https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-MIT" alt="MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE-APACHE" alt="Apache Version 2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg" alt="Apache Version 2.0"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE-MIT" alt="MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT"></a>
     </p>
     <div align="center">
       DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
@@ -37,7 +37,7 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
-    <img src="https://github.com/kebasyaty/dynfork/raw/v0/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://github.com/kebasyaty/dynfork/raw/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -48,17 +48,17 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/v0/REQUIREMENTS.md "View the list of requirements.")
+[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/main/REQUIREMENTS.md "View the list of requirements.")
 
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_INSTALL_MONGODB.md "Fedora").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md "Fedora").
 
 2. Install additional libraries (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/v0/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/v0/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
+   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
+   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
 
 3. Add the dependency to your `shard.yml`:
 
@@ -72,7 +72,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Usage
 
-It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/v0/examples "here").
+It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
 
 ```crystal
 require "i18n"
@@ -124,7 +124,7 @@ user.delete
 puts "Documwnt count: #{User.count_documents}"
 ```
 
-### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/v0/examples "See more examples here.")
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/main/examples "See more examples here.")
 
 ## Model Parameters
 
@@ -243,11 +243,16 @@ _Links to documentation._
 
 ## License
 
-**This project is licensed under the** [Apache Version 2.0](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-APACHE "Apache Version 2.0") and [MIT](https://github.com/kebasyaty/dynfork/blob/v0/LICENSE-MIT "MIT")
+Licensed under either of
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/dynfork/blob/v0/CHANGELOG.md "Changelog")
+[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
 
 ## Contributing
 
