@@ -2,6 +2,7 @@
 
 - []? method removed from Model.
 - Fixed tests for fields.
+- Fixed comments for the **unit_manager** method.
 
 #### v0.1.2 2024-04-28
 
