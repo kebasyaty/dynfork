@@ -29,11 +29,11 @@ module AppName
   password = "7637Kw8#5GTb~]H#"
   new_password = "$3{q1!8/+~'8+x29"
 
-  # Add user details.
+  # Add user data.
   user.username.value = "username"
   user.password.value = password
 
-  # Run save.
+  # Save user.
   # Hint: print_err - convenient for development.
   user.print_err unless user.save
 
