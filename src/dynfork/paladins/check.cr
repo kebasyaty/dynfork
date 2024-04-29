@@ -20,7 +20,19 @@ module DynFork::Paladins::Check
     # Does the document exist in the database?
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
-    (id = BSON::ObjectId.new) if !update?
+    if !update?
+      1000.times { |idx|
+        id = BSON::ObjectId.new
+        if collection_ptr.value.count_documents({_id: id}) == 0
+          break
+        end
+        if idx == 999
+          msg = "Model: `#{@@full_model_name}` > Method: `check` => " +
+                "Failed to generate a unique identifier `_id` for a new document!"
+          raise DynFork::Errors::Panic.new msg
+        end
+      }
+    end
     if save?
       (@hash.value = id.to_s) if !update?
       result_map["_id"] = id
