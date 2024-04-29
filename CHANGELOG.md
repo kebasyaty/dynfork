@@ -1,5 +1,6 @@
 #### v0.2.0 2024-04-29
 
+- Added uniqueness check for `_id` in the `check` method. for a new document.
 - Rename alias `ValueTypes` to `FieldValueTypes`
 
 #### v0.1.3 2024-04-28
