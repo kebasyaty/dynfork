@@ -16,7 +16,7 @@ module DynFork::Paladins::Groups
       min: Time?) = @@meta.not_nil![:time_object_list][field_ptr.value.name]
     # Get current value.
     current_value : Time = (
-      value : DynFork::Globals::ValueTypes | Time = field_ptr.value.value? || field_ptr.value.default?
+      value : DynFork::Globals::FieldValueTypes | Time = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?

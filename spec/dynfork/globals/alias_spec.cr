@@ -21,8 +21,8 @@ describe DynFork::Globals do
       )
     end
 
-    it "=> ValueTypes - type checking", tags: "global_alias" do
-      DynFork::Globals::ValueTypes.should eq(
+    it "=> FieldValueTypes - type checking", tags: "global_alias" do
+      DynFork::Globals::FieldValueTypes.should eq(
         String | Int64 | Float64 | DynFork::Globals::ImageData |
         DynFork::Globals::FileData | Array(String) | Array(Int64) |
         Array(Float64) | Bool | Nil

@@ -17,9 +17,9 @@ module DynFork::Globals::Aliases
                      DynFork::Fields::ChoiceF64MultDynField | DynFork::Fields::BoolField
 
   # Field value types.
-  alias ValueTypes = String | Int64 | Float64 | DynFork::Globals::ImageData |
-                     DynFork::Globals::FileData | Array(String) | Array(Int64) |
-                     Array(Float64) | Bool | Nil
+  alias FieldValueTypes = String | Int64 | Float64 | DynFork::Globals::ImageData |
+                          DynFork::Globals::FileData | Array(String) | Array(Int64) |
+                          Array(Float64) | Bool | Nil
 
   # For struct DynFork::Globals::OutputData.
   alias ResultMapType = String | Int64 | Float64 | DynFork::Globals::ImageData |

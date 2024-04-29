@@ -40,7 +40,7 @@ module DynFork::Commons::QMany
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Array(Hash(String, DynFork::Globals::ValueTypes))
+  ) : Array(Hash(String, DynFork::Globals::FieldValueTypes))
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -51,7 +51,7 @@ module DynFork::Commons::QMany
     collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    hash_list = Array(Hash(String, DynFork::Globals::ValueTypes)).new
+    hash_list = Array(Hash(String, DynFork::Globals::FieldValueTypes)).new
     cursor : Mongo::Cursor = collection.find(
       filter: filter,
       sort: sort,
