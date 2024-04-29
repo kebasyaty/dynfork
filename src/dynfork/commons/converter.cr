@@ -6,10 +6,10 @@ module DynFork::Commons::Converter
   def document_to_hash(
     doc_ptr : Pointer(BSON),
     field_name_params_list_ptr : Pointer(Hash(String, NamedTuple(type: String, group: UInt8)))
-  ) : Hash(String, DynFork::Globals::ValueTypes)
+  ) : Hash(String, DynFork::Globals::FieldValueTypes)
     #
     doc_hash = doc_ptr.value.to_h
-    result = Hash(String, DynFork::Globals::ValueTypes).new
+    result = Hash(String, DynFork::Globals::FieldValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
     field_type : String = ""
     #

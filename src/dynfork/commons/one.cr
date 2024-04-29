@@ -74,7 +74,7 @@ module DynFork::Commons::QOne
   #
   # Example:
   # ```
-  # doc_hash : Hash(String, DynFork::Globals::ValueTypes)? = ModelName.find_one_to_hash({_id: id})
+  # doc_hash : Hash(String, DynFork::Globals::FieldValueTypes)? = ModelName.find_one_to_hash({_id: id})
   # ```
   #
   def find_one_to_hash(
@@ -97,7 +97,7 @@ module DynFork::Commons::QOne
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Hash(String, DynFork::Globals::ValueTypes)?
+  ) : Hash(String, DynFork::Globals::FieldValueTypes)?
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +

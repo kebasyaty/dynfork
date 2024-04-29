@@ -15,8 +15,8 @@ module DynFork::Paladins::Groups
     collection_ptr : Pointer(Mongo::Collection)
   ) : Nil
     # Get current value.
-    current_value : DynFork::Globals::ValueTypes = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
+    current_value : DynFork::Globals::FieldValueTypes = (
+      value : DynFork::Globals::FieldValueTypes = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?

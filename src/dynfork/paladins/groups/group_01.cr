@@ -20,7 +20,7 @@ module DynFork::Paladins::Groups
     end
     # Get current value.
     current_value : String = (
-      value : DynFork::Globals::ValueTypes = field_ptr.value.value? || field_ptr.value.default?
+      value : DynFork::Globals::FieldValueTypes = field_ptr.value.value? || field_ptr.value.default?
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil? || value.to_s.empty?
