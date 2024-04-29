@@ -1,8 +1,12 @@
+#### v0.2.0 2024-04-29
+
+- Rename alias `ValueTypes` to `FieldValueTypes`
+
 #### v0.1.3 2024-04-28
 
-- []? method removed from Model.
+- `[]?` method removed from Model.
 - Fixed tests for fields.
-- Fixed comments for the **unit_manager** method.
+- Fixed comments for the `unit_manager` method.
 
 #### v0.1.2 2024-04-28
 
