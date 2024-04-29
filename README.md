@@ -14,8 +14,7 @@
       <a href="https://github.com/kebasyaty/dynfork/actions" alt="CI"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
       <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.10%2B-red"></a>
-      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE-APACHE" alt="Apache Version 2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-yellowgreen.svg" alt="Apache Version 2.0"></a>
-      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE-MIT" alt="MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="MIT"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="MIT"></a>
     </p>
     <div align="center">
       DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
@@ -243,12 +242,7 @@ _Links to documentation._
 
 ## License
 
-Licensed under either of
-
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
-
-at your option.
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/main/LICENSE "MIT").
 
 ## Changelog
 
