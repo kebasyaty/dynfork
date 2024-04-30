@@ -1,3 +1,8 @@
+#### v0.3.1 2024-04-30
+
+- Updated README.md file.
+- All README.md files in the examples have been updated.
+
 #### v0.3.0 2024-04-30
 
 - Added a new exception `FailedGenerateUniqueID` for the `check` method.
