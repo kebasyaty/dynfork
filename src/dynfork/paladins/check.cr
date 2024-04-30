@@ -21,14 +21,15 @@ module DynFork::Paladins::Check
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
     if !update?
-      1000.times { |idx|
+      100.times { |idx|
         id = BSON::ObjectId.new
         if collection_ptr.value.count_documents({_id: id}) == 0
           break
         end
-        if idx == 999
+        if idx == 99
           msg = "Model: `#{@@full_model_name}` > Method: `check` => " +
-                "Failed to generate a unique identifier `_id` for a new document!"
+                "Failed to generate a unique identifier for a new document. " +
+                "100 attempts were made."
           raise DynFork::Errors::Panic.new msg
         end
       }
