@@ -7,7 +7,7 @@ module DynFork
   # **Indexing** - XXX.
   # <br>
   # **Hooks** - Methods that are called at different stages when accessing the database.
-  abstract struct AA
+  abstract struct Extra
     # It is supposed to be use to additional validation of fields.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/additional_validation" target="_blank">example</a>.
     # WARNING: The method is called automatically when checking or saving the Model.
