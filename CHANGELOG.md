@@ -2,6 +2,7 @@
 
 - Updated README.md file.
 - All README.md files in the examples have been updated.
+- Documentation updated.
 
 #### v0.3.0 2024-04-30
 
