@@ -53,12 +53,12 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md "Fedora").
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
 
 2. Install additional libraries (if not installed):<br>
-   [Ubuntu](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md "Ubuntu").<br>
-   [Fedora](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md "Fedora").
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md)
 
 3. Add the dependency to your `shard.yml`:
 
@@ -66,7 +66,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.3.0
+       version: ~> 0.3.1
    ```
 
 4. Run `shards install`
