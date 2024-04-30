@@ -1,5 +1,5 @@
 module DynFork
-  # Additional abstraction.
+  # Methods of additional abstraction.
   # <br>
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
