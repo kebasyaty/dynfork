@@ -1,3 +1,9 @@
+#### v0.3.0 2024-04-30
+
+- Added a new exception `FailedGenerateUniqueID` for the `check` method.
+- Renamed module `AA` to `Extra`.
+- Corrected some comments.
+
 #### v0.2.0 2024-04-29
 
 - Added uniqueness check for `_id` in the `check` method. for a new document.
