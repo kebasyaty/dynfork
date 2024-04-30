@@ -27,10 +27,7 @@ module DynFork::Paladins::Check
           break
         end
         if idx == 99
-          msg = "Model: `#{@@full_model_name}` > Method: `check` => " +
-                "Failed to generate a unique identifier for a new document. " +
-                "100 attempts were made."
-          raise DynFork::Errors::Panic.new msg
+          raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
         end
       }
     end
