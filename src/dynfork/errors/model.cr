@@ -42,4 +42,15 @@ module DynFork::Errors::Model
       )
     end
   end
+
+  # If a unique identifier for a new document cannot be generated.
+  class FailedGenerateUniqueID < DynFork::Errors::DynForkException
+    def initialize(model_name : String)
+      super(
+        "Model: `#{model_name}` > Method: `check` => " +
+        "Failed to generate a unique identifier for a new document. " +
+        "100 attempts were made."
+      )
+    end
+  end
 end

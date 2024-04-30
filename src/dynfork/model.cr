@@ -1,4 +1,4 @@
-require "./aa"
+require "./extra"
 require "./paladins/paladins"
 require "./commons/commons"
 
@@ -60,7 +60,7 @@ module DynFork
   # ```
   #
   @[DynFork::Meta]
-  abstract struct Model < DynFork::AA
+  abstract struct Model < DynFork::Extra
     include JSON::Serializable
     include DynFork::Globals::Date
     include DynFork::Paladins
