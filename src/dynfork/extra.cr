@@ -4,7 +4,7 @@ module DynFork
   # <br>
   # **Additional validation** - It is supposed to be use to additional validation of fields.
   # <br>
-  # **Indexing** - XXX.
+  # **Indexing** - For set up and start indexing.
   # <br>
   # **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct Extra
