@@ -69,7 +69,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.3.1
+       version: ~> 0.4.0
    ```
 
 4. Run `shards install`
@@ -79,7 +79,6 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
 
 ```crystal
-require "i18n"
 require "dynfork"
 
 # Create your model.
@@ -98,9 +97,9 @@ I18n.init
 
 # Run migration.
 DynFork::Migration::Monitor.new(
-  "app_name": "AppName",
-  "unique_app_key": "Towr5kKQM5H3Lb0b",
-  "mongo_uri": "mongodb://localhost:27017",
+  app_name: "AppName",
+  unique_app_key: "Towr5kKQM5H3Lb0b",
+  mongo_client: Mongo::Client.new("mongodb://localhost:27017")
 ).migrat
 
 # Create a user.

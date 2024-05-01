@@ -1,4 +1,3 @@
-require "i18n"
 require "dynfork"
 require "./models/*"
 
@@ -13,9 +12,9 @@ module AppName
 
   # Run migration.
   DynFork::Migration::Monitor.new(
-    "app_name": "AppName",
-    "unique_app_key": "0U7r4itxQkF6l4Dx",
-    "mongo_uri": "mongodb://localhost:27017",
+    app_name: "AppName",
+    unique_app_key: "0U7r4itxQkF6l4Dx",
+    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
   ).migrat
 
   puts "Documwnt count: #{Models::Accounts::User.estimated_document_count}" # => 3

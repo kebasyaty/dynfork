@@ -25,7 +25,7 @@ module DynFork::Migration
     def initialize(
       app_name : String,
       unique_app_key : String,
-      mongo_uri : String,
+      mongo_client : Mongo::Client,
       database_name : String = ""
     )
       # Update global storage state.
@@ -35,7 +35,7 @@ module DynFork::Migration
         DynFork::Globals.database_name = database_name
       end
       DynFork::Globals::ValidationCacheSettings.validation
-      DynFork::Globals.mongo_client = Mongo::Client.new mongo_uri
+      DynFork::Globals.mongo_client = mongo_client
       DynFork::Globals.mongo_database = DynFork::Globals
         .mongo_client[DynFork::Globals.database_name]
     end

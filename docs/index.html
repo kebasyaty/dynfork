@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.11.2">
-<meta name="crystal_docs.project_version" content="v0-dev">
+<meta name="crystal_docs.project_version" content="v0">
 <meta name="crystal_docs.project_name" content="dynfork">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="dynfork">
-  <title>dynfork v0-dev</title>
+  <title>dynfork v0</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        v0-dev
+        v0
       </span>
     </div>
   </div>
@@ -725,7 +725,7 @@
 <pre><code class="language-yaml">dependencies:
   dynfork:
     github: kebasyaty/dynfork
-    version: ~&gt; 0.3.1</code></pre>
+    version: ~&gt; 0.4.0</code></pre>
 </li>
 <li>
 <p>Run <code>shards install</code></p>
@@ -737,8 +737,7 @@
   </svg>
 </a>Usage</h2>
 <p>It is recommended to look at examples <a href="https://github.com/kebasyaty/dynfork/tree/main/examples" title="here">here</a>.</p>
-<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;i18n&quot;</span>
-<span class="k">require</span> <span class="s">&quot;dynfork&quot;</span>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;dynfork&quot;</span>
 
 <span class="c"># Create your model.</span>
 @[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
@@ -756,9 +755,9 @@
 
 <span class="c"># Run migration.</span>
 <span class="t">DynFork</span><span class="t">::</span><span class="t">Migration</span><span class="t">::</span><span class="t">Monitor</span>.new(
-  <span class="s">&quot;app_name&quot;</span>: <span class="s">&quot;AppName&quot;</span>,
-  <span class="s">&quot;unique_app_key&quot;</span>: <span class="s">&quot;Towr5kKQM5H3Lb0b&quot;</span>,
-  <span class="s">&quot;mongo_uri&quot;</span>: <span class="s">&quot;mongodb://localhost:27017&quot;</span>,
+  app_name: <span class="s">&quot;AppName&quot;</span>,
+  unique_app_key: <span class="s">&quot;Towr5kKQM5H3Lb0b&quot;</span>,
+  mongo_client: <span class="t">Mongo</span><span class="t">::</span><span class="t">Client</span>.new(<span class="s">&quot;mongodb://localhost:27017&quot;</span>)
 ).migrat
 
 <span class="c"># Create a user.</span>

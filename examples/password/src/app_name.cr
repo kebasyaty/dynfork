@@ -1,4 +1,3 @@
-require "i18n"
 require "dynfork"
 require "./models/*"
 
@@ -18,9 +17,9 @@ module AppName
 
   # Run migration.
   DynFork::Migration::Monitor.new(
-    "app_name": "AppName",
-    "unique_app_key": "lk5Ev5471gC2u1R5",
-    "mongo_uri": "mongodb://localhost:27017",
+    app_name: "AppName",
+    unique_app_key: "lk5Ev5471gC2u1R5",
+    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
   ).migrat
 
   # Create a user.
