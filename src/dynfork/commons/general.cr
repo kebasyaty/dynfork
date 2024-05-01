@@ -222,6 +222,7 @@ module DynFork::Commons::QGeneral
 
   # Create a Mongo::Bulk instance.
   # NOTE: A bulk operations builder.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Bulk.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -260,6 +261,7 @@ module DynFork::Commons::QGeneral
   # Executes multiple write operations.
   # An error will be raised if the requests parameter is empty.
   # NOTE: For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/driver-bulk-update.rst" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   def bulk_write(
     requests : Array(Mongo::Bulk::WriteModel),
     *,
