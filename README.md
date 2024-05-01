@@ -99,7 +99,7 @@ I18n.init
 # Run migration.
 DynFork::Migration::Monitor.new(
   "app_name": "AppName",
-  "unique_app_key": "k7SBQPF6d2e2nts7",
+  "unique_app_key": "Towr5kKQM5H3Lb0b",
   "mongo_uri": "mongodb://localhost:27017",
 ).migrat
 
@@ -117,8 +117,9 @@ user.print_err unless user.save
 
 # Print user details.
 puts "User details:"
-user_list = User.find_many_to_hash_list
-pp user_list
+if id = user.object_id?
+  pp User.find_one_to_hash({_id: id})
+end
 
 puts "Documwnt count: #{User.estimated_document_count}"
 
