@@ -4,6 +4,7 @@ module DynFork::Commons::QOne
 
   # Finds the document and converts it to a Model instance.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -72,6 +73,7 @@ module DynFork::Commons::QOne
 
   # Find the document and convert it to a Hash object.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -142,6 +144,7 @@ module DynFork::Commons::QOne
 
   # Finds the document and converts it to a json string.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -211,6 +214,7 @@ module DynFork::Commons::QOne
 
   # Deletes one document.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   def delete_one(
     filter,
     *,
