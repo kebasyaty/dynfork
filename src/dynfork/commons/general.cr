@@ -30,6 +30,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Mongo::Cursor?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -81,6 +82,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Array
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -123,6 +125,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -160,6 +163,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -199,6 +203,7 @@ module DynFork::Commons::QGeneral
     scale : Int32? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : BSON?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +

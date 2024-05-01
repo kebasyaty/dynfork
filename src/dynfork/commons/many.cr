@@ -41,6 +41,7 @@ module DynFork::Commons::QMany
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Array(Hash(String, DynFork::Globals::FieldValueTypes))
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
