@@ -1,4 +1,4 @@
-# Ubuntu, Linux Mint
+# Ubuntu | Linux Mint
 
 ### Install:
 
