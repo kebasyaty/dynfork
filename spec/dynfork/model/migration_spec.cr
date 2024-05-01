@@ -33,9 +33,9 @@ describe DynFork::Migration::Monitor do
   describe ".new" do
     it "=> create instance without database name", tags: "migration" do
       DynFork::Migration::Monitor.new(
-        "app_name": "AppName",
-        "unique_app_key": "0w7n5731X13s1641",
-        "mongo_uri": "mongodb://localhost:27017",
+        app_name: "AppName",
+        unique_app_key: "0w7n5731X13s1641",
+        mongo_client: Mongo::Client.new("mongodb://localhost:27017")
       )
       #
       DynFork::Globals.app_name.should eq("AppName")
@@ -54,10 +54,10 @@ describe DynFork::Migration::Monitor do
 
     it "=> create instance with database name", tags: "migration" do
       DynFork::Migration::Monitor.new(
-        "app_name": "AppName",
-        "unique_app_key": "0585I0S5huR5r08q",
-        "database_name": "DatabaseName360",
-        "mongo_uri": "mongodb://localhost:27017",
+        app_name: "AppName",
+        unique_app_key: "0585I0S5huR5r08q",
+        database_name: "DatabaseName360",
+        mongo_client: Mongo::Client.new("mongodb://localhost:27017")
       )
       #
       DynFork::Globals.app_name.should eq("AppName")
@@ -77,9 +77,9 @@ describe DynFork::Migration::Monitor do
     it "=> create instance and testing model list", tags: "migration" do
       # Run migration.
       DynFork::Migration::Monitor.new(
-        "app_name": "AppName",
-        "unique_app_key": "0w7n5731X13s1641",
-        "mongo_uri": "mongodb://localhost:27017",
+        app_name: "AppName",
+        unique_app_key: "0w7n5731X13s1641",
+        mongo_client: Mongo::Client.new("mongodb://localhost:27017")
       )
       #
       FileUtils.rm_rf("assets/media/files")
@@ -116,10 +116,10 @@ describe DynFork::Migration::Monitor do
 
       # Run migration.
       m = DynFork::Migration::Monitor.new(
-        "app_name": "AppName",
-        "unique_app_key": unique_app_key,
-        "database_name": database_name,
-        "mongo_uri": mongo_uri,
+        app_name: "AppName",
+        unique_app_key: unique_app_key,
+        database_name: database_name,
+        mongo_client: Mongo::Client.new(mongo_uri)
       )
       m.migrat.should be_nil
 
