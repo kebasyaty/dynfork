@@ -1,3 +1,10 @@
+#### v0.4.0 2024-05-01
+
+- Changed the name and type of the variable in `DynFork::Migration::Monitor`.
+- Update tests.
+- Update examples.
+- Updated README.md file.
+
 #### v0.3.1 2024-04-30
 
 - Updated README.md file.
