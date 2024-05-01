@@ -196,55 +196,62 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
 
 _Links to documentation._
 
-**Additional validation:**<br>
-[add_validation](https://kebasyaty.github.io/dynfork/DynFork/AA.html#add_validation%3AHash%28String%2CString%29-instance-method "add_validation")
+**Additional validation:**
+
+- add_validation
 
 **Indexing:**<br>
-[indexing](https://kebasyaty.github.io/dynfork/DynFork/AA.html#indexing%3ANil-class-method "indexing")<br>
-[create_index](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_index%28keys%2C%2A%2Coptions%3DNamedTuple.new%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "create_index")<br>
-[create_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#create_indexes%28models%3AArray%2C%2A%2Ccommit_quorum%3AInt32%7CString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "create_indexes")<br>
-[drop_index](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_index%28name%3AString%2C%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "drop_index")<br>
-[drop_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#drop_indexes%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ANil-instance-method "drop_indexes")<br>
-[list_indexes](https://kebasyaty.github.io/dynfork/DynFork/Commons/Indexes.html#list_indexes%28session%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method "list_indexes")
+
+- indexing
+- create_index
+- create_indexes
+- drop_index
+- drop_indexes
+- list_indexes
 
 **Hooks:**<br>
-[pre_create](https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_create%3ANil-instance-method "pre_create")<br>
-[post_create](https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_create%3ANil-instance-method "post_create")<br>
-[pre_update](https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_update%3ANil-instance-method "pre_update")<br>
-[post_update](https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_update%3ANil-instance-method "post_update")<br>
-[pre_delete](https://kebasyaty.github.io/dynfork/DynFork/AA.html#pre_delete%3ANil-instance-method "pre_delete")<br>
-[post_delete](https://kebasyaty.github.io/dynfork/DynFork/AA.html#post_delete%3ANil-instance-method "post_delete")
+
+- pre_create
+- post_create
+- pre_update
+- post_update
+- pre_delete
+- post_delete
 
 **Migration:**<br>
-[migrat](https://kebasyaty.github.io/dynfork/DynFork/Migration/Monitor.html#migrat%3ANil-instance-method "migrat")
+
+- migrat
 
 **Model:**<br>
-[full_model_name](https://kebasyaty.github.io/dynfork/DynFork/Model.html#full_model_name%3AString-class-method "full_model_name")<br>
-[meta](https://kebasyaty.github.io/dynfork/DynFork/Model.html#meta%3ADynFork%3A%3AGlobals%3A%3ACacheMetaDataType%7CNil-class-method "meta")<br>
-[subclasses](https://kebasyaty.github.io/dynfork/DynFork/Model.html#subclasses-class-method "subclasses")<br>
-[object_id?](https://kebasyaty.github.io/dynfork/DynFork/Model.html#object_id%3F%3ABSON%3A%3AObjectId%7CNil-instance-method "object_id?")
+
+- full_model_name
+- meta
+- subclasses
+- object_id?
 
 **QPaladins:**<br>
-[valid?](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#valid%3F%3ABool-instance-method "valid?")<br>
-[save](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Save.html "save")<br>
-[print_err](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#print_err%3ANil-instance-method "print_err")<br>
-[delete](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#delete%3ANil-instance-method "delete")<br>
-[verify_password?](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#verify_password%3F%28password%3AString%2Cfield_name%3AString%3D%22password%22%29%3ABool-instance-method "verify_password?")<br>
-[update_password](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#update_password%28old_password%3AString%2Cnew_password%3AString%2Cfield_name%3AString%3D%22password%22%29%3ANil-instance-method "update_password")
+
+- valid?
+- save
+- print_err
+- delete
+- verify_password?
+- update_password
 
 **QCommons:**<br>
-[aggregate](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#aggregate%28pipeline%3AArray%2C%2A%2Callow_disk_use%3ABool%7CNil%3Dnil%2Cbatch_size%3AInt32%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cbypass_document_validation%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method "aggregate")<br>
-[collection_name](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#collection_name%3AMongo%3A%3ACollection%3A%3ACollectionKey-instance-method "collection_name")<br>
-[count_documents](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#count_documents%28filter%3DBSON.new%2C%2A%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method "count_documents")<br>
-[distinct](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#distinct%28key%3AString%2C%2A%2Cfilter%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AArray-instance-method "distinct")<br>
-[estimated_document_count](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#estimated_document_count%28%2A%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method "estimated_document_count")<br>
-[stats](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#stats%28%2A%2Cscale%3AInt32%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3ABSON%7CNil-instance-method "stats")<br>
-[find_many_to_hash_list](https://kebasyaty.github.io/dynfork/DynFork/Commons/QMany.html#find_many_to_hash_list%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Cbatch_size%3AInt32%7CNil%3Dnil%2Csingle_batch%3ABool%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Ctailable%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Cawait_data%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Callow_disk_use%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AArray%28Hash%28String%2CDynFork%3A%3AGlobals%3A%3AValueTypes%29%29-instance-method "find_many_to_hash_list")<br>
-[find_many_to_json](https://kebasyaty.github.io/dynfork/DynFork/Commons/QMany.html#find_many_to_json%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Cbatch_size%3AInt32%7CNil%3Dnil%2Csingle_batch%3ABool%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Ctailable%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Cawait_data%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Callow_disk_use%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AString-instance-method "find_many_to_json")<br>
-[find_one_to_hash](https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_hash%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AHash%28String%2CDynFork%3A%3AGlobals%3A%3AValueTypes%29%7CNil-instance-method "find_one_to_hash")<br>
-[find_one_to_instance](https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_instance%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3Aself%7CNil-instance-method "find_one_to_instance")<br>
-[find_one_to_json](https://kebasyaty.github.io/dynfork/DynFork/Commons/QOne.html#find_one_to_json%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AString-instance-method "find_one_to_json")<br>
-[unit_manager](https://kebasyaty.github.io/dynfork/DynFork/Commons/UnitsManagement.html#unit_manager%28unit%3ADynFork%3A%3AGlobals%3A%3AUnit%29%3ANil-instance-method "unit_manager")
+
+- aggregate
+- collection_name
+- count_documents
+- distinct
+- estimated_document_count
+- stats
+- find_many_to_hash_list
+- find_many_to_json
+- find_one_to_hash
+- find_one_to_instance
+- find_one_to_json
+- unit_manager
 
 ## License
 
