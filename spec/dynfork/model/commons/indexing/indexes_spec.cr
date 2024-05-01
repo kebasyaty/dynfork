@@ -1,6 +1,6 @@
 require "../../../../spec_helper"
 
-describe DynFork::Commons::Indexes do
+describe DynFork::QCommons::Indexes do
   it "=> create and drop indexes", tags: "indexing" do
     # Init data for test.
     #

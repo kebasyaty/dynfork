@@ -1,6 +1,6 @@
 require "../../../../../spec_helper"
 
-describe DynFork::Commons::QOne do
+describe DynFork::QCommons::One do
   describe ".find_one_to_json" do
     it "=> find document", tags: "find_one" do
       # Init data for test.
