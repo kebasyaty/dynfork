@@ -1,6 +1,7 @@
 #### v0.5.0 2024-05-01
 
 - Methods added: `delete_many`, `delete_one`, `bulk`, `bulk_write`.
+- Renamed modules: `Paladins` to `QPaladins` and `Commons` to `QCommons`.
 - Method comments have been updated.
 
 #### v0.4.0 2024-05-01
