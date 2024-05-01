@@ -106,12 +106,12 @@ DynFork::Migration::Monitor.new(
 # Create a user.
 user = User.new
 
-# Add user details.
+# Add user data.
 user.username.value = "username"
 user.email.value = "user@noreaply.net"
 user.birthday.value = "1970-01-01"
 
-# Run save.
+# Save user.
 # Hint: print_err - convenient for development.
 user.print_err unless user.save
 
