@@ -223,7 +223,7 @@ _Links to documentation._
 [subclasses](https://kebasyaty.github.io/dynfork/DynFork/Model.html#subclasses-class-method "subclasses")<br>
 [object_id?](https://kebasyaty.github.io/dynfork/DynFork/Model.html#object_id%3F%3ABSON%3A%3AObjectId%7CNil-instance-method "object_id?")
 
-**Paladins:**<br>
+**QPaladins:**<br>
 [valid?](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#valid%3F%3ABool-instance-method "valid?")<br>
 [save](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Save.html "save")<br>
 [print_err](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#print_err%3ANil-instance-method "print_err")<br>
@@ -231,7 +231,7 @@ _Links to documentation._
 [verify_password?](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#verify_password%3F%28password%3AString%2Cfield_name%3AString%3D%22password%22%29%3ABool-instance-method "verify_password?")<br>
 [update_password](https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#update_password%28old_password%3AString%2Cnew_password%3AString%2Cfield_name%3AString%3D%22password%22%29%3ANil-instance-method "update_password")
 
-**Commons:**<br>
+**QCommons:**<br>
 [aggregate](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#aggregate%28pipeline%3AArray%2C%2A%2Callow_disk_use%3ABool%7CNil%3Dnil%2Cbatch_size%3AInt32%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cbypass_document_validation%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method "aggregate")<br>
 [collection_name](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#collection_name%3AMongo%3A%3ACollection%3A%3ACollectionKey-instance-method "collection_name")<br>
 [count_documents](https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#count_documents%28filter%3DBSON.new%2C%2A%2Cskip%3AInt32%7CNil%3Dnil%2Climit%3AInt32%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AInt32-instance-method "count_documents")<br>
