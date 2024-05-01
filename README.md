@@ -96,6 +96,7 @@ I18n.config.default_locale = :en
 I18n.init
 
 # Run migration.
+# https://elbywan.github.io/cryomongo/Mongo/Client.html
 DynFork::Migration::Monitor.new(
   app_name: "AppName",
   unique_app_key: "Towr5kKQM5H3Lb0b",
