@@ -4,6 +4,7 @@ module DynFork::Commons::QOne
 
   # Finds the document and converts it to a Model instance.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -31,6 +32,7 @@ module DynFork::Commons::QOne
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : self?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -71,6 +73,7 @@ module DynFork::Commons::QOne
 
   # Find the document and convert it to a Hash object.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -98,6 +101,7 @@ module DynFork::Commons::QOne
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Hash(String, DynFork::Globals::FieldValueTypes)?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -140,6 +144,7 @@ module DynFork::Commons::QOne
 
   # Finds the document and converts it to a json string.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -167,6 +172,7 @@ module DynFork::Commons::QOne
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : String
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -204,5 +210,38 @@ module DynFork::Commons::QOne
     end
     #
     ""
+  end
+
+  # Deletes one document.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
+  def delete_one(
+    filter,
+    *,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
+    ordered : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Commands::Common::DeleteResult?
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.delete_one(
+      filter: filter,
+      collation: collation,
+      hint: hint,
+      ordered: ordered,
+      write_concern: write_concern,
+      session: session,
+    )
   end
 end

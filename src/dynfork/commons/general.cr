@@ -4,6 +4,7 @@ module DynFork::Commons::QGeneral
 
   # Runs an aggregation framework pipeline.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -30,6 +31,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Mongo::Cursor?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -60,8 +62,8 @@ module DynFork::Commons::QGeneral
   # <br>
   # Returns an array of unique values for specified field of collection.
   # NOTE: the results are backed by the "values" array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
-  # <br>
-  # For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -81,6 +83,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Array
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -105,6 +108,7 @@ module DynFork::Commons::QGeneral
   # <br>
   # Note that an empty filter will force a scan of the entire collection.
   # NOTE: For a fast count of the total documents in a collection see **estimated_document_count**.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -123,6 +127,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -147,6 +152,7 @@ module DynFork::Commons::QGeneral
 
   # Gets an estimate of the count of documents in a collection using collection metadata.
   # NOTE: For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -160,6 +166,7 @@ module DynFork::Commons::QGeneral
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Int32
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -199,6 +206,7 @@ module DynFork::Commons::QGeneral
     scale : Int32? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : BSON?
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -211,6 +219,74 @@ module DynFork::Commons::QGeneral
     # Get statistics.
     collection.stats(
       scale: scale,
+      session: session,
+    )
+  end
+
+  # Create a Mongo::Bulk instance.
+  # NOTE: A bulk operations builder.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Bulk.html" target="_blank">documentation</a>.
+  #
+  # Example:
+  # ```
+  # bulk = ModelName.bulk(ordered: true)
+  # # Then, operations can be added…
+  # 500.times { |idx|
+  #   bulk.insert_one({number: idx})
+  #   bulk.delete_many({number: {"$lt": 450}})
+  # }
+  # # …and they will be performed once the bulk gets executed.
+  # bulk_result = bulk.execute(write_concern: Mongo::WriteConcern.new(w: 1))
+  # pp bulk_result
+  # ```
+  #
+  def bulk(
+    ordered : Bool = true,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Bulk
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.bulk(
+      ordered: ordered,
+      session: session,
+    )
+  end
+
+  # Executes multiple write operations.
+  # An error will be raised if the requests parameter is empty.
+  # NOTE: For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/driver-bulk-update.rst" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
+  def bulk_write(
+    requests : Array(Mongo::Bulk::WriteModel),
+    *,
+    ordered : Bool,
+    bypass_document_validation : Bool? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Bulk::WriteResult
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.bulk_write(
+      requests: requests,
+      ordered: ordered,
+      bypass_document_validation: bypass_document_validation,
       session: session,
     )
   end

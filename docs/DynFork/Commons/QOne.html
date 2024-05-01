@@ -721,7 +721,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/one.cr#L2" target="_blank">
+      <a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/one.cr#L2" target="_blank">
         dynfork/commons/one.cr
       </a>
     
@@ -747,6 +747,13 @@
     Instance Method Summary
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#delete_one%28filter%2C%2A%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cordered%3ABool%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ADeleteResult%7CNil-instance-method" class="signature"><strong>#delete_one</strong>(filter, *, collation : Mongo::Collation | Nil = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, ordered : Bool | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::DeleteResult | Nil</a>
+        
+          <div class="summary"><p>Deletes one document.</p></div>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#find_one_to_hash%28filter%3DBSON.new%2C%2A%2Csort%3Dnil%2Cprojection%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cskip%3AInt32%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cmax%3Dnil%2Cmin%3Dnil%2Creturn_key%3ABool%7CNil%3Dnil%2Cshow_record_id%3ABool%7CNil%3Dnil%2Coplog_replay%3ABool%7CNil%3Dnil%2Cno_cursor_timeout%3ABool%7CNil%3Dnil%2Callow_partial_results%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AHash%28String%2CDynFork%3A%3AGlobals%3A%3AFieldValueTypes%29%7CNil-instance-method" class="signature"><strong>#find_one_to_hash</strong>(filter = <span class="t">BSON</span>.new, *, sort = <span class="n">nil</span>, projection = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, skip : Int32 | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, max = <span class="n">nil</span>, min = <span class="n">nil</span>, return_key : Bool | Nil = <span class="n">nil</span>, show_record_id : Bool | Nil = <span class="n">nil</span>, oplog_replay : Bool | Nil = <span class="n">nil</span>, no_cursor_timeout : Bool | Nil = <span class="n">nil</span>, allow_partial_results : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Hash(String, DynFork::Globals::FieldValueTypes) | Nil</a>
@@ -793,6 +800,29 @@
     Instance Method Detail
   </h2>
   
+    <div class="entry-detail" id="delete_one(filter,*,collation:Mongo::Collation|Nil=nil,hint:String|Hash|NamedTuple|Nil=nil,ordered:Bool|Nil=nil,write_concern:Mongo::WriteConcern|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Commands::Common::DeleteResult|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>delete_one</strong>(filter, *, collation : Mongo::Collation | Nil = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, ordered : Bool | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Commands::Common::DeleteResult | Nil
+
+        <a class="method-permalink" href="#delete_one%28filter%2C%2A%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Cordered%3ABool%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACommands%3A%3ACommon%3A%3ADeleteResult%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Deletes one document.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/one.cr#L218" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
     <div class="entry-detail" id="find_one_to_hash(filter=BSON.new,*,sort=nil,projection=nil,hint:String|Hash|NamedTuple|Nil=nil,skip:Int32|Nil=nil,comment:String|Nil=nil,max_time_ms:Int64|Nil=nil,read_concern:Mongo::ReadConcern|Nil=nil,max=nil,min=nil,return_key:Bool|Nil=nil,show_record_id:Bool|Nil=nil,oplog_replay:Bool|Nil=nil,no_cursor_timeout:Bool|Nil=nil,allow_partial_results:Bool|Nil=nil,collation:Mongo::Collation|Nil=nil,read_preference:Mongo::ReadPreference|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Hash(String,DynFork::Globals::FieldValueTypes)|Nil-instance-method">
       <div class="signature">
         
@@ -805,6 +835,7 @@
           
           <p>Find the document and convert it to a Hash object.</p>
 <p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal">doc_hash : <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">DynFork</span><span class="t">::</span><span class="t">Globals</span><span class="t">::</span><span class="t">FieldValueTypes</span>)? <span class="o">=</span> <span class="t">ModelName</span>.find_one_to_hash({_id: id})</code></pre>
         </div>
@@ -812,7 +843,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/one.cr#L80" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/one.cr#L83" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -829,6 +860,7 @@
           
           <p>Finds the document and converts it to a Model instance.</p>
 <p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal">model_name : <span class="t">ModelName</span>? <span class="o">=</span> <span class="t">ModelName</span>.find_one_to_instance({_id: id})</code></pre>
         </div>
@@ -836,7 +868,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/one.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/one.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -853,6 +885,7 @@
           
           <p>Finds the document and converts it to a json string.</p>
 <p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/find/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal">json_str : <span class="t">String</span>? <span class="o">=</span> <span class="t">ModelName</span>.find_one_to_json({_id: id})</code></pre>
         </div>
@@ -860,7 +893,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/one.cr#L149" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/one.cr#L154" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -11,6 +11,7 @@ module AppName
   I18n.init
 
   # Run migration.
+  # https://elbywan.github.io/cryomongo/Mongo/Client.html
   DynFork::Migration::Monitor.new(
     app_name: "AppName",
     unique_app_key: "3i1Zh8c5Z0C5s5g6",

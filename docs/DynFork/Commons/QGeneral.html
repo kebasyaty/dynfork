@@ -721,7 +721,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L2" target="_blank">
+      <a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L2" target="_blank">
         dynfork/commons/general.cr
       </a>
     
@@ -752,6 +752,20 @@
         <a href="#aggregate%28pipeline%3AArray%2C%2A%2Callow_disk_use%3ABool%7CNil%3Dnil%2Cbatch_size%3AInt32%7CNil%3Dnil%2Cmax_time_ms%3AInt64%7CNil%3Dnil%2Cbypass_document_validation%3ABool%7CNil%3Dnil%2Ccollation%3AMongo%3A%3ACollation%7CNil%3Dnil%2Chint%3AString%7CHash%7CNamedTuple%7CNil%3Dnil%2Ccomment%3AString%7CNil%3Dnil%2Cread_concern%3AMongo%3A%3AReadConcern%7CNil%3Dnil%2Cwrite_concern%3AMongo%3A%3AWriteConcern%7CNil%3Dnil%2Cread_preference%3AMongo%3A%3AReadPreference%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ACursor%7CNil-instance-method" class="signature"><strong>#aggregate</strong>(pipeline : Array, *, allow_disk_use : Bool | Nil = <span class="n">nil</span>, batch_size : Int32 | Nil = <span class="n">nil</span>, max_time_ms : Int64 | Nil = <span class="n">nil</span>, bypass_document_validation : Bool | Nil = <span class="n">nil</span>, collation : Mongo::Collation | Nil = <span class="n">nil</span>, hint : String | Hash | NamedTuple | Nil = <span class="n">nil</span>, comment : String | Nil = <span class="n">nil</span>, read_concern : Mongo::ReadConcern | Nil = <span class="n">nil</span>, write_concern : Mongo::WriteConcern | Nil = <span class="n">nil</span>, read_preference : Mongo::ReadPreference | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Cursor | Nil</a>
         
           <div class="summary"><p>Runs an aggregation framework pipeline.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bulk%28ordered%3ABool%3Dtrue%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ABulk-instance-method" class="signature"><strong>#bulk</strong>(ordered : Bool = <span class="n">true</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Bulk</a>
+        
+          <div class="summary"><p>Create a Mongo::Bulk instance.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bulk_write%28requests%3AArray%28Mongo%3A%3ABulk%3A%3AWriteModel%29%2C%2A%2Cordered%3ABool%2Cbypass_document_validation%3ABool%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ABulk%3A%3AWriteResult-instance-method" class="signature"><strong>#bulk_write</strong>(requests : Array(Mongo::Bulk::WriteModel), *, ordered : Bool, bypass_document_validation : Bool | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Bulk::WriteResult</a>
+        
+          <div class="summary"><p>Executes multiple write operations.</p></div>
         
       </li>
     
@@ -826,6 +840,7 @@
           
           <p>Runs an aggregation framework pipeline.</p>
 <p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/aggregate/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Perform an aggregation pipeline query</span>
 cursor <span class="o">=</span> <span class="t">ModelName</span>.aggregate([
@@ -838,7 +853,64 @@ cursor.try <span class="o">&amp;</span>.each { <span class="o">|</span>bson<span
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bulk(ordered:Bool=true,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Bulk-instance-method">
+      <div class="signature">
+        
+        def <strong>bulk</strong>(ordered : Bool = <span class="n">true</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Bulk
+
+        <a class="method-permalink" href="#bulk%28ordered%3ABool%3Dtrue%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ABulk-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a Mongo::Bulk instance.</p>
+<p><span class="flag purple">NOTE</span>  A bulk operations builder.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Bulk.html" target="_blank">documentation</a>.</p>
+<p>Example:</p>
+<pre><code class="language-crystal">bulk <span class="o">=</span> <span class="t">ModelName</span>.bulk(ordered: <span class="n">true</span>)
+<span class="c"># Then, operations can be added…</span>
+<span class="n">500</span>.times { <span class="o">|</span>idx<span class="o">|</span>
+  bulk.insert_one({number: idx})
+  bulk.delete_many({number: {<span class="s">&quot;$lt&quot;</span>: <span class="n">450</span>}})
+}
+<span class="c"># …and they will be performed once the bulk gets executed.</span>
+bulk_result <span class="o">=</span> bulk.execute(write_concern: <span class="t">Mongo</span><span class="t">::</span><span class="t">WriteConcern</span>.new(w: <span class="n">1</span>))
+pp bulk_result</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L243" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bulk_write(requests:Array(Mongo::Bulk::WriteModel),*,ordered:Bool,bypass_document_validation:Bool|Nil=nil,session:Mongo::Session::ClientSession|Nil=nil):Mongo::Bulk::WriteResult-instance-method">
+      <div class="signature">
+        
+        def <strong>bulk_write</strong>(requests : Array(Mongo::Bulk::WriteModel), *, ordered : Bool, bypass_document_validation : Bool | Nil = <span class="n">nil</span>, session : Mongo::Session::ClientSession | Nil = <span class="n">nil</span>) : Mongo::Bulk::WriteResult
+
+        <a class="method-permalink" href="#bulk_write%28requests%3AArray%28Mongo%3A%3ABulk%3A%3AWriteModel%29%2C%2A%2Cordered%3ABool%2Cbypass_document_validation%3ABool%7CNil%3Dnil%2Csession%3AMongo%3A%3ASession%3A%3AClientSession%7CNil%3Dnil%29%3AMongo%3A%3ABulk%3A%3AWriteResult-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Executes multiple write operations.
+An error will be raised if the requests parameter is empty.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/driver-bulk-update.rst" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L268" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -859,7 +931,7 @@ cursor.try <span class="o">&amp;</span>.each { <span class="o">|</span>bson<span
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L181" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L188" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -878,6 +950,7 @@ cursor.try <span class="o">&amp;</span>.each { <span class="o">|</span>bson<span
 <br>
 Note that an empty filter will force a scan of the entire collection.</p>
 <p><span class="flag purple">NOTE</span>  For a fast count of the total documents in a collection see <strong>estimated_document_count</strong>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Documents count</span>
 counter <span class="o">=</span> <span class="t">ModelName</span>.count_documents({age: {<span class="s">&quot;$lt&quot;</span>: <span class="n">18</span>}})</code></pre>
@@ -886,7 +959,7 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.count_document
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L115" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -904,9 +977,9 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.count_document
           <p>Finds the distinct values for a specified field across a single collection.
 <br>
 Returns an array of unique values for specified field of collection.</p>
-<p><span class="flag purple">NOTE</span>  the results are backed by the &quot;values&quot; array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.
-<br>
-For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  the results are backed by the &quot;values&quot; array in the distinct command's result document. This differs from aggregate and find, where results are backed by a cursor.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/distinct/" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Distinct collection values</span>
 values <span class="o">=</span> <span class="t">ModelName</span>.distinct(
@@ -918,7 +991,7 @@ values <span class="o">=</span> <span class="t">ModelName</span>.distinct(
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L75" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L77" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -935,6 +1008,7 @@ values <span class="o">=</span> <span class="t">ModelName</span>.distinct(
           
           <p>Gets an estimate of the count of documents in a collection using collection metadata.</p>
 <p><span class="flag purple">NOTE</span>  For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/crud/crud.rst#count-api-details" target="_blank">documentation</a>.</p>
+<p><span class="flag purple">NOTE</span>  For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.</p>
 <p>Example:</p>
 <pre><code class="language-crystal"><span class="c"># Estimated count</span>
 counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_document_count</code></pre>
@@ -943,7 +1017,7 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_docu
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L157" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L163" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -965,7 +1039,7 @@ counter <span class="o">=</span> <span class="t">ModelName</span>.estimated_docu
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/8c265b6948c006d2248b5834549cc08b7e9774aa/src/dynfork/commons/general.cr#L197" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/27277437408609fe23dc50a6899cc53211005b2a/src/dynfork/commons/general.cr#L204" target="_blank">View source</a>]
         
       </div>
     </div>

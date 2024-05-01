@@ -725,7 +725,7 @@
 <pre><code class="language-yaml">dependencies:
   dynfork:
     github: kebasyaty/dynfork
-    version: ~&gt; 0.4.0</code></pre>
+    version: ~&gt; 0.5.0</code></pre>
 </li>
 <li>
 <p>Run <code>shards install</code></p>
@@ -754,6 +754,7 @@
 <span class="t">I18n</span>.init
 
 <span class="c"># Run migration.</span>
+<span class="c"># https://elbywan.github.io/cryomongo/Mongo/Client.html</span>
 <span class="t">DynFork</span><span class="t">::</span><span class="t">Migration</span><span class="t">::</span><span class="t">Monitor</span>.new(
   app_name: <span class="s">&quot;AppName&quot;</span>,
   unique_app_key: <span class="s">&quot;Towr5kKQM5H3Lb0b&quot;</span>,
@@ -883,14 +884,14 @@ puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#meta:DynFork::Globals::CacheMetaDataType%7CNil-class-method" title="meta">meta</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#subclasses-class-method" title="subclasses">subclasses</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html#object_id?:BSON::ObjectId%7CNil-instance-method" title="object_id?">object_id?</a></p>
-<p><strong>Paladins:</strong><br>
+<p><strong>QPaladins:</strong><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#valid?:Bool-instance-method" title="valid?">valid?</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Save.html" title="save">save</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#print_err:Nil-instance-method" title="print_err">print_err</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Tools.html#delete:Nil-instance-method" title="delete">delete</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#verify_password?(password:String,field_name:String=%22password%22):Bool-instance-method" title="verify_password?">verify_password?</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Paladins/Password.html#update_password(old_password:String,new_password:String,field_name:String=%22password%22):Nil-instance-method" title="update_password">update_password</a></p>
-<p><strong>Commons:</strong><br>
+<p><strong>QCommons:</strong><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#aggregate(pipeline:Array,*,allow_disk_use:Bool%7CNil=nil,batch_size:Int32%7CNil=nil,max_time_ms:Int64%7CNil=nil,bypass_document_validation:Bool%7CNil=nil,collation:Mongo::Collation%7CNil=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,comment:String%7CNil=nil,read_concern:Mongo::ReadConcern%7CNil=nil,write_concern:Mongo::WriteConcern%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Mongo::Cursor%7CNil-instance-method" title="aggregate">aggregate</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#collection_name:Mongo::Collection::CollectionKey-instance-method" title="collection_name">collection_name</a><br>
 <a href="https://kebasyaty.github.io/dynfork/DynFork/Commons/QGeneral.html#count_documents(filter=BSON.new,*,skip:Int32%7CNil=nil,limit:Int32%7CNil=nil,collation:Mongo::Collation%7CNil=nil,hint:String%7CHash%7CNamedTuple%7CNil=nil,max_time_ms:Int64%7CNil=nil,read_preference:Mongo::ReadPreference%7CNil=nil,session:Mongo::Session::ClientSession%7CNil=nil):Int32-instance-method" title="count_documents">count_documents</a><br>

@@ -5,6 +5,7 @@ module DynFork::Commons::Indexes
   # This is a convenience method for creating a single index.
   # <br>
   # See: #create_indexes.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -46,6 +47,7 @@ module DynFork::Commons::Indexes
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Nil
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -79,6 +81,7 @@ module DynFork::Commons::Indexes
 
   # Creates multiple indexes in the collection.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/createIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   #
   # Example:
   # ```
@@ -101,6 +104,7 @@ module DynFork::Commons::Indexes
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Nil
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -134,6 +138,7 @@ module DynFork::Commons::Indexes
   # Drops a single index from the collection by the index name.
   # <br>
   # See: #drop_indexes.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   def drop_index(
     name : String,
     *,
@@ -141,6 +146,7 @@ module DynFork::Commons::Indexes
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Nil
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -166,12 +172,14 @@ module DynFork::Commons::Indexes
 
   # Drops all indexes in the collection.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/dropIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   def drop_indexes(
     *,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : Nil
+    #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -196,6 +204,7 @@ module DynFork::Commons::Indexes
 
   # Gets index information for all indexes in the collection.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/listIndexes/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
   def list_indexes(session : Mongo::Session::ClientSession? = nil) : Mongo::Cursor?
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
