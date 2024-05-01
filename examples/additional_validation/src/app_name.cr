@@ -1,4 +1,3 @@
-require "i18n"
 require "dynfork"
 require "./models/*"
 
