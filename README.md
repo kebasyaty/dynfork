@@ -98,9 +98,9 @@ I18n.init
 
 # Run migration.
 DynFork::Migration::Monitor.new(
-  "app_name": "AppName",
-  "unique_app_key": "Towr5kKQM5H3Lb0b",
-  "mongo_uri": "mongodb://localhost:27017",
+  app_name: "AppName",
+  unique_app_key: "Towr5kKQM5H3Lb0b",
+  mongo_client: Mongo::Client.new("mongodb://localhost:27017")
 ).migrat
 
 # Create a user.
