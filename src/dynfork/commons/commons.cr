@@ -6,11 +6,11 @@ require "./one"
 require "./indexes"
 
 # Commons - Model class methods.
-module DynFork::Commons
-  include DynFork::Commons::UnitsManagement
-  include DynFork::Commons::Converter
-  include DynFork::Commons::QGeneral
-  include DynFork::Commons::QMany
-  include DynFork::Commons::QOne
-  include DynFork::Commons::Indexes
+module DynFork::QCommons
+  include DynFork::QCommons::UnitsManagement
+  include DynFork::QCommons::Converter
+  include DynFork::QCommons::General
+  include DynFork::QCommons::Many
+  include DynFork::QCommons::One
+  include DynFork::QCommons::Indexes
 end

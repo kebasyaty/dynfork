@@ -1,5 +1,5 @@
 # Creating and updating documents in the database.
-module DynFork::Paladins::Save
+module DynFork::QPaladins::Save
   # Creating and updating documents in the database.
   # <br>
   # This method pre-uses the _check_ method.

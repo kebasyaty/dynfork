@@ -3,8 +3,8 @@ require "./groups/*"
 # 1.Validation of Model data before saving to the database.
 # <br>
 # 2.Web form validation. It is recommended to use the _saving_docs?=true_ model parameter.
-module DynFork::Paladins::Check
-  include DynFork::Paladins::Groups
+module DynFork::QPaladins::Check
+  include DynFork::QPaladins::Groups
 
   # Validation of Model data.
   def check(

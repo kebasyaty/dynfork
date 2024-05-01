@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Validation of `text` type fields:
   # <br>
   # ColorField | EmailField | PasswordField | PhoneField

@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Validation of fields of type BoolField.
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

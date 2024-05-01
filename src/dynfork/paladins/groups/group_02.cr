@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Validation of `date` type fields:
   # <br>
   # DateField | DateTimeField

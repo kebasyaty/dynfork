@@ -1,6 +1,6 @@
 require "../../../spec_helper"
 
-describe DynFork::Commons::QGeneral do
+describe DynFork::QCommons::General do
   it "=> general methods", tags: "general" do
     # Init data for test.
     #

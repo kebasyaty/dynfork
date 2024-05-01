@@ -1,5 +1,5 @@
 # Methods for obtaining clean data from documents.
-module DynFork::Commons::Converter
+module DynFork::QCommons::Converter
   extend self
 
   # Get clean data from a document, as a Hash object.

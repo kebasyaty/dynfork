@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Create string for SlugField.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

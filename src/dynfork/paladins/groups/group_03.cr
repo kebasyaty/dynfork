@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Validation of `choice` type fields:
   # <br>
   # ChoiceTextField | ChoiceTextMultField

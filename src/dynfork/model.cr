@@ -63,8 +63,8 @@ module DynFork
   abstract struct Model < DynFork::Extra
     include JSON::Serializable
     include DynFork::Globals::Date
-    include DynFork::Paladins
-    extend DynFork::Commons
+    include DynFork::QPaladins
+    extend DynFork::QCommons
 
     getter hash = DynFork::Fields::HashField
       .new(label: "Hash", hide: true, unique: true, ignored: true)
