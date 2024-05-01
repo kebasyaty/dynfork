@@ -181,7 +181,7 @@ module DynFork::Commons::QMany
     ""
   end
 
-  # Deletes many document.
+  # Deletes multiple documents.
   # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/delete/" target="_blank">documentation</a>.
   def delete_many(
     filter,
