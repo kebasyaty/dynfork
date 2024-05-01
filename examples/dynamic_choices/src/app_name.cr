@@ -43,7 +43,7 @@ module AppName
   puts "\n\nMeta > `data_dynamic_fields`:"
   pp Models::Accounts::User.meta[:data_dynamic_fields]
 
-  puts "\n\nUser:"
+  puts "\n\nUsers:"
   user_list = Models::Accounts::User.find_many_to_hash_list
   pp user_list
 

@@ -18,40 +18,22 @@ module AppName
     "mongo_uri": "mongodb://localhost:27017",
   ).migrat
 
-  # Create a user.
+  # Create user.
+  puts "Create user"
   user = Models::Accounts::User.new
-
-  # Add user data.
   user.username.value = "username"
   user.email.value = "user@noreaply.net"
   user.birthday.value = "2023-03-25"
-
-  # Save user.
-  # Hint: print_err - convenient for development.
   user.print_err unless user.save
 
-  # Print user details.
-  puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
-
-  # Update user data.
+  # Update user.
+  puts "Update user"
   user.username.value = "username_2"
   user.email.value = "user_2@noreaply.net"
   user.birthday.value = "2024-04-26"
-
-  # Save user.
   user.print_err unless user.save
 
-  # Print user details.
-  puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
-
-  puts "\n\nDocumwnt count: #{Models::Accounts::User.count_documents}"
-
-  puts "\nDeleting a document."
+  # Delete user.
+  puts "Delete user"
   user.delete
-
-  puts "\nDocumwnt count: #{Models::Accounts::User.estimated_document_count}"
 end

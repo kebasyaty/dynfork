@@ -31,6 +31,7 @@ module AppName
 
   # Print tv details.
   puts "\n\nTV details:"
-  user_list = Models::TVs::TV.find_many_to_hash_list
-  pp user_list
+  if id = user.object_id?
+    pp Models::TVs::TV.find_one_to_hash({_id: id})
+  end
 end

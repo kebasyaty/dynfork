@@ -30,8 +30,9 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
+  if id = user.object_id?
+    pp Models::Accounts::User.find_one_to_hash({_id: id})
+  end
 
   # Update user data.
   user.avatar.from_path "assets/media/default/no_photo.jpeg"
@@ -43,6 +44,7 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
+  if id = user.object_id?
+    pp Models::Accounts::User.find_one_to_hash({_id: id})
+  end
 end
