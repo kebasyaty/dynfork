@@ -34,8 +34,9 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
+  if id = user.object_id?
+    pp Models::Accounts::User.find_one_to_hash({_id: id})
+  end
 
   # Update user data.
   user.username.value = "username_2"
@@ -49,6 +50,7 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  user_list = Models::Accounts::User.find_many_to_hash_list
-  pp user_list
+  if id = user.object_id?
+    pp Models::Accounts::User.find_one_to_hash({_id: id})
+  end
 end

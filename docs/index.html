@@ -757,26 +757,27 @@
 <span class="c"># Run migration.</span>
 <span class="t">DynFork</span><span class="t">::</span><span class="t">Migration</span><span class="t">::</span><span class="t">Monitor</span>.new(
   <span class="s">&quot;app_name&quot;</span>: <span class="s">&quot;AppName&quot;</span>,
-  <span class="s">&quot;unique_app_key&quot;</span>: <span class="s">&quot;k7SBQPF6d2e2nts7&quot;</span>,
+  <span class="s">&quot;unique_app_key&quot;</span>: <span class="s">&quot;Towr5kKQM5H3Lb0b&quot;</span>,
   <span class="s">&quot;mongo_uri&quot;</span>: <span class="s">&quot;mongodb://localhost:27017&quot;</span>,
 ).migrat
 
 <span class="c"># Create a user.</span>
 user <span class="o">=</span> <span class="t">User</span>.new
 
-<span class="c"># Add user details.</span>
+<span class="c"># Add user data.</span>
 user.username.value <span class="o">=</span> <span class="s">&quot;username&quot;</span>
 user.email.value <span class="o">=</span> <span class="s">&quot;user@noreaply.net&quot;</span>
 user.birthday.value <span class="o">=</span> <span class="s">&quot;1970-01-01&quot;</span>
 
-<span class="c"># Run save.</span>
+<span class="c"># Save user.</span>
 <span class="c"># Hint: print_err - convenient for development.</span>
 user.print_err <span class="k">unless</span> user.save
 
 <span class="c"># Print user details.</span>
 puts <span class="s">&quot;User details:&quot;</span>
-user_list <span class="o">=</span> <span class="t">User</span>.find_many_to_hash_list
-pp user_list
+<span class="k">if</span> id <span class="o">=</span> user.object_id?
+  pp <span class="t">User</span>.find_one_to_hash({_id: id})
+<span class="k">end</span>
 
 puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
 
