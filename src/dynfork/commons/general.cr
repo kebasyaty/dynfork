@@ -219,4 +219,55 @@ module DynFork::Commons::QGeneral
       session: session,
     )
   end
+
+  # Create a Mongo::Bulk instance.
+  def bulk(
+    ordered : Bool = true,
+    session : Mongo::Session::ClientSession? = nil
+  )
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.bulk(
+      ordered: ordered,
+      session: session,
+    )
+  end
+
+  # Executes multiple write operations.
+  # An error will be raised if the requests parameter is empty.
+  # NOTE: For more details, please check the official <a href="https://github.com/mongodb/specifications/blob/master/source/driver-bulk-update.rst" target="_blank">documentation</a>.
+  def bulk_write(
+    requests : Array(Mongo::Bulk::WriteModel),
+    *,
+    ordered : Bool,
+    bypass_document_validation : Bool? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Mongo::Bulk::WriteResult
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    collection.bulk_write(
+      requests: requests,
+      ordered: ordered,
+      bypass_document_validation: bypass_document_validation,
+      session: session,
+    )
+  end
 end
