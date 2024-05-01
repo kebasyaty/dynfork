@@ -224,7 +224,7 @@ module DynFork::Commons::QGeneral
   def bulk(
     ordered : Bool = true,
     session : Mongo::Session::ClientSession? = nil
-  )
+  ) : Mongo::Bulk
     #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
