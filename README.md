@@ -14,8 +14,9 @@
       <a href="https://github.com/kebasyaty/dynfork/actions" alt="CI"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
       <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11%2B-red"></a>
-      <a href="https://github.com/kebasyaty/dynfork/tags/"><img src="https://badgen.net/github/tag/kebasyaty/dynfork" alt="Latest tag"></a>
+      <a href="https://github.com/kebasyaty/dynfork/releases/"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
       <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT"></a>
+      <a href="https://github.com/kebasyaty/dynfork"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
     </p>
     <div align="center">
       DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
@@ -54,11 +55,13 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 1. Install MongoDB (if not installed):<br>
    [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-ba4319?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
 
 2. Install additional libraries (if not installed):<br>
    [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-ba4319?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
 
 3. Add the dependency to your `shard.yml`:
 
