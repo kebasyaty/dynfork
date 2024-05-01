@@ -1,5 +1,5 @@
 # Requests like `find one`.
-module DynFork::Commons::QOne
+module DynFork::QCommons::One
   extend self
 
   # Finds the document and converts it to a Model instance.

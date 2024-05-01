@@ -1,5 +1,5 @@
 # Indexing collections.
-module DynFork::Commons::Indexes
+module DynFork::QCommons::Indexes
   extend self
 
   # This is a convenience method for creating a single index.

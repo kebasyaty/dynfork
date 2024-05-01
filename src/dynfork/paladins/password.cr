@@ -1,4 +1,4 @@
-module DynFork::Paladins::Password
+module DynFork::QPaladins::Password
   # For password verification.
   def verify_password?(
     password : String,

@@ -1,5 +1,5 @@
 # For caching Model metadata.
-module DynFork::Paladins::Caching
+module DynFork::QPaladins::Caching
   # Add metadata to the global store.
   private def caching : Nil
     # Get full Model name = ModuleName::StructureName.

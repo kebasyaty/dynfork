@@ -1,4 +1,4 @@
-module DynFork::Paladins::Groups
+module DynFork::QPaladins::Groups
   # Validation of fields of type I64Field.
   def group_06(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

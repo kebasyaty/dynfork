@@ -1,5 +1,5 @@
 # Queries like `find many`.
-module DynFork::Commons::QMany
+module DynFork::QCommons::Many
   extend self
 
   # Finds the documents matching the Model.

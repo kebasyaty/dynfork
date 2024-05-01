@@ -1,6 +1,6 @@
 # Units Management.
 # NOTE: Management for `choices` parameter in dynamic field types.
-module DynFork::Commons::UnitsManagement
+module DynFork::QCommons::UnitsManagement
   extend self
 
   # For insert or delete units.
