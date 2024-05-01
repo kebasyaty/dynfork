@@ -1,3 +1,8 @@
+#### v0.5.0 2024-05-01
+
+- Methods added: `delete_many`, `delete_one`, `bulk`, `bulk_write`.
+- Method comments have been updated.
+
 #### v0.4.0 2024-05-01
 
 - Changed the name and type of the variable in `DynFork::Migration::Monitor`.
