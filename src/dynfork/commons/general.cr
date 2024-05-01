@@ -221,6 +221,21 @@ module DynFork::Commons::QGeneral
   end
 
   # Create a Mongo::Bulk instance.
+  # NOTE: A bulk operations builder.
+  #
+  # Example:
+  # ```
+  # bulk = ModelName.bulk(ordered: true)
+  # # Then, operations can be added…
+  # 500.times { |idx|
+  #   bulk.insert_one({number: idx})
+  #   bulk.delete_many({number: {"$lt": 450}})
+  # }
+  # # …and they will be performed once the bulk gets executed.
+  # bulk_result = bulk.execute(write_concern: Mongo::WriteConcern.new(w: 1))
+  # pp bulk_result
+  # ```
+  #
   def bulk(
     ordered : Bool = true,
     session : Mongo::Session::ClientSession? = nil
