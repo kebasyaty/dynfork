@@ -196,21 +196,17 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
 
 _Links to documentation._
 
-**Additional validation:**
+**Model:**
+
+- full_model_name
+- meta
+- subclasses
+- object_id?
+
+**Extra:**
 
 - add_validation
-
-**Indexing:**
-
 - indexing
-- create_index
-- create_indexes
-- drop_index
-- drop_indexes
-- list_indexes
-
-**Hooks:**
-
 - pre_create
 - post_create
 - pre_update
@@ -221,13 +217,6 @@ _Links to documentation._
 **Migration:**
 
 - migrat
-
-**Model:**
-
-- full_model_name
-- meta
-- subclasses
-- object_id?
 
 **QPaladins:**
 
@@ -256,6 +245,11 @@ _Links to documentation._
 - delete_one
 - bulk
 - bulk_write
+- create_index
+- create_indexes
+- drop_index
+- drop_indexes
+- list_indexes
 
 ## License
 
