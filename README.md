@@ -79,7 +79,6 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
 
 ```crystal
-require "i18n"
 require "dynfork"
 
 # Create your model.
