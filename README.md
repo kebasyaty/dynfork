@@ -200,7 +200,7 @@ _Links to documentation._
 
 - add_validation
 
-**Indexing:**<br>
+**Indexing:**
 
 - indexing
 - create_index
@@ -209,7 +209,7 @@ _Links to documentation._
 - drop_indexes
 - list_indexes
 
-**Hooks:**<br>
+**Hooks:**
 
 - pre_create
 - post_create
@@ -218,18 +218,18 @@ _Links to documentation._
 - pre_delete
 - post_delete
 
-**Migration:**<br>
+**Migration:**
 
 - migrat
 
-**Model:**<br>
+**Model:**
 
 - full_model_name
 - meta
 - subclasses
 - object_id?
 
-**QPaladins:**<br>
+**QPaladins:**
 
 - valid?
 - save
@@ -238,7 +238,7 @@ _Links to documentation._
 - verify_password?
 - update_password
 
-**QCommons:**<br>
+**QCommons:**
 
 - aggregate
 - collection_name
@@ -252,6 +252,10 @@ _Links to documentation._
 - find_one_to_instance
 - find_one_to_json
 - unit_manager
+- delete_many
+- delete_one
+- bulk
+- bulk_write
 
 ## License
 
