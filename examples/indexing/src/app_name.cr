@@ -13,9 +13,9 @@ module AppName
 
   # Run migration.
   DynFork::Migration::Monitor.new(
-    "app_name": "AppName",
-    "unique_app_key": "k76BQPF6d5e8nts9",
-    "mongo_uri": "mongodb://localhost:27017",
+    app_name: "AppName",
+    unique_app_key: "k76BQPF6d5e8nts9",
+    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
   ).migrat
 
   if cursor : Mongo::Cursor? = Models::Accounts::User.list_indexes

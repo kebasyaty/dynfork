@@ -13,9 +13,9 @@ module AppName
 
   # Run migration.
   DynFork::Migration::Monitor.new(
-    "app_name": "AppName",
-    "unique_app_key": "22915V44DssD7f33",
-    "mongo_uri": "mongodb://localhost:27017",
+    app_name: "AppName",
+    unique_app_key: "22915V44DssD7f33",
+    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
   ).migrat
 
   # Create a tv.

@@ -13,9 +13,9 @@ module AppName
 
   # Run migration.
   DynFork::Migration::Monitor.new(
-    "app_name": "AppName",
-    "unique_app_key": "8NhUINI8vJ87mxbk",
-    "mongo_uri": "mongodb://localhost:27017",
+    app_name: "AppName",
+    unique_app_key: "8NhUINI8vJ87mxbk",
+    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
   ).migrat
 
   # Add a key-value for a dynamic field.
