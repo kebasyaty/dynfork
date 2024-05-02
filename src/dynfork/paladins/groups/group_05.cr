@@ -1,6 +1,8 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type ImageField.
+  # :nodoc:
   def group_05(
+    # Validation of fields of type ImageField.
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,

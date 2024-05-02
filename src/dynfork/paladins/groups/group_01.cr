@@ -1,10 +1,11 @@
 module DynFork::QPaladins::Groups
-  # Validation of `text` type fields:
-  # <br>
-  # ColorField | EmailField | PasswordField | PhoneField
-  # | TextField | HashField | URLField | IPField
-  #
+  # :nodoc:
   def group_01(
+    # Validation of `text` type fields:
+    # <br>
+    # ColorField | EmailField | PasswordField | PhoneField
+    # | TextField | HashField | URLField | IPField
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,

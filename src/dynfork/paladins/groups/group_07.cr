@@ -1,6 +1,8 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type F64Field.
+  # :nodoc:
   def group_07(
+    # Validation of fields of type F64Field.
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,

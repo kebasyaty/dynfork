@@ -1,8 +1,10 @@
 module DynFork::QPaladins::Groups
-  # Validation of `date` type fields:
-  # <br>
-  # DateField | DateTimeField
+  # :nodoc:
   def group_02(
+    # Validation of `date` type fields:
+    # <br>
+    # DateField | DateTimeField
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,

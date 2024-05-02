@@ -1,6 +1,8 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type FileField.
+  # :nodoc:
   def group_04(
+    # Validation of fields of type FileField.
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,

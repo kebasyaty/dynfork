@@ -1,6 +1,8 @@
 module DynFork::QPaladins::Groups
-  # Create string for SlugField.
+  # :nodoc:
   def group_09(
+    # Create string for SlugField.
+    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
