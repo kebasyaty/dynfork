@@ -66,10 +66,19 @@ module DynFork
     include DynFork::QPaladins
     extend DynFork::QCommons
 
+    # Field for the document identifier.
+    # <br>
+    # **Examples:** `507c7f79bcf86cd7994f6c0e`
     getter hash = DynFork::Fields::HashField
       .new(label: "Hash", hide: true, unique: true, ignored: true)
+    # Field for the date and time the document was created.
+    # <br>
+    # **Examples:** `1970-01-01T00:00:00`
     getter created_at = DynFork::Fields::DateTimeField
       .new(label: "Created at", hide: true, readonly: true)
+    # Field for the date and time the document was updated.
+    # <br>
+    # **Examples:** `1970-01-01T00:00:00`
     getter updated_at = DynFork::Fields::DateTimeField
       .new(label: "Updated at", hide: true, readonly: true)
     # Get full Model name = ModuleName::StructureName.
