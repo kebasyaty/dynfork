@@ -1,6 +1,6 @@
 <div align="center">
   <p align="center">
-    <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+    <a href="https://github.com/kebasyaty/dynfork">
       <img
         height="120"
         alt="Logo"
@@ -37,7 +37,7 @@ _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 <p>
-  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
+  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
     <img src="https://github.com/kebasyaty/dynfork/raw/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
