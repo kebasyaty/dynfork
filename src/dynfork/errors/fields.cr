@@ -92,4 +92,11 @@ module DynFork::Errors::Fields
       super("The `#{input_type}` invalid input type!")
     end
   end
+
+  # Invalid hash-string.
+  class InvalidHashString < DynFork::Errors::DynForkException
+    def initialize
+      super("The hash-string is not valid!")
+    end
+  end
 end
