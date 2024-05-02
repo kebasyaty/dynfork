@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # File upload field.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/files" target="_blank">example</a>.
   struct FileField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "FileField"
