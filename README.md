@@ -1,6 +1,6 @@
 <div align="center">
   <p align="center">
-    <a href="https://github.com/kebasyaty/dynfork" target="_blank">
+    <a href="https://github.com/kebasyaty/dynfork">
       <img
         height="120"
         alt="Logo"
@@ -13,10 +13,10 @@
     <p align="center">
       <a href="https://github.com/kebasyaty/dynfork/actions" alt="CI"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
-      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11%2B-red"></a>
-      <a href="https://github.com/kebasyaty/dynfork/releases/"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
-      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT"></a>
-      <a href="https://github.com/kebasyaty/dynfork"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
+      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11%2B-red" alt="Crysta"></a>
+      <a href="https://github.com/kebasyaty/dynfork/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="GitHub license"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
+      <a href="https://github.com/kebasyaty/dynfork" alt="GitHub repository"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
     </p>
     <div align="center">
       DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
@@ -37,7 +37,7 @@ _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 <p>
-  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project" target="_blank">
+  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
     <img src="https://github.com/kebasyaty/dynfork/raw/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
