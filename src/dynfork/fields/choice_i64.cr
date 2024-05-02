@@ -3,6 +3,7 @@ require "./field"
 module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With a single choice.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
   struct ChoiceI64Field < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64Field"
@@ -148,6 +149,7 @@ module DynFork::Fields
 
   # Type of selective field with static of elements.
   # NOTE: With multiple choice.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
   struct ChoiceI64MultField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64MultField"
