@@ -3,6 +3,7 @@ require "./field"
 module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With a single choice.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
   struct ChoiceTextField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceTextField"
@@ -148,6 +149,7 @@ module DynFork::Fields
 
   # Type of selective field with static of elements.
   # NOTE: With multiple choice.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
   struct ChoiceTextMultField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceTextMultField"
@@ -296,6 +298,7 @@ module DynFork::Fields
   # Type of selective field with dynamic addition of elements.
   # NOTE: For simulate relationship Many-to-One.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
   struct ChoiceTextDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceTextDynField"
@@ -449,6 +452,7 @@ module DynFork::Fields
   # Type of selective field with dynamic addition of elements.
   # NOTE: For simulate relationship Many-to-Many.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
   struct ChoiceTextMultDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceTextMultDynField"

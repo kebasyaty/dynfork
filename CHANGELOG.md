@@ -1,3 +1,8 @@
+#### v0.5.2 2024-05-02
+
+- Documentation updated.
+- Updated some comments in the source code.
+
 #### v0.5.1 2024-05-02
 
 - Documentation updated.

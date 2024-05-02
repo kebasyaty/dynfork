@@ -1,5 +1,6 @@
 module DynFork::QPaladins::Password
   # For password verification.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
   def verify_password?(
     password : String,
     field_name : String = "password"
@@ -31,6 +32,7 @@ module DynFork::QPaladins::Password
   end
 
   # For replace or recover password.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
   def update_password(
     old_password : String,
     new_password : String,
