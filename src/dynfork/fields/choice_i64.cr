@@ -296,6 +296,7 @@ module DynFork::Fields
   # Type of selective field with dynamic addition of elements.
   # NOTE: For simulate relationship Many-to-One.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
   struct ChoiceI64DynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64DynField"
@@ -449,6 +450,7 @@ module DynFork::Fields
   # Type of selective field with dynamic addition of elements.
   # NOTE: For simulate relationship Many-to-Many.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
+  # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
   struct ChoiceI64MultDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64MultDynField"
