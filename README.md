@@ -196,14 +196,14 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
 
 _Links to documentation._
 
-**Model:**
+**[Model:](https://kebasyaty.github.io/dynfork/DynFork/Model.html "Model:")**
 
 - full_model_name
 - meta
 - subclasses
 - object_id?
 
-**Extra:**
+**[Extra:](https://kebasyaty.github.io/dynfork/DynFork/Extra.html "Extra:")**
 
 - add_validation
 - indexing
@@ -214,11 +214,11 @@ _Links to documentation._
 - pre_delete
 - post_delete
 
-**Migration:**
+**[Migration:](https://kebasyaty.github.io/dynfork/DynFork/Migration.html "Migration:")**
 
 - migrat
 
-**QPaladins:**
+**[QPaladins:](https://kebasyaty.github.io/dynfork/DynFork/QPaladins.html "QPaladins:")**
 
 - valid?
 - save
@@ -227,7 +227,7 @@ _Links to documentation._
 - verify_password?
 - update_password
 
-**QCommons:**
+**[QCommons:](https://kebasyaty.github.io/dynfork/DynFork/QCommons.html "QCommons:")**
 
 - aggregate
 - collection_name
