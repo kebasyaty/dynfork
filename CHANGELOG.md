@@ -1,3 +1,8 @@
+#### v0.5.1 2024-05-02
+
+- Documentation updated.
+- Fixed some comments in the source code.
+
 #### v0.5.0 2024-05-01
 
 - Methods added: `delete_many`, `delete_one`, `bulk`, `bulk_write`.
