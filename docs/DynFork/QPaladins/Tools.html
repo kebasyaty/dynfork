@@ -707,7 +707,7 @@
   </h2>
   
     
-      <a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L2" target="_blank">
+      <a href="https://github.com/kebasyaty/dynfork/blob/e33ebc4f13d44da5f9d562c01804ba5f2f15b880/src/dynfork/paladins/tools.cr#L2" target="_blank">
         dynfork/paladins/tools.cr
       </a>
     
@@ -735,37 +735,9 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29%3ANil-instance-method" class="signature"><strong>#accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool)) : Nil</a>
-        
-          <div class="summary"><p>For accumulating errors.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#calculate_thumbnail_size%28width%3AInt32%2Cheight%3AInt32%2Cmax_size%3AInt32%29%3ANamedTuple%28width%3AInt32%2Cheight%3AInt32%29-instance-method" class="signature"><strong>#calculate_thumbnail_size</strong>(width : Int32, height : Int32, max_size : Int32) : NamedTuple(width: Int32, height: Int32)</a>
-        
-          <div class="summary"><p>Calculate the maximum size for a thumbnail.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#check_uniqueness%3F%28current_value%3AString%7CTime%7CInt64%7CFloat64%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Cfield_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cid_ptr%3APointer%28BSON%3A%3AObjectId%7CNil%29%29%3ABool-instance-method" class="signature"><strong>#check_uniqueness?</strong>(current_value : String | Time | Int64 | Float64, collection_ptr : Pointer(Mongo::Collection), field_ptr : Pointer(DynFork::Globals::FieldTypes), id_ptr : Pointer(BSON::ObjectId | Nil)) : Bool</a>
-        
-          <div class="summary"><p>Check the uniqueness of the value in the database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#delete%3ANil-instance-method" class="signature"><strong>#delete</strong> : Nil</a>
         
           <div class="summary"><p>Delete a document from a collection in a database.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#image_to_io_memory%28image_ptr%3APointer%28Pluto%3A%3AImageRGBA%29%2Cextension%3AString%2Cmax_size%3AInt32%29%3AIO%3A%3AMemory-instance-method" class="signature"><strong>#image_to_io_memory</strong>(image_ptr : Pointer(Pluto::ImageRGBA), extension : String, max_size : Int32) : IO::Memory</a>
-        
-          <div class="summary"><p>Convert image to IO::Memory.</p></div>
         
       </li>
     
@@ -780,13 +752,6 @@
         <a href="#refrash_fields%28doc_ptr%3APointer%28BSON%7CNil%29%29%3ANil-instance-method" class="signature"><strong>#refrash_fields</strong>(doc_ptr : Pointer(BSON | Nil)) : Nil</a>
         
           <div class="summary"><p>Refrash field values ​​after creating or updating a document.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29%3ANil-instance-method" class="signature"><strong>#restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>) : Nil</a>
-        
-          <div class="summary"><p>Reset the values ​​of ignored fields to nil.</p></div>
         
       </li>
     
@@ -821,69 +786,6 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="accumulate_error(err_msg:String,field_ptr:Pointer,error_symptom_ptr?:Pointer(Bool)):Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>accumulate_error</strong>(err_msg : String, field_ptr : Pointer, error_symptom_ptr? : Pointer(Bool)) : Nil
-
-        <a class="method-permalink" href="#accumulate_error%28err_msg%3AString%2Cfield_ptr%3APointer%2Cerror_symptom_ptr%3F%3APointer%28Bool%29%29%3ANil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>For accumulating errors.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L72" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="calculate_thumbnail_size(width:Int32,height:Int32,max_size:Int32):NamedTuple(width:Int32,height:Int32)-instance-method">
-      <div class="signature">
-        
-        def <strong>calculate_thumbnail_size</strong>(width : Int32, height : Int32, max_size : Int32) : NamedTuple(width: Int32, height: Int32)
-
-        <a class="method-permalink" href="#calculate_thumbnail_size%28width%3AInt32%2Cheight%3AInt32%2Cmax_size%3AInt32%29%3ANamedTuple%28width%3AInt32%2Cheight%3AInt32%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Calculate the maximum size for a thumbnail.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L88" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="check_uniqueness?(current_value:String|Time|Int64|Float64,collection_ptr:Pointer(Mongo::Collection),field_ptr:Pointer(DynFork::Globals::FieldTypes),id_ptr:Pointer(BSON::ObjectId|Nil)):Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>check_uniqueness?</strong>(current_value : String | Time | Int64 | Float64, collection_ptr : Pointer(Mongo::Collection), field_ptr : Pointer(<a href="../../DynFork/Globals/Aliases/FieldTypes.html">DynFork::Globals::FieldTypes</a>), id_ptr : Pointer(BSON::ObjectId | Nil)) : Bool
-
-        <a class="method-permalink" href="#check_uniqueness%3F%28current_value%3AString%7CTime%7CInt64%7CFloat64%2Ccollection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Cfield_ptr%3APointer%28DynFork%3A%3AGlobals%3A%3AFieldTypes%29%2Cid_ptr%3APointer%28BSON%3A%3AObjectId%7CNil%29%29%3ABool-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Check the uniqueness of the value in the database.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L132" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="delete:Nil-instance-method">
       <div class="signature">
         
@@ -900,28 +802,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L148" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="image_to_io_memory(image_ptr:Pointer(Pluto::ImageRGBA),extension:String,max_size:Int32):IO::Memory-instance-method">
-      <div class="signature">
-        
-        def <strong>image_to_io_memory</strong>(image_ptr : Pointer(Pluto::ImageRGBA), extension : String, max_size : Int32) : IO::Memory
-
-        <a class="method-permalink" href="#image_to_io_memory%28image_ptr%3APointer%28Pluto%3A%3AImageRGBA%29%2Cextension%3AString%2Cmax_size%3AInt32%29%3AIO%3A%3AMemory-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Convert image to IO::Memory.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L109" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/e33ebc4f13d44da5f9d562c01804ba5f2f15b880/src/dynfork/paladins/tools.cr#L155" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -952,7 +833,7 @@ user.print_err <span class="k">unless</span> user.valid?</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/e33ebc4f13d44da5f9d562c01804ba5f2f15b880/src/dynfork/paladins/tools.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -973,28 +854,7 @@ user.print_err <span class="k">unless</span> user.valid?</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L191" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="restor_ignored_fields(update?:Bool=false):Nil-instance-method">
-      <div class="signature">
-        
-        def <strong>restor_ignored_fields</strong>(update? : Bool = <span class="n">false</span>) : Nil
-
-        <a class="method-permalink" href="#restor_ignored_fields%28update%3F%3ABool%3Dfalse%29%3ANil-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Reset the values ​​of ignored fields to nil.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L182" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/e33ebc4f13d44da5f9d562c01804ba5f2f15b880/src/dynfork/paladins/tools.cr#L200" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1027,7 +887,7 @@ user <span class="o">=</span> <span class="t">User</span>.new
       <br/>
       <div>
         
-          [<a href="https://github.com/kebasyaty/dynfork/blob/41c04d07eee66833bf322d7bdd50c443c69d8c2a/src/dynfork/paladins/tools.cr#L20" target="_blank">View source</a>]
+          [<a href="https://github.com/kebasyaty/dynfork/blob/e33ebc4f13d44da5f9d562c01804ba5f2f15b880/src/dynfork/paladins/tools.cr#L20" target="_blank">View source</a>]
         
       </div>
     </div>

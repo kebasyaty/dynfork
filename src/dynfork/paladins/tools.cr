@@ -68,12 +68,14 @@ module DynFork::QPaladins::Tools
     end
   end
 
-  # For accumulating errors.
+  # :nodoc:
   def accumulate_error(
     err_msg : String,
     field_ptr : Pointer,
     error_symptom_ptr? : Pointer(Bool)
   ) : Nil
+    # For accumulating errors.
+    #
     if !field_ptr.value.hide?
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value
@@ -84,12 +86,13 @@ module DynFork::QPaladins::Tools
     end
   end
 
-  # Calculate the maximum size for a thumbnail.
+  # :nodoc:
   def calculate_thumbnail_size(
     width : Int32,
     height : Int32,
     max_size : Int32
   ) : NamedTuple(width: Int32, height: Int32)
+    # Calculate the maximum size for a thumbnail.
     #
     width_big : BigDecimal = BigDecimal.new(width)
     height_big : BigDecimal = BigDecimal.new(height)
@@ -105,12 +108,14 @@ module DynFork::QPaladins::Tools
     {width: width, height: height}
   end
 
-  # Convert image to IO::Memory.
+  # :nodoc:
   def image_to_io_memory(
     image_ptr : Pointer(Pluto::ImageRGBA),
     extension : String,
     max_size : Int32
   ) : IO::Memory
+    # Convert image to IO::Memory.
+    #
     new_size = self.calculate_thumbnail_size(
       image_ptr.value.width,
       image_ptr.value.height,
@@ -128,13 +133,15 @@ module DynFork::QPaladins::Tools
     io
   end
 
-  # Check the uniqueness of the value in the database.
+  # :nodoc:
   def check_uniqueness?(
     current_value : String | Time | Int64 | Float64,
     collection_ptr : Pointer(Mongo::Collection),
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Bool
+    # Check the uniqueness of the value in the database.
+    #
     filter = {
       "$and": [
         {_id: {"$ne": id_ptr.value}},
@@ -178,8 +185,10 @@ module DynFork::QPaladins::Tools
     end
   end
 
-  # Reset the values ​​of ignored fields to nil.
+  # :nodoc:
   def restor_ignored_fields(update? : Bool = false) : Nil
+    # Reset the values ​​of ignored fields to nil.
+    #
     {% for field in @type.instance_vars %}
       if @{{ field }}.ignored? && (@{{ field }}.name != "hash" || !update?)
           @hash.value = nil

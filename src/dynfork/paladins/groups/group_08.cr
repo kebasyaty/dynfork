@@ -1,10 +1,12 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type BoolField.
+  # :nodoc:
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
+    # Validation of fields of type BoolField.
+    #
     current_value : Bool = false
     if !(val = field_ptr.value.extract_val_bool?).nil?
       current_value = val.not_nil!

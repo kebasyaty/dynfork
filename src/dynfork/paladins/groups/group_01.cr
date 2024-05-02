@@ -1,9 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of `text` type fields:
-  # <br>
-  # ColorField | EmailField | PasswordField | PhoneField
-  # | TextField | HashField | URLField | IPField
-  #
+  # :nodoc:
   def group_01(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
@@ -13,6 +9,11 @@ module DynFork::QPaladins::Groups
     collection_ptr : Pointer(Mongo::Collection),
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Nil
+    # Validation of `text` type fields:
+    # <br>
+    # ColorField | EmailField | PasswordField | PhoneField
+    # | TextField | HashField | URLField | IPField
+    #
     # When updating, we skip field password type.
     if update? && field_ptr.value.field_type == "PasswordField"
       field_ptr.value.value = nil

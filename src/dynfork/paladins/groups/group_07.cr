@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type F64Field.
+  # :nodoc:
   def group_07(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
@@ -8,6 +8,8 @@ module DynFork::QPaladins::Groups
     collection_ptr : Pointer(Mongo::Collection),
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Nil
+    # Validation of fields of type F64Field.
+    #
     # Get current value.
     current_value : Float64 = (
       value : Float64? = field_ptr.value.extract_val_f64? || field_ptr.value.extract_default_f64?
