@@ -1,3 +1,8 @@
+#### v0.5.3 2024-05-02
+
+- Added new error type `InvalidHashString`.
+- Documentation updated.
+
 #### v0.5.2 2024-05-02
 
 - Documentation updated.
