@@ -150,14 +150,14 @@ module DynFork::Fields
     end
 
     def refrash_val_str(val : String) : Nil
-      unless BSON::ObjectId.validate(value)
+      unless BSON::ObjectId.validate(val)
         raise DynFork::Errors::Fields::InvalidHashString.new
       end
       @value = val
     end
 
-    def value=(value : String) : Nil
-      unless BSON::ObjectId.validate(value)
+    def value=(value : String?) : Nil
+      if !value.nil? && !BSON::ObjectId.validate(value.not_nil!)
         raise DynFork::Errors::Fields::InvalidHashString.new
       end
       @value = value
