@@ -1,8 +1,6 @@
 module DynFork::QPaladins::Groups
   # :nodoc:
   def group_06(
-    # Validation of fields of type I64Field.
-    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
@@ -10,6 +8,8 @@ module DynFork::QPaladins::Groups
     collection_ptr : Pointer(Mongo::Collection),
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Nil
+    # Validation of fields of type I64Field.
+    #
     # Get current value.
     current_value : Int64 = (
       value : Int64? = field_ptr.value.extract_val_i64? || field_ptr.value.extract_default_i64?

@@ -1,6 +1,12 @@
 module DynFork::QPaladins::Groups
   # :nodoc:
   def group_03(
+    field_ptr : Pointer(DynFork::Globals::FieldTypes),
+    error_symptom_ptr? : Pointer(Bool),
+    save? : Bool,
+    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
+    collection_ptr : Pointer(Mongo::Collection)
+  ) : Nil
     # Validation of `choice` type fields:
     # <br>
     # ChoiceTextField | ChoiceTextMultField
@@ -10,12 +16,6 @@ module DynFork::QPaladins::Groups
     # | ChoiceF64Field | ChoiceF64MultField
     # | ChoiceF64DynField | ChoiceF64MultDynField
     #
-    field_ptr : Pointer(DynFork::Globals::FieldTypes),
-    error_symptom_ptr? : Pointer(Bool),
-    save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
-    collection_ptr : Pointer(Mongo::Collection)
-  ) : Nil
     # Get current value.
     current_value : DynFork::Globals::FieldValueTypes = (
       value : DynFork::Globals::FieldValueTypes = field_ptr.value.value? || field_ptr.value.default?

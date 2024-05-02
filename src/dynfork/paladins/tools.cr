@@ -68,12 +68,14 @@ module DynFork::QPaladins::Tools
     end
   end
 
-  # For accumulating errors.
+  # :nodoc:
   def accumulate_error(
     err_msg : String,
     field_ptr : Pointer,
     error_symptom_ptr? : Pointer(Bool)
   ) : Nil
+    # For accumulating errors.
+    #
     if !field_ptr.value.hide?
       field_ptr.value.errors << err_msg
       (error_symptom_ptr?.value = true) unless error_symptom_ptr?.value

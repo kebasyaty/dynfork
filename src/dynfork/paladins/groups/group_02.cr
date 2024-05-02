@@ -1,16 +1,16 @@
 module DynFork::QPaladins::Groups
   # :nodoc:
   def group_02(
-    # Validation of `date` type fields:
-    # <br>
-    # DateField | DateTimeField
-    #
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
   ) : Nil
+    # Validation of `date` type fields:
+    # <br>
+    # DateField | DateTimeField
+    #
     # Get from cache Time objects - Max, min and default.
     time_objects : NamedTuple(
       default: Time?,
