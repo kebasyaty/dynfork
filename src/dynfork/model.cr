@@ -68,7 +68,7 @@ module DynFork
 
     # Field for the document identifier.
     # <br>
-    # **Examples:** `507c7f79bcf86cd7994f6c0e`#
+    # **Examples:** `507c7f79bcf86cd7994f6c0e`
     getter hash = DynFork::Fields::HashField
       .new(label: "Hash", hide: true, unique: true, ignored: true)
     # Field for the date and time the document was created.
