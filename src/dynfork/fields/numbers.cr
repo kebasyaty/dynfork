@@ -138,7 +138,7 @@ module DynFork::Fields
       end
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_i64(val : Int64) : Nil
       @value = val
     end
@@ -286,7 +286,7 @@ module DynFork::Fields
       end
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_f64(val : Float64) : Nil
       @value = val
     end

@@ -34,16 +34,6 @@ module DynFork::Fields
     @[JSON::Field(ignore: true)]
     getter group : UInt8 = 0
 
-    # Determine the presence of a variable (attribute) in the Field type.
-    def []?(variable) : Bool
-      {% for var in @type.instance_vars %}
-          if {{ var.name.stringify }} == variable
-              return true
-          end
-        {% end %}
-      false
-    end
-
     def choices_from_json(json : String) : Nil; end
 
     def slug_sources : Array(String)

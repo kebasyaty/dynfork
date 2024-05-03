@@ -133,7 +133,7 @@ module DynFork::Fields
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_str(val : String) : Nil
       @value = val
     end
@@ -280,7 +280,7 @@ module DynFork::Fields
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_arr_str(val : Array(String)) : Nil
       @value = val
     end
@@ -433,7 +433,7 @@ module DynFork::Fields
       @choices = Array(Tuple(String, String)).from_json(json)
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_str(val : String) : Nil
       @value = val
     end
@@ -588,7 +588,7 @@ module DynFork::Fields
       @choices = Array(Tuple(String, String)).from_json(json)
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_arr_str(val : Array(String)) : Nil
       @value = val
     end

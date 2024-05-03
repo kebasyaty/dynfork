@@ -226,7 +226,7 @@ module DynFork::Fields
       @value = value
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_file_data(val : DynFork::Globals::FileData) : Nil
       @value = val
     end
