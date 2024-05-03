@@ -133,6 +133,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
 
+    # For the `refrash_fields` method.
     def refrash_val_i64(val : Int64) : Nil
       @value = val
     end
@@ -279,6 +280,7 @@ module DynFork::Fields
       @choices : Array(Tuple(Int64, String))? = Array(Tuple(Int64, String)).new
     ); end
 
+    # For the `refrash_fields` method.
     def refrash_val_arr_i64(val : Array(Int64)) : Nil
       @value = val
     end
@@ -431,6 +433,7 @@ module DynFork::Fields
       @choices = Array(Tuple(Int64, String)).from_json(json)
     end
 
+    # For the `refrash_fields` method.
     def refrash_val_i64(val : Int64) : Nil
       @value = val
     end
@@ -580,6 +583,7 @@ module DynFork::Fields
       @hint : String = ""
     ); end
 
+    # For the `refrash_fields` method.
     def refrash_val_arr_i64(val : Array(Int64)) : Nil
       @value = val
     end

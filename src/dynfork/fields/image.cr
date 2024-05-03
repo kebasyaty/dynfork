@@ -250,6 +250,7 @@ module DynFork::Fields
       @value = value
     end
 
+    # For the `refrash_fields` method.
     def refrash_val_img_data(val : DynFork::Globals::ImageData) : Nil
       @value = val
     end

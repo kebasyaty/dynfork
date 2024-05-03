@@ -127,6 +127,7 @@ module DynFork::Fields
       @input_type = "checkbox"
     end
 
+    # For the `refrash_fields` method.
     def refrash_val_bool(val : Bool)
       @value = val
     end

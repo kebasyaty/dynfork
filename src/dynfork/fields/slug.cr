@@ -156,6 +156,7 @@ module DynFork::Fields
       @slug_sources
     end
 
+    # For the `refrash_fields` method.
     def refrash_val_str(val : String) : Nil
       @value = val
     end

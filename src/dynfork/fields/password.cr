@@ -140,6 +140,7 @@ module DynFork::Fields
       @input_type = "password"
     end
 
+    # For the `refrash_fields` method.
     def refrash_val_str(val : String) : Nil
       @value = val
     end
