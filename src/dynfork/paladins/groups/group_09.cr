@@ -5,6 +5,9 @@ module DynFork::QPaladins::Groups
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
     # Create string for SlugField.
+    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
+    # <br>
+    # <br>
     #
     raw_str_arr : Array(String) = Array(String).new
     slug_sources : Array(String) = field_ptr.value.slug_sources

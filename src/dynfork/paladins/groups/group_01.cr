@@ -13,7 +13,9 @@ module DynFork::QPaladins::Groups
     # <br>
     # ColorField | EmailField | PasswordField | PhoneField
     # | TextField | HashField | URLField | IPField
-    #
+    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
+    # <br>
+    # <br>
     # When updating, we skip field password type.
     if update? && field_ptr.value.field_type == "PasswordField"
       field_ptr.value.value = nil

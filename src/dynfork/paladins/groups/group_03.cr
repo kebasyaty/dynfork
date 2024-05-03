@@ -15,7 +15,9 @@ module DynFork::QPaladins::Groups
     # | ChoiceI64DynField | ChoiceI64MultDynField
     # | ChoiceF64Field | ChoiceF64MultField
     # | ChoiceF64DynField | ChoiceF64MultDynField
-    #
+    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
+    # <br>
+    # <br>
     # Get current value.
     current_value : DynFork::Globals::FieldValueTypes = (
       value : DynFork::Globals::FieldValueTypes = field_ptr.value.value? || field_ptr.value.default?

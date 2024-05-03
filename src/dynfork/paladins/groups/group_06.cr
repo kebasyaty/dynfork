@@ -9,7 +9,9 @@ module DynFork::QPaladins::Groups
     id_ptr : Pointer(BSON::ObjectId?)
   ) : Nil
     # Validation of fields of type I64Field.
-    #
+    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
+    # <br>
+    # <br>
     # Get current value.
     current_value : Int64 = (
       value : Int64? = field_ptr.value.extract_val_i64? || field_ptr.value.extract_default_i64?

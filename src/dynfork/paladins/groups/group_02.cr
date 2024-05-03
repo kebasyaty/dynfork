@@ -10,7 +10,9 @@ module DynFork::QPaladins::Groups
     # Validation of `date` type fields:
     # <br>
     # DateField | DateTimeField
-    #
+    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
+    # <br>
+    # <br>
     # Get from cache Time objects - Max, min and default.
     time_objects : NamedTuple(
       default: Time?,
