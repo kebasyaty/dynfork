@@ -1,14 +1,12 @@
 module DynFork::QPaladins::Groups
-  # :nodoc:
+  # Validation of fields of type BoolField.
+  # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
-    # Validation of fields of type BoolField.
-    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
-    # <br>
-    # <br>
+    #
     current_value : Bool = false
     if !(val = field_ptr.value.extract_val_bool?).nil?
       current_value = val.not_nil!

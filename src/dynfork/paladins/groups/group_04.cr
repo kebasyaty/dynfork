@@ -1,5 +1,6 @@
 module DynFork::QPaladins::Groups
-  # :nodoc:
+  # Validation of fields of type FileField.
+  # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_04(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
@@ -7,10 +8,6 @@ module DynFork::QPaladins::Groups
     save? : Bool,
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
-    # Validation of fields of type FileField.
-    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
-    # <br>
-    # <br>
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
     if !update? && field_ptr.value.value?.nil? && field_ptr.value.default?.nil?

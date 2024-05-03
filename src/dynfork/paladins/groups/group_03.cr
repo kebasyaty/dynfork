@@ -1,5 +1,13 @@
 module DynFork::QPaladins::Groups
-  # :nodoc:
+  # Validation of `choice` type fields:
+  # <br>
+  # ChoiceTextField | ChoiceTextMultField
+  # | ChoiceTextDynField | ChoiceTextMultDynField
+  # | ChoiceI64Field | ChoiceI64MultField
+  # | ChoiceI64DynField | ChoiceI64MultDynField
+  # | ChoiceF64Field | ChoiceF64MultField
+  # | ChoiceF64DynField | ChoiceF64MultDynField
+  # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_03(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
@@ -7,17 +15,6 @@ module DynFork::QPaladins::Groups
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
     collection_ptr : Pointer(Mongo::Collection)
   ) : Nil
-    # Validation of `choice` type fields:
-    # <br>
-    # ChoiceTextField | ChoiceTextMultField
-    # | ChoiceTextDynField | ChoiceTextMultDynField
-    # | ChoiceI64Field | ChoiceI64MultField
-    # | ChoiceI64DynField | ChoiceI64MultDynField
-    # | ChoiceF64Field | ChoiceF64MultField
-    # | ChoiceF64DynField | ChoiceF64MultDynField
-    # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
-    # <br>
-    # <br>
     # Get current value.
     current_value : DynFork::Globals::FieldValueTypes = (
       value : DynFork::Globals::FieldValueTypes = field_ptr.value.value? || field_ptr.value.default?
