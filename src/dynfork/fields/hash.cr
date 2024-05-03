@@ -8,7 +8,7 @@ module DynFork::Fields
     # Html tag: input type="url".
     getter! input_type : String?
     # Sets the value of an element.
-    @value : String?
+    property! value : String?
     # Displays prompt text.
     getter placeholder : String
     # The maximum number of characters allowed in the text.
@@ -150,25 +150,7 @@ module DynFork::Fields
     end
 
     def refrash_val_str(val : String) : Nil
-      unless BSON::ObjectId.validate(val)
-        raise DynFork::Errors::Fields::InvalidHashString.new
-      end
       @value = val
-    end
-
-    def value=(value : String?) : Nil
-      if !value.nil? && !BSON::ObjectId.validate(value.not_nil!)
-        raise DynFork::Errors::Fields::InvalidHashString.new
-      end
-      @value = value
-    end
-
-    def value? : String?
-      @value
-    end
-
-    def value : String
-      @value.not_nil!
     end
   end
 end
