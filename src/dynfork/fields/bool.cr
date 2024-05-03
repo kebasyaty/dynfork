@@ -127,15 +127,17 @@ module DynFork::Fields
       @input_type = "checkbox"
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_bool(val : Bool)
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_val_bool? : Bool?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_default_bool? : Bool?
       @default
     end

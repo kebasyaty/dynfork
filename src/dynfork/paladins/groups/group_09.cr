@@ -1,10 +1,10 @@
 module DynFork::QPaladins::Groups
-  # :nodoc:
+  # Create string for SlugField.
+  # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
   ) : Nil
-    # Create string for SlugField.
     #
     raw_str_arr : Array(String) = Array(String).new
     slug_sources : Array(String) = field_ptr.value.slug_sources

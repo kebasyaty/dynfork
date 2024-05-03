@@ -250,15 +250,17 @@ module DynFork::Fields
       @value = value
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_img_data(val : DynFork::Globals::ImageData) : Nil
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_img_data? : DynFork::Globals::ImageData?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_images_dir_path? : String?
       @value.images_dir_path? unless @value.nil?
     end

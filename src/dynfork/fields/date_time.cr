@@ -160,7 +160,7 @@ module DynFork::Fields
       self.datetime_parse(@value.as(String)) unless @value.nil?
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_datetime(val : Time) : Nil
       @value = val.to_s("%FT%H:%M:%S")
     end

@@ -149,7 +149,7 @@ module DynFork::Fields
       nil
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_str(val : String) : Nil
       @value = val
     end

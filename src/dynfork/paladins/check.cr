@@ -6,10 +6,9 @@ require "./groups/*"
 module DynFork::QPaladins::Check
   include DynFork::QPaladins::Groups
 
-  # :nodoc:
+  # Validation of Model data.
+  # NOTE: This method is used within the `DynFork::QPaladins::Tools#valid?` and `DynFork::QPaladins::Save#save` methods.
   def check(
-    # Validation of Model data.
-    #
     collection_ptr : Pointer(Mongo::Collection),
     save? : Bool = false
   ) : DynFork::Globals::OutputData

@@ -226,15 +226,17 @@ module DynFork::Fields
       @value = value
     end
 
-    # For the `refrash_fields` method.
+    # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_file_data(val : DynFork::Globals::FileData) : Nil
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_file_data? : DynFork::Globals::FileData?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_file_path? : String?
       @value.path unless @value.nil?
     end
