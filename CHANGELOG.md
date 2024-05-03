@@ -1,3 +1,9 @@
+#### v0.5.4 2024-05-03
+
+- The `Model#object_id?` method has been optimized.
+- The `HashField` field type has been optimized.
+- Removed error type `InvalidHashString`.
+
 #### v0.5.3 2024-05-02
 
 - Added new error type `InvalidHashString`.
