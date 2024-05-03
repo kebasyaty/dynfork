@@ -255,10 +255,12 @@ module DynFork::Fields
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_img_data? : DynFork::Globals::ImageData?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_images_dir_path? : String?
       @value.images_dir_path? unless @value.nil?
     end

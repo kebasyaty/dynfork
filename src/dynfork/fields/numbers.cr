@@ -143,10 +143,12 @@ module DynFork::Fields
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_val_i64? : Int64?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_default_i64? : Int64?
       @default
     end
@@ -291,10 +293,12 @@ module DynFork::Fields
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_val_f64? : Float64?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_default_f64? : Float64?
       @default
     end

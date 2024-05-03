@@ -231,10 +231,12 @@ module DynFork::Fields
       @value = val
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_file_data? : DynFork::Globals::FileData?
       @value
     end
 
+    # For the `DynFork::QPaladins::Check#check` method.
     def extract_file_path? : String?
       @value.path unless @value.nil?
     end
