@@ -12,7 +12,7 @@
     <p align="center">
       <a href="https://github.com/kebasyaty/dynfork/actions" alt="CI"><img src="https://github.com/kebasyaty/dynfork/workflows/CI/badge.svg" alt="CI"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
-      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11%2B-red" alt="Crysta"></a>
+      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11%2B-000000" alt="Crysta"></a>
       <a href="https://github.com/kebasyaty/dynfork/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
       <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="GitHub license"><img src="https://badgen.net/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
       <a href="https://github.com/kebasyaty/dynfork" alt="GitHub repository"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
@@ -68,7 +68,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.5.4
+       version: ~> 0.6.0
    ```
 
 4. Run `shards install`
@@ -269,3 +269,12 @@ _Links to documentation._
 ## Contributors
 
 - [kebasyaty](https://github.com/kebasyaty) Gennady Kostyunin - creator and maintainer
+
+<br>
+<br>
+<div>
+  <a href="https://crystal-lang.org/" alt="Made with Crystal">
+    <img width="100%" src="https://github.com/kebasyaty/dynfork/raw/main/pictures/made-with-crystal.svg"
+      alt="Made with Crystal">
+  </a>
+</div>

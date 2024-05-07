@@ -1,3 +1,8 @@
+#### v0.6.0 2024-05-07
+
+- Added `find_one_and_delete` mctode.
+- Documentation updated.
+
 #### v0.5.4 2024-05-03
 
 - The `Model#object_id?` method has been optimized.

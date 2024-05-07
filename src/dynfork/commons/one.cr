@@ -244,4 +244,56 @@ module DynFork::QCommons::One
       session: session,
     )
   end
+
+  # Finds a single document and deletes it, returning the original.
+  # The document to return may be nil.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/findAndModify/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
+  #
+  # Example:
+  # ```
+  # model_name : ModelName? = ModelName.find_one_and_delete({_id: id})
+  # ```
+  #
+  def find_one_and_delete(
+    filter,
+    *,
+    sort = nil,
+    fields = nil,
+    bypass_document_validation : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    collation : Mongo::Collation? = nil,
+    hint : String | Hash | NamedTuple | Nil = nil,
+    max_time_ms : Int64? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : self?
+    #
+    unless @@meta.not_nil![:migrat_model?]
+      raise DynFork::Errors::Panic.new(
+        "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
+        "This Model is not migrated to the database!"
+      )
+    end
+    # Get collection for current model.
+    collection : Mongo::Collection = DynFork::Globals.mongo_database[
+      @@meta.not_nil![:collection_name]]
+    #
+    if doc : BSON? = collection.find_one_and_delete(
+         filter: filter,
+         sort: sort,
+         fields: fields,
+         bypass_document_validation: bypass_document_validation,
+         write_concern: write_concern,
+         collation: collation,
+         hint: hint,
+         max_time_ms: max_time_ms,
+         session: session,
+       )
+      instance = self.new
+      instance.refrash_fields pointerof(doc)
+      return instance
+    end
+    #
+    nil
+  end
 end
