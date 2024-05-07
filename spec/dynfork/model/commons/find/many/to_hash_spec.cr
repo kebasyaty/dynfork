@@ -25,8 +25,8 @@ describe DynFork::QCommons::Many do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      arr : Array(Hash(String, DynFork::Globals::FieldValueTypes)) = Spec::Data::ValueNoNil.find_many_to_hash_list
-      arr.empty?.should be_true
+      arr : Array(Hash(String, DynFork::Globals::FieldValueTypes))? = Spec::Data::ValueNoNil.find_many_to_hash_list
+      arr.nil?.should be_true
       #
       2.times { |idx|
         m = Spec::Data::ValueNoNil.new
