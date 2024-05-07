@@ -239,6 +239,7 @@ _Links to documentation._
 - find_one_to_hash
 - find_one_to_instance
 - find_one_to_json
+- find_one_and_delete
 - unit_manager
 - delete_many
 - delete_one
