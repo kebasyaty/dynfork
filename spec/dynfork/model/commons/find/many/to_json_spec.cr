@@ -25,8 +25,8 @@ describe DynFork::QCommons::Many do
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------
-      json : String = Spec::Data::ValueNoNil.find_many_to_json
-      json.empty?.should be_true
+      json : String? = Spec::Data::ValueNoNil.find_many_to_json
+      json.nil?.should be_true
       #
       2.times { |idx|
         m = Spec::Data::ValueNoNil.new
@@ -73,7 +73,7 @@ describe DynFork::QCommons::Many do
       Spec::Data::ValueNoNil.estimated_document_count.should eq(2)
       #
       json = Spec::Data::ValueNoNil.find_many_to_json
-      json.empty?.should be_false
+      json.not_nil!.empty?.should be_false
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")
