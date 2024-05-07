@@ -1,3 +1,8 @@
+#### v0.6.1 2024-05-07
+
+- Fixed methods in the `QCommons` module.
+- Documentation updated.
+
 #### v0.6.0 2024-05-07
 
 - Added `find_one_and_delete` mctode.
