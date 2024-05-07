@@ -24,7 +24,7 @@ module DynFork::QCommons::General
     max_time_ms : Int64? = nil,
     bypass_document_validation : Bool? = nil,
     collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     comment : String? = nil,
     read_concern : Mongo::ReadConcern? = nil,
     write_concern : Mongo::WriteConcern? = nil,
@@ -122,7 +122,7 @@ module DynFork::QCommons::General
     skip : Int32? = nil,
     limit : Int32? = nil,
     collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     max_time_ms : Int64? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil

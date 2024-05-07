@@ -19,7 +19,7 @@ module DynFork::QCommons::Many
     *,
     sort = nil,
     projection = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     skip : Int32? = nil,
     limit : Int32? = nil,
     batch_size : Int32? = nil,
@@ -40,7 +40,7 @@ module DynFork::QCommons::Many
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Array(Hash(String, DynFork::Globals::FieldValueTypes))
+  ) : Array(Hash(String, DynFork::Globals::FieldValueTypes))?
     #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -86,7 +86,7 @@ module DynFork::QCommons::Many
       hash_list << self.document_to_hash(pointerof(document), field_name_params_list_ptr)
     }
     #
-    hash_list
+    return hash_list unless hash_list.empty?
   end
 
   # Finds the documents matching the Model.
@@ -106,7 +106,7 @@ module DynFork::QCommons::Many
     *,
     sort = nil,
     projection = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     skip : Int32? = nil,
     limit : Int32? = nil,
     batch_size : Int32? = nil,
@@ -127,7 +127,7 @@ module DynFork::QCommons::Many
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : String
+  ) : String?
     #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -177,8 +177,6 @@ module DynFork::QCommons::Many
       json += "]"
       return json
     end
-    #
-    ""
   end
 
   # Deletes multiple documents.
@@ -188,7 +186,7 @@ module DynFork::QCommons::Many
     filter,
     *,
     collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     ordered : Bool? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil

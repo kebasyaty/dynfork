@@ -16,7 +16,7 @@ module DynFork::QCommons::One
     *,
     sort = nil,
     projection = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     skip : Int32? = nil,
     comment : String? = nil,
     max_time_ms : Int64? = nil,
@@ -67,8 +67,6 @@ module DynFork::QCommons::One
       instance.refrash_fields pointerof(doc)
       return instance
     end
-    #
-    nil
   end
 
   # Find the document and convert it to a Hash object.
@@ -85,7 +83,7 @@ module DynFork::QCommons::One
     *,
     sort = nil,
     projection = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     skip : Int32? = nil,
     comment : String? = nil,
     max_time_ms : Int64? = nil,
@@ -138,8 +136,6 @@ module DynFork::QCommons::One
       doc_hash = self.document_to_hash(pointerof(doc_bson), field_name_params_list_ptr)
       return doc_hash
     end
-    #
-    nil
   end
 
   # Finds the document and converts it to a json string.
@@ -156,7 +152,7 @@ module DynFork::QCommons::One
     *,
     sort = nil,
     projection = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     skip : Int32? = nil,
     comment : String? = nil,
     max_time_ms : Int64? = nil,
@@ -171,7 +167,7 @@ module DynFork::QCommons::One
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : String
+  ) : String?
     #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -208,8 +204,6 @@ module DynFork::QCommons::One
       json : String = instance.to_json
       return json
     end
-    #
-    ""
   end
 
   # Deletes one document.
@@ -219,7 +213,7 @@ module DynFork::QCommons::One
     filter,
     *,
     collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     ordered : Bool? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
@@ -263,7 +257,7 @@ module DynFork::QCommons::One
     bypass_document_validation : Bool? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     collation : Mongo::Collation? = nil,
-    hint : String | Hash | NamedTuple | Nil = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
     max_time_ms : Int64? = nil,
     session : Mongo::Session::ClientSession? = nil
   ) : self?
@@ -293,7 +287,5 @@ module DynFork::QCommons::One
       instance.refrash_fields pointerof(doc)
       return instance
     end
-    #
-    nil
   end
 end
