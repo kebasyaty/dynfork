@@ -1,5 +1,3 @@
-<br>
-<br>
 <div align="center">
   <p align="center">
     <a href="https://github.com/kebasyaty/dynfork">
