@@ -269,3 +269,12 @@ _Links to documentation._
 ## Contributors
 
 - [kebasyaty](https://github.com/kebasyaty) Gennady Kostyunin - creator and maintainer
+
+<br>
+<br>
+<div>
+  <a href="https://crystal-lang.org/" alt="Made with Crystal">
+    <img width="100%" src="https://github.com/kebasyaty/dynfork/raw/main/pictures/made-with-crystal.svg"
+      alt="Made with Crystal">
+  </a>
+</div>
