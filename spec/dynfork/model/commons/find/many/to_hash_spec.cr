@@ -73,7 +73,7 @@ describe DynFork::QCommons::Many do
       Spec::Data::ValueNoNil.estimated_document_count.should eq(2)
       #
       arr = Spec::Data::ValueNoNil.find_many_to_hash_list
-      arr.size.should eq 2
+      arr.not_nil!.size.should eq 2
       #
       FileUtils.rm_rf("assets/media/files")
       FileUtils.rm_rf("assets/media/images")
