@@ -51,7 +51,7 @@ require "./dynfork/migration"
 # <br>
 #  DynFork is free software under terms of the Apache Version 2.0 and MIT License.
 module DynFork
-  VERSION = "0.6.1"
+  VERSION = "0.6.2"
 end
 
 module Validator
