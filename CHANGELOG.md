@@ -1,3 +1,8 @@
+#### v0.6.2 2024-05-08
+
+- Updated `.ameba.yml` file.
+- Documentation updated.
+
 #### v0.6.1 2024-05-07
 
 - Fixed methods in the `QCommons` module.
