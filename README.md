@@ -273,7 +273,7 @@ _Links to documentation._
 
 ## License
 
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/main/LICENSE "MIT").
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/main/LICENSE "MIT")**.**
 
 ## Changelog
 
