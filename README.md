@@ -134,7 +134,7 @@ puts "Documwnt count: #{User.count_documents}"
 
 See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.html "here").
 
-###### only `service_name` is a required parameter
+###### ( only `service_name` is a required parameter )
 
 <div>
    <table>
@@ -190,6 +190,26 @@ See the documentation [here](https://kebasyaty.github.io/dynfork/DynFork/Meta.ht
      </tr>
    </table>
 </div>
+
+<br>
+
+**Example:**
+
+```crystal
+  @[DynFork::Meta(
+    service_name: "ServiceName",
+    fixture_name: "FixtureName",
+    db_query_docs_limit: 1000,
+    migrat_model?: true,
+    create_doc?: true,
+    update_doc?: true,
+    delete_doc?: true,
+  )]
+  struct User < DynFork::Model
+    getter username = DynFork::Fields::TextField.new
+    getter birthday = DynFork::Fields::DateField.new
+  end
+```
 
 ## Methods for developers
 

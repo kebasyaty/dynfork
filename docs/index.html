@@ -799,7 +799,7 @@ puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>only <code>service_name</code> is a required parameter</h6>
+</a>( only <code>service_name</code> is a required parameter )</h6>
 <div>
    <table>
      <tr>
@@ -854,6 +854,21 @@ puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span
      </tr>
    </table>
 </div>
+<br>
+<p><strong>Example:</strong></p>
+<pre><code class="language-crystal">  @[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(
+    service_name: <span class="s">&quot;ServiceName&quot;</span>,
+    fixture_name: <span class="s">&quot;FixtureName&quot;</span>,
+    db_query_docs_limit: <span class="n">1000</span>,
+    migrat_model?: <span class="n">true</span>,
+    create_doc?: <span class="n">true</span>,
+    update_doc?: <span class="n">true</span>,
+    delete_doc?: <span class="n">true</span>,
+  )]
+  <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+    getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+    getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+  <span class="k">end</span></code></pre>
 <h2><a id="methods-for-developers" class="anchor" href="#methods-for-developers">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
