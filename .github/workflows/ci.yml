@@ -47,6 +47,7 @@ jobs:
             apk add  mongodb mongodb-tools
             rc-update add mongodb default
             rc-service mongodb start
+            rc-service mongodb status
       - name: Print MongoDB version
         run: mongo --version
       - name: Run tests
