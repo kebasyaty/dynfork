@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     container:
-      image: alpine:3.19.1 crystallang/crystal:latest
+      image: alpine:3.19.1
       options: --user root
 
     steps:
@@ -19,6 +19,8 @@ jobs:
       - name: Install dependencies of OS
         run: >
             apk add
+            crystal
+            shards
             libjpeg-turbo
             libjpeg-turbo-dev
             libspng
