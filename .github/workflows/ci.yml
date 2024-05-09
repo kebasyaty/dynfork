@@ -48,7 +48,7 @@ jobs:
             rc-update add mongodb default
             rc-service mongodb start
       - name: Print MongoDB version
-        run: mongodb --version
+        run: mongo --version
       - name: Run tests
         run: |
           crystal spec --tag global_alias
