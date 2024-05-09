@@ -23,6 +23,8 @@ jobs:
           apt update
           apt -y install sudo
           sudo apt -y install wget gnupg2 systemctl
+          sudo add-apt-repository 'deb http://ftp.de.debian.org/debian bullseye main '
+          sudo apt update
           sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
