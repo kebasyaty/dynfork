@@ -20,6 +20,7 @@ jobs:
         run: >
             apk add
             crystal
+            shards
             libjpeg-turbo
             libjpeg-turbo-dev
             libspng
@@ -29,7 +30,6 @@ jobs:
             make
             openssl
             openssl-dev
-            shards
             yaml
             yaml-dev
       - name: Install dependencies of project
