@@ -23,7 +23,7 @@ jobs:
           apt update
           apt -y install sudo
           sudo apt -y install curl wget gnupg2 systemctl
-          curl -fsSL http://ftp.uk.debian.org/debian/dists/bullseye/InRelease | sudo tee /usr/share/keyrings/bullseye
+          curl -fsSL http://ftp.uk.debian.org/debian/dists/bullseye/Release.gpg | sudo tee /usr/share/keyrings/bullseye
           sudo sh -c "echo 'deb [trusted=yes] http://ftp.uk.debian.org/debian bullseye main' >> /etc/apt/sources.list"
           sudo apt update
           sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
