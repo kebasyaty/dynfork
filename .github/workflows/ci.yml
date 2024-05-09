@@ -40,8 +40,6 @@ jobs:
         run: crystal tool format --check
       - name: Install MongoDB
         run: >
-            echo "https://dl-cdn.alpine-linux.org/alpine/v3.19.1/main" >> sudo tee -a /etc/apk/repositories
-            echo "https://dl-cdn.alpine-linux.org/alpine/v3.19.1/community" >> sudo tee -a /etc/apk/repositories
             apk add  mongodb mongodb-tools
             rc-update add mongodb default
             rc-service mongodb start
