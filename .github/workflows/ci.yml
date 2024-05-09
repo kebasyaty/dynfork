@@ -14,21 +14,28 @@ jobs:
         mongodb-version: [7.0, 6.0]
 
     container:
-      image: crystallang/crystal:latest
+      image: alpine:3.19
       options: --user root
 
     steps:
-      - name: Install dependencies
-        run: |
-          apt update
-          apt -y install sudo
-          sudo apt -y install curl wget gnupg2 systemctl
-          wget -qO- https://deb.debian.org/debian/dists/bookworm/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/debian.gpg
-          sudo sh -c "echo 'deb https://deb.debian.org/debian bookworm main' >> /etc/apt/sources.list"
-          sudo apt update
-          sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
+      - name: Install dependencies
+        run: >
+            apk add
+            crystal
+            libjpeg-turbo
+            libjpeg-turbo-dev
+            libspng
+            libspng-dev
+            libwebp
+            libwebp-dev
+            make
+            openssl
+            openssl-dev
+            shards
+            yaml
+            yaml-dev
       - name: Install dependencies
         run: shards install
       - name: Check code style
