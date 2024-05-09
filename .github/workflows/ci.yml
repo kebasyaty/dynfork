@@ -23,7 +23,7 @@ jobs:
           apt update
           apt -y install sudo
           sudo apt -y install curl wget gnupg2 systemctl
-          wget -qO- https://deb.debian.org/debian/dists/bookworm/InRelease | sudo tee /etc/apt/trusted.gpg.d/debian.gpg
+          wget -qO- https://deb.debian.org/debian/dists/bookworm/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/debian.gpg
           sudo sh -c "echo 'deb https://deb.debian.org/debian bookworm main' >> /etc/apt/sources.list"
           sudo apt update
           sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
