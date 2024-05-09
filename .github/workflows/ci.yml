@@ -44,10 +44,8 @@ jobs:
         run: >
             echo "https://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
             echo "https://dl-cdn.alpine-linux.org/alpine/v3.19/community" >> sudo tee -a /etc/apk/repositories
-            apk add  mongodb mongodb-tools
-            rc-update add mongodb default
-            rc-service mongodb start
-            rc-service mongodb status
+            sudo apk add --update mongodb yaml-cpp=0.6.2-r2
+            export MONGOMS_SYSTEM_BINARY=/usr/bin/mongod
       - name: Print MongoDB version
         run: mongo --version
       - name: Run tests
