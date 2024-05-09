@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install dependencies
+      - name: Install OS dependencies
         run: >
             echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
             echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/community" >> sudo tee -a /etc/apk/repositories
@@ -37,7 +37,7 @@ jobs:
             shards
             yaml
             yaml-dev
-      - name: Install dependencies
+      - name: Install Project Dependencies
         run: shards install
       - name: Check code style
         run: bin/ameba
