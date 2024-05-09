@@ -32,6 +32,12 @@ jobs:
             shards
             yaml
             yaml-dev
+      - name: Install dependencies of project
+        run: shards install
+      - name: Check code style
+        run: bin/ameba
+      - name: Check formatting
+        run: crystal tool format --check
       - name: Install MongoDB
         run: >
             echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
@@ -39,12 +45,6 @@ jobs:
             apk add  mongodb mongodb-tools
             rc-update add mongodb default
             rc-service mongodb start
-      - name: Install dependencies of project
-        run: shards install
-      - name: Check code style
-        run: bin/ameba
-      - name: Check formatting
-        run: crystal tool format --check
       - name: Run tests
         run: |
           crystal spec --tag global_alias
