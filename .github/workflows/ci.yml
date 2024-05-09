@@ -32,6 +32,8 @@ jobs:
             openssl-dev
             yaml
             yaml-dev
+      - name: Print Crystal version
+        run: crystal version
       - name: Install dependencies of project
         run: shards install
       - name: Check code style
@@ -45,6 +47,8 @@ jobs:
             apk add  mongodb mongodb-tools
             rc-update add mongodb default
             rc-service mongodb start
+      - name: Print MongoDB version
+        run: mongodb --version
       - name: Run tests
         run: |
           crystal spec --tag global_alias
