@@ -7,10 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     container:
-      image: alpine:latest
+      image: alpine:3.19
       options: --user root
 
     steps:
@@ -40,8 +40,8 @@ jobs:
         run: crystal tool format --check
       - name: Install MongoDB
         run: >
-            echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
-            echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/community" >> sudo tee -a /etc/apk/repositories
+            echo "https://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
+            echo "https://dl-cdn.alpine-linux.org/alpine/v3.19/community" >> sudo tee -a /etc/apk/repositories
             apk add  mongodb mongodb-tools
             rc-update add mongodb default
             rc-service mongodb start
