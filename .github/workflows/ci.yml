@@ -23,9 +23,8 @@ jobs:
           apt update
           apt -y install sudo
           sudo apt -y install curl wget gnupg2 systemctl
-          sudo mkdir -m 0755 -p /etc/apt/keyrings/
-          curl -fsSL http://ftp.uk.debian.org/debian/dists/bullseye/Release.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/Release.gpg
-          sudo sh -c "echo 'deb [signed-by=/etc/apt/keyrings/Release.gpg] http://ftp.uk.debian.org/debian bullseye main' | sudo tee /etc/apt/sources.list.d/Release.list > /dev/null"
+          sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9 6ED0E7B82643E131 605C66F00D6C9793
+          sudo sh -c "echo 'deb http://ftp.uk.debian.org/debian bullseye main' >> /etc/apt/sources.list"
           sudo apt update
           sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
