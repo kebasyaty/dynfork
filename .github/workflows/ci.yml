@@ -7,11 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        mongodb-version: [7.0, 6.0]
+    runs-on: ubuntu-22.04
 
     container:
       image: alpine:3.19
@@ -22,6 +18,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: >
+            echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/main" >> sudo tee -a /etc/apk/repositories
+            echo "http://dl-cdn.alpine-linux.org/alpine/v3.19/community" >> sudo tee -a /etc/apk/repositories
+            apk add  mongodb mongodb-tools
+            rc-update add mongodb default
             apk add
             crystal
             libjpeg-turbo
@@ -42,10 +42,6 @@ jobs:
         run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
-      - name: Start MongoDB
-        uses: kebasyaty/setup-mongodb@v1
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
         run: |
           crystal spec --tag global_alias
