@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     container:
-      image: debian:12
+      image: debian:testing
       options: --user root
 
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Install and start MongoDB
         run: |
           curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
           sudo apt update
           sudo apt install -y mongodb-org
           sudo systemctl start mongod
