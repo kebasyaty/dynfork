@@ -23,6 +23,7 @@ jobs:
           apt update
           apt install -y sudo
           sudo apt install -y curl wget gnupg2 systemctl
+          sudo mkdir -m 0755 -p /etc/apt/keyrings/
           curl -fsSL http://deb.debian.org/debian/dists/testing/InRelease | sudo gpg --dearmor -o /etc/apt/keyrings/debian.gpg
           sudo sh -c "echo 'deb [signed-by=/etc/apt/keyrings/debian.gpg] http://deb.debian.org/debian testing main' | sudo tee /etc/apt/sources.list.d/debian.list > /dev/null"
           sudo apt update
