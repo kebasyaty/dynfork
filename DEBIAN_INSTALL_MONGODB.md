@@ -3,7 +3,7 @@
 ### Add repository:
 
 ```shell
-sudo apt install gnupg2 curl
+sudo apt install -y gnupg2 curl
 curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
    --dearmor
