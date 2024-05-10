@@ -9,40 +9,33 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    strategy:
-      matrix:
-        mongodb-version: [7.0, 6.0]
-
     container:
-      image: crystallang/crystal:latest
+      image: debian:testing
       options: --user root
 
     steps:
-      - name: Install dependencies
+      - name: Install dependencies of OS
         run: |
           apt update
-          apt -y install sudo
-          sudo apt install -y wget gnupg2 systemctl
-          sudo apt -y install libturbojpeg0-dev
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng0_0.7.3-3_amd64.deb' &&
-          sudo dpkg -i 'libspng0_0.7.3-3_amd64.deb'
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
-          sudo dpkg -i 'libspng-dev_0.7.3-3_amd64.deb'
-          sudo apt -y install libwebp-dev
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv0_1.3.2-0.4+b1_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv0_1.3.2-0.4+b1_amd64.deb'
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb'
+          apt install -y sudo
+          sudo apt install -y curl gnupg2 systemctl git
+          curl -fsSL https://crystal-lang.org/install.sh | sudo bash
+          sudo apt install -y libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install dependencies
+      - name: Install dependencies of project
         run: shards install
+      - name: Check code style
+        run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
-      - name: Start MongoDB
-        uses: kebasyaty/setup-mongodb@v1
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Install and start MongoDB
+        run: |
+          curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          sudo apt update
+          sudo apt install -y mongodb-org
+          sudo systemctl start mongod
       - name: Run tests
         run: |
           crystal spec --tag global_alias
