@@ -23,7 +23,7 @@ jobs:
           apt update
           apt install -y sudo
           sudo apt install -y curl wget gnupg2 systemctl
-          wget -qO- https://deb.debian.org/debian/dists/testing/Release.gpg | sudo tee /etc/apt/trusted.gpg.d/debian.gpg
+          curl -fsSL https://deb.debian.org/debian/dists/testing/Release.gpg | sudo tee /usr/share/keyrings/debian.gpg
           sudo sh -c "echo 'deb https://deb.debian.org/debian testing main' >> /etc/apt/sources.list"
           sudo apt update
           sudo apt install -y libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
