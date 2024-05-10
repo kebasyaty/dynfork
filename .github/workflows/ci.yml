@@ -18,7 +18,9 @@ jobs:
         run: |
           apt update
           apt -y install sudo
-          sudo apt install -y wget gnupg2 systemctl
+          sudo apt install -y curl gnupg2 systemctl
+          curl -fsSL https://crystal-lang.org/install.sh | sudo bash
+          sudo apt -y install libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies of project
