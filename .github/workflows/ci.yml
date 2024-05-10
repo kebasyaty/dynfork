@@ -9,40 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    strategy:
-      matrix:
-        mongodb-version: [7.0, 6.0]
-
     container:
-      image: crystallang/crystal:latest
+      image: debian:12
       options: --user root
 
     steps:
-      - name: Install dependencies
+      - name: Install dependencies of OS
         run: |
           apt update
           apt -y install sudo
           sudo apt install -y wget gnupg2 systemctl
-          sudo apt -y install libturbojpeg0-dev
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng0_0.7.3-3_amd64.deb' &&
-          sudo dpkg -i 'libspng0_0.7.3-3_amd64.deb'
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libs/libspng/libspng-dev_0.7.3-3_amd64.deb' &&
-          sudo dpkg -i 'libspng-dev_0.7.3-3_amd64.deb'
-          sudo apt -y install libwebp-dev
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv0_1.3.2-0.4+b1_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv0_1.3.2-0.4+b1_amd64.deb'
-          sudo wget --no-check-certificate 'http://ftp.uk.debian.org/debian/pool/main/libw/libwebp/libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb' &&
-          sudo dpkg -i 'libsharpyuv-dev_1.3.2-0.4+b1_amd64.deb'
       - name: Download source
         uses: actions/checkout@v4
-      - name: Install dependencies
+      - name: Install dependencies of project
         run: shards install
+      - name: Check code style
+        run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
-      - name: Start MongoDB
-        uses: kebasyaty/setup-mongodb@v1
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
       - name: Run tests
         run: |
           crystal spec --tag global_alias
