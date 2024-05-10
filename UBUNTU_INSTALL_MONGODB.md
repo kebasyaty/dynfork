@@ -1,4 +1,4 @@
-# Ubuntu 22.04 | Linux Mint
+# Ubuntu 22.04 | Linux Mint 21
 
 ### Add repository:
 
@@ -17,6 +17,7 @@ sudo apt update
 
 ```shell
 sudo apt install -y mongodb-org
+mongod --version
 sudo systemctl start mongod
 sudo systemctl status mongod
 sudo systemctl enable mongod
