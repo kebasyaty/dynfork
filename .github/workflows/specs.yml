@@ -1,4 +1,4 @@
-name: CI
+name: Specs
 
 on:
   push:
@@ -15,14 +15,13 @@ jobs:
 
     steps:
       - name: Install dependencies of OS
-        run: |
+        run: >
           apt update
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
-          curl -fsSL https://crystal-lang.org/install.sh | sudo bash
-          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
-            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
-      - name: Download source
+      - name: Install Crystal language
+        run: curl -fsSL https://crystal-lang.org/install.sh | sudo bash
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies of project
         run: shards install
@@ -30,8 +29,11 @@ jobs:
         run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
+      - name: Install graphics libraries
+        run: sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
+          libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Install and start MongoDB
-        run: |
+        run: >
           curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
             sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
           echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
@@ -41,7 +43,7 @@ jobs:
           sudo apt install -y mongodb-org
           sudo systemctl start mongod
       - name: Run tests
-        run: |
+        run: >
           crystal spec --tag global_alias
           crystal spec --tag global_regex
           crystal spec --tag global_settings
