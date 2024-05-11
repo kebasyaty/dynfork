@@ -1,4 +1,4 @@
-name: CI
+name: Specs
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-22.04
 
     container:
@@ -14,22 +14,25 @@ jobs:
       options: --user root
 
     steps:
-      - name: Install dependencies of OS
+      - name: Update system state
         run: |
           apt update
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
-          curl -fsSL https://crystal-lang.org/install.sh | sudo bash
-          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
-            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
-      - name: Download source
+      - name: Install Crystal language
+        run: curl -fsSL https://crystal-lang.org/install.sh | sudo bash
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install dependencies of project
+      - name: Install dependencies
         run: shards install
       - name: Check code style
         run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
+      - name: Install graphics libraries
+        run: |
+          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
+            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Install and start MongoDB
         run: |
           curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
