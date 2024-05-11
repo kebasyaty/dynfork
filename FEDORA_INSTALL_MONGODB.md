@@ -3,18 +3,14 @@
 ### Add repository:
 
 ```shell
-sudo nano /etc/yum.repos.d/mongodb.repo
-```
-
-###### Insert this content:
-
-```text
+sudo tee /etc/yum.repos.d/mongodb.repo << "EOF" > /dev/null
 [mongodb]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/${basearch}/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+EOF
 ```
 
 ### Install:
