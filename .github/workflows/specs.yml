@@ -23,7 +23,7 @@ jobs:
         run: curl -fsSL https://crystal-lang.org/install.sh | sudo bash
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install dependencies of project
+      - name: Install dependencies
         run: shards install
       - name: Check code style
         run: bin/ameba
