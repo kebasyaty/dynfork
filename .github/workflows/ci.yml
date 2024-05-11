@@ -20,7 +20,8 @@ jobs:
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
           curl -fsSL https://crystal-lang.org/install.sh | sudo bash
-          sudo apt install -y libturbojpeg0 libturbojpeg0-dev libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
+          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
+            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - name: Download source
         uses: actions/checkout@v4
       - name: Install dependencies of project
@@ -31,8 +32,11 @@ jobs:
         run: crystal tool format --check
       - name: Install and start MongoDB
         run: |
-          curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+            sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
+            https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | \
+              sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
           sudo apt update
           sudo apt install -y mongodb-org
           sudo systemctl start mongod
