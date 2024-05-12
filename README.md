@@ -273,14 +273,6 @@ _Links to documentation._
 - drop_indexes
 - list_indexes
 
-## License
-
-**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/main/LICENSE "MIT")**.**
-
-## Changelog
-
-[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
-
 ## Contributing
 
 1. Fork it (<https://github.com/kebasyaty/dynfork/fork>)
@@ -292,6 +284,14 @@ _Links to documentation._
 ## Contributors
 
 - [kebasyaty](https://github.com/kebasyaty) Gennady Kostyunin - creator and maintainer
+
+## Changelog
+
+[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
+
+## License
+
+**This project is licensed under the** [MIT](https://github.com/kebasyaty/dynfork/blob/main/LICENSE "MIT")**.**
 
 <br>
 <br>
