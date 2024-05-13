@@ -377,5 +377,23 @@ module DynFork::Fields
       (@value = 0) if @value.nil?
       @value = @value.not_nil! * clean_value
     end
+
+    # Convert a monetary amount to a string.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.5
+    # puts model_name.finance_to_s # => "12.50"
+    # ```
+    #
+    def finance_to_s : String?
+      if value = @value
+        ((BigDecimal.new(value.not_nil!)).round(2)).to_s
+      end
+    end
   end
 end

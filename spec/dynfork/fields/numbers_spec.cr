@@ -73,12 +73,16 @@ describe DynFork::Fields::F64Field do
       # Financial methods.
       f.finance_plus 12.5
       f.value.should eq 12.5
+      f.finance_to_s.should eq "12.50"
       f.finance_minus 6.25
       f.value.should eq 6.25
+      f.finance_to_s.should eq "6.25"
       f.finance_divide 2
       f.value.should eq 3.12
+      f.finance_to_s.should eq "3.12"
       f.finance_multiply 2
       f.value.should eq 6.24
+      f.finance_to_s.should eq "6.24"
     end
 
     it "=> create instance with input_type=range", tags: "fields" do
