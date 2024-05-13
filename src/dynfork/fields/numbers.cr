@@ -311,11 +311,11 @@ module DynFork::Fields
     # Example:
     # ```
     # model_name = ModelName.new
-    # model_name.amount.financial_plus(12.5)
+    # model_name.amount.finance_plus(12.5)
     # puts model_name.amount.value # => 12.5
     # ```
     #
-    def financial_plus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_plus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value += clean_value
@@ -330,11 +330,11 @@ module DynFork::Fields
     # ```
     # model_name = ModelName.new
     # model_name.amount.value = 12.5
-    # model_name.amount.financial_minus(6.25)
+    # model_name.amount.finance_minus(6.25)
     # puts model_name.amount.value # => 6.25
     # ```
     #
-    def financial_minus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_minus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value -= clean_value
@@ -349,11 +349,11 @@ module DynFork::Fields
     # ```
     # model_name = ModelName.new
     # model_name.amount.value = 12.5
-    # model_name.amount.financial_divide(2)
+    # model_name.amount.finance_divide(2)
     # puts model_name.amount.value # => 6.25
     # ```
     #
-    def financial_divide(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_divide(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value /= clean_value
@@ -368,11 +368,11 @@ module DynFork::Fields
     # ```
     # model_name = ModelName.new
     # model_name.amount.value = 12.5
-    # model_name.amount.financial_multiply(2)
+    # model_name.amount.finance_multiply(2)
     # puts model_name.amount.value # => 25.0
     # ```
     #
-    def financial_multiply(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_multiply(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value *= clean_value
