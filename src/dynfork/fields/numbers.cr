@@ -302,5 +302,21 @@ module DynFork::Fields
     def extract_default_f64? : Float64?
       @default
     end
+
+    # Add some number to the value.
+    # NOTE: Banikir rounding is used.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.financial_plus(12.50)
+    # puts model_name.amount.value # => 12.50
+    # ```
+    #
+    def financial_plus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+      clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
+      (@value = 0) if @value.nil?
+      @value += clean_value
+    end
   end
 end
