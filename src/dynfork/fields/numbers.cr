@@ -315,7 +315,7 @@ module DynFork::Fields
     # puts model_name.amount.value # => 12.5
     # ```
     #
-    def finance_plus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_plus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value += clean_value
@@ -334,7 +334,7 @@ module DynFork::Fields
     # puts model_name.amount.value # => 6.25
     # ```
     #
-    def finance_minus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_minus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value -= clean_value
@@ -353,7 +353,7 @@ module DynFork::Fields
     # puts model_name.amount.value # => 6.25
     # ```
     #
-    def finance_divide(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_divide(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value /= clean_value
@@ -372,7 +372,7 @@ module DynFork::Fields
     # puts model_name.amount.value # => 25.0
     # ```
     #
-    def finance_multiply(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+    def finance_multiply(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value *= clean_value
