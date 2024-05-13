@@ -279,7 +279,6 @@ _Links to documentation._
 - finance_minus
 - finance_divide
 - finance_multiply
-- finance_to_s
 
 ## Contributing
 
