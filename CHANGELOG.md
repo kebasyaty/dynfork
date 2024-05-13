@@ -1,6 +1,6 @@
 #### v0.7.0 2024-05-13
 
-- Financial methods have been added for the field type `FieldF64`:
+- Financial methods have been added for the field type `F64Field`:
   - financial_plus
   - financial_minus
   - financial_divide
