@@ -34,6 +34,7 @@
         "crystal spec --tag webslug;",
         "crystal spec --tag fields;",
         "crystal spec --tag field_json;",
+        "crystal spec --tag financial_methods;",
         "crystal spec --tag model;",
         "crystal spec --tag model_json;",
         "crystal spec --tag mongo_client;",
