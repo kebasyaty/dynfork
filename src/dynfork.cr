@@ -42,14 +42,14 @@ require "./dynfork/migration"
 # The project is focused on web development.
 # <br>
 # <br>
-# _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0._
+# _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0_
 # <br>
 # _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 # <br>
 # <br>
 #  Copyright (c) 2023 kebasyaty - Gennady Kostyunin
 # <br>
-#  DynFork is free software under terms of the Apache Version 2.0 and MIT License.
+#  DynFork is free software under terms of the MIT License.
 module DynFork
   VERSION = "0.6.2"
 end
