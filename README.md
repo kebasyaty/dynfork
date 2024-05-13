@@ -3,7 +3,7 @@
     <a href="https://github.com/kebasyaty/dynfork">
       <img
         alt="Logo"
-        src="https://github.com/kebasyaty/dynfork/raw/main/logo/logo.svg">
+        src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/logo/logo.svg">
     </a>
   </p>
   <p>
@@ -37,7 +37,7 @@ _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryo
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
-    <img src="https://github.com/kebasyaty/dynfork/raw/main/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -297,7 +297,7 @@ _Links to documentation._
 <br>
 <div>
   <a href="https://crystal-lang.org/" alt="Made with Crystal">
-    <img width="100%" src="https://github.com/kebasyaty/dynfork/raw/main/pictures/made-with-crystal.svg"
+    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/made-with-crystal.svg"
       alt="Made with Crystal">
   </a>
 </div>
