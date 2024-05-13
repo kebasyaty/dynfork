@@ -5,6 +5,7 @@
   - finance_minus
   - finance_divide
   - finance_multiply
+  - finance_to_s
 - Documentation updated.
 
 #### v0.6.2 2024-05-08
