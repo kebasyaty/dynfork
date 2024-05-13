@@ -303,7 +303,7 @@ module DynFork::Fields
       @default
     end
 
-    # Add some number to the value.
+    # Add some number to the `value`.
     # NOTE: Banikir rounding is used.
     #
     # Example:
@@ -317,6 +317,22 @@ module DynFork::Fields
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value += clean_value
+    end
+
+    # Subtract some number to the “value”.
+    # NOTE: Banikir rounding is used.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.financial_minus(12.50)
+    # puts model_name.amount.value # => -12.50
+    # ```
+    #
+    def financial_minus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+      clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
+      (@value = 0) if @value.nil?
+      @value -= clean_value
     end
   end
 end
