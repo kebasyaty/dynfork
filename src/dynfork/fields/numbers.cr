@@ -307,6 +307,7 @@ module DynFork::Fields
     # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
     #
     # Example:
     # ```
@@ -325,6 +326,7 @@ module DynFork::Fields
     # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
     #
     # Example:
     # ```
@@ -344,6 +346,7 @@ module DynFork::Fields
     # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
     #
     # Example:
     # ```
@@ -363,6 +366,7 @@ module DynFork::Fields
     # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
     #
     # Example:
     # ```
