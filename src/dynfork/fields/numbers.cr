@@ -304,6 +304,7 @@ module DynFork::Fields
     end
 
     # Add some number to the `value`.
+    # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Banikir rounding is used.
     #
     # Example:
@@ -320,19 +321,39 @@ module DynFork::Fields
     end
 
     # Subtract some number to the “value”.
+    # NOTE: For secure calculations, `BigDecimal` is used.
     # NOTE: Banikir rounding is used.
     #
     # Example:
     # ```
     # model_name = ModelName.new
-    # model_name.amount.financial_minus(12.50)
-    # puts model_name.amount.value # => -12.50
+    # model_name.amount.value = 12.50
+    # model_name.amount.financial_minus(6.25)
+    # puts model_name.amount.value # => 6.25
     # ```
     #
     def financial_minus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value -= clean_value
+    end
+
+    # Divide `value` by some number.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Banikir rounding is used.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.50
+    # model_name.amount.financial_divide(2)
+    # puts model_name.amount.value # => 6.25
+    # ```
+    #
+    def financial_divide(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+      clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
+      (@value = 0) if @value.nil?
+      @value /= clean_value
     end
   end
 end
