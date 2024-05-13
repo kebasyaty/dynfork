@@ -305,13 +305,14 @@ module DynFork::Fields
 
     # Add some number to the `value`.
     # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
     #
     # Example:
     # ```
     # model_name = ModelName.new
-    # model_name.amount.financial_plus(12.50)
-    # puts model_name.amount.value # => 12.50
+    # model_name.amount.financial_plus(12.5)
+    # puts model_name.amount.value # => 12.5
     # ```
     #
     def financial_plus(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
@@ -322,12 +323,13 @@ module DynFork::Fields
 
     # Subtract some number to the “value”.
     # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
     #
     # Example:
     # ```
     # model_name = ModelName.new
-    # model_name.amount.value = 12.50
+    # model_name.amount.value = 12.5
     # model_name.amount.financial_minus(6.25)
     # puts model_name.amount.value # => 6.25
     # ```
@@ -340,12 +342,13 @@ module DynFork::Fields
 
     # Divide `value` by some number.
     # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
     # NOTE: Banikir rounding is used.
     #
     # Example:
     # ```
     # model_name = ModelName.new
-    # model_name.amount.value = 12.50
+    # model_name.amount.value = 12.5
     # model_name.amount.financial_divide(2)
     # puts model_name.amount.value # => 6.25
     # ```
@@ -354,6 +357,25 @@ module DynFork::Fields
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
       @value /= clean_value
+    end
+
+    # Multiply `value` by some number.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.5
+    # model_name.amount.financial_multiply(2)
+    # puts model_name.amount.value # => 25.0
+    # ```
+    #
+    def financial_multiply(num : Float | Int | BigInt | BigRotional | BigDecimal | String) : Nil
+      clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
+      (@value = 0) if @value.nil?
+      @value *= clean_value
     end
   end
 end
