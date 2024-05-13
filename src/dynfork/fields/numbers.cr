@@ -302,5 +302,80 @@ module DynFork::Fields
     def extract_default_f64? : Float64?
       @default
     end
+
+    # Add some number to the `value`.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.finance_plus(12.5)
+    # puts model_name.amount.value # => 12.5
+    # ```
+    #
+    def finance_plus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
+      (@value = 0) if @value.nil?
+      @value = ((BigDecimal.new(@value.not_nil!) + BigDecimal.new(num)).round(2)).to_f64
+    end
+
+    # Subtract some number to the “value”.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.5
+    # model_name.amount.finance_minus(6.25)
+    # puts model_name.amount.value # => 6.25
+    # ```
+    #
+    def finance_minus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
+      (@value = 0) if @value.nil?
+      @value = ((BigDecimal.new(@value.not_nil!) - BigDecimal.new(num)).round(2)).to_f64
+    end
+
+    # Divide `value` by some number.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.5
+    # model_name.amount.finance_divide(2)
+    # puts model_name.amount.value # => 6.25
+    # ```
+    #
+    def finance_divide(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
+      (@value = 0) if @value.nil?
+      @value = ((BigDecimal.new(@value.not_nil!) / BigDecimal.new(num)).round(2)).to_f64
+    end
+
+    # Multiply `value` by some number.
+    # NOTE: For secure calculations, `BigDecimal` is used.
+    # NOTE: Rounded to two decimal places.
+    # NOTE: Banikir rounding is used.
+    # NOTE: For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
+    #
+    # Example:
+    # ```
+    # model_name = ModelName.new
+    # model_name.amount.value = 12.5
+    # model_name.amount.finance_multiply(2)
+    # puts model_name.amount.value # => 25.0
+    # ```
+    #
+    def finance_multiply(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
+      (@value = 0) if @value.nil?
+      @value = ((BigDecimal.new(@value.not_nil!) * BigDecimal.new(num)).round(2)).to_f64
+    end
   end
 end
