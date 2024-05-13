@@ -318,7 +318,7 @@ module DynFork::Fields
     def finance_plus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
-      @value += clean_value
+      @value.not_nil! += clean_value
     end
 
     # Subtract some number to the “value”.
@@ -337,7 +337,7 @@ module DynFork::Fields
     def finance_minus(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
-      @value -= clean_value
+      @value.not_nil! -= clean_value
     end
 
     # Divide `value` by some number.
@@ -356,7 +356,7 @@ module DynFork::Fields
     def finance_divide(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
-      @value /= clean_value
+      @value.not_nil! /= clean_value
     end
 
     # Multiply `value` by some number.
@@ -375,7 +375,7 @@ module DynFork::Fields
     def finance_multiply(num : Float | Int | BigInt | BigRational | BigDecimal | String) : Nil
       clean_value : Float64 = ((BigDecimal.new(num)).round(2)).to_f64
       (@value = 0) if @value.nil?
-      @value *= clean_value
+      @value.not_nil! *= clean_value
     end
   end
 end
