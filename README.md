@@ -273,6 +273,14 @@ _Links to documentation._
 - drop_indexes
 - list_indexes
 
+**[F64Field:](https://kebasyaty.github.io/dynfork/DynFork/Fields/F64Field.html "F64Field:")**
+
+- finance_plus
+- finance_minus
+- finance_divide
+- finance_multiply
+- finance_to_s
+
 ## Contributing
 
 1. Fork it (<https://github.com/kebasyaty/dynfork/fork>)
