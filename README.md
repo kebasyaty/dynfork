@@ -70,7 +70,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.7.0
+       version: ~> 0.7.1
    ```
 
 4. Run `shards install`
@@ -279,6 +279,8 @@ _Links to documentation._
 - finance_minus
 - finance_divide
 - finance_multiply
+
+For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
 
 ## Contributing
 
