@@ -280,6 +280,8 @@ _Links to documentation._
 - finance_divide
 - finance_multiply
 
+For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.
+
 ## Contributing
 
 1. Fork it (<https://github.com/kebasyaty/dynfork/fork>)
