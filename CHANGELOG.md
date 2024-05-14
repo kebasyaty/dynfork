@@ -1,3 +1,7 @@
+#### v0.7.1 2024-05-14
+
+- Documentation updated.
+
 #### v0.7.0 2024-05-13
 
 - Financial methods have been added for the field type `F64Field`:
