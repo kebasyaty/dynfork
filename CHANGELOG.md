@@ -1,3 +1,7 @@
+#### v0.7.2 2024-05-21
+
+- Documentation updated.
+
 #### v0.7.1 2024-05-14
 
 - Documentation updated.
