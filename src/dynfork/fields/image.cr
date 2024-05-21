@@ -17,7 +17,7 @@ module DynFork::Fields
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
-    property media_root : String = "assets/media"
+    property media_root : String = "assets/media/uploads"
     # URL address for the media directory.
     getter media_url : String = "/media"
     # Directory for images inside media directory.
