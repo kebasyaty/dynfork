@@ -42,8 +42,8 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.unique_app_key.should eq("0w7n5731X13s1641")
       DynFork::Globals.database_name.should eq("AppName_0w7n5731X13s1641")
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
@@ -64,8 +64,8 @@ describe DynFork::Migration::Monitor do
       DynFork::Globals.unique_app_key.should eq("0585I0S5huR5r08q")
       DynFork::Globals.database_name.should eq("DatabaseName360")
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
@@ -82,8 +82,8 @@ describe DynFork::Migration::Monitor do
         mongo_client: Mongo::Client.new("mongodb://localhost:27017")
       )
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
@@ -131,8 +131,8 @@ describe DynFork::Migration::Monitor do
       Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_dyn"].should eq("[]")
       Spec::Data::DefaultNoNil.meta[:data_dynamic_fields]["choice_f64_mult_dyn"].should eq("[]")
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       #
       # Delete database after test.
       Spec::Support.delete_test_db(
