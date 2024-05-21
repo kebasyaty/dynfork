@@ -17,9 +17,9 @@ module DynFork::Fields
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
-    property media_root : String = "assets/media"
+    property media_root : String = "assets/media/uploads"
     # URL address for the media directory.
-    getter media_url : String = "/media"
+    getter media_url : String = "/media/uploads"
     # Directory for images inside media directory.
     # <br>
     # _Examples: avatars|photos|images_
@@ -128,7 +128,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = I18n.t("allowed_files.interpolation", types: "jpg/jpeg, png and webp"),
+      @hint : String = I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp"),
       @warning : String = ""
     )
       @input_type = "file"

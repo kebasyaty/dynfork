@@ -74,8 +74,8 @@ describe DynFork::QCommons::General do
     Spec::Data::ValueNoNil.estimated_document_count.should eq 2
     # pp! Spec::Data::ValueNoNil.stats.not_nil!.to_h
     #
-    FileUtils.rm_rf("assets/media/files")
-    FileUtils.rm_rf("assets/media/images")
+    FileUtils.rm_rf("assets/media/uploads/files")
+    FileUtils.rm_rf("assets/media/uploads/images")
     # ------------------------------------------------------------------------
     #
     # Delete database after test.

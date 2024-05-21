@@ -12,8 +12,8 @@ describe DynFork::Fields::ImageField do
       f.value?.should be_nil
       f.default?.should be_nil
       f.placeholder.should eq("")
-      f.media_root.should eq("assets/media")
-      f.media_url.should eq("/media")
+      f.media_root.should eq("assets/media/uploads")
+      f.media_url.should eq("/media/uploads")
       f.target_dir.should eq("images")
       f.accept.should eq("image/png,image/jpeg,image/webp")
       f.thumbnails?.should be_nil
@@ -24,7 +24,7 @@ describe DynFork::Fields::ImageField do
       f.required?.should be_false
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.hint.should eq("Only jpg/jpeg, png and webp files are allowed.")
+      f.hint.should eq("Only jpeg, jpg, png, webp files are allowed.")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(5_u8)

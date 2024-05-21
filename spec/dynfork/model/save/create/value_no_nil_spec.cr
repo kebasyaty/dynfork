@@ -144,8 +144,8 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_false
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

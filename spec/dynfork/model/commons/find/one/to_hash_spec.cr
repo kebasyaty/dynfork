@@ -75,8 +75,8 @@ describe DynFork::QCommons::One do
       doc_hash = Spec::Data::ValueNoNil.find_one_to_hash({text: "Some text 2"})
       doc_hash.not_nil!["text"].should eq "Some text 2"
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

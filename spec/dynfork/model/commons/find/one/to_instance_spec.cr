@@ -75,8 +75,8 @@ describe DynFork::QCommons::One do
       instance = Spec::Data::ValueNoNil.find_one_to_instance({text: "Some text 2"})
       instance.not_nil!.text.value?.should eq "Some text 2"
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
