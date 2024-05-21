@@ -3,6 +3,7 @@
 .DS_Store
 /tmp/
 
+# Ignore temporary media files
 /assets/media/uploads/**
 !/assets/media/uploads/.gitkeep
 
