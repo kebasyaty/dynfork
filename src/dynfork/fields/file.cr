@@ -17,7 +17,7 @@ module DynFork::Fields
     # Root directory for storing media files.
     getter media_root : String = "assets/media/uploads"
     # URL address for the media directory.
-    getter media_url : String = "/media"
+    getter media_url : String = "/media/uploads"
     # Directory for files inside media directory.
     # <br>
     # _Examples: files|resume|reports_
