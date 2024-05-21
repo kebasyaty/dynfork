@@ -75,8 +75,8 @@ describe DynFork::QCommons::Many do
       arr = Spec::Data::ValueNoNil.find_many_to_hash_list
       arr.not_nil!.size.should eq 2
       #
-      FileUtils.rm_rf("assets/media/files")
-      FileUtils.rm_rf("assets/media/images")
+      FileUtils.rm_rf("assets/media/uploads/files")
+      FileUtils.rm_rf("assets/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
