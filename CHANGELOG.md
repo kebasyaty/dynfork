@@ -1,5 +1,6 @@
 #### v0.7.2 2024-05-21
 
+- An intermediate directory `uploads` has been added to the `media` directory.
 - Documentation updated.
 
 #### v0.7.1 2024-05-14
