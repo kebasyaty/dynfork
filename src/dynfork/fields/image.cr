@@ -12,12 +12,12 @@ module DynFork::Fields
     property! value : DynFork::Globals::ImageData?
     # Default file path.
     # <br>
-    # _Example: "assets/media/default/noavatar.jpg"_
+    # _Example: "public/media/default/noavatar.jpg"_
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
     # Root directory for storing media files.
-    property media_root : String = "assets/media/uploads"
+    property media_root : String = "public/media/uploads"
     # URL address for the media directory.
     getter media_url : String = "/media/uploads"
     # Directory for images inside media directory.
