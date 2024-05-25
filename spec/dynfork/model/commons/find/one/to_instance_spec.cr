@@ -59,8 +59,8 @@ describe DynFork::QCommons::One do
         m.choice_f64_dyn.value = nil
         m.choice_f64_mult_dyn.value = nil
         #
-        m.file.from_path("assets/media/default/no_doc.odt")
-        m.image.from_path("assets/media/default/no_photo.jpeg")
+        m.file.from_path("public/media/default/no_doc.odt")
+        m.image.from_path("public/media/default/no_photo.jpeg")
         #
         m.i64.value = 10_i64
         m.f64.value = 10.2
@@ -75,8 +75,8 @@ describe DynFork::QCommons::One do
       instance = Spec::Data::ValueNoNil.find_one_to_instance({text: "Some text 2"})
       instance.not_nil!.text.value?.should eq "Some text 2"
       #
-      FileUtils.rm_rf("assets/media/uploads/files")
-      FileUtils.rm_rf("assets/media/uploads/images")
+      FileUtils.rm_rf("public/media/uploads/files")
+      FileUtils.rm_rf("public/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

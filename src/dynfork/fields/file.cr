@@ -12,10 +12,10 @@ module DynFork::Fields
     property! value : DynFork::Globals::FileData?
     # Default file path.
     # <br>
-    # _Example: "assets/media/default/nodoc.docx"_
+    # _Example: "public/media/default/nodoc.docx"_
     getter! default : String?
     # Root directory for storing media files.
-    getter media_root : String = "assets/media/uploads"
+    getter media_root : String = "public/media/uploads"
     # URL address for the media directory.
     getter media_url : String = "/media/uploads"
     # Directory for files inside media directory.

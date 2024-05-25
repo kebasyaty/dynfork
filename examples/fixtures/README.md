@@ -49,8 +49,8 @@ choice_f64: 5.0
 choice_f64_mult: [5.0]
 choice_f64_dyn:
 choice_f64_mult_dyn:
-file: "assets/media/default/no_doc.odt"
-image: "assets/media/default/no_photo.jpeg"
+file: "public/media/default/no_doc.odt"
+image: "public/media/default/no_photo.jpeg"
 i64: 10
 f64: 10.2
 bool:

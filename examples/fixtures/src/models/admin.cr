@@ -9,7 +9,7 @@ module Models::Admin
   )]
   struct SiteSettings < DynFork::Model
     getter logo = DynFork::Fields::ImageField.new(
-      default: "assets/media/default/no_photo.jpeg",
+      default: "public/media/default/no_photo.jpeg",
       thumbnails: [{"xs", 40}, {"sm", 80}, {"md", 120}, {"lg", 160}]
     )
     getter brand = DynFork::Fields::TextField.new

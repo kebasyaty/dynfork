@@ -12,7 +12,7 @@ describe DynFork::Fields::ImageField do
       f.value?.should be_nil
       f.default?.should be_nil
       f.placeholder.should eq("")
-      f.media_root.should eq("assets/media/uploads")
+      f.media_root.should eq("public/media/uploads")
       f.media_url.should eq("/media/uploads")
       f.target_dir.should eq("images")
       f.accept.should eq("image/png,image/jpeg,image/webp")

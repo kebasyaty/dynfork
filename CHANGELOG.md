@@ -1,5 +1,6 @@
-#### v0.7.2 2024-05-21
+#### v0.7.2 2024-05-25
 
+- Renamed the `assets` directory to `public`.
 - An intermediate directory `uploads` has been added to the `media` directory.
 - Documentation updated.
 

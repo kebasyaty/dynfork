@@ -5,11 +5,11 @@ module Models::Accounts
       unique: true
     )
     getter avatar = DynFork::Fields::ImageField.new(
-      default: "assets/media/default/no_photo.jpeg",
+      default: "public/media/default/no_photo.jpeg",
       thumbnails: [{"xs", 40}, {"sm", 80}, {"md", 120}, {"lg", 160}]
     )
     getter resume = DynFork::Fields::FileField.new(
-      default: "assets/media/default/no_doc.odt",
+      default: "public/media/default/no_doc.odt",
     )
   end
 end

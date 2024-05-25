@@ -55,8 +55,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.from_path("assets/media/default/no_doc.odt")
-      m.image.from_path("assets/media/default/no_photo.jpeg")
+      m.file.from_path("public/media/default/no_doc.odt")
+      m.image.from_path("public/media/default/no_photo.jpeg")
       #
       m.i64.value = 10_i64
       m.f64.value = 10.2
@@ -148,8 +148,8 @@ describe DynFork::Model do
       #
       m.bool.default?.should be_false
       #
-      FileUtils.rm_rf("assets/media/uploads/files")
-      FileUtils.rm_rf("assets/media/uploads/images")
+      FileUtils.rm_rf("public/media/uploads/files")
+      FileUtils.rm_rf("public/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.
