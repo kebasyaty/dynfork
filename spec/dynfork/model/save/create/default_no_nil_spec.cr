@@ -104,16 +104,16 @@ describe DynFork::Model do
       m.choice_f64_dyn.default?.should be_nil
       m.choice_f64_mult_dyn.default?.should be_nil
       #
-      m.file.default?.should eq("assets/media/default/no_doc.odt")
-      m.image.default?.should eq("assets/media/default/no_photo.jpeg")
+      m.file.default?.should eq("public/media/default/no_doc.odt")
+      m.image.default?.should eq("public/media/default/no_photo.jpeg")
       #
       m.i64.default?.should eq(10_i64)
       m.f64.default?.should eq(10.2)
       #
       m.bool.default?.should be_true
       #
-      FileUtils.rm_rf("assets/media/uploads/files")
-      FileUtils.rm_rf("assets/media/uploads/images")
+      FileUtils.rm_rf("public/media/uploads/files")
+      FileUtils.rm_rf("public/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

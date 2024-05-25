@@ -35,8 +35,8 @@ module AppName
   end
 
   # Update user data.
-  user.avatar.from_path "assets/media/default/no_photo.jpeg"
-  user.resume.from_path "assets/media/default/no_doc.odt"
+  user.avatar.from_path "public/media/default/no_photo.jpeg"
+  user.resume.from_path "public/media/default/no_doc.odt"
 
   # Save user.
   # Hint: print_err - convenient for development.

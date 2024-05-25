@@ -92,8 +92,8 @@ describe DynFork::Model do
                            "Method: `.unit_manager` => " +
                            "It is impossible to delete a unit, the `Title` key is missing!"
       #
-      FileUtils.rm_rf("assets/media/uploads/files")
-      FileUtils.rm_rf("assets/media/uploads/images")
+      FileUtils.rm_rf("public/media/uploads/files")
+      FileUtils.rm_rf("public/media/uploads/images")
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

@@ -51,8 +51,8 @@ module Spec::Data
     getter choice_f64_dyn = DynFork::Fields::ChoiceF64DynField.new
     getter choice_f64_mult_dyn = DynFork::Fields::ChoiceF64MultDynField.new
 
-    getter file = DynFork::Fields::FileField.new(default: "assets/media/default/no_doc.odt")
-    getter image = DynFork::Fields::ImageField.new(default: "assets/media/default/no_photo.jpeg")
+    getter file = DynFork::Fields::FileField.new(default: "public/media/default/no_doc.odt")
+    getter image = DynFork::Fields::ImageField.new(default: "public/media/default/no_photo.jpeg")
 
     getter i64 = DynFork::Fields::I64Field.new(default: 10_i64)
     getter f64 = DynFork::Fields::F64Field.new(default: 10.2)
