@@ -26,7 +26,7 @@ jobs:
           echo "deb https://packagecloud.io/84codes/crystal/any any main" | \
             sudo tee /etc/apt/sources.list.d/84codes_crystal.list
           sudo apt update
-          sudo apt install crystal
+          sudo apt install -y crystal
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
