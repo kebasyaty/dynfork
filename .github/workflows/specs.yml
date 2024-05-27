@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo dnf update -y
           dnf install -y sudo
-          sudo dnf install -y curl gnupg2 systemctl git
+          sudo dnf -y install systemd git
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Crystal language
