@@ -39,4 +39,5 @@ jobs:
       - name: Start MongoDB
         run: |
           sudo dnf install -y mongodb-org
+          mongo -version
           sudo systemctl start mongod.service
