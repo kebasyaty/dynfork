@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: debian:testing
+      image: fedora:latest
       options: --user root
 
     steps:
       - name: Update system state
         run: |
-          apt update
-          apt install -y sudo
-          sudo apt install -y curl gnupg2 systemctl git
+          sudo dnf update -y
+          dnf install -y sudo
+          sudo dnf install -y curl gnupg2 systemctl git
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Crystal language
@@ -31,18 +31,26 @@ jobs:
         run: crystal tool format --check
       - name: Install graphics libraries
         run: |
-          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
-            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
-      - name: Install and start MongoDB
+          sudo dnf install -y libjpeg-turbo turbojpeg-devel
+          sudo dnf install -y libspng libspng-devel
+          sudo dnf install -y libwebp libwebp-devel
+          sudo dnf install -y libsharpyuv.so.0
+      - name: Install MongoDB
         run: |
-          curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-            sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
-            https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | \
-              sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-          sudo apt update
-          sudo apt install -y mongodb-org
-          sudo systemctl start mongod
+          sudo tee /etc/yum.repos.d/mongodb.repo << "EOF" > /dev/null
+          [mongodb]
+          name=MongoDB Repository
+          baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/${basearch}/
+          gpgcheck=1
+          enabled=1
+          gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+          EOF
+      - name: Start MongoDB
+        run: |
+          sudo dnf install -y mongodb-org
+          sudo systemctl start mongod.service
+          sudo systemctl status mongod.service
+          sudo systemctl enable mongod.service
       - name: Run tests
         run: |
           crystal spec --tag global_alias
