@@ -19,6 +19,7 @@ jobs:
           sudo dnf update -y
           dnf install -y sudo
           sudo dnf -y install systemd
+          sudo dockerd
       - name: Install graphics libraries
         run: |
           sudo dnf install -y libjpeg-turbo turbojpeg-devel
