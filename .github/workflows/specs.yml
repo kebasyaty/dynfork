@@ -11,7 +11,7 @@ jobs:
 
     container:
       image: fedora:latest
-      options: --user root
+      options: --user root --privileged
 
     steps:
       - name: Update system state
