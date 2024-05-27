@@ -18,7 +18,6 @@ jobs:
         run: |
           sudo dnf update -y
           dnf install -y sudo
-          sudo dnf install -y systemctl
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install graphics libraries
