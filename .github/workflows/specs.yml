@@ -18,6 +18,7 @@ jobs:
         run: |
           sudo dnf update -y
           dnf install -y sudo
+          sudo dnf -y install systemd
       - name: Install graphics libraries
         run: |
           sudo dnf install -y libjpeg-turbo turbojpeg-devel
