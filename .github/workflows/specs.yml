@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install Crystal language
-        run: crystal-lang/install-crystal@v1
+        uses: crystal-lang/install-crystal@v1
       - name: Install dependencies
         run: shards install
       - name: Check code style
