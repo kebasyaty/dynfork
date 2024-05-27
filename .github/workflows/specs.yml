@@ -19,10 +19,9 @@ jobs:
           sudo dnf update -y
           dnf install -y sudo
           sudo dnf -y install systemd git
+          curl -fsSL https://crystal-lang.org/install.sh | sudo bash
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install Crystal language
-        uses: crystal-lang/install-crystal@v1
       - name: Install dependencies
         run: shards install
       - name: Check code style
