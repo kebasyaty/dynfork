@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: fedora:latest
+      image: jrei/systemd-fedora
       options: --user root --privileged
 
     steps:
