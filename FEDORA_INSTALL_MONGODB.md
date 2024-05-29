@@ -1,15 +1,15 @@
-# Fedora
+# Fedora >= 40
 
 ### Add repository:
 
 ```shell
-sudo tee /etc/yum.repos.d/mongodb.repo << "EOF" > /dev/null
-[mongodb]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/${basearch}/
+sudo tee /etc/yum.repos.d/mongodb-org.repo << "EOF" > /dev/null
+[mongodb-org]
+name=MongoDB community Repository
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/$basearch/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+gpgkey=https://pgp.mongodb.com/server-7.0.asc
 EOF
 ```
 
@@ -17,10 +17,21 @@ EOF
 
 ```shell
 sudo dnf makecache --refresh
-sudo dnf update
-sudo dnf install -y mongodb-org
+sudo dnf install mongodb-org
 mongo -version
-sudo systemctl start mongod.service
-sudo systemctl status mongod.service
-sudo systemctl enable mongod.service
+sudo systemctl start mongod
+sudo systemctl enable mongod
+sudo systemctl status mongod --no-pager -l
 ```
+
+### Remove
+
+```shell
+sudo systemctl stop mongod
+sudo systemctl disable mongod
+sudo dnf erase $(rpm -qa | grep mongodb-org)
+sudo rm -f /etc/yum.repos.d/mongodb-org.repo
+sudo rm -r /var/log/mongodb /var/lib/mongo
+sudo dnf makecache --refresh
+```
+
