@@ -17,10 +17,10 @@ EOF
 
 ```shell
 sudo dnf makecache --refresh
-sudo dnf install mongodb-org
+sudo dnf install -y mongodb-org
 mongo -version
-sudo systemctl start mongod
 sudo systemctl enable mongod
+sudo systemctl start mongod
 sudo systemctl status mongod --no-pager -l
 ```
 
