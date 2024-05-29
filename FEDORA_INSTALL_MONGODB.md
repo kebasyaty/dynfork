@@ -20,8 +20,8 @@ sudo dnf makecache --refresh
 sudo dnf install mongodb-org
 mongo -version
 sudo systemctl start mongod
-sudo systemctl enable mongod
 sudo systemctl status mongod --no-pager -l
+sudo systemctl enable mongod
 ```
 
 ### Remove
