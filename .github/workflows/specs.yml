@@ -20,7 +20,7 @@ jobs:
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
       - name: Install Crystal language
-        run: sudo apt install -y crystal
+        run: sudo apt install -y crystal shards
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
