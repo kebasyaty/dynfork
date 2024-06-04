@@ -20,14 +20,7 @@ jobs:
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
       - name: Install Crystal language
-        run: |
-          curl -fsSL https://packagecloud.io/84codes/crystal/gpgkey | \
-            gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/84codes_crystal.gpg > /dev/null
-          echo "deb https://packagecloud.io/84codes/crystal/any any main" | \
-            sudo tee /etc/apt/sources.list.d/84codes_crystal.list
-          sudo apt update
-          sudo apt install -y crystal
-          sudo apt install -y shards
+        run: sudo apt install -y crystal shards
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
