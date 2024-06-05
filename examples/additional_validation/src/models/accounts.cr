@@ -9,7 +9,7 @@ module Models::Accounts
       placeholder: "Enter your username",
       maxlength: 150,
       minlength: 1,
-      regex: "^[a-zA-Z0-9_@.+]$",
+      regex: "^[a-zA-Z0-9_@.+]+$",
       regex_err_msg: I18n.t(
         "allowed_chars.interpolation",
         chars: "a-z A-Z 0-9 _ @ . +"
