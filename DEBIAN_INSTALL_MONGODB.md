@@ -1,5 +1,11 @@
 # Debian 13 `Trixie`
 
+**Your processor must support AVX/AVX2 instructions.**
+```shell
+# check
+lscpu | grep avx
+```
+
 ### Add repository:
 
 ```shell
