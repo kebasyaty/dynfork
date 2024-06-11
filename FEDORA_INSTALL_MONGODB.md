@@ -18,7 +18,7 @@ EOF
 ```shell
 sudo dnf makecache --refresh
 sudo dnf install mongodb-org
-mongo -version
+mongod --version
 sudo systemctl start mongod
 sudo systemctl status mongod --no-pager -l
 sudo systemctl enable mongod
