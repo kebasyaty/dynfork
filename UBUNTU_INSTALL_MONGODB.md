@@ -1,4 +1,10 @@
-# Ubuntu 22.04 | Linux Mint 21
+# Ubuntu 22.04 | Linux Mint 21.3
+
+**Your processor must support AVX/AVX2 instructions.**
+```shell
+# check
+lscpu | grep avx
+```
 
 ### Add repository:
 
