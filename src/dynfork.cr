@@ -42,7 +42,7 @@ require "./dynfork/migration"
 # The project is focused on web development.
 # <br>
 # <br>
-# _Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0_
+# _Compatible with MongoDB 3.6+. Tested against: 4.4, 7.0_
 # <br>
 # _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 # <br>
