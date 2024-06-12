@@ -70,7 +70,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.7.4
+       version: ~> 0.7.5
    ```
 
 4. Run `shards install`
