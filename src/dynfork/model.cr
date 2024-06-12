@@ -111,7 +111,7 @@ module DynFork
     end
 
     # Get ObjectId from hash field.
-    def object_id? : BSON::ObjectId?
+    def object_id : BSON::ObjectId?
       if value : String? = @hash.value?.presence
         return BSON::ObjectId.new(value.not_nil!)
       end

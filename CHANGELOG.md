@@ -1,3 +1,8 @@
+#### v0.7.4 2024-06-12
+
+- Renamed method - object_id? in object_id.
+- Documentation updated.
+
 #### v0.7.3 2024-06-12
 
 - Renamed method - verify_password? in verify_password.

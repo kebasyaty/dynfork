@@ -166,7 +166,7 @@ module DynFork::QPaladins::Tools
     collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     # Get the ID and delete the document.
-    if id : BSON::ObjectId? = self.object_id?
+    if id : BSON::ObjectId? = self.object_id
       # Run hook.
       self.pre_delete
       # Delete doc.
