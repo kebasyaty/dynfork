@@ -776,7 +776,7 @@ user.print_err <span class="k">unless</span> user.save
 
 <span class="c"># Print user details.</span>
 puts <span class="s">&quot;User details:&quot;</span>
-<span class="k">if</span> id <span class="o">=</span> user.object_id?
+<span class="k">if</span> id <span class="o">=</span> user.object_id
   pp <span class="t">User</span>.find_one_to_hash({_id: id})
 <span class="k">end</span>
 
