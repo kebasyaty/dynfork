@@ -1,3 +1,8 @@
+#### v0.7.3 2024-06-12
+
+- Renamed method - verify_password? in verify_password.
+- Documentation updated.
+
 #### v0.7.2 2024-05-25
 
 - Renamed the `assets` directory to `public`.
