@@ -38,7 +38,7 @@ module AppName
   user.print_err unless user.save
 
   # Verify password.
-  if user.verify_password?(password)
+  if user.verify_password(password)
     puts "The password matche."
   else
     puts "The password does not match."
@@ -51,7 +51,7 @@ module AppName
   )
 
   # Verify password.
-  if user.verify_password?(new_password)
+  if user.verify_password(new_password)
     puts "The password matche."
   else
     puts "The password does not match."
