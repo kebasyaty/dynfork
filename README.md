@@ -118,7 +118,7 @@ user.print_err unless user.save
 
 # Print user details.
 puts "User details:"
-if id = user.object_id?
+if id = user.object_id
   pp User.find_one_to_hash({_id: id})
 end
 
