@@ -12,7 +12,7 @@ module DynFork::QPaladins::Password
       )
     end
     #
-    if id : BSON::ObjectId? = self.object_id?
+    if id : BSON::ObjectId? = self.object_id
       # Get collection for current model.
       collection : Mongo::Collection = DynFork::Globals.mongo_database[
         @@meta.not_nil![:collection_name]]
@@ -47,7 +47,7 @@ module DynFork::QPaladins::Password
     # Get password hash.
     password_hash : String = Crypto::Bcrypt::Password.create(new_password).to_s
     # Update password.
-    filter = {_id: self.object_id?}
+    filter = {_id: self.object_id}
     update = {"$set": {field_name => password_hash}}
     collection.update_one(filter, update)
   end

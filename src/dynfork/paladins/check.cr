@@ -16,7 +16,7 @@ module DynFork::QPaladins::Check
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
     result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
     # Get the document ID.
-    id : BSON::ObjectId? = self.object_id?
+    id : BSON::ObjectId? = self.object_id
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
     update? : Bool = !id.nil?

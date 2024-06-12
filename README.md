@@ -222,7 +222,7 @@ _Links to documentation._
 - full_model_name
 - meta
 - subclasses
-- object_id?
+- object_id
 
 **[Extra:](https://kebasyaty.github.io/dynfork/DynFork/Extra.html "Extra:")**
 
@@ -245,7 +245,7 @@ _Links to documentation._
 - save
 - print_err
 - delete
-- verify_password?
+- verify_password
 - update_password
 
 **[QCommons:](https://kebasyaty.github.io/dynfork/DynFork/QCommons.html "QCommons:")**
