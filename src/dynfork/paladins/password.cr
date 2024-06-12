@@ -1,7 +1,7 @@
 module DynFork::QPaladins::Password
   # For password verification.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
-  def verify_password?(
+  def verify_password(
     password : String,
     field_name : String = "password"
   ) : Bool
@@ -38,7 +38,7 @@ module DynFork::QPaladins::Password
     new_password : String,
     field_name : String = "password"
   ) : Nil
-    unless self.verify_password?(old_password, field_name)
+    unless self.verify_password(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
     end
     # Get collection for current model.
