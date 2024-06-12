@@ -48,7 +48,7 @@ describe DynFork::Model do
         old_password: password,
         new_password: new_password
       ).should be_nil
-      m.verify_password?(new_password).should be_true
+      m.verify_password(new_password).should be_true
       # ------------------------------------------------------------------------
       #
       # Delete database after test.

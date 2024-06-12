@@ -31,7 +31,7 @@
 
 <hr>
 
-_Compatible with MongoDB 3.6+. Tested against: 4.4, 6.0, 7.0_
+_Compatible with MongoDB 3.6+. Tested against: 4.4, 7.0_
 <br>
 _For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
@@ -70,7 +70,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.7.2
+       version: ~> 0.7.3
    ```
 
 4. Run `shards install`
