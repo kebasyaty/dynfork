@@ -1,4 +1,4 @@
-# Debian 13 `Trixie`
+# Debian >= 13
 
 ### Install:
 
