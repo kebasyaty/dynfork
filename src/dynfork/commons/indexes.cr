@@ -172,7 +172,7 @@ module DynFork::QCommons::Indexes
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     session : Mongo::Session::ClientSession? = nil
-  ) : Nil
+  ) : Mongo::Commands::Common::BaseResult?
     #
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -184,16 +184,18 @@ module DynFork::QCommons::Indexes
     collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    if collection.drop_indexes(
-         max_time_ms: max_time_ms,
-         write_concern: write_concern,
-         session: session,
-       ).nil?
+    result = collection.drop_indexes(
+      max_time_ms: max_time_ms,
+      write_concern: write_concern,
+      session: session,
+    )
+    if result.nil?
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Method: `.drop_indexes` => " +
         "Index creation returned empty result!"
       )
     end
+    result
   end
 
   # Gets index information for all indexes in the collection.
