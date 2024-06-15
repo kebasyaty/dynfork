@@ -31,7 +31,7 @@ describe DynFork::QCommons::Indexes do
       options: {
         name: "textIdx",
       }
-    ).should be_nil
+    ).nil?.should be_false
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
@@ -75,7 +75,7 @@ describe DynFork::QCommons::Indexes do
       m.save
     }
     #
-    Spec::Data::ValueNoNil.drop_index("textIdx").should be_nil
+    Spec::Data::ValueNoNil.drop_index("textIdx").nil?.should be_false
     #
     FileUtils.rm_rf("public/media/uploads/files")
     FileUtils.rm_rf("public/media/uploads/images")
