@@ -18,6 +18,7 @@ jobs:
         run: |
           apt update
           apt install -y sudo
+          sudo sed -i.bak 's/us-west-2\.ec2\.//' /etc/apt/sources.list
           sudo apt update
           sudo apt install -y curl gnupg2 systemctl git
       - name: Install Crystal language
