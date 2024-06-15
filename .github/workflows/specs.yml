@@ -7,20 +7,16 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-24.04
     container:
-      image: debian:testing
+      image: crystallang/crystal:latest
       options: --user root
-
     steps:
       - name: Update system state
         run: |
           apt update
           apt install -y sudo
           sudo apt install -y curl gnupg2 systemctl git
-      - name: Install Crystal language
-        run: sudo apt install -y crystal shards
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
@@ -37,9 +33,9 @@ jobs:
         run: |
           curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
             sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-          echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
-            https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | \
-              sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
+            https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | \
+            sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
           sudo apt update
           sudo apt install -y mongodb-org
           sudo systemctl start mongod
