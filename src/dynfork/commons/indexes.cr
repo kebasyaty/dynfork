@@ -91,7 +91,7 @@ module DynFork::QCommons::Indexes
   #     keys: {a: 1},
   #   },
   #   {
-  #     keys: {b: 2}, options: {expire_after_seconds: 3600},
+  #     keys: {b: 1}, options: {expire_after_seconds: 3600},
   #   },
   # ])
   # ```
