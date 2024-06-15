@@ -11,8 +11,7 @@ module Models::Accounts
           "username": 1,
         },
         options: {
-          unique: true,
-          name:   "usernameIdx",
+          name: "usernameIdx",
         }
       )
     end
