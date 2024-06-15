@@ -77,7 +77,7 @@ describe DynFork::QCommons::Indexes do
       m.save
     }
     #
-    Spec::Data::ValueNoNil.drop_indexes.should be_nil
+    Spec::Data::ValueNoNil.drop_indexes.nil?.should be_false
     #
     FileUtils.rm_rf("public/media/uploads/files")
     FileUtils.rm_rf("public/media/uploads/images")
