@@ -18,6 +18,7 @@ jobs:
         run: |
           apt update
           apt install -y sudo
+          sudo apt update
           sudo apt install -y curl gnupg2 systemctl git
       - name: Install Crystal language
         run: sudo apt install -y crystal shards
