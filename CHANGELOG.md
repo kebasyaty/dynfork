@@ -1,3 +1,8 @@
+#### v0.7.6 2024-06-15
+
+- Changed return types for `commons` methods.
+- Documentation updated.
+
 #### v0.7.5 2024-06-12
 
 - Fixed shard.yml
