@@ -33,7 +33,7 @@ describe DynFork::QCommons::Indexes do
           name: "textIdx",
         },
       },
-    ]).should be_nil
+    ]).nil?.should be_false
     #
     2.times { |idx|
       m = Spec::Data::ValueNoNil.new
