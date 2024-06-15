@@ -27,8 +27,7 @@ jobs:
         run: crystal tool format --check
       - name: Install graphics libraries
         run: |
-          sudo apt install -y libturbojpeg0 libturbojpeg0-dev \
-            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
+          sudo apt install -y libjpeg-turbo libspng libwebp
       - name: Install and start MongoDB
         run: |
           curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
