@@ -1,3 +1,8 @@
+#### v0.7.7 2024-06-19
+
+- Fix `OldPassNotMatch` exception.
+- Documentation updated.
+
 #### v0.7.6 2024-06-15
 
 - Changed return types for `commons` methods.

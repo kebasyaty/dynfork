@@ -39,7 +39,7 @@ module DynFork::QPaladins::Password
     field_name : String = "password"
   ) : Nil
     unless self.verify_password(old_password, field_name)
-      raise DynFork::Errors::Password::OldPassNotMatch.new(I18n.t(:old_pass_not_match))
+      raise DynFork::Errors::Password::OldPassNotMatch.new
     end
     # Get collection for current model.
     collection : Mongo::Collection = DynFork::Globals.mongo_database[
