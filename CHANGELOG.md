@@ -1,3 +1,8 @@
+#### v0.7.8 2024-06-22
+
+- Updated shard.yml.
+- Documentation updated.
+
 #### v0.7.7 2024-06-19
 
 - Fix `OldPassNotMatch` exception.
