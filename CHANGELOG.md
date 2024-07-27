@@ -1,3 +1,8 @@
+#### v0.7.10 2024-07-27
+
+- Updated .github/workflows/specs.yml
+- Documentation updated.
+
 #### v0.7.9 2024-06-22
 
 - Documentation updated.
