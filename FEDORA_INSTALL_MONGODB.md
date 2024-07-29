@@ -22,7 +22,6 @@ EOF
 ### Install:
 
 ```shell
-sudo dnf makecache --refresh
 sudo dnf install mongodb-org
 mongod --version
 sudo systemctl start mongod
