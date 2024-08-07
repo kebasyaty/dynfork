@@ -1,3 +1,8 @@
+#### v0.7.11 2024-08-07
+
+- Fixed fields - Added param `multiple`.
+- Documentation updated.
+
 #### v0.7.10 2024-07-27
 
 - Updated .github/workflows/specs.yml
