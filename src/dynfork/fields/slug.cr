@@ -54,6 +54,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? multiple : Bool = false
 
     # :nodoc:
     def has_value?; end
