@@ -56,6 +56,8 @@ module DynFork::Fields
     getter! thumbnails : Nil
     # :nodoc:
     getter? unique : Bool = false
+    # :nodoc:
+    getter? multiple : Bool = false
 
     # :nodoc:
     def has_value?; end
