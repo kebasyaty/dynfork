@@ -10,7 +10,7 @@ module DynFork::Fields
   struct SlugField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "SlugField"
-    # Html tag: input type="url".
+    # Html tag: input type="text".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : String?

@@ -6,7 +6,7 @@ module DynFork::Fields
   struct ImageField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ImageField"
-    # Html tag: input type="url".
+    # Html tag: input type="file".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : DynFork::Globals::ImageData?

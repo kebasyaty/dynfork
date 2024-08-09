@@ -5,7 +5,7 @@ module DynFork::Fields
   struct EmailField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "EmailField"
-    # Html tag: input type="url".
+    # Html tag: input type="email".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : String?

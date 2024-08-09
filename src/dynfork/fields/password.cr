@@ -9,7 +9,7 @@ module DynFork::Fields
   struct PasswordField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "PasswordField"
-    # Html tag: input type="url".
+    # Html tag: input type="password".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : String?

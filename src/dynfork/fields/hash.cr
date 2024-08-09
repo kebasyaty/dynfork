@@ -5,7 +5,7 @@ module DynFork::Fields
   struct HashField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "HashField"
-    # Html tag: input type="url".
+    # Html tag: input type="text".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : String?
