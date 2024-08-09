@@ -1,3 +1,8 @@
+#### v0.7.12 2024-08-09
+
+- Fixed field comments.
+- Documentation updated.
+
 #### v0.7.11 2024-08-07
 
 - Fixed fields - Added param `multiple`.

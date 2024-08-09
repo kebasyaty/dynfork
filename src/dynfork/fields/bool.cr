@@ -5,7 +5,7 @@ module DynFork::Fields
   struct BoolField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "BoolField"
-    # Field type - Html, input type.
+    # Html tag: input type="checkbox".
     getter! input_type : String?
     # Sets the value of an element.
     property! value : Bool?

@@ -12,7 +12,7 @@ module DynFork::Fields
 
     # Field type - Structure Name.
     getter field_type : String = "DateTimeField"
-    # Html tag: input type="date".
+    # Html tag: input type="datetime".
     getter! input_type : String?
     # Sets the value of an element.
     # <br>
