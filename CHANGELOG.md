@@ -1,3 +1,8 @@
+#### v0.7.13 2024-08-10
+
+- Removed unused alias `DataDynamicTypes`.
+- Documentation updated.
+
 #### v0.7.12 2024-08-09
 
 - Fixed field comments.
