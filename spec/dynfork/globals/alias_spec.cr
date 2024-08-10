@@ -29,12 +29,6 @@ describe DynFork::Globals do
       )
     end
 
-    it "=> DataDynamicTypes - type checking", tags: "global_alias" do
-      DynFork::Globals::DataDynamicTypes.should eq(
-        Array(String | Int64 | Float64)
-      )
-    end
-
     it "=> CacheMetaDataType - type checking", tags: "global_alias" do
       DynFork::Globals::CacheMetaDataType.should eq(
         NamedTuple(

@@ -26,9 +26,6 @@ module DynFork::Globals::Aliases
                         DynFork::Globals::FileData | Array(String) | Array(Int64) |
                         Array(Float64) | Bool | Nil | Time | BSON::ObjectId
 
-  # Data types to select in dynamic fields.
-  alias DataDynamicTypes = Array(String | Int64 | Float64)
-
   # A type for caching Metadata of Model.
   alias CacheMetaDataType = NamedTuple(
     model_name: String,
