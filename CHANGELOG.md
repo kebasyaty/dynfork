@@ -1,3 +1,8 @@
+#### v0.7.14 2024-09-02
+
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.13 2024-08-10
 
 - Removed unused alias `DataDynamicTypes`.
