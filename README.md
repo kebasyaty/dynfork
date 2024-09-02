@@ -31,16 +31,16 @@
 
 <hr>
 
-_Compatible with MongoDB 3.6+. Tested against: 4.4, 7.0_
-<br>
-_For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
-
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
     <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
+
+_Compatible with MongoDB 3.6+. Tested against: 4.4, 7.0_
+<br>
+_For more information see [Cryomongo](https://github.com/elbywan/cryomongo "Cryomongo")_.
 
 ## Documentation
 
