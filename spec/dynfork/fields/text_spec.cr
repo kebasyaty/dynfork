@@ -13,6 +13,7 @@ describe DynFork::Fields::TextField do
       f.default?.should be_nil
       f.placeholder.should eq("")
       f.textarea?.should be_false
+      f.use_editor?.should be_false
       f.disabled?.should be_false
       f.readonly?.should be_false
       f.hide?.should be_false
