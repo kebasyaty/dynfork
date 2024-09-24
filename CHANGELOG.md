@@ -1,3 +1,9 @@
+#### v0.7.15 2024-09-24
+
+- Added param `use_editor` in `TextField`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.14 2024-09-02
 
 - Updated README.md.
