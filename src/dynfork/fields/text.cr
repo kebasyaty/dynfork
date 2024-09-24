@@ -9,6 +9,8 @@ module DynFork::Fields
     getter! input_type : String?
     # For Html textarea.
     getter? textarea : Bool
+    # Whether or not to use your preferred text editor - CKEditor, TinyMCE, etc.
+    getter? use_editor : Bool
     # Sets the value of an element.
     property! value : String?
     # Value by default.
@@ -135,6 +137,7 @@ module DynFork::Fields
       @hide : Bool = false,
       @unique : Bool = false,
       @textarea : Bool = false,
+      @use_editor : Bool = false,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,

@@ -60,6 +60,8 @@ module DynFork::Fields
     getter! choices : Nil
     # :nodoc:
     getter? multiple : Bool = false
+    # :nodoc:
+    getter? use_editor : Bool = false
 
     # :nodoc:
     def has_value?; end

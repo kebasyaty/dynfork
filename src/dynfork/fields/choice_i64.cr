@@ -47,6 +47,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? use_editor : Bool = false
 
     # :nodoc:
     def refrash_val_f64(val : Float64); end
@@ -194,6 +196,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? use_editor : Bool = false
 
     # :nodoc:
     def refrash_val_i64(val : Int64); end
@@ -344,6 +348,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? use_editor : Bool = false
 
     # :nodoc:
     def refrash_val_f64(val : Float64); end
@@ -499,6 +505,8 @@ module DynFork::Fields
     getter target_dir : String = ""
     # :nodoc:
     getter! thumbnails : Nil
+    # :nodoc:
+    getter? use_editor : Bool = false
 
     # :nodoc:
     def refrash_val_i64(val : Int64); end
