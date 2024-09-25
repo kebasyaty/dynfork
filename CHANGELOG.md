@@ -1,3 +1,9 @@
+#### v0.7.16 2024-09-25
+
+- Added translations for fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.15 2024-09-24
 
 - Added param `use_editor` in `TextField`.
