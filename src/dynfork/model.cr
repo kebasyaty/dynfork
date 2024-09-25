@@ -68,19 +68,19 @@ module DynFork
 
     # Field for the document identifier.
     # <br>
-    # **Examples:** `507c7f79bcf86cd7994f6c0e`
+    # **Example:** `507c7f79bcf86cd7994f6c0e`
     getter hash = DynFork::Fields::HashField
-      .new(label: "Hash", hide: true, unique: true, ignored: true)
+      .new(hide: true, ignored: true, readonly: true)
     # Field for the date and time the document was created.
     # <br>
-    # **Examples:** `1970-01-01T00:00:00`
+    # **Example:** `1970-01-01T00:00:00`
     getter created_at = DynFork::Fields::DateTimeField
-      .new(label: "Created at", hide: true, readonly: true)
+      .new(label: I18n.t(:created_at), hint: I18n.t(:doc_was_created), hide: true, readonly: true)
     # Field for the date and time the document was updated.
     # <br>
-    # **Examples:** `1970-01-01T00:00:00`
+    # **Example:** `1970-01-01T00:00:00`
     getter updated_at = DynFork::Fields::DateTimeField
-      .new(label: "Updated at", hide: true, readonly: true)
+      .new(label: I18n.t(:updated_at), hint: I18n.t(:doc_was_updated), hide: true, readonly: true)
     # Get full Model name = ModuleName::StructureName.
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
