@@ -130,15 +130,15 @@ module DynFork::Fields
     ); end
 
     def initialize(
-      @label : String = "Document ID",
-      @placeholder : String = "Enter document ID",
+      @label : String = I18n.t(:hash_doc_id),
+      @placeholder : String = I18n.t(:enter_doc_id),
       @hide : Bool = false,
-      @unique : Bool = false,
+      @unique : Bool = true,
       @required : Bool = false,
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = "For enter a document ID."
+      @hint : String = "#{I18n.t(:enter_doc_id)}.",
     )
       @input_type = "text"
       @maxlength = 24

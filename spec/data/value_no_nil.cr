@@ -10,7 +10,7 @@ module Spec::Data
     getter phone = DynFork::Fields::PhoneField.new
     getter password = DynFork::Fields::PasswordField.new(required: false)
     getter ip = DynFork::Fields::IPField.new
-    getter hash2 = DynFork::Fields::HashField.new
+    getter hash2 = DynFork::Fields::HashField.new(unique: false)
     getter email = DynFork::Fields::EmailField.new
     getter color = DynFork::Fields::ColorField.new
     getter slug = DynFork::Fields::SlugField.new
