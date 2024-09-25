@@ -16,7 +16,7 @@ describe DynFork::Fields::HashField do
       f.readonly?.should be_false
       f.hide?.should be_false
       f.required?.should be_false
-      f.unique?.should be_false
+      f.unique?.should be_true
       f.ignored?.should be_false
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
