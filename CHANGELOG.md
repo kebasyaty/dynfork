@@ -1,3 +1,9 @@
+#### v0.7.18 2024-09-28
+
+- Updated field parameters in the Model structure.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.17 2024-09-28
 
 - Fixed serialization settings for field types.
