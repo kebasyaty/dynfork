@@ -6,6 +6,7 @@ module DynFork::Fields
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
   # WARNING: Default number of characters: max = 256, min = 8
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct PasswordField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "PasswordField"
@@ -28,28 +29,40 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

@@ -7,6 +7,7 @@ module DynFork::Fields
   # <br>
   # WARNING: Allowed field types: _HashField_, _TextField_, _EmailField_,
   # _DateField_, _DateTimeField_, _I64Field_, _F64Field_.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct SlugField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "SlugField"
@@ -29,34 +30,49 @@ module DynFork::Fields
     getter group : UInt8 = 9
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

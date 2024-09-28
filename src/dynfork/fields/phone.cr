@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering Phone number.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct PhoneField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "PhoneField"
@@ -28,24 +29,34 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

@@ -10,6 +10,7 @@ module DynFork::Fields
   # <br>
   # _Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
   # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff_
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ColorField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ColorField"
@@ -35,28 +36,40 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

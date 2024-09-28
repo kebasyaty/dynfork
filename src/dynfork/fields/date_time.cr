@@ -7,6 +7,7 @@ module DynFork::Fields
   # dd-mm-yyyyThh:mm:ss | dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss |
   # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
   # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct DateTimeField < DynFork::Fields::Field
     include DynFork::Globals::Date
 
@@ -35,30 +36,43 @@ module DynFork::Fields
     getter group : UInt8 = 2
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

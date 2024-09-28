@@ -4,6 +4,7 @@ module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With a single choice.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64Field < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64Field"
@@ -153,6 +154,7 @@ module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With multiple choice.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64MultField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultField"
@@ -305,6 +307,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-One.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64DynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64DynField"
@@ -462,6 +465,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-Many.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64MultDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultDynField"
