@@ -4,6 +4,7 @@ module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With a single choice.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64Field < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64Field"
@@ -17,37 +18,68 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -153,6 +185,7 @@ module DynFork::Fields
   # Type of selective field with static of elements.
   # NOTE: With multiple choice.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/static_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64MultField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultField"
@@ -166,37 +199,68 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -305,6 +369,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-One.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64DynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64DynField"
@@ -316,39 +381,72 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -462,6 +560,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-Many.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceF64MultDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceF64MultDynField"
@@ -473,39 +572,72 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

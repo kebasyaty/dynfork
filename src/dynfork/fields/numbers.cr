@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering integer 64-bit numbers.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct I64Field < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "I64Field"
@@ -13,6 +14,10 @@ module DynFork::Fields
     getter! default : Int64?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! max : Int64?
     # The minimum number of characters allowed in the text.
@@ -26,28 +31,51 @@ module DynFork::Fields
     getter group : UInt8 = 6
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -159,6 +187,7 @@ module DynFork::Fields
   end
 
   # Field for entering float 64-bit numbers.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct F64Field < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "F64Field"
@@ -170,6 +199,10 @@ module DynFork::Fields
     getter! default : Float64?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! max : Float64?
     # The minimum number of characters allowed in the text.
@@ -183,28 +216,51 @@ module DynFork::Fields
     getter group : UInt8 = 7
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

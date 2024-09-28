@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering IP addresses.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct IPField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "IPField"
@@ -13,6 +14,10 @@ module DynFork::Fields
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
@@ -24,28 +29,51 @@ module DynFork::Fields
     getter group : UInt8 = 1
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

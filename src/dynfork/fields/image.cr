@@ -3,6 +3,7 @@ require "./field"
 module DynFork::Fields
   # File upload field.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/files" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ImageField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ImageField"
@@ -16,6 +17,10 @@ module DynFork::Fields
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # Root directory for storing media files.
     property media_root : String = "public/media/uploads"
     # URL address for the media directory.
@@ -43,24 +48,43 @@ module DynFork::Fields
     getter group : UInt8 = 5
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:

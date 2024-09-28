@@ -1,3 +1,9 @@
+#### v0.7.17 2024-09-28
+
+- Fixed serialization settings for field types.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.16 2024-09-25
 
 - Added translations for fields.
