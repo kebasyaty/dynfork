@@ -17,6 +17,10 @@ module DynFork::Fields
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # Root directory for storing media files.
     property media_root : String = "public/media/uploads"
     # URL address for the media directory.

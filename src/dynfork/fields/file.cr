@@ -32,6 +32,10 @@ module DynFork::Fields
     getter accept : String = ""
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum allowed file size in bytes.
     # NOTE: 1 MB = 1048576 Bytes (in binary).
     getter maxsize : Int64

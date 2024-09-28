@@ -14,6 +14,10 @@ module DynFork::Fields
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.

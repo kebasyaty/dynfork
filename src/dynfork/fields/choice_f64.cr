@@ -18,6 +18,10 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
@@ -195,6 +199,10 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
@@ -373,6 +381,10 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3
@@ -560,6 +572,10 @@ module DynFork::Fields
     # <br>
     # _Example: [{5.0, "Title"}, {5.25, "Title 2"}]_
     getter! choices : Array(Tuple(Float64, String))?
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 3

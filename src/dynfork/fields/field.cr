@@ -13,12 +13,8 @@ module DynFork::Fields
     property name : String = ""
     # Field type - Structure Name.
     getter field_type : String = ""
-    # Required field.
-    getter? required : Bool = false
     # Blocks access and modification of the element.
     property? disabled : Bool = false
-    # Specifies that the field cannot be modified by the user.
-    property? readonly : Bool = false
     # Hide field from user.
     property? hide : Bool = false
     # If true, the value of this field is not saved in the database.

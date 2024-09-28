@@ -25,6 +25,10 @@ module DynFork::Fields
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The top value for entering a date and time.
     getter! max : String?
     # The lower value for entering a date and time.

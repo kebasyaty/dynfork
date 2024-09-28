@@ -14,6 +14,10 @@ module DynFork::Fields
     getter! default : Int64?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! max : Int64?
     # The minimum number of characters allowed in the text.
@@ -195,6 +199,10 @@ module DynFork::Fields
     getter! default : Float64?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The maximum number of characters allowed in the text.
     getter! max : Float64?
     # The minimum number of characters allowed in the text.

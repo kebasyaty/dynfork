@@ -17,6 +17,8 @@ module DynFork::Fields
     property! value : String?
     # Displays prompt text.
     getter placeholder : String
+    # Specifies that the field cannot be modified by the user.
+    property? readonly : Bool
     # The unique value of a field in a collection.
     getter? unique : Bool = true
     # Names of the fields whose contents will be used for the slug.
@@ -88,6 +90,10 @@ module DynFork::Fields
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    getter? required : Bool = false
 
     # :nodoc:
     def has_value?; end

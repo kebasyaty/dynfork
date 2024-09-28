@@ -16,6 +16,8 @@ module DynFork::Fields
     property! value : String?
     # Displays prompt text.
     getter placeholder : String
+    # Required field.
+    getter? required : Bool
     # The maximum number of characters allowed in the text.
     getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
@@ -75,6 +77,10 @@ module DynFork::Fields
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    getter? readonly : Bool = false
 
     # :nodoc:
     def has_value?; end
