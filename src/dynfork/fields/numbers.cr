@@ -29,36 +29,47 @@ module DynFork::Fields
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
@@ -199,36 +210,47 @@ module DynFork::Fields
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! choices : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? multiple : Bool = false
+
     # :nodoc:
     @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false

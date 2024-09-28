@@ -23,32 +23,59 @@ module DynFork::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -173,32 +200,59 @@ module DynFork::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -307,7 +361,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-One.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
-  @[JSON::Serializable::Options(emit_nulls: true)] 
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceI64DynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64DynField"
@@ -324,34 +378,63 @@ module DynFork::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -465,6 +548,7 @@ module DynFork::Fields
   # NOTE: For simulate relationship Many-to-Many.
   # NOTE: Elements are added via the `ModelName.update_dyn_field()` method.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/dynamic_choices" target="_blank">example</a>.
+  @[JSON::Serializable::Options(emit_nulls: true)]
   struct ChoiceI64MultDynField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ChoiceI64MultDynField"
@@ -481,37 +565,67 @@ module DynFork::Fields
     getter group : UInt8 = 3
     #
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! default : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! max : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! min : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! maxlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! minlength : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter maxsize : Float32 = 0
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? unique : Bool = false
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! input_type : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_root : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter media_url : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter target_dir : String = ""
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter! thumbnails : Nil
+
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     getter? use_editor : Bool = false
 
     # :nodoc:
+    @[JSON::Field(ignore: true)]
     def refrash_val_i64(val : Int64); end
 
     # :nodoc:
