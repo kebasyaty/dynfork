@@ -28,58 +28,72 @@ module DynFork::Fields
     #
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! max : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! min : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! maxlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter maxsize : Float32 = 0
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? unique : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! input_type : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_root : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_url : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter target_dir : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! thumbnails : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -209,58 +223,72 @@ module DynFork::Fields
     #
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! max : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! min : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! maxlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter maxsize : Float32 = 0
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? unique : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! input_type : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_root : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_url : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter target_dir : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! thumbnails : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -391,62 +419,77 @@ module DynFork::Fields
     #
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! default : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! max : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! min : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! maxlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter maxsize : Float32 = 0
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? unique : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! input_type : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_root : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_url : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter target_dir : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! thumbnails : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? use_editor : Bool = false
 
     # :nodoc:
@@ -582,66 +625,82 @@ module DynFork::Fields
     #
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! default : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! max : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! min : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! maxlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter maxsize : Float32 = 0
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? unique : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! input_type : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_root : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter media_url : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter target_dir : String = ""
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! thumbnails : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? use_editor : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     def refrash_val_i64(val : Int64); end
 
     # :nodoc:

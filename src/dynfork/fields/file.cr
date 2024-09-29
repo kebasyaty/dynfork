@@ -45,46 +45,57 @@ module DynFork::Fields
     #
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! max : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! min : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! maxlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? unique : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! choices : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter! thumbnails : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? multiple : Bool = false
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
+    # :nodoc:
     getter? use_editor : Bool = false
 
     # :nodoc:
