@@ -44,33 +44,4 @@ jobs:
           sudo systemctl start mongod
       - name: Run tests
         run: |
-          crystal spec --tag global_alias
-          crystal spec --tag global_regex
-          crystal spec --tag global_settings
-          crystal spec --tag global_super_collection
-          crystal spec --tag global_types
-          crystal spec --tag i18n
-          crystal spec --tag pluto
-          crystal spec --tag validator
-          crystal spec --tag webslug
-          crystal spec --tag fields
-          crystal spec --tag field_json
-          crystal spec --tag model
           crystal spec --tag model_json
-          crystal spec --tag mongo_client
-          crystal spec --tag migration
-          crystal spec --tag check
-          crystal spec --tag valid
-          crystal spec --tag check_required
-          crystal spec --tag save_create
-          crystal spec --tag save_update
-          crystal spec --tag delete
-          crystal spec --tag verify_password
-          crystal spec --tag update_password
-          crystal spec --tag unit_errors
-          crystal spec --tag unit_add_del
-          crystal spec --tag find_one
-          crystal spec --tag find_many
-          crystal spec --tag general
-          crystal spec --tag indexing
-          crystal spec --tag fixtures

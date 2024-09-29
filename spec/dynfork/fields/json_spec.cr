@@ -5,6 +5,7 @@ describe DynFork::Fields::TextField do
     it "=> create json from structure", tags: "field_json" do
       f = DynFork::Fields::TextField.new
       j : String = f.to_json
+      j.includes?("target_dir").should be_false
       j.empty?.should be_false
     end
   end
