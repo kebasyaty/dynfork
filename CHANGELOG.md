@@ -1,3 +1,9 @@
+#### v0.7.19 2024-09-29
+
+- Fixed comments for fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.18 2024-09-28
 
 - Updated field parameters in the Model structure.
