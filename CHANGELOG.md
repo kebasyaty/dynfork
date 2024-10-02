@@ -1,3 +1,9 @@
+#### v0.7.21 2024-10-02
+
+- Fixed Model - Delete `@[JSON::Serializable::Options(emit_nulls: true)]`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.20 2024-10-02
 
 - Fixed Model - Added `@[JSON::Serializable::Options(emit_nulls: true)]`.
