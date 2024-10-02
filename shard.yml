@@ -1,5 +1,5 @@
 name: dynfork
-version: 0.7.20
+version: 0.7.21
 
 authors:
   - Gennady Kostyunin <kebasyaty@gmail.com>
@@ -34,4 +34,3 @@ dependencies:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 1.6.1

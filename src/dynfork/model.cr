@@ -60,7 +60,6 @@ module DynFork
   # ```
   #
   @[DynFork::Meta]
-  @[JSON::Serializable::Options(emit_nulls: true)]
   abstract struct Model < DynFork::Extra
     include JSON::Serializable
     include DynFork::Globals::Date
