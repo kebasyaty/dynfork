@@ -97,7 +97,7 @@ module DynFork::Globals::Types
     # Path to target directory with images.
     property! images_dir_path : String?
     # URL path to target directory with images.
-    property extension : String = ""
+    property! images_dir_url : String?
 
     def initialize; end
   end
