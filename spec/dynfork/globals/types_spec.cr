@@ -11,6 +11,7 @@ describe DynFork::Globals do
         t.name.should eq("")
         t.size.should eq(0_i64)
         t.delete?.should be_false
+        t.extension?.should be_nil
       end
     end
   end
