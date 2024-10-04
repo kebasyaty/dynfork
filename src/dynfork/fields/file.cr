@@ -224,7 +224,7 @@ module DynFork::Fields
         # Add file extension.
         value.extension = extension
         # Add file size.
-        value.size = File.size(@value.path)
+        value.size = File.size(target_path)
       end
       @value = value
     end
