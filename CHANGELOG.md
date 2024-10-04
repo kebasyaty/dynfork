@@ -1,3 +1,9 @@
+#### v0.7.25 2024-10-04
+
+- Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.24 2024-10-04
 
 - Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
