@@ -11,7 +11,7 @@ describe DynFork::Globals do
         t.name.should eq("")
         t.size.should eq(0_i64)
         t.delete?.should be_false
-        t.extension?.should be_nil
+        t.extension.should eq("")
       end
     end
   end
@@ -38,7 +38,7 @@ describe DynFork::Globals do
         t.height.should eq(0_i32)
         t.size.should eq(0_i64)
         t.delete?.should be_false
-        t.extension?.should be_nil
+        t.extension.should eq("")
         t.images_dir_path?.should be_nil
         t.images_dir_url?.should be_nil
       end
