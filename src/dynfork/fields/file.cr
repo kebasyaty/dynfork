@@ -185,16 +185,16 @@ module DynFork::Fields
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
-      unless base64.nil?
+      if !base64.nil? && !filename.nil?
         # Get file extension.
-        extension = Path[filename].extension
+        extension = Path[filename.not_nil!].extension
         if extension.empty?
           raise DynFork::Errors::Panic.new("The file `#{filename}` has no extension.")
         end
         # Prepare Base64 content.
-        base64.each_char_with_index do |char, index|
+        base64.not_nil!.each_char_with_index do |char, index|
           if char == ','
-            base64 = base64.delete_at(0, index + 1)
+            base64 = base64.not_nil!.delete_at(0, index + 1)
             break
           end
           break if index == 40
@@ -213,7 +213,7 @@ module DynFork::Fields
         # Save file in target directory.
         File.write(
           filename: target_path,
-          content: Base64.decode_string(base64),
+          content: Base64.decode_string(base64.not_nil!),
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
@@ -238,7 +238,7 @@ module DynFork::Fields
       #
       unless path.nil?
         # Get file extension.
-        extension = Path[path].extension
+        extension = Path[path.not_nil!].extension
         if extension.empty?
           raise DynFork::Errors::Panic.new("The file `#{path}` has no extension.")
         end
@@ -256,14 +256,14 @@ module DynFork::Fields
         # Save file in target directory.
         File.write(
           filename: target_path,
-          content: File.read(path),
+          content: File.read(path.not_nil!),
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
         value.path = target_path
         value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add original file name.
-        value.name = File.basename(path)
+        value.name = File.basename(path.not_nil!)
         # Add file size.
         value.size = File.size(target_path)
       end
