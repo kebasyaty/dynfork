@@ -180,6 +180,8 @@ module DynFork::Fields
       filename : String? = nil,
       delete : Bool = false
     ) : Nil
+      base64 = base64.presence
+      filename = filename.presence
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
@@ -230,6 +232,7 @@ module DynFork::Fields
       path : String? = nil,
       delete : Bool = false
     ) : Nil
+      path = path.presence
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #

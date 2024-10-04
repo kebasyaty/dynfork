@@ -178,7 +178,9 @@ module DynFork::Fields
       base64 : String? = nil,
       filename : String? = nil,
       delete : Bool = false
-    )
+    ) : Nil
+      base64 = base64.presence
+      filename = filename.presence
       value = DynFork::Globals::ImageData.new
       value.delete = delete
       #
@@ -239,7 +241,8 @@ module DynFork::Fields
     def from_path(
       path : String? = nil,
       delete : Bool = false
-    )
+    ) : Nil
+      path = path.presence
       value = DynFork::Globals::ImageData.new
       value.delete = delete
       #
