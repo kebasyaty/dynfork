@@ -256,14 +256,14 @@ module DynFork::Fields
         # Save file in target directory.
         File.write(
           filename: target_path,
-          content: File.read(path),
+          content: File.read(path.not_nil!),
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target file.
         value.path = target_path
         value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add original file name.
-        value.name = File.basename(path)
+        value.name = File.basename(path.not_nil!)
         # Add file size.
         value.size = File.size(target_path)
       end

@@ -271,14 +271,14 @@ module DynFork::Fields
         # Save image in target directory.
         File.write(
           filename: target_path,
-          content: File.read(path),
+          content: File.read(path.not_nil!),
           perm: File::Permissions.new(0o644)
         )
         # Add paths to target image.
         value.path = target_path
         value.url = "#{images_dir_url}/#{target_img_name}"
         # Add original image name.
-        value.name = File.basename(path)
+        value.name = File.basename(path.not_nil!)
         # Add image extension.
         value.extension = extension
         # Add path to target directory with images.
@@ -286,7 +286,7 @@ module DynFork::Fields
         # Add url path to target directory with images.
         value.images_dir_url = images_dir_url
         # Add image size.
-        value.size = File.size(path)
+        value.size = File.size(path.not_nil!)
       end
       @value = value
     end
