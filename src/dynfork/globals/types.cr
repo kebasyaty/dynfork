@@ -93,7 +93,7 @@ module DynFork::Globals::Types
     # Image extension.
     # <br>
     # **Examples:** _.png|.jpeg|.jpg|.webp_
-    property! extension : String?
+    property extension : String = ""
     # Path to target directory with images.
     property! images_dir_path : String?
     # URL path to target directory with images.
