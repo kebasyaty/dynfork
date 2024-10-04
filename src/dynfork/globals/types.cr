@@ -49,8 +49,12 @@ module DynFork::Globals::Types
     property size : Int64 = 0
     # If the file needs to be deleted: _delete=true_.
     # <br>
-    # By default: _delete=false_.
+    # **By default:** _delete=false_.
     property? delete : Bool = false
+    # File extension.
+    # <br>
+    # **Examples:** _.txt|.xml|.doc|.svg_
+    property extension : String = ""
 
     def initialize; end
   end
@@ -60,36 +64,36 @@ module DynFork::Globals::Types
     include JSON::Serializable
     include BSON::Serializable
 
-    # Path to image (for original image).
+    # Path to image (_for original image_).
     property path : String = ""
     # For thumbnails.
     property path_xs : String = ""
     property path_sm : String = ""
     property path_md : String = ""
     property path_lg : String = ""
-    # URL to the image (for original image).
+    # URL to the image (_for original image_).
     property url : String = ""
     # For thumbnails.
     property url_xs : String = ""
     property url_sm : String = ""
     property url_md : String = ""
     property url_lg : String = ""
-    # Image name (for original image).
+    # Image name (_for original image_).
     property name : String = ""
-    # Image width in pixels (for original image).
+    # Image width in pixels (_for original image_).
     property width : Int32 = 0
-    # Image height in pixels (for original image).
+    # Image height in pixels (_for original image_).
     property height : Int32 = 0
-    # Image size in bytes (for original image).
+    # Image size in bytes (_for original image_).
     property size : Int64 = 0
     # If the images needs to be deleted: _delete=true_.
     # <br>
-    # By default: _delete=false_.
+    # **By default:** _delete=false_.
     property? delete : Bool = false
     # Image extension.
     # <br>
-    # _Examples: .png|.jpeg|.jpg|.webp_
-    property! extension : String?
+    # **Examples:** _.png|.jpeg|.jpg|.webp_
+    property extension : String = ""
     # Path to target directory with images.
     property! images_dir_path : String?
     # URL path to target directory with images.

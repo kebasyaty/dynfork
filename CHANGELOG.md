@@ -1,3 +1,10 @@
+#### v0.7.24 2024-10-04
+
+- Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Added property `extension` in `FileData`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.23 2024-10-04
 
 - Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.

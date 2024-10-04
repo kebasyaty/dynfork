@@ -224,7 +224,7 @@ module DynFork::Fields
         value.path = target_path
         value.url = "#{images_dir_url}/#{target_img_name}"
         # Add original image name.
-        value.name = File.basename(path)
+        value.name = filename.not_nil!
         # Add image extension.
         value.extension = extension
         # Add path to target directory with images.
@@ -232,7 +232,7 @@ module DynFork::Fields
         # Add url path to target directory with images.
         value.images_dir_url = images_dir_url
         # Add image size.
-        value.size = File.size(path)
+        value.size = File.size(@value.path)
       end
       @value = value
     end
