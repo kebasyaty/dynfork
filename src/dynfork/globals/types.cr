@@ -54,7 +54,7 @@ module DynFork::Globals::Types
     # File extension.
     # <br>
     # **Examples:** _.txt|.xml|.doc|.svg_
-    property! extension : String?
+    property extension : String = ""
 
     def initialize; end
   end
@@ -97,7 +97,7 @@ module DynFork::Globals::Types
     # Path to target directory with images.
     property! images_dir_path : String?
     # URL path to target directory with images.
-    property! images_dir_url : String?
+    property extension : String = ""
 
     def initialize; end
   end
