@@ -1,3 +1,9 @@
+#### v0.7.22 2024-10-04
+
+- Updated the `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.21 2024-10-02
 
 - Fixed Model - Delete `@[JSON::Serializable::Options(emit_nulls: true)]`.
