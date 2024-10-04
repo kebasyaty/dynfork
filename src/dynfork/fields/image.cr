@@ -179,6 +179,8 @@ module DynFork::Fields
       filename : String? = nil,
       delete : Bool = false
     )
+      base64 = base64.presence
+      filename = filename.presence
       value = DynFork::Globals::ImageData.new
       value.delete = delete
       #
