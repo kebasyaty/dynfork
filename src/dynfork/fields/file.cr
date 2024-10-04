@@ -221,6 +221,8 @@ module DynFork::Fields
         value.url = "#{@media_url}/#{@target_dir}/#{date}/#{target_name}"
         # Add original file name.
         value.name = filename.not_nil!
+        # Add file extension.
+        value.extension = extension
         # Add file size.
         value.size = File.size(@value.path)
       end
