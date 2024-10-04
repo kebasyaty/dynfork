@@ -232,6 +232,7 @@ module DynFork::Fields
       path : String? = nil,
       delete : Bool = false
     ) : Nil
+      path = path.presence
       value = DynFork::Globals::FileData.new
       value.delete = delete
       #
