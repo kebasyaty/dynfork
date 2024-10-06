@@ -1,25 +1,31 @@
+#### v0.7.26 2024-10-06
+
+- Updated `refrash_val_str` method for `DatField` and `DateTimeField` fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.25 2024-10-04
 
-- Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Fixed `from_base64` and `from_path` methods for `FileField` and `ImageField` fields.
 - Updated README.md.
 - Documentation updated.
 
 #### v0.7.24 2024-10-04
 
-- Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Fixed `from_base64` and `from_path` methods for `FileField` and `ImageField` fields.
 - Added property `extension` in `FileData`.
 - Updated README.md.
 - Documentation updated.
 
 #### v0.7.23 2024-10-04
 
-- Fixed `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Fixed `from_base64` and `from_path` methods for `FileField` and `ImageField` fields.
 - Updated README.md.
 - Documentation updated.
 
 #### v0.7.22 2024-10-04
 
-- Updated `from_base64` and `from_path` methods for `Filefield` and `Imagefield` fields.
+- Updated `from_base64` and `from_path` methods for `FileField` and `ImageField` fields.
 - Updated README.md.
 - Documentation updated.
 

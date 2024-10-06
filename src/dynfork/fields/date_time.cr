@@ -132,9 +132,6 @@ module DynFork::Fields
     def refrash_val_img_data(val : DynFork::Globals::ImageData); end
 
     # :nodoc:
-    def refrash_val_str(val : String); end
-
-    # :nodoc:
     def refrash_val_date(val : Time); end
 
     # :nodoc:
@@ -210,6 +207,11 @@ module DynFork::Fields
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
     def refrash_val_datetime(val : Time) : Nil
       @value = val.to_s("%FT%H:%M:%S")
+    end
+
+    # For update the date and time in the string format.
+    def refrash_val_str(val : String) : Nil
+      @value = val
     end
   end
 end
