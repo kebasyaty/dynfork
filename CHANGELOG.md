@@ -1,3 +1,9 @@
+#### v0.7.27 2024-10-09
+
+- Updated locales.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.26 2024-10-06
 
 - Updated `refrash_val_str` method for `DatField` and `DateTimeField` fields.
