@@ -67,7 +67,7 @@ module DynFork::QPaladins::Save
          )
         # Run hook.
         self.post_update
-        self.refrash_fields(pointerof(doc))
+        self.refrash_fields(doc.not_nil!)
       end
     else
       # Create doc.
@@ -81,14 +81,13 @@ module DynFork::QPaladins::Save
       # Run hook.
       self.post_create
       if doc = collection.find_one({_id: data["_id"]})
-        self.refrash_fields(pointerof(doc))
+        self.refrash_fields(doc.not_nil!)
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{@@full_model_name}` => The document was not created."
         )
       end
     end
-    #
     true
   end
 end

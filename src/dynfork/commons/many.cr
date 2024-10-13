@@ -81,10 +81,9 @@ module DynFork::QCommons::Many
     )
     #
     field_name_params_list = @@meta.not_nil![:field_name_params_list]
-    field_name_params_list_ptr = pointerof(field_name_params_list)
-    cursor.each { |document|
-      hash_list << self.document_to_hash(pointerof(document), field_name_params_list_ptr)
-    }
+    cursor.each do |doc|
+      hash_list << self.document_to_hash(doc, field_name_params_list)
+    end
     #
     return hash_list unless hash_list.empty?
   end
@@ -139,7 +138,7 @@ module DynFork::QCommons::Many
     collection : Mongo::Collection = DynFork::Globals.mongo_database[
       @@meta.not_nil![:collection_name]]
     #
-    json : String = "["
+    hash_arr = Array(Hash(String, DynFork::Globals::FieldValueTypes)).new
     cursor : Mongo::Cursor = collection.find(
       filter: filter,
       sort: sort,
@@ -168,15 +167,11 @@ module DynFork::QCommons::Many
     )
     #
     field_name_params_list = @@meta.not_nil![:field_name_params_list]
-    field_name_params_list_ptr = pointerof(field_name_params_list)
-    cursor.each { |document|
-      json += (self.document_to_hash(pointerof(document), field_name_params_list_ptr)).to_json
-    }
-    #
-    if json.size > 1
-      json += "]"
-      return json
+    cursor.each do |doc|
+      hash_arr << self.document_to_hash(doc, field_name_params_list)
     end
+    #
+    return (hash_arr.to_json) unless hash_arr.empty?
   end
 
   # Deletes multiple documents.

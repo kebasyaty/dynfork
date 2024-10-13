@@ -156,7 +156,7 @@ module DynFork::Migration
           # Fetch a Cursor pointing to the collection of current Model.
           cursor : Mongo::Cursor = model_collection.find
           # Go through all documents to make changes.
-          cursor.each { |doc|
+          cursor.each do |doc|
             # Add new fields with default value or
             # update existing fields whose field type has changed.
             new_fields.each do |field_name|
@@ -176,7 +176,7 @@ module DynFork::Migration
             end
             #
             fresh_model = model_class.new
-            fresh_model.refrash_fields(pointerof(doc))
+            fresh_model.refrash_fields(doc)
             output_data : DynFork::Globals::OutputData = fresh_model.check(
               collection_ptr: pointerof(model_collection),
               save?: true
@@ -203,7 +203,7 @@ module DynFork::Migration
               fresh_model.print_err
               raise ""
             end
-          }
+          end
         end
         #
         # Refresh the dynamic fields data for the current model.

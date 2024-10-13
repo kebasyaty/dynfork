@@ -64,7 +64,7 @@ module DynFork::QCommons::One
          session: session,
        )
       instance = self.new
-      instance.refrash_fields pointerof(doc)
+      instance.refrash_fields doc.not_nil!
       return instance
     end
   end
@@ -130,10 +130,10 @@ module DynFork::QCommons::One
          read_preference: read_preference,
          session: session,
        )
-      doc_bson : BSON = doc.not_nil!
-      field_name_params_list = @@meta.not_nil![:field_name_params_list]
-      field_name_params_list_ptr = pointerof(field_name_params_list)
-      doc_hash = self.document_to_hash(pointerof(doc_bson), field_name_params_list_ptr)
+      doc_hash = self.document_to_hash(
+        doc.not_nil!,
+        @@meta.not_nil![:field_name_params_list],
+      )
       return doc_hash
     end
   end
@@ -200,7 +200,7 @@ module DynFork::QCommons::One
          session: session,
        )
       instance = self.new
-      instance.refrash_fields pointerof(doc)
+      instance.refrash_fields doc.not_nil!
       json : String = instance.to_json
       return json
     end
@@ -284,7 +284,7 @@ module DynFork::QCommons::One
          session: session,
        )
       instance = self.new
-      instance.refrash_fields pointerof(doc)
+      instance.refrash_fields doc.not_nil!
       return instance
     end
   end

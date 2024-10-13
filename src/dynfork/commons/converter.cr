@@ -4,16 +4,16 @@ module DynFork::QCommons::Converter
 
   # Get clean data from a document, as a Hash object.
   def document_to_hash(
-    doc_ptr : Pointer(BSON),
-    field_name_params_list_ptr : Pointer(Hash(String, NamedTuple(type: String, group: UInt8)))
+    doc_bson : BSON,
+    field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8))
   ) : Hash(String, DynFork::Globals::FieldValueTypes)
     #
-    doc_hash = doc_ptr.value.to_h
+    doc_hash = doc_bson.value.to_h
     result = Hash(String, DynFork::Globals::FieldValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
     field_type : String = ""
     #
-    field_name_params_list_ptr.value.each do |field_name, field_params|
+    field_name_params_list.each do |field_name, field_params|
       if !(value = doc_hash[field_name]).nil?
         field_type = field_params[:type]
         case field_params[:group]
