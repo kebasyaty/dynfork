@@ -9,9 +9,9 @@ module DynFork::QPaladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
+    result_map : Hash(String, DynFork::Globals::ResultMapType),
     collection_ptr : Pointer(Mongo::Collection),
-    id_ptr : Pointer(BSON::ObjectId?)
+    id_ptr : Pointer(BSON::ObjectId?),
   ) : Nil
     # When updating, we skip field password type.
     if update? && field_ptr.value.field_type == "PasswordField"
@@ -31,7 +31,7 @@ module DynFork::QPaladins::Groups
             error_symptom_ptr?
           )
         end
-        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map[field_ptr.value.name] = nil) if save?
         return
       end
       value.to_s
@@ -138,7 +138,7 @@ module DynFork::QPaladins::Groups
       if field_ptr.value.field_type == "PasswordField"
         current_value = Crypto::Bcrypt::Password.create(current_value).to_s
       end
-      result_map_ptr.value[field_ptr.value.name] = current_value
+      result_map[field_ptr.value.name] = current_value
     end
   end
 end

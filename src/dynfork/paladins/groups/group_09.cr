@@ -3,7 +3,7 @@ module DynFork::QPaladins::Groups
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
+    result_map : Hash(String, DynFork::Globals::ResultMapType),
   ) : Nil
     #
     raw_str_arr : Array(String) = Array(String).new
@@ -23,6 +23,6 @@ module DynFork::QPaladins::Groups
       end
     {% end %}
     # Insert result.
-    result_map_ptr.value[field_ptr.value.name] = Iom::WebSlug.slug(raw_str_arr.join("-"))
+    result_map[field_ptr.value.name] = Iom::WebSlug.slug(raw_str_arr.join("-"))
   end
 end
