@@ -1,3 +1,9 @@
+#### v0.7.29 2024-10-13
+
+- For optimization, a variable `result_map_ptr` is removed.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.28 2024-10-13
 
 - The methods are optimized: `document_to_hash`, `find_one_to_hash`, `find_one_to_instance`, `refrash_fields`, `find_one_to_json`, `find_one_and_delete`, `find_many_to_hash_list`, `find_many_to_json`.
