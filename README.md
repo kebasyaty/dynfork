@@ -124,7 +124,7 @@ end
 
 puts "Documwnt count: #{User.estimated_document_count}"
 
-puts "Deleting a document."
+puts "Delete user."
 user.delete
 
 puts "Documwnt count: #{User.count_documents}"
