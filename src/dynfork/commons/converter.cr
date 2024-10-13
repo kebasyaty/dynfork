@@ -8,7 +8,7 @@ module DynFork::QCommons::Converter
     field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8))
   ) : Hash(String, DynFork::Globals::FieldValueTypes)
     #
-    doc_hash = doc_bson.value.to_h
+    doc_hash = doc_bson.to_h
     result = Hash(String, DynFork::Globals::FieldValueTypes).new
     result["hash"] = doc_hash["_id"].as(BSON::ObjectId).to_s
     field_type : String = ""
