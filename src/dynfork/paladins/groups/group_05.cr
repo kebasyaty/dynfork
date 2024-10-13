@@ -6,7 +6,7 @@ module DynFork::QPaladins::Groups
     error_symptom_ptr? : Pointer(Bool),
     update? : Bool,
     save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
+    result_map : Hash(String, DynFork::Globals::ResultMapType),
   ) : Nil
     # Validation, if the field is required and empty, accumulate the error.
     # ( The default value is used whenever possible )
@@ -18,7 +18,7 @@ module DynFork::QPaladins::Groups
           error_symptom_ptr?
         )
       end
-      (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+      (result_map[field_ptr.value.name] = nil) if save?
       return
     end
 
@@ -46,7 +46,7 @@ module DynFork::QPaladins::Groups
         current_value = field_ptr.value.extract_img_data?.not_nil!
       else
         if !field_ptr.value.required?
-          (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+          (result_map[field_ptr.value.name] = nil) if save?
         else
           self.accumulate_error(
             I18n.t(:required_field),
@@ -158,7 +158,7 @@ module DynFork::QPaladins::Groups
         end
       end
       # Insert result.
-      result_map_ptr.value[field_ptr.value.name] = current_value
+      result_map[field_ptr.value.name] = current_value
     end
   end
 end

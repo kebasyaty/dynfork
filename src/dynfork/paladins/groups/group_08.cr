@@ -4,7 +4,7 @@ module DynFork::QPaladins::Groups
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType))
+    result_map : Hash(String, DynFork::Globals::ResultMapType),
   ) : Nil
     #
     current_value : Bool = false
@@ -14,6 +14,6 @@ module DynFork::QPaladins::Groups
       current_value = val.not_nil!
     end
     # Insert result.
-    (result_map_ptr.value[field_ptr.value.name] = current_value) if save?
+    (result_map[field_ptr.value.name] = current_value) if save?
   end
 end

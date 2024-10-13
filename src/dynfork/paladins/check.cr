@@ -14,7 +14,6 @@ module DynFork::QPaladins::Check
   ) : DynFork::Globals::OutputData
     # Data to save or update to the database.
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)) = pointerof(result_map)
     # Get the document ID.
     id : BSON::ObjectId? = self.object_id
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
@@ -67,7 +66,7 @@ module DynFork::QPaladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_map_ptr,
+            result_map,
             collection_ptr,
             id_ptr,
           )
@@ -79,7 +78,7 @@ module DynFork::QPaladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_map_ptr,
+            result_map,
             collection_ptr,
           )
         when 3
@@ -95,7 +94,7 @@ module DynFork::QPaladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_map_ptr,
+            result_map,
             collection_ptr,
           )
         when 4
@@ -105,7 +104,7 @@ module DynFork::QPaladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_map_ptr,
+            result_map,
           )
         when 5
           # Validation of fields of type ImageField.
@@ -114,7 +113,7 @@ module DynFork::QPaladins::Check
             error_symptom_ptr?,
             update?,
             save?,
-            result_map_ptr,
+            result_map,
           )
         when 6
           # Validation of fields of type I64Field.
@@ -122,7 +121,7 @@ module DynFork::QPaladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_map_ptr,
+            result_map,
             collection_ptr,
             id_ptr,
           )
@@ -132,7 +131,7 @@ module DynFork::QPaladins::Check
             pointerof(@{{ field }}),
             error_symptom_ptr?,
             save?,
-            result_map_ptr,
+            result_map,
             collection_ptr,
             id_ptr,
           )
@@ -141,14 +140,14 @@ module DynFork::QPaladins::Check
           self.group_08(
             pointerof(@{{ field }}),
             save?,
-            result_map_ptr,
+            result_map,
           )
         when 9
           # Create string for SlugField.
           if save?
             self.group_09(
               pointerof(@{{ field }}),
-              result_map_ptr,
+              result_map,
             )
           end
         else

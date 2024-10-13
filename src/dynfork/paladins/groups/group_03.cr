@@ -12,8 +12,8 @@ module DynFork::QPaladins::Groups
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
     error_symptom_ptr? : Pointer(Bool),
     save? : Bool,
-    result_map_ptr : Pointer(Hash(String, DynFork::Globals::ResultMapType)),
-    collection_ptr : Pointer(Mongo::Collection)
+    result_map : Hash(String, DynFork::Globals::ResultMapType),
+    collection_ptr : Pointer(Mongo::Collection),
   ) : Nil
     # Get current value.
     current_value : DynFork::Globals::FieldValueTypes = (
@@ -28,7 +28,7 @@ module DynFork::QPaladins::Groups
             error_symptom_ptr?
           )
         end
-        (result_map_ptr.value[field_ptr.value.name] = nil) if save?
+        (result_map[field_ptr.value.name] = nil) if save?
         return
       end
       value
@@ -42,6 +42,6 @@ module DynFork::QPaladins::Groups
       )
     end
     # Insert result.
-    (result_map_ptr.value[field_ptr.value.name] = current_value) if save?
+    (result_map[field_ptr.value.name] = current_value) if save?
   end
 end
