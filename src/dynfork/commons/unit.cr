@@ -123,7 +123,7 @@ module DynFork::QCommons::UnitsManagement
       # Fetch a Cursor pointing to the  collection of current Model.
       cursor : Mongo::Cursor = collection.find
       #
-      cursor.each { |doc|
+      cursor.each do |doc|
         doc_h = doc.to_h
         # Update field value in document.
         if !(value = doc_h[unit.field]).nil?
@@ -152,7 +152,7 @@ module DynFork::QCommons::UnitsManagement
           filter: {_id: doc["_id"]},
           replacement: doc,
         )
-      }
+      end
     end
   end
 
