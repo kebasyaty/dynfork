@@ -12,7 +12,7 @@ module Spec::Support
   def self.generate_unique_app_key : String
     result : String = ""
     # Shuffle symbols in random order.
-    shuffled_chars : Array(String) = ALPHANUMERIC_CHARS.split("").shuffle
+    shuffled_chars : Array(String) = ALPHANUMERIC_CHARS.split("").shuffle!
     #
     chars_count : Int32 = shuffled_chars.size - 1
     size : Int32 = 16

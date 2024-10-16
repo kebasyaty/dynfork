@@ -70,7 +70,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
    dependencies:
      dynfork:
        github: kebasyaty/dynfork
-       version: ~> 0.7.29
+       version: ~> 0.7.30
    ```
 
 4. Run `shards install`
@@ -124,7 +124,7 @@ end
 
 puts "Documwnt count: #{User.estimated_document_count}"
 
-puts "Deleting a document."
+puts "Delete user."
 user.delete
 
 puts "Documwnt count: #{User.count_documents}"
