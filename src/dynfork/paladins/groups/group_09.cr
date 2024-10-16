@@ -21,6 +21,7 @@ module DynFork::QPaladins::Groups
                   "It requires a value or default value."
             raise DynFork::Errors::Panic.new msg
           end
+          return
         end
       end
     {% end %}
