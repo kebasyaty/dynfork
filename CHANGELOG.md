@@ -1,3 +1,9 @@
+#### v0.7.30 2024-10-16
+
+- Fixed method `group_09`, added a check of the parameter `required`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.29 2024-10-13
 
 - For optimization, a variable `result_map_ptr` is removed.
