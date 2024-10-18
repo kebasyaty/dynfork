@@ -13,15 +13,13 @@ module DynFork::QPaladins::Groups
         if !(value = @{{ field }}.value? || @{{ field }}.default?).nil?
             raw_str_arr << value.to_s
         else
-          unless @{{ field }}.required?
-            msg = "Model: `#{@@full_model_name}` > " +
-                  "Field: `#{field_ptr.value.name}` => " +
-                  "`#{@{{ field }}.name}` - " +
-                  "This field is specified in slug_sources. " +
-                  "It requires a value or default value."
-            raise DynFork::Errors::Panic.new msg
-          end
-          return
+          return if @{{ field }}.required?
+          msg = "Model: `#{@@full_model_name}` > " +
+                "Field: `#{field_ptr.value.name}` => " +
+                "`#{@{{ field }}.name}` - " +
+                "This field is specified in slug_sources. " +
+                "It requires a value or default value."
+          raise DynFork::Errors::Panic.new msg
         end
       end
     {% end %}
