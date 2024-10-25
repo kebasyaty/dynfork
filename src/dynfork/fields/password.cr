@@ -5,7 +5,7 @@ module DynFork::Fields
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
-  # WARNING: Default number of characters: max = 256, min = 8
+  # WARNING: Default number of characters: min = 8, max = 256.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct PasswordField < DynFork::Fields::Field
     # Field type - Structure Name.
@@ -21,7 +21,7 @@ module DynFork::Fields
     # The maximum number of characters allowed in the text.
     getter! maxlength : UInt32? = 256
     # The minimum number of characters allowed in the text.
-    getter! minlength : UInt32? = 14
+    getter! minlength : UInt32? = 8
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
