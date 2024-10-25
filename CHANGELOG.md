@@ -1,3 +1,9 @@
+#### v0.7.31 2024-10-25
+
+- In the fields, the type of parameter `hint` with `String` on `Array(String)`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.30 2024-10-16
 
 - Fixed method `group_09`, added a check of the parameter `required`.
