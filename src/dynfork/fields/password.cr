@@ -19,9 +19,9 @@ module DynFork::Fields
     # Required field.
     getter? required : Bool
     # The maximum number of characters allowed in the text.
-    getter! maxlength : UInt32? = 256
+    getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
-    getter! minlength : UInt32? = 8
+    getter! minlength : UInt32?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
@@ -187,6 +187,8 @@ module DynFork::Fields
       @warning : String = ""
     )
       @input_type = "password"
+      @maxlength = 256
+      @minlength = 8
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
