@@ -66,7 +66,7 @@ describe DynFork::Fields::F64Field do
       f.max.should eq(Float64::MAX)
       f.min.should eq(Float64::MIN)
       f.step.should eq(1_f64)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
