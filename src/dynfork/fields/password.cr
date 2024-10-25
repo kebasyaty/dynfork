@@ -183,7 +183,7 @@ module DynFork::Fields
       @hide : Bool = false,
       @required : Bool = true,
       @ignored : Bool = false,
-      @hint : String = "",
+      @hint : Array(String) = Array(String).new,
       @warning : String = ""
     )
       @input_type = "password"

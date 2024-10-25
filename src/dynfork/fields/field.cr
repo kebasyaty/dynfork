@@ -20,7 +20,7 @@ module DynFork::Fields
     # If true, the value of this field is not saved in the database.
     getter? ignored : Bool = false
     # Additional explanation for the user.
-    getter hint : String = ""
+    getter hint : Array(String) = Array(String).new
     # Warning information.
     property warning : String = ""
     # WARNING: The value is determined automatically.

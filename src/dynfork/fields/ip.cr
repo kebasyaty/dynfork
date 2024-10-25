@@ -175,7 +175,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = ""
+      @hint : Array(String) = Array(String).new,
     )
       @input_type = "text"
       @minlength = 0

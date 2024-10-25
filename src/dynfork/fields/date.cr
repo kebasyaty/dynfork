@@ -186,10 +186,10 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = I18n.t(
+      @hint : Array(String) = [I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy | dd/mm/yyyy | " +
                                           "dd.mm.yyyy | yyyy-mm-dd | " +
-                                          "yyyy/mm/dd | yyyy.mm.dd")
+                                          "yyyy/mm/dd | yyyy.mm.dd")]
     )
       @input_type = "date"
     end

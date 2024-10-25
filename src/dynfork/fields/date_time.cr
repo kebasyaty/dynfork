@@ -188,13 +188,13 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = I18n.t(
+      @hint : Array(String) = [I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | " +
                                           "dd.mm.yyyy hh:mm:ss | dd-mm-yyyyThh:mm:ss | " +
                                           "dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss | " +
                                           "yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | " +
                                           "yyyy.mm.dd hh:mm:ss | yyyy-mm-ddThh:mm:ss | " +
-                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")
+                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")]
     )
       @input_type = "datetime"
     end
