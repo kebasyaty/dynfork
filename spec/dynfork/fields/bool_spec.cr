@@ -15,7 +15,7 @@ describe DynFork::Fields::BoolField do
       f.readonly?.should be_false
       f.hide?.should be_false
       f.ignored?.should be_false
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(8_u8)

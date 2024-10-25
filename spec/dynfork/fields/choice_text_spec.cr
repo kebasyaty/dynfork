@@ -18,7 +18,7 @@ describe DynFork::Fields::ChoiceTextField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
@@ -59,7 +59,7 @@ describe DynFork::Fields::ChoiceTextMultField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
@@ -100,7 +100,7 @@ describe DynFork::Fields::ChoiceTextDynField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices?.should be_nil
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
@@ -141,7 +141,7 @@ describe DynFork::Fields::ChoiceTextMultDynField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices?.should be_nil
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)

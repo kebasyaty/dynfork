@@ -20,7 +20,7 @@ describe DynFork::Fields::HashField do
       f.ignored?.should be_false
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
-      f.hint.should eq("Enter document ID.")
+      f.hint.should eq(["Enter document ID."])
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.alerts.should eq(Array(String).new)
