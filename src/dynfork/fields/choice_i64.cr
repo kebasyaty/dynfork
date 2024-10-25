@@ -100,7 +100,7 @@ module DynFork::Fields
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
-    def refrash_val_bool(val : Bool); end
+    def refrash_val_bool(val : Bool) : Nil; end
 
     # :nodoc:
     def refrash_val_str(val : String); end
@@ -298,7 +298,7 @@ module DynFork::Fields
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
-    def refrash_val_bool(val : Bool); end
+    def refrash_val_bool(val : Bool) : Nil; end
 
     # :nodoc:
     def refrash_val_str(val : String); end
@@ -496,7 +496,7 @@ module DynFork::Fields
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
-    def refrash_val_bool(val : Bool); end
+    def refrash_val_bool(val : Bool) : Nil; end
 
     # :nodoc:
     def refrash_val_str(val : String); end
@@ -707,7 +707,7 @@ module DynFork::Fields
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
-    def refrash_val_bool(val : Bool); end
+    def refrash_val_bool(val : Bool) : Nil; end
 
     # :nodoc:
     def refrash_val_str(val : String); end

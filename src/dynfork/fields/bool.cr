@@ -183,7 +183,7 @@ module DynFork::Fields
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
-    def refrash_val_bool(val : Bool)
+    def refrash_val_bool(val : Bool) : Nil
       @value = val
     end
 

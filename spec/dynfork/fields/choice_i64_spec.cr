@@ -100,6 +100,21 @@ describe DynFork::Fields::ChoiceI64MultDynField do
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
+      # nodoc
+      f.max.should be_nil
+      f.min.should be_nil
+      f.regex.should be_nil
+      f.regex_err_msg.should be_nil
+      f.maxlength.should be_nil
+      f.minlength.should be_nil
+      f.maxsize.should eq(0_f32)
+      f.unique?.should be_false
+      f.input_type.should be_nil
+      f.media_root.should eq("")
+      f.media_url.should eq("")
+      f.target_dir.should eq("")
+      f.thumbnails.should be_nil
+      f.use_editor?.should be_false
     end
   end
 end
