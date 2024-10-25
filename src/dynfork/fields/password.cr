@@ -5,7 +5,7 @@ module DynFork::Fields
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
-  # WARNING: Default number of characters: max = 256, min = 8
+  # WARNING: Default number of characters: min = 8, max = 256.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct PasswordField < DynFork::Fields::Field
     # Field type - Structure Name.
@@ -22,10 +22,6 @@ module DynFork::Fields
     getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
     getter! minlength : UInt32?
-    # Regular expression to validate the value.
-    getter! regex : String?
-    # Error message.
-    getter! regex_err_msg : String?
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
@@ -44,6 +40,16 @@ module DynFork::Fields
     @[JSON::Field(ignore: true)]
     # :nodoc:
     getter! min : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! regex : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
@@ -174,17 +180,15 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @placeholder : String = "",
-      @maxlength : UInt32? = 256,
-      @minlength : UInt32? = 8,
-      @regex : String? = nil,
-      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @required : Bool = true,
       @ignored : Bool = false,
-      @hint : String = "",
+      @hint : Array(String) = Array(String).new,
       @warning : String = ""
     )
       @input_type = "password"
+      @maxlength = 256
+      @minlength = 8
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.

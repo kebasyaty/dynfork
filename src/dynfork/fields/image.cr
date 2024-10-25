@@ -39,6 +39,7 @@ module DynFork::Fields
     # From one to four inclusive.
     # <br>
     # _Example: [{"xs", 150}, {"sm", 300}, {"md", 600}, {"lg", 1200}]_
+    # WARNING: An Intel i7-4770 processor or better is recommended.
     getter! thumbnails : Array({String, Int32})?
     # The maximum allowed image size in bytes.
     # NOTE: 1 MB = 1048576 Bytes (in binary).
@@ -166,7 +167,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : String = I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp"),
+      @hint : Array(String) = [I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp")],
       @warning : String = ""
     )
       @input_type = "file"

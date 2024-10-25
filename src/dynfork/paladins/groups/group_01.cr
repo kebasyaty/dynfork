@@ -120,17 +120,15 @@ module DynFork::QPaladins::Groups
         )
       end
     when "PasswordField"
-      if field_ptr.value.regex?.nil?
-        unless Valid.password? current_value
-          self.accumulate_error(
-            I18n.t(
-              "allowed_chars.interpolation",
-              chars: %(a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ \( \) * + / \\ ? [ ] ^ |)
-            ),
-            field_ptr,
-            error_symptom_ptr?
-          )
-        end
+      unless Valid.password? current_value
+        self.accumulate_error(
+          I18n.t(
+            "allowed_chars.interpolation",
+            chars: %(a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ \( \) * + / \\ ? [ ] ^ |)
+          ),
+          field_ptr,
+          error_symptom_ptr?
+        )
       end
     end
     # Insert result.

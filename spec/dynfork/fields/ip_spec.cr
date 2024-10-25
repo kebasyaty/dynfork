@@ -20,7 +20,7 @@ describe DynFork::Fields::IPField do
       f.ignored?.should be_false
       f.maxlength.should eq(256)
       f.minlength.should eq(0)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)

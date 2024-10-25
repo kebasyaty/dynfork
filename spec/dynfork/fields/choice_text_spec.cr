@@ -18,10 +18,25 @@ describe DynFork::Fields::ChoiceTextField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
+      # nodoc
+      f.max?.should be_nil
+      f.min?.should be_nil
+      f.regex?.should be_nil
+      f.regex_err_msg?.should be_nil
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
+      f.maxsize.should eq(0_f32)
+      f.unique?.should be_false
+      f.input_type?.should be_nil
+      f.media_root.should eq("")
+      f.media_url.should eq("")
+      f.target_dir.should eq("")
+      f.thumbnails?.should be_nil
+      f.use_editor?.should be_false
     end
   end
 end
@@ -44,10 +59,25 @@ describe DynFork::Fields::ChoiceTextMultField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(String, String)).new)
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
+      # nodoc
+      f.max?.should be_nil
+      f.min?.should be_nil
+      f.regex?.should be_nil
+      f.regex_err_msg?.should be_nil
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
+      f.maxsize.should eq(0_f32)
+      f.unique?.should be_false
+      f.input_type?.should be_nil
+      f.media_root.should eq("")
+      f.media_url.should eq("")
+      f.target_dir.should eq("")
+      f.thumbnails?.should be_nil
+      f.use_editor?.should be_false
     end
   end
 end
@@ -70,10 +100,25 @@ describe DynFork::Fields::ChoiceTextDynField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices?.should be_nil
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
+      # nodoc
+      f.max?.should be_nil
+      f.min?.should be_nil
+      f.regex?.should be_nil
+      f.regex_err_msg?.should be_nil
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
+      f.maxsize.should eq(0_f32)
+      f.unique?.should be_false
+      f.input_type?.should be_nil
+      f.media_root.should eq("")
+      f.media_url.should eq("")
+      f.target_dir.should eq("")
+      f.thumbnails?.should be_nil
+      f.use_editor?.should be_false
     end
   end
 end
@@ -96,10 +141,25 @@ describe DynFork::Fields::ChoiceTextMultDynField do
       f.hide?.should be_false
       f.ignored?.should be_false
       f.choices?.should be_nil
-      f.hint.should eq("")
+      f.hint.should eq(Array(String).new)
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
+      # nodoc
+      f.max?.should be_nil
+      f.min?.should be_nil
+      f.regex?.should be_nil
+      f.regex_err_msg?.should be_nil
+      f.maxlength?.should be_nil
+      f.minlength?.should be_nil
+      f.maxsize.should eq(0_f32)
+      f.unique?.should be_false
+      f.input_type?.should be_nil
+      f.media_root.should eq("")
+      f.media_url.should eq("")
+      f.target_dir.should eq("")
+      f.thumbnails?.should be_nil
+      f.use_editor?.should be_false
     end
   end
 end
