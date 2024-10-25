@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="dynfork">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="dynfork">
+  <title>dynfork v0</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          dynfork
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork" data-name="dynfork">
+      <a href="DynFork.html">DynFork</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors" data-name="dynfork::errors">
+      <a href="DynFork/Errors.html">Errors</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Cache" data-name="dynfork::errors::cache">
+      <a href="DynFork/Errors/Cache.html">Cache</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Cache/SettingsExcessChars" data-name="dynfork::errors::cache::settingsexcesschars">
+      <a href="DynFork/Errors/Cache/SettingsExcessChars.html">SettingsExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Cache/SettingsRegexFails" data-name="dynfork::errors::cache::settingsregexfails">
+      <a href="DynFork/Errors/Cache/SettingsRegexFails.html">SettingsRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Date" data-name="dynfork::errors::date">
+      <a href="DynFork/Errors/Date.html">Date</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Date/InvalidDate" data-name="dynfork::errors::date::invaliddate">
+      <a href="DynFork/Errors/Date/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Date/InvalidDateTime" data-name="dynfork::errors::date::invaliddatetime">
+      <a href="DynFork/Errors/Date/InvalidDateTime.html">InvalidDateTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/DynForkException" data-name="dynfork::errors::dynforkexception">
+      <a href="DynFork/Errors/DynForkException.html">DynForkException</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Fields" data-name="dynfork::errors::fields">
+      <a href="DynFork/Errors/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/InvalidInputType" data-name="dynfork::errors::fields::invalidinputtype">
+      <a href="DynFork/Errors/Fields/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/NotCorrectDefaultDate" data-name="dynfork::errors::fields::notcorrectdefaultdate">
+      <a href="DynFork/Errors/Fields/NotCorrectDefaultDate.html">NotCorrectDefaultDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/NotCorrectMinDate" data-name="dynfork::errors::fields::notcorrectmindate">
+      <a href="DynFork/Errors/Fields/NotCorrectMinDate.html">NotCorrectMinDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNameInvalid" data-name="dynfork::errors::fields::slugsourcenameinvalid">
+      <a href="DynFork/Errors/Fields/SlugSourceNameInvalid.html">SlugSourceNameInvalid</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotRequired" data-name="dynfork::errors::fields::slugsourcenotrequired">
+      <a href="DynFork/Errors/Fields/SlugSourceNotRequired.html">SlugSourceNotRequired</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotUnique" data-name="dynfork::errors::fields::slugsourcenotunique">
+      <a href="DynFork/Errors/Fields/SlugSourceNotUnique.html">SlugSourceNotUnique</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceTypeInvalid" data-name="dynfork::errors::fields::slugsourcetypeinvalid">
+      <a href="DynFork/Errors/Fields/SlugSourceTypeInvalid.html">SlugSourceTypeInvalid</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Meta" data-name="dynfork::errors::meta">
+      <a href="DynFork/Errors/Meta.html">Meta</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ForbiddenDeletingDocs" data-name="dynfork::errors::meta::forbiddendeletingdocs">
+      <a href="DynFork/Errors/Meta/ForbiddenDeletingDocs.html">ForbiddenDeletingDocs</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/InvalidParamName" data-name="dynfork::errors::meta::invalidparamname">
+      <a href="DynFork/Errors/Meta/InvalidParamName.html">InvalidParamName</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParameterMissing" data-name="dynfork::errors::meta::parametermissing">
+      <a href="DynFork/Errors/Meta/ParameterMissing.html">ParameterMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParamExcessChars" data-name="dynfork::errors::meta::paramexcesschars">
+      <a href="DynFork/Errors/Meta/ParamExcessChars.html">ParamExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParamRegexFails" data-name="dynfork::errors::meta::paramregexfails">
+      <a href="DynFork/Errors/Meta/ParamRegexFails.html">ParamRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Model" data-name="dynfork::errors::model">
+      <a href="DynFork/Errors/Model.html">Model</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/FailedGenerateUniqueID" data-name="dynfork::errors::model::failedgenerateuniqueid">
+      <a href="DynFork/Errors/Model/FailedGenerateUniqueID.html">FailedGenerateUniqueID</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/FieldsMissing" data-name="dynfork::errors::model::fieldsmissing">
+      <a href="DynFork/Errors/Model/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidGroupNumber" data-name="dynfork::errors::model::invalidgroupnumber">
+      <a href="DynFork/Errors/Model/InvalidGroupNumber.html">InvalidGroupNumber</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/ModelNameExcessChars" data-name="dynfork::errors::model::modelnameexcesschars">
+      <a href="DynFork/Errors/Model/ModelNameExcessChars.html">ModelNameExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/ModelNameRegexFails" data-name="dynfork::errors::model::modelnameregexfails">
+      <a href="DynFork/Errors/Model/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Panic" data-name="dynfork::errors::panic">
+      <a href="DynFork/Errors/Panic.html">Panic</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Password" data-name="dynfork::errors::password">
+      <a href="DynFork/Errors/Password.html">Password</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Password/OldPassNotMatch" data-name="dynfork::errors::password::oldpassnotmatch">
+      <a href="DynFork/Errors/Password/OldPassNotMatch.html">OldPassNotMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Types" data-name="dynfork::errors::types">
+      <a href="DynFork/Errors/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Types/InvalidType" data-name="dynfork::errors::types::invalidtype">
+      <a href="DynFork/Errors/Types/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Extra" data-name="dynfork::extra">
+      <a href="DynFork/Extra.html">Extra</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
+      <a href="DynFork/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/BoolField" data-name="dynfork::fields::boolfield">
+      <a href="DynFork/Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64DynField" data-name="dynfork::fields::choicef64dynfield">
+      <a href="DynFork/Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64Field" data-name="dynfork::fields::choicef64field">
+      <a href="DynFork/Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64MultDynField" data-name="dynfork::fields::choicef64multdynfield">
+      <a href="DynFork/Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64MultField" data-name="dynfork::fields::choicef64multfield">
+      <a href="DynFork/Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64DynField" data-name="dynfork::fields::choicei64dynfield">
+      <a href="DynFork/Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64Field" data-name="dynfork::fields::choicei64field">
+      <a href="DynFork/Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64MultDynField" data-name="dynfork::fields::choicei64multdynfield">
+      <a href="DynFork/Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64MultField" data-name="dynfork::fields::choicei64multfield">
+      <a href="DynFork/Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
+      <a href="DynFork/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextField" data-name="dynfork::fields::choicetextfield">
+      <a href="DynFork/Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextMultDynField" data-name="dynfork::fields::choicetextmultdynfield">
+      <a href="DynFork/Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextMultField" data-name="dynfork::fields::choicetextmultfield">
+      <a href="DynFork/Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ColorField" data-name="dynfork::fields::colorfield">
+      <a href="DynFork/Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/DateField" data-name="dynfork::fields::datefield">
+      <a href="DynFork/Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/DateTimeField" data-name="dynfork::fields::datetimefield">
+      <a href="DynFork/Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/EmailField" data-name="dynfork::fields::emailfield">
+      <a href="DynFork/Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/F64Field" data-name="dynfork::fields::f64field">
+      <a href="DynFork/Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/Field" data-name="dynfork::fields::field">
+      <a href="DynFork/Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/FileField" data-name="dynfork::fields::filefield">
+      <a href="DynFork/Fields/FileField.html">FileField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/HashField" data-name="dynfork::fields::hashfield">
+      <a href="DynFork/Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/I64Field" data-name="dynfork::fields::i64field">
+      <a href="DynFork/Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ImageField" data-name="dynfork::fields::imagefield">
+      <a href="DynFork/Fields/ImageField.html">ImageField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/IPField" data-name="dynfork::fields::ipfield">
+      <a href="DynFork/Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/PasswordField" data-name="dynfork::fields::passwordfield">
+      <a href="DynFork/Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/PhoneField" data-name="dynfork::fields::phonefield">
+      <a href="DynFork/Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/SlugField" data-name="dynfork::fields::slugfield">
+      <a href="DynFork/Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/TextField" data-name="dynfork::fields::textfield">
+      <a href="DynFork/Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/URLField" data-name="dynfork::fields::urlfield">
+      <a href="DynFork/Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals" data-name="dynfork::globals">
+      <a href="DynFork/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals/Aliases" data-name="dynfork::globals::aliases">
+      <a href="DynFork/Globals/Aliases.html">Aliases</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/CacheMetaDataType" data-name="dynfork::globals::aliases::cachemetadatatype">
+      <a href="DynFork/Globals/Aliases/CacheMetaDataType.html">CacheMetaDataType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/CacheRegexType" data-name="dynfork::globals::aliases::cacheregextype">
+      <a href="DynFork/Globals/Aliases/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/FieldTypes" data-name="dynfork::globals::aliases::fieldtypes">
+      <a href="DynFork/Globals/Aliases/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/FieldValueTypes" data-name="dynfork::globals::aliases::fieldvaluetypes">
+      <a href="DynFork/Globals/Aliases/FieldValueTypes.html">FieldValueTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/ResultMapType" data-name="dynfork::globals::aliases::resultmaptype">
+      <a href="DynFork/Globals/Aliases/ResultMapType.html">ResultMapType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Date" data-name="dynfork::globals::date">
+      <a href="DynFork/Globals/Date.html">Date</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals/Types" data-name="dynfork::globals::types">
+      <a href="DynFork/Globals/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/FileData" data-name="dynfork::globals::types::filedata">
+      <a href="DynFork/Globals/Types/FileData.html">FileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/ImageData" data-name="dynfork::globals::types::imagedata">
+      <a href="DynFork/Globals/Types/ImageData.html">ImageData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/OutputData" data-name="dynfork::globals::types::outputdata">
+      <a href="DynFork/Globals/Types/OutputData.html">OutputData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/Unit" data-name="dynfork::globals::types::unit">
+      <a href="DynFork/Globals/Types/Unit.html">Unit</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/ValidationCacheSettings" data-name="dynfork::globals::types::validationcachesettings">
+      <a href="DynFork/Globals/Types/ValidationCacheSettings.html">ValidationCacheSettings</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Meta" data-name="dynfork::meta">
+      <a href="DynFork/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Migration" data-name="dynfork::migration">
+      <a href="DynFork/Migration.html">Migration</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Migration/ModelState" data-name="dynfork::migration::modelstate">
+      <a href="DynFork/Migration/ModelState.html">ModelState</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor">
+      <a href="DynFork/Migration/Monitor.html">Monitor</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Model" data-name="dynfork::model">
+      <a href="DynFork/Model.html">Model</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/QCommons" data-name="dynfork::qcommons">
+      <a href="DynFork/QCommons.html">QCommons</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Converter" data-name="dynfork::qcommons::converter">
+      <a href="DynFork/QCommons/Converter.html">Converter</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/General" data-name="dynfork::qcommons::general">
+      <a href="DynFork/QCommons/General.html">General</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Indexes" data-name="dynfork::qcommons::indexes">
+      <a href="DynFork/QCommons/Indexes.html">Indexes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Many" data-name="dynfork::qcommons::many">
+      <a href="DynFork/QCommons/Many.html">Many</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/One" data-name="dynfork::qcommons::one">
+      <a href="DynFork/QCommons/One.html">One</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/UnitsManagement" data-name="dynfork::qcommons::unitsmanagement">
+      <a href="DynFork/QCommons/UnitsManagement.html">UnitsManagement</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/QPaladins" data-name="dynfork::qpaladins">
+      <a href="DynFork/QPaladins.html">QPaladins</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Caching" data-name="dynfork::qpaladins::caching">
+      <a href="DynFork/QPaladins/Caching.html">Caching</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Check" data-name="dynfork::qpaladins::check">
+      <a href="DynFork/QPaladins/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Fixtures" data-name="dynfork::qpaladins::fixtures">
+      <a href="DynFork/QPaladins/Fixtures.html">Fixtures</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Groups" data-name="dynfork::qpaladins::groups">
+      <a href="DynFork/QPaladins/Groups.html">Groups</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Password" data-name="dynfork::qpaladins::password">
+      <a href="DynFork/QPaladins/Password.html">Password</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Save" data-name="dynfork::qpaladins::save">
+      <a href="DynFork/QPaladins/Save.html">Save</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Tools" data-name="dynfork::qpaladins::tools">
+      <a href="DynFork/QPaladins/Tools.html">Tools</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/Validator" data-name="validator">
+      <a href="Validator.html">Validator</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<div align="center">
+  <p align="center">
+    <a href="https://github.com/kebasyaty/dynfork">
+      <img
+        alt="Logo"
+        src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/logo/logo.svg">
+    </a>
+  </p>
+  <p>
+    <h1>DynFork</h1>
+    <h3>ORM-like API MongoDB for Crystal language.</h3>
+    <p align="center">
+      <a href="https://github.com/kebasyaty/dynfork/actions/workflows/specs.yml" alt="Build Status"><img src="https://github.com/kebasyaty/dynfork/actions/workflows/specs.yml/badge.svg" alt="Build Status"></a>
+      <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
+      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11.2%2B-CC342D" alt="Crysta"></a>
+      <a href="https://github.com/kebasyaty/dynfork/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
+      <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
+      <a href="https://github.com/kebasyaty/dynfork" alt="GitHub repository"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
+    </p>
+    <div align="center">
+      DynFork is built around <a href="https://github.com/elbywan/cryomongo" alt="Cryomongo">Cryomongo</a> and is more focused on web development.
+      <br>
+      For simulate relationship Many-to-One and Many-to-Many,
+      <br>
+      a simplified alternative (Types of selective fields with dynamic addition of elements) is used.
+      <br>
+      The project is focused on web development.
+    </div>
+  </p>
+</div>
+<hr>
+<p>
+  <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
+    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/status_project/Status_Project-Beta-.svg"
+      alt="Status Project">
+  </a>
+</p>
+<p><em>Compatible with MongoDB 3.6+. Tested against: 4.4, 7.0</em>
+<br>
+<em>For more information see <a href="https://github.com/elbywan/cryomongo" title="Cryomongo">Cryomongo</a></em>.</p>
+<h2><a id="documentation" class="anchor" href="#documentation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Documentation</h2>
+<p>Online browsable documentation is available at <a href="https://kebasyaty.github.io/dynfork/" title="Documentation">https://kebasyaty.github.io/dynfork/</a>.</p>
+<h2><a id="requirements" class="anchor" href="#requirements">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Requirements</h2>
+<p><a href="https://github.com/kebasyaty/dynfork/blob/main/REQUIREMENTS.md" title="View the list of requirements.">View the list of requirements.</a></p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Install MongoDB (if not installed):<br>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md"><img src="https://img.shields.io/badge/Fedora-294172?style=for-the-badge&amp;logo=fedora&amp;logoColor=white" alt="Fedora" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_INSTALL_MONGODB.md"><img src="https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&amp;logo=debian&amp;logoColor=white" alt="Debian" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md"><img src="https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&amp;logo=ubuntu&amp;logoColor=white" alt="Ubuntu" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md"><img src="https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&amp;logo=linux-mint&amp;logoColor=white" alt="Linux Mint" /></a></p>
+</li>
+<li>
+<p>Install additional libraries (if not installed):<br>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md"><img src="https://img.shields.io/badge/Fedora-294172?style=for-the-badge&amp;logo=fedora&amp;logoColor=white" alt="Fedora" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_ADDITIONAL_LIBRARIES.md"><img src="https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&amp;logo=debian&amp;logoColor=white" alt="Debian" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md"><img src="https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&amp;logo=ubuntu&amp;logoColor=white" alt="Ubuntu" /></a>
+<a href="https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md"><img src="https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&amp;logo=linux-mint&amp;logoColor=white" alt="Linux Mint" /></a></p>
+</li>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  dynfork:
+    github: kebasyaty/dynfork
+    version: ~&gt; 0.7.31</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<p>It is recommended to look at examples <a href="https://github.com/kebasyaty/dynfork/tree/main/examples" title="here">here</a>.</p>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;dynfork&quot;</span>
+
+<span class="c"># Create your model.</span>
+@[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(service_name: <span class="s">&quot;Accounts&quot;</span>)]
+<span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+  getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+  getter email <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">EmailField</span>.new
+  getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+<span class="k">end</span>
+
+<span class="c"># Initialize locale.</span>
+<span class="c"># https://github.com/crystal-i18n/i18n</span>
+<span class="t">I18n</span>.config.loaders <span class="o">&lt;&lt;</span> <span class="t">I18n</span><span class="t">::</span><span class="t">Loader</span><span class="t">::</span><span class="t">YAML</span>.new(<span class="s">&quot;config/locales&quot;</span>)
+<span class="t">I18n</span>.config.default_locale <span class="o">=</span> <span class="n">:en</span>
+<span class="t">I18n</span>.init
+
+<span class="c"># Run migration.</span>
+<span class="c"># https://elbywan.github.io/cryomongo/Mongo/Client.html</span>
+<span class="t">DynFork</span><span class="t">::</span><span class="t">Migration</span><span class="t">::</span><span class="t">Monitor</span>.new(
+  app_name: <span class="s">&quot;AppName&quot;</span>,
+  unique_app_key: <span class="s">&quot;Towr5kKQM5H3Lb0b&quot;</span>,
+  mongo_client: <span class="t">Mongo</span><span class="t">::</span><span class="t">Client</span>.new(<span class="s">&quot;mongodb://localhost:27017&quot;</span>)
+).migrat
+
+<span class="c"># Create a user.</span>
+user <span class="o">=</span> <span class="t">User</span>.new
+
+<span class="c"># Add user data.</span>
+user.username.value <span class="o">=</span> <span class="s">&quot;username&quot;</span>
+user.email.value <span class="o">=</span> <span class="s">&quot;user@noreaply.net&quot;</span>
+user.birthday.value <span class="o">=</span> <span class="s">&quot;1970-01-01&quot;</span>
+
+<span class="c"># Save user.</span>
+<span class="c"># Hint: print_err - convenient for development.</span>
+user.print_err <span class="k">unless</span> user.save
+
+<span class="c"># Print user details.</span>
+puts <span class="s">&quot;User details:&quot;</span>
+<span class="k">if</span> id <span class="o">=</span> user.object_id
+  pp <span class="t">User</span>.find_one_to_hash({_id: id})
+<span class="k">end</span>
+
+puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.estimated_document_count<span class="i">}</span><span class="s">&quot;</span>
+
+puts <span class="s">&quot;Delete user.&quot;</span>
+user.delete
+
+puts <span class="s">&quot;Documwnt count: </span><span class="i">#{</span><span class="t">User</span>.count_documents<span class="i">}</span><span class="s">&quot;</span></code></pre>
+<h3><a id="see-more-examples-here." class="anchor" href="#see-more-examples-here.">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a><a href="https://github.com/kebasyaty/dynfork/tree/main/examples" title="See more examples here.">See more examples here.</a></h3>
+<h2><a id="model-parameters" class="anchor" href="#model-parameters">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Model Parameters</h2>
+<p>See the documentation <a href="https://kebasyaty.github.io/dynfork/DynFork/Meta.html" title="here">here</a>.</p>
+<h6><a id="only-service-name-is-a-required-parameter" class="anchor" href="#only-service-name-is-a-required-parameter">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>( only <code>service_name</code> is a required parameter )</h6>
+<div>
+   <table>
+     <tr>
+       <th align="left">Parameter</th>
+       <th align="left">Default</th>
+       <th align="left">Description</th>
+     </tr>
+     <tr>
+       <td align="left">service_name</td>
+       <td align="left">no</td>
+       <td align="left"><b>Examples:</b> Accounts | Smartphones | Washing machines | etc ... </td>
+     </tr>
+     <tr>
+       <td align="left">fixture_name</td>
+       <td align="left">no</td>
+       <td align="left">
+         The name of the fixture in the <b>config/fixtures</b> directory (without extension).
+         <br>
+         <b>Examples:</b> SiteSettings | AppSettings | etc ...
+       </td>
+     </tr>
+     <tr>
+       <td align="left">db_query_docs_limit</td>
+       <td align="left">1000</td>
+       <td align="left">limiting query results.</td>
+     </tr>
+     <tr>
+       <td align="left">migrat_model?</td>
+       <td align="left">true</td>
+       <td align="left">
+         Set to <b>false</b> if you do not need to migrate the Model to the database.<br>
+         This can be use to validate a web forms - Search form, Contact form, etc.
+       </td>
+     </tr>
+     <tr>
+       <td align="left">create_doc?</td>
+       <td align="left">true</td>
+       <td align="left">
+         Can a Model create new documents in a collection?<br>
+         Set to <b>false</b> if you only need one document in the collection and the Model is using a fixture.
+       </td>
+     </tr>
+     <tr>
+       <td align="left">update_doc?</td>
+       <td align="left">true</td>
+       <td align="left">Can a Model update documents in a collection?</td>
+     </tr>
+     <tr>
+       <td align="left">delete_doc?</td>
+       <td align="left">true</td>
+       <td align="left">Can a Model remove documents from a collection?</td>
+     </tr>
+   </table>
+</div>
+<br>
+<p><strong>Example:</strong></p>
+<pre><code class="language-crystal">  @[<span class="t">DynFork</span><span class="t">::</span><span class="t">Meta</span>(
+    service_name: <span class="s">&quot;ServiceName&quot;</span>,
+    fixture_name: <span class="s">&quot;FixtureName&quot;</span>,
+    db_query_docs_limit: <span class="n">1000</span>,
+    migrat_model?: <span class="n">true</span>,
+    create_doc?: <span class="n">true</span>,
+    update_doc?: <span class="n">true</span>,
+    delete_doc?: <span class="n">true</span>,
+  )]
+  <span class="k">struct</span> <span class="t">User</span> <span class="o">&lt;</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Model</span>
+    getter username <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">TextField</span>.new
+    getter birthday <span class="o">=</span> <span class="t">DynFork</span><span class="t">::</span><span class="t">Fields</span><span class="t">::</span><span class="t">DateField</span>.new
+  <span class="k">end</span></code></pre>
+<h2><a id="methods-for-developers" class="anchor" href="#methods-for-developers">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Methods for developers</h2>
+<p><em>Links to documentation.</em></p>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/Model.html" title="Model:">Model:</a></strong></p>
+<ul>
+<li>full_model_name</li>
+<li>meta</li>
+<li>subclasses</li>
+<li>object_id</li>
+</ul>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/Extra.html" title="Extra:">Extra:</a></strong></p>
+<ul>
+<li>add_validation</li>
+<li>indexing</li>
+<li>pre_create</li>
+<li>post_create</li>
+<li>pre_update</li>
+<li>post_update</li>
+<li>pre_delete</li>
+<li>post_delete</li>
+</ul>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/Migration.html" title="Migration:">Migration:</a></strong></p>
+<ul>
+<li>migrat</li>
+</ul>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/QPaladins.html" title="QPaladins:">QPaladins:</a></strong></p>
+<ul>
+<li>valid?</li>
+<li>save</li>
+<li>print_err</li>
+<li>delete</li>
+<li>verify_password</li>
+<li>update_password</li>
+</ul>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/QCommons.html" title="QCommons:">QCommons:</a></strong></p>
+<ul>
+<li>aggregate</li>
+<li>collection_name</li>
+<li>count_documents</li>
+<li>distinct</li>
+<li>estimated_document_count</li>
+<li>stats</li>
+<li>find_many_to_hash_list</li>
+<li>find_many_to_json</li>
+<li>find_one_to_hash</li>
+<li>find_one_to_instance</li>
+<li>find_one_to_json</li>
+<li>find_one_and_delete</li>
+<li>unit_manager</li>
+<li>delete_many</li>
+<li>delete_one</li>
+<li>bulk</li>
+<li>bulk_write</li>
+<li>create_index</li>
+<li>create_indexes</li>
+<li>drop_index</li>
+<li>drop_indexes</li>
+<li>list_indexes</li>
+</ul>
+<p><strong><a href="https://kebasyaty.github.io/dynfork/DynFork/Fields/F64Field.html" title="F64Field:">F64Field:</a></strong></p>
+<ul>
+<li>finance_plus</li>
+<li>finance_minus</li>
+<li>finance_divide</li>
+<li>finance_multiply</li>
+</ul>
+<p>For currencies, use the <a href="https://github.com/crystal-money/money" target="_blank">Money</a> shard.</p>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/kebasyaty/dynfork/fork">https://github.com/kebasyaty/dynfork/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/kebasyaty">kebasyaty</a> Gennady Kostyunin - creator and maintainer</li>
+</ul>
+<h2><a id="changelog" class="anchor" href="#changelog">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Changelog</h2>
+<p><a href="https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md" title="Changelog">View the change history.</a></p>
+<h2><a id="license" class="anchor" href="#license">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>License</h2>
+<p><strong>This project is licensed under the</strong> <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" title="MIT">MIT</a><strong>.</strong></p>
+<br>
+<br>
+<div>
+  <a href="https://crystal-lang.org/" alt="Made with Crystal">
+    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/made-with-crystal.svg"
+      alt="Made with Crystal">
+  </a>
+</div>
+</div>
+</body>
+</html>
