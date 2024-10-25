@@ -19,13 +19,9 @@ module DynFork::Fields
     # Required field.
     getter? required : Bool
     # The maximum number of characters allowed in the text.
-    getter! maxlength : UInt32?
+    getter! maxlength : UInt32? = 256
     # The minimum number of characters allowed in the text.
-    getter! minlength : UInt32?
-    # Regular expression to validate the value.
-    getter! regex : String?
-    # Error message.
-    getter! regex_err_msg : String?
+    getter! minlength : UInt32? = 14
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 1
@@ -44,6 +40,16 @@ module DynFork::Fields
     @[JSON::Field(ignore: true)]
     # :nodoc:
     getter! min : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! regex : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! regex_err_msg : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
@@ -174,10 +180,6 @@ module DynFork::Fields
     def initialize(
       @label : String = "",
       @placeholder : String = "",
-      @maxlength : UInt32? = 256,
-      @minlength : UInt32? = 8,
-      @regex : String? = nil,
-      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @required : Bool = true,
       @ignored : Bool = false,
