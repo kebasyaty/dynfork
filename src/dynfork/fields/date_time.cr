@@ -33,8 +33,6 @@ module DynFork::Fields
     getter! max : String?
     # The lower value for entering a date and time.
     getter! min : String?
-    # Additional explanation for the user.
-    getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 2
