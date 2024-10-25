@@ -111,7 +111,7 @@ module DynFork::Fields
     def refrash_val_f64(val : Float64); end
 
     # :nodoc:
-    def refrash_val_str(val : String); end
+    def refrash_val_str(val : String) : Nil; end
 
     # :nodoc:
     def refrash_val_arr_str(val : Array(String)); end
