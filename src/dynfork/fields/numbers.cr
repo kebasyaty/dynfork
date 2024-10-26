@@ -174,8 +174,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
-      @warning : String = ""
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
     )
       unless ["number", "range"].includes?(self.input_type)
         raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)
@@ -368,8 +368,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
-      @warning : String = ""
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
     )
       unless ["number", "range"].includes?(self.input_type)
         raise DynFork::Errors::Fields::InvalidInputType.new(self.input_type)

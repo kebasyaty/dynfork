@@ -177,7 +177,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
       @choices : Array(Tuple(Float64, String))? = Array(Tuple(Float64, String)).new
     ); end
 
@@ -372,7 +373,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
       @choices : Array(Tuple(Float64, String))? = Array(Tuple(Float64, String)).new
     ); end
 
@@ -572,7 +574,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
@@ -778,7 +781,8 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.

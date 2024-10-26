@@ -20,8 +20,8 @@ describe DynFork::Fields::I64Field do
       f.max.should eq(Int64::MAX)
       f.min.should eq(Int64::MIN)
       f.step.should eq(1_i64)
-      f.hint.should eq(Array(String).new)
-      f.warning.should eq("")
+      f.hint.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(6_u8)
     end
@@ -66,8 +66,8 @@ describe DynFork::Fields::F64Field do
       f.max.should eq(Float64::MAX)
       f.min.should eq(Float64::MIN)
       f.step.should eq(1_f64)
-      f.hint.should eq(Array(String).new)
-      f.warning.should eq("")
+      f.hint.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(7_u8)
       # Financial methods.

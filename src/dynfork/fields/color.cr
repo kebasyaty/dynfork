@@ -186,11 +186,12 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = [I18n.t(
+      @hint : String = "",
+      @warning : Array(String) = [I18n.t(
         "examples.interpolation", samples: "#fff | #f2f2f2 | #f2f2f200 | " +
                                            "rgb(255,0,24) | rgba(255,0,24,0.5) | " +
                                            "rgba(#fff,0.5) | hsl(120,100%,50%) | " +
-                                           "hsla(170,23%,25%,0.2) | 0x00ffff")]
+                                           "hsla(170,23%,25%,0.2) | 0x00ffff")],
     )
       @input_type = "text"
       @minlength = 0

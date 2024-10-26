@@ -20,9 +20,10 @@ module DynFork::Fields
     # If true, the value of this field is not saved in the database.
     getter? ignored : Bool = false
     # Additional explanation for the user.
-    getter hint : Array(String) = Array(String).new
+    # An alternative for the `placeholder` parameter.
+    getter hint : String = ""
     # Warning information.
-    property warning : String = ""
+    property warning : Array(String) = Array(String).new
     # WARNING: The value is determined automatically.
     property errors : Array(String) = Array(String).new
     # To optimize field traversal in the `check` method.
