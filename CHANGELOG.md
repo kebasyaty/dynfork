@@ -1,6 +1,13 @@
+#### v0.7.32 2024-10-26
+
+- Parameter `warning` with `String` to `Array(String)`.
+- Parameter `hint` with `Array(String)` to `String`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.31 2024-10-25
 
-- In the fields, the type of parameter `hint` with `String` on `Array(String)`.
+- In the fields, the type of parameter `hint` with `String` to `Array(String)`.
 - Updated README.md.
 - Documentation updated.
 
