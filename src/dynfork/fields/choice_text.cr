@@ -177,7 +177,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
@@ -372,7 +372,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = "",
       @choices : Array(Tuple(String, String))? = Array(Tuple(String, String)).new
     ); end
 
@@ -572,7 +572,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = ""
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.
@@ -778,7 +778,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = ""
     ); end
 
     # Add data for dynamic fields from the local `@@meta` cache.

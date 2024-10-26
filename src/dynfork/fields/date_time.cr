@@ -33,6 +33,8 @@ module DynFork::Fields
     getter! max : String?
     # The lower value for entering a date and time.
     getter! min : String?
+    # Additional explanation for the user.
+    getter hint : String
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
     getter group : UInt8 = 2
@@ -186,13 +188,13 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = [I18n.t(
+      @hint : String = I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | " +
                                           "dd.mm.yyyy hh:mm:ss | dd-mm-yyyyThh:mm:ss | " +
                                           "dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss | " +
                                           "yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | " +
                                           "yyyy.mm.dd hh:mm:ss | yyyy-mm-ddThh:mm:ss | " +
-                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")]
+                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")
     )
       @input_type = "datetime"
     end

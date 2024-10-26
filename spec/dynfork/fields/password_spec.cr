@@ -22,7 +22,7 @@ describe DynFork::Fields::PasswordField do
       f.minlength?.should eq(8_u32)
       f.regex?.should be_nil
       f.regex_err_msg?.should be_nil
-      f.hint.should eq(Array(String).new)
+      f.hint.should eq("")
       f.warning.should eq("")
       f.errors.empty?.should be_true
       f.group.should eq(1_u8)

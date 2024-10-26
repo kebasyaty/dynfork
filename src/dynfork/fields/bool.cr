@@ -177,13 +177,13 @@ module DynFork::Fields
       @hide : Bool = false,
       @disabled : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = Array(String).new,
+      @hint : String = ""
     )
       @input_type = "checkbox"
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
-    def refrash_val_bool(val : Bool) : Nil
+    def refrash_val_bool(val : Bool)
       @value = val
     end
 

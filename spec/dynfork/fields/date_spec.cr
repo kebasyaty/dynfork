@@ -21,7 +21,7 @@ describe DynFork::Fields::DateField do
       f.ignored?.should be_false
       f.max?.should be_nil
       f.min?.should be_nil
-      f.hint.should eq(["Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd"])
+      f.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(2_u8)

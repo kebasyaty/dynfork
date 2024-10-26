@@ -24,7 +24,7 @@ describe DynFork::Fields::TextField do
       f.minlength.should eq(0)
       f.regex?.should be_nil
       f.regex_err_msg?.should be_nil
-      f.hint.should eq(Array(String).new)
+      f.hint.should eq("")
       f.warning.should eq("")
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)

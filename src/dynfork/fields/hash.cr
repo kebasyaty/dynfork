@@ -181,7 +181,7 @@ module DynFork::Fields
       @disabled : Bool = false,
       @readonly : Bool = false,
       @ignored : Bool = false,
-      @hint : Array(String) = ["#{I18n.t(:enter_doc_id)}."],
+      @hint : String = "#{I18n.t(:enter_doc_id)}.",
     )
       @input_type = "text"
       @maxlength = 24
