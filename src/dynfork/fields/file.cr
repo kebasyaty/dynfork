@@ -168,7 +168,7 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = "",
-      @warning : String = ""
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "file"
     end

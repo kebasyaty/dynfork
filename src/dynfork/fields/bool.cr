@@ -177,7 +177,8 @@ module DynFork::Fields
       @hide : Bool = false,
       @disabled : Bool = false,
       @ignored : Bool = false,
-      @hint : String = ""
+      @hint : String = "",
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "checkbox"
     end

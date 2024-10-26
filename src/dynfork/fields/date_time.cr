@@ -194,7 +194,8 @@ module DynFork::Fields
                                           "dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss | " +
                                           "yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | " +
                                           "yyyy.mm.dd hh:mm:ss | yyyy-mm-ddThh:mm:ss | " +
-                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss")
+                                          "yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss"),
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "datetime"
     end

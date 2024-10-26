@@ -202,7 +202,7 @@ module DynFork::Fields
       @ignored : Bool = false,
       @slug_sources : Array(String) = ["hash"],
       @hint : String = "",
-      @warning : String = ""
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "text"
     end

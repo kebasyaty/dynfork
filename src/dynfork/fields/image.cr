@@ -167,7 +167,7 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp"),
-      @warning : String = ""
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "file"
     end

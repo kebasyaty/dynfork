@@ -176,6 +176,7 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = ""
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "email"
       @minlength = 0

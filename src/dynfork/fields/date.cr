@@ -189,7 +189,8 @@ module DynFork::Fields
       @hint : String = I18n.t(
         "formats.interpolation", samples: "dd-mm-yyyy | dd/mm/yyyy | " +
                                           "dd.mm.yyyy | yyyy-mm-dd | " +
-                                          "yyyy/mm/dd | yyyy.mm.dd")
+                                          "yyyy/mm/dd | yyyy.mm.dd"),
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "date"
     end
