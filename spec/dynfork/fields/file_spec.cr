@@ -24,7 +24,7 @@ describe DynFork::Fields::FileField do
       f.unique?.should be_false
       f.ignored?.should be_false
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(4_u8)
     end

@@ -21,7 +21,7 @@ describe DynFork::Fields::HashField do
       f.maxlength.should eq(24)
       f.minlength.should eq(24)
       f.hint.should eq("Enter document ID.")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.alerts.should eq(Array(String).new)
       f.group.should eq(1_u8)

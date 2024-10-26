@@ -25,7 +25,7 @@ describe DynFork::Fields::TextField do
       f.regex?.should be_nil
       f.regex_err_msg?.should be_nil
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
     end

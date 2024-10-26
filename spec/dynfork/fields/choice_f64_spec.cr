@@ -19,7 +19,7 @@ describe DynFork::Fields::ChoiceF64Field do
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(Float64, String)).new)
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
     end
@@ -45,7 +45,7 @@ describe DynFork::Fields::ChoiceF64MultField do
       f.ignored?.should be_false
       f.choices.should eq(Array(Tuple(Float64, String)).new)
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
     end
@@ -71,7 +71,7 @@ describe DynFork::Fields::ChoiceF64DynField do
       f.ignored?.should be_false
       f.choices?.should be_nil
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
     end
@@ -97,7 +97,7 @@ describe DynFork::Fields::ChoiceF64MultDynField do
       f.ignored?.should be_false
       f.choices?.should be_nil
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(3_u8)
     end

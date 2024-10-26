@@ -34,7 +34,7 @@ describe Spec::Data::FilledModel do
       f.first_name.regex?.should be_nil
       f.first_name.regex_err_msg?.should be_nil
       f.first_name.hint.should eq("")
-      f.first_name.warning.should eq("")
+      f.first_name.warning.should eq(Array(String).new)
       f.first_name.errors.should eq(Array(String).new)
       f.first_name.group.should eq(1_u8)
       #
@@ -56,7 +56,7 @@ describe Spec::Data::FilledModel do
       f.age.min.should eq(0_i64)
       f.age.step.should eq(1_i64)
       f.age.hint.should eq("")
-      f.age.warning.should eq("")
+      f.age.warning.should eq(Array(String).new)
       f.age.errors.should eq(Array(String).new)
       f.age.group.should eq(6_u8)
       #
@@ -77,7 +77,7 @@ describe Spec::Data::FilledModel do
       f.birthday.max?.should be_nil
       f.birthday.min?.should be_nil
       f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
-      f.birthday.warning.should eq("")
+      f.birthday.warning.should eq(Array(String).new)
       f.birthday.errors.should eq(Array(String).new)
       f.birthday.group.should eq(2_u8)
     end

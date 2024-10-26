@@ -23,7 +23,7 @@ describe DynFork::Fields::PasswordField do
       f.regex?.should be_nil
       f.regex_err_msg?.should be_nil
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.empty?.should be_true
       f.group.should eq(1_u8)
     end

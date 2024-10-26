@@ -21,7 +21,7 @@ describe DynFork::Fields::ColorField do
       f.maxlength.should eq(256)
       f.minlength.should eq(0)
       f.hint.should eq("Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) | rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
     end

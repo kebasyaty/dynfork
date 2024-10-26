@@ -20,7 +20,7 @@ describe DynFork::Fields::SlugField do
       f.ignored?.should be_false
       f.slug_sources.should eq(["hash"])
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(9_u8)
     end

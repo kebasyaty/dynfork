@@ -21,7 +21,7 @@ describe DynFork::Fields::URLField do
       f.maxlength.should eq(2048)
       f.minlength.should eq(0)
       f.hint.should eq("")
-      f.warning.should eq("")
+      f.warning.should eq(Array(String).new)
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
     end
