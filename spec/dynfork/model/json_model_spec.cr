@@ -76,8 +76,8 @@ describe Spec::Data::FilledModel do
       f.birthday.unique?.should be_false
       f.birthday.max?.should be_nil
       f.birthday.min?.should be_nil
-      f.birthday.hint.should eq("Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd")
-      f.birthday.warning.should eq(Array(String).new)
+      f.birthday.hint.should eq("")
+      f.birthday.warning.should eq(["Formats: dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy | yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd"])
       f.birthday.errors.should eq(Array(String).new)
       f.birthday.group.should eq(2_u8)
     end
