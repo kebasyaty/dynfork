@@ -20,6 +20,7 @@ module DynFork::Fields
     # If true, the value of this field is not saved in the database.
     getter? ignored : Bool = false
     # Additional explanation for the user.
+    # An alternative for the `placeholder` parameter.
     getter hint : String = ""
     # Warning information.
     property warning : Array(String) = Array(String).new
