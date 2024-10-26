@@ -75,12 +75,12 @@ module DynFork
     # <br>
     # **Example:** `1970-01-01T00:00:00`
     getter created_at = DynFork::Fields::DateTimeField
-      .new(label: I18n.t(:created_at), warning: I18n.t(:doc_was_created), hide: true, disabled: true)
+      .new(label: I18n.t(:created_at), warning: [I18n.t(:doc_was_created)], hide: true, disabled: true)
     # Field for the date and time the document was updated.
     # <br>
     # **Example:** `1970-01-01T00:00:00`
     getter updated_at = DynFork::Fields::DateTimeField
-      .new(label: I18n.t(:updated_at), warning: I18n.t(:doc_was_updated), hide: true, disabled: true)
+      .new(label: I18n.t(:updated_at), warning: [I18n.t(:doc_was_updated)], hide: true, disabled: true)
     # Get full Model name = ModuleName::StructureName.
     # <br>
     # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
