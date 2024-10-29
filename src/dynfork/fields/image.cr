@@ -167,9 +167,10 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = "",
-      @warning : Array(String) = [I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp")],
+      @warning : Array(String) = Array(String).new,
     )
       @input_type = "file"
+      @warning << I18n.t("allowed_files.interpolation", types: "jpeg, jpg, png, webp")
     end
 
     # Convert base64 to a image and save in the target directory.

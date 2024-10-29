@@ -1,3 +1,9 @@
+#### v0.7.34 2024-10-29
+
+- Updated messages in params `warning` and `hint` in `ImageField` and `HahsField` fields.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.33 2024-10-26
 
 - Updated messages in params `warning` for `created_at` and `updated_at` fields.
