@@ -41,7 +41,7 @@ eo:
   old_pass_not_match: "La malnova pasvorto ne kongruas !"
   pass_does_not_match: "Pasvortkonfirmo ne kongruas !"
   allowed_files:
-    interpolation: "Nur %{types} dosieroj estas permesitaj !"
+    interpolation: "Nur %{types} dosieroj estas permesitaj."
   data_not_greater_max:
     interpolation: "La dato %{curr_date} ne devas esti pli granda ol max=%{max_date} !"
   data_not_less_min:

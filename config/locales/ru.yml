@@ -41,7 +41,7 @@ ru:
   old_pass_not_match: "Старый пароль не совпадает !"
   pass_does_not_match: "Подтверждение пароля не совпадает !"
   allowed_files:
-    interpolation: "Разрешены только файлы %{types} !"
+    interpolation: "Разрешены только файлы: %{types}"
   data_not_greater_max:
     interpolation: "Дата %{curr_date} не должна быть больше max=%{max_date} !"
   data_not_less_min:
@@ -55,7 +55,7 @@ ru:
   forbidden_deleting_docs: "Запрещено удалять документы !"
   hash_doc_id: "Hash - Идентификатор документа"
   enter_doc_id: "Введите идентификатор документа"
-  created_at: "Создано в"
-  updated_at: "Обновлено в"
+  created_at: "Создан"
+  updated_at: "Обновлен"
   doc_was_created: "Когда был создан документ."
   doc_was_updated: "Когда был обновлен документ."
