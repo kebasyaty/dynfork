@@ -173,7 +173,7 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = "",
-      @warning : Array(String) = [I18n.t("format.interpolation", sample: "+xxxxxxxx... or xxxxxxxx...")],
+      @warning : Array(String) = [I18n.t("formats.interpolation", samples: "+xxxxxxxx... | xxxxxxxx...")],
     )
       @input_type = "tel"
     end

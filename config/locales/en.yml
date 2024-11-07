@@ -41,7 +41,7 @@ en:
   old_pass_not_match: "The old password does not match !"
   pass_does_not_match: "Password confirmation does not match !"
   allowed_files:
-    interpolation: "Only %{types} files are allowed !"
+    interpolation: "Only %{types} files are allowed."
   data_not_greater_max:
     interpolation: "The date %{curr_date} must not be greater than max=%{max_date} !"
   data_not_less_min:
