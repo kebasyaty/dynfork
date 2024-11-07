@@ -23,7 +23,7 @@ describe DynFork::Fields::PhoneField do
       f.regex.should eq("^[+]?[0-9]{8,15}$")
       f.regex_err_msg.should eq("Invalid Phone number !")
       f.hint.should eq("")
-      f.warning.should eq(["Format: +xxxxxxxx... or xxxxxxxx..."])
+      f.warning.should eq(["Formats: +xxxxxxxx... | xxxxxxxx..."])
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
     end
