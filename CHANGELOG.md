@@ -1,3 +1,9 @@
+#### v0.7.35 2024-11-07
+
+- Updated locales.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.34 2024-10-29
 
 - Updated messages in params `warning` and `hint` in `ImageField` and `HahsField` fields.
