@@ -1,3 +1,9 @@
+#### v0.7.36 2024-11-08
+
+- Updated locales.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.35 2024-11-07
 
 - Updated locales.

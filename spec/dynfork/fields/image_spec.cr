@@ -25,7 +25,7 @@ describe DynFork::Fields::ImageField do
       f.unique?.should be_false
       f.ignored?.should be_false
       f.hint.should eq("")
-      f.warning.should eq(["Only jpeg, jpg, png, webp files are allowed."])
+      f.warning.should eq(["Only files allowed: jpeg, jpg, png, webp"])
       f.errors.should eq(Array(String).new)
       f.group.should eq(5_u8)
     end
