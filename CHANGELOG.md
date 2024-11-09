@@ -1,3 +1,9 @@
+#### v0.7.37 2024-11-09
+
+- Optimized the `calculat_thumbnail_size` method.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.36 2024-11-08
 
 - Updated locales.
