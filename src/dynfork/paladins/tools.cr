@@ -93,6 +93,7 @@ module DynFork::QPaladins::Tools
     max_size : Int32
   ) : NamedTuple(width: Int32, height: Int32)
     # Calculate the maximum size for a thumbnail.
+    #
     if width > height
       if width > max_size
         return {width: max_size, height: (height * (max_size / width)).to_i32}
