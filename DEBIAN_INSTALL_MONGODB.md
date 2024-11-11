@@ -4,7 +4,7 @@
 
 ```shell
 # check
-lscpu | grep avx
+grep -qm1 '^flags.*avx' /proc/cpuinfo && echo OK || echo NOT OK
 ```
 
 ### Add repository:

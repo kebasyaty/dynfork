@@ -1,3 +1,9 @@
+#### v0.7.38 2024-11-11
+
+- Updated MongoDB installation instructions.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.37 2024-11-09
 
 - Optimized the `calculat_thumbnail_size` method.
