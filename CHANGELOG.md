@@ -1,3 +1,9 @@
+#### v0.7.39 2024-11-13
+
+- Updated `shard.yml`.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.38 2024-11-11
 
 - Updated MongoDB installation instructions.
