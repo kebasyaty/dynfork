@@ -1,5 +1,5 @@
 name: dynfork
-version: 0.7.38
+version: 0.7.39
 
 authors:
   - Gennady Kostyunin <kebasyaty@gmail.com>
@@ -18,16 +18,12 @@ documentation: https://kebasyaty.github.io/dynfork/
 dependencies:
   cryomongo:
     github: elbywan/cryomongo
-    version: ~> 0.3.11
   i18n:
     github: crystal-i18n/i18n
-    version: ~> 0.2.1
   validator:
     github: nicolab/crystal-validator
-    version: ~> 1.11.0
   pluto:
     github: phenopolis/pluto
-    version: ~> 1.0.1
   webslug:
     github: iomcr/webslug
 

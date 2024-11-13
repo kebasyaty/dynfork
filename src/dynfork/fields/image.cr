@@ -1,7 +1,7 @@
 require "./field"
 
 module DynFork::Fields
-  # File upload field.
+  # Image upload field.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/files" target="_blank">example</a>.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct ImageField < DynFork::Fields::Field
