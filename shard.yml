@@ -20,13 +20,10 @@ dependencies:
     github: elbywan/cryomongo
   i18n:
     github: crystal-i18n/i18n
-    version: ~> 0.2.1
   validator:
     github: nicolab/crystal-validator
-    version: ~> 1.11.0
   pluto:
     github: phenopolis/pluto
-    version: ~> 1.0.1
   webslug:
     github: iomcr/webslug
 
