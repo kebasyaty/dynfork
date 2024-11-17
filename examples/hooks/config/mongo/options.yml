@@ -1,0 +1,45 @@
+# Mongo Driver Options
+# For fields of type Time::Span use example: 10.seconds
+# For reference:
+# https://elbywan.github.io/cryomongo/Mongo/Client.html
+# https://elbywan.github.io/cryomongo/Mongo/Options.html
+---
+uri: mongodb://localhost:27017
+options:
+  appname:
+  auth_mechanism:
+  auth_mechanism_properties:
+  auth_source:
+  compressors:
+  connect_timeout:
+  direct_connection:
+  heartbeat_frequency: 10.seconds
+  journal:
+  local_threshold: 15.milliseconds
+  max_idle_time:
+  max_pool_size: 100
+  max_staleness_seconds:
+  min_pool_size: 1
+  read_concern_level:
+  read_preference:
+  read_preference_tags: []
+  replica_set:
+  retry_reads: true
+  retry_writes: true
+  server_selection_timeout: 30.seconds
+  server_selection_try_once: true
+  socket_timeout:
+  ssl:
+  tls:
+  tls_allow_invalid_certificates:
+  tls_allow_invalid_hostnames:
+  tls_ca_file:
+  tls_certificate_key_file:
+  tls_certificate_key_file_password:
+  tls_disable_certificate_revocation_check:
+  tls_disable_ocsp_endpoint_check:
+  tls_insecure:
+  w:
+  wait_queue_timeout:
+  w_timeout:
+  zlib_compression_level:
