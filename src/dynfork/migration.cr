@@ -39,7 +39,7 @@ module DynFork::Migration
       unless DynFork::Globals.regex[:database_name].matches?(database_name)
         raise DynFork::Errors::Cache::SettingsRegexFails.new(
           "database_name",
-          "/^[-_a-zA-Z0-9]{1,60}$/"
+          "/^[a-zA-Z][-_a-zA-Z0-9]+$/"
         )
       end
       DynFork::Globals.database_name = database_name
