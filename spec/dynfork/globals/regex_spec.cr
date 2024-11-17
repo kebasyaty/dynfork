@@ -4,7 +4,7 @@ describe DynFork::Globals do
   it "=> regex - type checking", tags: "global_regex" do
     DynFork::Globals.regex.should eq(
       NamedTuple.new(
-        database_name: /^[a-zA-Z][-_a-zA-Z0-9]+$/,
+        database_name: /^[a-zA-Z][-_a-zA-Z0-9]{0,59}$/,
         service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
         model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
         get_type_marker: /(Text|U32|I64|F64)/,
@@ -25,19 +25,22 @@ describe DynFork::Globals do
       r.matches?("").should be_false
       r.matches?("Database Name").should be_false
       r.matches?(" DatabaseName").should be_false
-      r.matches?("Database_Name").should be_false
-      r.matches?("Database-Name").should be_false
+      r.matches?("5DatabaseName").should be_false
       r.matches?("_DatabaseName").should be_false
       r.matches?("-DatabaseName").should be_false
       # > 60 characters
       r.matches?("LoremIpsumDolorSitAmetConsecteturAdipiscingElitIntegerLacinia").should be_false
       # Positive:
+      r.matches?("D").should be_true
+      r.matches?("d").should be_true
       r.matches?("DatabaseName").should be_true
+      r.matches?("Database_Name").should be_true
+      r.matches?("Database-Name").should be_true
       r.matches?("databaseName").should be_true
-      r.matches?("5databaseName").should be_true
-      r.matches?("E5lo5Z8i5m2K6W75").should be_true
+      r.matches?("database_name").should be_true
+      r.matches?("database-name").should be_true
       r.matches?("x4N83BGV26b3Npg2").should be_true
-      r.matches?("7721W783kPX7EFOu").should be_true
+      r.matches?("X4N83BGV26b3Npg2").should be_true
     end
     it "=> regex - service_name", tags: "global_regex" do
       r : Regex = DynFork::Globals.regex[:service_name]
