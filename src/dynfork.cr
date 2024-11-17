@@ -19,6 +19,7 @@ require "pluto/format/webp"
 require "webslug"
 # DynFork:
 require "./dynfork/errors/*"
+require "./dynfork/mongo_options"
 require "./dynfork/globals/store"
 require "./dynfork/fields/*"
 require "./dynfork/meta"
