@@ -31,13 +31,8 @@ module DynFork::Migration
         connection_string: driver_options[:uri],
         options: driver_options[:options],
       )
-      if database_name.size > 60
-        raise DynFork::Errors::Cache::SettingsExcessChars.new(
-          "database_name", 60
-        )
-      end
       unless DynFork::Globals.regex[:database_name].matches?(database_name)
-        raise DynFork::Errors::Cache::SettingsRegexFails.new(
+        raise DynFork::Errors::Cache::RegexFails.new(
           "database_name",
           "/^[a-zA-Z][-_a-zA-Z0-9]{0,59}$/"
         )
