@@ -13,9 +13,7 @@ module AppName
   # Run migration.
   # https://elbywan.github.io/cryomongo/Mongo/Client.html
   DynFork::Migration::Monitor.new(
-    app_name: "AppName",
-    unique_app_key: "22915V44DssD7f33",
-    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
+    database_name: "test_22915V44DssD7f33",
   ).migrat
 
   # Create a tv.

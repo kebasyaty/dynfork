@@ -13,9 +13,7 @@ module AppName
   # Run migration.
   # https://elbywan.github.io/cryomongo/Mongo/Client.html
   DynFork::Migration::Monitor.new(
-    app_name: "AppName",
-    unique_app_key: "0U7r4itxQkF6l4Dx",
-    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
+    database_name: "test_0U7r4itxQkF6l4Dx",
   ).migrat
 
   puts "Documwnt count: #{Models::Accounts::User.estimated_document_count}" # => 3

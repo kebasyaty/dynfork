@@ -23,21 +23,22 @@ module DynFork::Migration
   # Monitoring and update the database state for the application.
   struct Monitor
     def initialize(
-      app_name : String,
-      unique_app_key : String,
-      mongo_client : Mongo::Client,
-      database_name : String = ""
+      database_name : String,
     )
       # Update global storage state.
-      DynFork::Globals.app_name = app_name
-      DynFork::Globals.unique_app_key = unique_app_key
-      unless database_name.empty?
-        DynFork::Globals.database_name = database_name
+      driver_options = DynFork::MongoOptions.generate_options
+      DynFork::Globals.mongo_client = Mongo::Client.new(
+        connection_string: driver_options[:uri],
+        options: driver_options[:options],
+      )
+      unless DynFork::Globals.regex[:database_name].matches?(database_name)
+        raise DynFork::Errors::Cache::RegexFails.new(
+          "database_name",
+          "/^[a-zA-Z][-_a-zA-Z0-9]{0,59}$/"
+        )
       end
-      DynFork::Globals::ValidationCacheSettings.validation
-      DynFork::Globals.mongo_client = mongo_client
-      DynFork::Globals.mongo_database = DynFork::Globals
-        .mongo_client[DynFork::Globals.database_name]
+      DynFork::Globals.database_name = database_name
+      DynFork::Globals.mongo_database = DynFork::Globals.mongo_client[database_name]
     end
 
     # Update the state of Models in the super collection.

@@ -54,10 +54,9 @@ describe DynFork::Globals do
     it "=> CacheRegexType - type checking", tags: "global_alias" do
       DynFork::Globals::CacheRegexType.should eq(
         NamedTuple(
-          model_name: Regex,
-          app_name: Regex,
-          unique_app_key: Regex,
+          database_name: Regex,
           service_name: Regex,
+          model_name: Regex,
           get_type_marker: Regex,
           date_parse: Regex,
           date_parse_reverse: Regex,

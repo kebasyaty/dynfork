@@ -3,25 +3,22 @@ require "../../../../../spec_helper"
 describe DynFork::QCommons::Many do
   describe ".find_many_to_hash_list" do
     it "=> find documents", tags: "find_many" do
-      # Init data for test.
-      #
       # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-      unique_app_key = "r4cAr8z2XF6S3h0x"
-      database_name = "test_#{unique_app_key}"
+      unique_key = "r4cAr8z2XF6S3h0x"
+      database_name = "test_#{unique_key}"
       mongo_uri = "mongodb://localhost:27017"
 
       # Delete database before test.
       # (if the test fails)
-      Spec::Support.delete_test_db(
-        Mongo::Client.new(mongo_uri)[database_name])
+      mongo_client = Mongo::Client.new(mongo_uri)
+      Spec::Support.delete_test_db(mongo_client[database_name])
+      mongo_client.close
 
       # Run migration.
-      DynFork::Migration::Monitor.new(
-        app_name: "AppName",
-        unique_app_key: unique_app_key,
+      m = DynFork::Migration::Monitor.new(
         database_name: database_name,
-        mongo_client: Mongo::Client.new(mongo_uri)
-      ).migrat
+      )
+      m.migrat
       #
       # HELLISH BURN
       # ------------------------------------------------------------------------

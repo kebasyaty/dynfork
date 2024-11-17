@@ -31,7 +31,6 @@
       "command": [
         "crystal spec --tag global_alias;",
         "crystal spec --tag global_regex;",
-        "crystal spec --tag global_settings;",
         "crystal spec --tag global_super_collection;",
         "crystal spec --tag global_types;",
         "crystal spec --tag i18n;",

@@ -19,6 +19,7 @@ require "pluto/format/webp"
 require "webslug"
 # DynFork:
 require "./dynfork/errors/*"
+require "./dynfork/mongo_options"
 require "./dynfork/globals/store"
 require "./dynfork/fields/*"
 require "./dynfork/meta"
@@ -51,7 +52,7 @@ require "./dynfork/migration"
 # <br>
 #  DynFork is free software under terms of the MIT License.
 module DynFork
-  VERSION = "0.7.39"
+  VERSION = "0.8.0"
 end
 
 module Validator

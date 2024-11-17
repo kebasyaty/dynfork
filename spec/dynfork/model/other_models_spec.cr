@@ -78,26 +78,5 @@ describe DynFork::Model do
       metadata["update_doc?"].should be_true
       metadata["delete_doc?"].should be_true
     end
-
-    # it "=> create instance of SlugSourceInvalidModel", tags: "model" do
-    #   ex = expect_raises(DynFork::Errors::Fields::SlugSourceNameInvalid) do
-    #     Spec::Data::SlugSourceInvalidModel.new
-    #   end
-    #   ex.message.should eq(
-    #     "Model: `Spec::Data::SlugSourceInvalidModel` > Field: `slug` > Attribute: `slug_sources` => " +
-    #     "The `first_name` field missing in Model!"
-    #   )
-    # end
-
-    # describe "#caching" do
-    #   it "=> Model without mandatory 'service_name' parameter for metadata", tags: "model" do
-    #     ex = expect_raises(DynFork::Errors::Meta::ParameterMissing) do
-    #       Spec::Data::NoParamServiceNameModel.new
-    #     end
-    #     ex.message.should eq(
-    #       "Model: `Spec::Data::NoParamServiceNameModel` => Missing `service_name` parameter for Meta!"
-    #     )
-    #   end
-    # end
   end
 end

@@ -1,3 +1,9 @@
+#### v0.8.0 2024-11-17
+
+- Migration reconfiguration.
+- Updated README.md.
+- Documentation updated.
+
 #### v0.7.39 2024-11-13
 
 - Updated `shard.yml`.

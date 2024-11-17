@@ -13,9 +13,7 @@ module AppName
   # Run migration.
   # https://elbywan.github.io/cryomongo/Mongo/Client.html
   DynFork::Migration::Monitor.new(
-    app_name: "AppName",
-    unique_app_key: "3i1Zh8c5Z0C5s5g6",
-    mongo_client: Mongo::Client.new("mongodb://localhost:27017")
+    database_name: "test_3i1Zh8c5Z0C5s5g6",
   ).migrat
 
   # Create user.
