@@ -4,7 +4,7 @@ describe DynFork::Globals do
   it "=> regex - type checking", tags: "global_regex" do
     DynFork::Globals.regex.should eq(
       NamedTuple.new(
-        database_name: /^[-_a-zA-Z0-9]+$/,
+        database_name: /^[a-zA-Z][-_a-zA-Z0-9]+$/,
         service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
         model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
         get_type_marker: /(Text|U32|I64|F64)/,

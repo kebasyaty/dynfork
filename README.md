@@ -12,7 +12,7 @@
     <p align="center">
       <a href="https://github.com/kebasyaty/dynfork/actions/workflows/specs.yml" alt="Build Status"><img src="https://github.com/kebasyaty/dynfork/actions/workflows/specs.yml/badge.svg" alt="Build Status"></a>
       <a href="https://kebasyaty.github.io/dynfork/" alt="Docs"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"></a>
-      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.11.2%2B-CC342D" alt="Crysta"></a>
+      <a href="https://crystal-lang.org/" alt="Crysta"><img src="https://img.shields.io/badge/crystal-v1.14.0%2B-CC342D" alt="Crysta"></a>
       <a href="https://github.com/kebasyaty/dynfork/releases/" alt="GitHub release"><img src="https://img.shields.io/github/release/kebasyaty/dynfork" alt="GitHub release"></a>
       <a href="https://github.com/kebasyaty/dynfork/blob/main/LICENSE" alt="GitHub license"><img src="https://img.shields.io/github/license/kebasyaty/dynfork" alt="GitHub license"></a>
       <a href="https://github.com/kebasyaty/dynfork" alt="GitHub repository"><img src="https://img.shields.io/badge/--ecebeb?logo=github&logoColor=000000" alt="GitHub repository"></a>
@@ -98,7 +98,7 @@ I18n.init
 # Run migration.
 # https://elbywan.github.io/cryomongo/Mongo/Client.html
 DynFork::Migration::Monitor.new(
-  database_name: "5owr5kKQM5H3Lb0b",
+  database_name: "test",
 ).migrat
 
 # Create a user.

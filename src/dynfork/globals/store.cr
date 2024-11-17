@@ -23,7 +23,7 @@ module DynFork::Globals
   class_getter super_collection_name = "SUPER_COLLECTION"
   # Regex caching.
   class_getter regex : CacheRegexType = NamedTuple.new(
-    database_name: /^[a-zA-Z0-9]{1,60}$/,
+    database_name: /^[a-zA-Z][-_a-zA-Z0-9]+$/,
     service_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     model_name: /^[A-Z][a-zA-Z0-9]{0,24}$/,
     get_type_marker: /(Text|U32|I64|F64)/,
