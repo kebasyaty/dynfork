@@ -2,25 +2,22 @@ require "../../../../spec_helper"
 
 describe DynFork::QCommons::Indexes do
   it "=> create and drop indexes", tags: "indexing" do
-    # Init data for test.
-    #
     # To generate a key (This is not an advertisement): https://randompasswordgen.com/
-    unique_app_key = "171350nkyLzH5OC7"
-    database_name = "test_#{unique_app_key}"
+    unique_key = "171350nkyLzH5OC7"
+    database_name = "test_#{unique_key}"
     mongo_uri = "mongodb://localhost:27017"
 
     # Delete database before test.
     # (if the test fails)
-    Spec::Support.delete_test_db(
-      Mongo::Client.new(mongo_uri)[database_name])
+    mongo_client = Mongo::Client.new(mongo_uri)
+    Spec::Support.delete_test_db(mongo_client[database_name])
+    mongo_client.close
 
     # Run migration.
-    DynFork::Migration::Monitor.new(
-      app_name: "AppName",
-      unique_app_key: unique_app_key,
+    m = DynFork::Migration::Monitor.new(
       database_name: database_name,
-      mongo_client: Mongo::Client.new(mongo_uri)
-    ).migrat
+    )
+    m.migrat
     #
     # HELLISH BURN
     # ------------------------------------------------------------------------

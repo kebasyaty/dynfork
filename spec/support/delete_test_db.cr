@@ -7,8 +7,10 @@ module Spec::Support
   # unique_key = "jeKZ9lIGL9aLRvlz"
   # database_name = "test_#{unique_key}"
   # mongo_uri = "mongodb://localhost:27017"
+  # mongo_client = Mongo::Client.new(mongo_uri)
   # database = Mongo::Client.new(mongo_uri)[database_name])
   # Spec::Support.delete_test_db(database)
+  # mongo_client.close
   # ```
   #
   def self.delete_test_db(database : Mongo::Database)
