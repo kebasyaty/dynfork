@@ -1,5 +1,9 @@
 #### v0.8.0 2024-11-17
 
+- Added documentation.
+
+#### v0.8.0 2024-11-17
+
 - Migration reconfiguration.
 - Updated README.md.
 - Documentation updated.
