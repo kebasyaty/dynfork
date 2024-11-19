@@ -171,7 +171,7 @@ module DynFork::QPaladins::Check
             if update?
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?.not_nil!
-              if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
+              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 if file_path == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   file_path = nil
                 end
@@ -185,7 +185,7 @@ module DynFork::QPaladins::Check
             if update?
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil!
-              if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
+              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 if img_dir_path == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
                   img_dir_path = nil
                 end
