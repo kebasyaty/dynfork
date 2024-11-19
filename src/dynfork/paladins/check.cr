@@ -170,10 +170,12 @@ module DynFork::QPaladins::Check
           if @{{ field }}.group == 4_u8 # FileField
             if update?
               # When updating the document.
-              p_1 = @{{ field }}.extract_file_path?
-              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil? 
-                file_path = file_val.not_nil!.as(DynFork::Globals::FileData).path
-                if file_path
+              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
+                file_path = @{{ field }}.extract_file_path?.not_nil!
+                if file_path != file_val.not_nil!.as(DynFork::Globals::FileData).path
+                  File.delete(file_path)
+                  file_path = nil
+                end
               else
                 File.delete(file_path.not_nil!)
                 file_path = nil
