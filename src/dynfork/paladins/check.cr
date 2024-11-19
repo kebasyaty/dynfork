@@ -166,11 +166,21 @@ module DynFork::QPaladins::Check
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
             if file_val = @{{ field }}.value
-              File.delete(file_val.path)
+               if !update?
+                 # When creating a document.
+                 File.delete(file_val.path)
+               else
+                 # When updating the document.
+               end
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
             if file_val = @{{ field }}.value
-              FileUtils.rm_rf(file_val.images_dir_path)
+              if !update?
+                # When creating a document.
+                FileUtils.rm_rf(file_val.images_dir_path) if !update?
+              else
+                # When updating the document.
+              end
             end
           end
         end
