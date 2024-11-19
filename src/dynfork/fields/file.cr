@@ -286,7 +286,7 @@ module DynFork::Fields
 
     # For the `DynFork::QPaladins::Check#check` method.
     def extract_file_path? : String?
-      @value.path unless @value.nil?
+      @value.not_nil!.path unless @value.nil?
     end
   end
 end
