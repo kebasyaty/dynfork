@@ -187,7 +187,7 @@ module DynFork::QPaladins::Check
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil! 
               if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
-                if img_dir_path != db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
+                if img_dir_path == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
                   img_dir_path = nil
                 end
               end
