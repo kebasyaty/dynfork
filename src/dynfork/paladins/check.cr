@@ -163,16 +163,16 @@ module DynFork::QPaladins::Check
       # Delete orphaned files.
       file_path : String?
       img_dir_path : String?
-      file_val = nil
+      db_file_val = nil
       curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
       {% for field in @type.instance_vars %}
         if !@{{ field }}.ignored? && !@{{ field }}.value.nil?
           if @{{ field }}.group == 4_u8 # FileField
             if update?
               # When updating the document.
-              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
+              if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
                 file_path = @{{ field }}.extract_file_path?.not_nil!
-                if file_path != file_val.not_nil!.as(DynFork::Globals::FileData).path
+                if file_path != db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   File.delete(file_path)
                 end
               else
@@ -186,14 +186,19 @@ module DynFork::QPaladins::Check
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
               # When updating the document.
-              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
-                # ???
+              if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
+                img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil!
+                if file_path != db_file_val.not_nil!.as(DynFork::Globals::ImageData).path
+                  File.delete(file_path)
+                end
+              else
+                FileUtils.rm_rf(img_dir_path.not_nil!)
               end
             else
-              # When creating a document
+              # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
-              img_dir_path = nil
             end
+            img_dir_path = nil
           end
         end
       {% end %}
