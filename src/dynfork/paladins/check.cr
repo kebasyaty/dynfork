@@ -165,6 +165,7 @@ module DynFork::QPaladins::Check
       img_dir_path : String?
       db_file_val = nil
       curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
+      curr_doc_bson = BSON.new
       {% for field in @type.instance_vars %}
         if !@{{ field }}.ignored? && !@{{ field }}.value.nil?
           if @{{ field }}.group == 4_u8 # FileField
@@ -172,6 +173,9 @@ module DynFork::QPaladins::Check
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?
               if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.as(Hash(String, BSON::RecursiveValue)).each { |key, val| curr_doc_bson[key] = val }
+                db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
+                curr_doc_bson = BSON.new
                 if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   file_path = nil
                 end
@@ -186,6 +190,9 @@ module DynFork::QPaladins::Check
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?
               if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.as(Hash(String, BSON::RecursiveValue)).each { |key, val| curr_doc_bson[key] = val }
+                db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
+                curr_doc_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
                   img_dir_path = nil
                 end
