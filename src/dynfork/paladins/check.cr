@@ -171,28 +171,26 @@ module DynFork::QPaladins::Check
                       end
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
-          if @{{ field }}.group == 4_u8 # FileField
-            if update?
-              # When updating the document.
-              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
-                file_val = 
+          if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
+            if @{{ field }}.group == 4_u8 # FileField
+              if update?
+                # When updating the document.
+              else
+                # When creating a document.
+                if file_path = @{{ field }}.extract_file_path?
+                  File.delete(file_path.not_nil!)
+                  file_path = nil
+                end
               end
-            else
-              # When creating a document.
-              if file_path = @{{ field }}.extract_file_path?
-                File.delete(file_path.not_nil!)
-              end
-            end
-          elsif @{{ field }}.group == 5_u8 # ImageField
-            if update?
-              # When updating the document.
-              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
-                file_val = 
-              end
-            else
-              # When creating a document.
-              if img_dir_path = @{{ field }}.extract_images_dir_path?
-                FileUtils.rm_rf(img_dir_path.not_nil!)
+            elsif @{{ field }}.group == 5_u8 # ImageField
+              if update?
+                # When updating the document.
+              else
+                # When creating a document.
+                if img_dir_path = @{{ field }}.extract_images_dir_path?
+                  FileUtils.rm_rf(img_dir_path.not_nil!)
+                  img_dir_path = nil
+                end
               end
             end
           end
