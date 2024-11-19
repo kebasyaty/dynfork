@@ -55,7 +55,7 @@ module DynFork::QPaladins::Check
       #
       unless @{{ field }}.ignored?
         case @{{ field }}.group
-        when 1
+        when 1_u8
           # Validation of `text` type fields:
           # <br>
           # ColorField | EmailField | PasswordField | PhoneField
@@ -69,7 +69,7 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 2
+        when 2_u8
           # Validation of `date` type fields:
           # <br>
           # DateField | DateTimeField
@@ -80,7 +80,7 @@ module DynFork::QPaladins::Check
             result_map,
             collection_ptr,
           )
-        when 3
+        when 3_u8
           # Validation of `choice` type fields:
           # <br>
           # ChoiceTextField | ChoiceTextMultField
@@ -96,7 +96,7 @@ module DynFork::QPaladins::Check
             result_map,
             collection_ptr,
           )
-        when 4
+        when 4_u8
           # Validation of fields of type FileField.
           self.group_04(
             pointerof(@{{ field }}),
@@ -105,7 +105,7 @@ module DynFork::QPaladins::Check
             save?,
             result_map,
           )
-        when 5
+        when 5_u8
           # Validation of fields of type ImageField.
           self.group_05(
             pointerof(@{{ field }}),
@@ -114,7 +114,7 @@ module DynFork::QPaladins::Check
             save?,
             result_map,
           )
-        when 6
+        when 6_u8
           # Validation of fields of type I64Field.
           self.group_06(
             pointerof(@{{ field }}),
@@ -124,7 +124,7 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 7
+        when 7_u8
           # Validation of fields of type F64Field.
           self.group_07(
             pointerof(@{{ field }}),
@@ -134,14 +134,14 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 8
+        when 8_u8
           # Validation of fields of type BoolField.
           self.group_08(
             pointerof(@{{ field }}),
             save?,
             result_map,
           )
-        when 9
+        when 9_u8
           # Create string for SlugField.
           if save?
             self.group_09(
@@ -161,6 +161,20 @@ module DynFork::QPaladins::Check
       # Reset the hash for a new document.
       @hash.value = nil if !update?
       # Delete orphaned files.
+      file_val : DynFork::Globals::FileData | DynFork::Globals::ImageData | Nil
+      {% for field in @type.instance_vars %}
+        unless @{{ field }}.ignored?
+          if @{{ field }}.group == 4_u8 # FileField
+            if file_val = @{{ field }}.value
+              File.delete(file_val.path)
+            end
+          elsif @{{ field }}.group == 5_u8 # ImageField
+            if file_val = @{{ field }}.value
+              FileUtils.rm_rf(file_val.images_dir_path)
+            end
+          end
+        end
+      {% end %}
     end
     #
     # --------------------------------------------------------------------------
