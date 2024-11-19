@@ -178,13 +178,12 @@ module DynFork::QPaladins::Check
                 end
               else
                 File.delete(file_path.not_nil!)
-                file_path = nil
               end
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
-              file_path = nil
             end
+            file_path = nil
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
               # When updating the document.
