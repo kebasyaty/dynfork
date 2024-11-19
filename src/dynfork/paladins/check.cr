@@ -161,7 +161,9 @@ module DynFork::QPaladins::Check
       # Reset the hash for a new document.
       @hash.value = nil if !update?
       # Delete orphaned files.
-      file_val : DynFork::Globals::FileData | DynFork::Globals::ImageData | Nil
+      file_path : String?
+      img_dir_path : String?
+      file_val = nil
       curr_doc_hash = if update?
                         collection_ptr.value.find_one({_id: id}).to_h
                       else
@@ -170,21 +172,27 @@ module DynFork::QPaladins::Check
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
-            if file_val = @{{ field }}.value
-               if !update?
-                 # When creating a document.
-                 File.delete(file_val.path)
-               else
-                 # When updating the document.
-               end
+            if update?
+              # When updating the document.
+              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
+                file_val = 
+              end
+            else
+              # When creating a document.
+              if file_path = @{{ field }}.extract_file_path?
+                File.delete(file_path.not_nil!)
+              end
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
-            if file_val = @{{ field }}.value
-              if !update?
-                # When creating a document.
-                FileUtils.rm_rf(file_val.images_dir_path) if !update?
-              else
-                # When updating the document.
+            if update?
+              # When updating the document.
+              if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
+                file_val = 
+              end
+            else
+              # When creating a document.
+              if img_dir_path = @{{ field }}.extract_images_dir_path?
+                FileUtils.rm_rf(img_dir_path.not_nil!)
               end
             end
           end
