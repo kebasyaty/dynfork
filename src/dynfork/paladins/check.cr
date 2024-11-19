@@ -162,6 +162,11 @@ module DynFork::QPaladins::Check
       @hash.value = nil if !update?
       # Delete orphaned files.
       file_val : DynFork::Globals::FileData | DynFork::Globals::ImageData | Nil
+      curr_doc_hash = if update?
+                        collection_ptr.value.find_one({_id: id}).to_h
+                      else
+                        nil
+                      end
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
