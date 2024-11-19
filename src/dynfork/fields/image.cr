@@ -304,7 +304,7 @@ module DynFork::Fields
 
     # For the `DynFork::QPaladins::Check#check` method.
     def extract_images_dir_path? : String?
-      @value.images_dir_path? unless @value.nil?
+      @value.not_nil!.images_dir_path? unless @value.nil?
     end
   end
 end

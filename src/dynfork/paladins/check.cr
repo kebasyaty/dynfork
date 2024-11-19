@@ -21,18 +21,17 @@ module DynFork::QPaladins::Check
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
     if !update?
-      100.times { |idx|
+      100.times do |idx|
         id = BSON::ObjectId.new
         if collection_ptr.value.count_documents({_id: id}) == 0
           break
-        end
-        if idx == 99
+        elsif idx == 99
           raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
         end
-      }
+      end
     end
     if save?
-      (@hash.value = id.to_s) if !update?
+      @hash.value = id.to_s if !update?
       result_map["_id"] = id
     end
     # Is there any incorrect data?
@@ -56,7 +55,7 @@ module DynFork::QPaladins::Check
       #
       unless @{{ field }}.ignored?
         case @{{ field }}.group
-        when 1
+        when 1_u8
           # Validation of `text` type fields:
           # <br>
           # ColorField | EmailField | PasswordField | PhoneField
@@ -70,7 +69,7 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 2
+        when 2_u8
           # Validation of `date` type fields:
           # <br>
           # DateField | DateTimeField
@@ -81,7 +80,7 @@ module DynFork::QPaladins::Check
             result_map,
             collection_ptr,
           )
-        when 3
+        when 3_u8
           # Validation of `choice` type fields:
           # <br>
           # ChoiceTextField | ChoiceTextMultField
@@ -97,7 +96,7 @@ module DynFork::QPaladins::Check
             result_map,
             collection_ptr,
           )
-        when 4
+        when 4_u8
           # Validation of fields of type FileField.
           self.group_04(
             pointerof(@{{ field }}),
@@ -106,7 +105,7 @@ module DynFork::QPaladins::Check
             save?,
             result_map,
           )
-        when 5
+        when 5_u8
           # Validation of fields of type ImageField.
           self.group_05(
             pointerof(@{{ field }}),
@@ -115,7 +114,7 @@ module DynFork::QPaladins::Check
             save?,
             result_map,
           )
-        when 6
+        when 6_u8
           # Validation of fields of type I64Field.
           self.group_06(
             pointerof(@{{ field }}),
@@ -125,7 +124,7 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 7
+        when 7_u8
           # Validation of fields of type F64Field.
           self.group_07(
             pointerof(@{{ field }}),
@@ -135,14 +134,14 @@ module DynFork::QPaladins::Check
             collection_ptr,
             id_ptr,
           )
-        when 8
+        when 8_u8
           # Validation of fields of type BoolField.
           self.group_08(
             pointerof(@{{ field }}),
             save?,
             result_map,
           )
-        when 9
+        when 9_u8
           # Create string for SlugField.
           if save?
             self.group_09(
@@ -158,9 +157,54 @@ module DynFork::QPaladins::Check
     {% end %}
 
     # Actions in case of error.
-    if error_symptom?
+    if save? && error_symptom?
       # Reset the hash for a new document.
-      (@hash.value = nil) if save? && !update?
+      @hash.value = nil if !update?
+      # Delete orphaned files.
+      file_path : String?
+      img_dir_path : String?
+      db_file_val = nil
+      curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
+      curr_doc_bson = BSON.new
+      {% for field in @type.instance_vars %}
+        if !@{{ field }}.ignored? && !@{{ field }}.value.nil?
+          if @{{ field }}.group == 4_u8 # FileField
+            if update?
+              # When updating the document.
+              file_path = @{{ field }}.extract_file_path?
+              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.as(Hash(String, BSON::RecursiveValue)).each { |key, val| curr_doc_bson[key] = val }
+                db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
+                curr_doc_bson = BSON.new
+                if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
+                  file_path = nil
+                end
+              end
+              File.delete(file_path.not_nil!); file_path = nil unless file_path.nil?
+            else
+              # When creating a document.
+              File.delete(@{{ field }}.extract_file_path?.not_nil!)
+            end
+          elsif @{{ field }}.group == 5_u8 # ImageField
+            if update?
+              # When updating the document.
+              img_dir_path = @{{ field }}.extract_images_dir_path?
+              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.as(Hash(String, BSON::RecursiveValue)).each { |key, val| curr_doc_bson[key] = val }
+                db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
+                curr_doc_bson = BSON.new
+                if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
+                  img_dir_path = nil
+                end
+              end
+              FileUtils.rm_rf(img_dir_path.not_nil!); img_dir_path = nil unless img_dir_path.nil?
+            else
+              # When creating a document.
+              FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
+            end
+          end
+        end
+      {% end %}
     end
     #
     # --------------------------------------------------------------------------

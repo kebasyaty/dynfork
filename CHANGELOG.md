@@ -1,3 +1,8 @@
+#### v0.8.3 2024-11-19
+
+- Added algorithm for removing orphaned file when creating or updating the document.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.2 2024-11-18
 
 - Updated [examples](https://github.com/kebasyaty/dynfork/tree/main/examples "examples").

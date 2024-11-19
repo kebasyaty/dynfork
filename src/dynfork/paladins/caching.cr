@@ -180,7 +180,7 @@ module DynFork::QPaladins::Caching
                     .new(@@full_model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Is there a unique field?
-                (one_unique_field? = true) if @{{ var2 }}.unique?
+                one_unique_field? = true if @{{ var2 }}.unique?
               end
             {% end %}
           end
