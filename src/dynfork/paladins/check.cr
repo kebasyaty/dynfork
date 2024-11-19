@@ -174,7 +174,6 @@ module DynFork::QPaladins::Check
                 file_path = @{{ field }}.extract_file_path?.not_nil!
                 if file_path != file_val.not_nil!.as(DynFork::Globals::FileData).path
                   File.delete(file_path)
-                  file_path = nil
                 end
               else
                 File.delete(file_path.not_nil!)
