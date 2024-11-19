@@ -170,16 +170,18 @@ module DynFork::QPaladins::Check
           if @{{ field }}.group == 4_u8 # FileField
             if update?
               # When updating the document.
+              p_1 = @{{ field }}.extract_file_path?
               if !(file_val = curr_doc_hash[@{{ field }}.name]).nil? 
                 file_path = file_val.not_nil!.as(DynFork::Globals::FileData).path
-                if file_path != curr_doc_hash
-              end
-            else
-              # When creating a document.
-              if file_path = @{{ field }}.extract_file_path?
+                if file_path
+              else
                 File.delete(file_path.not_nil!)
                 file_path = nil
               end
+            else
+              # When creating a document.
+              File.delete(@{{ field }}.extract_file_path?.not_nil!)
+              file_path = nil
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
@@ -188,11 +190,9 @@ module DynFork::QPaladins::Check
                 # ???
               end
             else
-              # When creating a document.
-              if img_dir_path = @{{ field }}.extract_images_dir_path?
-                FileUtils.rm_rf(img_dir_path.not_nil!)
-                img_dir_path = nil
-              end
+              # When creating a document
+              FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
+              img_dir_path = nil
             end
           end
         end
