@@ -178,7 +178,8 @@ module DynFork::QPaladins::Check
                 db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
                 curr_doc_bson = BSON.new
                 if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
-                  @{{ field }}.value = db_file_val.not_nil!.as(DynFork::Globals::FileData)
+                  @{{ field }}.refrash_val_file_data(
+                    db_file_val.not_nil!.as(DynFork::Globals::FileData))
                   file_path = nil
                 end
               end
@@ -203,7 +204,8 @@ module DynFork::QPaladins::Check
                 curr_doc_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData)
                      .images_dir_path.not_nil!
-                  @{{ field }}.value = db_file_val.not_nil!.as(DynFork::Globals::ImageData)
+                  @{{ field }}.refrash_val_img_data(
+                    db_file_val.not_nil!.as(DynFork::Globals::ImageData))
                   img_dir_path = nil
                 end
               end
