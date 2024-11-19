@@ -21,18 +21,17 @@ module DynFork::QPaladins::Check
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
     if !update?
-      100.times { |idx|
+      100.times do |idx|
         id = BSON::ObjectId.new
         if collection_ptr.value.count_documents({_id: id}) == 0
           break
-        end
-        if idx == 99
+        elsif idx == 99
           raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
         end
-      }
+      end
     end
     if save?
-      (@hash.value = id.to_s) if !update?
+      @hash.value = id.to_s if !update?
       result_map["_id"] = id
     end
     # Is there any incorrect data?
@@ -158,9 +157,9 @@ module DynFork::QPaladins::Check
     {% end %}
 
     # Actions in case of error.
-    if error_symptom?
+    if save? && error_symptom?
       # Reset the hash for a new document.
-      (@hash.value = nil) if save? && !update?
+      result_map["_id"] = @hash.value = nil if !update?
     end
     #
     # --------------------------------------------------------------------------
