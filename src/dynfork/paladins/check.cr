@@ -164,11 +164,7 @@ module DynFork::QPaladins::Check
       file_path : String?
       img_dir_path : String?
       file_val = nil
-      curr_doc_hash = if update?
-                        collection_ptr.value.find_one({_id: id}).not_nil!.to_h
-                      else
-                        nil
-                      end
+      curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if !(file_val = curr_doc_hash[@{{ field }}.name]).nil?
