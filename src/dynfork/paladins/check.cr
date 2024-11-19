@@ -176,12 +176,11 @@ module DynFork::QPaladins::Check
                   file_path = nil
                 end
               end
-              File.delete(file_path) unless file_path.nil?
+              File.delete(file_path); file_path = nil unless file_path.nil?
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
             end
-            file_path = nil
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
               # When updating the document.
@@ -191,12 +190,11 @@ module DynFork::QPaladins::Check
                   img_dir_path = nil
                 end
               end
-              FileUtils.rm_rf(img_dir_path) unless img_dir_path.nil?
+              FileUtils.rm_rf(img_dir_path); img_dir_path = nil unless img_dir_path.nil?
             else
               # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
             end
-            img_dir_path = nil
           end
         end
       {% end %}
