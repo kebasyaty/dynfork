@@ -172,12 +172,11 @@ module DynFork::QPaladins::Check
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?.not_nil! 
               if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
-                if file_path != db_file_val.not_nil!.as(DynFork::Globals::FileData).path
-                  File.delete(file_path)
+                if file_path == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
+                  file_path = nil
                 end
-              else
-                File.delete(file_path)
               end
+              File.delete(file_path) unless file_path.nil?
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
@@ -189,11 +188,10 @@ module DynFork::QPaladins::Check
               img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil! 
               if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
                 if img_dir_path != db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
-                  FileUtils.rm_rf(img_dir_path)
+                  img_dir_path = nil
                 end
-              else
-                FileUtils.rm_rf(img_dir_path)
               end
+              FileUtils.rm_rf(img_dir_path) unless img_dir_path.nil?
             else
               # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
