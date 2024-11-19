@@ -170,7 +170,7 @@ module DynFork::QPaladins::Check
           if @{{ field }}.group == 4_u8 # FileField
             if update?
               # When updating the document.
-              file_path = @{{ field }}.extract_file_path?.not_nil! 
+              file_path = @{{ field }}.extract_file_path?.not_nil!
               if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
                 if file_path == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   file_path = nil
@@ -184,7 +184,7 @@ module DynFork::QPaladins::Check
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
               # When updating the document.
-              img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil! 
+              img_dir_path = @{{ field }}.extract_images_dir_path?.not_nil!
               if !(db_file_val = curr_doc_hash[@{{ field }}.name]).nil?
                 if img_dir_path == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
                   img_dir_path = nil
