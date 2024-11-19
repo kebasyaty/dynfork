@@ -177,13 +177,19 @@ module DynFork::QPaladins::Check
                 db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
                 curr_doc_bson = BSON.new
                 if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
+                  @{{ field }}.value = db_file_val.not_nil!.as(DynFork::Globals::FileData)
                   file_path = nil
                 end
               end
-              File.delete(file_path.not_nil!); file_path = nil unless file_path.nil?
+              unless file_path.nil?
+                File.delete(file_path.not_nil!)
+                @{{ field }}.value = nil
+                file_path = nil
+              end
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
+              @{{ field }}.value = nil
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
             if update?
@@ -194,13 +200,19 @@ module DynFork::QPaladins::Check
                 db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
                 curr_doc_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData).images_dir_path.not_nil!
+                  @{{ field }}.value = db_file_val.not_nil!.as(DynFork::Globals::ImageData)
                   img_dir_path = nil
                 end
               end
-              FileUtils.rm_rf(img_dir_path.not_nil!); img_dir_path = nil unless img_dir_path.nil?
+              unless img_dir_path.nil?
+                FileUtils.rm_rf(img_dir_path.not_nil!)
+                @{{ field }}.value = nil
+                img_dir_path = nil
+              end
             else
               # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
+              @{{ field }}.value = nil
             end
           end
         end
