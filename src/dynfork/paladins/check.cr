@@ -47,7 +47,7 @@ module DynFork::QPaladins::Check
       # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
-      unless (err_msg = error_map[{{ field.name.stringify }}]?).nil?
+      unless (err_msg = error_map[@{{ field }}.name]?).nil?
           @{{ field }}.errors << err_msg
           (error_symptom? = true) unless error_symptom?
           err_msg = nil
