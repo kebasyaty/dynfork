@@ -165,7 +165,7 @@ module DynFork::QPaladins::Check
       img_dir_path : String?
       db_file_val = nil
       curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
-      curr_doc_bson = BSON.new
+      tmp_bson = BSON.new
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 && !(@{{ field }}.value?).nil? # FileField
@@ -174,9 +174,9 @@ module DynFork::QPaladins::Check
               file_path = @{{ field }}.extract_file_path?
               unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.as(Hash(String, BSON::RecursiveValue))
-                  .each { |key, val| curr_doc_bson[key] = val }
-                db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
-                curr_doc_bson = BSON.new
+                  .each { |key, val| tmp_bson[key] = val }
+                db_file_val = DynFork::Globals::FileData.from_bson(tmp_bson)
+                tmp_bson = BSON.new
                 if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   @{{ field }}.refrash_val_file_data(
                     db_file_val.not_nil!.as(DynFork::Globals::FileData))
@@ -200,9 +200,9 @@ module DynFork::QPaladins::Check
               img_dir_path = @{{ field }}.extract_images_dir_path?
               unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.as(Hash(String, BSON::RecursiveValue))
-                  .each { |key, val| curr_doc_bson[key] = val }
-                db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
-                curr_doc_bson = BSON.new
+                  .each { |key, val| tmp_bson[key] = val }
+                db_file_val = DynFork::Globals::ImageData.from_bson(tmp_bson)
+                tmp_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData)
                      .images_dir_path.not_nil!
                   @{{ field }}.refrash_val_img_data(
