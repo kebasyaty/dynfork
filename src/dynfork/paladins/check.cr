@@ -15,7 +15,7 @@ module DynFork::QPaladins::Check
     # Data to save or update to the database.
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
     # Get the document ID.
-    id : BSON::ObjectId? = self.object_id
+    id : BSON::ObjectId? = @hash.object_id
     id_ptr : Pointer(BSON::ObjectId?) = pointerof(id)
     # Does the document exist in the database?
     update? : Bool = !id.nil?

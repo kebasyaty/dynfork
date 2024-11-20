@@ -32,7 +32,7 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  if id = user.object_id?
+  if id = user.object_id
     pp Models::Accounts::User.find_one_to_hash({_id: id})
   end
 
@@ -46,7 +46,7 @@ module AppName
 
   # Print user details.
   puts "\n\nUser details:"
-  if id = user.object_id?
+  if id = user.object_id
     pp Models::Accounts::User.find_one_to_hash({_id: id})
   end
 end

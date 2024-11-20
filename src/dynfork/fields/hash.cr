@@ -194,7 +194,6 @@ module DynFork::Fields
       if value : String? = @value.presence
         return BSON::ObjectId.new(value.not_nil!)
       end
-      nil
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
