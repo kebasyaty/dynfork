@@ -31,7 +31,7 @@ module DynFork::QPaladins::Check
       end
     end
     if save?
-      @hash.value = id.to_s unless update?
+      (@hash.value = id.to_s) unless update?
       result_map["_id"] = id
     end
     # Is there any incorrect data?
