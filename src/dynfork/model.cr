@@ -115,7 +115,6 @@ module DynFork
       if value : String? = @hash.value?.presence
         return BSON::ObjectId.new(value.not_nil!)
       end
-      nil
     end
 
     # Get a list of Models.
