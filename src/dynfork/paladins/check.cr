@@ -204,7 +204,7 @@ module DynFork::QPaladins::Check
                 db_file_val = DynFork::Globals::ImageData.from_bson(tmp_bson)
                 tmp_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData)
-                     .images_dir_path.not_nil!
+                     .images_dir_path
                   @{{ field }}.refrash_val_img_data(
                     db_file_val.not_nil!.as(DynFork::Globals::ImageData))
                   img_dir_path = nil
