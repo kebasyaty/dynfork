@@ -172,7 +172,7 @@ module DynFork::QPaladins::Check
             if update?
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?
-              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+              unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| curr_doc_bson[key] = val }
                 db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
@@ -197,7 +197,7 @@ module DynFork::QPaladins::Check
             if update?
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?
-              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+              unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| curr_doc_bson[key] = val }
                 db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
