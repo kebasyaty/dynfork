@@ -23,7 +23,7 @@ module DynFork::QPaladins::Check
     unless update?
       100.times do |idx|
         id = BSON::ObjectId.new
-        if collection_ptr.value.count_documents({_id: id}) == 0
+        if collection_ptr.value.find_one({_id: id}).nil?
           break
         elsif idx == 99
           raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
