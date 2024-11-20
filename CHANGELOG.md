@@ -1,3 +1,8 @@
+#### v0.8.8 2024-11-20
+
+- Fixed [examples](https://github.com/kebasyaty/dynfork/tree/main/examples "examples").
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.7 2024-11-20
 
 - Rename method - The question sign is deleted in the names of the methods.
