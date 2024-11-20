@@ -33,7 +33,7 @@ module AppName
 
   # Print tv details.
   puts "\n\nTV details:"
-  if id = user.object_id?
+  if id = user.object_id
     pp Models::TVs::TV.find_one_to_hash({_id: id})
   end
 end
