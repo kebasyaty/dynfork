@@ -52,7 +52,7 @@ require "./dynfork/migration"
 # <br>
 #  DynFork is free software under terms of the MIT License.
 module DynFork
-  VERSION = "0.8.6"
+  VERSION = "0.8.7"
 end
 
 module Validator

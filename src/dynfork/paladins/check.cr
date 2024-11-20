@@ -47,7 +47,7 @@ module DynFork::QPaladins::Check
       # Reset a field errors to exclude duplicates.
       @{{ field }}.errors = Array(String).new
       # Check additional validation.
-      unless (err_msg = error_map[{{ field.name.stringify }}]?).nil?
+      unless (err_msg = error_map[@{{ field }}.name]?).nil?
           @{{ field }}.errors << err_msg
           (error_symptom? = true) unless error_symptom?
           err_msg = nil
@@ -171,7 +171,7 @@ module DynFork::QPaladins::Check
           if @{{ field }}.group == 4_u8 && !(@{{ field }}.value?).nil? # FileField
             if update?
               # When updating the document.
-              file_path = @{{ field }}.extract_file_path?
+              file_path = @{{ field }}.extract_file_path
               unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
@@ -191,13 +191,13 @@ module DynFork::QPaladins::Check
               db_file_val = nil
             else
               # When creating a document.
-              File.delete(@{{ field }}.extract_file_path?.not_nil!)
+              File.delete(@{{ field }}.extract_file_path.not_nil!)
               @{{ field }}.value = nil
             end
           elsif @{{ field }}.group == 5_u8 && !(@{{ field }}.value?).nil? # ImageField
             if update?
               # When updating the document.
-              img_dir_path = @{{ field }}.extract_images_dir_path?
+              img_dir_path = @{{ field }}.extract_images_dir_path
               unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
                 db_file_val.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
@@ -218,7 +218,7 @@ module DynFork::QPaladins::Check
               db_file_val = nil
             else
               # When creating a document.
-              FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
+              FileUtils.rm_rf(@{{ field }}.extract_images_dir_path.not_nil!)
               @{{ field }}.value = nil
             end
           end

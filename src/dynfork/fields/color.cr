@@ -133,34 +133,34 @@ module DynFork::Fields
     def refrash_val_date(val : Time); end
 
     # :nodoc:
-    def extract_file_data? : DynFork::Globals::FileData?; end
+    def extract_file_data : DynFork::Globals::FileData?; end
 
     # :nodoc:
-    def extract_img_data? : DynFork::Globals::ImageData?; end
+    def extract_img_data : DynFork::Globals::ImageData?; end
 
     # :nodoc:
-    def extract_val_bool? : Bool?; end
+    def extract_val_bool : Bool?; end
 
     # :nodoc:
-    def extract_default_bool? : Bool?; end
+    def extract_default_bool : Bool?; end
 
     # :nodoc:
-    def extract_val_i64? : Int64?; end
+    def extract_val_i64 : Int64?; end
 
     # :nodoc:
-    def extract_default_i64? : Int64?; end
+    def extract_default_i64 : Int64?; end
 
     # :nodoc:
-    def extract_val_f64? : Float64?; end
+    def extract_val_f64 : Float64?; end
 
     # :nodoc:
-    def extract_default_f64? : Float64?; end
+    def extract_default_f64 : Float64?; end
 
     # :nodoc:
-    def extract_images_dir_path? : String?; end
+    def extract_images_dir_path : String?; end
 
     # :nodoc:
-    def extract_file_path? : String?; end
+    def extract_file_path : String?; end
 
     # :nodoc:
     def from_base64(
