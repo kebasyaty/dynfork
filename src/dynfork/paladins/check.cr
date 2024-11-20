@@ -159,7 +159,7 @@ module DynFork::QPaladins::Check
     # Actions in case of error.
     if save? && error_symptom?
       # Reset the hash for a new document.
-      @hash.value = nil if !update?
+      @hash.value = nil unless update?
       # Delete orphaned files.
       file_path : String?
       img_dir_path : String?
