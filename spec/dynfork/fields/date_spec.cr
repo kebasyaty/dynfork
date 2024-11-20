@@ -11,7 +11,7 @@ describe DynFork::Fields::DateField do
       f.name.should eq("")
       f.value?.should be_nil
       f.default?.should be_nil
-      f.time_object?.should be_nil
+      f.time_object.should be_nil
       f.placeholder.should eq("")
       f.disabled?.should be_false
       f.readonly?.should be_false

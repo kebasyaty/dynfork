@@ -132,7 +132,7 @@ module DynFork::Fields
     def refrash_val_img_data(val : DynFork::Globals::ImageData); end
 
     # :nodoc:
-    def extract_img_data? : DynFork::Globals::ImageData?; end
+    def extract_img_data : DynFork::Globals::ImageData?; end
 
     # :nodoc:
     def extract_val_bool? : Bool?; end
@@ -141,19 +141,19 @@ module DynFork::Fields
     def extract_default_bool? : Bool?; end
 
     # :nodoc:
-    def extract_val_i64? : Int64?; end
+    def extract_val_i64 : Int64?; end
 
     # :nodoc:
-    def extract_default_i64? : Int64?; end
+    def extract_default_i64 : Int64?; end
 
     # :nodoc:
-    def extract_val_f64? : Float64?; end
+    def extract_val_f64 : Float64?; end
 
     # :nodoc:
-    def extract_default_f64? : Float64?; end
+    def extract_default_f64 : Float64?; end
 
     # :nodoc:
-    def extract_images_dir_path? : String?; end
+    def extract_images_dir_path : String?; end
 
     def initialize(
       @label : String = "",
@@ -280,12 +280,12 @@ module DynFork::Fields
     end
 
     # For the `DynFork::QPaladins::Check#check` method.
-    def extract_file_data? : DynFork::Globals::FileData?
+    def extract_file_data : DynFork::Globals::FileData?
       @value
     end
 
     # For the `DynFork::QPaladins::Check#check` method.
-    def extract_file_path? : String?
+    def extract_file_path : String?
       @value.not_nil!.path unless @value.nil?
     end
   end

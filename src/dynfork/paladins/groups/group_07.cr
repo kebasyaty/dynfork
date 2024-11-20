@@ -11,7 +11,7 @@ module DynFork::QPaladins::Groups
   ) : Nil
     # Get current value.
     current_value : Float64 = (
-      value : Float64? = field_ptr.value.extract_val_f64? || field_ptr.value.extract_default_f64?
+      value : Float64? = field_ptr.value.extract_val_f64 || field_ptr.value.extract_default_f64
       # Validation, if the field is required and empty, accumulate the error.
       # ( The default value is used whenever possible )
       if value.nil?

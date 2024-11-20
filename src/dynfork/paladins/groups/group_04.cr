@@ -23,13 +23,13 @@ module DynFork::QPaladins::Groups
     end
 
     # Get current value.
-    _current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data?
+    _current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
 
     # If necessary, use the default value.
     if !update? && _current_value.nil?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        _current_value = field_ptr.value.extract_file_data?
+        _current_value = field_ptr.value.extract_file_data
       end
     end
 
@@ -43,7 +43,7 @@ module DynFork::QPaladins::Groups
     if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        current_value = field_ptr.value.extract_file_data?.not_nil!
+        current_value = field_ptr.value.extract_file_data.not_nil!
       else
         if !field_ptr.value.required?
           (result_map[field_ptr.value.name] = nil) if save?
