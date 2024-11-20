@@ -20,10 +20,10 @@ module DynFork::QPaladins::Check
     # Does the document exist in the database?
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
-    if !update?
+    unless update?
       100.times do |idx|
         id = BSON::ObjectId.new
-        if collection_ptr.value.count_documents({_id: id}) == 0
+        if collection_ptr.value.find_one({_id: id}).nil?
           break
         elsif idx == 99
           raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
@@ -31,7 +31,7 @@ module DynFork::QPaladins::Check
       end
     end
     if save?
-      @hash.value = id.to_s if !update?
+      (@hash.value = id.to_s) unless update?
       result_map["_id"] = id
     end
     # Is there any incorrect data?
@@ -159,24 +159,24 @@ module DynFork::QPaladins::Check
     # Actions in case of error.
     if save? && error_symptom?
       # Reset the hash for a new document.
-      @hash.value = nil if !update?
+      (@hash.value = nil) unless update?
       # Delete orphaned files.
       file_path : String?
       img_dir_path : String?
       db_file_val = nil
-      curr_doc_hash = update? ? collection_ptr.value.find_one({_id: id}).not_nil!.to_h : nil
-      curr_doc_bson = BSON.new
+      curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
+      tmp_bson = BSON.new
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
-          if @{{ field }}.group == 4_u8 && !@{{ field }}.value?.nil? # FileField
+          if @{{ field }}.group == 4_u8 && !(@{{ field }}.value?).nil? # FileField
             if update?
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?
-              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
-                db_file_val.as(Hash(String, BSON::RecursiveValue))
-                  .each { |key, val| curr_doc_bson[key] = val }
-                db_file_val = DynFork::Globals::FileData.from_bson(curr_doc_bson)
-                curr_doc_bson = BSON.new
+              unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                db_file_val = DynFork::Globals::FileData.from_bson(tmp_bson)
+                tmp_bson = BSON.new
                 if file_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::FileData).path
                   @{{ field }}.refrash_val_file_data(
                     db_file_val.not_nil!.as(DynFork::Globals::FileData))
@@ -188,22 +188,23 @@ module DynFork::QPaladins::Check
                 @{{ field }}.value = nil
                 file_path = nil
               end
+              db_file_val = nil
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
               @{{ field }}.value = nil
             end
-          elsif @{{ field }}.group == 5_u8 && !@{{ field }}.value?.nil? # ImageField
+          elsif @{{ field }}.group == 5_u8 && !(@{{ field }}.value?).nil? # ImageField
             if update?
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?
-              if !(db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
-                db_file_val.as(Hash(String, BSON::RecursiveValue))
-                  .each { |key, val| curr_doc_bson[key] = val }
-                db_file_val = DynFork::Globals::ImageData.from_bson(curr_doc_bson)
-                curr_doc_bson = BSON.new
+              unless (db_file_val = curr_doc_hash.not_nil![@{{ field }}.name]).nil?
+                db_file_val.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                db_file_val = DynFork::Globals::ImageData.from_bson(tmp_bson)
+                tmp_bson = BSON.new
                 if img_dir_path.not_nil! == db_file_val.not_nil!.as(DynFork::Globals::ImageData)
-                     .images_dir_path.not_nil!
+                     .images_dir_path
                   @{{ field }}.refrash_val_img_data(
                     db_file_val.not_nil!.as(DynFork::Globals::ImageData))
                   img_dir_path = nil
@@ -214,6 +215,7 @@ module DynFork::QPaladins::Check
                 @{{ field }}.value = nil
                 img_dir_path = nil
               end
+              db_file_val = nil
             else
               # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)

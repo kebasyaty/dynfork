@@ -1,3 +1,7 @@
+#### v0.8.6 2024-11-20
+
+- Fixed algorithm for removing orphaned file when creating or updating the document.
+
 #### v0.8.5 2024-11-20
 
 - Fixed algorithm for removing orphaned file when creating or updating the document.
