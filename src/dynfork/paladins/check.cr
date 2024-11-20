@@ -188,6 +188,7 @@ module DynFork::QPaladins::Check
                 @{{ field }}.value = nil
                 file_path = nil
               end
+              db_file_val = nil
             else
               # When creating a document.
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
@@ -214,6 +215,7 @@ module DynFork::QPaladins::Check
                 @{{ field }}.value = nil
                 img_dir_path = nil
               end
+              db_file_val = nil
             else
               # When creating a document.
               FileUtils.rm_rf(@{{ field }}.extract_images_dir_path?.not_nil!)
