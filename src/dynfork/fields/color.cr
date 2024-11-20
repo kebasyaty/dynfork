@@ -100,7 +100,7 @@ module DynFork::Fields
     getter? use_editor : Bool = false
 
     # :nodoc:
-    def has_value?; end
+    def has_value; end
 
     # :nodoc:
     def refrash_val_i64(val : Int64); end

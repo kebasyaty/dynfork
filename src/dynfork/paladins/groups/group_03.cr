@@ -34,7 +34,7 @@ module DynFork::QPaladins::Groups
       value
     )
     # Does the field value match the possible options in choices.
-    unless field_ptr.value.has_value?
+    unless field_ptr.value.has_value
       self.accumulate_error(
         I18n.t(:value_does_not_match),
         field_ptr,
