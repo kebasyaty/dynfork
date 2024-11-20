@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="v0">
+<meta name="crystal_docs.project_name" content="dynfork">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="dynfork">
+  <title>DynFork::Fields::ImageField - dynfork v0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          dynfork
+        </a>
+      </h1>
+
+      <span class="project-version">
+        v0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="dynfork/DynFork" data-name="dynfork">
+      <a href="../../DynFork.html">DynFork</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors" data-name="dynfork::errors">
+      <a href="../../DynFork/Errors.html">Errors</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Cache" data-name="dynfork::errors::cache">
+      <a href="../../DynFork/Errors/Cache.html">Cache</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Cache/RegexFails" data-name="dynfork::errors::cache::regexfails">
+      <a href="../../DynFork/Errors/Cache/RegexFails.html">RegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Date" data-name="dynfork::errors::date">
+      <a href="../../DynFork/Errors/Date.html">Date</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Date/InvalidDate" data-name="dynfork::errors::date::invaliddate">
+      <a href="../../DynFork/Errors/Date/InvalidDate.html">InvalidDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Date/InvalidDateTime" data-name="dynfork::errors::date::invaliddatetime">
+      <a href="../../DynFork/Errors/Date/InvalidDateTime.html">InvalidDateTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/DynForkException" data-name="dynfork::errors::dynforkexception">
+      <a href="../../DynFork/Errors/DynForkException.html">DynForkException</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Fields" data-name="dynfork::errors::fields">
+      <a href="../../DynFork/Errors/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/InvalidInputType" data-name="dynfork::errors::fields::invalidinputtype">
+      <a href="../../DynFork/Errors/Fields/InvalidInputType.html">InvalidInputType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/NotCorrectDefaultDate" data-name="dynfork::errors::fields::notcorrectdefaultdate">
+      <a href="../../DynFork/Errors/Fields/NotCorrectDefaultDate.html">NotCorrectDefaultDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/NotCorrectMinDate" data-name="dynfork::errors::fields::notcorrectmindate">
+      <a href="../../DynFork/Errors/Fields/NotCorrectMinDate.html">NotCorrectMinDate</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNameInvalid" data-name="dynfork::errors::fields::slugsourcenameinvalid">
+      <a href="../../DynFork/Errors/Fields/SlugSourceNameInvalid.html">SlugSourceNameInvalid</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotRequired" data-name="dynfork::errors::fields::slugsourcenotrequired">
+      <a href="../../DynFork/Errors/Fields/SlugSourceNotRequired.html">SlugSourceNotRequired</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceNotUnique" data-name="dynfork::errors::fields::slugsourcenotunique">
+      <a href="../../DynFork/Errors/Fields/SlugSourceNotUnique.html">SlugSourceNotUnique</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Fields/SlugSourceTypeInvalid" data-name="dynfork::errors::fields::slugsourcetypeinvalid">
+      <a href="../../DynFork/Errors/Fields/SlugSourceTypeInvalid.html">SlugSourceTypeInvalid</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Meta" data-name="dynfork::errors::meta">
+      <a href="../../DynFork/Errors/Meta.html">Meta</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ForbiddenDeletingDocs" data-name="dynfork::errors::meta::forbiddendeletingdocs">
+      <a href="../../DynFork/Errors/Meta/ForbiddenDeletingDocs.html">ForbiddenDeletingDocs</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/InvalidParamName" data-name="dynfork::errors::meta::invalidparamname">
+      <a href="../../DynFork/Errors/Meta/InvalidParamName.html">InvalidParamName</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParameterMissing" data-name="dynfork::errors::meta::parametermissing">
+      <a href="../../DynFork/Errors/Meta/ParameterMissing.html">ParameterMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParamExcessChars" data-name="dynfork::errors::meta::paramexcesschars">
+      <a href="../../DynFork/Errors/Meta/ParamExcessChars.html">ParamExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Meta/ParamRegexFails" data-name="dynfork::errors::meta::paramregexfails">
+      <a href="../../DynFork/Errors/Meta/ParamRegexFails.html">ParamRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Model" data-name="dynfork::errors::model">
+      <a href="../../DynFork/Errors/Model.html">Model</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/FailedGenerateUniqueID" data-name="dynfork::errors::model::failedgenerateuniqueid">
+      <a href="../../DynFork/Errors/Model/FailedGenerateUniqueID.html">FailedGenerateUniqueID</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/FieldsMissing" data-name="dynfork::errors::model::fieldsmissing">
+      <a href="../../DynFork/Errors/Model/FieldsMissing.html">FieldsMissing</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/InvalidGroupNumber" data-name="dynfork::errors::model::invalidgroupnumber">
+      <a href="../../DynFork/Errors/Model/InvalidGroupNumber.html">InvalidGroupNumber</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/ModelNameExcessChars" data-name="dynfork::errors::model::modelnameexcesschars">
+      <a href="../../DynFork/Errors/Model/ModelNameExcessChars.html">ModelNameExcessChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Model/ModelNameRegexFails" data-name="dynfork::errors::model::modelnameregexfails">
+      <a href="../../DynFork/Errors/Model/ModelNameRegexFails.html">ModelNameRegexFails</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Panic" data-name="dynfork::errors::panic">
+      <a href="../../DynFork/Errors/Panic.html">Panic</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Password" data-name="dynfork::errors::password">
+      <a href="../../DynFork/Errors/Password.html">Password</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Password/OldPassNotMatch" data-name="dynfork::errors::password::oldpassnotmatch">
+      <a href="../../DynFork/Errors/Password/OldPassNotMatch.html">OldPassNotMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Errors/Types" data-name="dynfork::errors::types">
+      <a href="../../DynFork/Errors/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Errors/Types/InvalidType" data-name="dynfork::errors::types::invalidtype">
+      <a href="../../DynFork/Errors/Types/InvalidType.html">InvalidType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Extra" data-name="dynfork::extra">
+      <a href="../../DynFork/Extra.html">Extra</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="dynfork/DynFork/Fields" data-name="dynfork::fields">
+      <a href="../../DynFork/Fields.html">Fields</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/BoolField" data-name="dynfork::fields::boolfield">
+      <a href="../../DynFork/Fields/BoolField.html">BoolField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64DynField" data-name="dynfork::fields::choicef64dynfield">
+      <a href="../../DynFork/Fields/ChoiceF64DynField.html">ChoiceF64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64Field" data-name="dynfork::fields::choicef64field">
+      <a href="../../DynFork/Fields/ChoiceF64Field.html">ChoiceF64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64MultDynField" data-name="dynfork::fields::choicef64multdynfield">
+      <a href="../../DynFork/Fields/ChoiceF64MultDynField.html">ChoiceF64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceF64MultField" data-name="dynfork::fields::choicef64multfield">
+      <a href="../../DynFork/Fields/ChoiceF64MultField.html">ChoiceF64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64DynField" data-name="dynfork::fields::choicei64dynfield">
+      <a href="../../DynFork/Fields/ChoiceI64DynField.html">ChoiceI64DynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64Field" data-name="dynfork::fields::choicei64field">
+      <a href="../../DynFork/Fields/ChoiceI64Field.html">ChoiceI64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64MultDynField" data-name="dynfork::fields::choicei64multdynfield">
+      <a href="../../DynFork/Fields/ChoiceI64MultDynField.html">ChoiceI64MultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceI64MultField" data-name="dynfork::fields::choicei64multfield">
+      <a href="../../DynFork/Fields/ChoiceI64MultField.html">ChoiceI64MultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextDynField" data-name="dynfork::fields::choicetextdynfield">
+      <a href="../../DynFork/Fields/ChoiceTextDynField.html">ChoiceTextDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextField" data-name="dynfork::fields::choicetextfield">
+      <a href="../../DynFork/Fields/ChoiceTextField.html">ChoiceTextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextMultDynField" data-name="dynfork::fields::choicetextmultdynfield">
+      <a href="../../DynFork/Fields/ChoiceTextMultDynField.html">ChoiceTextMultDynField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ChoiceTextMultField" data-name="dynfork::fields::choicetextmultfield">
+      <a href="../../DynFork/Fields/ChoiceTextMultField.html">ChoiceTextMultField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/ColorField" data-name="dynfork::fields::colorfield">
+      <a href="../../DynFork/Fields/ColorField.html">ColorField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/DateField" data-name="dynfork::fields::datefield">
+      <a href="../../DynFork/Fields/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/DateTimeField" data-name="dynfork::fields::datetimefield">
+      <a href="../../DynFork/Fields/DateTimeField.html">DateTimeField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/EmailField" data-name="dynfork::fields::emailfield">
+      <a href="../../DynFork/Fields/EmailField.html">EmailField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/F64Field" data-name="dynfork::fields::f64field">
+      <a href="../../DynFork/Fields/F64Field.html">F64Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/Field" data-name="dynfork::fields::field">
+      <a href="../../DynFork/Fields/Field.html">Field</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/FileField" data-name="dynfork::fields::filefield">
+      <a href="../../DynFork/Fields/FileField.html">FileField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/HashField" data-name="dynfork::fields::hashfield">
+      <a href="../../DynFork/Fields/HashField.html">HashField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/I64Field" data-name="dynfork::fields::i64field">
+      <a href="../../DynFork/Fields/I64Field.html">I64Field</a>
+      
+    </li>
+  
+  <li class=" current" data-id="dynfork/DynFork/Fields/ImageField" data-name="dynfork::fields::imagefield">
+      <a href="../../DynFork/Fields/ImageField.html">ImageField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/IPField" data-name="dynfork::fields::ipfield">
+      <a href="../../DynFork/Fields/IPField.html">IPField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/PasswordField" data-name="dynfork::fields::passwordfield">
+      <a href="../../DynFork/Fields/PasswordField.html">PasswordField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/PhoneField" data-name="dynfork::fields::phonefield">
+      <a href="../../DynFork/Fields/PhoneField.html">PhoneField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/SlugField" data-name="dynfork::fields::slugfield">
+      <a href="../../DynFork/Fields/SlugField.html">SlugField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/TextField" data-name="dynfork::fields::textfield">
+      <a href="../../DynFork/Fields/TextField.html">TextField</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Fields/URLField" data-name="dynfork::fields::urlfield">
+      <a href="../../DynFork/Fields/URLField.html">URLField</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals" data-name="dynfork::globals">
+      <a href="../../DynFork/Globals.html">Globals</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals/Aliases" data-name="dynfork::globals::aliases">
+      <a href="../../DynFork/Globals/Aliases.html">Aliases</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/CacheMetaDataType" data-name="dynfork::globals::aliases::cachemetadatatype">
+      <a href="../../DynFork/Globals/Aliases/CacheMetaDataType.html">CacheMetaDataType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/CacheRegexType" data-name="dynfork::globals::aliases::cacheregextype">
+      <a href="../../DynFork/Globals/Aliases/CacheRegexType.html">CacheRegexType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/FieldTypes" data-name="dynfork::globals::aliases::fieldtypes">
+      <a href="../../DynFork/Globals/Aliases/FieldTypes.html">FieldTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/FieldValueTypes" data-name="dynfork::globals::aliases::fieldvaluetypes">
+      <a href="../../DynFork/Globals/Aliases/FieldValueTypes.html">FieldValueTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Aliases/ResultMapType" data-name="dynfork::globals::aliases::resultmaptype">
+      <a href="../../DynFork/Globals/Aliases/ResultMapType.html">ResultMapType</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Date" data-name="dynfork::globals::date">
+      <a href="../../DynFork/Globals/Date.html">Date</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Globals/Types" data-name="dynfork::globals::types">
+      <a href="../../DynFork/Globals/Types.html">Types</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/FileData" data-name="dynfork::globals::types::filedata">
+      <a href="../../DynFork/Globals/Types/FileData.html">FileData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/ImageData" data-name="dynfork::globals::types::imagedata">
+      <a href="../../DynFork/Globals/Types/ImageData.html">ImageData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/OutputData" data-name="dynfork::globals::types::outputdata">
+      <a href="../../DynFork/Globals/Types/OutputData.html">OutputData</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Globals/Types/Unit" data-name="dynfork::globals::types::unit">
+      <a href="../../DynFork/Globals/Types/Unit.html">Unit</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Meta" data-name="dynfork::meta">
+      <a href="../../DynFork/Meta.html">Meta</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/Migration" data-name="dynfork::migration">
+      <a href="../../DynFork/Migration.html">Migration</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/Migration/ModelState" data-name="dynfork::migration::modelstate">
+      <a href="../../DynFork/Migration/ModelState.html">ModelState</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Migration/Monitor" data-name="dynfork::migration::monitor">
+      <a href="../../DynFork/Migration/Monitor.html">Monitor</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/Model" data-name="dynfork::model">
+      <a href="../../DynFork/Model.html">Model</a>
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/MongoOptions" data-name="dynfork::mongooptions">
+      <a href="../../DynFork/MongoOptions.html">MongoOptions</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/MongoOptions/RawMongoDriverOptions" data-name="dynfork::mongooptions::rawmongodriveroptions">
+      <a href="../../DynFork/MongoOptions/RawMongoDriverOptions.html">RawMongoDriverOptions</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/QCommons" data-name="dynfork::qcommons">
+      <a href="../../DynFork/QCommons.html">QCommons</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Converter" data-name="dynfork::qcommons::converter">
+      <a href="../../DynFork/QCommons/Converter.html">Converter</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/General" data-name="dynfork::qcommons::general">
+      <a href="../../DynFork/QCommons/General.html">General</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Indexes" data-name="dynfork::qcommons::indexes">
+      <a href="../../DynFork/QCommons/Indexes.html">Indexes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/Many" data-name="dynfork::qcommons::many">
+      <a href="../../DynFork/QCommons/Many.html">Many</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/One" data-name="dynfork::qcommons::one">
+      <a href="../../DynFork/QCommons/One.html">One</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QCommons/UnitsManagement" data-name="dynfork::qcommons::unitsmanagement">
+      <a href="../../DynFork/QCommons/UnitsManagement.html">UnitsManagement</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dynfork/DynFork/QPaladins" data-name="dynfork::qpaladins">
+      <a href="../../DynFork/QPaladins.html">QPaladins</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Caching" data-name="dynfork::qpaladins::caching">
+      <a href="../../DynFork/QPaladins/Caching.html">Caching</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Check" data-name="dynfork::qpaladins::check">
+      <a href="../../DynFork/QPaladins/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Fixtures" data-name="dynfork::qpaladins::fixtures">
+      <a href="../../DynFork/QPaladins/Fixtures.html">Fixtures</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Groups" data-name="dynfork::qpaladins::groups">
+      <a href="../../DynFork/QPaladins/Groups.html">Groups</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Password" data-name="dynfork::qpaladins::password">
+      <a href="../../DynFork/QPaladins/Password.html">Password</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Save" data-name="dynfork::qpaladins::save">
+      <a href="../../DynFork/QPaladins/Save.html">Save</a>
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/DynFork/QPaladins/Tools" data-name="dynfork::qpaladins::tools">
+      <a href="../../DynFork/QPaladins/Tools.html">Tools</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="dynfork/Validator" data-name="validator">
+      <a href="../../Validator.html">Validator</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> DynFork::<wbr>Fields::<wbr>ImageField
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../DynFork/Fields/ImageField.html">DynFork::Fields::ImageField</a></li><li class="superclass"><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Image upload field.</p>
+<p><span class="flag purple">NOTE</span>  How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/files" target="_blank">example</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L7" target="_blank">
+        dynfork/fields/image.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Ctarget_dir%3AString%3D%22images%22%2Cthumbnails%3AArray%28Tuple%28String%2CInt32%29%29%7CNil%3Dnil%2Cmaxsize%3AInt64%3D2097152%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AArray%28String%29%3DArray%28String%29.new%29-class-method" class="signature"><strong>.new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, thumbnails : Array(Tuple(String, Int32)) | Nil = <span class="n">nil</span>, maxsize : Int64 = <span class="n">2097152</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : Array(String) = <span class="t">Array</span>(<span class="t">String</span>).new)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#accept%3AString-instance-method" class="signature"><strong>#accept</strong> : String</a>
+        
+          <div class="summary"><p>HTML attribute: accept.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default%3AString%7CNil-instance-method" class="signature"><strong>#default</strong> : String | Nil</a>
+        
+          <div class="summary"><p>Default file path.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#default%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#default?</strong> : String | Nil | Nil</a>
+        
+          <div class="summary"><p>Default file path.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#extract_images_dir_path%3F%3AString%7CNil-instance-method" class="signature"><strong>#extract_images_dir_path?</strong> : String | Nil</a>
+        
+          <div class="summary"><p>For the <code><a href="../../DynFork/QPaladins/Check.html#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method">DynFork::QPaladins::Check#check</a></code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#extract_img_data%3F%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil-instance-method" class="signature"><strong>#extract_img_data?</strong> : DynFork::Globals::ImageData | Nil</a>
+        
+          <div class="summary"><p>For the <code><a href="../../DynFork/QPaladins/Check.html#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method">DynFork::QPaladins::Check#check</a></code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#field_type%3AString-instance-method" class="signature"><strong>#field_type</strong> : String</a>
+        
+          <div class="summary"><p>Field type - Structure Name.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_base64%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29%3ANil-instance-method" class="signature"><strong>#from_base64</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>) : Nil</a>
+        
+          <div class="summary"><p>Convert base64 to a image and save in the target directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_path%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29%3ANil-instance-method" class="signature"><strong>#from_path</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>) : Nil</a>
+        
+          <div class="summary"><p>Convert path to a image and save in the target directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#group%3AUInt8-instance-method" class="signature"><strong>#group</strong> : UInt8</a>
+        
+          <div class="summary"><p>To optimize field traversal in the <code>paladins/check()</code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3AString%7CNil-instance-method" class="signature"><strong>#input_type</strong> : String | Nil</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;file&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_type%3F%3AString%7CNil%7CNil-instance-method" class="signature"><strong>#input_type?</strong> : String | Nil | Nil</a>
+        
+          <div class="summary"><p>Html tag: input type=&quot;file&quot;.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#maxsize%3AInt64-instance-method" class="signature"><strong>#maxsize</strong> : Int64</a>
+        
+          <div class="summary"><p>The maximum allowed image size in bytes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#media_root%3AString-instance-method" class="signature"><strong>#media_root</strong> : String</a>
+        
+          <div class="summary"><p>Root directory for storing media files.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#media_root%3D%28media_root%3AString%29-instance-method" class="signature"><strong>#media_root=</strong>(media_root : String)</a>
+        
+          <div class="summary"><p>Root directory for storing media files.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#media_url%3AString-instance-method" class="signature"><strong>#media_url</strong> : String</a>
+        
+          <div class="summary"><p>URL address for the media directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#placeholder%3AString-instance-method" class="signature"><strong>#placeholder</strong> : String</a>
+        
+          <div class="summary"><p>Displays prompt text.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#readonly%3D%28readonly%3ABool%29-instance-method" class="signature"><strong>#readonly=</strong>(readonly : Bool)</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#readonly%3F%3ABool-instance-method" class="signature"><strong>#readonly?</strong> : Bool</a>
+        
+          <div class="summary"><p>Specifies that the field cannot be modified by the user.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#refrash_val_img_data%28val%3ADynFork%3A%3AGlobals%3A%3AImageData%29%3ANil-instance-method" class="signature"><strong>#refrash_val_img_data</strong>(val : DynFork::Globals::ImageData) : Nil</a>
+        
+          <div class="summary"><p>For the <code><a href="../../DynFork/QPaladins/Tools.html#refrash_fields%28doc_bson%3ABSON%29%3ANil-instance-method">DynFork::QPaladins::Tools#refrash_fields</a></code> method.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#required%3F%3ABool-instance-method" class="signature"><strong>#required?</strong> : Bool</a>
+        
+          <div class="summary"><p>Required field.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#target_dir%3AString-instance-method" class="signature"><strong>#target_dir</strong> : String</a>
+        
+          <div class="summary"><p>Directory for images inside media directory.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#thumbnails%3AArray%28Tuple%28String%2CInt32%29%29%7CNil-instance-method" class="signature"><strong>#thumbnails</strong> : Array(Tuple(String, Int32)) | Nil</a>
+        
+          <div class="summary"><p>From one to four inclusive.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#thumbnails%3F%3AArray%28Tuple%28String%2CInt32%29%29%7CNil%7CNil-instance-method" class="signature"><strong>#thumbnails?</strong> : Array(Tuple(String, Int32)) | Nil | Nil</a>
+        
+          <div class="summary"><p>From one to four inclusive.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil-instance-method" class="signature"><strong>#value</strong> : DynFork::Globals::ImageData | Nil</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3D%28value%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil%29-instance-method" class="signature"><strong>#value=</strong>(value : DynFork::Globals::ImageData | Nil)</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#value%3F%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil%7CNil-instance-method" class="signature"><strong>#value?</strong> : DynFork::Globals::ImageData | Nil | Nil</a>
+        
+          <div class="summary"><p>Sets the value of an element.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
+  
+  
+    <a href="../../DynFork/Fields/Field.html#choices_from_json%28json%3AString%29%3ANil-instance-method" class="tooltip">
+      <span>choices_from_json(json : String) : Nil</span>
+    choices_from_json</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#disabled%3D%28disabled%3ABool%29-instance-method" class="tooltip">
+      <span>disabled=(disabled : Bool)</span>
+    disabled=</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#disabled%3F%3ABool-instance-method" class="tooltip">
+      <span>disabled? : Bool</span>
+    disabled?</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#errors%3AArray%28String%29-instance-method" class="tooltip">
+      <span>errors : Array(String)</span>
+    errors</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#errors%3D%28errors%3AArray%28String%29%29-instance-method" class="tooltip">
+      <span>errors=(errors : Array(String))</span>
+    errors=</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#field_type%3AString-instance-method" class="tooltip">
+      <span>field_type : String</span>
+    field_type</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#group%3AUInt8-instance-method" class="tooltip">
+      <span>group : UInt8</span>
+    group</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#hide%3D%28hide%3ABool%29-instance-method" class="tooltip">
+      <span>hide=(hide : Bool)</span>
+    hide=</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#hide%3F%3ABool-instance-method" class="tooltip">
+      <span>hide? : Bool</span>
+    hide?</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#hint%3AString-instance-method" class="tooltip">
+      <span>hint : String</span>
+    hint</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#id%3AString-instance-method" class="tooltip">
+      <span>id : String</span>
+    id</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#id%3D%28id%3AString%29-instance-method" class="tooltip">
+      <span>id=(id : String)</span>
+    id=</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#ignored%3F%3ABool-instance-method" class="tooltip">
+      <span>ignored? : Bool</span>
+    ignored?</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#label%3AString-instance-method" class="tooltip">
+      <span>label : String</span>
+    label</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#name%3AString-instance-method" class="tooltip">
+      <span>name : String</span>
+    name</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#name%3D%28name%3AString%29-instance-method" class="tooltip">
+      <span>name=(name : String)</span>
+    name=</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#slug_sources%3AArray%28String%29-instance-method" class="tooltip">
+      <span>slug_sources : Array(String)</span>
+    slug_sources</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#warning%3AArray%28String%29-instance-method" class="tooltip">
+      <span>warning : Array(String)</span>
+    warning</a>, 
+    
+  
+    <a href="../../DynFork/Fields/Field.html#warning%3D%28warning%3AArray%28String%29%29-instance-method" class="tooltip">
+      <span>warning=(warning : Array(String))</span>
+    warning=</a>
+    
+  
+
+
+    
+
+  <h3>Constructor methods inherited from struct <code><a href="../../DynFork/Fields/Field.html">DynFork::Fields::Field</a></code></h3>
+  
+  
+    <a href="../../DynFork/Fields/Field.html#new%28pull%3AJSON%3A%3APullParser%29-class-method" class="tooltip">
+      <span>new(pull : JSON::PullParser)</span>
+    new</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new%28pull%3AJSON%3A%3APullParser%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(label:String=&quot;&quot;,default:String|Nil=nil,placeholder:String=&quot;&quot;,target_dir:String=&quot;images&quot;,thumbnails:Array(Tuple(String,Int32))|Nil=nil,maxsize:Int64=2097152,hide:Bool=false,required:Bool=false,disabled:Bool=false,readonly:Bool=false,ignored:Bool=false,hint:String=&quot;&quot;,warning:Array(String)=Array(String).new)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(label : String = <span class="s">&quot;&quot;</span>, default : String | Nil = <span class="n">nil</span>, placeholder : String = <span class="s">&quot;&quot;</span>, target_dir : String = <span class="s">&quot;images&quot;</span>, thumbnails : Array(Tuple(String, Int32)) | Nil = <span class="n">nil</span>, maxsize : Int64 = <span class="n">2097152</span>, hide : Bool = <span class="n">false</span>, required : Bool = <span class="n">false</span>, disabled : Bool = <span class="n">false</span>, readonly : Bool = <span class="n">false</span>, ignored : Bool = <span class="n">false</span>, hint : String = <span class="s">&quot;&quot;</span>, warning : Array(String) = <span class="t">Array</span>(<span class="t">String</span>).new)
+
+        <a class="method-permalink" href="#new%28label%3AString%3D%22%22%2Cdefault%3AString%7CNil%3Dnil%2Cplaceholder%3AString%3D%22%22%2Ctarget_dir%3AString%3D%22images%22%2Cthumbnails%3AArray%28Tuple%28String%2CInt32%29%29%7CNil%3Dnil%2Cmaxsize%3AInt64%3D2097152%2Chide%3ABool%3Dfalse%2Crequired%3ABool%3Dfalse%2Cdisabled%3ABool%3Dfalse%2Creadonly%3ABool%3Dfalse%2Cignored%3ABool%3Dfalse%2Chint%3AString%3D%22%22%2Cwarning%3AArray%28String%29%3DArray%28String%29.new%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L157" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="accept:String-instance-method">
+      <div class="signature">
+        
+        def <strong>accept</strong> : String
+
+        <a class="method-permalink" href="#accept%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>HTML attribute: accept.
+<br>
+Describing which file types to allow.
+<br>
+<em>Example: &quot;image/png,image/jpeg,image/webp&quot;</em></p>
+<p><span class="flag purple">NOTE</span>  https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L38" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default</strong> : String | Nil
+
+        <a class="method-permalink" href="#default%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Default file path.
+<br>
+<em>Example: &quot;public/media/default/noavatar.jpg&quot;</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="default?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>default?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#default%3F%3AString%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Default file path.
+<br>
+<em>Example: &quot;public/media/default/noavatar.jpg&quot;</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="extract_images_dir_path?:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>extract_images_dir_path?</strong> : String | Nil
+
+        <a class="method-permalink" href="#extract_images_dir_path%3F%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>For the <code><a href="../../DynFork/QPaladins/Check.html#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method">DynFork::QPaladins::Check#check</a></code> method.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L306" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="extract_img_data?:DynFork::Globals::ImageData|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>extract_img_data?</strong> : <a href="../../DynFork/Globals/Types/ImageData.html">DynFork::Globals::ImageData</a> | Nil
+
+        <a class="method-permalink" href="#extract_img_data%3F%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>For the <code><a href="../../DynFork/QPaladins/Check.html#check%28collection_ptr%3APointer%28Mongo%3A%3ACollection%29%2Csave%3F%3ABool%3Dfalse%29%3ADynFork%3A%3AGlobals%3A%3AOutputData-instance-method">DynFork::QPaladins::Check#check</a></code> method.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L301" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="field_type:String-instance-method">
+      <div class="signature">
+        
+        def <strong>field_type</strong> : String
+
+        <a class="method-permalink" href="#field_type%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Field type - Structure Name.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_base64(base64:String|Nil=nil,filename:String|Nil=nil,delete:Bool=false):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>from_base64</strong>(base64 : String | Nil = <span class="n">nil</span>, filename : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>) : Nil
+
+        <a class="method-permalink" href="#from_base64%28base64%3AString%7CNil%3Dnil%2Cfilename%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Convert base64 to a image and save in the target directory.
+filename: <em>Example: foo.pdf</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L178" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_path(path:String|Nil=nil,delete:Bool=false):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>from_path</strong>(path : String | Nil = <span class="n">nil</span>, delete : Bool = <span class="n">false</span>) : Nil
+
+        <a class="method-permalink" href="#from_path%28path%3AString%7CNil%3Dnil%2Cdelete%3ABool%3Dfalse%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Convert path to a image and save in the target directory.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L242" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="group:UInt8-instance-method">
+      <div class="signature">
+        
+        def <strong>group</strong> : UInt8
+
+        <a class="method-permalink" href="#group%3AUInt8-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>To optimize field traversal in the <code>paladins/check()</code> method.</p>
+<p><span class="flag yellow">WARNING</span>  It is recommended not to change.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type:String|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type</strong> : String | Nil
+
+        <a class="method-permalink" href="#input_type%3AString%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Html tag: input type=&quot;file&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_type?:String|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>input_type?</strong> : String | Nil | Nil
+
+        <a class="method-permalink" href="#input_type%3F%3AString%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Html tag: input type=&quot;file&quot;.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="maxsize:Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>maxsize</strong> : Int64
+
+        <a class="method-permalink" href="#maxsize%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The maximum allowed image size in bytes.</p>
+<p><span class="flag purple">NOTE</span>  1 MB = 1048576 Bytes (in binary).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L45" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="media_root:String-instance-method">
+      <div class="signature">
+        
+        def <strong>media_root</strong> : String
+
+        <a class="method-permalink" href="#media_root%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Root directory for storing media files.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="media_root=(media_root:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>media_root=</strong>(media_root : String)
+
+        <a class="method-permalink" href="#media_root%3D%28media_root%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Root directory for storing media files.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="media_url:String-instance-method">
+      <div class="signature">
+        
+        def <strong>media_url</strong> : String
+
+        <a class="method-permalink" href="#media_url%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>URL address for the media directory.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="placeholder:String-instance-method">
+      <div class="signature">
+        
+        def <strong>placeholder</strong> : String
+
+        <a class="method-permalink" href="#placeholder%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Displays prompt text.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="readonly=(readonly:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>readonly=</strong>(readonly : Bool)
+
+        <a class="method-permalink" href="#readonly%3D%28readonly%3ABool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="readonly?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>readonly?</strong> : Bool
+
+        <a class="method-permalink" href="#readonly%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Specifies that the field cannot be modified by the user.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="refrash_val_img_data(val:DynFork::Globals::ImageData):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>refrash_val_img_data</strong>(val : <a href="../../DynFork/Globals/Types/ImageData.html">DynFork::Globals::ImageData</a>) : Nil
+
+        <a class="method-permalink" href="#refrash_val_img_data%28val%3ADynFork%3A%3AGlobals%3A%3AImageData%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>For the <code><a href="../../DynFork/QPaladins/Tools.html#refrash_fields%28doc_bson%3ABSON%29%3ANil-instance-method">DynFork::QPaladins::Tools#refrash_fields</a></code> method.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L296" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="required?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>required?</strong> : Bool
+
+        <a class="method-permalink" href="#required%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Required field.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="target_dir:String-instance-method">
+      <div class="signature">
+        
+        def <strong>target_dir</strong> : String
+
+        <a class="method-permalink" href="#target_dir%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Directory for images inside media directory.
+<br>
+<em>Examples: avatars|photos|images</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="thumbnails:Array(Tuple(String,Int32))|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>thumbnails</strong> : Array(Tuple(String, Int32)) | Nil
+
+        <a class="method-permalink" href="#thumbnails%3AArray%28Tuple%28String%2CInt32%29%29%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>From one to four inclusive.
+<br>
+<em>Example: [{&quot;xs&quot;, 150}, {&quot;sm&quot;, 300}, {&quot;md&quot;, 600}, {&quot;lg&quot;, 1200}]</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L42" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="thumbnails?:Array(Tuple(String,Int32))|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>thumbnails?</strong> : Array(Tuple(String, Int32)) | Nil | Nil
+
+        <a class="method-permalink" href="#thumbnails%3F%3AArray%28Tuple%28String%2CInt32%29%29%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>From one to four inclusive.
+<br>
+<em>Example: [{&quot;xs&quot;, 150}, {&quot;sm&quot;, 300}, {&quot;md&quot;, 600}, {&quot;lg&quot;, 1200}]</em></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L42" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value:DynFork::Globals::ImageData|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value</strong> : <a href="../../DynFork/Globals/Types/ImageData.html">DynFork::Globals::ImageData</a> | Nil
+
+        <a class="method-permalink" href="#value%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value=(value:DynFork::Globals::ImageData|Nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>value=</strong>(value : <a href="../../DynFork/Globals/Types/ImageData.html">DynFork::Globals::ImageData</a> | Nil)
+
+        <a class="method-permalink" href="#value%3D%28value%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kebasyaty/dynfork/blob/0e4a9299e82c330b560c2511500322a7bdee76b2/src/dynfork/fields/image.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="value?:DynFork::Globals::ImageData|Nil|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>value?</strong> : <a href="../../DynFork/Globals/Types/ImageData.html">DynFork::Globals::ImageData</a> | Nil | Nil
+
+        <a class="method-permalink" href="#value%3F%3ADynFork%3A%3AGlobals%3A%3AImageData%7CNil%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the value of an element.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
