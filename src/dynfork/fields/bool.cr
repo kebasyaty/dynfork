@@ -189,12 +189,12 @@ module DynFork::Fields
     end
 
     # For the `DynFork::QPaladins::Check#check` method.
-    def extract_val_bool? : Bool?
+    def extract_val_bool : Bool?
       @value
     end
 
     # For the `DynFork::QPaladins::Check#check` method.
-    def extract_default_bool? : Bool?
+    def extract_default_bool : Bool?
       @default
     end
   end

@@ -151,16 +151,16 @@ module DynFork::Fields
     def extract_img_data : DynFork::Globals::ImageData?; end
 
     # :nodoc:
-    def extract_val_bool? : Bool?; end
+    def extract_val_bool : Bool?; end
 
     # :nodoc:
-    def extract_default_bool? : Bool?; end
+    def extract_default_bool : Bool?; end
 
     # :nodoc:
-    def extract_val_bool? : Bool?; end
+    def extract_val_bool : Bool?; end
 
     # :nodoc:
-    def extract_default_bool? : Bool?; end
+    def extract_default_bool : Bool?; end
 
     # :nodoc:
     def extract_val_i64 : Int64?; end

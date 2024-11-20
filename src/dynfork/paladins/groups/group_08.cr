@@ -8,9 +8,9 @@ module DynFork::QPaladins::Groups
   ) : Nil
     #
     current_value : Bool = false
-    if !(val = field_ptr.value.extract_val_bool?).nil?
+    if !(val = field_ptr.value.extract_val_bool).nil?
       current_value = val.not_nil!
-    elsif !(val = field_ptr.value.extract_default_bool?).nil?
+    elsif !(val = field_ptr.value.extract_default_bool).nil?
       current_value = val.not_nil!
     end
     # Insert result.
