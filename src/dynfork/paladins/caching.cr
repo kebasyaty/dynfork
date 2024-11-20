@@ -16,7 +16,7 @@ module DynFork::QPaladins::Caching
     # **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
     model_name : String = @@full_model_name.split("::").last
-    raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name) if model_name.size > 25
+    (raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name)) if model_name.size > 25
     unless DynFork::Globals.regex[:model_name].matches?(model_name)
       raise DynFork::Errors::Model::ModelNameRegexFails
         .new(@@full_model_name, "/^[A-Z][a-zA-Z0-9]{0,24}$/")
@@ -115,8 +115,8 @@ module DynFork::QPaladins::Caching
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(DynFork::Meta)[:service_name] }} ||
       raise DynFork::Errors::Meta::ParameterMissing.new(@@full_model_name, "service_name")
-    raise DynFork::Errors::Meta::ParamExcessChars
-      .new(@@full_model_name, "service_name", 25) if service_name.size > 25
+    (raise DynFork::Errors::Meta::ParamExcessChars
+      .new(@@full_model_name, "service_name", 25)) if service_name.size > 25
     unless DynFork::Globals.regex[:service_name].matches?(service_name)
       raise DynFork::Errors::Meta::ParamRegexFails
         .new(@@full_model_name.gsub("::", " > "), "service_name", "/^[A-Z][a-zA-Z0-9]{0,24}$/")
@@ -180,7 +180,7 @@ module DynFork::QPaladins::Caching
                     .new(@@full_model_name, {{ var.name.stringify }}, source_name)
                 end
                 # Is there a unique field?
-                one_unique_field? = true if @{{ var2 }}.unique?
+                (one_unique_field? = true) if @{{ var2 }}.unique?
               end
             {% end %}
           end
