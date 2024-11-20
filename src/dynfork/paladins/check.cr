@@ -20,7 +20,7 @@ module DynFork::QPaladins::Check
     # Does the document exist in the database?
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
-    if !update?
+    unless update?
       100.times do |idx|
         id = BSON::ObjectId.new
         if collection_ptr.value.count_documents({_id: id}) == 0
@@ -31,7 +31,7 @@ module DynFork::QPaladins::Check
       end
     end
     if save?
-      @hash.value = id.to_s if !update?
+      @hash.value = id.to_s unless update?
       result_map["_id"] = id
     end
     # Is there any incorrect data?
