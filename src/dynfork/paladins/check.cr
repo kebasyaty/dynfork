@@ -168,7 +168,7 @@ module DynFork::QPaladins::Check
       curr_doc_bson = BSON.new
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
-          if @{{ field }}.group == 4_u8 && !@{{ field }}.value?.nil? # FileField
+          if @{{ field }}.group == 4_u8 && !(@{{ field }}.value?).nil? # FileField
             if update?
               # When updating the document.
               file_path = @{{ field }}.extract_file_path?
@@ -194,7 +194,7 @@ module DynFork::QPaladins::Check
               File.delete(@{{ field }}.extract_file_path?.not_nil!)
               @{{ field }}.value = nil
             end
-          elsif @{{ field }}.group == 5_u8 && !@{{ field }}.value?.nil? # ImageField
+          elsif @{{ field }}.group == 5_u8 && !(@{{ field }}.value?).nil? # ImageField
             if update?
               # When updating the document.
               img_dir_path = @{{ field }}.extract_images_dir_path?
