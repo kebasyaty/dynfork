@@ -173,13 +173,15 @@ module DynFork::QPaladins::Check
             if !@{{ field }}.value?.nil? && @{{ field }}.new_file_data?
               File.delete(@{{ field }}.extract_file_path.not_nil!)
             end
-            if file_data = curr_doc_hash.not_nil![@{{ field }}.name]
-              file_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
-                .each { |key, val| tmp_bson[key] = val }
-              @{{ field }}.refrash_val_file_data(DynFork::Globals::FileData.from_bson(tmp_bson))
-              tmp_bson = BSON.new
-            else
-              @{{ field }}.value = nil
+            if update?
+              if file_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                file_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                @{{ field }}.refrash_val_file_data(DynFork::Globals::FileData.from_bson(tmp_bson))
+                tmp_bson = BSON.new
+              else
+                @{{ field }}.value = nil
+              end
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
             # ???
