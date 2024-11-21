@@ -158,10 +158,8 @@ module DynFork::QPaladins::Check
 
     # Actions in case of error.
     # --------------------------------------------------------------------------
-    curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
-    if save?
-      # ???
-    else
+    if error_symptom? && save?
+      curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
