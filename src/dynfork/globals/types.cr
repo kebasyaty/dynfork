@@ -34,7 +34,7 @@ module DynFork::Globals::Types
     ); end
   end
 
-  # Data type for FileField.
+  # Data type for `FileField`.
   struct FileData
     include JSON::Serializable
     include BSON::Serializable
@@ -60,7 +60,7 @@ module DynFork::Globals::Types
     def initialize; end
   end
 
-  # Data type for ImageField.
+  # Data type for `ImageField`.
   struct ImageData
     include JSON::Serializable
     include BSON::Serializable
