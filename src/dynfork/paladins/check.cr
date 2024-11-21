@@ -157,7 +157,21 @@ module DynFork::QPaladins::Check
     {% end %}
 
     # Actions in case of error.
-    #
+    # --------------------------------------------------------------------------
+    field_name_and_type_list = @@meta.not_nil![:field_name_and_type_list]
+    curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
+    if save?
+      # ???
+    else
+      field_name_and_type_list.each do |field_name, field_type|
+        if field_type == "FileField"
+          # ???
+        elsif field_type == "ImageField"
+          # ???
+        end
+      end
+    end
+    # Return
     # --------------------------------------------------------------------------
     DynFork::Globals::OutputData.new(
       data: result_map,
