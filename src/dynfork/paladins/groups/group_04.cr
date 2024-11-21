@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type FileField.
+  # Validation of fields of type `FileField`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_04(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
