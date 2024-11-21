@@ -49,7 +49,7 @@ module DynFork::QPaladins::Save
     end
     # Leave the method if the check fails.
     unless output_data.valid?
-      self.restor_ignored_fields
+      self.ignored_fields_to_nil
       return false
     end
     #
