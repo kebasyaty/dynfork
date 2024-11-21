@@ -178,6 +178,7 @@ module DynFork::Fields
       base64 = base64.presence
       filename = filename.presence
       value = DynFork::Globals::ImageData.new
+      value.new_img = true
       value.delete = delete
       #
       if !base64.nil? && !filename.nil?
@@ -240,6 +241,7 @@ module DynFork::Fields
     ) : Nil
       path = path.presence
       value = DynFork::Globals::ImageData.new
+      value.new_img = true
       value.delete = delete
       #
       unless path.nil?

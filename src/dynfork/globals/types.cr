@@ -47,15 +47,15 @@ module DynFork::Globals::Types
     property name : String = ""
     # File size in bytes.
     property size : Int64 = 0
+    # A sign of a new file.
+    # NOTE: true - if there is no file in the database.
+    property? new_file : Bool = false
     # If the file needs to be deleted: _delete=true_.
     # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false
     # File extension.
     # NOTE: **Examples:** _.txt|.xml|.doc|.svg_
     property extension : String = ""
-    # A sign of a new image.
-    # NOTE: true - if there is no image in the database.
-    property? new_img : Bool = false
 
     def initialize; end
   end
@@ -87,6 +87,9 @@ module DynFork::Globals::Types
     property height : Int32 = 0
     # Image size in bytes (_for original image_).
     property size : Int64 = 0
+    # A sign of a new image.
+    # NOTE: true - if there is no image in the database.
+    property? new_img : Bool = false
     # If the images needs to be deleted: _delete=true_.
     # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false
@@ -97,9 +100,6 @@ module DynFork::Globals::Types
     property! images_dir_path : String?
     # URL path to target directory with images.
     property! images_dir_url : String?
-    # A sign of a new image.
-    # NOTE: true - if there is no image in the database.
-    property? new_img : Bool = false
 
     def initialize; end
   end
