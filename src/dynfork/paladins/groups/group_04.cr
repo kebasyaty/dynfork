@@ -77,7 +77,7 @@ module DynFork::QPaladins::Groups
 
     #
     if !current_value.not_nil!.path.empty? &&
-       !current_value.not_nil!.new_file?
+       !current_value.not_nil!.new_file_data?
       # Insert result.
       result_map[field_ptr.value.name] = current_value
     end
