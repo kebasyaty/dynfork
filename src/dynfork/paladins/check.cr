@@ -163,11 +163,24 @@ module DynFork::QPaladins::Check
       (@hash.value = nil) unless update?
       # Delete orphaned files.
       # ----------------------
+      file_data = nil
+      file_path : String?
+      tmp_bson = BSON.new
       curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
-            # ???
+            if !@{{ field }}.value?.nil? && @{{ field }}.new_file_data?
+              File.delete(@{{ field }}.extract_file_path.not_nil!)
+            end
+            if file_data = curr_doc_hash.not_nil![@{{ field }}.name]
+              file_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                .each { |key, val| tmp_bson[key] = val }
+              @{{ field }}.refrash_val_file_data(DynFork::Globals::FileData.from_bson(tmp_bson))
+              tmp_bson = BSON.new
+            else
+              @{{ field }}.value = nil
+            end
           elsif @{{ field }}.group == 5_u8 # ImageField
             # ???
           end
