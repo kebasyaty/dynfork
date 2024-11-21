@@ -97,7 +97,7 @@ module DynFork::QPaladins::Check
             collection_ptr,
           )
         when 4_u8
-          # Validation of fields of type FileField.
+          # Validation of fields of type `FileField`.
           self.group_04(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -106,7 +106,7 @@ module DynFork::QPaladins::Check
             result_map,
           )
         when 5_u8
-          # Validation of fields of type ImageField.
+          # Validation of fields of type `ImageField`.
           self.group_05(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -115,7 +115,7 @@ module DynFork::QPaladins::Check
             result_map,
           )
         when 6_u8
-          # Validation of fields of type I64Field.
+          # Validation of fields of type `I64Field`.
           self.group_06(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -125,7 +125,7 @@ module DynFork::QPaladins::Check
             id_ptr,
           )
         when 7_u8
-          # Validation of fields of type F64Field.
+          # Validation of fields of type `F64Field`.
           self.group_07(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -135,14 +135,14 @@ module DynFork::QPaladins::Check
             id_ptr,
           )
         when 8_u8
-          # Validation of fields of type BoolField.
+          # Validation of fields of type `BoolField`.
           self.group_08(
             pointerof(@{{ field }}),
             save?,
             result_map,
           )
         when 9_u8
-          # Create string for SlugField.
+          # Create string for `SlugField`.
           if save?
             self.group_09(
               pointerof(@{{ field }}),
