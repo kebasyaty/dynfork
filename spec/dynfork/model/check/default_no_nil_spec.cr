@@ -64,8 +64,8 @@ describe DynFork::Model do
       m.choice_f64_dyn.value?.should be_nil
       m.choice_f64_mult_dyn.value?.should be_nil
       #
-      m.file.value.name.should eq("no_doc.odt")
-      m.image.value.name.should eq("no_photo.jpeg")
+      m.file.value?.should be_nil
+      m.image.value?.should be_nil
       #
       m.i64.value?.should be_nil
       m.f64.value?.should be_nil

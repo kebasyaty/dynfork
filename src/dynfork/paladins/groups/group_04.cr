@@ -72,6 +72,7 @@ module DynFork::QPaladins::Groups
     unless save?
       if current_value.new_file_data?
         File.delete(current_value.not_nil!.path)
+        field_ptr.value.value = nil
       end
       return
     end

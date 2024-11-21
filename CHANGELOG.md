@@ -1,3 +1,8 @@
+#### v0.8.12 2024-11-21
+
+- Fixed methods `check`, `group_04` and `group_05`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.11 2024-11-21
 
 - Fixed method `ignored_fields_to_nil`.

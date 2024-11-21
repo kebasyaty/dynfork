@@ -173,6 +173,7 @@ module DynFork::QPaladins::Check
           if @{{ field }}.group == 4_u8 # FileField
             if file_data = @{{ field }}.extract_file_data
               File.delete(file_data.not_nil!.path) if file_data.not_nil!.new_file_data?
+              @{{ field }}.value = nil
               file_data = nil
             end
             if update?
@@ -191,6 +192,7 @@ module DynFork::QPaladins::Check
               if img_data.not_nil!.new_img_data?
                 FileUtils.rm_rf(img_data.not_nil!.images_dir_path.not_nil!)
               end
+              @{{ field }}.value = nil
               img_data = nil
             end
             if update?
