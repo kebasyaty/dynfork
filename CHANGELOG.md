@@ -1,3 +1,8 @@
+#### v0.8.11 2024-11-21
+
+- Fixed method `ignored_fields_to_nil`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.10 2024-11-21
 
 - Fixed method `ignored_fields_to_nil`.
