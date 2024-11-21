@@ -1,8 +1,8 @@
 module DynFork::QPaladins::Groups
   # Validation of `text` type fields:
   # <br>
-  # ColorField | EmailField | PasswordField | PhoneField
-  # | TextField | HashField | URLField | IPField
+  # _ColorField | EmailField | PasswordField | PhoneField
+  # | TextField | HashField | URLField | IPField_
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_01(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

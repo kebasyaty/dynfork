@@ -2,8 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # A field for entering a date and time.
-  # <br>
-  # _**Formats:** dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
+  # NOTE: **Formats:** _dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
   # dd-mm-yyyyThh:mm:ss | dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss |
   # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
   # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_
@@ -16,12 +15,10 @@ module DynFork::Fields
     # Html tag: input type="datetime".
     getter! input_type : String?
     # Sets the value of an element.
-    # <br>
-    # _Example: 1970-01-01T00:00:00_
+    # NOTE: **Example:** _1970-01-01T00:00:00_
     property! value : String?
     # Value by default.
-    # <br>
-    # _Example: 1970-01-01T00:00:00_
+    # NOTE: **Example:** _1970-01-01T00:00:00_
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String

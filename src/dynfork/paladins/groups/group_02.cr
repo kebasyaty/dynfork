@@ -1,7 +1,7 @@
 module DynFork::QPaladins::Groups
   # Validation of `date` type fields:
   # <br>
-  # DateField | DateTimeField
+  # _DateField | DateTimeField_
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_02(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

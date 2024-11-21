@@ -3,8 +3,7 @@ module DynFork::Globals::Date
   extend self
 
   # Converting string Date to object Time.
-  # <br>
-  # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
+  # NOTE: **Formats:** _dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
   # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
   # <br>
   # WARNING: Unsupported formats:
@@ -23,8 +22,7 @@ module DynFork::Globals::Date
   end
 
   # Converting string DateTime to object Time.
-  # <br>
-  # _**Formats:** dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
+  # NOTE: **Formats:** _dd-mm-yyyy hh:mm:ss | dd/mm/yyyy hh:mm:ss | dd.mm.yyyy hh:mm:ss |
   # dd-mm-yyyyThh:mm:ss | dd/mm/yyyyThh:mm:ss | dd.mm.yyyyThh:mm:ss |
   # yyyy-mm-dd hh:mm:ss | yyyy/mm/dd hh:mm:ss | yyyy.mm.dd hh:mm:ss |
   # yyyy-mm-ddThh:mm:ss | yyyy/mm/ddThh:mm:ss | yyyy.mm.ddThh:mm:ss_

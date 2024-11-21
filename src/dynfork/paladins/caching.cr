@@ -281,7 +281,8 @@ module DynFork::QPaladins::Caching
       field_name_and_type_list: field_name_and_type_list,
       # NOTE: **Format:** _<field_name, <field_type, field_group>>_
       field_name_params_list: field_name_params_list,
-      # Set to **true** if you do not need to import the Model into the database.<br>
+      # Set to **true** if you do not need to import the Model into the database.
+      # <br>
       # This can be use to validate a web forms - Search form, Contact form, etc.
       migrat_model?: if !(val = {{ @type.annotation(DynFork::Meta)[:migrat_model?] }}).nil?
         val

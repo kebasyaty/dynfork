@@ -15,8 +15,7 @@ module DynFork::Fields
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
     # Html tag: select.
-    # <br>
-    # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
+    # NOTE: **Example:** _[{"value", "Title"}, {"value 2", "Title 2"}]_
     getter! choices : Array(Tuple(String, String))?
     # Required field.
     getter? required : Bool
@@ -211,8 +210,7 @@ module DynFork::Fields
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
     # Html tag: select multiple.
-    # <br>
-    # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
+    # NOTE: **Example:** _[{"value", "Title"}, {"value 2", "Title 2"}]_
     getter! choices : Array(Tuple(String, String))?
     # Required field.
     getter? required : Bool
@@ -408,8 +406,7 @@ module DynFork::Fields
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = false
     # Html tag: select.
-    # <br>
-    # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
+    # NOTE: **Example:** _[{"value", "Title"}, {"value 2", "Title 2"}]_
     getter! choices : Array(Tuple(String, String))?
     # Required field.
     getter? required : Bool
@@ -615,8 +612,7 @@ module DynFork::Fields
     # Specifies that multiple options can be selected at once.
     getter? multiple : Bool = true
     # Html tag: select.
-    # <br>
-    # _Example: [{"value", "Title"}, {"value 2", "Title 2"}]_
+    # NOTE: **Example:** _[{"value", "Title"}, {"value 2", "Title 2"}]_
     getter! choices : Array(Tuple(String, String))?
     # Required field.
     getter? required : Bool

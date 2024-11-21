@@ -12,8 +12,7 @@ module DynFork::Fields
     # Sets the value of an element.
     property! value : DynFork::Globals::ImageData?
     # Default file path.
-    # <br>
-    # _Example: "public/media/default/noavatar.jpg"_
+    # NOTE: **Example:** _"public/media/default/noavatar.jpg"_
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String
@@ -26,19 +25,15 @@ module DynFork::Fields
     # URL address for the media directory.
     getter media_url : String = "/media/uploads"
     # Directory for images inside media directory.
-    # <br>
-    # _Examples: avatars|photos|images_
+    # NOTE: **Examples:** _avatars|photos|images_
     getter target_dir : String
     # HTML attribute: accept.
-    # <br>
-    # Describing which file types to allow.
-    # <br>
-    # _Example: "image/png,image/jpeg,image/webp"_
+    # NOTE: Describing which file types to allow.
+    # NOTE: **Example:** _"image/png,image/jpeg,image/webp"_
     # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
     getter accept : String = "image/png,image/jpeg,image/webp"
     # From one to four inclusive.
-    # <br>
-    # _Example: [{"xs", 150}, {"sm", 300}, {"md", 600}, {"lg", 1200}]_
+    # NOTE: **Example:** _[{"xs", 150}, {"sm", 300}, {"md", 600}, {"lg", 1200}]_
     getter! thumbnails : Array({String, Int32})?
     # The maximum allowed image size in bytes.
     # NOTE: 1 MB = 1048576 Bytes (in binary).

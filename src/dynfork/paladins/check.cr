@@ -58,8 +58,8 @@ module DynFork::QPaladins::Check
         when 1_u8
           # Validation of `text` type fields:
           # <br>
-          # ColorField | EmailField | PasswordField | PhoneField
-          # | TextField | HashField | URLField | IPField
+          # _ColorField | EmailField | PasswordField | PhoneField
+          # | TextField | HashField | URLField | IPField_
           self.group_01(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -72,7 +72,7 @@ module DynFork::QPaladins::Check
         when 2_u8
           # Validation of `date` type fields:
           # <br>
-          # DateField | DateTimeField
+          # _DateField | DateTimeField_
           self.group_02(
             pointerof(@{{ field }}),
             error_symptom_ptr?,
@@ -83,12 +83,12 @@ module DynFork::QPaladins::Check
         when 3_u8
           # Validation of `choice` type fields:
           # <br>
-          # ChoiceTextField | ChoiceTextMultField
+          # _ChoiceTextField | ChoiceTextMultField
           # | ChoiceTextDynField | ChoiceTextMultDynField
           # | ChoiceI64Field | ChoiceI64MultField
           # | ChoiceI64DynField | ChoiceI64MultDynField
           # | ChoiceF64Field | ChoiceF64MultField
-          # | ChoiceF64DynField | ChoiceF64MultDynField
+          # | ChoiceF64DynField | ChoiceF64MultDynField_
           self.group_03(
             pointerof(@{{ field }}),
             error_symptom_ptr?,

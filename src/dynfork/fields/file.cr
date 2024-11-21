@@ -12,22 +12,18 @@ module DynFork::Fields
     # Sets the value of an element.
     property! value : DynFork::Globals::FileData?
     # Default file path.
-    # <br>
-    # _Example: "public/media/default/nodoc.docx"_
+    # NOTE: **Example:** _"public/media/default/nodoc.docx"_
     getter! default : String?
     # Root directory for storing media files.
     getter media_root : String = "public/media/uploads"
     # URL address for the media directory.
     getter media_url : String = "/media/uploads"
     # Directory for files inside media directory.
-    # <br>
-    # _Examples: files|resume|reports_
+    # NOTE: **Examples:** _files|resume|reports_
     getter target_dir : String
     # HTML attribute: accept
-    # <br>
-    # Describing which file types to allow.
-    # <br>
-    # _Example: ".pdf,.doc,.docx,application/msword"_
+    # NOTE: Describing which file types to allow.
+    # NOTE: **Example:** _".pdf,.doc,.docx,application/msword"_
     # NOTE: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept#unique_file_type_specifiers
     getter accept : String = ""
     # Displays prompt text.
@@ -174,7 +170,7 @@ module DynFork::Fields
     end
 
     # Convert base64 to a file and save in the target directory.
-    # filename: _Example: foo.pdf_
+    # NOTE: `filename` _Example: foo.pdf_
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,

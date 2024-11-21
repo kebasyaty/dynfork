@@ -67,23 +67,19 @@ module DynFork
     extend DynFork::QCommons
 
     # Field for the document identifier.
-    # <br>
-    # **Example:** `507c7f79bcf86cd7994f6c0e`
+    # NOTE: **Example:** `507c7f79bcf86cd7994f6c0e`
     getter hash = DynFork::Fields::HashField
       .new(hide: true, ignored: true, disabled: true)
     # Field for the date and time the document was created.
-    # <br>
-    # **Example:** `1970-01-01T00:00:00`
+    # NOTE: **Example:** `1970-01-01T00:00:00`
     getter created_at = DynFork::Fields::DateTimeField
       .new(label: I18n.t(:created_at), warning: [I18n.t(:doc_was_created)], hide: true, disabled: true)
     # Field for the date and time the document was updated.
-    # <br>
-    # **Example:** `1970-01-01T00:00:00`
+    # NOTE: **Example:** `1970-01-01T00:00:00`
     getter updated_at = DynFork::Fields::DateTimeField
       .new(label: I18n.t(:updated_at), warning: [I18n.t(:doc_was_updated)], hide: true, disabled: true)
     # Get full Model name = ModuleName::StructureName.
-    # <br>
-    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
+    # NOTE: **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     class_getter full_model_name : String = ""
     # Metadata cache.
     class_getter! meta : DynFork::Globals::CacheMetaDataType?

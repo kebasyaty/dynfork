@@ -2,21 +2,17 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering color.
-  # <br>
-  # The default value is _#000000_ (black).
-  # <br>
-  # Html input type="text".
+  # NOTE: The default value is _#000000_ (black).
+  # NOTE: Html input type="text".
   # WARNING: type="color" only seven-character hexadecimal notation.
-  # <br>
-  # _Examples: #fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
+  # NOTE: **Examples:** _#fff | #f2f2f2 | #f2f2f200 | rgb(255,0,24) | rgba(255,0,24,0.5) |
   # rgba(#fff,0.5) | hsl(120,100%,50%) | hsla(170,23%,25%,0.2) | 0x00ffff_
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct ColorField < DynFork::Fields::Field
     # Field type - Structure Name.
     getter field_type : String = "ColorField"
     # Html tag: input type="color".
-    # <br>
-    # By default type="text".
+    # NOTE: By default type="text".
     # WARNING: type="color" only seven-character hexadecimal notation.
     getter! input_type : String?
     # Sets the value of an element.

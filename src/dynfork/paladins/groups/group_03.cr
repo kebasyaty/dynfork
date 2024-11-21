@@ -1,12 +1,12 @@
 module DynFork::QPaladins::Groups
   # Validation of `choice` type fields:
   # <br>
-  # ChoiceTextField | ChoiceTextMultField
+  # _ChoiceTextField | ChoiceTextMultField
   # | ChoiceTextDynField | ChoiceTextMultDynField
   # | ChoiceI64Field | ChoiceI64MultField
   # | ChoiceI64DynField | ChoiceI64MultDynField
   # | ChoiceF64Field | ChoiceF64MultField
-  # | ChoiceF64DynField | ChoiceF64MultDynField
+  # | ChoiceF64DynField | ChoiceF64MultDynField_
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_03(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

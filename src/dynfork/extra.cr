@@ -1,12 +1,9 @@
 module DynFork
   # Methods of additional abstraction.
   # <br>
-  # <br>
-  # **Additional validation** - It is supposed to be use to additional validation of fields.
-  # <br>
-  # **Indexing** - For set up and start indexing.
-  # <br>
-  # **Hooks** - Methods that are called at different stages when accessing the database.
+  # NOTE: **Additional validation** - It is supposed to be use to additional validation of fields.
+  # NOTE: **Indexing** - For set up and start indexing.
+  # NOTE: **Hooks** - Methods that are called at different stages when accessing the database.
   abstract struct Extra
     # It is supposed to be use to additional validation of fields.
     # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/additional_validation" target="_blank">example</a>.
