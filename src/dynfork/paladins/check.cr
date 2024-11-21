@@ -164,6 +164,7 @@ module DynFork::QPaladins::Check
       # Delete orphaned files.
       # ----------------------
       file_data : DynFork::Globals::FileData?
+      img_data : DynFork::Globals::ImageData?
       tmp_bson = BSON.new
       curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
@@ -184,7 +185,20 @@ module DynFork::QPaladins::Check
               end
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
-            #
+            if img_data = @{{ field }}.extract_file_data
+              FileUtils.rm_rf(img_data.images_dir_path.not_nil!) if img_data.not_nil!.new_img_data?
+              img_data = nil
+            end
+            if update?
+              if img_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                img_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                @{{ field }}.refrash_val_img_data(DynFork::Globals::ImageData.from_bson(tmp_bson))
+                tmp_bson = BSON.new
+              else
+                @{{ field }}.value = nil
+              end
+            end
           end
         end
       {% end %}
