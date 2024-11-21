@@ -170,8 +170,9 @@ module DynFork::QPaladins::Check
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
-            if !@{{ field }}.value?.nil? && @{{ field }}.new_file_data?
-              File.delete(@{{ field }}.extract_file_path.not_nil!)
+            if file_path = @{{ field }}.extract_file_path
+              File.delete(file_path.not_nil!)
+              file_path = nil
             end
             if update?
               if file_data = curr_doc_hash.not_nil![@{{ field }}.name]
@@ -184,7 +185,7 @@ module DynFork::QPaladins::Check
               end
             end
           elsif @{{ field }}.group == 5_u8 # ImageField
-            # ???
+            #
           end
         end
       {% end %}
