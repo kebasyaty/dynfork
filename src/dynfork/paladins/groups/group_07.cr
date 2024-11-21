@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type F64Field.
+  # Validation of fields of type `F64Field`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_07(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

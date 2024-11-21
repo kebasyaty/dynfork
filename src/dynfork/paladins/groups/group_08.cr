@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type BoolField.
+  # Validation of fields of type `BoolField`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_08(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
