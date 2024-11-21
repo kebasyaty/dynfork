@@ -3,8 +3,7 @@ module DynFork::QPaladins::Caching
   # Add metadata to the global store.
   private def caching : Nil
     # Get full Model name = ModuleName::StructureName.
-    # <br>
-    # **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
+    # NOTE: **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
     @@full_model_name = {{ @type.stringify }}
     # Checking the Model for missing fields
     {% if @type.instance_vars.size < 4 %}
@@ -12,8 +11,7 @@ module DynFork::QPaladins::Caching
       raise DynFork::Errors::Model::FieldsMissing.new(@@full_model_name)
     {% end %}
     # Get Model name = Structure name.
-    # <br>
-    # **Examples:** _User | UserProfile | ElectricCar | etc ..._
+    # NOTE: **Examples:** _User | UserProfile | ElectricCar | etc ..._
     # WARNING: Maximum 25 characters.
     model_name : String = @@full_model_name.split("::").last
     (raise DynFork::Errors::Model::ModelNameExcessChars.new(model_name)) if model_name.size > 25
@@ -110,8 +108,7 @@ module DynFork::QPaladins::Caching
     {% end %}
     #
     # Get Service name = Module name.
-    # <br>
-    # **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
+    # NOTE: **Examples:** _Accounts | Smartphones | Washing machines | etc ..._
     # WARNING: Maximum 25 characters.
     service_name : String = {{ @type.annotation(DynFork::Meta)[:service_name] }} ||
       raise DynFork::Errors::Meta::ParameterMissing.new(@@full_model_name, "service_name")
@@ -125,8 +122,7 @@ module DynFork::QPaladins::Caching
     # WARNING: Maximum 50 characters.
     collection_name : String = "#{service_name}_#{model_name}"
     # Get list of names and types of variables (fields).
-    # <br>
-    # **Format:** _<field_name, field_type>_
+    # NOTE: **Format:** _<field_name, field_type>_
     field_name_and_type_list : Hash(String, String) = (
       fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
@@ -136,7 +132,7 @@ module DynFork::QPaladins::Caching
       {% end %}
       fields
     )
-    # **Format:** _<field_name, <field_type, field_group>>_
+    # NOTE: **Format:** _<field_name, <field_type, field_group>>_
     field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8)) = (
       fields = Hash(String, NamedTuple(type: String, group: UInt8)).new
       {% for var in @type.instance_vars %}
@@ -207,8 +203,7 @@ module DynFork::QPaladins::Caching
       fields
     )
     # Data for dynamic fields.
-    # <br>
-    # **Format:** _<field_name, data_json>_
+    # NOTE: **Format:** _<field_name, data_json>_
     data_dynamic_fields : Hash(String, String) = (
       dyn_fields = Hash(String, String).new
       {% for var in @type.instance_vars %}
@@ -282,10 +277,9 @@ module DynFork::QPaladins::Caching
       # Number of variables (fields).
       field_count: {{ @type.instance_vars.size }},
       # List of names and types of variables (fields).
-      # <br>
-      # **Format:** _<field_name, field_type>_
+      # NOTE: **Format:** _<field_name, field_type>_
       field_name_and_type_list: field_name_and_type_list,
-      # **Format:** _<field_name, <field_type, field_group>>_
+      # NOTE: **Format:** _<field_name, <field_type, field_group>>_
       field_name_params_list: field_name_params_list,
       # Set to **true** if you do not need to import the Model into the database.<br>
       # This can be use to validate a web forms - Search form, Contact form, etc.
@@ -315,8 +309,7 @@ module DynFork::QPaladins::Caching
       # Attributes value for fields of Model: id, name.
       field_attrs: field_attrs,
       # Data for dynamic fields.
-      # <br>
-      # **Format:** _<field_name, data_json>_
+      # NOTE: **Format:** _<field_name, data_json>_
       data_dynamic_fields: data_dynamic_fields,
       # Caching Time objects for date and time fields.
       time_object_list: time_object_list,
