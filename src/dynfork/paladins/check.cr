@@ -165,6 +165,7 @@ module DynFork::QPaladins::Check
       # ----------------------
       file_data : DynFork::Globals::FileData?
       img_data : DynFork::Globals::ImageData?
+      raw_data = nil
       tmp_bson = BSON.new
       curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
@@ -175,10 +176,11 @@ module DynFork::QPaladins::Check
               file_data = nil
             end
             if update?
-              if file_data = curr_doc_hash.not_nil![@{{ field }}.name]
-                file_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
                 @{{ field }}.refrash_val_file_data(DynFork::Globals::FileData.from_bson(tmp_bson))
+                raw_data = nil
                 tmp_bson = BSON.new
               else
                 @{{ field }}.value = nil
@@ -192,10 +194,11 @@ module DynFork::QPaladins::Check
               img_data = nil
             end
             if update?
-              if img_data = curr_doc_hash.not_nil![@{{ field }}.name]
-                img_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
                 @{{ field }}.refrash_val_img_data(DynFork::Globals::ImageData.from_bson(tmp_bson))
+                raw_data = nil
                 tmp_bson = BSON.new
               else
                 @{{ field }}.value = nil
