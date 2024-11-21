@@ -78,8 +78,8 @@ module DynFork::QPaladins::Groups
       return
     end
 
-    # Create and save thumbnails.
-    if !current_value.path.empty? && current_value.new_file_data?
+    # Create thumbnails.
+    if current_value.new_file_data?
       images_dir_path : String = current_value.images_dir_path
       images_dir_url : String = current_value.images_dir_url
       path : String = current_value.path
