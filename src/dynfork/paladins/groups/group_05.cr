@@ -70,7 +70,7 @@ module DynFork::QPaladins::Groups
 
     # Return if there is no need to save.
     unless save?
-      if current_value.new_file_data?
+      if current_value.new_img_data?
         if imgs_dir_path = current_value.images_dir_path?
           FileUtils.rm_rf(imgs_dir_path.not_nil!)
         end
@@ -79,7 +79,7 @@ module DynFork::QPaladins::Groups
     end
 
     # Create thumbnails.
-    if current_value.new_file_data?
+    if current_value.new_img_data?
       images_dir_path : String = current_value.images_dir_path
       images_dir_url : String = current_value.images_dir_url
       path : String = current_value.path
