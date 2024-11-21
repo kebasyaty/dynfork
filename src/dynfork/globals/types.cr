@@ -49,7 +49,7 @@ module DynFork::Globals::Types
     property size : Int64 = 0
     # A sign of a new file.
     # NOTE: true - if there is no file in the database.
-    property? new_file : Bool = false
+    property? new_file_data : Bool = false
     # If the file needs to be deleted: _delete=true_.
     # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false
@@ -89,7 +89,7 @@ module DynFork::Globals::Types
     property size : Int64 = 0
     # A sign of a new image.
     # NOTE: true - if there is no image in the database.
-    property? new_img : Bool = false
+    property? new_img_data : Bool = false
     # If the images needs to be deleted: _delete=true_.
     # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false

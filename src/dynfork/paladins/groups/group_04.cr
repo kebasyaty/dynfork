@@ -23,27 +23,24 @@ module DynFork::QPaladins::Groups
     end
 
     # Get current value.
-    _current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
+    current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
 
     # If necessary, use the default value.
-    if !update? && _current_value.nil?
+    if !update? && current_value.nil?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        _current_value = field_ptr.value.extract_file_data
+        current_value = field_ptr.value.extract_file_data
       end
     end
 
-    # Return if the current value is absent or if the file is in the database.
-    return if _current_value.nil? || !_current_value.not_nil!.new_file?
-
-    current_value : DynFork::Globals::FileData = _current_value.not_nil!
-    _current_value = nil
+    # Return if the current value is missing
+    return if current_value.nil?
 
     # If the file needs to be delete.
-    if current_value.delete? && current_value.path.empty?
+    if current_value.not_nil!.delete? && current_value.not_nil!.path.empty?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        current_value = field_ptr.value.extract_file_data.not_nil!
+        current_value = field_ptr.value.extract_file_data
       else
         if !field_ptr.value.required?
           (result_map[field_ptr.value.name] = nil) if save?
@@ -59,7 +56,8 @@ module DynFork::QPaladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+    if !current_value.not_nil!.path.empty? &&
+       (current_value.not_nil!.size > field_ptr.value.maxsize)
       self.accumulate_error(
         I18n.t(:size_exceeds_max),
         field_ptr,
@@ -72,7 +70,8 @@ module DynFork::QPaladins::Groups
     return unless save?
 
     #
-    unless current_value.path.empty?
+    if !current_value.not_nil!.path.empty? &&
+       !current_value.not_nil!.new_file?
       # Insert result.
       result_map[field_ptr.value.name] = current_value
     end
