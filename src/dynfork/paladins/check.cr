@@ -159,6 +159,10 @@ module DynFork::QPaladins::Check
     # Actions in case of error.
     # --------------------------------------------------------------------------
     if error_symptom? && save?
+      # Reset the hash for a new document.
+      (@hash.value = nil) unless update?
+      # Delete orphaned files.
+      # ----------------------
       curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
