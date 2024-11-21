@@ -59,7 +59,7 @@ module DynFork::QPaladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+    if current_value.size > field_ptr.value.maxsize
       self.accumulate_error(
         I18n.t(:size_exceeds_max),
         field_ptr,

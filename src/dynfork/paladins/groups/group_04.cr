@@ -23,21 +23,24 @@ module DynFork::QPaladins::Groups
     end
 
     # Get current value.
-    current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
+    _current_value : DynFork::Globals::FileData? = field_ptr.value.extract_file_data
 
     # If necessary, use the default value.
-    if !update? && current_value.nil?
+    if !update? && _current_value.nil?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        current_value = field_ptr.value.extract_file_data
+        _current_value = field_ptr.value.extract_file_data
       end
     end
 
     # Return if the current value is missing
-    return if current_value.nil?
+    return if _current_value.nil?
+
+    current_value : DynFork::Globals::FileData = _current_value.not_nil!
+    _current_value = nil
 
     # If the file needs to be delete.
-    if current_value.not_nil!.delete? && current_value.not_nil!.path.empty?
+    if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
         current_value = field_ptr.value.extract_file_data
@@ -56,8 +59,7 @@ module DynFork::QPaladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if !current_value.not_nil!.path.empty? &&
-       (current_value.not_nil!.size > field_ptr.value.maxsize)
+    if current_value.size > field_ptr.value.maxsize
       self.accumulate_error(
         I18n.t(:size_exceeds_max),
         field_ptr,
@@ -68,16 +70,15 @@ module DynFork::QPaladins::Groups
 
     # Return if there is no need to save.
     unless save?
-      if current_value.not_nil!.new_file_data? &&
-         !current_value.not_nil!.path.empty?
+      if current_value.new_file_data?
         File.delete(current_value.not_nil!.path)
       end
       return
     end
 
     #
-    if !current_value.not_nil!.path.empty? &&
-       !current_value.not_nil!.new_file_data?
+    if current_value.new_file_data?
+      current_value.new_file_data = false
       # Insert result.
       result_map[field_ptr.value.name] = current_value
     end
