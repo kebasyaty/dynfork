@@ -67,7 +67,13 @@ module DynFork::QPaladins::Groups
     end
 
     # Return if there is no need to save.
-    return unless save?
+    unless save?
+      if current_value.not_nil!.new_file_data? &&
+         !current_value.not_nil!.path.empty?
+        File.delete(current_value.not_nil!.path)
+      end
+      return
+    end
 
     #
     if !current_value.not_nil!.path.empty? &&
