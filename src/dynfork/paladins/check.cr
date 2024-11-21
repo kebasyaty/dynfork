@@ -158,18 +158,19 @@ module DynFork::QPaladins::Check
 
     # Actions in case of error.
     # --------------------------------------------------------------------------
-    field_name_and_type_list = @@meta.not_nil![:field_name_and_type_list]
     curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
     if save?
       # ???
     else
-      field_name_and_type_list.each do |field_name, field_type|
-        if field_type == "FileField"
-          # ???
-        elsif field_type == "ImageField"
-          # ???
+      {% for field in @type.instance_vars %}
+        unless @{{ field }}.ignored?
+          if @{{ field }}.group == 4_u8 # FileField
+            # ???
+          elsif @{{ field }}.group == 5_u8 # ImageField
+            # ???
+          end
         end
-      end
+      {% end %}
     end
     # Return
     # --------------------------------------------------------------------------
