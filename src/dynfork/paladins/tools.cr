@@ -186,7 +186,7 @@ module DynFork::QPaladins::Tools
     # Reset the values ​​of ignored fields to nil.
     {% for field in @type.instance_vars %}
       if @{{ field }}.ignored? && @{{ field }}.name != "hash"
-          @hash.value = nil
+        @{{ field }}.value = nil
       end
     {% end %}
   end
