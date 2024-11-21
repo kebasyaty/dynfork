@@ -73,7 +73,7 @@ module DynFork::QPaladins::Groups
       if current_value.new_img_data?
         if imgs_dir_path = current_value.images_dir_path?
           FileUtils.rm_rf(imgs_dir_path.not_nil!)
-          field_ptr.value = nil
+          field_ptr.value.value = nil
         end
       end
       return
