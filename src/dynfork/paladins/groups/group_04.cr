@@ -43,7 +43,7 @@ module DynFork::QPaladins::Groups
     if current_value.delete? && current_value.path.empty?
       if default = field_ptr.value.default?
         field_ptr.value.from_path(default.to_s)
-        current_value = field_ptr.value.extract_file_data
+        current_value = field_ptr.value.extract_file_data.not_nil!
       else
         if !field_ptr.value.required?
           (result_map[field_ptr.value.name] = nil) if save?
@@ -76,10 +76,9 @@ module DynFork::QPaladins::Groups
       return
     end
 
-    #
+    # Insert result.
     if current_value.new_file_data?
       current_value.new_file_data = false
-      # Insert result.
       result_map[field_ptr.value.name] = current_value
     end
   end
