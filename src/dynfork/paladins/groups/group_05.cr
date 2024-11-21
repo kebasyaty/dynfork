@@ -80,8 +80,8 @@ module DynFork::QPaladins::Groups
 
     # Create thumbnails.
     if current_value.new_file_data?
-      images_dir_path : String = current_value.images_dir_path
-      images_dir_url : String = current_value.images_dir_url
+      images_dir_path : String = current_value.images_dir_path?.not_nil!
+      images_dir_url : String = current_value.images_dir_url?.not_nil!
       path : String = current_value.path
       perm : File::Permissions = File::Permissions.new(0o644)
       # Create thumbnails.
