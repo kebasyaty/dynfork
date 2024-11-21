@@ -33,7 +33,7 @@ module DynFork::QPaladins::Groups
       end
     end
 
-    # Return if the current value is missing.
+    # Return if the current value is absent or if the file is in the database.
     return if _current_value.nil? || !_current_value.not_nil!.new_file?
 
     current_value : DynFork::Globals::FileData = _current_value.not_nil!
