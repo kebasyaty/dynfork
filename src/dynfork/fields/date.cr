@@ -2,8 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # A field for entering a date.
-  # <br>
-  # _**Formats:** dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
+  # NOTE: **Formats:** _dd-mm-yyyy | dd/mm/yyyy | dd.mm.yyyy |
   # yyyy-mm-dd | yyyy/mm/dd | yyyy.mm.dd_
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct DateField < DynFork::Fields::Field
@@ -14,12 +13,10 @@ module DynFork::Fields
     # Html tag: input type="date".
     getter! input_type : String?
     # Sets the value of an element.
-    # <br>
-    # _Example: 1970-01-01_
+    # NOTE: **Example:** _1970-01-01_
     property! value : String?
     # Value by default.
-    # <br>
-    # _Example: 1970-01-01_
+    # NOTE: **Example:* _1970-01-01_
     getter! default : String?
     # Displays prompt text.
     getter placeholder : String

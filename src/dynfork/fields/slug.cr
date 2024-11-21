@@ -2,10 +2,8 @@ require "./field"
 
 module DynFork::Fields
   # Automatically creates a label from letters, numbers, and hyphens.
-  # <br>
-  # Convenient to use for Url addresses.
-  # <br>
-  # WARNING: Allowed field types: _HashField_, _TextField_, _EmailField_,
+  # NOTE: Convenient to use for Url addresses.
+  # WARNING: **Allowed field types:** _HashField_, _TextField_, _EmailField_,
   # _DateField_, _DateTimeField_, _I64Field_, _F64Field_.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct SlugField < DynFork::Fields::Field
@@ -22,10 +20,8 @@ module DynFork::Fields
     # The unique value of a field in a collection.
     getter? unique : Bool = true
     # Names of the fields whose contents will be used for the slug.
-    # <br>
-    # The default is ["hash"].
-    # <br>
-    # _Examples: ["title"] | ["hash", "username"] | ["email", "first_name", "last_name"]_
+    # NOTE: The default is ["hash"].
+    # NOTE: **Examples:** _["title"] | ["hash", "username"] | ["email", "first_name", "last_name"]_
     @slug_sources : Array(String)
     # To optimize field traversal in the `paladins/check()` method.
     # WARNING: It is recommended not to change.
@@ -207,7 +203,7 @@ module DynFork::Fields
       @input_type = "text"
     end
 
-    # Getter for 'slug_sources'.
+    # Getter for `slug_sources`.
     def slug_sources : Array(String)
       @slug_sources
     end

@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Create string for SlugField.
+  # Create string for `SlugField`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_09(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),

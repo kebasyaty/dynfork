@@ -34,7 +34,7 @@ module DynFork::Globals::Types
     ); end
   end
 
-  # Data type for FileField.
+  # Data type for `FileField`.
   struct FileData
     include JSON::Serializable
     include BSON::Serializable
@@ -47,19 +47,20 @@ module DynFork::Globals::Types
     property name : String = ""
     # File size in bytes.
     property size : Int64 = 0
+    # A sign of a new file.
+    # NOTE: true - if there is no file in the database.
+    property? new_file_data : Bool = false
     # If the file needs to be deleted: _delete=true_.
-    # <br>
-    # **By default:** _delete=false_.
+    # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false
     # File extension.
-    # <br>
-    # **Examples:** _.txt|.xml|.doc|.svg_
+    # NOTE: **Examples:** _.txt|.xml|.doc|.svg_
     property extension : String = ""
 
     def initialize; end
   end
 
-  # Data type for ImageField.
+  # Data type for `ImageField`.
   struct ImageData
     include JSON::Serializable
     include BSON::Serializable
@@ -86,13 +87,14 @@ module DynFork::Globals::Types
     property height : Int32 = 0
     # Image size in bytes (_for original image_).
     property size : Int64 = 0
+    # A sign of a new image.
+    # NOTE: true - if there is no image in the database.
+    property? new_img_data : Bool = false
     # If the images needs to be deleted: _delete=true_.
-    # <br>
-    # **By default:** _delete=false_.
+    # NOTE: **By default:** _delete=false_.
     property? delete : Bool = false
     # Image extension.
-    # <br>
-    # **Examples:** _.png|.jpeg|.jpg|.webp_
+    # NOTE: **Examples:** _.png|.jpeg|.jpg|.webp_
     property extension : String = ""
     # Path to target directory with images.
     property! images_dir_path : String?

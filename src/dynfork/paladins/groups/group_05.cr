@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type ImageField.
+  # Validation of fields of type `ImageField`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_05(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
@@ -59,7 +59,7 @@ module DynFork::QPaladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+    if current_value.size > field_ptr.value.maxsize
       self.accumulate_error(
         I18n.t(:size_exceeds_max),
         field_ptr,
@@ -69,10 +69,17 @@ module DynFork::QPaladins::Groups
     end
 
     # Return if there is no need to save.
-    return unless save?
+    unless save?
+      if current_value.new_img_data?
+        if imgs_dir_path = current_value.images_dir_path?
+          FileUtils.rm_rf(imgs_dir_path.not_nil!)
+        end
+      end
+      return
+    end
 
-    # Create and save thumbnails.
-    unless current_value.path.empty?
+    # Create thumbnails.
+    if current_value.new_img_data?
       images_dir_path : String = current_value.images_dir_path
       images_dir_url : String = current_value.images_dir_url
       path : String = current_value.path
@@ -158,6 +165,7 @@ module DynFork::QPaladins::Groups
         end
       end
       # Insert result.
+      current_value.new_img_data = false
       result_map[field_ptr.value.name] = current_value
     end
   end

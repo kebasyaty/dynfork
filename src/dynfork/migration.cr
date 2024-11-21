@@ -79,7 +79,7 @@ module DynFork::Migration
       }
     end
 
-    # Run migration process.
+    # **Run migration process:**
     # <br>
     # 1) Update the state of Models in the super collection.
     # <br>

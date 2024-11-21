@@ -1,5 +1,5 @@
 module DynFork::QPaladins::Groups
-  # Validation of fields of type FileField.
+  # Validation of fields of type `FileField`.
   # NOTE: This method is used within the `DynFork::QPaladins::Check#check` method.
   def group_04(
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
@@ -33,7 +33,7 @@ module DynFork::QPaladins::Groups
       end
     end
 
-    # Return if the current value is missing.
+    # Return if the current value is missing
     return if _current_value.nil?
 
     current_value : DynFork::Globals::FileData = _current_value.not_nil!
@@ -59,7 +59,7 @@ module DynFork::QPaladins::Groups
     end
 
     # Accumulate an error if the file size exceeds the maximum value.
-    if !current_value.path.empty? && (current_value.size > field_ptr.value.maxsize)
+    if current_value.size > field_ptr.value.maxsize
       self.accumulate_error(
         I18n.t(:size_exceeds_max),
         field_ptr,
@@ -69,11 +69,16 @@ module DynFork::QPaladins::Groups
     end
 
     # Return if there is no need to save.
-    return unless save?
+    unless save?
+      if current_value.new_file_data?
+        File.delete(current_value.not_nil!.path)
+      end
+      return
+    end
 
-    #
-    unless current_value.path.empty?
-      # Insert result.
+    # Insert result.
+    if current_value.new_file_data?
+      current_value.new_file_data = false
       result_map[field_ptr.value.name] = current_value
     end
   end

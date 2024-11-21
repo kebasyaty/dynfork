@@ -1,3 +1,8 @@
+#### v0.8.9 2024-11-21
+
+- Updated algorithm for delete orphaned files.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.8 2024-11-20
 
 - Fixed [examples](https://github.com/kebasyaty/dynfork/tree/main/examples "examples").
