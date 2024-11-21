@@ -81,12 +81,12 @@ module DynFork::QPaladins::Groups
 
     # Create thumbnails.
     if current_value.new_img_data?
-      images_dir_path : String = current_value.images_dir_path
-      images_dir_url : String = current_value.images_dir_url
-      path : String = current_value.path
-      perm : File::Permissions = File::Permissions.new(0o644)
       # Create thumbnails.
       unless (thumbnails = field_ptr.value.thumbnails?).nil?
+        images_dir_path : String = current_value.images_dir_path
+        images_dir_url : String = current_value.images_dir_url
+        path : String = current_value.path
+        perm : File::Permissions = File::Permissions.new(0o644)
         thumbnails.sort! { |item, item2| item2[1] <=> item[1] }
         extension : String = current_value.extension
         # Get image file.
