@@ -187,7 +187,7 @@ module DynFork::QPaladins::Tools
            session: session,
          )
         # Delete orphaned files.
-        self.delete_orphaned_files(doc.not_nil!)
+        self.delete_orphaned_files(doc.not_nil!, true)
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{@@full_model_name}` > Method: `delete` => " +
@@ -205,7 +205,7 @@ module DynFork::QPaladins::Tools
   end
 
   # Delete orphaned files.
-  def delete_orphaned_files(doc_bson : BSON) : Nil
+  def delete_orphaned_files(doc_bson : BSON, to_nil? : Bool = false) : Nil
     curr_doc_hash = doc_bson.to_h
     raw_data = nil
     tmp_bson = BSON.new
@@ -231,7 +231,7 @@ module DynFork::QPaladins::Tools
         end
       end
       # Reset field value.
-      @{{ field }}.value = nil
+      @{{ field }}.value = nil if to_nil?
     {% end %}
   end
 
