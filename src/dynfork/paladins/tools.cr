@@ -187,7 +187,33 @@ module DynFork::QPaladins::Tools
            session: session,
          )
         # Delete orphaned files.
-        self.delete_orphaned_files(doc.not_nil!, true)
+        curr_doc_hash = doc.to_h
+        raw_data = nil
+        tmp_bson = BSON.new
+        {% for field in @type.instance_vars %}
+          unless @{{ field }}.ignored?
+            if @{{ field }}.group == 4_u8 # FileField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            elsif @{{ field }}.group == 5_u8 # ImageField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                FileUtils.rm_rf(
+                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            end
+          end
+          # Reset field value.
+          @{{ field }}.value = nil
+        {% end %}
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{@@full_model_name}` > Method: `delete` => " +
@@ -202,37 +228,6 @@ module DynFork::QPaladins::Tools
         "Param: `value` => Hash is missing."
       )
     end
-  end
-
-  # Delete orphaned files.
-  def delete_orphaned_files(doc_bson : BSON, to_nil? : Bool = false) : Nil
-    curr_doc_hash = doc_bson.to_h
-    raw_data = nil
-    tmp_bson = BSON.new
-    {% for field in @type.instance_vars %}
-      unless @{{ field }}.ignored?
-        if @{{ field }}.group == 4_u8 # FileField
-          if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
-            raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
-              .each { |key, val| tmp_bson[key] = val }
-            File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
-            raw_data = nil
-            tmp_bson = BSON.new
-          end
-        elsif @{{ field }}.group == 5_u8 # ImageField
-          if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
-            raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
-              .each { |key, val| tmp_bson[key] = val }
-            FileUtils.rm_rf(
-              DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
-            raw_data = nil
-            tmp_bson = BSON.new
-          end
-        end
-      end
-      # Reset field value.
-      @{{ field }}.value = nil if to_nil?
-    {% end %}
   end
 
   # :nodoc:
