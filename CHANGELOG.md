@@ -1,3 +1,8 @@
+#### v0.8.13 2024-11-22
+
+- Updated method `delete` - Added algorithm for delete orphaned files.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.12 2024-11-21
 
 - Fixed methods `check`, `group_04` and `group_05`.
