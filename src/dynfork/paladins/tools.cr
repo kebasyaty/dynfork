@@ -196,7 +196,7 @@ module DynFork::QPaladins::Tools
               if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
                 raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
-                File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                FileUtils.rm_rf(DynFork::Globals::FileData.from_bson(tmp_bson).path)
                 raw_data = nil
                 tmp_bson = BSON.new
               end
