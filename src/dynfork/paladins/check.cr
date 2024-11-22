@@ -163,11 +163,11 @@ module DynFork::QPaladins::Check
       (@hash.value = nil) unless update?
       # Delete orphaned files.
       # ----------------------
+      curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       file_data : DynFork::Globals::FileData?
       img_data : DynFork::Globals::ImageData?
       raw_data = nil
       tmp_bson = BSON.new
-      curr_doc_hash = update? ? (collection_ptr.value.find_one({_id: id}).not_nil!.to_h) : nil
       {% for field in @type.instance_vars %}
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
@@ -190,7 +190,7 @@ module DynFork::QPaladins::Check
           elsif @{{ field }}.group == 5_u8 # ImageField
             if img_data = @{{ field }}.extract_img_data
               if img_data.not_nil!.new_img_data?
-                FileUtils.rm_rf(img_data.not_nil!.images_dir_path.not_nil!)
+                FileUtils.rm_rf(img_data.not_nil!.images_dir_path)
               end
               @{{ field }}.value = nil
               img_data = nil

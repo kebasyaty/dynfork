@@ -148,7 +148,16 @@ module DynFork::QPaladins::Tools
   end
 
   # Delete a document from a collection in a database.
-  def delete : Nil
+  def delete(
+    sort = nil,
+    fields = nil,
+    bypass_document_validation : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    collation : Mongo::Collation? = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
+    max_time_ms : Int64? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -166,11 +175,50 @@ module DynFork::QPaladins::Tools
       # Run hook.
       self.pre_delete
       # Delete doc.
-      collection.delete_one({_id: id})
-      # Reset field values.
-      {% for field in @type.instance_vars %}
-        @{{ field }}.value =  nil
-      {% end %}
+      if doc : BSON? = collection.find_one_and_delete(
+           filter: {_id: id},
+           sort: sort,
+           fields: fields,
+           bypass_document_validation: bypass_document_validation,
+           write_concern: write_concern,
+           collation: collation,
+           hint: hint,
+           max_time_ms: max_time_ms,
+           session: session,
+         )
+        curr_doc_hash = doc.not_nil!.to_h
+        raw_data = nil
+        tmp_bson = BSON.new
+        {% for field in @type.instance_vars %}
+          unless @{{ field }}.ignored?
+            if @{{ field }}.group == 4_u8 # FileField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            elsif @{{ field }}.group == 5_u8 # ImageField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                FileUtils.rm_rf(
+                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            end
+          end
+          # Reset field values.
+          @{{ field }}.value = nil
+        {% end %}
+      else
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `delete` => " +
+          "The document was not deleted, the document is absent in the database."
+        )
+      end
       # Run hook.
       self.post_delete
     else
@@ -193,10 +241,10 @@ module DynFork::QPaladins::Tools
 
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc_bson : BSON) : Nil
-    field_type : String = ""
-    name : String = ""
     doc_hash = doc_bson.to_h
     @hash.value = doc_hash["_id"].as(BSON::ObjectId).to_s
+    field_type : String = ""
+    name : String = ""
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
