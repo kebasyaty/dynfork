@@ -1,3 +1,8 @@
+#### v0.8.15 2024-11-22
+
+- Deleted method `delete`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.14 2024-11-22
 
 - Deleted method `delete_orphaned_files`.
