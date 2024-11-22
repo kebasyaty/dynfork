@@ -200,7 +200,14 @@ module DynFork::QPaladins::Tools
                 tmp_bson = BSON.new
               end
             elsif @{{ field }}.group == 5_u8 # ImageField
-              #
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                FileUtils.rm_rf(
+                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path.not_nil!)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
             end
           end
           # Reset field values.
