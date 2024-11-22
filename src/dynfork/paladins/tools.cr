@@ -193,10 +193,10 @@ module DynFork::QPaladins::Tools
 
   # Refrash field values ​​after creating or updating a document.
   def refrash_fields(doc_bson : BSON) : Nil
-    field_type : String = ""
-    name : String = ""
     doc_hash = doc_bson.to_h
     @hash.value = doc_hash["_id"].as(BSON::ObjectId).to_s
+    field_type : String = ""
+    name : String = ""
     #
     {% for field in @type.instance_vars %}
       name = @{{ field }}.name
