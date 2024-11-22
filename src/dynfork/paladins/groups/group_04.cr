@@ -80,6 +80,7 @@ module DynFork::QPaladins::Groups
     # Insert result.
     if current_value.new_file_data?
       current_value.new_file_data = false
+      current_value.delete = false
       result_map[field_ptr.value.name] = current_value
     end
   end
