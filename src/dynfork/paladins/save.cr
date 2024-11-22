@@ -56,10 +56,13 @@ module DynFork::QPaladins::Save
     data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
     # Create or update a document in the database.
     if output_data.update?
-      # Update doc.
+      # Update date and time.
       data["updated_at"] = Time.utc
       # Run hook.
       self.pre_update
+      # For delete orphaned files.
+      pre_state_doc = collection.find_one({_id: data["_id"]})
+      # Update doc.
       if doc : BSON? = collection.find_one_and_update(
            filter: {_id: data["_id"]},
            update: {"$set": data},
@@ -68,6 +71,8 @@ module DynFork::QPaladins::Save
         # Run hook.
         self.post_update
         self.refrash_fields(doc.not_nil!)
+        # Delete orphaned files.
+        self.delete_orphaned_files(pre_state_doc.not_nil!)
       end
     else
       # Create doc.

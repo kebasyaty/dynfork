@@ -186,6 +186,7 @@ module DynFork::QPaladins::Tools
            max_time_ms: max_time_ms,
            session: session,
          )
+        # Delete orphaned files.
         self.delete_orphaned_files(doc.not_nil!)
       else
         raise DynFork::Errors::Panic.new(
