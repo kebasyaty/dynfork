@@ -148,7 +148,16 @@ module DynFork::QPaladins::Tools
   end
 
   # Delete a document from a collection in a database.
-  def delete : Nil
+  def delete(
+    sort = nil,
+    fields = nil,
+    bypass_document_validation : Bool? = nil,
+    write_concern : Mongo::WriteConcern? = nil,
+    collation : Mongo::Collation? = nil,
+    hint : (String | Hash | NamedTuple)? = nil,
+    max_time_ms : Int64? = nil,
+    session : Mongo::Session::ClientSession? = nil
+  ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
         "Model : `#{@@full_model_name}` > Param: `migrat_model?` => " +
@@ -166,7 +175,24 @@ module DynFork::QPaladins::Tools
       # Run hook.
       self.pre_delete
       # Delete doc.
-      collection.delete_one({_id: id})
+      if doc : BSON? = collection.find_one_and_delete(
+           filter: {_id: id},
+           sort: sort,
+           fields: fields,
+           bypass_document_validation: bypass_document_validation,
+           write_concern: write_concern,
+           collation: collation,
+           hint: hint,
+           max_time_ms: max_time_ms,
+           session: session,
+         )
+        # ???
+      else
+        raise DynFork::Errors::Panic.new(
+          "Model : `#{@@full_model_name}` > Method: `delete` => " +
+          "The document was not deleted, the document is absent in the database."
+        )
+      end
       # Reset field values.
       {% for field in @type.instance_vars %}
         @{{ field }}.value =  nil
