@@ -56,10 +56,11 @@ module DynFork::QPaladins::Save
     data : Hash(String, DynFork::Globals::ResultMapType) = output_data.data
     # Create or update a document in the database.
     if output_data.update?
-      # Update doc.
+      # Update date and time.
       data["updated_at"] = Time.utc
       # Run hook.
       self.pre_update
+      # Update doc.
       if doc : BSON? = collection.find_one_and_update(
            filter: {_id: data["_id"]},
            update: {"$set": data},

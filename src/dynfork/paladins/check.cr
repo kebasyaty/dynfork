@@ -172,7 +172,7 @@ module DynFork::QPaladins::Check
         unless @{{ field }}.ignored?
           if @{{ field }}.group == 4_u8 # FileField
             if file_data = @{{ field }}.extract_file_data
-              File.delete(file_data.not_nil!.path) if file_data.not_nil!.new_file_data?
+              FileUtils.rm_rf(file_data.not_nil!.path) if file_data.not_nil!.new_file_data?
               @{{ field }}.value = nil
               file_data = nil
             end

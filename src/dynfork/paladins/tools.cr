@@ -186,7 +186,8 @@ module DynFork::QPaladins::Tools
            max_time_ms: max_time_ms,
            session: session,
          )
-        curr_doc_hash = doc.not_nil!.to_h
+        # Delete orphaned files.
+        curr_doc_hash = doc.to_h
         raw_data = nil
         tmp_bson = BSON.new
         {% for field in @type.instance_vars %}
@@ -195,7 +196,7 @@ module DynFork::QPaladins::Tools
               if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
                 raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
-                File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                FileUtils.rm_rf(DynFork::Globals::FileData.from_bson(tmp_bson).path)
                 raw_data = nil
                 tmp_bson = BSON.new
               end
@@ -210,7 +211,7 @@ module DynFork::QPaladins::Tools
               end
             end
           end
-          # Reset field values.
+          # Reset field value.
           @{{ field }}.value = nil
         {% end %}
       else
