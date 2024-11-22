@@ -190,7 +190,7 @@ module DynFork::QPaladins::Check
           elsif @{{ field }}.group == 5_u8 # ImageField
             if img_data = @{{ field }}.extract_img_data
               if img_data.not_nil!.new_img_data?
-                FileUtils.rm_rf(img_data.not_nil!.images_dir_path.not_nil!)
+                FileUtils.rm_rf(img_data.not_nil!.images_dir_path)
               end
               @{{ field }}.value = nil
               img_data = nil

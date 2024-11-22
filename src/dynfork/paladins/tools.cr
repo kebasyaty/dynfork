@@ -204,7 +204,7 @@ module DynFork::QPaladins::Tools
                 raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
                   .each { |key, val| tmp_bson[key] = val }
                 FileUtils.rm_rf(
-                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path.not_nil!)
+                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
                 raw_data = nil
                 tmp_bson = BSON.new
               end
