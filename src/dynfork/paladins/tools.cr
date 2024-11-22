@@ -186,17 +186,32 @@ module DynFork::QPaladins::Tools
            max_time_ms: max_time_ms,
            session: session,
          )
-        # ???
+        curr_doc_hash = doc.not_nil!.to_h
+        raw_data = nil
+        tmp_bson = BSON.new
+        {% for field in @type.instance_vars %}
+          unless @{{ field }}.ignored?
+            if @{{ field }}.group == 4_u8 # FileField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                File.delete(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            elsif @{{ field }}.group == 5_u8 # ImageField
+              #
+            end
+          end
+          # Reset field values.
+          @{{ field }}.value = nil
+        {% end %}
       else
         raise DynFork::Errors::Panic.new(
           "Model : `#{@@full_model_name}` > Method: `delete` => " +
           "The document was not deleted, the document is absent in the database."
         )
       end
-      # Reset field values.
-      {% for field in @type.instance_vars %}
-        @{{ field }}.value =  nil
-      {% end %}
       # Run hook.
       self.post_delete
     else
