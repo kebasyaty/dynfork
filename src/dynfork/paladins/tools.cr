@@ -210,7 +210,7 @@ module DynFork::QPaladins::Tools
               end
             end
           end
-          # Reset field values.
+          # Reset field value.
           @{{ field }}.value = nil
         {% end %}
       else
