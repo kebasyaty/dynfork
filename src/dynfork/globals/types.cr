@@ -57,7 +57,7 @@ module DynFork::Globals::Types
     # NOTE: **Examples:** _.txt|.xml|.doc|.svg_
     property extension : String = ""
     # To copy data from a related document and use the same files.
-    getter? save_as_is : Bool = false
+    property? save_as_is : Bool = false
 
     def initialize; end
   end
@@ -103,7 +103,7 @@ module DynFork::Globals::Types
     # URL path to target directory with images.
     property! images_dir_url : String?
     # To copy data from a related document and use the same files.
-    getter? save_as_is : Bool = false
+    property? save_as_is : Bool = false
 
     def initialize; end
   end
