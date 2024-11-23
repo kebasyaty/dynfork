@@ -167,8 +167,8 @@ module DynFork::QPaladins::Groups
     end
 
     # Insert result.
-    if current_value.new_file_data? || current_value.save_as_is?
-      current_value.new_file_data = false
+    if current_value.new_img_data? || current_value.save_as_is?
+      current_value.new_img_data = false
       current_value.delete = false
       current_value.save_as_is = true
       result_map[field_ptr.value.name] = current_value
