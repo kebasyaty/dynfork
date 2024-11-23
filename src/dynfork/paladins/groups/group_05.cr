@@ -81,7 +81,6 @@ module DynFork::QPaladins::Groups
 
     # Create thumbnails.
     if current_value.new_img_data?
-      # Create thumbnails.
       unless (thumbnails = field_ptr.value.thumbnails?).nil?
         images_dir_path : String = current_value.images_dir_path
         images_dir_url : String = current_value.images_dir_url
@@ -165,9 +164,13 @@ module DynFork::QPaladins::Groups
           end
         end
       end
-      # Insert result.
-      current_value.new_img_data = false
+    end
+
+    # Insert result.
+    if current_value.new_file_data? || current_value.save_as_is?
+      current_value.new_file_data = false
       current_value.delete = false
+      current_value.save_as_is = true
       result_map[field_ptr.value.name] = current_value
     end
   end
