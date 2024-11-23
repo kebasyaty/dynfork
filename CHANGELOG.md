@@ -1,3 +1,8 @@
+#### v0.8.16 2024-11-23
+
+- Added param `save_as_is` to `FileData` and `ImageData` - To copy data from a related document and use the same files.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.15 2024-11-22
 
 - Deleted method `delete`.
