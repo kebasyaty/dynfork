@@ -67,4 +67,9 @@ module Validator
   def self.password?(value : String) : Bool
     DynFork::Globals.regex[:password].matches?(value)
   end
+
+  # Custom validator to validate the phone number string.
+  def self.phone_number?(value : String) : Bool
+    DynFork::Globals.regex[:phone_number].matches?(value)
+  end
 end

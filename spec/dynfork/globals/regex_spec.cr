@@ -14,6 +14,7 @@ describe DynFork::Globals do
         datetime_parse_reverse: /^(?P<y>[0-9]{4})[-\/\.](?P<m>[0-9]{2})[-\/\.](?P<d>[0-9]{2})(?:T|\s)(?<t>[0-9]{2}:[0-9]{2}:[0-9]{2})/,
         color_code: /^(?:#|0x)(?:[a-f0-9]{3}|[a-f0-9]{6}|[a-f0-9]{8})\b|(?:rgb|hsl)a?\([^\)]*\)$/i,
         password: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/,
+        phone_number: /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       )
     )
   end
@@ -110,6 +111,36 @@ describe DynFork::Globals do
       r.matches?("9M,4%6]3ht7r{l59").should be_true
       r.matches?("2XT~m:L!Hz_723J(").should be_true
       r.matches?("d6'P30}e'#f^g3t5").should be_true
+    end
+
+    it "=> regex - phone number", tags: "global_regex" do
+      r : Regex = DynFork::Globals.regex[:phone_number]
+      # Negative:
+      r.matches?("").should be_false
+      r.matches?(" ").should be_false
+      r.matches?("+48 504 203 260@@").should be_false
+      r.matches?("+48.504.203.260").should be_false
+      r.matches?("+55(123) 456-78-90-").should be_false
+      r.matches?("+55(123) - 456-78-90").should be_false
+      r.matches?("-").should be_false
+      r.matches?("()").should be_false
+      r.matches?("() + ()").should be_false
+      r.matches?("(21 7777").should be_false
+      r.matches?("+48 (21)").should be_false
+      r.matches?("+").should be_false
+      r.matches?(" 1").should be_false
+      r.matches?("1").should be_false
+      # Positive:
+      r.matches?("555-5555-555").should be_true
+      r.matches?("+48 504 203 260").should be_true
+      r.matches?("+48 (12) 504 203 260").should be_true
+      r.matches?("+48 (12) 504-203-260").should be_true
+      r.matches?("+4812504203260").should be_true
+      r.matches?("4812504203260").should be_true
+      r.matches?("+48 (12) 504.203.260").should be_true
+      r.matches?("555.5555.555").should be_true
+      r.matches?("+48.504.203.260").should be_true
+      r.matches?("+48-504-203-260").should be_true
     end
   end
 end
