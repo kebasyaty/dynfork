@@ -85,7 +85,7 @@ module DynFork::QPaladins::Groups
         error_symptom_ptr?
       )
     end
-    # Validation Email, Url, IP, Color.
+    # Validation Email, Url, IP, Color, Passwors, Phone.
     case field_ptr.value.field_type
     when "EmailField"
       unless Valid.email? current_value
@@ -126,6 +126,14 @@ module DynFork::QPaladins::Groups
             "allowed_chars.interpolation",
             chars: %(a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ \( \) * + / \\ ? [ ] ^ |)
           ),
+          field_ptr,
+          error_symptom_ptr?
+        )
+      end
+    when "PhoneField"
+      if field_ptr.value.regex?.nil? && !Valid.phone_number? current_value
+        self.accumulate_error(
+          I18n.t(:invalid_phone),
           field_ptr,
           error_symptom_ptr?
         )

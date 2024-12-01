@@ -20,10 +20,10 @@ describe DynFork::Fields::PhoneField do
       f.ignored?.should be_false
       f.maxlength?.should be_nil
       f.minlength?.should be_nil
-      f.regex.should eq("^[+]?[0-9]{8,15}$")
-      f.regex_err_msg.should eq("Invalid Phone number !")
+      f.regex.should be_nil
+      f.regex_err_msg.should be_nil
       f.hint.should eq("")
-      f.warning.should eq(["Formats: +xxxxxxxx... | xxxxxxxx..."])
+      f.warning.should eq(["Formats: 4812504203260 | +4812504203260 | +48 504 203 260 | +48 (12) 504-203-260 | +48.504.203.260 | 555.5555.555"])
       f.errors.should eq(Array(String).new)
       f.group.should eq(1_u8)
     end
