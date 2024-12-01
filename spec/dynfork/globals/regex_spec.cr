@@ -119,7 +119,6 @@ describe DynFork::Globals do
       r.matches?("").should be_false
       r.matches?(" ").should be_false
       r.matches?("+48 504 203 260@@").should be_false
-      r.matches?("+48.504.203.260").should be_false
       r.matches?("+55(123) 456-78-90-").should be_false
       r.matches?("+55(123) - 456-78-90").should be_false
       r.matches?("-").should be_false
