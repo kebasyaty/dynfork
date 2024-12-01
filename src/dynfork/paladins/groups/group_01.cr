@@ -131,7 +131,7 @@ module DynFork::QPaladins::Groups
         )
       end
     when "PhoneField"
-      if field_ptr.value.regex?.nil? && !Valid.phone_number? current_value
+      if field_ptr.value.regex?.presence.nil? && !Valid.phone_number? current_value
         self.accumulate_error(
           I18n.t(:invalid_phone),
           field_ptr,
