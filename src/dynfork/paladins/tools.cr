@@ -148,7 +148,18 @@ module DynFork::QPaladins::Tools
   end
 
   # Delete a document from a collection in a database.
+  # The document to return may be nil.
+  # NOTE: For more details, please check the official <a href="https://docs.mongodb.com/manual/reference/command/findAndModify/" target="_blank">documentation</a>.
+  # NOTE: For more details, please check the cryomongo <a href="https://elbywan.github.io/cryomongo/Mongo/Collection.html" target="_blank">documentation</a>.
+  #
+  # Example:
+  # ```
+  # user : User? = User.find_one({_id: id})
+  # user.delete
+  # ```
+  #
   def delete(
+    delete_files? : Bool = true,
     sort = nil,
     fields = nil,
     bypass_document_validation : Bool? = nil,
@@ -191,26 +202,26 @@ module DynFork::QPaladins::Tools
         # raw_data = nil
         # tmp_bson = BSON.new
         {% for field in @type.instance_vars %}
-          # unless @{{ field }}.ignored?
-          #   if @{{ field }}.group == 4_u8 # FileField
-          #     if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
-          #       raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
-          #         .each { |key, val| tmp_bson[key] = val }
-          #       FileUtils.rm_rf(DynFork::Globals::FileData.from_bson(tmp_bson).path)
-          #       raw_data = nil
-          #       tmp_bson = BSON.new
-          #     end
-          #   elsif @{{ field }}.group == 5_u8 # ImageField
-          #     if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
-          #       raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
-          #         .each { |key, val| tmp_bson[key] = val }
-          #       FileUtils.rm_rf(
-          #         DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
-          #       raw_data = nil
-          #       tmp_bson = BSON.new
-          #     end
-          #   end
-          # end
+          if delete_files? && !@{{ field }}.ignored?
+            if @{{ field }}.group == 4_u8 # FileField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                FileUtils.rm_rf(DynFork::Globals::FileData.from_bson(tmp_bson).path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            elsif @{{ field }}.group == 5_u8 # ImageField
+              if raw_data = curr_doc_hash.not_nil![@{{ field }}.name]
+                raw_data.not_nil!.as(Hash(String, BSON::RecursiveValue))
+                  .each { |key, val| tmp_bson[key] = val }
+                FileUtils.rm_rf(
+                  DynFork::Globals::ImageData.from_bson(tmp_bson).images_dir_path)
+                raw_data = nil
+                tmp_bson = BSON.new
+              end
+            end
+          end
           # Reset field value.
           @{{ field }}.value = nil
         {% end %}
