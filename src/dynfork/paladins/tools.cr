@@ -198,9 +198,9 @@ module DynFork::QPaladins::Tools
            session: session,
          )
         # Delete orphaned files.
-        # curr_doc_hash = doc.to_h
-        # raw_data = nil
-        # tmp_bson = BSON.new
+        curr_doc_hash = doc.to_h
+        raw_data = nil
+        tmp_bson = BSON.new
         {% for field in @type.instance_vars %}
           if delete_files? && !@{{ field }}.ignored?
             if @{{ field }}.group == 4_u8 # FileField
