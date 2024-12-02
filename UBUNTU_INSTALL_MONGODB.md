@@ -11,11 +11,11 @@ grep -qm1 '^flags.*avx' /proc/cpuinfo && echo OK || echo NOT OK
 
 ```shell
 sudo apt install curl gnupg2
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] \
-   https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | \
-   sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] \
+   https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | \
+   sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 sudo apt update
 ```
 
