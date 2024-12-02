@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering IP addresses.
+  # WARNING: Used validator `Valid.ip?`.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct IPField < DynFork::Fields::Field
     # Field type - Structure Name.

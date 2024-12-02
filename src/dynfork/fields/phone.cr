@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering Phone number.
+  # WARNING: By default is used validator `Valid.phone_number?`.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct PhoneField < DynFork::Fields::Field
     # Field type - Structure Name.
@@ -164,6 +165,7 @@ module DynFork::Fields
       @placeholder : String = "",
       @maxlength : UInt32? = nil,
       @minlength : UInt32? = nil,
+      # By default is used validator `Valid.phone_number?`.
       @regex : String? = nil,         # Example: "^.+$"
       @regex_err_msg : String? = nil, # Example: I18n.t(:invalid_phone)
       @hide : Bool = false,
