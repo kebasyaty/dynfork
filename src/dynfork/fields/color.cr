@@ -196,7 +196,6 @@ module DynFork::Fields
                                            "hsla(170,23%,25%,0.2) | 0x00ffff")],
     )
       @input_type = "text"
-      @minlength = 0
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
