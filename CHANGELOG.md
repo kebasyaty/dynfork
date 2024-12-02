@@ -1,3 +1,8 @@
+#### v0.8.22 2024-12-02
+
+- Updated specs.yml and documentation files - MongoDB 8.0
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.21 2024-12-02
 
 - Fixed comments for Text, URL, Phone fields.
