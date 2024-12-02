@@ -1,6 +1,7 @@
 # Fedora >= 40
 
 **Your processor must support AVX/AVX2 instructions.**
+
 ```shell
 # check
 grep -qm1 '^flags.*avx' /proc/cpuinfo && echo OK || echo NOT OK
@@ -39,4 +40,3 @@ sudo rm -f /etc/yum.repos.d/mongodb-org.repo
 sudo rm -r /var/log/mongodb /var/lib/mongo
 sudo dnf makecache --refresh
 ```
-
