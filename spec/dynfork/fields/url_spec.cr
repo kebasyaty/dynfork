@@ -18,7 +18,7 @@ describe DynFork::Fields::URLField do
       f.required?.should be_false
       f.unique?.should be_false
       f.ignored?.should be_false
-      f.maxlength.should eq(2048)
+      f.maxlength.should eq(2083)
       f.minlength.should eq(0)
       f.hint.should eq("")
       f.warning.should eq(Array(String).new)
