@@ -1,3 +1,8 @@
+#### v0.8.18 2024-12-01
+
+- Added validator `phone_number?`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.17 2024-12-01
 
 - Added param `delete_files?` to method `delete`.

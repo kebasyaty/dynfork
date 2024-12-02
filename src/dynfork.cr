@@ -52,7 +52,7 @@ require "./dynfork/migration"
 # <br>
 #  DynFork is free software under terms of the MIT License.
 module DynFork
-  VERSION = "0.8.17"
+  VERSION = "0.8.18"
 end
 
 module Validator
@@ -66,5 +66,10 @@ module Validator
   # Custom validator to validate the password string.
   def self.password?(value : String) : Bool
     DynFork::Globals.regex[:password].matches?(value)
+  end
+
+  # Custom validator to validate the phone number string.
+  def self.phone_number?(value : String) : Bool
+    DynFork::Globals.regex[:phone_number].matches?(value)
   end
 end

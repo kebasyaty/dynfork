@@ -164,8 +164,8 @@ module DynFork::Fields
       @placeholder : String = "",
       @maxlength : UInt32? = nil,
       @minlength : UInt32? = nil,
-      @regex : String? = "^[+]?[0-9]{8,15}$",
-      @regex_err_msg : String? = I18n.t(:invalid_phone),
+      @regex : String? = nil,
+      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
@@ -173,7 +173,10 @@ module DynFork::Fields
       @readonly : Bool = false,
       @ignored : Bool = false,
       @hint : String = "",
-      @warning : Array(String) = [I18n.t("formats.interpolation", samples: "+xxxxxxxx... | xxxxxxxx...")],
+      @warning : Array(String) = [I18n.t(
+        "formats.interpolation", samples: "4812504203260 | +4812504203260 | " +
+                                          "+48 504 203 260 | +48 (12) 504-203-260 | " +
+                                          "+48.504.203.260 | 555.5555.555")],
     )
       @input_type = "tel"
     end

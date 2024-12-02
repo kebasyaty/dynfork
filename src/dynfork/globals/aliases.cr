@@ -57,5 +57,6 @@ module DynFork::Globals::Aliases
     datetime_parse_reverse: Regex,
     color_code: Regex,
     password: Regex,
+    phone_number: Regex,
   )
 end
