@@ -1,3 +1,8 @@
+#### v0.8.19 2024-12-02
+
+- Added comments to `TextField` and `PhoneField`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.18 2024-12-01
 
 - Added validator `phone_number?`.
