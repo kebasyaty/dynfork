@@ -20,6 +20,12 @@ module DynFork::Fields
     # Specifies that the field cannot be modified by the user.
     property? readonly : Bool
     # The maximum number of characters allowed in the text.
+    # <br>Max URL length in address bar:
+    # <br>Google Chrome: 2083
+    # <br>Edge: 2083
+    # <br>Internet Explorer: 2083
+    # <br>Safari: 80 000
+    # <br>Firefox: 65 536
     getter! maxlength : UInt32?
     # The minimum number of characters allowed in the text.
     getter! minlength : UInt32?
@@ -169,7 +175,7 @@ module DynFork::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
-      @maxlength : UInt32? = 2048,
+      @maxlength : UInt32? = 2083,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,

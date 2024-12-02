@@ -175,6 +175,12 @@ module DynFork::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
+      # Max URL length in address bar
+      # Google Chrome: 2083
+      # Edge: 2083
+      # Internet Explorer: 2083
+      # Safari: 80 000
+      # Firefox: 65 536
       @maxlength : UInt32? = 2083,
       @hide : Bool = false,
       @unique : Bool = false,
