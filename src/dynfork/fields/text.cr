@@ -162,7 +162,6 @@ module DynFork::Fields
       @default : String? = nil,
       @placeholder : String = "",
       @maxlength : UInt32? = 256,
-      @minlength : UInt32? = 0,
       @regex : String? = nil,         # Example: "^[a-zA-Z0-9_]+$"
       @regex_err_msg : String? = nil, # Example: I18n.t("allowed_chars.interpolation",chars: "a-z, A-Z, 0-9, _")
       @hide : Bool = false,
@@ -177,6 +176,7 @@ module DynFork::Fields
       @warning : Array(String) = Array(String).new,
     )
       @input_type = "text"
+      @minlength = 0
     end
 
     # For the `DynFork::QPaladins::Tools#refrash_fields` method.
