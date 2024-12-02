@@ -12,10 +12,10 @@ grep -qm1 '^flags.*avx' /proc/cpuinfo && echo OK || echo NOT OK
 sudo tee /etc/yum.repos.d/mongodb-org.repo << "EOF" > /dev/null
 [mongodb-org]
 name=MongoDB community Repository
-baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/7.0/$basearch/
+baseurl=https://repo.mongodb.org/yum/redhat/9/mongodb-org/8.0/$basearch/
 gpgcheck=1
 enabled=1
-gpgkey=https://pgp.mongodb.com/server-7.0.asc
+gpgkey=https://pgp.mongodb.com/server-8.0.asc
 EOF
 ```
 
