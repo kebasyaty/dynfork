@@ -163,8 +163,8 @@ module DynFork::Fields
       @placeholder : String = "",
       @maxlength : UInt32? = 256,
       @minlength : UInt32? = 0,
-      @regex : String? = nil,
-      @regex_err_msg : String? = nil,
+      @regex : String? = nil,         # Example: "^[a-zA-Z0-9_]+$"
+      @regex_err_msg : String? = nil, # Example: I18n.t("allowed_chars.interpolation",chars: "a-z, A-Z, 0-9, _")
       @hide : Bool = false,
       @unique : Bool = false,
       @textarea : Bool = false,
