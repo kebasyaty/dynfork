@@ -26,10 +26,6 @@ module DynFork::Fields
     getter? required : Bool
     # Specifies that the field cannot be modified by the user.
     property? readonly : Bool
-    # The maximum number of characters allowed in the text.
-    getter! maxlength : UInt32?
-    # The minimum number of characters allowed in the text.
-    getter! minlength : UInt32?
     # The unique value of a field in a collection.
     getter? unique : Bool
     # To optimize field traversal in the `paladins/check()` method.
@@ -45,6 +41,16 @@ module DynFork::Fields
     @[JSON::Field(ignore: true)]
     # :nodoc:
     getter! min : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! maxlength : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
@@ -176,7 +182,6 @@ module DynFork::Fields
       @label : String = "",
       @default : String? = "#000000",
       @placeholder : String = "",
-      @maxlength : UInt32? = 256,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
