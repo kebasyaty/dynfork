@@ -1,3 +1,8 @@
+#### v0.8.20 2024-12-02
+
+- Updated comments for Email, Url, IP, Color, Passwors, Phone fields.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.19 2024-12-02
 
 - Added comments to `TextField` and `PhoneField`.
