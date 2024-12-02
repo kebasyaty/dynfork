@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering URL addresses.
+  # WARNING: Used validator `Valid.url?`.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct URLField < DynFork::Fields::Field
     # Field type - Structure Name.

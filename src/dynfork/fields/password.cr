@@ -3,6 +3,7 @@ require "./field"
 module DynFork::Fields
   # Field for entering password.
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
+  # WARNING: Used validator `Valid.password?`.
   # WARNING: Default regular expression: /^[-._!"`'#%&,:;<>=@{}~\$\(\)\*\+\/\\\?\[\]\^\|a-zA-Z0-9]+$/
   # WARNING: Valid characters by default: a-z A-Z 0-9 - . _ ! " ` ' # % & , : ; < > = @ { } ~ $ ( ) * + / \ ? [ ] ^ |
   # WARNING: Default number of characters: min = 8, max = 256.

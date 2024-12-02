@@ -2,6 +2,7 @@ require "./field"
 
 module DynFork::Fields
   # Field for entering Email addresses.
+  # WARNING: Used validator `Valid.email?`.
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct EmailField < DynFork::Fields::Field
     # Field type - Structure Name.
