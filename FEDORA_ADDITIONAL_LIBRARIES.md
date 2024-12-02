@@ -1,4 +1,4 @@
-# Fedora
+# Fedora >= 39
 
 ### Install:
 
