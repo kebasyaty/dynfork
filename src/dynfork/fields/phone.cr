@@ -164,8 +164,8 @@ module DynFork::Fields
       @placeholder : String = "",
       @maxlength : UInt32? = nil,
       @minlength : UInt32? = nil,
-      @regex : String? = nil,
-      @regex_err_msg : String? = nil,
+      @regex : String? = nil,         # Example: "^.+$"
+      @regex_err_msg : String? = nil, # Example: I18n.t(:invalid_phone)
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
