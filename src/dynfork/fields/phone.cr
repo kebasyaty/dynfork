@@ -19,13 +19,12 @@ module DynFork::Fields
     getter? required : Bool
     # Specifies that the field cannot be modified by the user.
     property? readonly : Bool
-    # The maximum number of characters allowed in the text.
-    getter! maxlength : UInt32?
-    # The minimum number of characters allowed in the text.
-    getter! minlength : UInt32?
     # Regular expression to validate the `value`.
+    # NOTE: **Example:** "^.+$"
     getter! regex : String?
     # Error message.
+    # NOTE: **Example** I18n.t(:invalid_phone)
+    # WARNING: By default is used validator `Valid.phone_number?`.
     getter! regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? unique : Bool
@@ -42,6 +41,16 @@ module DynFork::Fields
     @[JSON::Field(ignore: true)]
     # :nodoc:
     getter! min : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! maxlength : Nil
+
+    # :nodoc:
+    @[JSON::Field(ignore: true)]
+    # :nodoc:
+    getter! minlength : Nil
 
     # :nodoc:
     @[JSON::Field(ignore: true)]
@@ -163,11 +172,8 @@ module DynFork::Fields
       @label : String = "",
       @default : String? = nil,
       @placeholder : String = "",
-      @maxlength : UInt32? = nil,
-      @minlength : UInt32? = nil,
-      # By default is used validator `Valid.phone_number?`.
-      @regex : String? = nil,         # Example: "^.+$"
-      @regex_err_msg : String? = nil, # Example: I18n.t(:invalid_phone)
+      @regex : String? = nil,
+      @regex_err_msg : String? = nil,
       @hide : Bool = false,
       @unique : Bool = false,
       @required : Bool = false,
