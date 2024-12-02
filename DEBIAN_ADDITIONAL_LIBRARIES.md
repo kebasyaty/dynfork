@@ -1,4 +1,4 @@
-# Debian >= 13
+# Debian >= 12
 
 ### Install:
 
