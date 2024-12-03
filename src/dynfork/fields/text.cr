@@ -28,9 +28,11 @@ module DynFork::Fields
     getter! minlength : UInt32?
     # Regular expression to validate the `value`.
     # NOTE: **Example:** "^[a-zA-Z0-9_]+$"
+    @[JSON::Field(ignore: true)]
     getter! regex : String?
     # Error message.
     # NOTE: **Example:** I18n.t("allowed_chars.interpolation",chars: "a-z, A-Z, 0-9, _")
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? unique : Bool

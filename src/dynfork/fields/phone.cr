@@ -3,6 +3,11 @@ require "./field"
 module DynFork::Fields
   # Field for entering Phone number.
   # WARNING: By default is used validator `Valid.phone_number?`.
+  # **Examples:**<br>
+  # "4812504203260" | "+4812504203260" |<br>
+  # "+48 504 203 260" | "+48 (12) 504-203-260" |<br>
+  # "+48 (12) 504 203 260" | "+48.504.203.260" |<br>
+  # "+48-504-203-260" | "555.5555.555"
   @[JSON::Serializable::Options(emit_nulls: true)]
   struct PhoneField < DynFork::Fields::Field
     # Field type - Structure Name.
@@ -21,10 +26,12 @@ module DynFork::Fields
     property? readonly : Bool
     # Regular expression to validate the `value`.
     # NOTE: **Example:** "^.+$"
+    @[JSON::Field(ignore: true)]
     getter! regex : String?
     # Error message.
     # NOTE: **Example** I18n.t(:invalid_phone)
     # WARNING: By default is used validator `Valid.phone_number?`.
+    @[JSON::Field(ignore: true)]
     getter! regex_err_msg : String?
     # The unique value of a field in a collection.
     getter? unique : Bool

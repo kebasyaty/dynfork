@@ -1,4 +1,4 @@
-# Ubuntu >= 22.04
+# Ubuntu 22.04 `Noble Numbat`
 
 **Your processor must support AVX/AVX2 instructions.**
 

@@ -1,3 +1,8 @@
+#### v0.8.23 2024-12-03
+
+- Added params `regex` and `regex_err_msg` as ignored for JSON.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.22 2024-12-02
 
 - Updated specs.yml and documentation files - MongoDB 8.0
