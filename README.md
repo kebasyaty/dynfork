@@ -3,7 +3,7 @@
     <a href="https://github.com/kebasyaty/dynfork">
       <img
         alt="Logo"
-        src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/logo/logo.svg">
+        src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/assets/logo.svg">
     </a>
   </p>
   <p>
@@ -33,7 +33,7 @@
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
-    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/assets/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -303,7 +303,7 @@ For currencies, use the <a href="https://github.com/crystal-money/money" target=
 <br>
 <div>
   <a href="https://crystal-lang.org/" alt="Made with Crystal">
-    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/made-with-crystal.svg"
+    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/assets/made-with-crystal.svg"
       alt="Made with Crystal">
   </a>
 </div>
