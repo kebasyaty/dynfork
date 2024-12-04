@@ -48,21 +48,21 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/main/REQUIREMENTS.md "View the list of requirements.")
+[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/assets/REQUIREMENTS.md "View the list of requirements.")
 
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md)
-   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_INSTALL_MONGODB.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
-   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/FEDORA_INSTALL_MONGODB.md)
+   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/DEBIAN_INSTALL_MONGODB.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_INSTALL_MONGODB.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_INSTALL_MONGODB.md)
 
 2. Install additional libraries (if not installed):<br>
-   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md)
-   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_ADDITIONAL_LIBRARIES.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
-   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/FEDORA_ADDITIONAL_LIBRARIES.md)
+   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/DEBIAN_ADDITIONAL_LIBRARIES.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_ADDITIONAL_LIBRARIES.md)
 
 3. Add the dependency to your `shard.yml`:
 
@@ -293,7 +293,7 @@ For currencies, use the <a href="https://github.com/crystal-money/money" target=
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
+[View the change history.](https://github.com/kebasyaty/dynfork/blob/assets/CHANGELOG.md "Changelog")
 
 ## License
 
