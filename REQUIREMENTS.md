@@ -1,8 +1,0 @@
-- [ameba](https://github.com/crystal-ameba/ameba "ameba")
-- [cryomongo](https://github.com/elbywan/cryomongo "cryomongo")
-- [bson.cr](https://github.com/elbywan/bson.cr "bson.cr")
-- [durian.cr](https://github.com/636f7374/durian.cr "durian.cr")
-- [crystal-i18n](https://github.com/crystal-i18n/i18n "crystal-i18n")
-- [crystal-validator](https://github.com/Nicolab/crystal-validator "crystal-validator")
-- [pluto](https://github.com/phenopolis/pluto "pluto")
-- [webslug](https://github.com/crab-cr/webslug "webslug")
