@@ -76,7 +76,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Usage
 
-It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
+It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/examples "here").
 
 ```crystal
 require "dynfork"
@@ -127,7 +127,7 @@ user.delete
 puts "Documwnt count: #{User.count_documents}"
 ```
 
-### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/main/examples "See more examples here.")
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/examples "See more examples here.")
 
 ## Model Parameters
 
