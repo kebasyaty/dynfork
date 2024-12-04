@@ -1,3 +1,8 @@
+#### v0.8.24 2024-12-04
+
+- Move examples, documentation, and project resources into separate repository branches.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.23 2024-12-03
 
 - Added params `regex` and `regex_err_msg` as ignored for JSON.
