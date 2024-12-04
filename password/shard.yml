@@ -1,0 +1,24 @@
+name: app_name
+version: 0.1.0
+
+authors:
+  - kebasyaty <kebasyaty@gmail.com>
+
+targets:
+  password:
+    main: src/app_name.cr
+
+crystal: ">= 1.14.0, < 2.0"
+
+license: MIT
+
+description: |
+  An example of verification and updating a password.
+
+dependencies:
+  dynfork:
+    github: kebasyaty/dynfork
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba

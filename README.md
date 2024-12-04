@@ -1,2 +1,2 @@
-# additional assets for the project
+# examples for review
 
