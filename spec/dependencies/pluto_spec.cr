@@ -3,7 +3,7 @@ require "../spec_helper"
 # https://github.com/phenopolis/pluto
 describe "Crystal Pluto" do
   it "=> image jpeg", tags: "pluto" do
-    image_jpeg = File.open("pictures/pluto_1.jpg") do |file|
+    image_jpeg = File.open("assets/pluto/1.jpg") do |file|
       Pluto::ImageRGBA.from_jpeg(file)
     end
     image_jpeg.width.should eq(100)
@@ -12,7 +12,7 @@ describe "Crystal Pluto" do
   end
 
   it "=> image png", tags: "pluto" do
-    image_png = File.open("pictures/pluto_2.png") do |file|
+    image_png = File.open("assets/pluto/2.png") do |file|
       Pluto::ImageRGBA.from_png(file)
     end
     image_png.width.should eq(100)
@@ -21,7 +21,7 @@ describe "Crystal Pluto" do
   end
 
   it "=> image webp", tags: "pluto" do
-    image_webp = File.open("pictures/pluto_3.webp") do |file|
+    image_webp = File.open("assets/pluto/3.webp") do |file|
       Pluto::ImageRGBA.from_webp(file)
     end
     image_webp.width.should eq(100)
