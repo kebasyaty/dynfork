@@ -34,7 +34,6 @@
         "crystal spec --tag global_super_collection;",
         "crystal spec --tag global_types;",
         "crystal spec --tag i18n;",
-        "crystal spec --tag pluto;",
         "crystal spec --tag validator;",
         "crystal spec --tag webslug;",
         "crystal spec --tag fields;",
