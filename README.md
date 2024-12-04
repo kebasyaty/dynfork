@@ -3,7 +3,7 @@
     <a href="https://github.com/kebasyaty/dynfork">
       <img
         alt="Logo"
-        src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/logo/logo.svg">
+        src="https://raw.githubusercontent.com/kebasyaty/dynfork/assets/logo.svg">
     </a>
   </p>
   <p>
@@ -33,7 +33,7 @@
 
 <p>
   <a href="https://github.com/kebasyaty/dynfork" alt="Status Project">
-    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/status_project/Status_Project-Beta-.svg"
+    <img src="https://raw.githubusercontent.com/kebasyaty/dynfork/assets/status_project/Status_Project-Beta-.svg"
       alt="Status Project">
   </a>
 </p>
@@ -48,21 +48,21 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Requirements
 
-[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/main/REQUIREMENTS.md "View the list of requirements.")
+[View the list of requirements.](https://github.com/kebasyaty/dynfork/blob/assets/REQUIREMENTS.md "View the list of requirements.")
 
 ## Installation
 
 1. Install MongoDB (if not installed):<br>
-   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_INSTALL_MONGODB.md)
-   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_INSTALL_MONGODB.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
-   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_INSTALL_MONGODB.md)
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/FEDORA_INSTALL_MONGODB.md)
+   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/DEBIAN_INSTALL_MONGODB.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_INSTALL_MONGODB.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_INSTALL_MONGODB.md)
 
 2. Install additional libraries (if not installed):<br>
-   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/FEDORA_ADDITIONAL_LIBRARIES.md)
-   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/DEBIAN_ADDITIONAL_LIBRARIES.md)
-   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
-   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/main/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Fedora](https://img.shields.io/badge/Fedora-294172?style=for-the-badge&logo=fedora&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/FEDORA_ADDITIONAL_LIBRARIES.md)
+   [![Debian](https://img.shields.io/badge/Debian-880E4F?style=for-the-badge&logo=debian&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/DEBIAN_ADDITIONAL_LIBRARIES.md)
+   [![Ubuntu](https://img.shields.io/badge/Ubuntu-E65100?style=for-the-badge&logo=ubuntu&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_ADDITIONAL_LIBRARIES.md)
+   [![Linux Mint](https://img.shields.io/badge/Linux_Mint-5e902b?style=for-the-badge&logo=linux-mint&logoColor=white)](https://github.com/kebasyaty/dynfork/blob/assets/info/UBUNTU_ADDITIONAL_LIBRARIES.md)
 
 3. Add the dependency to your `shard.yml`:
 
@@ -76,7 +76,7 @@ Online browsable documentation is available at [https://kebasyaty.github.io/dynf
 
 ## Usage
 
-It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/main/examples "here").
+It is recommended to look at examples [here](https://github.com/kebasyaty/dynfork/tree/examples "here").
 
 ```crystal
 require "dynfork"
@@ -127,7 +127,7 @@ user.delete
 puts "Documwnt count: #{User.count_documents}"
 ```
 
-### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/main/examples "See more examples here.")
+### [See more examples here.](https://github.com/kebasyaty/dynfork/tree/examples "See more examples here.")
 
 ## Model Parameters
 
@@ -293,7 +293,7 @@ For currencies, use the <a href="https://github.com/crystal-money/money" target=
 
 ## Changelog
 
-[View the change history.](https://github.com/kebasyaty/dynfork/blob/main/CHANGELOG.md "Changelog")
+[View the change history.](https://github.com/kebasyaty/dynfork/blob/assets/CHANGELOG.md "Changelog")
 
 ## License
 
@@ -303,7 +303,7 @@ For currencies, use the <a href="https://github.com/crystal-money/money" target=
 <br>
 <div>
   <a href="https://crystal-lang.org/" alt="Made with Crystal">
-    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/main/pictures/made-with-crystal.svg"
+    <img width="100%" src="https://raw.githubusercontent.com/kebasyaty/dynfork/assets/made-with-crystal.svg"
       alt="Made with Crystal">
   </a>
 </div>
