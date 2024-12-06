@@ -4,8 +4,11 @@ require "../spec_helper"
 describe "Cryomongo" do
   it "=> initialize mongo client", tags: "mongo_client" do
     # Create a Mongo client.
-    # uri : String = ENV["MONGODB_URI"]? || "mongodb://localhost:27017"
-    client : Mongo::Client = Mongo::Client.new
+    driver_options = DynFork::MongoOptions.generate_options
+    client : Mongo::Client = Mongo::Client.new(
+      connection_string: driver_options[:uri],
+      options: driver_options[:options],
+    )
 
     # Data for test.
     database_name = "test_pcSenRPaSdaUiIjZ"
