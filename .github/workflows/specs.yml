@@ -2,8 +2,20 @@ name: Specs
 
 on:
   push:
+    paths-ignore:
+      - "docs/**"
   pull_request:
     branches: [main]
+    paths-ignore:
+      - "docs/**"
+  # workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   tests:
@@ -72,3 +84,13 @@ jobs:
           crystal spec --tag general
           crystal spec --tag indexing
           crystal spec --tag fixtures
+
+  success:
+    permissions:
+      contents: none
+    needs: build
+    runs-on: ubuntu-latest
+    name: Test Successful
+    steps:
+      - name: Success
+        run: echo Test Successful
