@@ -12,7 +12,7 @@ options:
   auth_source:
   compressors:
   connect_timeout:
-  direct_connection:
+  direct_connection: true
   heartbeat_frequency: 10.seconds
   journal:
   local_threshold: 15.milliseconds
@@ -26,7 +26,7 @@ options:
   replica_set:
   retry_reads: true
   retry_writes: true
-  server_selection_timeout: 30.seconds
+  server_selection_timeout: 2000.seconds
   server_selection_try_once: true
   socket_timeout:
   ssl:
