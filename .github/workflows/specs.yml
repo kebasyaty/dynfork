@@ -35,13 +35,18 @@ jobs:
         run: |
           apt update
           apt install -y sudo
+          sudo apt install -y curl gnupg2 systemctl git
           sudo apt install -y libturbojpeg libturbojpeg0-dev \
             libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - uses: actions/checkout@v4
-      - name: Start MongoDB
+      - name: Install MongoDB
         uses: supercharge/mongodb-github-action@1.11.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Start MongoDB
+        run: |
+          mongod --version
+          sudo systemctl start mongod
       - name: Install dependencies
         run: shards install
       - name: Check code style
