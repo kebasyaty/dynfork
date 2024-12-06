@@ -45,8 +45,7 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
       - name: Install and start MongoDB
         run: |
-          mongodb --version
-          sudo systemctl start mongodb
+          mongosh --version
       - name: Install dependencies
         run: shards install
       - name: Check code style
