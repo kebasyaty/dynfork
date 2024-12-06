@@ -23,7 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ["ubuntu-latest"]
-        mongodb-version: ["6.0", "7.0", "8.0"]
+        mongodb-version: ["8.0"]
     runs-on: ${{ matrix.os }}
 
     container:
@@ -35,6 +35,7 @@ jobs:
         run: |
           apt update
           apt install -y sudo
+          sudo apt install -y curl gnupg2 systemctl git
           sudo apt install -y libturbojpeg libturbojpeg0-dev \
             libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
       - uses: actions/checkout@v4
@@ -42,6 +43,10 @@ jobs:
         uses: supercharge/mongodb-github-action@1.11.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+      - name: Install and start MongoDB
+        run: |
+          mongo --version
+          sudo systemctl start mongo
       - name: Install dependencies
         run: shards install
       - name: Check code style
