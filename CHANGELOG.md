@@ -1,3 +1,8 @@
+#### v0.8.25 2024-12-06
+
+- Updated file `.github/workflows/specs.yml`.
+- Updated [documentation](https://kebasyaty.github.io/dynfork/ "documentation").
+
 #### v0.8.24 2024-12-04
 
 - Move examples, documentation, and project resources into separate repository branches.
