@@ -30,34 +30,17 @@ jobs:
       options: --user root
 
     steps:
-      - name: Update system state
-        run: |
-          apt update
-          apt install -y sudo
-          sudo apt install -y curl gnupg2 systemctl git
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: shards install
       - name: Check code style
         run: bin/ameba
       - name: Check formatting
         run: crystal tool format --check
-      - name: Install graphics libraries
+      - name: Install Linux dependencies
+        if: startsWith(matrix.os, 'ubuntu')
         run: |
-          sudo apt install -y libturbojpeg libturbojpeg0-dev \
-            libspng0 libspng-dev libwebp-dev libsharpyuv0 libsharpyuv-dev
-      - name: Install and start MongoDB
-        run: |
-          curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
-            sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
-          echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] \
-            https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | \
-            sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
-          sudo apt update
-          sudo apt install -y mongodb-org
-          mongod --version
-          sudo systemctl start mongod
+          bash .github/workflows/linux-dependencies-install.sh
       - name: Run tests
         run: |
           crystal spec --tag global_alias
