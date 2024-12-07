@@ -2,9 +2,11 @@
 
 set -e
 
-# Install OS dependencies
+# Install sudo on Linux
 apt update
 apt install -y sudo
+
+# Install OS dependencies
 sudo apt install -y curl gnupg2 systemctl git
 
 # Install graphic libraries
