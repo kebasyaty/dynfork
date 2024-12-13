@@ -18,9 +18,9 @@ module DynFork::Fields
     getter? required : Bool
     # Specifies that the field cannot be modified by the user.
     property? readonly : Bool
-    # The maximum number of characters allowed in the text.
+    # Maximum allowed number.
     getter! max : Int64?
-    # The minimum number of characters allowed in the text.
+    # Minimum allowed number.
     getter! min : Int64?
     # Increment step for numeric fields.
     getter! step : Int64?
@@ -215,9 +215,9 @@ module DynFork::Fields
     getter? required : Bool
     # Specifies that the field cannot be modified by the user.
     property? readonly : Bool
-    # The maximum number of characters allowed in the text.
+    # Maximum allowed number.
     getter! max : Float64?
-    # The minimum number of characters allowed in the text.
+    # Minimum allowed number.
     getter! min : Float64?
     # Increment step for numeric fields.
     getter! step : Float64?
