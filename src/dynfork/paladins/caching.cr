@@ -1,6 +1,6 @@
 # For caching Model metadata.
 module DynFork::QPaladins::Caching
-  # Add metadata to the global store.
+  # Caching Model metadata.
   private def caching : Nil
     # Get full Model name = ModuleName::StructureName.
     # NOTE: **Examples:** _Accounts::User | Accounts::UserProfile | Cars::ElectricCar | etc ..._
@@ -264,7 +264,7 @@ module DynFork::QPaladins::Caching
       result
     )
     #
-    # Add metadata to the local store.
+    # Add metadata to ModelName.meta.
     @@meta = {
       # Model name = Structure name.
       model_name: model_name,
