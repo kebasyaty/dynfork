@@ -89,7 +89,7 @@ module DynFork
       self.inject
     end
 
-    # Injecting metadata from storage in Model.
+    # Injecting metadata from ModelName.meta in params of fields.
     private def inject : Nil
       field_name : String = ""
       json : String?
