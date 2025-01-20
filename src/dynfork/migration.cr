@@ -1,7 +1,8 @@
 # Migrations are DynFork way of
 # propagating changes you make to
-# your models (adding a field, deleting a collection, etc.) into
+# your models (add or delete a Model, add or delete a field in Model, etc.) into
 # your database schema.
+
 module DynFork::Migration
   # To control the state of Models in the super collection.
   struct ModelState
