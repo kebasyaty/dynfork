@@ -4,7 +4,7 @@
 # your database schema.
 
 module DynFork::Migration
-  # To control the state of Models in the super collection.
+  # For control state of Model in the super collection.
   struct ModelState
     include BSON::Serializable
 
@@ -21,7 +21,7 @@ module DynFork::Migration
     ); end
   end
 
-  # Monitoring and update the database state for the application.
+  # Monitoring and updating database state for application.
   struct Monitor
     def initialize(
       database_name : String,
