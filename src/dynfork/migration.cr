@@ -44,8 +44,8 @@ module DynFork::Migration
 
     # Update the state of Models in the super collection.
     private def refresh : Nil
-      # Get super collection.
-      # Contains model state and dynamic field data.
+      # Get access to the super collection.
+      # Super collection contains data of Models state and dynamic field data.
       super_collection = DynFork::Globals.mongo_database[
         DynFork::Globals.super_collection_name]
       # Fetch a Cursor pointing to the super collection.
