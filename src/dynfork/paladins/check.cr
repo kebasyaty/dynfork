@@ -20,16 +20,7 @@ module DynFork::QPaladins::Check
     # Does the document exist in the database?
     update? : Bool = !id.nil?
     # Create an identifier for a new document.
-    unless update?
-      100.times do |idx|
-        id = BSON::ObjectId.new
-        if collection_ptr.value.find_one({_id: id}).nil?
-          break
-        elsif idx == 99
-          raise DynFork::Errors::Model::FailedGenerateUniqueID.new(@@full_model_name)
-        end
-      end
-    end
+    (id = BSON::ObjectId.new) unless update?
     if save?
       (@hash.value = id.to_s) unless update?
       result_map["_id"] = id
