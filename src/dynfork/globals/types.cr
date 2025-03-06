@@ -12,7 +12,7 @@ module DynFork::Globals::Types
     def initialize(
       @data : Hash(String, DynFork::Globals::ResultMapType),
       @valid : Bool,
-      @update : Bool
+      @update : Bool,
     ); end
   end
 
@@ -30,7 +30,7 @@ module DynFork::Globals::Types
       @field : String,
       @title : String,
       @value : Float64 | Int64 | String,
-      @delete : Bool = false
+      @delete : Bool = false,
     ); end
   end
 

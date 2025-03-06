@@ -29,7 +29,7 @@ module DynFork::QCommons::General
     read_concern : Mongo::ReadConcern? = nil,
     write_concern : Mongo::WriteConcern? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Cursor?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -81,7 +81,7 @@ module DynFork::QCommons::General
     read_concern : Mongo::ReadConcern? = nil,
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Array
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -125,7 +125,7 @@ module DynFork::QCommons::General
     hint : (String | Hash | NamedTuple)? = nil,
     max_time_ms : Int64? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Int32
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -164,7 +164,7 @@ module DynFork::QCommons::General
     *,
     max_time_ms : Int64? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Int32
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -204,7 +204,7 @@ module DynFork::QCommons::General
   def stats(
     *,
     scale : Int32? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : BSON?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -242,7 +242,7 @@ module DynFork::QCommons::General
   #
   def bulk(
     ordered : Bool = true,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Bulk
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -270,7 +270,7 @@ module DynFork::QCommons::General
     *,
     ordered : Bool,
     bypass_document_validation : Bool? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Bulk::WriteResult
     #
     unless @@meta.not_nil![:migrat_model?]

@@ -85,7 +85,7 @@ module DynFork::QPaladins::Groups
         error_symptom_ptr?
       )
     end
-    # Validation Email, Url, IP, Color, Passwors, Phone.
+    # Validation Email, Url, IP, Color, Passwor, Phone.
     case field_ptr.value.field_type
     when "EmailField"
       unless Valid.email? current_value

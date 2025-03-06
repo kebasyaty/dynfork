@@ -5,7 +5,7 @@ module DynFork::QCommons::Converter
   # Get clean data from a document, as a Hash object.
   def document_to_hash(
     doc_bson : BSON,
-    field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8))
+    field_name_params_list : Hash(String, NamedTuple(type: String, group: UInt8)),
   ) : Hash(String, DynFork::Globals::FieldValueTypes)
     #
     doc_hash = doc_bson.to_h

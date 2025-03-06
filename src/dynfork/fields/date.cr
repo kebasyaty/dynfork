@@ -163,13 +163,13 @@ module DynFork::Fields
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
-      delete : Bool = false
+      delete : Bool = false,
     ); end
 
     # :nodoc:
     def from_path(
       path : String? = nil,
-      delete : Bool = false
+      delete : Bool = false,
     ); end
 
     def initialize(

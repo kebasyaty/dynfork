@@ -29,7 +29,7 @@ module DynFork::QCommons::UnitsManagement
   # ```
   #
   def unit_manager(
-    unit : DynFork::Globals::Unit
+    unit : DynFork::Globals::Unit,
   ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -200,7 +200,7 @@ module DynFork::QCommons::UnitsManagement
   # Error: When try to delete data that doesn't exist.
   private def error_value_not_match(
     title : String,
-    value : String | Int64 | Float64
+    value : String | Int64 | Float64,
   )
     msg = "Model: `#{@@full_model_name}` > " +
           "Method: `.unit_manager` => " +

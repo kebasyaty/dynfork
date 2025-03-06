@@ -20,7 +20,7 @@ module DynFork::Errors::Model
   class ModelNameRegexFails < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      regex_str : String
+      regex_str : String,
     )
       super(
         "Model: `#{model_name}` => " +
@@ -33,7 +33,7 @@ module DynFork::Errors::Model
   class InvalidGroupNumber < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      field_name : String
+      field_name : String,
     )
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +

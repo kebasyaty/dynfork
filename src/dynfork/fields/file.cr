@@ -174,7 +174,7 @@ module DynFork::Fields
     def from_base64(
       base64 : String? = nil,
       filename : String? = nil,
-      delete : Bool = false
+      delete : Bool = false,
     ) : Nil
       base64 = base64.presence
       filename = filename.presence
@@ -229,7 +229,7 @@ module DynFork::Fields
     # Convert path to a file and save in the target directory.
     def from_path(
       path : String? = nil,
-      delete : Bool = false
+      delete : Bool = false,
     ) : Nil
       path = path.presence
       value = DynFork::Globals::FileData.new

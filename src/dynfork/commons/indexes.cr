@@ -45,7 +45,7 @@ module DynFork::QCommons::Indexes
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Commands::CreateIndexes::Result?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -98,7 +98,7 @@ module DynFork::QCommons::Indexes
     commit_quorum : Int32 | String? = nil,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Commands::CreateIndexes::Result?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -136,7 +136,7 @@ module DynFork::QCommons::Indexes
     *,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Commands::Common::BaseResult?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -171,7 +171,7 @@ module DynFork::QCommons::Indexes
     *,
     max_time_ms : Int64? = nil,
     write_concern : Mongo::WriteConcern? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Commands::Common::BaseResult?
     #
     unless @@meta.not_nil![:migrat_model?]

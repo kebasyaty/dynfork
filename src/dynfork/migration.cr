@@ -1,9 +1,10 @@
 # Migrations are DynFork way of
 # propagating changes you make to
-# your models (adding a field, deleting a collection, etc.) into
+# your models (add or delete a Model, add or delete a field in Model, etc.) into
 # your database schema.
+
 module DynFork::Migration
-  # To control the state of Models in the super collection.
+  # For control state of Model in the super collection.
   struct ModelState
     include BSON::Serializable
 
@@ -16,11 +17,11 @@ module DynFork::Migration
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
       @data_dynamic_fields : Hash(String, String),
-      @model_exists : Bool = false
+      @model_exists : Bool = false,
     ); end
   end
 
-  # Monitoring and update the database state for the application.
+  # Monitoring and updating database state for application.
   struct Monitor
     def initialize(
       database_name : String,
@@ -43,8 +44,8 @@ module DynFork::Migration
 
     # Update the state of Models in the super collection.
     private def refresh : Nil
-      # Get super collection.
-      # Contains model state and dynamic field data.
+      # Get access to the super collection.
+      # Super collection contains data of Models state and dynamic field data.
       super_collection = DynFork::Globals.mongo_database[
         DynFork::Globals.super_collection_name]
       # Fetch a Cursor pointing to the super collection.
