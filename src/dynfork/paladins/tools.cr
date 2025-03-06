@@ -72,7 +72,7 @@ module DynFork::QPaladins::Tools
   def accumulate_error(
     err_msg : String,
     field_ptr : Pointer,
-    error_symptom_ptr? : Pointer(Bool)
+    error_symptom_ptr? : Pointer(Bool),
   ) : Nil
     # For accumulating errors.
     #
@@ -90,7 +90,7 @@ module DynFork::QPaladins::Tools
   def calculate_thumbnail_size(
     width : Int32,
     height : Int32,
-    max_size : Int32
+    max_size : Int32,
   ) : NamedTuple(width: Int32, height: Int32)
     # Calculate the maximum size for a thumbnail.
     #
@@ -108,7 +108,7 @@ module DynFork::QPaladins::Tools
   def image_to_io_memory(
     image_ptr : Pointer(Pluto::ImageRGBA),
     extension : String,
-    max_size : Int32
+    max_size : Int32,
   ) : IO::Memory
     # Convert image to IO::Memory.
     #
@@ -134,7 +134,7 @@ module DynFork::QPaladins::Tools
     current_value : String | Time | Int64 | Float64,
     collection_ptr : Pointer(Mongo::Collection),
     field_ptr : Pointer(DynFork::Globals::FieldTypes),
-    id_ptr : Pointer(BSON::ObjectId?)
+    id_ptr : Pointer(BSON::ObjectId?),
   ) : Bool
     # Check the uniqueness of the value in the database.
     #
@@ -167,7 +167,7 @@ module DynFork::QPaladins::Tools
     collation : Mongo::Collation? = nil,
     hint : (String | Hash | NamedTuple)? = nil,
     max_time_ms : Int64? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Nil
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(

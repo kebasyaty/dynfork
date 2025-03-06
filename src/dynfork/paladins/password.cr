@@ -3,7 +3,7 @@ module DynFork::QPaladins::Password
   # NOTE: How to use, see <a href="https://github.com/kebasyaty/dynfork/tree/main/examples/password" target="_blank">example</a>.
   def verify_password(
     password : String,
-    field_name : String = "password"
+    field_name : String = "password",
   ) : Bool
     unless @@meta.not_nil![:migrat_model?]
       raise DynFork::Errors::Panic.new(
@@ -36,7 +36,7 @@ module DynFork::QPaladins::Password
   def update_password(
     old_password : String,
     new_password : String,
-    field_name : String = "password"
+    field_name : String = "password",
   ) : Nil
     unless self.verify_password(old_password, field_name)
       raise DynFork::Errors::Password::OldPassNotMatch.new

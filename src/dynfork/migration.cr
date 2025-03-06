@@ -17,7 +17,7 @@ module DynFork::Migration
       @collection_name : String,
       @field_name_and_type_list : Hash(String, String),
       @data_dynamic_fields : Hash(String, String),
-      @model_exists : Bool = false
+      @model_exists : Bool = false,
     ); end
   end
 

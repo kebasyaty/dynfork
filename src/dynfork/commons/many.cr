@@ -39,7 +39,7 @@ module DynFork::QCommons::Many
     allow_disk_use : Bool? = nil,
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Array(Hash(String, DynFork::Globals::FieldValueTypes))?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -125,7 +125,7 @@ module DynFork::QCommons::Many
     allow_disk_use : Bool? = nil,
     collation : Mongo::Collation? = nil,
     read_preference : Mongo::ReadPreference? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : String?
     #
     unless @@meta.not_nil![:migrat_model?]
@@ -184,7 +184,7 @@ module DynFork::QCommons::Many
     hint : (String | Hash | NamedTuple)? = nil,
     ordered : Bool? = nil,
     write_concern : Mongo::WriteConcern? = nil,
-    session : Mongo::Session::ClientSession? = nil
+    session : Mongo::Session::ClientSession? = nil,
   ) : Mongo::Commands::Common::DeleteResult?
     #
     unless @@meta.not_nil![:migrat_model?]

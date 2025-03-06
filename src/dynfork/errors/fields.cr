@@ -7,7 +7,7 @@ module DynFork::Errors::Fields
     def initialize(
       model_name : String,
       field_name : String,
-      source_name : String
+      source_name : String,
     )
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
@@ -21,7 +21,7 @@ module DynFork::Errors::Fields
     def initialize(
       model_name : String,
       slug_field : String,
-      source_field : String
+      source_field : String,
     )
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
@@ -38,7 +38,7 @@ module DynFork::Errors::Fields
     def initialize(
       model_name : String,
       slug_field : String,
-      source_field : String
+      source_field : String,
     )
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
@@ -52,7 +52,7 @@ module DynFork::Errors::Fields
   class SlugSourceNotUnique < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      slug_field : String
+      slug_field : String,
     )
       super(
         "Model: `#{model_name}` > Slug Field: `#{slug_field}` > " +
@@ -66,7 +66,7 @@ module DynFork::Errors::Fields
   class NotCorrectMinDate < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      field_name : String
+      field_name : String,
     )
       super(
         "Model: `#{model_name}` > Field: `#{field_name}` > " +
@@ -80,7 +80,7 @@ module DynFork::Errors::Fields
     def initialize(
       model_name : String,
       field_name : String,
-      msg_err : String
+      msg_err : String,
     )
       super("Model: `#{model_name}` > Field: `#{field_name}` > #{msg_err}")
     end

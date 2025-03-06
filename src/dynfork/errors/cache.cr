@@ -6,7 +6,7 @@ module DynFork::Errors::Cache
   class RegexFails < DynFork::Errors::DynForkException
     def initialize(
       parameter_name : String,
-      regex_str : String
+      regex_str : String,
     )
       super(
         "DynFork::Globals > Parameter: `#{parameter_name}` => " +

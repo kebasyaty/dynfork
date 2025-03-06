@@ -6,7 +6,7 @@ module DynFork::Errors::Meta
   class ParameterMissing < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      parameter_name : String
+      parameter_name : String,
     )
       super(
         "Model: `#{model_name}` => " +
@@ -19,7 +19,7 @@ module DynFork::Errors::Meta
   class InvalidParamName < DynFork::Errors::DynForkException
     def initialize(
       model_name : String,
-      parameter_name : String
+      parameter_name : String,
     )
       super(
         "Model: `#{model_name}` > Meta parameter: #{parameter_name} => " +
@@ -33,7 +33,7 @@ module DynFork::Errors::Meta
     def initialize(
       model_name : String,
       parameter_name : String,
-      limit_size : UInt32
+      limit_size : UInt32,
     )
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +
@@ -47,7 +47,7 @@ module DynFork::Errors::Meta
     def initialize(
       model_name : String,
       parameter_name : String,
-      regex_str : String
+      regex_str : String,
     )
       super(
         "Model: `#{model_name}` > Meta parameter: `#{parameter_name}` => " +

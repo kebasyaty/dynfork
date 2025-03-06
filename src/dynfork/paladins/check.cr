@@ -10,7 +10,7 @@ module DynFork::QPaladins::Check
   # NOTE: This method is used within the `DynFork::QPaladins::Tools#valid?` and `DynFork::QPaladins::Save#save` methods.
   def check(
     collection_ptr : Pointer(Mongo::Collection),
-    save? : Bool = false
+    save? : Bool = false,
   ) : DynFork::Globals::OutputData
     # Data to save or update to the database.
     result_map : Hash(String, DynFork::Globals::ResultMapType) = Hash(String, DynFork::Globals::ResultMapType).new
